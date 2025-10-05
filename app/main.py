@@ -142,6 +142,23 @@ async def chat_with_bot(request: ChatRequest):
                 data=data
             )
         
+        if action == "llm_analysis":
+            # Intent 3 - Article analysis
+            if data is None:
+                message = "Error: Unable to analyze article (data is None)"
+            elif isinstance(data, dict) and "error" in data:
+                message = data["error"]
+            elif isinstance(data, dict) and "analysis" in data:
+                message = "Here's the analysis of the article"
+            else:
+                message = f"Article analyzed successfully (unexpected data format: {type(data).__name__})"
+            
+            return ChatResponse(
+                action=action,
+                message=message,
+                data=data
+            )
+        
         # Para otros actions (chat, explain, etc), data es texto simple
         return ChatResponse(
             action=action,

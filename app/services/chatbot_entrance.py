@@ -1,6 +1,7 @@
 from app.services.llm_consult import Consult
 from app.services.nlp_parser import KeywordExtractor
 from app.services.themes_recomendations import ThemesRecommender
+from app.services.article_analyzer import analyze_article, extract_pmc_id_from_query
 
 class ChatBot:
     def __init__(self, api_key: str):
@@ -11,14 +12,33 @@ class ChatBot:
 
     async def _detect_intent(self, user_input: str) -> int:
         system_prompt = (
-            "You are an intent classifier for a chatbot with 5 functions:\n"
-            "1. Article recommendation (e.g., I want an article on microbiology and DNA)\n"
-            "2. Related topic recommendation (e.g., I want topics related to AI and machine learning)\n"
-            "3. Personalized summary or highlight keywords/findings\n"
-            "4. Explain technical concepts or terms\n"
-            "5. Generate metrics and visualizations\n"
-            "Try to classify the user input into one of these 5 intents or the most related one.\n"
-            "Respond only with the corresponding number. If you don't understand the prompt, respond with 0."
+            "You are an intent classifier for a chatbot with 5 functions:\n\n"
+            
+            "1. Article recommendation - User wants to FIND articles by topic\n"
+            "   Examples: 'I want articles on DNA', 'Show me papers about AI'\n\n"
+            
+            "2. Topic recommendation - User wants RELATED THEMES/CLUSTERS\n"
+            "   Examples: 'Topics related to machine learning', 'Similar themes to neuroscience'\n\n"
+            
+            "3. Article analysis - User asks about a SPECIFIC PMC article (contains PMC number)\n"
+            "   CRITICAL: If you see 'PMC' followed by numbers (like PMC2910419, PMC10020673), it's ALWAYS intent 3\n"
+            "   Examples: 'Summarize PMC2910419', 'What methodology did PMC123456 use?', 'Resume PMC10020673'\n"
+            "   Keywords: summarize + PMC, analyze + PMC, explain + PMC, methodology + PMC, results + PMC, findings + PMC\n\n"
+            
+            "4. Explain concepts - User asks about general scientific concepts (NO PMC number)\n"
+            "   Examples: 'What is CRISPR?', 'Explain neural networks'\n\n"
+            
+            "5. Metrics/visualizations - User wants stats or graphs\n"
+            "   Examples: 'Show me statistics', 'Generate a chart'\n\n"
+            
+            "RULES:\n"
+            "- If the input contains 'PMC' + numbers → ALWAYS return 3\n"
+            "- If asking for articles by topic (no PMC number) → return 1\n"
+            "- If asking for related topics/themes → return 2\n"
+            "- If explaining concepts without PMC → return 4\n"
+            "- If unclear → return 0\n\n"
+            
+            "Respond ONLY with the number (0-5). No explanation."
         )
         response = await self.llm_consult.consult(system_prompt, user_input)
         content = response['choices'][0]['message']['content'].strip()
@@ -46,12 +66,20 @@ class ChatBot:
             return result  # Retornar directamente sin re-envolver
 
         elif intent == 3:
-            # Ejemplo: Resumir un texto (el texto real vendría de otra fuente)
-            article_txt_test = "..." # Reemplazar con el texto real
-            system_prompt = "..."
-            response = await self.llm_consult.consult(system_prompt, article_txt_test)
-            output = response['choices'][0]['message']['content'].strip()
-            action = "summarize"
+            # Article analysis - extract PMC ID and analyze
+            pmc_id = extract_pmc_id_from_query(user_input)
+            
+            if pmc_id is None:
+                return {
+                    "action": "llm_analysis",
+                    "data": {
+                        "error": "Please provide a PMC article ID (e.g., PMC2910419)"
+                    }
+                }
+            
+            # Analyze article with user query (await async function)
+            result = await analyze_article(user_input, pmc_id)
+            return result  # Return directly without re-wrapping
             
         elif intent == 4:
             system_prompt = (
