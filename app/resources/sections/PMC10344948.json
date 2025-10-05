@@ -1,0 +1,3807 @@
+{
+  "TITLE": [
+    "Caenorhabditis elegans in microgravity: An omics perspective"
+  ],
+  "ABSTRACT": [
+    "Summary",
+    "The application of omics to study Caenorhabditis elegans (C. elegans) in the context of spaceflight is increasing, illuminating the wide-ranging biological impacts of spaceflight on physiology. In this review, we highlight the application of omics, including transcriptomics, genomics, proteomics, multi-omics, and integrated omics in the study of spaceflown C. elegans, and discuss the impact, use, and future direction of this branch of research. We highlight the variety of molecular alterations that occur in response to spaceflight, most notably changes in metabolic and neuromuscular gene regulation. These transcriptional features are reproducible and evident across many spaceflown species (e.g., mice and astronauts), supporting the use of C. elegans as a model organism to study spaceflight physiology with translational capital. Integrating tissue-specific, spatial, and multi-omics approaches, which quantitatively link molecular responses to phenotypic adaptations, will facilitate the identification of candidate regulatory molecules for therapeutic intervention and thus represents the next frontiers in C. elegans space omics research.",
+    "Graphical abstract",
+    "Omics; Model organism; Space sciences"
+  ],
+  "INTRO": [
+    "Introduction",
+    "Since Yuri Gagarin first traveled to space in 1961, human spaceflight activity has grown rapidly. One of the most notable events to date was the 1998 launch of the International Space Station (ISS), a lower Earth orbiting research platform, which allows astronauts to live and work in space for up to a year at a time. The microgravity environment of space presents an extreme environmental stressor, which induces a multitude of physiological maladaptations including, but not limited to, skeletal muscle and bone loss, cardiovascular decline, immune compromise, neuronal damage, and decreased gray matter volume. These resemble some of the adverse health changes associated with chronological aging on Earth, and additionally serve as an accelerated model of other non-communicable health concerns such as diabetes, cardiovascular disease, and obesity. As people look to travel further into space and for longer periods than ever before—owing to the rise in commercial spaceflight and increasingly lower cost access to space—understanding the mechanistic underpinnings of spaceflight-induced maladaptation is essential to developing effective countermeasures that promote safe space travel and also benefit health on Earth.",
+    "Human and rodent studies have provided invaluable insight into the mechanistic regulation of the microgravity phenotype; however, they are limited by significant operational (e.g., crew time, human/rodent numbers, and sample feasibility) and economical (e.g., high costs) constraints. Alternative model organisms are, therefore, required to achieve the experimental power necessary to draw conclusions on the causes of space-induced health decline. Caenorhabditis elegans (C. elegans) is a non-parasitic, microscopic (∼0.25–1 mm) nematode characterized by a short lifespan (∼3 weeks), large brood size, fully sequenced genome, multiple evolutionary conserved mechanisms, ease of culture, and low expense, presenting a primary biologically relevant model for spaceflight research that is relatively cheap and feasible. In fact, C. elegans spaceflight experiments have been conducted since the time of the space shuttle. Previous studies have shown that C. elegans can mate, reproduce, and undergo embryonic development during spaceflight, and they are also susceptible to radiation-induced mutations during spaceflight. However, since these experiments were performed on ordinary agar medium, the effects of strong hydrostatic pressure adhesion between the C. elegans and the agar surface could not be ruled out. Therefore, in examining the effects of microgravity, a liquid culture was devised. The first space experiment to test the difference between liquid and agar media could not be analyzed due to an unforeseen accident on Columbia’s return. However, the C. elegans were found alive a few days later, protected by a sturdy container. Since then, our space experiments have been conducted using CeMM (C. elegans Maintenance Medium) and E. coli OP-50 liquid media. In addition, C. elegans permit the use of genetic and molecular tools (e.g., genetic mutants), to dissect specific biological pathways and trial emerging countermeasures, such as the efficacy of preclinical drugs. Since C. elegans display high molecular, metabolic, and physiologic orthology with people, with as much as 83% of the C. elegans proteome sharing homologous genes with humans, they serve as efficient model organisms to understand (human) disease processes. For example, their use as a biomedical research model organism has been invaluable in the study of Alzheimer disease and Duchenne muscular dystrophy. Specific to spaceflight, C. elegans successfully live in microgravity and display reduced movement capacity, analogous to the decline in muscle function observed in astronauts post-flight, demonstrating the suitability of C. elegans as a model organism to study the effects of spaceflight on physiology. Therefore, using C. elegans to uncover the precise molecular mechanisms regulating adaptations to microgravity can significantly accelerate our understanding of the mechanisms of spaceflight-induced physiological decline in humans.",
+    "Recently, there has been an exponential increase in the use of “omics” technologies and informatic tools to probe the etiology of, and develop countermeasures for, pathological states, including spaceflight. The application of omics seeks to establish the sum of the parts within a biological system, rather than identifying individual components, promoting a holistic rather than reductive path of biological study. In addition to the beneficial “systems biology” approach, omics can capitalize on pre-existing biological samples (i.e., samples that were collected before the omics “boom” and “bio-banked” samples), which are particularly rare in the context of spaceflight. Recently, the National Aeronautics and Space Administration (NASA) launched project “GeneLab” to allow free and unrestricted access to omics data from spaceflight experiments to researchers all over the globe. The success of this open-science model has maximized the use of scarce spaceflight biological samples and led to several discoveries otherwise not possible, such as the identification of spaceflight CO2 levels as a confounding variable in the animal enclosure modules used in rodent experiments. More recently, the European Space Agency (ESA)-funded Space Omics Topical Team has supported new and ongoing ESA scientific community activities that focus on the application and exploitation of omics research in space. Indeed, omics technology has been applied to spaceflight research using C. elegans, leading to a more complete understanding of biological processes that occur in response to spaceflight, although these works remain to be consolidated.",
+    "The aim of this narrative review is, therefore, to summarize the literature pertaining to the use of C. elegans as a model organism for spaceflight-related research with a specific focus on publications that have applied omics technologies to uncover the mechanistic basis of the microgravity phenotype, thus highlighting how the extensive use of C. elegans in spaceflight research has constructed a more coherent picture of the biological response to spaceflight. To do this, we provide an overview of the available omics literature, including hyper-, micro-, and simulated gravity scenarios, highlighting key biological themes and, where relevant, highlight how the molecular flight-responsive signatures in worms correspond with known molecular and/or functional adaptations reported in higher animals and humans. We also summarize the impact of the C. elegans space omics literature to date and highlight what we believe are the next frontiers in C. elegans space omics research. Although previous reviews have appreciated the use of C. elegans as a model organism for spaceflight research, these reviews have either not focused on omics or are non-comprehensive due to geographical constraints. Thus, global efforts combining C. elegans and omics in space remain to be detailed.",
+    "Omics investigations of C. elegans in microgravity",
+    "To date, the majority of omics spaceflight research in C. elegans is transcriptomic in nature, with far fewer proteomic investigations and comparative omics analysis (summarized in Tables 1, 2, and 3, respectively). Together, these investigations have revealed robust metabolic and neuromuscular biological themes, discussed herein (Figure 1).",
+    "Metabolic alterations in microgravity",
+    "Both transcriptomic and proteomic investigations have been applied in an effort to understand the biological response of C. elegans to spaceflight, which have revealed robust metabolic alterations. In fact, three independent spaceflight missions, the FIRST International C. elegans Experiment in space (ICE-FIRST), C. elegans RNA Interference in Space Experiment (CERISE), and Shenzhou-8 (SZ-8), have all found altered metabolism in flight (Figure 1). The first investigation into the transcriptional responses in spaceflown worms was ICE-FIRST in 2006. Using microarray analysis, the authors demonstrated a metabolic shift occurring mainly in the intestines that could be underlaid by altered TGF-β and insulin signaling (Figure 1). Considering the possible implications for altered endocrine signaling due to altered metabolism of lipids as well as alterations to innate immunity, these changes to TGF-β and insulin signaling warrant further study.",
+    "Just as microgravity is associated with consistent insulin signaling changes, simulated microgravity also elicits reproducible insulin signaling changes. For example, a recent study looking at simulated microgravity-exposed C. elegans found altered expression in the insulin/IGF-1 signaling pathway. Another study found that simulated microgravity-exposed C. elegans demonstrated decreased expression of linc-50, an intestinal long non-coding RNA which appears to target FoxO transcription factor DAF-16, which is part of the insulin signaling pathway downstream of the insulin receptor/DAF-2.",
+    "Another element of the ICE-FIRST effort was also the first known proteomic investigation into spaceflown C. elegans, which found that spaceflight reduced aconitase expression; a citric acid cycle enzyme responsible for citrate-isocitrate conversion, which could affect ATP generation (Figure 1). Other studies have demonstrated a similar pattern of alterations to genes and processes involved in the generation of ATP. For example, one such study found 86 differentially expressed genes in response to spaceflight, which were related to the process of mitochondrial respiration, which is the final step of the process of cellular respiration that generates ATP.",
+    "Subsequent proteomic and transcriptomic analysis of spaceflown C. elegans from the 2009 CERISE experiment also displayed alterations in metabolism on two fronts. First, the mitochondrial anchorage protein, ANC-1, was found to have decreased levels of expression. ANC-1 is involved in nuclear anchorage and positioning, as well as the positioning of mitochondria and the endoplasmic reticulum. Mutations to ANC-1 negatively affect the health of C. elegans, with ANC-1 mutants displaying smaller body sizes, changes to the shape of the nucleus, fragmentation of the endoplasmic reticulum, and movement of the nucleus and endoplasmic reticulum during body movement. Second, multiple metabolic proteins in all stages of cellular respiration, including glycolysis and the glyoxylate cycle, gluconeogenesis, and the electron transport chain, were found in significantly reduced levels (Figure 1).",
+    "The launch of the NASA GeneLab database and more recent initiatives such as the ESA-funded Space Omics Topical Team has allowed access to vast amounts of spaceflight-related omics data, including that from C. elegans. Such access facilitates comparative omics investigations, that is using multiple datasets from different conditions/species to identify reproducible omics profiles, maximizing the scientific return on investment. In one such comparative analysis, the authors aimed to understand whether the transcriptional profiles of microgravity are the inverse of the hypergravity expression pattern, a hypothesis worthy of investigation considering the divergent physiological adaptations to microgravity versus hypergravity. The authors found that while most common gene signatures were similarly up- or downregulated, genes pertaining to the Gene Ontology term “metabolic regulation” displayed opposing regulation, being upregulated in hypergravity and downregulated in microgravity. Downstream network analysis identified a tyrosine degrading enzyme, hpd-1, as the most highly connected hub gene providing a candidate for future therapeutic targeting.",
+    "Research into similarities in the response to spaceflight between organisms has demonstrated that the subsequent metabolic changes are not unique to C. elegans. One study used comparative omics to explore spaceflight gene expression changes between Drosophila melanogaster and C. elegans in order to understand how similarly or dissimilarly these organisms respond to spaceflight. Surprisingly, only 6 genes were commonly downregulated in both organisms, several of which were associated with metabolic signaling, although due to ortholog-related challenges the number of genes that could be compared was reduced to roughly only 20% of the comparative genome.",
+    "Examined together, all of the studies discussed previously demonstrate a clear pattern of metabolic changes in response to spaceflight and microgravity, affecting primarily the mitochondria and the processes involved in the generation of ATP. Decline in mitochondrial ATP production occurs naturally with age, and mitochondrial dysfunction has been found in humans with a variety of health conditions, including type 2 diabetes mellitus and insulin resistance. Further, mitochondrial dysfunction has been linked as being both a cause and consequence of muscle atrophy due to muscle disuse. These alterations in mitochondria could also partly explain phenotypes in other high energy-consuming tissues such as neurons. Therefore, understanding these metabolic changes induced in spaceflight contributes to understanding the cause of muscle decline and alterations in other tissue systems observed in astronauts.",
+    "Muscular and neuromuscular alterations in microgravity",
+    "Omics analysis of microgravity samples has also highlighted robust muscular and neuromuscular changes in spaceflown C. elegans. For example, spaceflown C. elegans from ICE-FIRST were characterized by altered muscle development, which was accompanied by corresponding declines in myosin heavy chain isoform gene expression and locomotion-related genes (Figure 1). It should be noted that the ICE-FIRST experiments were carried out in a chemically defined medium, which permitted the study of the effects of surface tension in spaceflight, but significantly alters C. elegans development akin to dietary restriction. Proteomic analysis from the same spaceflight mission (ICE-FIRST) found the core thick filament protein, paramyosin, was reduced in spaceflown samples. Additionally, spaceflight reduced troponin T, which binds tropomyosin and tethers the troponin complex to the thin filament, but increased troponin T phosphorylation. These data suggest that these genes and proteins may play a key role in the maintenance of muscle structure and function, and that their expressional change may be involved in spaceflight-induced muscle decline.",
+    "Utilizing quantitative isobaric tag for relative and absolute quantitation methodology, the follow-on CERISE experiment found that spaceflown C. elegans displayed an increase in 16 proteins mostly related to protein synthesis, including ribosomal proteins and translation elongation factors, and a decrease in 43 proteins, predominantly cytoskeletal, muscular, and mitochondrial related. Spaceflight-induced declines in muscular (e.g., UNC-15 (paromysin)) and cytoskeletal (e.g., ACT-5 (actin)) gene and protein expression have been shown, suggesting that the observed downregulation in these genes translates to reduced expression of the encoded protein. Importantly, physiological declines, such as reduced body length and altered movement, were also present suggesting these translational expression changes are physiologically meaningful. Of particular importance, the downregulation of myosin heavy chain and paramyosin genes reproduced earlier proteomic observations, providing confirmation that the observed proteomic changes were indeed due to microgravity.",
+    "Two recent studies highlighted potential therapeutic avenues to target in order to offset muscle decline in space. Sudevan et al. demonstrated that spaceflown C. elegans from 3 independent spaceflight missions consistently displayed decreased comt-4 gene expression (Figure 1), which is a catechol-O-methyltransferase dopamine degradation enzyme. Thus, targeting the dopamine system may be a viable and realistic therapeutic to promote health in space. Another study found that simulated microgravity-exposed C. elegans which overexpressed one of three miRNAs (mir-54, mir-354, or mir-2208) experienced a lower level of effect on locomotion behavior, suggesting miRNA expression may have a role in resisting the detrimental effects of microgravity.",
+    "Additionally, C. elegans shows potential as a model organism to explore the neuromuscular changes found in other animals exposed to spaceflight and microgravity. In one comparative analysis study, it was demonstrated that C. elegans transcriptional response to spaceflight demonstrates greater similarity with mouse extensor digitorum longus (fast-twitch muscle) compared to the soleus (slow-twitch muscle). Consistent with these observations, a shift from slow-twitch fiber toward fast-twitch fiber was seen in the soleus muscle in spaceflown mice. This may suggest that C. elegans results can be extrapolated to mammalian results; however, the caveat of this analysis is that whole C. elegans (i.e., muscle, neurons, gut, and reproductive tissue) were utilized and so the transcriptional signature is not isolated to C. elegans muscle.",
+    "There are also spaceflight experiments not yet published that are exploring neuromuscular changes during spaceflight and generating transcriptomic datasets. For example, in 2018, there was the launch of the first UK-led experiment to the ISS, the Molecular Muscle Experiment (MME), which aims to demonstrate the precise mechanisms underlying muscle decline in space and to explore the efficacy of novel therapeutic interventions aimed at insulin signaling and muscle attachment complexes for offsetting spaceflight-induced muscle decline. More recently in 2021, there was the follow-up Molecular Muscle Experiment 2 (MME2), which aims to confirm past spaceflight-induced gene expression changes (i.e., MME) and trial the efficacy of pharmacological interventions aimed at improving mitochondrial health and neuromuscular signaling. Through collaboration with NASA GeneLab, samples from MME and MME2 have been subjected to RNA-sequencing and are undergoing analysis.",
+    "Together, the research discussed previously has highlighted many muscular and neuromuscular alterations in response to spaceflight and microgravity, providing the mechanistic basis for future studies of how microgravity elicits muscle adaptations in C. elegans. Importantly, some of these reproducible gene expression changes observed in spaceflown C. elegans, such as decreased myosin expression, are also observed in rodents and humans. Thus, spaceflight-induced changes in C. elegans gene expression are conserved in higher organisms and may explain the muscle decline observed in astronauts.",
+    "MicroRNA and epigenetic alterations in microgravity",
+    "Transcriptional understanding of spaceflight (patho)physiology has been built upon by researchers based in China, following the SZ-8 mission. These authors focused on understanding the role of microRNAs (non-coding RNAs that control gene expression via the destabilization of messenger RNA targets at the post-transcriptional level and via translational inhibition) in response to microgravity and space radiation versus space radiation in isolation. The authors found microRNAs that are altered in spaceflight, more so than in response to radiation alone, are involved in developmental, DNA damage, apoptotic, and metabolic responses. The authors found that microRNAs are involved in apoptotic gene expression due to the stressors of spaceflight (Figure 1). Additionally, another study found that C. elegans exposed to microgravity demonstrated greater non-coding RNA gene expression. The data from these studies suggest that epigenetic changes occur with microgravity exposure.",
+    "Microgravity has also been shown to alter DNA repair genes and the regulatory microRNAs. In a recent integrative analysis combining transcriptional and microRNA datasets from 3 microgravity experiments that each included spaceflight, spaceflight control with a 1-G centrifugal device, and ground control conditions, Zhao and colleagues reported significant alterations in the expression of DNA repair genes in response to microgravity. Their integrative analysis approach allowed the identification of microRNA’s as potential post-transcriptional regulators that regulate the DNA repair gene expression in microgravity conditions. For example, under spaceflight/ground control conditions, the authors reported that 6 differentially expressed miRNAs (cel-miR-90, cel-miR-124, cel-miR-124, cel-miR-355, cel-miR-795, and cel-lsy-6) potentially regulate the expressions of 4 DNA repair genes (rfs-1, rcq-5, xpc-1, and mnat-1), demonstrating the power of omic analysis to provide insight into the altered DNA response in microgravity conditions.",
+    "Considering robust transcriptional changes occur in spaceflown C. elegans, it has been suggested that epigenetic changes may also occur since epigenetic modifications, such as DNA methylation and histone modifications, regulate gene expression. Despite this sound hypothesis, research into the epigenetic responses of spaceflown C. elegans has only recently begun. In the only relevant study known to date, microarray analysis revealed that 39 genes expressed in C. elegans in response to microgravity are suppressed by the action of HDA-4. This suggests that microgravity-induced transcriptional changes are potentially, in part, epigenetically controlled, thus calling for further research into the epigenetic programs underpinning microgravity adaptations, especially considering the potential heritability of any epigenetic changes. The potential intergenerational effects of spaceflight have already been reported in mice, where one study found that the offspring of space-traveled mice demonstrated altered expression of genes in the liver. Further study will build a deeper understanding of the effects of microgravity on the epigenome and the potential ramifications for any potential future offspring of spaceflown organisms and astronauts.",
+    "Insights and impact of C. elegans space omics work",
+    "As elucidated previously, space omics studies in C. elegans have generated several valuable insights on the molecular regulation of spaceflight maladaptation which, in turn, stand to beneficially impact future translatable research efforts toward better understanding and counteracting spaceflight-induced health declines. For instance, transcriptomic analyses highlight strong overlap of dysregulated genes in C. elegans from different spaceflight missions, despite variant experimental factors. These reproducible findings highlight the utility of C. elegans as a prime model organism for robust spaceflight omics investigation and in particular future efforts aimed at ameliorating impaired molecular responses to spaceflight (the MME and MME2 missions as two examples). Particularly evident from previous worm space omics research are reproducible expression changes in neuronal/muscular and metabolic genes. Given that worms in space might feasibly tract neuromuscular changes in gene expression of higher organisms in space, omics work to date thus also pinpoints C. elegans as an especially valuable model for understanding molecular causes of and developing countermeasures to declines in astronaut muscle health.",
+    "Interestingly, dysregulation of key muscle genes is evident even when spaceflown worms are compared to onboard 1-G control worms, implicating that such expression changes are the consequence of microgravity more so than increased radiation exposure. That mechanical load is the partial driver of muscle changes in space is further supported by other previous worm space microarray analyses, wherein dystrophin (a highly mechanosensitive molecule that plays a key role in maintaining muscle structure/function) was shown to be important in the omics response to spaceflight, particularly with respect to neuromuscular/cytoskeletal changes. In fact, transcriptional changes in worms generally appear more widespread in the spaceflight environment than with space radiations alone, with C. elegans work thus indicating that microgravity is the more predominant effector of spaceflight omics changes. More specifically, the space radiation dose on the ISS is ∼0.5–1 mSv per day, including ∼50 charged particles/sr/cm2 with high linear energy transfer (>10 keV/μm). Since an adult nematode C. elegans is ∼1 mm long and 0.05 mm wide, the probability of a direct hit by charged particles is relatively low. In addition, DNA damage by heavy particle radiation, not only ionizing radiation, is efficiently repaired in meiotic oocytes, which make up the majority of nematode adult gonads, because of their high homologous recombination activity. Thus, it is challenging to precisely evaluate the effects of space radiation in omics analyses using a large number of C. elegans cultured for a short period. Instead, the effects of space radiation on C. elegans are mainly studied by examining the frequency of mutations that can be observed in each individual nematode. Thus, while it appears from studies in C. elegans that radiation exposure in lower Earth orbit is not a major contributor to observed omics changes, the effects in higher mammals and humans, as well as the potential effects beyond in lower Earth orbit and the protective effects of the Van Allen belts, render the consequences of spaceflight radiation on omics/biology uncertain.",
+    "Omics work in spaceflown worms has also provided several important insights into upstream regulatory mechanisms of spaceflight molecular responses. For example, microarray analysis of spaceflown C. elegans implicates a prominence toward insulin signaling regulation of spaceflight-induced expression changes that is likely to be partly driven by DAF-16/FoxO—though more recent comparative transcriptomic analyses of C. elegans suggest that FoxO regulation of gene expression may be a stress response to altered gravity per se. Regardless, given that FoxO signaling is a highly conserved regulatory pathway across species, such worm omics data should provide a strong basis to accelerate mechanistic understanding of poor spaceflight adaptations of higher organisms. Indeed, recent evidence supports insulin signaling alterations during spaceflight in higher organisms, including both rodents and astronauts. Finally, more recent transcriptomic-driven analysis of spaceflown worms suggests that dopamine signaling is also perturbed with microgravity. Key implications and insights from C. elegans space omics work have been further summarized in Figure 1.",
+    "Next frontiers in C. elegans space omics",
+    "Linking omics to phenotype",
+    "While understanding the molecular responses to microgravity in isolation are important, these will be more informative if they quantitatively link to functional outcomes. Using informatic approaches, authors can, and should, directly relate the C. elegans omics signatures to functional outcomes such as movement rate and/or strength, to identify biologically important pathways and molecules regulating the phenotypic responses to microgravity. Ideally, all of these analyses would be performed in the same animals to make firm mechanistic links. Indeed, such “omics-phenotype” links have been made previously, albeit not in the context of spaceflown C. elegans. This approach can also be taken toward the creation and application of personalized medicine in the treatment of human disease. The potential use of C. elegans as a model organism for personalized medicine is already being explored in various ways. One study explored using C. elegans as a model for examining variations in metabolism between individuals via the application of metabolomics and comparative genomics, demonstrating differences in the levels of several metabolites between four strains of C. elegans. This demonstrates the use of C. elegans as a building block toward understanding the differences in metabolism between individuals within a species.",
+    "Integrated multi-omics",
+    "Without doubt, transcriptomics and proteomics are the most common omics analyses performed thus far in C. elegans subjected to microgravity conditions. However, microgravity likely affects many other biological layers, therefore the use of other omics can contribute to a more complete understanding of the effects of spaceflight. For example, C. elegans-specific metabolomics and lipidomics methodologies are emerging, providing additional and powerful omics capabilities to probe the pathophysiological effects of spaceflight and reveal the potential of therapeutic interventions. These multiple omics approaches can be integrated (i.e., at the computational analysis stage) to provide a comprehensive understanding of the condition-specific crosstalk between different biological levels, therein providing a better understanding of microgravity-inducing mechanisms and the identification of novel candidates for therapeutic intervention. Indeed, this approach has been taken in C. elegans to investigate responses to aging, starvation, and antibiotics, albeit not in the context of spaceflight.",
+    "Tissue-specific and spatial omics",
+    "It is notable that the majority of omics work to date has been generated using RNA/protein extracted from whole worms containing all tissue types (i.e., muscles, gut, and neurons) as opposed to individual tissues, and so the tissue-specific transcriptome/proteome responses to altered gravity are yet to be distinguished. Indeed, it is possible to isolate and sequence individual tissues derived from C. elegans, and since spaceflight can induced a wide variety of maladaptations across many organs, understanding tissue-specific responses to microgravity is necessary in order to precisely underpin regulatory mechanisms and develop targeted and effective countermeasures against spaceflight-induced maladaptations.",
+    "Further, conventional microarray and RNA-sequencing approaches do not provide spatial information, and tissue-specific transcriptomics only partially solves this problem since it still takes into account ubiquitously expressed genes (i.e., housekeeper genes). Spatial transcriptomics is an emerging method to overcome these limitations, which combines RNA-sequencing with serial tissue sectioning to identify tissue-specific spatiotemporal gene responses. By adapting the RNA tomography approach originally developed for zebrafish, Ebbing and co-authors were able to successfully apply spatial transcriptomics to C. elegans, which was considered a major challenge due to the limited amount of mRNA that can be extracted from individual sections of small organisms. The authors individually froze and cryosectioned (20 μm) C. elegans, followed by RNA extraction and processing using CEL-seq (to overcome the challenges of low input). Using this combination of tools, the authors were able to detect an average of 16,394 genes in young wild-type adult hermaphrodites, equating to 93% of genes detected in bulk RNA-sequencing experiments, and they also demonstrated regional expression was highly indicative of function. Thus, spatial transcriptomics offers a highly sensitive method to generate complex data, and develop deeper understanding of tissue organization, or disorganization, in disease. Spatial transcriptomics has been used to create tissue atlases that have served not only particular use in creating detailed maps of the nervous system of mice but also furthered understanding of important topics in biology like heart development. Currently, the application of C. elegans spatial transcriptomics is in its infancy with only three publications known to date, none of which have been conducted in the context of microgravity. Similarly, cell-specific proteomics methodologies that permit analysis of body wall muscles, neurons, and pharyngeal muscles have been developed but are yet to be exploited in the context of microgravity.",
+    "In the absence of high-throughput spatiotemporal techniques, spatiotemporal insight is traditionally and routinely gained in C. elegans through the utility of GFP. Capitalizing on the nematodes transparent body, GFP is “tagged” to a gene/protein of interest to gain information on expression patterns and subcellular localization in vivo. In the context of simulated microgravity, Zhao and colleagues demonstrated the temporal induction of oxidative stress and the underlying mechanisms. In the context of microgravity, the utility of GFP helped to demonstrate that treatment with RNAi works as effectively in space as it does on Earth in multiple tissues. Most recently, as part of the MME, GFP was exploited to monitor neuronal responses to microgravity.",
+    "In summary, despite the potential promise of these emerging methods for transforming our mechanistic understanding of spaceflight (patho)physiology, these methods must be trialed for effectiveness in the spaceflight environment, much like RNAi technology was."
+  ],
+  "TABLE": [
+    "Transcriptomic investigations of C. elegans in the context of microgravity",
+    "Authors\tSpaceflightMission/s\tOmics Analysis Platform\tKey Outcomes\tTake Home Message\t \tCelen et al.\tCERISESimulated microgravity\tRNA-seq\tSimulated microgravity affects the sphingolipid signaling pathway and the longevity-regulating insulin/IGF-1 pathway118 genes were identified as commonly differentially expressed in C. elegans exposed to either simulated microgravity or spaceflight\tDetrimental effects from spaceflight are replicable in simulated microgravity and pose long-term health concerns\t \tSudevan et al.\tCERISEEPIGENETICSMMESimulated microgravity\tMicroarray\tSpaceflown C. elegans consistently display decreased comt-4 gene expression (a catechol-O-methyltransferase dopamine degradation enzyme)\tTargeting the dopamine system may be a viable and realistic therapeutic to promote safe space travel\t \tSun et al.\tSimulated microgravity\tRNA-seq\tMultiple intestinal long non-coding RNAs were increased/decreased by simulated microgravityKnockdown of a candidate long non-coding RNA and simulated microgravity led to the dysregulation of 43 genes\tLong non-coding RNAs are involved in regulating the response to simulated microgravity\t \tHigashitani et al.\tEPIGENETICS\tMicroarray\t39 genes expressed in C. elegans in response to microgravity are suppressed by the action of HDA-4\t(At least some) transcriptional changes caused by microgravity are epigenetically controlled\t \tSun et al.\tSimulated microgravity\tmiRNA-Seq\t19 miRNAs are dysregulated by exposure to simulated microgravity, many of which served to protect against the toxicity of microgravity\tmiRNA regulation can be protective against the negative effects of simulated microgravity\t \tTee et al.\tSimulated microgravity\tMicroarray\t1 gene was downregulated in nematode growth medium-cultured C. elegans exposed to simulated microgravity6 genes were upregulated and 2 downregulated in C. elegans exposed to Maintenance Medium during microgravity5 of the upregulated genes encoded non-coding RNAs\tSimulated microgravity on a single generation of C. elegans did not induce major transcriptional changes\t \tGao et al.\tSZ-8\tMicroarraymicroRNA microarray\tProtein phosphorylation/dephosphorylation is receptive to microgravity and space radiationMicrogravity impacts transcription depending on the dystrophin gene (dys-1)Loss of function of ced-1 (apoptotic gene) leads protective responses to space radiation\tMicrogravity elicits transcriptional changes in C. elegans during short-duration spaceflight\t \tHigashibata et al.\tCERISE\tMicroarray\tDownregulation of muscle-related genes (such as the myosin heavy chains, troponins, and intermediate filaments) and metabolic genes in spaceflown samples\tGene changes reproducible across spaceflights\t \tZhao et al.\tSZ-8\tMicroarray\t86 differentially expressed genes were identified in response to space, and were mainly related to oxidative phosphorylation\tMicrogravity was the main factor to induce the biological effects in the level of gene expressions, rather than space radiation\t \tGao et al.\tSZ-8\tMicroarraymicroRNA microarray\tSpaceflight increased the number of differentially expressed miRNAsSpace conditions increased changes in the expression of miRNAs that may impact development, energy metabolism, apoptosis, and signaling transduction\tmiRNAs are likely involved in apoptosis during short-term spaceflight\t \tGao et al.\tSZ-8\tMicroarraymicroRNA microarray\tDouble the number of transcripts were significantly altered in the spaceflight environment compared with space radiation aloneThe majority of alterations were related to protein amino acid dephosphorylation and histidine metabolic and catabolic processescel-miR-81, cel- miR-82, cel-miR-124, and cel-miR-795 were predicted to regulate DNA damage response\tMicrogravity, in the presence of radiation, enhances the DNA damage response in C. elegans\t \tXu et al.\tSZ-8\tMicroarraymicroRNA microarray\t23 miRNAs were altered in spaceflightMost putative target genes of the altered miRNAs were predicted to be involved in developmental processescel-miR-52, -55, and −56 of the miR-51 family were sensitive to space environmental stressors\tC. elegans respond to spaceflight by altering miRNAs expression\t \tEtheridge et al.\tCERISE\tMicroarraymicroRNA\tThe expression of the vast majority of microRNAs is not affected by microgravityRNAi effectively silenced transgenic and endogenous genes in the gonadRNAi against lysosomal protease genes prevented muscle protein degradation\tRNAi works as effectively in the spaceflight environment as on Earth within multiple tissues\t \tSelch et al.\tICE-FIRST\tMicroarray\tNormal developmental timing, apoptosis, and DNA repair transcriptional signatureAltered muscle developmenttranscriptional signatureSpaceflown C. elegans undergo a metabolic shift, which may be underlaid by insulin and/or TGF-β signaling\tC. elegans can be used to study the effects of altered gravity\t \tHigashibata et al.\tICE-FIRST\tMicroarray\tMicrogravity upregulated genes related to early embryogenesisMicrogravity downregulated genes related to locomotion\tMicrogravity regulates genes related to locomotion, early embryogenesis, and regeneration in C. elegans.\t \tHigashibata et al.\tICE-FIRST\tMicroarray\tMyosin heavy chain isoforms in the body wall muscles (isoforms A & B) and the pharyngeal muscles (isoforms C & D) decreased in expression in C. elegans developed in space, relative to ground controlsExpression of transcription factors controlling the expression of the myosin heavy chain isoforms was also decreasedGenes encoding troponins and tropomyosins were also decreased\tC. elegans muscle development is altered in spaceflight, which may contribute to spaceflight-induced muscle atrophy",
+    "CERISE, C. elegans RNAi Space Experiment; EDL, extensor digitorum longus; EPIENETICS, The effect of microgravity on the epigenetic modification in C. elegans; ICE-FIRST, FIRST International C. elegans Experiment in space; IGF-1, Insulin-like growth factor 1; ISS, International Space Station; MME, Molecular Muscle Experiment; SZ-8, Shenzhou-8; TGF-β, transforming growth factor-beta.",
+    "Proteomic investigations of C. elegans in the context of microgravity",
+    "Authors\tSpaceflight\tOmics Analysis Platform\tKey Outcomes\tTake Home Message\t \tHigashibata et al.\tCERISE\tiTRAQ\t16 upregulated proteins, with many related to protein synthesis43 downregulated proteins, many being cytoskeletal and metabolic proteins\tProtein changes reproducible across spaceflights\t \tHigashibata et al.\tICE-FIRST\t2D gel electrophoresis and MALDI-TOF MS\t∼100 proteins identifiedSpaceflight reduced paramyosin and aconitase expressionSpaceflight reduced the expression of troponin T, but increased the phosphorylation of troponin T\tSpaceflight influenced the expression of muscle-related proteins\t \tHigashibata et al.\tICE-FIRST\t2D gel electrophoresis\t>1000 total protein spots and ∼200 phosphoprotein spots detected10%–15% significantly increased or decreased in spaceflown samplesSeveral phosphoprotein spots also significantly reduced in spaceflown samples\tSpaceflight impacts proteome",
+    "CERISE, C. elegans RNAi Space Experiment; ICE-FIRST, FIRST International C. elegans Experiment in space; ISS, International Space Station; iTRAQ, isobaric tags for relative and absolute quantitation; MALDI-TOF, matrix-assisted laser desorption/ionization-time of flight; MME, Molecular Muscle Experiment; MS, mass spectrometry; 2D, 2 dimensional.",
+    "Comparative omic investigations of C. elegans in the context of microgravity",
+    "Authors\tSpaceflightMission/s\tOmics Analysis Platform\tKey Outcomes\tTake Home Message\t \tCahill et al.\tICE-FIRST\tMicroarray\tC. elegans transcriptional response to spaceflight demonstrates greater similarity with mouse EDL (fast-twitch muscle) compared to the soleus (slow-twitch muscle)There was a similar increase in proliferation-related genes, cAMP signaling\tC. elegans results might be able to be extrapolated to mammalian results\t \tWillis et al.\tMicrogravity:ICE-FIRSTCERISEHypergravity\tMicroarray\tMost common gene signatures between hypergravity and microgravity were similarly upregulated (ubiquitin-mediated catabolism, actin cytoskeleton regulation, cell cycle processes) or downregulated (immune system regulation)“Metabolic regulation” displayed opposing regulation in response to hypergravity versus microgravity\tHypergravity and microgravity elicit neuronal and metabolic adaptations\t \tLeandro et al.\tICE-FIRST\tMicroarray\tOnly 6 genes were commonly downregulated in C. elegans and Drosophila melanogasterAlthough, the number of genes that could be compared was reduced to only ∼20% of the comparative genome, due to ortholog-related challengesThe 6 genes were associated with metabolic and neuromuscular signaling\tVery few genes are commonly regulated between C. elegans and Drosophila melanogaster by spaceflight",
+    "cAMP, cyclic adenosine monophosphate; CERISE, C. elegans RNAi Space Experiment; EDL, extensor digitorum longus; ICE-FIRST, FIRST International C. elegans Experiment in space."
+  ],
+  "FIG": [
+    "Key insights from C. elegans space omics experiments",
+    "(A) Venn diagram depicting reproducible gene expression signatures from multiple microgravity experiments in C. elegans.",
+    "(B) A summary of the key findings from C. elegans space omics experiments."
+  ],
+  "CONCL": [
+    "Conclusion",
+    "C. elegans represents a cheap and feasible organism to study the mechanisms regulating phenotypic adaptations in response to microgravity. We highlight that the application of omics analysis to spaceflight research has identified many ways that C. elegans respond to microgravity, at the level of the transcriptome, proteome, and epigenome. Notably, microgravity elicits transcriptional responses with microgravity robustly regulating genes related to muscle locomotion and metabolism (Figure 1). Similarly, proteomic changes in microgravity represent robust declines in cytoskeletal and metabolic proteins, which may underpin the pathophysiological phenotype associated with microgravity, particularly muscle decline. Importantly, these major transcriptional signatures are reproducible despite substantial differences in culturing conditions. Future work should consider using emerging omics approaches, such as multi-omics and spatial transcriptomics, to unravel tissue-specific spatiotemporal responses to microgravity in C. elegans. Where possible, such experiments should adopt, or at least consider, consortium-devised omics-related working pipelines in order to standardize experimental design, such as those developed by the International Standards for Space Omics Processing. In turn, this will facilitate future comparative omics investigations, thus extracting as much insight as possible from rare space omics experiments. This will lead to the identification of the fundamental mechanisms regulating (mal)adaptations to microgravity, benefiting health while in space and on Earth (e.g., aging, diabetes)."
+  ],
+  "REF": [
+    "References",
+    "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+    "Space travel directly induces skeletal muscle atrophy",
+    "Neuro-consequences of the spaceflight environment",
+    "Sarcopenia, dynapenia, and the impact of advancing age on human skeletal muscle size and strength; a quantitative review",
+    "Comparative Transcriptomics Identifies Neuronal and Metabolic Adaptations to Hypergravity and Microgravity in Caenorhabditis elegans",
+    "A New Era for Space Life Science: International Standards for Space Omics Processing",
+    "A Transparent Window into Biology: A Primer on Caenorhabditis elegans",
+    "Radiation effects in nematodes: results from IML-1 experiments",
+    "Development and chromosome mechanics in nematodes: results from IML-1",
+    "Caenorhabditis elegans survives atmospheric breakup of STS-107, space shuttle Columbia",
+    "Chemically defined medium and Caenorhabditis elegans",
+    "Mammalian and Invertebrate Models as Complementary Tools for Gaining Mechanistic Insight on Muscle Responses to Spaceflight",
+    "Identification of novel human genes evolutionarily conserved in Caenorhabditis elegans by comparative proteomics",
+    "Modeling human diseases in Caenorhabditis elegans",
+    "Remote automated multi-generational growth and observation of an animal in low Earth orbit",
+    "Decreased expression of myogenic transcription factors and myosin heavy chains in Caenorhabditis elegans muscles developed during spaceflight",
+    "Exercise in space: human skeletal muscle after 6 months aboard the International Space Station",
+    "Multi-omics approaches to disease",
+    "Personalized medicine in human space flight: using Omics based analyses to develop individualized countermeasures that enhance astronaut safety and performance",
+    "Overview of Systems Biology and Omics Technologies",
+    "GeneLab: Omics database for spaceflight experiments",
+    "Global transcriptomic analysis suggests carbon dioxide as an environmental stressor in spaceflight: A systems biology GeneLab case study",
+    "Revamping Space-omics in Europe",
+    "Space omics research in Europe: Contributions, geographical distribution and ESA member state funding schemes",
+    "Spaceflight and ageing: reflecting on Caenorhabditis elegans in space",
+    "Transcriptomic Signature of the Simulated Microgravity Response in Caenorhabditis elegans and Comparison to Spaceflight Experiments",
+    "Loss of physical contact in space alters the dopamine system in C. elegans",
+    "Intestinal long non-coding RNAs in response to simulated microgravity stress in Caenorhabditis elegans",
+    "Histone deacetylase HDA-4-mediated epigenetic regulation in space-flown C. elegans",
+    "microRNAs involved in the control of toxicity on locomotion behavior induced by simulated microgravity stress in Caenorhabditis elegans",
+    "Effects of simulated microgravity on gene expression and biological phenotypes of a single generation Caenorhabditis elegans cultured on 2 different media",
+    "The DNA damage response of C. elegans affected by gravity sensing and radiosensitivity during the Shenzhou-8 spaceflight",
+    "Microgravity elicits reproducible alterations in cytoskeletal and metabolic gene and protein expression in space-flown Caenorhabditis elegans",
+    "Mining potential biomarkers associated with space flight in Caenorhabditis elegans experienced Shenzhou-8 mission with multiple feature selection techniques",
+    "Effects of microgravity on DNA damage response in Caenorhabditis elegans during Shenzhou-8 spaceflight",
+    "Changes in apoptotic microRNA and mRNA expression profiling in Caenorhabditis elegans during the Shenzhou-8 mission",
+    "Changes in miRNA expression profile of space-flown Caenorhabditis elegans during Shenzhou-8 mission",
+    "The effectiveness of RNAi in Caenorhabditis elegans is maintained during spaceflight",
+    "Genomic response of the nematode Caenorhabditis elegans to spaceflight",
+    "Biochemical and Molecular Biological Analyses of space-flown nematodes in Japan, the First International Caenorhabditis elegans Experiment (ICE-First)",
+    "Space Flight Induces Reduction of Paramyosin and Troponin T: Proteomic Analysis of Space-Flown Caenorhabditis elegans",
+    "Comparative analysis of Drosophila melanogaster and Caenorhabditis elegans gene expression experiments in the European Soyuz flights to the International Space Station",
+    "The Nesprin-1/-2 ortholog ANC-1 regulates organelle positioning in C. elegans independently from its KASH or actin-binding domains",
+    "The role of mitochondria in health and disease",
+    "Mitochondrial dysfunction induces muscle atrophy during prolonged inactivity: A review of the causes and effects",
+    "Transcriptomic meta-analysis of disuse muscle atrophy vs. resistance exercise-induced hypertrophy in young and older humans",
+    "Spaceflight affects neuronal morphology and alters transcellular degradation of neuronal debris in adult Caenorhabditis elegans",
+    "Delayed development and lifespan extension as features of metabolic lifestyle alteration in C. elegans under dietary restriction",
+    "Transcriptome analysis of gravitational effects on mouse skeletal muscles under microgravity and artificial 1 g onboard environment",
+    "Molecular Muscle Experiment: Hardware and Operational Lessons for Future Astrobiology Space Experiments",
+    "Influence of simulated microgravity on human skeletal muscle architecture and function",
+    "Microgravity alters the expressions of DNA repair genes and their regulatory miRNAs in space-flown Caenorhabditis elegans",
+    "Epigenetic responses to environmental change and their evolutionary implications",
+    "Intergenerational effect of short-term spaceflight in mice",
+    "Age-related Differences in Dystrophin: Impact on Force Transfer Proteins, Membrane Integrity, and Neuromuscular Junction Stability",
+    "Effect of dys-1 mutation on gene expression profile in space-flown Caenorhabditis elegans",
+    "Detection of space radiation-induced double strand breaks as a track in cell nucleus",
+    "Analysis of radiation dose variations measured by passive dosimeters onboard the International Space Station during the solar quiet period (2007–2008)",
+    "Area radiation monitoring on ISS Increments 17 to 22 using PADLES in the Japanese Experiment Module Kibo",
+    "Hyper-resistance of meiotic cells to radiation due to a strong expression of a single recA-like gene in Caenorhabditis elegans",
+    "Efficient repair of DNA damage induced by heavy ion particles in meiotic prophase I nuclei of Caenorhabditis elegans",
+    "A comparison of mutations induced by accelerated iron particles versus those induced by low earth orbit space radiation in the FEM-3 gene of Caenorhabditis elegans",
+    "A mutational analysis of Caenorhabditis elegans in space",
+    "Characterization of the direct targets of FOXO transcription factors throughout evolution",
+    "Spaceflight alters insulin and estrogen signaling pathways",
+    "Network analysis of human muscle adaptation to aging and contraction",
+    "Transcriptomic links to muscle mass loss and declines in cumulative muscle protein synthesis during short-term disuse in healthy younger humans",
+    "C. elegans as a model for inter-individual variation in metabolism",
+    "Metabolomics and lipidomics in Caenorhabditis elegans using a single-sample preparation",
+    "Multi-Omics and Genome-Scale Modeling Reveal a Metabolic Shift During C. elegans Aging",
+    "Multi-omics Analyses of Starvation Responses Reveal a Central Role for Lipoprotein Metabolism in Acute Starvation Survival in C. elegans",
+    "Multi-omics analysis identifies essential regulators of mitochondrial stress response in two wild-type C. elegans strains",
+    "Transcriptome analysis of adult Caenorhabditis elegans cells reveals tissue-specific gene and isoform expression",
+    "Spatial Transcriptomics of C. elegans Males and Hermaphrodites Identifies Sex-Specific Differences in Gene Expression Patterns",
+    "Genome-wide RNA Tomography in the zebrafish embryo",
+    "Validation of noise models for single-cell transcriptomics",
+    "Gene Function Prediction Based on Developmental Transcriptomes of the Two Sexes in C. elegans",
+    "Exploring tissue architecture using spatial transcriptomics",
+    "Spatial Transcriptomics of Nematodes Identifies Sperm Cells as a Source of Genomic Novelty and Rapid Evolution",
+    "Spatial transcriptomics of the nematode Caenorhabditis elegans using RNA tomography",
+    "Cell-specific proteomic analysis in Caenorhabditis elegans",
+    "Molecular basis for oxidative stress induced by simulated microgravity in nematode Caenorhabditis elegans"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F.E. Garrett-Bakelman",
+          "nombres": "F.E.",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M. Darshi",
+          "nombres": "M.",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "S.J. Green",
+          "nombres": "S.J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "R.C. Gur",
+          "nombres": "R.C.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L. Lin",
+          "nombres": "L.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "M.J. McKenna",
+          "nombres": "M.J.",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J. Nasrini",
+          "nombres": "J.",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space travel directly induces skeletal muscle atrophy",
+      "autores": [
+        {
+          "nombre_completo": "H. Vandenburgh",
+          "nombres": "H.",
+          "apellidos": "Vandenburgh"
+        },
+        {
+          "nombre_completo": "J. Chromiak",
+          "nombres": "J.",
+          "apellidos": "Chromiak"
+        },
+        {
+          "nombre_completo": "J. Shansky",
+          "nombres": "J.",
+          "apellidos": "Shansky"
+        },
+        {
+          "nombre_completo": "M. Del Tatto",
+          "nombres": "M.",
+          "apellidos": "Del Tatto"
+        },
+        {
+          "nombre_completo": "J. Lemaire",
+          "nombres": "J.",
+          "apellidos": "Lemaire"
+        }
+      ],
+      "pmid": "10336885",
+      "fuente": "Faseb. J.",
+      "anio": "1999",
+      "volumen": "13",
+      "fpage": "1031",
+      "lpage": "1038"
+    },
+    {
+      "titulo": "Neuro-consequences of the spaceflight environment",
+      "autores": [
+        {
+          "nombre_completo": "S.D. Mhatre",
+          "nombres": "S.D.",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "J. Iyer",
+          "nombres": "J.",
+          "apellidos": "Iyer"
+        },
+        {
+          "nombre_completo": "S. Puukila",
+          "nombres": "S.",
+          "apellidos": "Puukila"
+        },
+        {
+          "nombre_completo": "A.M. Paul",
+          "nombres": "A.M.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "C.G.T. Tahimic",
+          "nombres": "C.G.T.",
+          "apellidos": "Tahimic"
+        },
+        {
+          "nombre_completo": "L. Rubinstein",
+          "nombres": "L.",
+          "apellidos": "Rubinstein"
+        },
+        {
+          "nombre_completo": "M. Lowe",
+          "nombres": "M.",
+          "apellidos": "Lowe"
+        },
+        {
+          "nombre_completo": "J.S. Alwood",
+          "nombres": "J.S.",
+          "apellidos": "Alwood"
+        },
+        {
+          "nombre_completo": "M.B. Sowa",
+          "nombres": "M.B.",
+          "apellidos": "Sowa"
+        },
+        {
+          "nombre_completo": "S. Bhattacharya",
+          "nombres": "S.",
+          "apellidos": "Bhattacharya"
+        }
+      ],
+      "pmid": "34767877",
+      "fuente": "Neurosci. Biobehav. Rev.",
+      "anio": "2022",
+      "volumen": "132",
+      "fpage": "908",
+      "lpage": "935"
+    },
+    {
+      "titulo": "Sarcopenia, dynapenia, and the impact of advancing age on human skeletal muscle size and strength; a quantitative review",
+      "autores": [
+        {
+          "nombre_completo": "W.K. Mitchell",
+          "nombres": "W.K.",
+          "apellidos": "Mitchell"
+        },
+        {
+          "nombre_completo": "J. Williams",
+          "nombres": "J.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "P. Atherton",
+          "nombres": "P.",
+          "apellidos": "Atherton"
+        },
+        {
+          "nombre_completo": "M. Larvin",
+          "nombres": "M.",
+          "apellidos": "Larvin"
+        },
+        {
+          "nombre_completo": "J. Lund",
+          "nombres": "J.",
+          "apellidos": "Lund"
+        },
+        {
+          "nombre_completo": "M. Narici",
+          "nombres": "M.",
+          "apellidos": "Narici"
+        }
+      ],
+      "pmid": "22934016",
+      "fuente": "Front. Physiol.",
+      "anio": "2012",
+      "volumen": "3",
+      "fpage": "260",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparative Transcriptomics Identifies Neuronal and Metabolic Adaptations to Hypergravity and Microgravity in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "C.R.G. Willis",
+          "nombres": "C.R.G.",
+          "apellidos": "Willis"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "I.A. Udranszky",
+          "nombres": "I.A.",
+          "apellidos": "Udranszky"
+        },
+        {
+          "nombre_completo": "S.S. Reinsch",
+          "nombres": "S.S.",
+          "apellidos": "Reinsch"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "33376968",
+      "fuente": "iScience",
+      "anio": "2020",
+      "volumen": "23",
+      "fpage": "101734",
+      "lpage": ""
+    },
+    {
+      "titulo": "A New Era for Space Life Science: International Standards for Space Omics Processing",
+      "autores": [
+        {
+          "nombre_completo": "L. Rutter",
+          "nombres": "L.",
+          "apellidos": "Rutter"
+        },
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "D. Bezdan",
+          "nombres": "D.",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "H. Cope",
+          "nombres": "H.",
+          "apellidos": "Cope"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "L. Degoricija",
+          "nombres": "L.",
+          "apellidos": "Degoricija"
+        },
+        {
+          "nombre_completo": "K.M. Fisch",
+          "nombres": "K.M.",
+          "apellidos": "Fisch"
+        },
+        {
+          "nombre_completo": "M.I. Gabitto",
+          "nombres": "M.I.",
+          "apellidos": "Gabitto"
+        },
+        {
+          "nombre_completo": "S. Gebre",
+          "nombres": "S.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "S. Giacomello",
+          "nombres": "S.",
+          "apellidos": "Giacomello"
+        }
+      ],
+      "pmid": "33336201",
+      "fuente": "Patterns (N Y)",
+      "anio": "2020",
+      "volumen": "1",
+      "fpage": "100148",
+      "lpage": ""
+    },
+    {
+      "titulo": "A Transparent Window into Biology: A Primer on Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "A.K. Corsi",
+          "nombres": "A.K.",
+          "apellidos": "Corsi"
+        },
+        {
+          "nombre_completo": "B. Wightman",
+          "nombres": "B.",
+          "apellidos": "Wightman"
+        },
+        {
+          "nombre_completo": "M. Chalfie",
+          "nombres": "M.",
+          "apellidos": "Chalfie"
+        }
+      ],
+      "pmid": "26088431",
+      "fuente": "Genetics",
+      "anio": "2015",
+      "volumen": "200",
+      "fpage": "387",
+      "lpage": "407"
+    },
+    {
+      "titulo": "Radiation effects in nematodes: results from IML-1 experiments",
+      "autores": [
+        {
+          "nombre_completo": "G.A. Nelson",
+          "nombres": "G.A.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "W.W. Schubert",
+          "nombres": "W.W.",
+          "apellidos": "Schubert"
+        },
+        {
+          "nombre_completo": "G.A. Kazarians",
+          "nombres": "G.A.",
+          "apellidos": "Kazarians"
+        },
+        {
+          "nombre_completo": "G.F. Richards",
+          "nombres": "G.F.",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "E.V. Benton",
+          "nombres": "E.V.",
+          "apellidos": "Benton"
+        },
+        {
+          "nombre_completo": "E.R. Benton",
+          "nombres": "E.R.",
+          "apellidos": "Benton"
+        },
+        {
+          "nombre_completo": "R. Henke",
+          "nombres": "R.",
+          "apellidos": "Henke"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "1994",
+      "volumen": "14",
+      "fpage": "87",
+      "lpage": "91"
+    },
+    {
+      "titulo": "Development and chromosome mechanics in nematodes: results from IML-1",
+      "autores": [
+        {
+          "nombre_completo": "G.A. Nelson",
+          "nombres": "G.A.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "W.W. Schubert",
+          "nombres": "W.W.",
+          "apellidos": "Schubert"
+        },
+        {
+          "nombre_completo": "G.A. Kazarians",
+          "nombres": "G.A.",
+          "apellidos": "Kazarians"
+        },
+        {
+          "nombre_completo": "G.F. Richards",
+          "nombres": "G.F.",
+          "apellidos": "Richards"
+        }
+      ],
+      "pmid": "11537919",
+      "fuente": "Adv. Space Res.",
+      "anio": "1994",
+      "volumen": "14",
+      "fpage": "209",
+      "lpage": "214"
+    },
+    {
+      "titulo": "Caenorhabditis elegans survives atmospheric breakup of STS-107, space shuttle Columbia",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "R.L. Mancinelli",
+          "nombres": "R.L.",
+          "apellidos": "Mancinelli"
+        },
+        {
+          "nombre_completo": "W. McLamb",
+          "nombres": "W.",
+          "apellidos": "McLamb"
+        },
+        {
+          "nombre_completo": "D. Reed",
+          "nombres": "D.",
+          "apellidos": "Reed"
+        },
+        {
+          "nombre_completo": "B.S. Blumberg",
+          "nombres": "B.S.",
+          "apellidos": "Blumberg"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "16379525",
+      "fuente": "Astrobiology",
+      "anio": "2005",
+      "volumen": "5",
+      "fpage": "690",
+      "lpage": "705"
+    },
+    {
+      "titulo": "Chemically defined medium and Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "E. Kozak",
+          "nombres": "E.",
+          "apellidos": "Kozak"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "14580264",
+      "fuente": "BMC Biotechnol.",
+      "anio": "2003",
+      "volumen": "3",
+      "fpage": "19",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mammalian and Invertebrate Models as Complementary Tools for Gaining Mechanistic Insight on Muscle Responses to Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "T. Cahill",
+          "nombres": "T.",
+          "apellidos": "Cahill"
+        },
+        {
+          "nombre_completo": "H. Cope",
+          "nombres": "H.",
+          "apellidos": "Cope"
+        },
+        {
+          "nombre_completo": "J.J. Bass",
+          "nombres": "J.J.",
+          "apellidos": "Bass"
+        },
+        {
+          "nombre_completo": "E.G. Overbey",
+          "nombres": "E.G.",
+          "apellidos": "Overbey"
+        },
+        {
+          "nombre_completo": "R. Gilbert",
+          "nombres": "R.",
+          "apellidos": "Gilbert"
+        },
+        {
+          "nombre_completo": "W.A. da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "da Silveira"
+        },
+        {
+          "nombre_completo": "A.M. Paul",
+          "nombres": "A.M.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "S.S. Reinsch",
+          "nombres": "S.S.",
+          "apellidos": "Reinsch"
+        }
+      ],
+      "pmid": "34502375",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "9470",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identification of novel human genes evolutionarily conserved in Caenorhabditis elegans by comparative proteomics",
+      "autores": [
+        {
+          "nombre_completo": "C.H. Lai",
+          "nombres": "C.H.",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "C.Y. Chou",
+          "nombres": "C.Y.",
+          "apellidos": "Chou"
+        },
+        {
+          "nombre_completo": "L.Y. Ch'ang",
+          "nombres": "L.Y.",
+          "apellidos": "Ch'ang"
+        },
+        {
+          "nombre_completo": "C.S. Liu",
+          "nombres": "C.S.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "W. Lin",
+          "nombres": "W.",
+          "apellidos": "Lin"
+        }
+      ],
+      "pmid": "10810093",
+      "fuente": "Genome Res.",
+      "anio": "2000",
+      "volumen": "10",
+      "fpage": "703",
+      "lpage": "713"
+    },
+    {
+      "titulo": "Modeling human diseases in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "M. Markaki",
+          "nombres": "M.",
+          "apellidos": "Markaki"
+        },
+        {
+          "nombre_completo": "N. Tavernarakis",
+          "nombres": "N.",
+          "apellidos": "Tavernarakis"
+        }
+      ],
+      "pmid": "21154667",
+      "fuente": "Biotechnol. J.",
+      "anio": "2010",
+      "volumen": "5",
+      "fpage": "1261",
+      "lpage": "1276"
+    },
+    {
+      "titulo": "Remote automated multi-generational growth and observation of an animal in low Earth orbit",
+      "autores": [
+        {
+          "nombre_completo": "E.A. Oczypok",
+          "nombres": "E.A.",
+          "apellidos": "Oczypok"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "J. Freeman",
+          "nombres": "J.",
+          "apellidos": "Freeman"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "R. Johnsen",
+          "nombres": "R.",
+          "apellidos": "Johnsen"
+        },
+        {
+          "nombre_completo": "D. Baillie",
+          "nombres": "D.",
+          "apellidos": "Baillie"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "22130552",
+      "fuente": "J. R. Soc. Interface",
+      "anio": "2012",
+      "volumen": "9",
+      "fpage": "596",
+      "lpage": "599"
+    },
+    {
+      "titulo": "Decreased expression of myogenic transcription factors and myosin heavy chains in Caenorhabditis elegans muscles developed during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        },
+        {
+          "nombre_completo": "M. Imamizo-Sato",
+          "nombres": "M.",
+          "apellidos": "Imamizo-Sato"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "16888068",
+      "fuente": "J. Exp. Biol.",
+      "anio": "2006",
+      "volumen": "209",
+      "fpage": "3209",
+      "lpage": "3218"
+    },
+    {
+      "titulo": "Exercise in space: human skeletal muscle after 6 months aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S. Trappe",
+          "nombres": "S.",
+          "apellidos": "Trappe"
+        },
+        {
+          "nombre_completo": "D. Costill",
+          "nombres": "D.",
+          "apellidos": "Costill"
+        },
+        {
+          "nombre_completo": "P. Gallagher",
+          "nombres": "P.",
+          "apellidos": "Gallagher"
+        },
+        {
+          "nombre_completo": "A. Creer",
+          "nombres": "A.",
+          "apellidos": "Creer"
+        },
+        {
+          "nombre_completo": "J.R. Peters",
+          "nombres": "J.R.",
+          "apellidos": "Peters"
+        },
+        {
+          "nombre_completo": "H. Evans",
+          "nombres": "H.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "D.A. Riley",
+          "nombres": "D.A.",
+          "apellidos": "Riley"
+        },
+        {
+          "nombre_completo": "R.H. Fitts",
+          "nombres": "R.H.",
+          "apellidos": "Fitts"
+        }
+      ],
+      "pmid": "19150852",
+      "fuente": "J. Appl. Physiol.",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "1159",
+      "lpage": "1168"
+    },
+    {
+      "titulo": "Multi-omics approaches to disease",
+      "autores": [
+        {
+          "nombre_completo": "Y. Hasin",
+          "nombres": "Y.",
+          "apellidos": "Hasin"
+        },
+        {
+          "nombre_completo": "M. Seldin",
+          "nombres": "M.",
+          "apellidos": "Seldin"
+        },
+        {
+          "nombre_completo": "A. Lusis",
+          "nombres": "A.",
+          "apellidos": "Lusis"
+        }
+      ],
+      "pmid": "28476144",
+      "fuente": "Genome Biol.",
+      "anio": "2017",
+      "volumen": "18",
+      "fpage": "83",
+      "lpage": ""
+    },
+    {
+      "titulo": "Personalized medicine in human space flight: using Omics based analyses to develop individualized countermeasures that enhance astronaut safety and performance",
+      "autores": [
+        {
+          "nombre_completo": "M.A. Schmidt",
+          "nombres": "M.A.",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "T.J. Goodwin",
+          "nombres": "T.J.",
+          "apellidos": "Goodwin"
+        }
+      ],
+      "pmid": "24273472",
+      "fuente": "Metabolomics",
+      "anio": "2013",
+      "volumen": "9",
+      "fpage": "1134",
+      "lpage": "1156"
+    },
+    {
+      "titulo": "Overview of Systems Biology and Omics Technologies",
+      "autores": [
+        {
+          "nombre_completo": "B. Karahalil",
+          "nombres": "B.",
+          "apellidos": "Karahalil"
+        }
+      ],
+      "pmid": "27686657",
+      "fuente": "Curr. Med. Chem.",
+      "anio": "2016",
+      "volumen": "23",
+      "fpage": "4221",
+      "lpage": "4230"
+    },
+    {
+      "titulo": "GeneLab: Omics database for spaceflight experiments",
+      "autores": [
+        {
+          "nombre_completo": "S. Ray",
+          "nombres": "S.",
+          "apellidos": "Ray"
+        },
+        {
+          "nombre_completo": "S. Gebre",
+          "nombres": "S.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "D.C. Berrios",
+          "nombres": "D.C.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "P.B. Tran",
+          "nombres": "P.B.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "J.M. Galazka",
+          "nombres": "J.M.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "30329036",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "1753",
+      "lpage": "1759"
+    },
+    {
+      "titulo": "Global transcriptomic analysis suggests carbon dioxide as an environmental stressor in spaceflight: A systems biology GeneLab case study",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "D.J. Smith",
+          "nombres": "D.J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "29520055",
+      "fuente": "Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "4191",
+      "lpage": ""
+    },
+    {
+      "titulo": "Revamping Space-omics in Europe",
+      "autores": [
+        {
+          "nombre_completo": "P. Madrigal",
+          "nombres": "P.",
+          "apellidos": "Madrigal"
+        },
+        {
+          "nombre_completo": "A. Gabel",
+          "nombres": "A.",
+          "apellidos": "Gabel"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "D. Bezdan",
+          "nombres": "D.",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "E. Carnero-Diaz",
+          "nombres": "E.",
+          "apellidos": "Carnero-Diaz"
+        },
+        {
+          "nombre_completo": "F.J. Medina",
+          "nombres": "F.J.",
+          "apellidos": "Medina"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "I. Grosse",
+          "nombres": "I.",
+          "apellidos": "Grosse"
+        }
+      ],
+      "pmid": "33242401",
+      "fuente": "Cell Syst.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "555",
+      "lpage": "556"
+    },
+    {
+      "titulo": "Space omics research in Europe: Contributions, geographical distribution and ESA member state funding schemes",
+      "autores": [
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "W.A. da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "da Silveira"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        }
+      ],
+      "pmid": "35265808",
+      "fuente": "iScience",
+      "anio": "2022",
+      "volumen": "25",
+      "fpage": "103920",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight and ageing: reflecting on Caenorhabditis elegans in space",
+      "autores": [
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "M. Narici",
+          "nombres": "M.",
+          "apellidos": "Narici"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "24217152",
+      "fuente": "Gerontology",
+      "anio": "2014",
+      "volumen": "60",
+      "fpage": "138",
+      "lpage": "142"
+    },
+    {
+      "titulo": "Transcriptomic Signature of the Simulated Microgravity Response in Caenorhabditis elegans and Comparison to Spaceflight Experiments",
+      "autores": [
+        {
+          "nombre_completo": "I. Celen",
+          "nombres": "I.",
+          "apellidos": "Celen"
+        },
+        {
+          "nombre_completo": "A. Jayasinghe",
+          "nombres": "A.",
+          "apellidos": "Jayasinghe"
+        },
+        {
+          "nombre_completo": "J.H. Doh",
+          "nombres": "J.H.",
+          "apellidos": "Doh"
+        },
+        {
+          "nombre_completo": "C.R. Sabanayagam",
+          "nombres": "C.R.",
+          "apellidos": "Sabanayagam"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cells",
+      "anio": "2023",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Loss of physical contact in space alters the dopamine system in C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "S. Sudevan",
+          "nombres": "S.",
+          "apellidos": "Sudevan"
+        },
+        {
+          "nombre_completo": "K. Muto",
+          "nombres": "K.",
+          "apellidos": "Muto"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "R.A. Ellwood",
+          "nombres": "R.A.",
+          "apellidos": "Ellwood"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "M. Rahman",
+          "nombres": "M.",
+          "apellidos": "Rahman"
+        },
+        {
+          "nombre_completo": "S.A. Vanapalli",
+          "nombres": "S.A.",
+          "apellidos": "Vanapalli"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        }
+      ],
+      "pmid": "35141505",
+      "fuente": "iScience",
+      "anio": "2022",
+      "volumen": "25",
+      "fpage": "103762",
+      "lpage": ""
+    },
+    {
+      "titulo": "Intestinal long non-coding RNAs in response to simulated microgravity stress in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "L. Sun",
+          "nombres": "L.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "D. Li",
+          "nombres": "D.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y. Yuan",
+          "nombres": "Y.",
+          "apellidos": "Yuan"
+        },
+        {
+          "nombre_completo": "D. Wang",
+          "nombres": "D.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "33479427",
+      "fuente": "Sci. Rep.",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "1997",
+      "lpage": ""
+    },
+    {
+      "titulo": "Histone deacetylase HDA-4-mediated epigenetic regulation in space-flown C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "M. Takiura",
+          "nombres": "M.",
+          "apellidos": "Takiura"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "M. Teranishi",
+          "nombres": "M.",
+          "apellidos": "Teranishi"
+        },
+        {
+          "nombre_completo": "R. Oshima",
+          "nombres": "R.",
+          "apellidos": "Oshima"
+        },
+        {
+          "nombre_completo": "S. Yano",
+          "nombres": "S.",
+          "apellidos": "Yano"
+        },
+        {
+          "nombre_completo": "K. Kuriyama",
+          "nombres": "K.",
+          "apellidos": "Kuriyama"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        }
+      ],
+      "pmid": "34471121",
+      "fuente": "NPJ Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "33",
+      "lpage": ""
+    },
+    {
+      "titulo": "microRNAs involved in the control of toxicity on locomotion behavior induced by simulated microgravity stress in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "L. Sun",
+          "nombres": "L.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "W. Li",
+          "nombres": "W.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "D. Li",
+          "nombres": "D.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "D. Wang",
+          "nombres": "D.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "33060753",
+      "fuente": "Sci. Rep.",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "17510",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of simulated microgravity on gene expression and biological phenotypes of a single generation Caenorhabditis elegans cultured on 2 different media",
+      "autores": [
+        {
+          "nombre_completo": "L.F. Tee",
+          "nombres": "L.F.",
+          "apellidos": "Tee"
+        },
+        {
+          "nombre_completo": "H.M. Neoh",
+          "nombres": "H.M.",
+          "apellidos": "Neoh"
+        },
+        {
+          "nombre_completo": "S.M. Then",
+          "nombres": "S.M.",
+          "apellidos": "Then"
+        },
+        {
+          "nombre_completo": "N.A. Murad",
+          "nombres": "N.A.",
+          "apellidos": "Murad"
+        },
+        {
+          "nombre_completo": "M.F. Asillam",
+          "nombres": "M.F.",
+          "apellidos": "Asillam"
+        },
+        {
+          "nombre_completo": "M.H. Hashim",
+          "nombres": "M.H.",
+          "apellidos": "Hashim"
+        },
+        {
+          "nombre_completo": "S. Nathan",
+          "nombres": "S.",
+          "apellidos": "Nathan"
+        },
+        {
+          "nombre_completo": "R. Jamal",
+          "nombres": "R.",
+          "apellidos": "Jamal"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2017",
+      "volumen": "15",
+      "fpage": "11",
+      "lpage": "17"
+    },
+    {
+      "titulo": "The DNA damage response of C. elegans affected by gravity sensing and radiosensitivity during the Shenzhou-8 spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "D. Xu",
+          "nombres": "D.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "28088539",
+      "fuente": "Mutat. Res.",
+      "anio": "2017",
+      "volumen": "795",
+      "fpage": "15",
+      "lpage": "26"
+    },
+    {
+      "titulo": "Microgravity elicits reproducible alterations in cytoskeletal and metabolic gene and protein expression in space-flown Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "S. Harada",
+          "nombres": "S.",
+          "apellidos": "Harada"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S.A. Baba",
+          "nombres": "S.A.",
+          "apellidos": "Baba"
+        }
+      ],
+      "pmid": "28725720",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15022",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mining potential biomarkers associated with space flight in Caenorhabditis elegans experienced Shenzhou-8 mission with multiple feature selection techniques",
+      "autores": [
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "D. Mi",
+          "nombres": "D.",
+          "apellidos": "Mi"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mutat. Res.",
+      "anio": "2016",
+      "volumen": "791–792",
+      "fpage": "27",
+      "lpage": "34"
+    },
+    {
+      "titulo": "Effects of microgravity on DNA damage response in Caenorhabditis elegans during Shenzhou-8 spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "D. Xu",
+          "nombres": "D.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "M. Zhang",
+          "nombres": "M.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "25965668",
+      "fuente": "Int. J. Radiat. Biol.",
+      "anio": "2015",
+      "volumen": "91",
+      "fpage": "531",
+      "lpage": "539"
+    },
+    {
+      "titulo": "Changes in apoptotic microRNA and mRNA expression profiling in Caenorhabditis elegans during the Shenzhou-8 mission",
+      "autores": [
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "S. Li",
+          "nombres": "S.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "D. Xu",
+          "nombres": "D.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "26286471",
+      "fuente": "J. Radiat. Res.",
+      "anio": "2015",
+      "volumen": "56",
+      "fpage": "872",
+      "lpage": "882"
+    },
+    {
+      "titulo": "Changes in miRNA expression profile of space-flown Caenorhabditis elegans during Shenzhou-8 mission",
+      "autores": [
+        {
+          "nombre_completo": "D. Xu",
+          "nombres": "D.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "L. Huang",
+          "nombres": "L.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2014",
+      "volumen": "1",
+      "fpage": "44",
+      "lpage": "52"
+    },
+    {
+      "titulo": "The effectiveness of RNAi in Caenorhabditis elegans is maintained during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "H. Suzuki",
+          "nombres": "H.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "K. Fukui",
+          "nombres": "K.",
+          "apellidos": "Fukui"
+        },
+        {
+          "nombre_completo": "T. Yamazaki",
+          "nombres": "T.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "21673804",
+      "fuente": "PLoS One",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "e20459",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genomic response of the nematode Caenorhabditis elegans to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F. Selch",
+          "nombres": "F.",
+          "apellidos": "Selch"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "M. Imamizo-Sato",
+          "nombres": "M.",
+          "apellidos": "Imamizo-Sato"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "18392117",
+      "fuente": "Adv. Space Res.",
+      "anio": "2008",
+      "volumen": "41",
+      "fpage": "807",
+      "lpage": "815"
+    },
+    {
+      "titulo": "Biochemical and Molecular Biological Analyses of space-flown nematodes in Japan, the First International Caenorhabditis elegans Experiment (ICE-First)",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "R. Adachi",
+          "nombres": "R.",
+          "apellidos": "Adachi"
+        },
+        {
+          "nombre_completo": "H. Kagawa",
+          "nombres": "H.",
+          "apellidos": "Kagawa"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "Y. Sasagawa",
+          "nombres": "Y.",
+          "apellidos": "Sasagawa"
+        },
+        {
+          "nombre_completo": "Y. Miyazawa",
+          "nombres": "Y.",
+          "apellidos": "Miyazawa"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "19513185",
+      "fuente": "Microgravity Sci. Technol.",
+      "anio": "2007",
+      "volumen": "19",
+      "fpage": "159",
+      "lpage": "163"
+    },
+    {
+      "titulo": "Space Flight Induces Reduction of Paramyosin and Troponin T: Proteomic Analysis of Space-Flown Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "M. Imamizo-Sato",
+          "nombres": "M.",
+          "apellidos": "Imamizo-Sato"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "N. Szewczyk",
+          "nombres": "N.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Curr. Biotechnol.",
+      "anio": "2013",
+      "volumen": "2",
+      "fpage": "262",
+      "lpage": "271"
+    },
+    {
+      "titulo": "Comparative analysis of Drosophila melanogaster and Caenorhabditis elegans gene expression experiments in the European Soyuz flights to the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "L.J. Leandro",
+          "nombres": "L.J.",
+          "apellidos": "Leandro"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "A. Benguría",
+          "nombres": "A.",
+          "apellidos": "Benguría"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "D. Laván",
+          "nombres": "D.",
+          "apellidos": "Laván"
+        },
+        {
+          "nombre_completo": "F.J. Medina",
+          "nombres": "F.J.",
+          "apellidos": "Medina"
+        },
+        {
+          "nombre_completo": "G. Gasset",
+          "nombres": "G.",
+          "apellidos": "Gasset"
+        },
+        {
+          "nombre_completo": "J.V. Loon",
+          "nombres": "J.V.",
+          "apellidos": "Loon"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        },
+        {
+          "nombre_completo": "R. Marco",
+          "nombres": "R.",
+          "apellidos": "Marco"
+        }
+      ],
+      "pmid": "18084631",
+      "fuente": "Adv. Space Res.",
+      "anio": "2007",
+      "volumen": "40",
+      "fpage": "506",
+      "lpage": "512"
+    },
+    {
+      "titulo": "The Nesprin-1/-2 ortholog ANC-1 regulates organelle positioning in C. elegans independently from its KASH or actin-binding domains",
+      "autores": [
+        {
+          "nombre_completo": "H. Hao",
+          "nombres": "H.",
+          "apellidos": "Hao"
+        },
+        {
+          "nombre_completo": "S. Kalra",
+          "nombres": "S.",
+          "apellidos": "Kalra"
+        },
+        {
+          "nombre_completo": "L.E. Jameson",
+          "nombres": "L.E.",
+          "apellidos": "Jameson"
+        },
+        {
+          "nombre_completo": "L.A. Guerrero",
+          "nombres": "L.A.",
+          "apellidos": "Guerrero"
+        },
+        {
+          "nombre_completo": "N.E. Cain",
+          "nombres": "N.E.",
+          "apellidos": "Cain"
+        },
+        {
+          "nombre_completo": "J. Bolivar",
+          "nombres": "J.",
+          "apellidos": "Bolivar"
+        },
+        {
+          "nombre_completo": "D.A. Starr",
+          "nombres": "D.A.",
+          "apellidos": "Starr"
+        }
+      ],
+      "pmid": "33860766",
+      "fuente": "Elife",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "e61069",
+      "lpage": ""
+    },
+    {
+      "titulo": "The role of mitochondria in health and disease",
+      "autores": [
+        {
+          "nombre_completo": "D.L. Johannsen",
+          "nombres": "D.L.",
+          "apellidos": "Johannsen"
+        },
+        {
+          "nombre_completo": "E. Ravussin",
+          "nombres": "E.",
+          "apellidos": "Ravussin"
+        }
+      ],
+      "pmid": "19796990",
+      "fuente": "Curr. Opin. Pharmacol.",
+      "anio": "2009",
+      "volumen": "9",
+      "fpage": "780",
+      "lpage": "786"
+    },
+    {
+      "titulo": "Mitochondrial dysfunction induces muscle atrophy during prolonged inactivity: A review of the causes and effects",
+      "autores": [
+        {
+          "nombre_completo": "H. Hyatt",
+          "nombres": "H.",
+          "apellidos": "Hyatt"
+        },
+        {
+          "nombre_completo": "R. Deminice",
+          "nombres": "R.",
+          "apellidos": "Deminice"
+        },
+        {
+          "nombre_completo": "T. Yoshihara",
+          "nombres": "T.",
+          "apellidos": "Yoshihara"
+        },
+        {
+          "nombre_completo": "S.K. Powers",
+          "nombres": "S.K.",
+          "apellidos": "Powers"
+        }
+      ],
+      "pmid": "30452895",
+      "fuente": "Arch. Biochem. Biophys.",
+      "anio": "2019",
+      "volumen": "662",
+      "fpage": "49",
+      "lpage": "60"
+    },
+    {
+      "titulo": "Transcriptomic meta-analysis of disuse muscle atrophy vs. resistance exercise-induced hypertrophy in young and older humans",
+      "autores": [
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "C.R.G. Willis",
+          "nombres": "C.R.G.",
+          "apellidos": "Willis"
+        },
+        {
+          "nombre_completo": "B.E. Phillips",
+          "nombres": "B.E.",
+          "apellidos": "Phillips"
+        },
+        {
+          "nombre_completo": "P.J. Atherton",
+          "nombres": "P.J.",
+          "apellidos": "Atherton"
+        },
+        {
+          "nombre_completo": "L.W. Harries",
+          "nombres": "L.W.",
+          "apellidos": "Harries"
+        },
+        {
+          "nombre_completo": "R.M. Ames",
+          "nombres": "R.M.",
+          "apellidos": "Ames"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        }
+      ],
+      "pmid": "33951310",
+      "fuente": "J. Cachexia Sarcopenia Muscle",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "629",
+      "lpage": "645"
+    },
+    {
+      "titulo": "Spaceflight affects neuronal morphology and alters transcellular degradation of neuronal debris in adult Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "R. Laranjeiro",
+          "nombres": "R.",
+          "apellidos": "Laranjeiro"
+        },
+        {
+          "nombre_completo": "G. Harinath",
+          "nombres": "G.",
+          "apellidos": "Harinath"
+        },
+        {
+          "nombre_completo": "A.K. Pollard",
+          "nombres": "A.K.",
+          "apellidos": "Pollard"
+        },
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "S.A. Vanapalli",
+          "nombres": "S.A.",
+          "apellidos": "Vanapalli"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "M. Driscoll",
+          "nombres": "M.",
+          "apellidos": "Driscoll"
+        }
+      ],
+      "pmid": "33659873",
+      "fuente": "iScience",
+      "anio": "2021",
+      "volumen": "24",
+      "fpage": "102105",
+      "lpage": ""
+    },
+    {
+      "titulo": "Delayed development and lifespan extension as features of metabolic lifestyle alteration in C. elegans under dietary restriction",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "I.A. Udranszky",
+          "nombres": "I.A.",
+          "apellidos": "Udranszky"
+        },
+        {
+          "nombre_completo": "E. Kozak",
+          "nombres": "E.",
+          "apellidos": "Kozak"
+        },
+        {
+          "nombre_completo": "J. Sunga",
+          "nombres": "J.",
+          "apellidos": "Sunga"
+        },
+        {
+          "nombre_completo": "S.K. Kim",
+          "nombres": "S.K.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "L.A. Jacobson",
+          "nombres": "L.A.",
+          "apellidos": "Jacobson"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "17023606",
+      "fuente": "J. Exp. Biol.",
+      "anio": "2006",
+      "volumen": "209",
+      "fpage": "4129",
+      "lpage": "4139"
+    },
+    {
+      "titulo": "Transcriptome analysis of gravitational effects on mouse skeletal muscles under microgravity and artificial 1 g onboard environment",
+      "autores": [
+        {
+          "nombre_completo": "R. Okada",
+          "nombres": "R.",
+          "apellidos": "Okada"
+        },
+        {
+          "nombre_completo": "S.I. Fujita",
+          "nombres": "S.I.",
+          "apellidos": "Fujita"
+        },
+        {
+          "nombre_completo": "R. Suzuki",
+          "nombres": "R.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "T. Hayashi",
+          "nombres": "T.",
+          "apellidos": "Hayashi"
+        },
+        {
+          "nombre_completo": "H. Tsubouchi",
+          "nombres": "H.",
+          "apellidos": "Tsubouchi"
+        },
+        {
+          "nombre_completo": "C. Kato",
+          "nombres": "C.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "S. Sadaki",
+          "nombres": "S.",
+          "apellidos": "Sadaki"
+        },
+        {
+          "nombre_completo": "M. Kanai",
+          "nombres": "M.",
+          "apellidos": "Kanai"
+        },
+        {
+          "nombre_completo": "S. Fuseya",
+          "nombres": "S.",
+          "apellidos": "Fuseya"
+        },
+        {
+          "nombre_completo": "Y. Inoue",
+          "nombres": "Y.",
+          "apellidos": "Inoue"
+        }
+      ],
+      "pmid": "33911096",
+      "fuente": "Sci. Rep.",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "9168",
+      "lpage": ""
+    },
+    {
+      "titulo": "Molecular Muscle Experiment: Hardware and Operational Lessons for Future Astrobiology Space Experiments",
+      "autores": [
+        {
+          "nombre_completo": "A.K. Pollard",
+          "nombres": "A.K.",
+          "apellidos": "Pollard"
+        },
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "M. Balsamo",
+          "nombres": "M.",
+          "apellidos": "Balsamo"
+        },
+        {
+          "nombre_completo": "M. Cooke",
+          "nombres": "M.",
+          "apellidos": "Cooke"
+        },
+        {
+          "nombre_completo": "R.A. Ellwood",
+          "nombres": "R.A.",
+          "apellidos": "Ellwood"
+        },
+        {
+          "nombre_completo": "J.E. Hewitt",
+          "nombres": "J.E.",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "B.E. Mierzwa",
+          "nombres": "B.E.",
+          "apellidos": "Mierzwa"
+        },
+        {
+          "nombre_completo": "A. Mariani",
+          "nombres": "A.",
+          "apellidos": "Mariani"
+        },
+        {
+          "nombre_completo": "S.A. Vanapalli",
+          "nombres": "S.A.",
+          "apellidos": "Vanapalli"
+        }
+      ],
+      "pmid": "32267726",
+      "fuente": "Astrobiology",
+      "anio": "2020",
+      "volumen": "20",
+      "fpage": "935",
+      "lpage": "943"
+    },
+    {
+      "titulo": "Influence of simulated microgravity on human skeletal muscle architecture and function",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Reeves",
+          "nombres": "N.J.",
+          "apellidos": "Reeves"
+        },
+        {
+          "nombre_completo": "C.N. Maganaris",
+          "nombres": "C.N.",
+          "apellidos": "Maganaris"
+        },
+        {
+          "nombre_completo": "G. Ferretti",
+          "nombres": "G.",
+          "apellidos": "Ferretti"
+        },
+        {
+          "nombre_completo": "M.V. Narici",
+          "nombres": "M.V.",
+          "apellidos": "Narici"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Gravitational Physiol.",
+      "anio": "2002",
+      "volumen": "9",
+      "fpage": "P153",
+      "lpage": "P154"
+    },
+    {
+      "titulo": "Microgravity alters the expressions of DNA repair genes and their regulatory miRNAs in space-flown Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "G. Zhang",
+          "nombres": "G.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "A. Tang",
+          "nombres": "A.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "B. Huang",
+          "nombres": "B.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "D. Mi",
+          "nombres": "D.",
+          "apellidos": "Mi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2023",
+      "volumen": "37",
+      "fpage": "25",
+      "lpage": "38"
+    },
+    {
+      "titulo": "Epigenetic responses to environmental change and their evolutionary implications",
+      "autores": [
+        {
+          "nombre_completo": "B.M. Turner",
+          "nombres": "B.M.",
+          "apellidos": "Turner"
+        }
+      ],
+      "pmid": "19833651",
+      "fuente": "Philos. Trans. R. Soc. Lond. B Biol. Sci.",
+      "anio": "2009",
+      "volumen": "364",
+      "fpage": "3403",
+      "lpage": "3418"
+    },
+    {
+      "titulo": "Intergenerational effect of short-term spaceflight in mice",
+      "autores": [
+        {
+          "nombre_completo": "K. Yoshida",
+          "nombres": "K.",
+          "apellidos": "Yoshida"
+        },
+        {
+          "nombre_completo": "S.I. Fujita",
+          "nombres": "S.I.",
+          "apellidos": "Fujita"
+        },
+        {
+          "nombre_completo": "A. Isotani",
+          "nombres": "A.",
+          "apellidos": "Isotani"
+        },
+        {
+          "nombre_completo": "T. Kudo",
+          "nombres": "T.",
+          "apellidos": "Kudo"
+        },
+        {
+          "nombre_completo": "S. Takahashi",
+          "nombres": "S.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "M. Ikawa",
+          "nombres": "M.",
+          "apellidos": "Ikawa"
+        },
+        {
+          "nombre_completo": "D. Shiba",
+          "nombres": "D.",
+          "apellidos": "Shiba"
+        },
+        {
+          "nombre_completo": "M. Shirakawa",
+          "nombres": "M.",
+          "apellidos": "Shirakawa"
+        },
+        {
+          "nombre_completo": "M. Muratani",
+          "nombres": "M.",
+          "apellidos": "Muratani"
+        },
+        {
+          "nombre_completo": "S. Ishii",
+          "nombres": "S.",
+          "apellidos": "Ishii"
+        }
+      ],
+      "pmid": "34278272",
+      "fuente": "iScience",
+      "anio": "2021",
+      "volumen": "24",
+      "fpage": "102773",
+      "lpage": ""
+    },
+    {
+      "titulo": "Age-related Differences in Dystrophin: Impact on Force Transfer Proteins, Membrane Integrity, and Neuromuscular Junction Stability",
+      "autores": [
+        {
+          "nombre_completo": "D.C. Hughes",
+          "nombres": "D.C.",
+          "apellidos": "Hughes"
+        },
+        {
+          "nombre_completo": "G.R. Marcotte",
+          "nombres": "G.R.",
+          "apellidos": "Marcotte"
+        },
+        {
+          "nombre_completo": "A.G. Marshall",
+          "nombres": "A.G.",
+          "apellidos": "Marshall"
+        },
+        {
+          "nombre_completo": "D.W.D. West",
+          "nombres": "D.W.D.",
+          "apellidos": "West"
+        },
+        {
+          "nombre_completo": "L.M. Baehr",
+          "nombres": "L.M.",
+          "apellidos": "Baehr"
+        },
+        {
+          "nombre_completo": "M.A. Wallace",
+          "nombres": "M.A.",
+          "apellidos": "Wallace"
+        },
+        {
+          "nombre_completo": "P.M. Saleh",
+          "nombres": "P.M.",
+          "apellidos": "Saleh"
+        },
+        {
+          "nombre_completo": "S.C. Bodine",
+          "nombres": "S.C.",
+          "apellidos": "Bodine"
+        },
+        {
+          "nombre_completo": "K. Baar",
+          "nombres": "K.",
+          "apellidos": "Baar"
+        }
+      ],
+      "pmid": "27382038",
+      "fuente": "J. Gerontol. A Biol. Sci. Med. Sci.",
+      "anio": "2017",
+      "volumen": "72",
+      "fpage": "640",
+      "lpage": "648"
+    },
+    {
+      "titulo": "Effect of dys-1 mutation on gene expression profile in space-flown Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "D. Xu",
+          "nombres": "D.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "L. Guo",
+          "nombres": "L.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "C. Lin",
+          "nombres": "C.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Muscle Nerve",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Detection of space radiation-induced double strand breaks as a track in cell nucleus",
+      "autores": [
+        {
+          "nombre_completo": "T. Ohnishi",
+          "nombres": "T.",
+          "apellidos": "Ohnishi"
+        },
+        {
+          "nombre_completo": "A. Takahashi",
+          "nombres": "A.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "A. Nagamatsu",
+          "nombres": "A.",
+          "apellidos": "Nagamatsu"
+        },
+        {
+          "nombre_completo": "K. Omori",
+          "nombres": "K.",
+          "apellidos": "Omori"
+        },
+        {
+          "nombre_completo": "H. Suzuki",
+          "nombres": "H.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "T. Shimazu",
+          "nombres": "T.",
+          "apellidos": "Shimazu"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "19799866",
+      "fuente": "Biochem. Biophys. Res. Commun.",
+      "anio": "2009",
+      "volumen": "390",
+      "fpage": "485",
+      "lpage": "488"
+    },
+    {
+      "titulo": "Analysis of radiation dose variations measured by passive dosimeters onboard the International Space Station during the solar quiet period (2007–2008)",
+      "autores": [
+        {
+          "nombre_completo": "S. Kodaira",
+          "nombres": "S.",
+          "apellidos": "Kodaira"
+        },
+        {
+          "nombre_completo": "H. Kawashima",
+          "nombres": "H.",
+          "apellidos": "Kawashima"
+        },
+        {
+          "nombre_completo": "H. Kitamura",
+          "nombres": "H.",
+          "apellidos": "Kitamura"
+        },
+        {
+          "nombre_completo": "M. Kurano",
+          "nombres": "M.",
+          "apellidos": "Kurano"
+        },
+        {
+          "nombre_completo": "Y. Uchihori",
+          "nombres": "Y.",
+          "apellidos": "Uchihori"
+        },
+        {
+          "nombre_completo": "N. Yasuda",
+          "nombres": "N.",
+          "apellidos": "Yasuda"
+        },
+        {
+          "nombre_completo": "K. Ogura",
+          "nombres": "K.",
+          "apellidos": "Ogura"
+        },
+        {
+          "nombre_completo": "I. Kobayashi",
+          "nombres": "I.",
+          "apellidos": "Kobayashi"
+        },
+        {
+          "nombre_completo": "A. Suzuki",
+          "nombres": "A.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "Y. Koguchi",
+          "nombres": "Y.",
+          "apellidos": "Koguchi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Radiat. Meas.",
+      "anio": "2013",
+      "volumen": "49",
+      "fpage": "95",
+      "lpage": "102"
+    },
+    {
+      "titulo": "Area radiation monitoring on ISS Increments 17 to 22 using PADLES in the Japanese Experiment Module Kibo",
+      "autores": [
+        {
+          "nombre_completo": "A. Nagamatsu",
+          "nombres": "A.",
+          "apellidos": "Nagamatsu"
+        },
+        {
+          "nombre_completo": "K. Murakami",
+          "nombres": "K.",
+          "apellidos": "Murakami"
+        },
+        {
+          "nombre_completo": "K. Kitajo",
+          "nombres": "K.",
+          "apellidos": "Kitajo"
+        },
+        {
+          "nombre_completo": "K. Shimada",
+          "nombres": "K.",
+          "apellidos": "Shimada"
+        },
+        {
+          "nombre_completo": "H. Kumagai",
+          "nombres": "H.",
+          "apellidos": "Kumagai"
+        },
+        {
+          "nombre_completo": "H. Tawara",
+          "nombres": "H.",
+          "apellidos": "Tawara"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Radiat. Meas.",
+      "anio": "2013",
+      "volumen": "59",
+      "fpage": "84",
+      "lpage": "93"
+    },
+    {
+      "titulo": "Hyper-resistance of meiotic cells to radiation due to a strong expression of a single recA-like gene in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "T. Takanami",
+          "nombres": "T.",
+          "apellidos": "Takanami"
+        },
+        {
+          "nombre_completo": "A. Mori",
+          "nombres": "A.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "H. Takahashi",
+          "nombres": "H.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        }
+      ],
+      "pmid": "11058122",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2000",
+      "volumen": "28",
+      "fpage": "4232",
+      "lpage": "4236"
+    },
+    {
+      "titulo": "Efficient repair of DNA damage induced by heavy ion particles in meiotic prophase I nuclei of Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "T. Takanami",
+          "nombres": "T.",
+          "apellidos": "Takanami"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H. Aoki",
+          "nombres": "H.",
+          "apellidos": "Aoki"
+        },
+        {
+          "nombre_completo": "T. Abe",
+          "nombres": "T.",
+          "apellidos": "Abe"
+        },
+        {
+          "nombre_completo": "S. Yoshida",
+          "nombres": "S.",
+          "apellidos": "Yoshida"
+        },
+        {
+          "nombre_completo": "H. Takahashi",
+          "nombres": "H.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "S. Horiuchi",
+          "nombres": "S.",
+          "apellidos": "Horiuchi"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        }
+      ],
+      "pmid": "14646232",
+      "fuente": "J. Radiat. Res.",
+      "anio": "2003",
+      "volumen": "44",
+      "fpage": "271",
+      "lpage": "276"
+    },
+    {
+      "titulo": "A comparison of mutations induced by accelerated iron particles versus those induced by low earth orbit space radiation in the FEM-3 gene of Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "P.S. Hartman",
+          "nombres": "P.S.",
+          "apellidos": "Hartman"
+        },
+        {
+          "nombre_completo": "A. Hlavacek",
+          "nombres": "A.",
+          "apellidos": "Hlavacek"
+        },
+        {
+          "nombre_completo": "H. Wilde",
+          "nombres": "H.",
+          "apellidos": "Wilde"
+        },
+        {
+          "nombre_completo": "D. Lewicki",
+          "nombres": "D.",
+          "apellidos": "Lewicki"
+        },
+        {
+          "nombre_completo": "W. Schubert",
+          "nombres": "W.",
+          "apellidos": "Schubert"
+        },
+        {
+          "nombre_completo": "R.G. Kern",
+          "nombres": "R.G.",
+          "apellidos": "Kern"
+        },
+        {
+          "nombre_completo": "G.A. Kazarians",
+          "nombres": "G.A.",
+          "apellidos": "Kazarians"
+        },
+        {
+          "nombre_completo": "E.V. Benton",
+          "nombres": "E.V.",
+          "apellidos": "Benton"
+        },
+        {
+          "nombre_completo": "E.R. Benton",
+          "nombres": "E.R.",
+          "apellidos": "Benton"
+        },
+        {
+          "nombre_completo": "G.A. Nelson",
+          "nombres": "G.A.",
+          "apellidos": "Nelson"
+        }
+      ],
+      "pmid": "11239962",
+      "fuente": "Mutat. Res.",
+      "anio": "2001",
+      "volumen": "474",
+      "fpage": "47",
+      "lpage": "55"
+    },
+    {
+      "titulo": "A mutational analysis of Caenorhabditis elegans in space",
+      "autores": [
+        {
+          "nombre_completo": "Y. Zhao",
+          "nombres": "Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "K. Lai",
+          "nombres": "K.",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "I. Cheung",
+          "nombres": "I.",
+          "apellidos": "Cheung"
+        },
+        {
+          "nombre_completo": "J. Youds",
+          "nombres": "J.",
+          "apellidos": "Youds"
+        },
+        {
+          "nombre_completo": "M. Tarailo",
+          "nombres": "M.",
+          "apellidos": "Tarailo"
+        },
+        {
+          "nombre_completo": "S. Tarailo",
+          "nombres": "S.",
+          "apellidos": "Tarailo"
+        },
+        {
+          "nombre_completo": "A. Rose",
+          "nombres": "A.",
+          "apellidos": "Rose"
+        }
+      ],
+      "pmid": "16765996",
+      "fuente": "Mutat. Res.",
+      "anio": "2006",
+      "volumen": "601",
+      "fpage": "19",
+      "lpage": "29"
+    },
+    {
+      "titulo": "Characterization of the direct targets of FOXO transcription factors throughout evolution",
+      "autores": [
+        {
+          "nombre_completo": "A.E. Webb",
+          "nombres": "A.E.",
+          "apellidos": "Webb"
+        },
+        {
+          "nombre_completo": "A. Kundaje",
+          "nombres": "A.",
+          "apellidos": "Kundaje"
+        },
+        {
+          "nombre_completo": "A. Brunet",
+          "nombres": "A.",
+          "apellidos": "Brunet"
+        }
+      ],
+      "pmid": "27061590",
+      "fuente": "Aging Cell",
+      "anio": "2016",
+      "volumen": "15",
+      "fpage": "673",
+      "lpage": "685"
+    },
+    {
+      "titulo": "Spaceflight alters insulin and estrogen signaling pathways",
+      "autores": [
+        {
+          "nombre_completo": "B.A. Mathyk",
+          "nombres": "B.A.",
+          "apellidos": "Mathyk"
+        },
+        {
+          "nombre_completo": "M. Tabetah",
+          "nombres": "M.",
+          "apellidos": "Tabetah"
+        },
+        {
+          "nombre_completo": "R. Karim",
+          "nombres": "R.",
+          "apellidos": "Karim"
+        },
+        {
+          "nombre_completo": "V. Zaksas",
+          "nombres": "V.",
+          "apellidos": "Zaksas"
+        },
+        {
+          "nombre_completo": "J. Kim",
+          "nombres": "J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "A. I",
+          "nombres": "A.",
+          "apellidos": "I"
+        },
+        {
+          "nombre_completo": "M. Muratani",
+          "nombres": "M.",
+          "apellidos": "Muratani"
+        },
+        {
+          "nombre_completo": "A. Tasoula",
+          "nombres": "A.",
+          "apellidos": "Tasoula"
+        },
+        {
+          "nombre_completo": "R. Singh",
+          "nombres": "R.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "Y.-K. Chen",
+          "nombres": "Y.-K.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Research Square",
+      "anio": "2023",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Network analysis of human muscle adaptation to aging and contraction",
+      "autores": [
+        {
+          "nombre_completo": "C.R.G. Willis",
+          "nombres": "C.R.G.",
+          "apellidos": "Willis"
+        },
+        {
+          "nombre_completo": "R.M. Ames",
+          "nombres": "R.M.",
+          "apellidos": "Ames"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "B.E. Phillips",
+          "nombres": "B.E.",
+          "apellidos": "Phillips"
+        },
+        {
+          "nombre_completo": "C.L. Boereboom",
+          "nombres": "C.L.",
+          "apellidos": "Boereboom"
+        },
+        {
+          "nombre_completo": "H. Abdulla",
+          "nombres": "H.",
+          "apellidos": "Abdulla"
+        },
+        {
+          "nombre_completo": "S.S.I. Bukhari",
+          "nombres": "S.S.I.",
+          "apellidos": "Bukhari"
+        },
+        {
+          "nombre_completo": "J.N. Lund",
+          "nombres": "J.N.",
+          "apellidos": "Lund"
+        },
+        {
+          "nombre_completo": "J.P. Williams",
+          "nombres": "J.P.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "D.J. Wilkinson",
+          "nombres": "D.J.",
+          "apellidos": "Wilkinson"
+        }
+      ],
+      "pmid": "31910159",
+      "fuente": "Aging (Albany NY)",
+      "anio": "2020",
+      "volumen": "12",
+      "fpage": "740",
+      "lpage": "755"
+    },
+    {
+      "titulo": "Transcriptomic links to muscle mass loss and declines in cumulative muscle protein synthesis during short-term disuse in healthy younger humans",
+      "autores": [
+        {
+          "nombre_completo": "C.R.G. Willis",
+          "nombres": "C.R.G.",
+          "apellidos": "Willis"
+        },
+        {
+          "nombre_completo": "I.J. Gallagher",
+          "nombres": "I.J.",
+          "apellidos": "Gallagher"
+        },
+        {
+          "nombre_completo": "D.J. Wilkinson",
+          "nombres": "D.J.",
+          "apellidos": "Wilkinson"
+        },
+        {
+          "nombre_completo": "M.S. Brook",
+          "nombres": "M.S.",
+          "apellidos": "Brook"
+        },
+        {
+          "nombre_completo": "J.J. Bass",
+          "nombres": "J.J.",
+          "apellidos": "Bass"
+        },
+        {
+          "nombre_completo": "B.E. Phillips",
+          "nombres": "B.E.",
+          "apellidos": "Phillips"
+        },
+        {
+          "nombre_completo": "K. Smith",
+          "nombres": "K.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "T. Stokes",
+          "nombres": "T.",
+          "apellidos": "Stokes"
+        },
+        {
+          "nombre_completo": "C. McGlory",
+          "nombres": "C.",
+          "apellidos": "McGlory"
+        }
+      ],
+      "pmid": "34342902",
+      "fuente": "Faseb. J.",
+      "anio": "2021",
+      "volumen": "35",
+      "fpage": "e21830",
+      "lpage": ""
+    },
+    {
+      "titulo": "C. elegans as a model for inter-individual variation in metabolism",
+      "autores": [
+        {
+          "nombre_completo": "B.W. Fox",
+          "nombres": "B.W.",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "O. Ponomarova",
+          "nombres": "O.",
+          "apellidos": "Ponomarova"
+        },
+        {
+          "nombre_completo": "Y.U. Lee",
+          "nombres": "Y.U.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "G. Zhang",
+          "nombres": "G.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G.E. Giese",
+          "nombres": "G.E.",
+          "apellidos": "Giese"
+        },
+        {
+          "nombre_completo": "M. Walker",
+          "nombres": "M.",
+          "apellidos": "Walker"
+        },
+        {
+          "nombre_completo": "N.M. Roberto",
+          "nombres": "N.M.",
+          "apellidos": "Roberto"
+        },
+        {
+          "nombre_completo": "H. Na",
+          "nombres": "H.",
+          "apellidos": "Na"
+        },
+        {
+          "nombre_completo": "P.R. Rodrigues",
+          "nombres": "P.R.",
+          "apellidos": "Rodrigues"
+        },
+        {
+          "nombre_completo": "B.J. Curtis",
+          "nombres": "B.J.",
+          "apellidos": "Curtis"
+        }
+      ],
+      "pmid": "35794472",
+      "fuente": "Nature",
+      "anio": "2022",
+      "volumen": "607",
+      "fpage": "571",
+      "lpage": "577"
+    },
+    {
+      "titulo": "Metabolomics and lipidomics in Caenorhabditis elegans using a single-sample preparation",
+      "autores": [
+        {
+          "nombre_completo": "M. Molenaars",
+          "nombres": "M.",
+          "apellidos": "Molenaars"
+        },
+        {
+          "nombre_completo": "B.V. Schomakers",
+          "nombres": "B.V.",
+          "apellidos": "Schomakers"
+        },
+        {
+          "nombre_completo": "H.L. Elfrink",
+          "nombres": "H.L.",
+          "apellidos": "Elfrink"
+        },
+        {
+          "nombre_completo": "A.W. Gao",
+          "nombres": "A.W.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "M.A.T. Vervaart",
+          "nombres": "M.A.T.",
+          "apellidos": "Vervaart"
+        },
+        {
+          "nombre_completo": "M.L. Pras-Raves",
+          "nombres": "M.L.",
+          "apellidos": "Pras-Raves"
+        },
+        {
+          "nombre_completo": "A.C. Luyf",
+          "nombres": "A.C.",
+          "apellidos": "Luyf"
+        },
+        {
+          "nombre_completo": "R.L. Smith",
+          "nombres": "R.L.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "M.G. Sterken",
+          "nombres": "M.G.",
+          "apellidos": "Sterken"
+        },
+        {
+          "nombre_completo": "J.E. Kammenga",
+          "nombres": "J.E.",
+          "apellidos": "Kammenga"
+        }
+      ],
+      "pmid": "33653825",
+      "fuente": "Dis. Model. Mech.",
+      "anio": "2021",
+      "volumen": "14",
+      "fpage": "dmm047746",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-Omics and Genome-Scale Modeling Reveal a Metabolic Shift During C. elegans Aging",
+      "autores": [
+        {
+          "nombre_completo": "J. Hastings",
+          "nombres": "J.",
+          "apellidos": "Hastings"
+        },
+        {
+          "nombre_completo": "A. Mains",
+          "nombres": "A.",
+          "apellidos": "Mains"
+        },
+        {
+          "nombre_completo": "B. Virk",
+          "nombres": "B.",
+          "apellidos": "Virk"
+        },
+        {
+          "nombre_completo": "N. Rodriguez",
+          "nombres": "N.",
+          "apellidos": "Rodriguez"
+        },
+        {
+          "nombre_completo": "S. Murdoch",
+          "nombres": "S.",
+          "apellidos": "Murdoch"
+        },
+        {
+          "nombre_completo": "J. Pearce",
+          "nombres": "J.",
+          "apellidos": "Pearce"
+        },
+        {
+          "nombre_completo": "S. Bergmann",
+          "nombres": "S.",
+          "apellidos": "Bergmann"
+        },
+        {
+          "nombre_completo": "N. Le Novère",
+          "nombres": "N.",
+          "apellidos": "Le Novère"
+        },
+        {
+          "nombre_completo": "O. Casanueva",
+          "nombres": "O.",
+          "apellidos": "Casanueva"
+        }
+      ],
+      "pmid": "30788345",
+      "fuente": "Front. Mol. Biosci.",
+      "anio": "2019",
+      "volumen": "6",
+      "fpage": "2",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-omics Analyses of Starvation Responses Reveal a Central Role for Lipoprotein Metabolism in Acute Starvation Survival in C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "E.B. Harvald",
+          "nombres": "E.B.",
+          "apellidos": "Harvald"
+        },
+        {
+          "nombre_completo": "R.R. Sprenger",
+          "nombres": "R.R.",
+          "apellidos": "Sprenger"
+        },
+        {
+          "nombre_completo": "N.J. Færgeman",
+          "nombres": "N.J.",
+          "apellidos": "Færgeman"
+        },
+        {
+          "nombre_completo": "K.B. Dall",
+          "nombres": "K.B.",
+          "apellidos": "Dall"
+        },
+        {
+          "nombre_completo": "C.S. Ejsing",
+          "nombres": "C.S.",
+          "apellidos": "Ejsing"
+        },
+        {
+          "nombre_completo": "R. Nielsen",
+          "nombres": "R.",
+          "apellidos": "Nielsen"
+        },
+        {
+          "nombre_completo": "S. Mandrup",
+          "nombres": "S.",
+          "apellidos": "Mandrup"
+        },
+        {
+          "nombre_completo": "A.B. Murillo",
+          "nombres": "A.B.",
+          "apellidos": "Murillo"
+        },
+        {
+          "nombre_completo": "M. Larance",
+          "nombres": "M.",
+          "apellidos": "Larance"
+        },
+        {
+          "nombre_completo": "A. Gartner",
+          "nombres": "A.",
+          "apellidos": "Gartner"
+        },
+        {
+          "nombre_completo": "A.I. Lamond",
+          "nombres": "A.I.",
+          "apellidos": "Lamond"
+        }
+      ],
+      "pmid": "28734827",
+      "fuente": "Cell Syst.",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "38",
+      "lpage": "52.e4"
+    },
+    {
+      "titulo": "Multi-omics analysis identifies essential regulators of mitochondrial stress response in two wild-type C. elegans strains",
+      "autores": [
+        {
+          "nombre_completo": "A.W. Gao",
+          "nombres": "A.W.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "G. El Alam",
+          "nombres": "G.",
+          "apellidos": "El Alam"
+        },
+        {
+          "nombre_completo": "A. Lalou",
+          "nombres": "A.",
+          "apellidos": "Lalou"
+        },
+        {
+          "nombre_completo": "T.Y. Li",
+          "nombres": "T.Y.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "M. Molenaars",
+          "nombres": "M.",
+          "apellidos": "Molenaars"
+        },
+        {
+          "nombre_completo": "Y. Zhu",
+          "nombres": "Y.",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "K.A. Overmyer",
+          "nombres": "K.A.",
+          "apellidos": "Overmyer"
+        },
+        {
+          "nombre_completo": "E. Shishkova",
+          "nombres": "E.",
+          "apellidos": "Shishkova"
+        },
+        {
+          "nombre_completo": "K. Hof",
+          "nombres": "K.",
+          "apellidos": "Hof"
+        },
+        {
+          "nombre_completo": "M. Bou Sleiman",
+          "nombres": "M.",
+          "apellidos": "Bou Sleiman"
+        }
+      ],
+      "pmid": "35118355",
+      "fuente": "iScience",
+      "anio": "2022",
+      "volumen": "25",
+      "fpage": "103734",
+      "lpage": ""
+    },
+    {
+      "titulo": "Transcriptome analysis of adult Caenorhabditis elegans cells reveals tissue-specific gene and isoform expression",
+      "autores": [
+        {
+          "nombre_completo": "R. Kaletsky",
+          "nombres": "R.",
+          "apellidos": "Kaletsky"
+        },
+        {
+          "nombre_completo": "V. Yao",
+          "nombres": "V.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "A. Williams",
+          "nombres": "A.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "A.M. Runnels",
+          "nombres": "A.M.",
+          "apellidos": "Runnels"
+        },
+        {
+          "nombre_completo": "A. Tadych",
+          "nombres": "A.",
+          "apellidos": "Tadych"
+        },
+        {
+          "nombre_completo": "S. Zhou",
+          "nombres": "S.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "O.G. Troyanskaya",
+          "nombres": "O.G.",
+          "apellidos": "Troyanskaya"
+        },
+        {
+          "nombre_completo": "C.T. Murphy",
+          "nombres": "C.T.",
+          "apellidos": "Murphy"
+        }
+      ],
+      "pmid": "30096138",
+      "fuente": "PLoS Genet.",
+      "anio": "2018",
+      "volumen": "14",
+      "fpage": "e1007559",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spatial Transcriptomics of C. elegans Males and Hermaphrodites Identifies Sex-Specific Differences in Gene Expression Patterns",
+      "autores": [
+        {
+          "nombre_completo": "A. Ebbing",
+          "nombres": "A.",
+          "apellidos": "Ebbing"
+        },
+        {
+          "nombre_completo": "Á. Vértesy",
+          "nombres": "Á.",
+          "apellidos": "Vértesy"
+        },
+        {
+          "nombre_completo": "M.C. Betist",
+          "nombres": "M.C.",
+          "apellidos": "Betist"
+        },
+        {
+          "nombre_completo": "B. Spanjaard",
+          "nombres": "B.",
+          "apellidos": "Spanjaard"
+        },
+        {
+          "nombre_completo": "J.P. Junker",
+          "nombres": "J.P.",
+          "apellidos": "Junker"
+        },
+        {
+          "nombre_completo": "E. Berezikov",
+          "nombres": "E.",
+          "apellidos": "Berezikov"
+        },
+        {
+          "nombre_completo": "A. van Oudenaarden",
+          "nombres": "A.",
+          "apellidos": "van Oudenaarden"
+        },
+        {
+          "nombre_completo": "H.C. Korswagen",
+          "nombres": "H.C.",
+          "apellidos": "Korswagen"
+        }
+      ],
+      "pmid": "30416013",
+      "fuente": "Dev. Cell",
+      "anio": "2018",
+      "volumen": "47",
+      "fpage": "801",
+      "lpage": "813.e6"
+    },
+    {
+      "titulo": "Genome-wide RNA Tomography in the zebrafish embryo",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Junker",
+          "nombres": "J.P.",
+          "apellidos": "Junker"
+        },
+        {
+          "nombre_completo": "E.S. Noël",
+          "nombres": "E.S.",
+          "apellidos": "Noël"
+        },
+        {
+          "nombre_completo": "V. Guryev",
+          "nombres": "V.",
+          "apellidos": "Guryev"
+        },
+        {
+          "nombre_completo": "K.A. Peterson",
+          "nombres": "K.A.",
+          "apellidos": "Peterson"
+        },
+        {
+          "nombre_completo": "G. Shah",
+          "nombres": "G.",
+          "apellidos": "Shah"
+        },
+        {
+          "nombre_completo": "J. Huisken",
+          "nombres": "J.",
+          "apellidos": "Huisken"
+        },
+        {
+          "nombre_completo": "A.P. McMahon",
+          "nombres": "A.P.",
+          "apellidos": "McMahon"
+        },
+        {
+          "nombre_completo": "E. Berezikov",
+          "nombres": "E.",
+          "apellidos": "Berezikov"
+        },
+        {
+          "nombre_completo": "J. Bakkers",
+          "nombres": "J.",
+          "apellidos": "Bakkers"
+        },
+        {
+          "nombre_completo": "A. van Oudenaarden",
+          "nombres": "A.",
+          "apellidos": "van Oudenaarden"
+        }
+      ],
+      "pmid": "25417113",
+      "fuente": "Cell",
+      "anio": "2014",
+      "volumen": "159",
+      "fpage": "662",
+      "lpage": "675"
+    },
+    {
+      "titulo": "Validation of noise models for single-cell transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "D. Grün",
+          "nombres": "D.",
+          "apellidos": "Grün"
+        },
+        {
+          "nombre_completo": "L. Kester",
+          "nombres": "L.",
+          "apellidos": "Kester"
+        },
+        {
+          "nombre_completo": "A. van Oudenaarden",
+          "nombres": "A.",
+          "apellidos": "van Oudenaarden"
+        }
+      ],
+      "pmid": "24747814",
+      "fuente": "Nat. Methods",
+      "anio": "2014",
+      "volumen": "11",
+      "fpage": "637",
+      "lpage": "640"
+    },
+    {
+      "titulo": "Gene Function Prediction Based on Developmental Transcriptomes of the Two Sexes in C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "B. Kim",
+          "nombres": "B.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "B. Suo",
+          "nombres": "B.",
+          "apellidos": "Suo"
+        },
+        {
+          "nombre_completo": "S.W. Emmons",
+          "nombres": "S.W.",
+          "apellidos": "Emmons"
+        }
+      ],
+      "pmid": "27732864",
+      "fuente": "Cell Rep.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "917",
+      "lpage": "928"
+    },
+    {
+      "titulo": "Exploring tissue architecture using spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "A. Rao",
+          "nombres": "A.",
+          "apellidos": "Rao"
+        },
+        {
+          "nombre_completo": "D. Barkley",
+          "nombres": "D.",
+          "apellidos": "Barkley"
+        },
+        {
+          "nombre_completo": "G.S. França",
+          "nombres": "G.S.",
+          "apellidos": "França"
+        },
+        {
+          "nombre_completo": "I. Yanai",
+          "nombres": "I.",
+          "apellidos": "Yanai"
+        }
+      ],
+      "pmid": "34381231",
+      "fuente": "Nature",
+      "anio": "2021",
+      "volumen": "596",
+      "fpage": "211",
+      "lpage": "220"
+    },
+    {
+      "titulo": "Spatial Transcriptomics of Nematodes Identifies Sperm Cells as a Source of Genomic Novelty and Rapid Evolution",
+      "autores": [
+        {
+          "nombre_completo": "C. Rödelsperger",
+          "nombres": "C.",
+          "apellidos": "Rödelsperger"
+        },
+        {
+          "nombre_completo": "A. Ebbing",
+          "nombres": "A.",
+          "apellidos": "Ebbing"
+        },
+        {
+          "nombre_completo": "D.R. Sharma",
+          "nombres": "D.R.",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "M. Okumura",
+          "nombres": "M.",
+          "apellidos": "Okumura"
+        },
+        {
+          "nombre_completo": "R.J. Sommer",
+          "nombres": "R.J.",
+          "apellidos": "Sommer"
+        },
+        {
+          "nombre_completo": "H.C. Korswagen",
+          "nombres": "H.C.",
+          "apellidos": "Korswagen"
+        }
+      ],
+      "pmid": "32785688",
+      "fuente": "Mol. Biol. Evol.",
+      "anio": "2021",
+      "volumen": "38",
+      "fpage": "229",
+      "lpage": "243"
+    },
+    {
+      "titulo": "Spatial transcriptomics of the nematode Caenorhabditis elegans using RNA tomography",
+      "autores": [
+        {
+          "nombre_completo": "E.S. Schild",
+          "nombres": "E.S.",
+          "apellidos": "Schild"
+        },
+        {
+          "nombre_completo": "J. Mars",
+          "nombres": "J.",
+          "apellidos": "Mars"
+        },
+        {
+          "nombre_completo": "A. Ebbing",
+          "nombres": "A.",
+          "apellidos": "Ebbing"
+        },
+        {
+          "nombre_completo": "J. Vivié",
+          "nombres": "J.",
+          "apellidos": "Vivié"
+        },
+        {
+          "nombre_completo": "M. Betist",
+          "nombres": "M.",
+          "apellidos": "Betist"
+        },
+        {
+          "nombre_completo": "H.C. Korswagen",
+          "nombres": "H.C.",
+          "apellidos": "Korswagen"
+        }
+      ],
+      "pmid": "33870220",
+      "fuente": "STAR Protoc.",
+      "anio": "2021",
+      "volumen": "2",
+      "fpage": "100411",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cell-specific proteomic analysis in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "K.P. Yuet",
+          "nombres": "K.P.",
+          "apellidos": "Yuet"
+        },
+        {
+          "nombre_completo": "M.K. Doma",
+          "nombres": "M.K.",
+          "apellidos": "Doma"
+        },
+        {
+          "nombre_completo": "J.T. Ngo",
+          "nombres": "J.T.",
+          "apellidos": "Ngo"
+        },
+        {
+          "nombre_completo": "M.J. Sweredoski",
+          "nombres": "M.J.",
+          "apellidos": "Sweredoski"
+        },
+        {
+          "nombre_completo": "R.L.J. Graham",
+          "nombres": "R.L.J.",
+          "apellidos": "Graham"
+        },
+        {
+          "nombre_completo": "A. Moradian",
+          "nombres": "A.",
+          "apellidos": "Moradian"
+        },
+        {
+          "nombre_completo": "S. Hess",
+          "nombres": "S.",
+          "apellidos": "Hess"
+        },
+        {
+          "nombre_completo": "E.M. Schuman",
+          "nombres": "E.M.",
+          "apellidos": "Schuman"
+        },
+        {
+          "nombre_completo": "P.W. Sternberg",
+          "nombres": "P.W.",
+          "apellidos": "Sternberg"
+        },
+        {
+          "nombre_completo": "D.A. Tirrell",
+          "nombres": "D.A.",
+          "apellidos": "Tirrell"
+        }
+      ],
+      "pmid": "25691744",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2015",
+      "volumen": "112",
+      "fpage": "2705",
+      "lpage": "2710"
+    },
+    {
+      "titulo": "Molecular basis for oxidative stress induced by simulated microgravity in nematode Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Q. Rui",
+          "nombres": "Q.",
+          "apellidos": "Rui"
+        },
+        {
+          "nombre_completo": "D. Wang",
+          "nombres": "D.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sci. Total Environ.",
+      "anio": "2017",
+      "volumen": "607–608",
+      "fpage": "1381",
+      "lpage": "1390"
+    }
+  ]
+}

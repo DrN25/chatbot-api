@@ -1,0 +1,2632 @@
+{
+  "TITLE": [
+    "MetaMiner: A Scalable Peptidogenomics Approach for Discovery of Ribosomal Peptide Natural Products with Blind Modifications from Microbial Communities"
+  ],
+  "ABSTRACT": [
+    "Summary",
+    "Ribosomally synthesized and post-translationally modified peptides (RiPPs) are an important class of natural products that contain antibiotics and a variety of other bioactive compounds. The existing methods for discovery of RiPPs by combining genome mining and computational mass spectrometry are limited to discovering specific classes of RiPPs from small datasets, and they fail to handle unknown post-translational modifications. We present MetaMiner, a software tool for addressing these challenges that is compatible with large-scale screening platforms for natural product discovery. After searching millions of spectra in the Global Natural Products Social (GNPS) molecular networking infrastructure against just eight genomic and metagenomic datasets, MetaMiner discovered 31 known and seven unknown RiPPs from diverse microbial communities including human microbiome, lichen microbiome, and micro-organisms isolated from the International Space Station.",
+    "Graphical Abstract",
+    "eTOC Blurb",
+    "We have developed an efficient method for discovering ribosomally synthesized and post-translationally modified peptides with unknown post-translational modifications from microbial communities through the database search of mass spectra against peptides predicted by genome/metagenome mining. Searching eight datasets collected from various environments including human microbiome, marine cyanobacteria and international space station resulted in the discovery of seven unknown RiPPs."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Natural products are back at the center of attention as pharmaceutical leads, as exemplified by the recent discoveries of bioactive natural product drugs. Recent advances in metagenomics are transforming the field of natural product discovery by enabling the recovery of microbial genomes directly from the environmental samples. This has revolutionized our understanding about the microbial composition of various communities and their biosynthetic gene clusters. Biosynthetic gene cluster are sets of genes that synthesize microbial small molecules from simple building blocks. The metagenomes of microbial communities contain thousands of biosynthetic gene clusters with unknown small molecule products, making them an untapped resource for the future antimicrobial drug discovery.",
+    "The biosynthetic gene clusters of natural products in microbial genomes can be identified by sequence similarity searches. Moreover, in the case of peptide natural products (PNPs), it is possible to predict the corresponding putative structures based on the genes present in their biosynthetic gene clusters (Oman and van der Donk, 2010; Stachelhaus et al., 1999). However, the structure of PNPs usually differs from these predictions due to post-translational modifications applied by the enzymes in the biosynthetic gene cluster. For example, in the case of polytheonamides, the PNP has 49 residues, with 21 post-translational modifications, making it nearly impossible to predict the PNP structure solely based on the genomic data. Therefore, in addition to genome mining, metabolomics methods including mass spectrometry and nuclear magnetic resonance are routinely used for determining the structure of the molecular product of biosynthetic gene cluster (Doroghazi et al., 2014).",
+    "The recent launch of the Global Natural Products Social (GNPS) molecular networking infrastructure brought together over a thousand laboratories worldwide that have already generated an unprecedented amount of tandem mass spectra of natural products. Computational mass spectrometry methods have revealed thousands of known small molecules and their unknown variants in various microbiome datasets from the GNPS molecular networking. However, the majority of the spectra in these datasets remains unannotated, which is often referred as the ‘dark matter of metabolomics’. A portion of these spectra represent unknown small molecule products of biosynthetic gene clusters encoded in the microbial genomes, and computational algorithms are needed for illuminating this dark matter.",
+    "This paper focuses on the integration of computational mass spectrometry and genome mining for discovering unknown Ribosomally synthesized and Post-translationally modified Peptides (RiPPs). RiPPs are a rapidly expanding group of natural products with applications in pharmaceutical and food industries. RiPPs are produced through the Post Ribosomal Peptide Synthesis (PRPS) pathway. Initially, RiPPs are synthesized as precursor peptides encoded by RiPP structural genes. The RiPP structural genes are often short, making their annotations difficult. The precursor peptide consists of a prefix leader peptide appended to a suffix core peptide. The leader peptide is important for the recognition by the RiPP post-translational modification enzymes and for exporting the RiPP out of the cell. The core peptide is post-translationally modified by the RiPP biosynthetic machinery, proteolytically cleaved from the leader peptide to yield the mature RiPP, and exported out of the cell by transporters. The precursor peptide and the enzymes responsible for its post-translational modifications (PTMs), proteolytic cleavage, and transportation are usually located within a contiguous biosynthetic gene cluster of the RiPP. The length of a microbial RiPP-encoding biosynthetic gene cluster typically varies from 1,000 to 40,000 bp (average length 10,000 bp). Since RiPP-encoding biosynthetic gene clusters are much longer than the current length of short reads generated by next generation sequencing, DNA assembly is a critical part of any RiPP discovery approach based on short reads.",
+    "Genome mining refers to the interpretation of a natural product biosynthetic gene cluster to infer information about the natural product itself. The discoveries of coelichelin in Streptomyces coelicolor and orfamide in Pseudomonas fluorescens Pf-5 were the first examples of genome mining that were followed by discoveries of various bioactive RiPPs in microbial samples. Donia et al. discovered lactocillin, a thiopeptide antibiotic from the human vaginal isolates that showed activity against vaginal pathogens. Zhao et al. discovered eight novel lanthipeptides with antibiotic activity from a ruminant bacterium. Freeman et al. and Wilson et al. used metagenome mining of a sponge to assign a biosynthetic gene cluster to the known RiPP polytheonamide, with post-translational modifications distributed across 49 residues. Thus, large-scale metagenomics projects, such as Earth Microbiome Project, American Gut Project, and Human Microbiome Project, have the potential to contribute to RiPP discovery, provided that improved bioinformatics tools for the enhanced identification of novel RiPPs are available. However, discovery of lactocillin and other recently identified RiPPs were not achieved by an automated process, but rather used time-consuming manual analysis that required the isolation of microbes, and the purification of microbial metabolites. Our goal is to discover the RiPPs directly from the mass spectrometry and metagenomics information using a fully automated approach.",
+    "While recent analysis of thousands of bacterial and fungal genomes has already resulted in the discovery of many putative biosynthetic gene clusters, including 20,000 RiPP-encoding biosynthetic gene clusters in the Integrated Microbial Genome Atlas of biosynthetic Gene Clusters (IMG-ABC), connecting these biosynthetic gene clusters to their metabolites has not kept pace with the speed of microbial genome sequencing. Currently, only 35 out of these roughly 20,000 RiPP-encoding biosynthetic gene clusters in IMG-ABC have been experimentally connected to their RiPPs. Linking RiPP-encoding biosynthetic gene clusters to unknown RiPPs requires the development of computational tools.",
+    "Kersten et al. introduced the peptidogenomics approach to RiPP discovery, which refers to finding sequential amino acid tags from the tandem mass spectra (peptidomics) and mining them in the assembled DNA reads obtained from the same sample. Mohimani et al. introduced RiPPquest, the first automated approach to RiPP discovery by combining mass spectrometry and genome mining. This tool is based on Peptide-Spectrum Matches, which are generated by aligning predicted spectra of putative RiPPs annotated by genome mining. If a peptide-spectrum match between a candidate RiPP predicted from the assembled genome and a spectrum is statistically significant, then RiPPquest reports it as a putative annotation of the spectrum. RiPPquest resulted in the identification of the lanthipeptide ‘informatipeptin’, the first natural product discovered in a fully automatic fashion by a computer. However, RiPPquest has a number of limitations: (a) it is limited to lanthipeptides which constitutes only one of 19 classes of RiPPs, (b) it is designed for small genomes and small spectral datasets, making it rather slow in the case of large metagenomic datasets and the entire GNPS infrastructure, (c) it does not report the statistical significance of the identified RiPPs, a key requirement for any high-throughput peptide identification tool, and (d) it is limited to searches for a predefined set of post-translational modification (PTMs) and does not enable blind searches for unknown PTMs. Since RiPPquest, other tools have been developed that combine genomics with mass spectrometry based discovery. However, these tools are limited to the analysis of a single or few spectra from isolated genomes and cannot scale to search billions of spectra from GNPS against metagenomics datasets.",
+    "This paper describes MetaMiner, a tool that enables searching mass spectrometry databases against metagenomics short reads sequenced from microbiome samples for rapid discovery of RiPPs. Application of MetaMiner to mass spectrometry and metagenomics data from the human microbiome resulted in the identification of known and unknown peptides from the human microbiota, including autoinducer peptide (AIP), Mec-PSM, delta-toxin, and their unknown variants."
+  ],
+  "RESULTS": [
+    "Results",
+    "Brief description of MetaMiner.",
+    "MetaMiner pipeline (Figure 1) analyzes the paired genome/metagenome assemblies and tandem mass spectra from isolated microbes or bacterial/fungal communities. Starting from the genome assemblies, MetaMiner (a) identifies putative biosynthetic gene clusters and the corresponding precursor peptides, (b) constructs target and decoy putative RiPP structure databases (c) matches tandem mass spectra against the constructed RiPP structure databases using Dereplicator, and (d) enlarges the set of described RiPPs via spectral networking.",
+    "Advances of MetaMiner.",
+    "In step (a), MetaMiner searches for diverse classes of RiPPs, including lanthipeptides, lassopeptides, linear azole containing peptides (LAPs), linaridins, glycocins, cyanobactins, phenol-soluble modulins, AIP, and proteusins (versus only lanthipeptides by RiPPquest). Moreover, MetaMiner supports searching for user-defined classes of RiPPs. In step (b)-(c), MetaMiner implement an approach to estimate false discovery rate through target decoy analysis by searching mass spectra against decoy RiPP structures generated by random shuffling. In step (c), MetaMiner uses an efficient algorithm for searching sparse vectors corresponding to mass spectra and RiPP structures, increasing the speed by two orders of magnitude compared to RiPPquest, thus enabling searches of the entire GNPS databases against metagenomes. Unusual modifications are handled through blind post-translational modification searching. In addition, in contrast to RiPPquest (which was designed for analyzing low-resolution spectra), MetaMiner enables searching high-resolution mass spectra, and allows user-adjustable precursor and product ion thresholds.",
+    "Genome mining.",
+    "MetaMiner uses antiSMASH, and BOA for the identification of RiPP-encoding biosynthetic gene clusters and has two genome mining modes for selecting Open Reading Frames (ORFs), a slow all-ORF mode introduced in RiPPquest, and a fast motif-ORF mode. The all-ORF approach analyzes all short ORFs within a biosynthetic gene cluster, while the motif-ORF approach relies on RiPP motif finding to narrow the set of putative RiPP-encoding ORFs.",
+    "We illustrate positive and negative features of these approaches through genome mining of the Streptomyces roseosporous NRRL 11379 genome obtained from the ACTI dataset (see STAR methods for details of all the datasets). AntiSMASH found 30 biosynthetic gene clusters in this genome, including six RiPP-encoding biosynthetic gene clusters. Within these six biosynthetic gene clusters, the motif-ORF approach identified only two short ORFs matching core RiPP motifs, while the all-ORF approach identified 14,694 short ORFs.",
+    "When analyzing all the 36 strains from the ACTI strains, antiSMASH discovered 1,140 biosynthetic gene clusters, including 168 RiPP-encoding biosynthetic gene clusters. MetaMiner in the motif-ORF and all-ORF modes identified 67 and 565,138 short ORFs, respectively. This example illustrates that the motif-ORF mode may result in a four order of magnitude reduction in the number of ORF candidates as compared to the all-ORF mode. However, antiSMASH predictions are based on searching for a set of known motifs, therefore the motif-ORF mode misses some ORFs with novel RiPP motifs. BOA is based on identifying known proximal genes (“context genes”) that reside next to a RiPP, rather than by the RiPP sequence itself. Therefore, BOA has a capability to identify non-orthologous RiPP replacements if those RiPPs maintain homologous context genes. However, if the RiPPs do not have context genes, BOA may not detect those RiPPs. Also, since BOA is trained on bacteriocin context genes only, it is most suited for that type of RiPPs.",
+    "Although the all-ORF mode searches a larger set of ORFs than the motif-ORF mode, it does not necessarily result in an increased number of identified RiPPs after matching ORFs against the spectral dataset. Indeed, the peptide-spectrum matches that are statistically significant in the motif-ORF mode may become statistically insignificant in the all-ORF mode because the search space in the all-ORF mode is orders of magnitude larger than in the motif-ORF mode, resulting in an increased false discovery rate (FDR). Because MetaMiner only reports statistically significant peptide-spectrum matches, the all-ORF mode may miss some peptides identified in the motif-ORF mode. Conversely, because MetaMiner searches more ORFs in the all-ORF mode than in the motif-ORF mode, the motif-ORF mode may miss some peptides identified in the all-ORF mode.",
+    "Figure S1 shows a comparison of the performance of MetaMiner with all-ORF and motif-ORF genome mining approaches on the ACTI dataset. At the extremely conservative 0% FDR, MetaMiner in the motif-ORF mode identified three unknown RiPPs and five known RiPPs. MetaMiner in the all-ORF mode identified only two known RiPPs at 0% FDR. Note that while the all-ORF mode improves on the motif-ORF mode for the STANDARD dataset, the motif-ORF mode improves on the all-ORF mode for the ACTI dataset.",
+    "RiPP Discovery.",
+    "MetaMiner identified 31 known RiPPs and discovered seven unknown RiPPs in various datasets, including Actinomyces strains, Bacillus strains, Cyanobacteria strains, sponge microbiome, microbial isolates from the International Space Station, and human microbiome (see STAR methods for details). Table S1 provides information about all the RiPPs identified at 1% FDR by MetaMiner. Among the 31 known RiPPs, 23 were identified in the strains identical to the previous reports, three were identified in strains with 99% or higher 16S rRNA similarity, two were identified in the same species, one was identified in the same genus, and two were identified in the same samples (Table S2, Figures S7-S11, S13). The seven unknown RiPPs belong to various classes, including lanthipeptides, lassopeptides, cynobactins, and phenol-soluble modulins classes (Figure 2). Their putative biosynthetic gene clusters contain all the essential genes responsible for the modifications (Figures 2, S2-S6, S12, and S14).",
+    "Confirmation of wewakazole identification.",
+    "MetaMiner identified wewakazole in a polar fraction from the extract of the strain PNG26APR06-4, a marine cyanobacterium collected at Kape Point, Papua New Guinea. Wewakazole was first reported by the co-authors of this paper (W.H.G.) from another Papua New Guinea collection of Lyngbya majuscula (revised to Moorea producens) obtained from Wewak Bay. Subsequently a related compound, wewakazole B was isolated from a Red Sea collection of this cyanobacterium. To validate the MetaMiner’s identification of wewakazole from strain PNG26APR06-4, reverse phase C18 column chromatography and preparative HPLC separations were successful in the isolation of 31.2 μg of this compound. The compound possessed the same molecular formula as wewakazole, C59H72N12O12, based on the molecular ion sodium adduct [M+Na]+ in the HR-ESI-MS (m/z 1163.5282, Figure S15). Its chemical identity was further confirmed utilizing 1H, HSQC and HMBC NMR data, which allowed for direct comparison with data previously reported for wewakazole (Supplementary Figure S16-S18). Moreover, the tandem mass spectrum and retention time of the isolated compound matched the data previously reported for wewakazole (Figures S19 and S20). Furthermore, the ECCD spectrum resembled that of wewakazole B, and the specific rotation showed the same sign as previously reported for wewakazole, excluding the possibility of an enantiomeric relationship of this isolate to that of wewakazole (Figure S21). Thus, the compound identified by MetaMiner was isolated and its identity was confirmed as wewakazole."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "While recent genome mining efforts have revealed over 20,000 hypothetical RiPP-encoding biosynthetic gene clusters, only 35 RiPPs matching these biosynthetic gene clusters have been identified so far. To keep pace with the speed of microbial genome sequencing, high-throughput methods for structure elucidation of RiPPs are needed that combine metagenomics, genome mining, and peptidomics. MetaMiner extends our previous RiPPquest tool (limited to lanthipeptides) to lassopeptides, LAPs, linaridins, glycocins, cyanobactins, and proteusins, and enables the blind search for RiPPs with unusual modifications.",
+    "Studies describing RiPPs are usually limited to the analysis of a single peptide or a few related peptides. The first application of MetaMiner revealed many known RiPPs, as well as their unknown analogs, and seven novel RiPPs (three lanthipeptide, one lassopeptide, two peptide-spectrum matches and one cyclic cyanobactin) along with their numerous analogs, from only eight spectral datasets. MetaMiner identifications were validated by the isolation of the RiPP metabolite wewakezole and confirmation of its structure by orthogonal approaches, confirming that the MetaMiner prediction was correct. In contrast to the existing genome mining approaches that rely on known biosynthetic gene cluster motifs, MetaMiner in the all-ORF mode has the ability to discover unknown biosynthetic gene clusters (with previously unknown motifs) that encode novel RiPPs (e.g. Compound Bac-ISS-2196 and cyanobactin X) that are very different from all the currently known RiPPs and thus are not captured by the existing genome mining tools. MetaMiner can potentially make RiPP identification as robust as peptide identification in the traditional proteomics.",
+    "We further evaluated the performance of MetaMiner on eight paired mass spectral and genomics/metagenomics datasets. In a positive control dataset collected on various isolated RiPPs, MetaMiner correctly identified all the 18 known RiPPs. In a dataset collected on various Actinomyces strains, MetaMiner identified eight RiPPs, among which five have been previously reported in similar strains. In a dataset collected on sponge microbiome, MetaMiner successfully discovered a known compound polytheonamide previously reported in the same sample. In a dataset of Bacillus strains, a known RiPP lichenicidin is discovered in an unknown producer. In a dataset collected on strains from the human microbiome, MetaMiner discovered an interesting known quorum sensing autoinducer peptide from a Staphylococcus strain. Moreover, MetaMiner identified multiple phenol-soluble modulins, a class of secreted staphylococcal peptides that have the ability to lyse human neutrophils, the main cellular defense line against Staphylococcus aureus infection. The production of AIP and phenol-soluble modulins have been previously reported in related Staphylococcus strains, but this is the first time these molecules are identified in the human microbiome. MetaMiner also identified a known RiPP, wewakezole, in a cyanobacterial strain, which was confirmed by subsequent isolation and identification by nuclear magnetic resonance.",
+    "In this paper we used a target-decoy strategy to control the false discovery rate of MetaMiner. For each dataset, we reported all the RiPPs identified at 1% FDR threshold. This resulted in the identification of 38 RiPPs after analyzing 10 million spectra. While the discovery of only 38 RiPPs might look pessimistic at first glance, our spectral networking analysis shows that these 10 million spectra cluster into only 8071 families. Moreover, searching these families against known chemical structures using Dereplicator+ shows that many of these families belong to non-ribosomal peptides, polyketides, terpenes and other classes of natural products. While the discovery of 38 RiPPs by searching 10 million spectra provides a proof of concept for the MetaMiner method, the presented method is applicable to any mass spectral / genomics / metagenomics data collected on the isolated microbes/microbial communities.",
+    "Currently, only 1% of the spectra from GNPS dataset has been searched against the genomic/metagenomic references using MetaMiner. The other 99% of the spectra in GNPS are not accompanied with the genomics/metagenomics data, making it impossible to search them. Recent genome/metagenome mining studies have revealed hundreds of thousands of biosynthetic gene clusters with uncharacterized small molecules from the publicly available genomic / metagenomic data in the National Center for Biotechnology Information (NCBI) and the Joint Genome Institute (JGI) repositories. A portion of the unannotated spectra in GNPS datasets are likely formed by the small molecule products of biosynthetic gene clusters from these publicly available genomes/metagenomes.",
+    "MetaMiner enables rapid search of billions of mass spectra from GNPS infrastructure against the metagenomics/reference genome datasets collected on the microbial communities. MetaMiner is capable of searching large metagenomics and mass spectral datasets in order to construct catalogues of unknown antimicrobial molecules that can be used as drug leads in high-throughput screening efforts."
+  ],
+  "METHODS": [
+    "STAR Methods",
+    "LEAD CONTACT AND MATERIALS AVAILABILITY",
+    "Further information and requests for resources should be directed to and will be fulfilled by the Lead Contact, Hosein Mohimani (hoseinm@andrew.cmu.edu). This study did not generate new unique reagents.",
+    "METHOD DETAILS",
+    "Datasets.",
+    "We analyzed the following paired datasets of spectra and genome/metagenome data (all datasets, with the exception of the BACIL dataset, contain high-resolution spectra):",
+    "Standard dataset (STANDARD).",
+    "This small dataset consists of 18 spectra of known RiPPs that were used for benchmarking MetaMiner (GNPS datasets MSV000079506 and MSV000079622). Spectra were collected from purified RiPPs from Prochlorococcus marinus MIT 9313 (four analogs of prochlorosins), Geobacillus thermodenitrificans NG80 (geobacillin), Bacillus subtilis NCIB 3610 (sublancin), Bacillus halodurans C-125 (haloduracin), Lactococcus lactis (lacticin), Bacillus cereus SJ1 (two analogs of bicereusins) and Ruminococcus flavefaciens FD-1 (eight analogs of flavecins). For these strains, we used genome sequence information available from the NCBI RefSeq database. AntiSMASH identified 70 biosynthetic gene clusters in these genomes, including 29 RiPP-encoding clusters. Since the genome sequence of the lacticin producer is not available, we searched its spectrum against its described biosynthetic gene clusters.",
+    "Actinomycetes dataset (ACTI).",
+    "This dataset consists of 473,135 spectra from bacterial extracts of 36 Actinomycetales strains with sequenced genomes (GNPS datasets MSV000078839 and MSV000078604). We downloaded sequence information for these 36 genomes from the NCBI RefSeq database. AntiSMASH identified 1,140 biosynthetic gene clusters in these genomes, including 168 RiPP-encoding clusters. Furthermore, we downloaded and mixed the short reads from 21 out of 36 strains that were available from the NCBI Short Reads Archive (read length 150 bp, insert sizes varying between 200 bp to 300 bp). We randomly down-sampled each dataset to 10 million reads (resulting in an approximate 300-fold coverage), and mixed all the reads to simulate a metagenomic dataset for this sample. Running MetaMiner on the separate genomes from this dataset resulted in the same set of identified RiPPs as obtained from the simulated metagenome.",
+    "Bacillus dataset (BACIL).",
+    "This dataset consists of 40,051 low-resolution spectra from bacterial extracts of two Bacillus strains with known genomes (MSV000078552). We downloaded genome sequence information for these isolates from the NCBI RefSeq dataset. AntiSMASH identified 12 biosynthetic gene clusters (one RiPP-encoding cluster) in B. amyloliquefaciens FZB42 and 11 biosynthetic gene clusters (four RiPP-encoding clusters) in B. licheniformis ES-221.",
+    "Space station dataset (SPACE).",
+    "This dataset consists of 58,422 spectra from bacterial extracts of 21 isolated strains collected at the International Space Station (MSV000080102). Among these strains, twelve are Staphylococcus, six Bacillus, four Enterobacteria and one Acinetobacter strain. The complete genomes are available for all of these strains. AntiSMASH identified 119 biosynthetic gene clusters, including 27 RiPP-encoding clusters.",
+    "Sponge dataset (SPONGE).",
+    "This dataset contains 223,135 spectra from bacterial extracts of Theonella swinhoei (GNPS dataset MSV000078670). Wilson et al. used the SPONGE dataset to analyze the RiPP polytheonamide. We searched spectra from the SPONGE dataset against the genome of Theonella swinhoei symbiont Candidatus Entotheonella sp. TSY1. In this dataset, AntiSMASH identified 27 biosynthetic gene clusters, including four RiPP-encoding clusters.",
+    "Cyanobacteria dataset (CYANO).",
+    "This dataset consists of 11,921,457 spectra from the extracts of 317 cyanobacterial samples (GNPS dataset MSV000078568). Each sample represents a mini-metagenome with one or a few highly abundant strains. The metagenomic reads were collected from 195 of these samples. AntiSMASH identified 2,898 biosynthetic gene clusters in the 195 cyanobacterial metagenomes, including 491 RiPP-encoding clusters.",
+    "Reference Human Microbiome isolates (HUMAN-iso).",
+    "This dataset contains 137,556 spectra from 17 human microbiome isolates (GNPS dataset MSV000078556). AntiSMASH identified 55 biosynthetic gene clusters in the 17 human microbiome isolate references, including 12 RiPP-encoding clusters.",
+    "Human Microbiome isolates from Cystic Fibrosis patients.",
+    "(HUMAN-CF). This dataset contains 7,554,646 spectra from 276 microbial isolates from the sputum culture of cystic fibrosis patients, (GNPS dataset MSV000080251). The short reads were collected on these 276 samples, and each sample contains a mixture of few (from one to eleven) bacteria. AntiSMASH identified 1,111 biosynthetic gene clusters, including 171 RiPP-encoding clusters.",
+    "MetaMiner pipeline.",
+    "MetaMiner works with paired genomic/metagenomic and tandem mass spectral data collected on isolated microbes or bacterial/fungal communities. The genomic input to MetaMiner could be short-read data, genome assemblies or extracted biosynthetic gene clusters, in fastq or fasta format. The mass spectral input to MetaMiner is in MGF or mzXML format. If the input is short read data, MetaMiner first assembles the reads into contigs. The pipeline for MetaMiner is described below:",
+    "(a) Constructing the database of putative RiPP precursor peptides. MetaMiner uses two strategies to search for precursor peptides, motif-ORF and all-ORF strategy. The motif-ORF strategy is based on the annotations from antiSMASH, and BOA. In this mode, MetaMiner first extracts genes related to secondary metabolites and their neighboring fragments from antiSMASH and BOA annotations. Then, putative peptides are constructed based on the ORFs within these clusters that are sequentially similar to known RiPPs. This strategy usually identifies a small number of putative precursor peptides per biosynthetic gene cluster, resulting in a fast and specific peptidogenomics approach. This strategy is not sensitive, as the peptides that do not have sequence similarity to the known RiPPs are missed.",
+    "In all-ORF mode, MetaMiner (i) translates DNA sequence into protein sequence using 6-frame translation, (ii) runs HMMer on the resulting sequences to detect all the modification enzymes, (iii) constructs a 10kbp window centered at each modification enzyme (this window is called the putative biosynthetic gene cluster), (iv) identifies all the ORFs shorter than a pre-defined threshold (default is 200 amino acids) in each putative biosynthetic gene cluster. This approach is capable of discovering RiPPs that do not have any sequence similarity to the known RiPPs.",
+    "(b) Constructing target and decoy databases of post-translantionally modified RiPPs. To construct the target RiPP structure database, MetaMiner first searches the biosynthetic gene clusters for all the modification enzymes previously reported in RiPPs using HMMer. If a specific modification enzyme is found in a biosynthetic gene cluster, MetaMiner considers the corresponding modification for the identified precursor peptide/peptides. Table S3 lists the modifications currently considered by MetaMiner, along with the corresponding amino acid residues and mass shifts.",
+    "To construct the database of decoy RiPPs, MetaMiner (i) creates a decoy database of RiPP precursor peptides by randomly shuffling each peptide in the target precursor database (Elias and Gygi, 2007), and (ii) creates decoy RiPPs from decoy precursors in the same way as the target RiPPs.",
+    "(c) Matching spectra against the target and decoy RiPPs. MetaMiner uses a modified version of Dereplicator for searching spectra against the database of putative target/decoy RiPPs as follows (i) theoretical spectra for all the target/decoy RiPPs are constructed, (ii) peptide-spectrum matches are generated and scored, (iii) p-values of the peptide-spectrum matches are computed using MS-DPR (Mohimani et al., 2013), (iv) false discovery rates are computed using the decoy database, and (v) statistically significant peptide-spectrum matches are output as putative RiPP identifications.",
+    "While exhaustive generation of the candidate RiPPs and scoring by Dereplicator is feasible when a small number of modifications are considered, the running time rapidly increases with the increase in the number of modifications. We use the spectral alignment technique to efficiently find modifications of the core peptide that best matches the spectrum (; Pevzner et al., 2000; Pevzner et al., 2001; Tsur et al., 2005). This dynamic programming approach restricts the number of modifications and penalizes high score matches with more than one modification.",
+    "While the dynamic programming approach from RiPPquest can handle modifications in linear peptides, it is not applicable to cyclic peptides. MetaMiner uses a brute-force approach to search all the RiPP modifications of each candidate cyclic peptide against all the spectra. To make this possible, MetaMiner uses a faster scoring strategy that utilized the sparsity of mass spectra and theoretical spectra. We do not currently perform blind modification searches for cyclic peptides due to the inherent computational complexity.",
+    "(d) Enlarging the set of identified RiPPs via spectral networking. The set of RiPP identifications is enlarged via spectral networks.",
+    "Post-translational modifications of RiPPs.",
+    "While constructing target and decoy databases of post-translationally modified RiPPs (Figure 1b), MetaMiner considers various types of modifications based on the class of the RiPPs. Table S3 lists the modifications considered by MetaMiner.",
+    "Extraction and tandem mass spectrometry.",
+    "Below we describe the process of growth (for isolated samples), extraction, and analysis of each dataset by mass spectrometry.",
+    "ACTI dataset.",
+    "A total of 39 strains of Streptomyces were grown on A1, MS and R5 agar, extracted sequentially with ethyl acetate, butanol and methanol, and analyzed on Agilent 6530 Accurate-Mass Q-TOF spectrometer coupled to an Agilent 1260 LC system.",
+    "BACIL dataset.",
+    "Bacillus strains were grown on ISP2 agar, extracted with a solvent mixture of 65:35 acetonitrile:water with 0.05% formic acid, and analyzed on a NanoDESI LTQ-FT (Thermo Electron) mass spectrometer.",
+    "SPACE dataset.",
+    "Samples from International Space Station were extracted using 50% MeOH and analyzed on a maXis Impact mass spectrometer coupled to C18 RP-UHPLC.",
+    "CYANO dataset.",
+    "A total of 317 cyanobacterial collections were extracted repetitively with CH2Cl2:MeOH 2:1, dried in vacuo, and fractionated into nine fractions (A-I) by silica gel vacuum liquid chromatography (VLC) using a stepwise gradient of hexanes/EtOAc and EtOAc/MeOH, and analyzed on a Maxis Impact mass spectrometer coupled to C18 RP-UHPLC.",
+    "HUMAN-iso dataset.",
+    "Cultures of reference human microbiome isolates were extracted using 50% EtOH and analyzed on a maXis Impact mass spectrometer (Bruker Daltonics) coupled to a UltiMate 3000 UPLC system (Thermo Scientific) as described here (Bouslimani et al. 2015).",
+    "HUMAN-CF dataset.",
+    "Microbial isolates from the sputum culture of cystic fibrosis patients were extracted using 50% MeOH and analyzed on a maXis qTof mass spectrometer coupled to UltiMate 3000 Dionex UPLC system.",
+    "Confirmation of wewakazole structure.",
+    "HESIRMS data was collected using an Agilent 6230 Accurate-Mass TOFMS in positive ion mode by the UCSD Chemistry and Biochemistry Mass Spectrometry Facility. UV-Vis data were recorded on a Beckman Coulter DU 800 spectrophotometer at room temperature in MeOH (λmax at 214 nm and 217 nm). The ECCD spectrum was measured in MeOH using an Aviv 215 CD spectrometer. Optical rotation was measured at 25 °C using a JASCO P-2000 polarimeter ([α]25 −3.9 (c 0.022, MeOH) (lit., [α]21D −46.8 (c 0.41, MeOH)). A Bruker AVANCE III 600 MHz NMR with a 1.7 mm dual tune TCI cryoprobe was used to record 1H, HMBC and HSQC NMR data at 298 °K with standard Bruker pulse sequences. A Varian Vx 500 NMR with a cold probe and z-gradients was used to record 1H NMR data at 298 K with standard pulse sequences. NMR data were recorded in CDCl3 and calibrated using residual solvent peaks (δH 7.26 and δC 77.16).",
+    "For LC-MS analysis, a Thermo Finnigan Surveyor HPLC System was used with a Phenomenex Kinetex 5 μm C18 100 × 4.6 mm column coupled to a Thermo-Finnigan LCQ Advantage Max Mass Spectrometer. Samples were separated using a linear gradient with (A) H2O + 0.1% FA to (B) CH3CN + 0.1% FA at a flow rate of 0.6 mL/min. The gradient started with a 5 min isocratic step at 30% B followed by an increase to 99% B over 17 min, which was held at 99% B for 5 min and then moved to 30% B in 1 min, and then held for 4 min. Mass spectra were acquired with an ESI source ranging from m/z 200-1600.",
+    "Preparative HPLC was done using a Kinetex 5 μm C18 150 × 10.0 mm semi-preparative column coupled to a Thermo Dionex Ultimate 3000 pump, RS autosampler, RS diode array detector, and automated fraction collector.",
+    "Isolation of wewakazole.",
+    "The fraction in which MetaMiner identified wewakazole from sample PNG26APR06-4. This fraction (26.5 mg) was initially separated using a 500 mg/8mL Xpertek® C18 SPE cartridge with 100% CH3CN to yield 10.7 mg after concentration under vacuum. The compound was isolated from this eluent by semi-preparative HPLC using a linear gradient with (A) H2O + 0.1% FA to (B) CH3CN at a flow rate of 4 mL/min, and the chromatogram was monitored at 218 nm. The gradient started with a 5 min isocratic step at 40% B followed by an increase to 95% B in 25 min. Approximately 2.5 mg of the sample were injected per run to yield 31.2 mg of wewakazole (tR=13.0 min).",
+    "Practical guidelines for MetaMiner.",
+    "MetaMiner takes paired genomic and metabolomics data as input. For genomic data, MetaMiner accepts raw nucleotide sequences (.fasta file), antiSMASH output (.final.gbk file) or BOA output (.fasta file). For users who have raw DNA short reads data (.fastq file), we provide a brief guidance about how to assemble the short read by SPAdes/metaSPAdes in the MetaMiner manual. For metabolomics data, MetaMiner accepts MGF or mzXML files. MetaMiner output is the report of the detected RiPPs in the plain text tab-separated files (.tsv). The spectral network step can be done either through the MetaMiner pipeline, or the GNPS infrastructure (https://ccms-ucsd.github.io/GNPSDocumentation/). For more details, please refer to the MetaMiner manual at https://github.com/mohimanilab/MetaMiner.",
+    "QUANTIFICATION AND STATISTICAL ANALYSIS",
+    "Estimating false discovery rate",
+    "For each dataset, we use 1% false discovery rate (FDR) threshold for RiPP identification. The FDR is estimated with a target-decoy approach. For each target RiPP, we create a corresponding decoy RiPP by first randomly shuffling its precursor peptide sequence and then applying all the modifications of the target RiPP to the shuffled precursor peptide. Given a p-value threshold, denote the number of peptide-spectrum matches in the decoy database and target database as Ndecoy and Ntarget. The FDR can be estimated as follows:",
+    "DATA AND CODE AVAILABILITY",
+    "MetaMiner is available as a command line tool at https://github.com/mohimanilab/MetaMiner."
+  ],
+  "SUPPL": [
+    "Supplementary Material",
+    "This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain."
+  ],
+  "REF": [
+    "References",
+    "Ribosomally synthesized and post-translationally modified peptide natural products: overview and recommendations for a universal nomenclature",
+    "Protein identification by spectral networks analysis",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "Improved lanthipeptide detection and prediction for antiSMASH",
+    "Coelichelin, a new peptide siderophore encoded by the Streptomyces coelicolor genome: structure prediction from the sequence of its non-ribosomal peptide synthetase",
+    "Urban park soil microbiomes are a rich reservoir of natural product biosynthetic diversity",
+    "A systematic analysis of biosynthetic gene clusters in the human microbiome reveals a common family of antibiotics",
+    "HUMAN MICROBIOTA. Small molecules from the human microbiota",
+    "Molecular networking and pattern-based genome mining improves discovery of biosynthetic gene clusters and their products from Salinispora species",
+    "Accelerated Profile HMM Searches",
+    "Antibiotics for emerging pathogens",
+    "Metagenome mining reveals polytheonamides as posttranslationally modified ribosomal peptides",
+    "The Earth Microbiome project: successes and aspirations",
+    "The genomisotopic approach: a systematic method to isolate products of orphan biosynthetic gene clusters",
+    "Increased diversity of peptidic natural products revealed by modification-tolerant database search of mass spectra",
+    "IMG-ABC: A Knowledge Base To Fuel Discovery of Biosynthetic Gene Clusters and Novel Secondary Metabolites",
+    "The re-emergence of natural products for drug discovery in the genomics era",
+    "A framework for human microbiome research",
+    "Structure, function and diversity of the healthy human microbiome",
+    "A mass spectrometry-guided genome mining approach for natural product peptidogenomics",
+    "Discovery of a new peptide natural product by Streptomyces coelicolor genome mining",
+    "Drug discovery and natural products: end of an era or an endless frontier?",
+    "A new antibiotic kills pathogens without detectable resistance",
+    "Strains, functions and dynamics in the expanded Human Microbiome Project",
+    "Wewakazole B, a Cytotoxic Cyanobactin from the Cyanobacterium Moorea producens Collected in the Red Sea",
+    "Digitizing mass spectrometry data to explore the chemical diversity and distribution of marine cyanobacteria and algae",
+    "American Gut: an Open Platform for Citizen Science Microbiome Research",
+    "antiSMASH: rapid identification, annotation and analysis of secondary metabolite biosynthesis gene clusters in bacterial and fungal genome sequences",
+    "Computational approaches to natural product discovery",
+    "Minimum Information about a Biosynthetic Gene cluster",
+    "Pep2Path: automated mass spectrometry-guided genome mining of peptidic natural products",
+    "Dereplication of peptidic natural products through database search of mass spectra",
+    "Dereplication of microbial metabolites through database search of mass spectra",
+    "Automated genome mining of ribosomal peptide natural products",
+    "NRPquest: Coupling Mass Spectrometry and Genome Mining for Nonribosomal Peptide Discovery",
+    "Dereplication, sequencing and identification of peptidic natural products: from genome mining to peptidogenomics to spectral networks",
+    "A large scale prediction of bacteriocin gene blocks suggests a wide functional spectrum for bacteriocins",
+    "MS/MS networking guided analysis of molecule and gene cluster families",
+    "Wewakazole, a novel cyclic dodecapeptide from a Papua New Guinea Lyngbya majuscula",
+    "Assembling single-cell genomes and mini-metagenomes from chimeric MDA products",
+    "metaSPAdes: a new versatile metagenomic assembler",
+    "Complete genome sequence of the plant commensal Pseudomonas fluorescens Pf-5",
+    "Characterization of the lacticin 481 operon: the Lactococcus lactis genes lctF, lctE, and lctG encode a putative ABC transporter involved in bacteriocin immunity",
+    "Draft Genome Sequences of Two Aspergillus fumigatus Strains, Isolated from the International Space Station",
+    "Genomes to natural products PRediction Informatics for Secondary Metabolomes (PRISM)",
+    "DFAST: a flexible prokaryotic genome annotation pipeline for faster genome publication",
+    "A communal catalogue reveals Earth's multiscale microbial diversity",
+    "Using fragmentation trees and mass spectral trees for identifying unknown compounds in metabolomics",
+    "Draft Genome Sequences from a Novel Clade of Bacillus cereus Sensu Lato Strains, Isolated from the International Space Station",
+    "A chemocentric view of the natural product inventory",
+    "Sharing and community curation of mass spectrometry data with Global Natural Products Social Molecular Networking",
+    "Mass spectral molecular networking of living microbial colonies",
+    "antiSMASH 3.0-a comprehensive resource for the genome mining of biosynthetic gene clusters",
+    "An environmental bacterial taxon with a large and distinct metabolic repertoire",
+    "Structural Characterization and Bioactivity Analysis of the Two-Component Lantibiotic Flv System from a Ruminant Bacterium",
+    "Highlights:",
+    "A tool for discovering and post-translationally modified peptides",
+    "Handles unknown post-translational modifications",
+    "Enables searching millions of spectra against thousands of genomes/metagenomes",
+    "Searches for lanthipeptides, lassopeptides, linaridins, glycocins, cyanobactins, etc."
+  ],
+  "FIG": [
+    "MetaMiner pipeline analyzes the paired genome/metagenome assemblies and tandem mass spectra from isolated microbes or bacterial/fungal communities. Starting from the genome assemblies, MetaMiner (a) identifies putative Biosynthetic gene cluster and the corresponding precursor peptides, (b) constructs target and decoy putative RiPP structure databases (c) matches tandem mass spectra against the constructed post-translationally modified RiPP structures database using Dereplicator, and (d) enlarges the set of described RiPPs via spectral networking. In addition to DNA assemblies, MetaMiner software can also accept various types of input data, including shotgun reads data, antiSMASH output and BOA output.",
+    "Chemotypes and putative gene clusters of seven unknown RiPPs discovered by MetaMiner as well as wewakazole. In the column chemotype, post-translationally modified amino acids are shown in bold red. In the precursor column, the green part will be cut and modified, to produce the chemotype. In gene cluster, different colors indicate different types of proteins annotated by DFAST and HMMER."
+  ],
+  "TABLE": [
+    "KEY RESOURCES TABLE",
+    "REAGENT or RESOURCE\tSOURCE\tIDENTIFIER\t \tDeposited Data\t \tStandard dataset (STANDARD) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000079506; ftp://massive.ucsd.edu/MSV000079622\t \tActinomycetes dataset (ACTI) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000078839; ftp://massive.ucsd.edu/MSV000078604\t \tBacillus dataset (BACIL) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000078552\t \tSpace station dataset (SPACE) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000080102\t \tSponge dataset (SPONGE) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000078670\t \tCyanobacteria dataset (CYANO) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000078568\t \tReference Human Microbiome isolates (HUMAN-iso) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000078556\t \tHuman Microbiome isolates from Cystic Fibrosis patients (HUMAN-CF) tandem mass spectra\tGNPS\tftp://massive.ucsd.edu/MSV000080251\t \tSoftware and Algorithms\t \tMetaMiner\tThis paper\thttps://github.com/mohimanilab/MetaMiner\t \tantiSMASH\t\thttps://antismash.secondarymetabolites.org/#!/download\t \tBOA\t\thttps://github.com/idoerg/BOA\t \tSPAdes\t\thttps://github.com/ablab/spades\t \tmetaSPAdes\t\thttps://github.com/ablab/spades\t \tHMMER\t\thttp://hmmer.org/\t \tDFAST\t\thttps://dfast.nig.ac.jp/\t \tDereplicator\t\thttps://github.com/ablab/npdtools\t \tGNPS\t\thttps://gnps.ucsd.edu/ProteoSAFe/static/gnps-splash.jsp\t \tSpectral network\t\thttps://ccms-ucsd.github.io/GNPSDocumentation/networking/"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ribosomally synthesized and post-translationally modified peptide natural products: overview and recommendations for a universal nomenclature",
+      "autores": [
+        {
+          "nombre_completo": "PG Arnison",
+          "nombres": "PG",
+          "apellidos": "Arnison"
+        },
+        {
+          "nombre_completo": "MJ Bibb",
+          "nombres": "MJ",
+          "apellidos": "Bibb"
+        },
+        {
+          "nombre_completo": "G Bierbaum",
+          "nombres": "G",
+          "apellidos": "Bierbaum"
+        },
+        {
+          "nombre_completo": "AA Bowers",
+          "nombres": "AA",
+          "apellidos": "Bowers"
+        },
+        {
+          "nombre_completo": "TS Bugni",
+          "nombres": "TS",
+          "apellidos": "Bugni"
+        },
+        {
+          "nombre_completo": "G Bulaj",
+          "nombres": "G",
+          "apellidos": "Bulaj"
+        },
+        {
+          "nombre_completo": "JA Camarero",
+          "nombres": "JA",
+          "apellidos": "Camarero"
+        },
+        {
+          "nombre_completo": "DJ Campopiano",
+          "nombres": "DJ",
+          "apellidos": "Campopiano"
+        },
+        {
+          "nombre_completo": "GL Challis",
+          "nombres": "GL",
+          "apellidos": "Challis"
+        },
+        {
+          "nombre_completo": "J Clardy",
+          "nombres": "J",
+          "apellidos": "Clardy"
+        }
+      ],
+      "pmid": "23165928",
+      "fuente": "Nat Prod Rep",
+      "anio": "2013",
+      "volumen": "30",
+      "fpage": "108",
+      "lpage": "160"
+    },
+    {
+      "titulo": "Protein identification by spectral networks analysis",
+      "autores": [
+        {
+          "nombre_completo": "N Bandeira",
+          "nombres": "N",
+          "apellidos": "Bandeira"
+        },
+        {
+          "nombre_completo": "D Tsur",
+          "nombres": "D",
+          "apellidos": "Tsur"
+        },
+        {
+          "nombre_completo": "A Frank",
+          "nombres": "A",
+          "apellidos": "Frank"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "17404225",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2007",
+      "volumen": "104",
+      "fpage": "6140",
+      "lpage": "6145"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "Improved lanthipeptide detection and prediction for antiSMASH",
+      "autores": [
+        {
+          "nombre_completo": "K Blin",
+          "nombres": "K",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "D Kazempour",
+          "nombres": "D",
+          "apellidos": "Kazempour"
+        },
+        {
+          "nombre_completo": "W Wohlleben",
+          "nombres": "W",
+          "apellidos": "Wohlleben"
+        },
+        {
+          "nombre_completo": "T Weber",
+          "nombres": "T",
+          "apellidos": "Weber"
+        }
+      ],
+      "pmid": "24586765",
+      "fuente": "PLoS One",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e89420",
+      "lpage": ""
+    },
+    {
+      "titulo": "Coelichelin, a new peptide siderophore encoded by the Streptomyces coelicolor genome: structure prediction from the sequence of its non-ribosomal peptide synthetase",
+      "autores": [
+        {
+          "nombre_completo": "GL Challis",
+          "nombres": "GL",
+          "apellidos": "Challis"
+        },
+        {
+          "nombre_completo": "J Ravel",
+          "nombres": "J",
+          "apellidos": "Ravel"
+        }
+      ],
+      "pmid": "10856642",
+      "fuente": "FEMS Microbiol Lett",
+      "anio": "2000",
+      "volumen": "187",
+      "fpage": "111",
+      "lpage": "114"
+    },
+    {
+      "titulo": "Urban park soil microbiomes are a rich reservoir of natural product biosynthetic diversity",
+      "autores": [
+        {
+          "nombre_completo": "Z Charlop-Powers",
+          "nombres": "Z",
+          "apellidos": "Charlop-Powers"
+        },
+        {
+          "nombre_completo": "CC Pregitzer",
+          "nombres": "CC",
+          "apellidos": "Pregitzer"
+        },
+        {
+          "nombre_completo": "C Lemetre",
+          "nombres": "C",
+          "apellidos": "Lemetre"
+        },
+        {
+          "nombre_completo": "MA Ternei",
+          "nombres": "MA",
+          "apellidos": "Ternei"
+        },
+        {
+          "nombre_completo": "J Maniko",
+          "nombres": "J",
+          "apellidos": "Maniko"
+        },
+        {
+          "nombre_completo": "BM Hover",
+          "nombres": "BM",
+          "apellidos": "Hover"
+        },
+        {
+          "nombre_completo": "PY Calle",
+          "nombres": "PY",
+          "apellidos": "Calle"
+        },
+        {
+          "nombre_completo": "KL McGuire",
+          "nombres": "KL",
+          "apellidos": "McGuire"
+        },
+        {
+          "nombre_completo": "J Garbarino",
+          "nombres": "J",
+          "apellidos": "Garbarino"
+        },
+        {
+          "nombre_completo": "HM Forgione",
+          "nombres": "HM",
+          "apellidos": "Forgione"
+        }
+      ],
+      "pmid": "27911822",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2016",
+      "volumen": "113",
+      "fpage": "14811",
+      "lpage": "14816"
+    },
+    {
+      "titulo": "A systematic analysis of biosynthetic gene clusters in the human microbiome reveals a common family of antibiotics",
+      "autores": [
+        {
+          "nombre_completo": "MS Donia",
+          "nombres": "MS",
+          "apellidos": "Donia"
+        },
+        {
+          "nombre_completo": "P Cimermancic",
+          "nombres": "P",
+          "apellidos": "Cimermancic"
+        },
+        {
+          "nombre_completo": "CJ Schulze",
+          "nombres": "CJ",
+          "apellidos": "Schulze"
+        },
+        {
+          "nombre_completo": "LC Wieland Brown",
+          "nombres": "LC",
+          "apellidos": "Wieland Brown"
+        },
+        {
+          "nombre_completo": "J Martin",
+          "nombres": "J",
+          "apellidos": "Martin"
+        },
+        {
+          "nombre_completo": "M Mitreva",
+          "nombres": "M",
+          "apellidos": "Mitreva"
+        },
+        {
+          "nombre_completo": "J Clardy",
+          "nombres": "J",
+          "apellidos": "Clardy"
+        },
+        {
+          "nombre_completo": "RG Linington",
+          "nombres": "RG",
+          "apellidos": "Linington"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        }
+      ],
+      "pmid": "25215495",
+      "fuente": "Cell",
+      "anio": "2014",
+      "volumen": "158",
+      "fpage": "1402",
+      "lpage": "1414"
+    },
+    {
+      "titulo": "HUMAN MICROBIOTA. Small molecules from the human microbiota",
+      "autores": [
+        {
+          "nombre_completo": "MS Donia",
+          "nombres": "MS",
+          "apellidos": "Donia"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        }
+      ],
+      "pmid": "26206939",
+      "fuente": "Science",
+      "anio": "2015",
+      "volumen": "349",
+      "fpage": "1254766",
+      "lpage": ""
+    },
+    {
+      "titulo": "Molecular networking and pattern-based genome mining improves discovery of biosynthetic gene clusters and their products from Salinispora species",
+      "autores": [
+        {
+          "nombre_completo": "KR Duncan",
+          "nombres": "KR",
+          "apellidos": "Duncan"
+        },
+        {
+          "nombre_completo": "M Crusemann",
+          "nombres": "M",
+          "apellidos": "Crusemann"
+        },
+        {
+          "nombre_completo": "A Lechner",
+          "nombres": "A",
+          "apellidos": "Lechner"
+        },
+        {
+          "nombre_completo": "A Sarkar",
+          "nombres": "A",
+          "apellidos": "Sarkar"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "N Ziemert",
+          "nombres": "N",
+          "apellidos": "Ziemert"
+        },
+        {
+          "nombre_completo": "M Wang",
+          "nombres": "M",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "N Bandeira",
+          "nombres": "N",
+          "apellidos": "Bandeira"
+        },
+        {
+          "nombre_completo": "BS Moore",
+          "nombres": "BS",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "PC Dorrestein",
+          "nombres": "PC",
+          "apellidos": "Dorrestein"
+        }
+      ],
+      "pmid": "25865308",
+      "fuente": "Chem Biol",
+      "anio": "2015",
+      "volumen": "22",
+      "fpage": "460",
+      "lpage": "471"
+    },
+    {
+      "titulo": "Accelerated Profile HMM Searches",
+      "autores": [
+        {
+          "nombre_completo": "SR Eddy",
+          "nombres": "SR",
+          "apellidos": "Eddy"
+        }
+      ],
+      "pmid": "22039361",
+      "fuente": "PLoS Comput Biol",
+      "anio": "2011",
+      "volumen": "7",
+      "fpage": "e1002195",
+      "lpage": ""
+    },
+    {
+      "titulo": "Antibiotics for emerging pathogens",
+      "autores": [
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        },
+        {
+          "nombre_completo": "CT Walsh",
+          "nombres": "CT",
+          "apellidos": "Walsh"
+        }
+      ],
+      "pmid": "19713519",
+      "fuente": "Science",
+      "anio": "2009",
+      "volumen": "325",
+      "fpage": "1089",
+      "lpage": "1093"
+    },
+    {
+      "titulo": "Metagenome mining reveals polytheonamides as posttranslationally modified ribosomal peptides",
+      "autores": [
+        {
+          "nombre_completo": "MF Freeman",
+          "nombres": "MF",
+          "apellidos": "Freeman"
+        },
+        {
+          "nombre_completo": "C Gurgui",
+          "nombres": "C",
+          "apellidos": "Gurgui"
+        },
+        {
+          "nombre_completo": "MJ Helf",
+          "nombres": "MJ",
+          "apellidos": "Helf"
+        },
+        {
+          "nombre_completo": "BI Morinaka",
+          "nombres": "BI",
+          "apellidos": "Morinaka"
+        },
+        {
+          "nombre_completo": "AR Uria",
+          "nombres": "AR",
+          "apellidos": "Uria"
+        },
+        {
+          "nombre_completo": "NJ Oldham",
+          "nombres": "NJ",
+          "apellidos": "Oldham"
+        },
+        {
+          "nombre_completo": "HG Sahl",
+          "nombres": "HG",
+          "apellidos": "Sahl"
+        },
+        {
+          "nombre_completo": "S Matsunaga",
+          "nombres": "S",
+          "apellidos": "Matsunaga"
+        },
+        {
+          "nombre_completo": "J Piel",
+          "nombres": "J",
+          "apellidos": "Piel"
+        }
+      ],
+      "pmid": "22983711",
+      "fuente": "Science",
+      "anio": "2012",
+      "volumen": "338",
+      "fpage": "387",
+      "lpage": "390"
+    },
+    {
+      "titulo": "The Earth Microbiome project: successes and aspirations",
+      "autores": [
+        {
+          "nombre_completo": "JA Gilbert",
+          "nombres": "JA",
+          "apellidos": "Gilbert"
+        },
+        {
+          "nombre_completo": "JK Jansson",
+          "nombres": "JK",
+          "apellidos": "Jansson"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "25184604",
+      "fuente": "BMC Biol",
+      "anio": "2014",
+      "volumen": "12",
+      "fpage": "69",
+      "lpage": ""
+    },
+    {
+      "titulo": "The genomisotopic approach: a systematic method to isolate products of orphan biosynthetic gene clusters",
+      "autores": [
+        {
+          "nombre_completo": "H Gross",
+          "nombres": "H",
+          "apellidos": "Gross"
+        },
+        {
+          "nombre_completo": "VO Stockwell",
+          "nombres": "VO",
+          "apellidos": "Stockwell"
+        },
+        {
+          "nombre_completo": "MD Henkels",
+          "nombres": "MD",
+          "apellidos": "Henkels"
+        },
+        {
+          "nombre_completo": "B Nowak-Thompson",
+          "nombres": "B",
+          "apellidos": "Nowak-Thompson"
+        },
+        {
+          "nombre_completo": "JE Loper",
+          "nombres": "JE",
+          "apellidos": "Loper"
+        },
+        {
+          "nombre_completo": "WH Gerwick",
+          "nombres": "WH",
+          "apellidos": "Gerwick"
+        }
+      ],
+      "pmid": "17254952",
+      "fuente": "Chem Biol",
+      "anio": "2007",
+      "volumen": "14",
+      "fpage": "53",
+      "lpage": "63"
+    },
+    {
+      "titulo": "Increased diversity of peptidic natural products revealed by modification-tolerant database search of mass spectra",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "A Mikheenko",
+          "nombres": "A",
+          "apellidos": "Mikheenko"
+        },
+        {
+          "nombre_completo": "A Shlemov",
+          "nombres": "A",
+          "apellidos": "Shlemov"
+        },
+        {
+          "nombre_completo": "A Korobeynikov",
+          "nombres": "A",
+          "apellidos": "Korobeynikov"
+        },
+        {
+          "nombre_completo": "H Mohimani",
+          "nombres": "H",
+          "apellidos": "Mohimani"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "29358742",
+      "fuente": "Nat Microbiol",
+      "anio": "2018",
+      "volumen": "3",
+      "fpage": "319",
+      "lpage": "327"
+    },
+    {
+      "titulo": "IMG-ABC: A Knowledge Base To Fuel Discovery of Biosynthetic Gene Clusters and Novel Secondary Metabolites",
+      "autores": [
+        {
+          "nombre_completo": "M Hadjithomas",
+          "nombres": "M",
+          "apellidos": "Hadjithomas"
+        },
+        {
+          "nombre_completo": "IM Chen",
+          "nombres": "IM",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "K Chu",
+          "nombres": "K",
+          "apellidos": "Chu"
+        },
+        {
+          "nombre_completo": "A Ratner",
+          "nombres": "A",
+          "apellidos": "Ratner"
+        },
+        {
+          "nombre_completo": "K Palaniappan",
+          "nombres": "K",
+          "apellidos": "Palaniappan"
+        },
+        {
+          "nombre_completo": "E Szeto",
+          "nombres": "E",
+          "apellidos": "Szeto"
+        },
+        {
+          "nombre_completo": "J Huang",
+          "nombres": "J",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "TB Reddy",
+          "nombres": "TB",
+          "apellidos": "Reddy"
+        },
+        {
+          "nombre_completo": "P Cimermancic",
+          "nombres": "P",
+          "apellidos": "Cimermancic"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        }
+      ],
+      "pmid": "26173699",
+      "fuente": "MBio",
+      "anio": "2015",
+      "volumen": "6",
+      "fpage": "e00932",
+      "lpage": ""
+    },
+    {
+      "titulo": "The re-emergence of natural products for drug discovery in the genomics era",
+      "autores": [
+        {
+          "nombre_completo": "AL Harvey",
+          "nombres": "AL",
+          "apellidos": "Harvey"
+        },
+        {
+          "nombre_completo": "R Edrada-Ebel",
+          "nombres": "R",
+          "apellidos": "Edrada-Ebel"
+        },
+        {
+          "nombre_completo": "RJ Quinn",
+          "nombres": "RJ",
+          "apellidos": "Quinn"
+        }
+      ],
+      "pmid": "25614221",
+      "fuente": "Nat Rev Drug Discov",
+      "anio": "2015",
+      "volumen": "14",
+      "fpage": "111",
+      "lpage": "129"
+    },
+    {
+      "titulo": "A framework for human microbiome research",
+      "autores": [],
+      "pmid": "22699610",
+      "fuente": "Nature",
+      "anio": "2012a",
+      "volumen": "486",
+      "fpage": "215",
+      "lpage": "221"
+    },
+    {
+      "titulo": "Structure, function and diversity of the healthy human microbiome",
+      "autores": [],
+      "pmid": "22699609",
+      "fuente": "Nature",
+      "anio": "2012b",
+      "volumen": "486",
+      "fpage": "207",
+      "lpage": "214"
+    },
+    {
+      "titulo": "A mass spectrometry-guided genome mining approach for natural product peptidogenomics",
+      "autores": [
+        {
+          "nombre_completo": "RD Kersten",
+          "nombres": "RD",
+          "apellidos": "Kersten"
+        },
+        {
+          "nombre_completo": "YL Yang",
+          "nombres": "YL",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y Xu",
+          "nombres": "Y",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "P Cimermancic",
+          "nombres": "P",
+          "apellidos": "Cimermancic"
+        },
+        {
+          "nombre_completo": "SJ Nam",
+          "nombres": "SJ",
+          "apellidos": "Nam"
+        },
+        {
+          "nombre_completo": "W Fenical",
+          "nombres": "W",
+          "apellidos": "Fenical"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        },
+        {
+          "nombre_completo": "BS Moore",
+          "nombres": "BS",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "PC Dorrestein",
+          "nombres": "PC",
+          "apellidos": "Dorrestein"
+        }
+      ],
+      "pmid": "21983601",
+      "fuente": "Nat Chem Biol",
+      "anio": "2011",
+      "volumen": "7",
+      "fpage": "794",
+      "lpage": "802"
+    },
+    {
+      "titulo": "Discovery of a new peptide natural product by Streptomyces coelicolor genome mining",
+      "autores": [
+        {
+          "nombre_completo": "S Lautru",
+          "nombres": "S",
+          "apellidos": "Lautru"
+        },
+        {
+          "nombre_completo": "RJ Deeth",
+          "nombres": "RJ",
+          "apellidos": "Deeth"
+        },
+        {
+          "nombre_completo": "LM Bailey",
+          "nombres": "LM",
+          "apellidos": "Bailey"
+        },
+        {
+          "nombre_completo": "GL Challis",
+          "nombres": "GL",
+          "apellidos": "Challis"
+        }
+      ],
+      "pmid": "16408055",
+      "fuente": "Nat Chem Biol",
+      "anio": "2005",
+      "volumen": "1",
+      "fpage": "265",
+      "lpage": "269"
+    },
+    {
+      "titulo": "Drug discovery and natural products: end of an era or an endless frontier?",
+      "autores": [
+        {
+          "nombre_completo": "JW Li",
+          "nombres": "JW",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "JC Vederas",
+          "nombres": "JC",
+          "apellidos": "Vederas"
+        }
+      ],
+      "pmid": "19589993",
+      "fuente": "Science",
+      "anio": "2009",
+      "volumen": "325",
+      "fpage": "161",
+      "lpage": "165"
+    },
+    {
+      "titulo": "A new antibiotic kills pathogens without detectable resistance",
+      "autores": [
+        {
+          "nombre_completo": "LL Ling",
+          "nombres": "LL",
+          "apellidos": "Ling"
+        },
+        {
+          "nombre_completo": "T Schneider",
+          "nombres": "T",
+          "apellidos": "Schneider"
+        },
+        {
+          "nombre_completo": "AJ Peoples",
+          "nombres": "AJ",
+          "apellidos": "Peoples"
+        },
+        {
+          "nombre_completo": "AL Spoering",
+          "nombres": "AL",
+          "apellidos": "Spoering"
+        },
+        {
+          "nombre_completo": "I Engels",
+          "nombres": "I",
+          "apellidos": "Engels"
+        },
+        {
+          "nombre_completo": "BP Conlon",
+          "nombres": "BP",
+          "apellidos": "Conlon"
+        },
+        {
+          "nombre_completo": "A Mueller",
+          "nombres": "A",
+          "apellidos": "Mueller"
+        },
+        {
+          "nombre_completo": "TF Schaberle",
+          "nombres": "TF",
+          "apellidos": "Schaberle"
+        },
+        {
+          "nombre_completo": "DE Hughes",
+          "nombres": "DE",
+          "apellidos": "Hughes"
+        },
+        {
+          "nombre_completo": "S Epstein",
+          "nombres": "S",
+          "apellidos": "Epstein"
+        }
+      ],
+      "pmid": "25561178",
+      "fuente": "Nature",
+      "anio": "2015",
+      "volumen": "517",
+      "fpage": "455",
+      "lpage": "459"
+    },
+    {
+      "titulo": "Strains, functions and dynamics in the expanded Human Microbiome Project",
+      "autores": [
+        {
+          "nombre_completo": "J Lloyd-Price",
+          "nombres": "J",
+          "apellidos": "Lloyd-Price"
+        },
+        {
+          "nombre_completo": "A Mahurkar",
+          "nombres": "A",
+          "apellidos": "Mahurkar"
+        },
+        {
+          "nombre_completo": "G Rahnavard",
+          "nombres": "G",
+          "apellidos": "Rahnavard"
+        },
+        {
+          "nombre_completo": "J Crabtree",
+          "nombres": "J",
+          "apellidos": "Crabtree"
+        },
+        {
+          "nombre_completo": "J Orvis",
+          "nombres": "J",
+          "apellidos": "Orvis"
+        },
+        {
+          "nombre_completo": "AB Hall",
+          "nombres": "AB",
+          "apellidos": "Hall"
+        },
+        {
+          "nombre_completo": "A Brady",
+          "nombres": "A",
+          "apellidos": "Brady"
+        },
+        {
+          "nombre_completo": "HH Creasy",
+          "nombres": "HH",
+          "apellidos": "Creasy"
+        },
+        {
+          "nombre_completo": "C McCracken",
+          "nombres": "C",
+          "apellidos": "McCracken"
+        },
+        {
+          "nombre_completo": "MG Giglio",
+          "nombres": "MG",
+          "apellidos": "Giglio"
+        }
+      ],
+      "pmid": "28953883",
+      "fuente": "Nature",
+      "anio": "2017",
+      "volumen": "550",
+      "fpage": "61",
+      "lpage": "66"
+    },
+    {
+      "titulo": "Wewakazole B, a Cytotoxic Cyanobactin from the Cyanobacterium Moorea producens Collected in the Red Sea",
+      "autores": [
+        {
+          "nombre_completo": "JA Lopez",
+          "nombres": "JA",
+          "apellidos": "Lopez"
+        },
+        {
+          "nombre_completo": "SS Al-Lihaibi",
+          "nombres": "SS",
+          "apellidos": "Al-Lihaibi"
+        },
+        {
+          "nombre_completo": "WM Alarif",
+          "nombres": "WM",
+          "apellidos": "Alarif"
+        },
+        {
+          "nombre_completo": "A Abdel-Lateff",
+          "nombres": "A",
+          "apellidos": "Abdel-Lateff"
+        },
+        {
+          "nombre_completo": "Y Nogata",
+          "nombres": "Y",
+          "apellidos": "Nogata"
+        },
+        {
+          "nombre_completo": "K Washio",
+          "nombres": "K",
+          "apellidos": "Washio"
+        },
+        {
+          "nombre_completo": "M Morikawa",
+          "nombres": "M",
+          "apellidos": "Morikawa"
+        },
+        {
+          "nombre_completo": "T Okino",
+          "nombres": "T",
+          "apellidos": "Okino"
+        }
+      ],
+      "pmid": "26980238",
+      "fuente": "J Nat Prod",
+      "anio": "2016",
+      "volumen": "79",
+      "fpage": "1213",
+      "lpage": "1218"
+    },
+    {
+      "titulo": "Digitizing mass spectrometry data to explore the chemical diversity and distribution of marine cyanobacteria and algae",
+      "autores": [
+        {
+          "nombre_completo": "T Luzzatto-Knaan",
+          "nombres": "T",
+          "apellidos": "Luzzatto-Knaan"
+        },
+        {
+          "nombre_completo": "N Garg",
+          "nombres": "N",
+          "apellidos": "Garg"
+        },
+        {
+          "nombre_completo": "M Wang",
+          "nombres": "M",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "E Glukhov",
+          "nombres": "E",
+          "apellidos": "Glukhov"
+        },
+        {
+          "nombre_completo": "Y Peng",
+          "nombres": "Y",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "G Ackermann",
+          "nombres": "G",
+          "apellidos": "Ackermann"
+        },
+        {
+          "nombre_completo": "A Amir",
+          "nombres": "A",
+          "apellidos": "Amir"
+        },
+        {
+          "nombre_completo": "BM Duggan",
+          "nombres": "BM",
+          "apellidos": "Duggan"
+        },
+        {
+          "nombre_completo": "S Ryazanov",
+          "nombres": "S",
+          "apellidos": "Ryazanov"
+        },
+        {
+          "nombre_completo": "L Gerwick",
+          "nombres": "L",
+          "apellidos": "Gerwick"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Elife",
+      "anio": "2017",
+      "volumen": "6",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "American Gut: an Open Platform for Citizen Science Microbiome Research",
+      "autores": [
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "E Hyde",
+          "nombres": "E",
+          "apellidos": "Hyde"
+        },
+        {
+          "nombre_completo": "JW Debelius",
+          "nombres": "JW",
+          "apellidos": "Debelius"
+        },
+        {
+          "nombre_completo": "JT Morton",
+          "nombres": "JT",
+          "apellidos": "Morton"
+        },
+        {
+          "nombre_completo": "A Gonzalez",
+          "nombres": "A",
+          "apellidos": "Gonzalez"
+        },
+        {
+          "nombre_completo": "G Ackermann",
+          "nombres": "G",
+          "apellidos": "Ackermann"
+        },
+        {
+          "nombre_completo": "AA Aksenov",
+          "nombres": "AA",
+          "apellidos": "Aksenov"
+        },
+        {
+          "nombre_completo": "B Behsaz",
+          "nombres": "B",
+          "apellidos": "Behsaz"
+        },
+        {
+          "nombre_completo": "C Brennan",
+          "nombres": "C",
+          "apellidos": "Brennan"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "mSystems",
+      "anio": "2018",
+      "volumen": "3",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "antiSMASH: rapid identification, annotation and analysis of secondary metabolite biosynthesis gene clusters in bacterial and fungal genome sequences",
+      "autores": [
+        {
+          "nombre_completo": "MH Medema",
+          "nombres": "MH",
+          "apellidos": "Medema"
+        },
+        {
+          "nombre_completo": "K Blin",
+          "nombres": "K",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "P Cimermancic",
+          "nombres": "P",
+          "apellidos": "Cimermancic"
+        },
+        {
+          "nombre_completo": "V de Jager",
+          "nombres": "V",
+          "apellidos": "de Jager"
+        },
+        {
+          "nombre_completo": "P Zakrzewski",
+          "nombres": "P",
+          "apellidos": "Zakrzewski"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        },
+        {
+          "nombre_completo": "T Weber",
+          "nombres": "T",
+          "apellidos": "Weber"
+        },
+        {
+          "nombre_completo": "E Takano",
+          "nombres": "E",
+          "apellidos": "Takano"
+        },
+        {
+          "nombre_completo": "R Breitling",
+          "nombres": "R",
+          "apellidos": "Breitling"
+        }
+      ],
+      "pmid": "21672958",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2011",
+      "volumen": "39",
+      "fpage": "W339",
+      "lpage": "346"
+    },
+    {
+      "titulo": "Computational approaches to natural product discovery",
+      "autores": [
+        {
+          "nombre_completo": "MH Medema",
+          "nombres": "MH",
+          "apellidos": "Medema"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        }
+      ],
+      "pmid": "26284671",
+      "fuente": "Nat Chem Biol",
+      "anio": "2015",
+      "volumen": "11",
+      "fpage": "639",
+      "lpage": "648"
+    },
+    {
+      "titulo": "Minimum Information about a Biosynthetic Gene cluster",
+      "autores": [
+        {
+          "nombre_completo": "MH Medema",
+          "nombres": "MH",
+          "apellidos": "Medema"
+        },
+        {
+          "nombre_completo": "R Kottmann",
+          "nombres": "R",
+          "apellidos": "Kottmann"
+        },
+        {
+          "nombre_completo": "P Yilmaz",
+          "nombres": "P",
+          "apellidos": "Yilmaz"
+        },
+        {
+          "nombre_completo": "M Cummings",
+          "nombres": "M",
+          "apellidos": "Cummings"
+        },
+        {
+          "nombre_completo": "JB Biggins",
+          "nombres": "JB",
+          "apellidos": "Biggins"
+        },
+        {
+          "nombre_completo": "K Blin",
+          "nombres": "K",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "I de Bruijn",
+          "nombres": "I",
+          "apellidos": "de Bruijn"
+        },
+        {
+          "nombre_completo": "YH Chooi",
+          "nombres": "YH",
+          "apellidos": "Chooi"
+        },
+        {
+          "nombre_completo": "J Claesen",
+          "nombres": "J",
+          "apellidos": "Claesen"
+        },
+        {
+          "nombre_completo": "RC Coates",
+          "nombres": "RC",
+          "apellidos": "Coates"
+        }
+      ],
+      "pmid": "26284661",
+      "fuente": "Nat Chem Biol",
+      "anio": "2015",
+      "volumen": "11",
+      "fpage": "625",
+      "lpage": "631"
+    },
+    {
+      "titulo": "Pep2Path: automated mass spectrometry-guided genome mining of peptidic natural products",
+      "autores": [
+        {
+          "nombre_completo": "MH Medema",
+          "nombres": "MH",
+          "apellidos": "Medema"
+        },
+        {
+          "nombre_completo": "Y Paalvast",
+          "nombres": "Y",
+          "apellidos": "Paalvast"
+        },
+        {
+          "nombre_completo": "DD Nguyen",
+          "nombres": "DD",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "A Melnik",
+          "nombres": "A",
+          "apellidos": "Melnik"
+        },
+        {
+          "nombre_completo": "PC Dorrestein",
+          "nombres": "PC",
+          "apellidos": "Dorrestein"
+        },
+        {
+          "nombre_completo": "E Takano",
+          "nombres": "E",
+          "apellidos": "Takano"
+        },
+        {
+          "nombre_completo": "R Breitling",
+          "nombres": "R",
+          "apellidos": "Breitling"
+        }
+      ],
+      "pmid": "25188327",
+      "fuente": "PLoS Comput Biol",
+      "anio": "2014",
+      "volumen": "10",
+      "fpage": "e1003822",
+      "lpage": ""
+    },
+    {
+      "titulo": "Dereplication of peptidic natural products through database search of mass spectra",
+      "autores": [
+        {
+          "nombre_completo": "H Mohimani",
+          "nombres": "H",
+          "apellidos": "Mohimani"
+        },
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "A Mikheenko",
+          "nombres": "A",
+          "apellidos": "Mikheenko"
+        },
+        {
+          "nombre_completo": "N Garg",
+          "nombres": "N",
+          "apellidos": "Garg"
+        },
+        {
+          "nombre_completo": "LF Nothias",
+          "nombres": "LF",
+          "apellidos": "Nothias"
+        },
+        {
+          "nombre_completo": "A Ninomiya",
+          "nombres": "A",
+          "apellidos": "Ninomiya"
+        },
+        {
+          "nombre_completo": "K Takada",
+          "nombres": "K",
+          "apellidos": "Takada"
+        },
+        {
+          "nombre_completo": "PC Dorrestein",
+          "nombres": "PC",
+          "apellidos": "Dorrestein"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "27820803",
+      "fuente": "Nat Chem Biol",
+      "anio": "2017",
+      "volumen": "13",
+      "fpage": "30",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Dereplication of microbial metabolites through database search of mass spectra",
+      "autores": [
+        {
+          "nombre_completo": "H Mohimani",
+          "nombres": "H",
+          "apellidos": "Mohimani"
+        },
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "A Shlemov",
+          "nombres": "A",
+          "apellidos": "Shlemov"
+        },
+        {
+          "nombre_completo": "A Mikheenko",
+          "nombres": "A",
+          "apellidos": "Mikheenko"
+        },
+        {
+          "nombre_completo": "A Korobeynikov",
+          "nombres": "A",
+          "apellidos": "Korobeynikov"
+        },
+        {
+          "nombre_completo": "L Cao",
+          "nombres": "L",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "E Shcherbin",
+          "nombres": "E",
+          "apellidos": "Shcherbin"
+        },
+        {
+          "nombre_completo": "LF Nothias",
+          "nombres": "LF",
+          "apellidos": "Nothias"
+        },
+        {
+          "nombre_completo": "PC Dorrestein",
+          "nombres": "PC",
+          "apellidos": "Dorrestein"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "30279420",
+      "fuente": "Nat Commun",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "4035",
+      "lpage": ""
+    },
+    {
+      "titulo": "Automated genome mining of ribosomal peptide natural products",
+      "autores": [
+        {
+          "nombre_completo": "H Mohimani",
+          "nombres": "H",
+          "apellidos": "Mohimani"
+        },
+        {
+          "nombre_completo": "RD Kersten",
+          "nombres": "RD",
+          "apellidos": "Kersten"
+        },
+        {
+          "nombre_completo": "WT Liu",
+          "nombres": "WT",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "M Wang",
+          "nombres": "M",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "SO Purvine",
+          "nombres": "SO",
+          "apellidos": "Purvine"
+        },
+        {
+          "nombre_completo": "S Wu",
+          "nombres": "S",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "HM Brewer",
+          "nombres": "HM",
+          "apellidos": "Brewer"
+        },
+        {
+          "nombre_completo": "L Pasa-Tolic",
+          "nombres": "L",
+          "apellidos": "Pasa-Tolic"
+        },
+        {
+          "nombre_completo": "N Bandeira",
+          "nombres": "N",
+          "apellidos": "Bandeira"
+        },
+        {
+          "nombre_completo": "BS Moore",
+          "nombres": "BS",
+          "apellidos": "Moore"
+        }
+      ],
+      "pmid": "24802639",
+      "fuente": "ACS Chem Biol",
+      "anio": "2014a",
+      "volumen": "9",
+      "fpage": "1545",
+      "lpage": "1551"
+    },
+    {
+      "titulo": "NRPquest: Coupling Mass Spectrometry and Genome Mining for Nonribosomal Peptide Discovery",
+      "autores": [
+        {
+          "nombre_completo": "H Mohimani",
+          "nombres": "H",
+          "apellidos": "Mohimani"
+        },
+        {
+          "nombre_completo": "WT Liu",
+          "nombres": "WT",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "RD Kersten",
+          "nombres": "RD",
+          "apellidos": "Kersten"
+        },
+        {
+          "nombre_completo": "BS Moore",
+          "nombres": "BS",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "PC Dorrestein",
+          "nombres": "PC",
+          "apellidos": "Dorrestein"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "25116163",
+      "fuente": "J Nat Prod",
+      "anio": "2014b",
+      "volumen": "77",
+      "fpage": "1902",
+      "lpage": "1909"
+    },
+    {
+      "titulo": "Dereplication, sequencing and identification of peptidic natural products: from genome mining to peptidogenomics to spectral networks",
+      "autores": [
+        {
+          "nombre_completo": "H Mohimani",
+          "nombres": "H",
+          "apellidos": "Mohimani"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "26497201",
+      "fuente": "Nat Prod Rep",
+      "anio": "2016",
+      "volumen": "33",
+      "fpage": "73",
+      "lpage": "86"
+    },
+    {
+      "titulo": "A large scale prediction of bacteriocin gene blocks suggests a wide functional spectrum for bacteriocins",
+      "autores": [
+        {
+          "nombre_completo": "JT Morton",
+          "nombres": "JT",
+          "apellidos": "Morton"
+        },
+        {
+          "nombre_completo": "SD Freed",
+          "nombres": "SD",
+          "apellidos": "Freed"
+        },
+        {
+          "nombre_completo": "SW Lee",
+          "nombres": "SW",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "I Friedberg",
+          "nombres": "I",
+          "apellidos": "Friedberg"
+        }
+      ],
+      "pmid": "26558535",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2015",
+      "volumen": "16",
+      "fpage": "381",
+      "lpage": ""
+    },
+    {
+      "titulo": "MS/MS networking guided analysis of molecule and gene cluster families",
+      "autores": [
+        {
+          "nombre_completo": "DD Nguyen",
+          "nombres": "DD",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "CH Wu",
+          "nombres": "CH",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "WJ Moree",
+          "nombres": "WJ",
+          "apellidos": "Moree"
+        },
+        {
+          "nombre_completo": "A Lamsa",
+          "nombres": "A",
+          "apellidos": "Lamsa"
+        },
+        {
+          "nombre_completo": "MH Medema",
+          "nombres": "MH",
+          "apellidos": "Medema"
+        },
+        {
+          "nombre_completo": "X Zhao",
+          "nombres": "X",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "RG Gavilan",
+          "nombres": "RG",
+          "apellidos": "Gavilan"
+        },
+        {
+          "nombre_completo": "M Aparicio",
+          "nombres": "M",
+          "apellidos": "Aparicio"
+        },
+        {
+          "nombre_completo": "L Atencio",
+          "nombres": "L",
+          "apellidos": "Atencio"
+        },
+        {
+          "nombre_completo": "C Jackson",
+          "nombres": "C",
+          "apellidos": "Jackson"
+        }
+      ],
+      "pmid": "23798442",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2013",
+      "volumen": "110",
+      "fpage": "E2611",
+      "lpage": "2620"
+    },
+    {
+      "titulo": "Wewakazole, a novel cyclic dodecapeptide from a Papua New Guinea Lyngbya majuscula",
+      "autores": [
+        {
+          "nombre_completo": "LM Nogle",
+          "nombres": "LM",
+          "apellidos": "Nogle"
+        },
+        {
+          "nombre_completo": "BL Marquez",
+          "nombres": "BL",
+          "apellidos": "Marquez"
+        },
+        {
+          "nombre_completo": "WH Gerwick",
+          "nombres": "WH",
+          "apellidos": "Gerwick"
+        }
+      ],
+      "pmid": "12509876",
+      "fuente": "Org Lett",
+      "anio": "2003",
+      "volumen": "5",
+      "fpage": "3",
+      "lpage": "6"
+    },
+    {
+      "titulo": "Assembling single-cell genomes and mini-metagenomes from chimeric MDA products",
+      "autores": [
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "A Korobeynikov",
+          "nombres": "A",
+          "apellidos": "Korobeynikov"
+        },
+        {
+          "nombre_completo": "A Lapidus",
+          "nombres": "A",
+          "apellidos": "Lapidus"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        },
+        {
+          "nombre_completo": "A Pyshkin",
+          "nombres": "A",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "A Sirotkin",
+          "nombres": "A",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "Y Sirotkin",
+          "nombres": "Y",
+          "apellidos": "Sirotkin"
+        }
+      ],
+      "pmid": "24093227",
+      "fuente": "J Comput Biol",
+      "anio": "2013",
+      "volumen": "20",
+      "fpage": "714",
+      "lpage": "737"
+    },
+    {
+      "titulo": "metaSPAdes: a new versatile metagenomic assembler",
+      "autores": [
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "D Meleshko",
+          "nombres": "D",
+          "apellidos": "Meleshko"
+        },
+        {
+          "nombre_completo": "A Korobeynikov",
+          "nombres": "A",
+          "apellidos": "Korobeynikov"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "28298430",
+      "fuente": "Genome Res",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "824",
+      "lpage": "834"
+    },
+    {
+      "titulo": "Complete genome sequence of the plant commensal Pseudomonas fluorescens Pf-5",
+      "autores": [
+        {
+          "nombre_completo": "IT Paulsen",
+          "nombres": "IT",
+          "apellidos": "Paulsen"
+        },
+        {
+          "nombre_completo": "CM Press",
+          "nombres": "CM",
+          "apellidos": "Press"
+        },
+        {
+          "nombre_completo": "J Ravel",
+          "nombres": "J",
+          "apellidos": "Ravel"
+        },
+        {
+          "nombre_completo": "DY Kobayashi",
+          "nombres": "DY",
+          "apellidos": "Kobayashi"
+        },
+        {
+          "nombre_completo": "GS Myers",
+          "nombres": "GS",
+          "apellidos": "Myers"
+        },
+        {
+          "nombre_completo": "DV Mavrodi",
+          "nombres": "DV",
+          "apellidos": "Mavrodi"
+        },
+        {
+          "nombre_completo": "RT DeBoy",
+          "nombres": "RT",
+          "apellidos": "DeBoy"
+        },
+        {
+          "nombre_completo": "R Seshadri",
+          "nombres": "R",
+          "apellidos": "Seshadri"
+        },
+        {
+          "nombre_completo": "Q Ren",
+          "nombres": "Q",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "R Madupu",
+          "nombres": "R",
+          "apellidos": "Madupu"
+        }
+      ],
+      "pmid": "15980861",
+      "fuente": "Nat Biotechnol",
+      "anio": "2005",
+      "volumen": "23",
+      "fpage": "873",
+      "lpage": "878"
+    },
+    {
+      "titulo": "Characterization of the lacticin 481 operon: the Lactococcus lactis genes lctF, lctE, and lctG encode a putative ABC transporter involved in bacteriocin immunity",
+      "autores": [
+        {
+          "nombre_completo": "A Rince",
+          "nombres": "A",
+          "apellidos": "Rince"
+        },
+        {
+          "nombre_completo": "A Dufour",
+          "nombres": "A",
+          "apellidos": "Dufour"
+        },
+        {
+          "nombre_completo": "P Uguen",
+          "nombres": "P",
+          "apellidos": "Uguen"
+        },
+        {
+          "nombre_completo": "JP Le Pennec",
+          "nombres": "JP",
+          "apellidos": "Le Pennec"
+        },
+        {
+          "nombre_completo": "D Haras",
+          "nombres": "D",
+          "apellidos": "Haras"
+        }
+      ],
+      "pmid": "9361411",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "1997",
+      "volumen": "63",
+      "fpage": "4252",
+      "lpage": "4260"
+    },
+    {
+      "titulo": "Draft Genome Sequences of Two Aspergillus fumigatus Strains, Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "A Blachowicz",
+          "nombres": "A",
+          "apellidos": "Blachowicz"
+        },
+        {
+          "nombre_completo": "A Checinska",
+          "nombres": "A",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "C Wang",
+          "nombres": "C",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genome Announc",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genomes to natural products PRediction Informatics for Secondary Metabolomes (PRISM)",
+      "autores": [
+        {
+          "nombre_completo": "MA Skinnider",
+          "nombres": "MA",
+          "apellidos": "Skinnider"
+        },
+        {
+          "nombre_completo": "CA Dejong",
+          "nombres": "CA",
+          "apellidos": "Dejong"
+        },
+        {
+          "nombre_completo": "PN Rees",
+          "nombres": "PN",
+          "apellidos": "Rees"
+        },
+        {
+          "nombre_completo": "CW Johnston",
+          "nombres": "CW",
+          "apellidos": "Johnston"
+        },
+        {
+          "nombre_completo": "H Li",
+          "nombres": "H",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "AL Webster",
+          "nombres": "AL",
+          "apellidos": "Webster"
+        },
+        {
+          "nombre_completo": "MA Wyatt",
+          "nombres": "MA",
+          "apellidos": "Wyatt"
+        },
+        {
+          "nombre_completo": "NA Magarvey",
+          "nombres": "NA",
+          "apellidos": "Magarvey"
+        }
+      ],
+      "pmid": "26442528",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "9645",
+      "lpage": "9662"
+    },
+    {
+      "titulo": "DFAST: a flexible prokaryotic genome annotation pipeline for faster genome publication",
+      "autores": [
+        {
+          "nombre_completo": "Y Tanizawa",
+          "nombres": "Y",
+          "apellidos": "Tanizawa"
+        },
+        {
+          "nombre_completo": "T Fujisawa",
+          "nombres": "T",
+          "apellidos": "Fujisawa"
+        },
+        {
+          "nombre_completo": "Y Nakamura",
+          "nombres": "Y",
+          "apellidos": "Nakamura"
+        }
+      ],
+      "pmid": "29106469",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "1037",
+      "lpage": "1039"
+    },
+    {
+      "titulo": "A communal catalogue reveals Earth's multiscale microbial diversity",
+      "autores": [
+        {
+          "nombre_completo": "LR Thompson",
+          "nombres": "LR",
+          "apellidos": "Thompson"
+        },
+        {
+          "nombre_completo": "JG Sanders",
+          "nombres": "JG",
+          "apellidos": "Sanders"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "A Amir",
+          "nombres": "A",
+          "apellidos": "Amir"
+        },
+        {
+          "nombre_completo": "J Ladau",
+          "nombres": "J",
+          "apellidos": "Ladau"
+        },
+        {
+          "nombre_completo": "KJ Locey",
+          "nombres": "KJ",
+          "apellidos": "Locey"
+        },
+        {
+          "nombre_completo": "RJ Prill",
+          "nombres": "RJ",
+          "apellidos": "Prill"
+        },
+        {
+          "nombre_completo": "A Tripathi",
+          "nombres": "A",
+          "apellidos": "Tripathi"
+        },
+        {
+          "nombre_completo": "SM Gibbons",
+          "nombres": "SM",
+          "apellidos": "Gibbons"
+        },
+        {
+          "nombre_completo": "G Ackermann",
+          "nombres": "G",
+          "apellidos": "Ackermann"
+        }
+      ],
+      "pmid": "29088705",
+      "fuente": "Nature",
+      "anio": "2017",
+      "volumen": "551",
+      "fpage": "457",
+      "lpage": "463"
+    },
+    {
+      "titulo": "Using fragmentation trees and mass spectral trees for identifying unknown compounds in metabolomics",
+      "autores": [
+        {
+          "nombre_completo": "A Vaniya",
+          "nombres": "A",
+          "apellidos": "Vaniya"
+        },
+        {
+          "nombre_completo": "O Fiehn",
+          "nombres": "O",
+          "apellidos": "Fiehn"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Trends Analyt Chem",
+      "anio": "2015",
+      "volumen": "69",
+      "fpage": "52",
+      "lpage": "61"
+    },
+    {
+      "titulo": "Draft Genome Sequences from a Novel Clade of Bacillus cereus Sensu Lato Strains, Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "S Ratnayake",
+          "nombres": "S",
+          "apellidos": "Ratnayake"
+        },
+        {
+          "nombre_completo": "RK Pope",
+          "nombres": "RK",
+          "apellidos": "Pope"
+        },
+        {
+          "nombre_completo": "TE Blank",
+          "nombres": "TE",
+          "apellidos": "Blank"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "SP van Tongeren",
+          "nombres": "SP",
+          "apellidos": "van Tongeren"
+        },
+        {
+          "nombre_completo": "C Torres",
+          "nombres": "C",
+          "apellidos": "Torres"
+        },
+        {
+          "nombre_completo": "J Allen",
+          "nombres": "J",
+          "apellidos": "Allen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genome Announc",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A chemocentric view of the natural product inventory",
+      "autores": [
+        {
+          "nombre_completo": "CT Walsh",
+          "nombres": "CT",
+          "apellidos": "Walsh"
+        }
+      ],
+      "pmid": "26284660",
+      "fuente": "Nat Chem Biol",
+      "anio": "2015",
+      "volumen": "11",
+      "fpage": "620",
+      "lpage": "624"
+    },
+    {
+      "titulo": "Sharing and community curation of mass spectrometry data with Global Natural Products Social Molecular Networking",
+      "autores": [
+        {
+          "nombre_completo": "M Wang",
+          "nombres": "M",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "JJ Carver",
+          "nombres": "JJ",
+          "apellidos": "Carver"
+        },
+        {
+          "nombre_completo": "VV Phelan",
+          "nombres": "VV",
+          "apellidos": "Phelan"
+        },
+        {
+          "nombre_completo": "LM Sanchez",
+          "nombres": "LM",
+          "apellidos": "Sanchez"
+        },
+        {
+          "nombre_completo": "N Garg",
+          "nombres": "N",
+          "apellidos": "Garg"
+        },
+        {
+          "nombre_completo": "Y Peng",
+          "nombres": "Y",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "DD Nguyen",
+          "nombres": "DD",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "J Watrous",
+          "nombres": "J",
+          "apellidos": "Watrous"
+        },
+        {
+          "nombre_completo": "CA Kapono",
+          "nombres": "CA",
+          "apellidos": "Kapono"
+        },
+        {
+          "nombre_completo": "T Luzzatto-Knaan",
+          "nombres": "T",
+          "apellidos": "Luzzatto-Knaan"
+        }
+      ],
+      "pmid": "27504778",
+      "fuente": "Nat Biotechnol",
+      "anio": "2016",
+      "volumen": "34",
+      "fpage": "828",
+      "lpage": "837"
+    },
+    {
+      "titulo": "Mass spectral molecular networking of living microbial colonies",
+      "autores": [
+        {
+          "nombre_completo": "J Watrous",
+          "nombres": "J",
+          "apellidos": "Watrous"
+        },
+        {
+          "nombre_completo": "P Roach",
+          "nombres": "P",
+          "apellidos": "Roach"
+        },
+        {
+          "nombre_completo": "T Alexandrov",
+          "nombres": "T",
+          "apellidos": "Alexandrov"
+        },
+        {
+          "nombre_completo": "BS Heath",
+          "nombres": "BS",
+          "apellidos": "Heath"
+        },
+        {
+          "nombre_completo": "JY Yang",
+          "nombres": "JY",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "RD Kersten",
+          "nombres": "RD",
+          "apellidos": "Kersten"
+        },
+        {
+          "nombre_completo": "M van der Voort",
+          "nombres": "M",
+          "apellidos": "van der Voort"
+        },
+        {
+          "nombre_completo": "K Pogliano",
+          "nombres": "K",
+          "apellidos": "Pogliano"
+        },
+        {
+          "nombre_completo": "H Gross",
+          "nombres": "H",
+          "apellidos": "Gross"
+        },
+        {
+          "nombre_completo": "JM Raaijmakers",
+          "nombres": "JM",
+          "apellidos": "Raaijmakers"
+        }
+      ],
+      "pmid": "22586093",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2012",
+      "volumen": "109",
+      "fpage": "E1743",
+      "lpage": "1752"
+    },
+    {
+      "titulo": "antiSMASH 3.0-a comprehensive resource for the genome mining of biosynthetic gene clusters",
+      "autores": [
+        {
+          "nombre_completo": "T Weber",
+          "nombres": "T",
+          "apellidos": "Weber"
+        },
+        {
+          "nombre_completo": "K Blin",
+          "nombres": "K",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "S Duddela",
+          "nombres": "S",
+          "apellidos": "Duddela"
+        },
+        {
+          "nombre_completo": "D Krug",
+          "nombres": "D",
+          "apellidos": "Krug"
+        },
+        {
+          "nombre_completo": "HU Kim",
+          "nombres": "HU",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "R Bruccoleri",
+          "nombres": "R",
+          "apellidos": "Bruccoleri"
+        },
+        {
+          "nombre_completo": "SY Lee",
+          "nombres": "SY",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "MA Fischbach",
+          "nombres": "MA",
+          "apellidos": "Fischbach"
+        },
+        {
+          "nombre_completo": "R Muller",
+          "nombres": "R",
+          "apellidos": "Muller"
+        },
+        {
+          "nombre_completo": "W Wohlleben",
+          "nombres": "W",
+          "apellidos": "Wohlleben"
+        }
+      ],
+      "pmid": "25948579",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "W237",
+      "lpage": "243"
+    },
+    {
+      "titulo": "An environmental bacterial taxon with a large and distinct metabolic repertoire",
+      "autores": [
+        {
+          "nombre_completo": "MC Wilson",
+          "nombres": "MC",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "T Mori",
+          "nombres": "T",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "C Ruckert",
+          "nombres": "C",
+          "apellidos": "Ruckert"
+        },
+        {
+          "nombre_completo": "AR Uria",
+          "nombres": "AR",
+          "apellidos": "Uria"
+        },
+        {
+          "nombre_completo": "MJ Helf",
+          "nombres": "MJ",
+          "apellidos": "Helf"
+        },
+        {
+          "nombre_completo": "K Takada",
+          "nombres": "K",
+          "apellidos": "Takada"
+        },
+        {
+          "nombre_completo": "C Gernert",
+          "nombres": "C",
+          "apellidos": "Gernert"
+        },
+        {
+          "nombre_completo": "UA Steffens",
+          "nombres": "UA",
+          "apellidos": "Steffens"
+        },
+        {
+          "nombre_completo": "N Heycke",
+          "nombres": "N",
+          "apellidos": "Heycke"
+        },
+        {
+          "nombre_completo": "S Schmitt",
+          "nombres": "S",
+          "apellidos": "Schmitt"
+        }
+      ],
+      "pmid": "24476823",
+      "fuente": "Nature",
+      "anio": "2014",
+      "volumen": "506",
+      "fpage": "58",
+      "lpage": "62"
+    },
+    {
+      "titulo": "Structural Characterization and Bioactivity Analysis of the Two-Component Lantibiotic Flv System from a Ruminant Bacterium",
+      "autores": [
+        {
+          "nombre_completo": "X Zhao",
+          "nombres": "X",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "WA van der Donk",
+          "nombres": "WA",
+          "apellidos": "van der Donk"
+        }
+      ],
+      "pmid": "27028884",
+      "fuente": "Cell Chem Biol",
+      "anio": "2016",
+      "volumen": "23",
+      "fpage": "246",
+      "lpage": "256"
+    },
+    {
+      "titulo": "Highlights:",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A tool for discovering and post-translationally modified peptides",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Handles unknown post-translational modifications",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enables searching millions of spectra against thousands of genomes/metagenomes",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Searches for lanthipeptides, lassopeptides, linaridins, glycocins, cyanobactins, etc.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    }
+  ]
+}

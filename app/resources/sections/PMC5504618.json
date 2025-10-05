@@ -1,0 +1,3313 @@
+{
+  "TITLE": [
+    "Human presence impacts fungal diversity of inflated lunar/Mars analog habitat"
+  ],
+  "ABSTRACT": [
+    "Background",
+    "An inflatable lunar/Mars analog habitat (ILMAH), simulated closed system isolated by HEPA filtration, mimics International Space Station (ISS) conditions and future human habitation on other planets except for the exchange of air between outdoor and indoor environments. The ILMAH was primarily commissioned to measure physiological, psychological, and immunological characteristics of human inhabiting in isolation, but it was also available for other studies such as examining its microbiological aspects. Characterizing and understanding possible changes and succession of fungal species is of high importance since fungi are not only hazardous to inhabitants but also deteriorate the habitats. Observing the mycobiome changes in the presence of human will enable developing appropriate countermeasures with reference to crew health in a future closed habitat.",
+    "Results",
+    "Succession of fungi was characterized utilizing both traditional and state-of-the-art molecular techniques during the 30-day human occupation of the ILMAH. Surface samples were collected at various time points and locations to observe both the total and viable fungal populations of common environmental and opportunistic pathogenic species. To estimate the cultivable fungal population, potato dextrose agar plate counts method was utilized. The internal transcribed spacer region-based iTag Illumina sequencing was employed to measure the community structure and fluctuation of the mycobiome over time in various locations. Treatment of samples with propidium monoazide (PMA; a DNA intercalating dye for selective detection of viable microbial populations) had a significant effect on the microbial diversity compared to non-PMA-treated samples. Statistical analysis confirmed that viable fungal community structure changed (increase in diversity and decrease in fungal burden) over the occupation time. Samples collected at day 20 showed distinct fungal profiles from samples collected at any other time point (before or after). Viable fungal families like Davidiellaceae, Teratosphaeriaceae, Pleosporales, and Pleosporaceae were shown to increase during the occupation time.",
+    "Conclusions",
+    "The results of this study revealed that the overall fungal diversity in the closed habitat changed during human presence; therefore, it is crucial to properly maintain a closed habitat to preserve it from deteriorating and keep it safe for its inhabitants. Differences in community profiles were observed when statistically treated, especially of the mycobiome of samples collected at day 20. On a genus level Epiccocum, Alternaria, Pleosporales, Davidiella, and Cryptococcus showed increased abundance over the occupation time.",
+    "Electronic supplementary material",
+    "The online version of this article (doi:10.1186/s40168-017-0280-8) contains supplementary material, which is available to authorized users."
+  ],
+  "INTRO": [
+    "Background",
+    "Planning future space explorations, involving potential human missions to Mars, would require constructing a safe closed habitat. An inflatable lunar/Mars analog habitat (ILMAH) is a unique, simulated closed environment (isolated by HEPA filtration) that can be utilized to overcome challenges associated with both technical and scientific issues. Because the ILMAH mimics International Space Station (ISS) conditions and is treated as a prototype habitat for future space explorations, microbiological characteristics of such a closed environment is of high interest to the National Aeronautics and Space Administration (NASA). The environmentally controlled ILMAH is an easily accessible system that enables samples to be collected and analyzed at multiple times at relatively low cost. Understanding the microbiome of a closed system and its association with human inhabitation will help to assess the correlation between human health and microbiome of the habitat as well as the influence of microorganism on the habitat deterioration.",
+    "The highly specialized structure of the simulated ILMAH keeps its inhabitants in isolation from the outside environment. Except for the exchange of the air between outdoor and indoor environments via an advanced environmental control system, the ILMAH mimics the ISS and other future habitats of human explorers on the other planets. This unique feature of the ILMAH allows observing the changes in the microbiome during human occupation. The bacteriome of the ILMAH was recently reported, as in the case of most of the studies reporting on bacterial microbiomes. The molecular fungal diversity of Japanese Experimental Module—Kibo, on the ISS, revealed abundance of fungi associated with astronauts, but succession of viable fungal population in their habitat was not addressed. The skin fungal microbiota of 10 Japanese astronauts showed temporal changes before, during, and after their stay on the ISS. The molecular fungal diversity associated with various body parts was reduced during the spaceflight when compared to pre-flight data. However, the ratio of Malassezia genetic signatures to all fungal gene copies (including dead fungal cells) increased during their stay at the ISS—but the viability of these fungi was not confirmed. This is the first report that thoroughly characterizes the mycobiome of a simulated habitat meant for the future human habitats on other planets.",
+    "Utilization of next generation sequencing (NGS) techniques enables more in-depth analysis of indoor microbiomes. Many studies focus on the bacterial microbiome of intensive care units, pharmaceutical clean rooms, or tissue banks since their microbial composition has an impact on human health and life. Nosocomial infections acquired in hospitals and other health care facilities remain the sixth leading cause of death in the hospitals in USA. Nosocomial infections are mostly caused by various fungal species that belong to the Candida genus and filamentous fungus Aspergillus fumigatus. Therefore, it remains important to screen future closed habitats for the presence of opportunistic pathogens that can affect health of immunocompromised astronauts. So far, majority of the indoor microbiome studies have focused on the bacterial microbiome without analyzing the mycobiome. In addition, those few studies that characterized fungi of indoor environments focused on culture-based populations. In those cases, where new molecular techniques were implemented viable fungi were not differentiated from the total population (viable and dead). The internal transcribed spacer region-based iTag Illumina sequencing coupled with the propidium monoazide (PMA) treatment used in this study can determine the viable mycobiome.",
+    "Fungi are extremophiles that can survive harsh conditions such as low nutrient, desiccation, high/low temperatures, acidic/alkaline, radiation, and other environments. Fungal species not only have been isolated from all known environments on Earth, including barren lands like deserts, caves, or nuclear accident sites, but also are known to be difficult to eradicate from other types of environments including indoor and closed spaces.",
+    "Characterizing and understanding possible changes to, and succession of, fungal species in the ILMAH is of high importance since some of the fungi are extremophiles that are not only potentially hazardous to inhabitants but also can deteriorate the habitat itself. It was previously reported that people spending a significant amount of time indoors might suffer from so called “sick building syndrome” (SBS). SBS is characterized by health- and comfort-related syndromes (e.g., headache, tiredness) that ease after leaving a building. Fatigue and discomfort might be caused not only by physical characteristics of the closed system (humidity, temperature, lighting) but also by biological contamination from both bacteria and fungi. Fungal pathogens’ presence in indoor areas might pose health hazards for people exhibiting immunodeficiency. Pathogenic fungi produce a range of secondary metabolites (SMs) that influence their virulence (e.g., melanins, siderophores, or species-specific toxins), induce allergies, and cause diseases (e.g., aspergillosis, candidiasis, or cryptococcosis). Prolonged stays in closed habitats (e.g., ILMAH, ISS, etc.) might be stressful for inhabitants and lead to a decrease in immune response; therefore, assessing the presence of any opportunistic pathogens is vital.",
+    "Previous reports on the mycobiome in NASA clean rooms and on the ISS documented NGS results from samples collected from various locations, but none of the studies focused on the analysis of the microbial succession of systematically collected samples. The bacterial and archaeal microbiome succession of the ILMAH using NGS has been carried out. This is the first report characterizing the succession of fungi in a simulated closed system meant for human habitation on other planets utilizing both traditional and state-of-the-art molecular techniques. In addition, attempts were made during this study to elucidate the temporal and spatial distribution of the fungal population and diversity in a closed human habitat."
+  ],
+  "METHODS": [
+    "Methods",
+    "The ILMAH habitat",
+    "The physical characteristics of the ILMAH, along with detailed sampling procedures and periodicity, were previously described. In brief, the ILMAH is located in Grand Forks, ND (47.9222 N, 97.0734 W) and has dimensions of 12 m by 10 m by 2.5 m. It contains a sleeping compartment, kitchen, toilet, and laboratory area. The ILMAH has its own ventilation system that pressurizes the habitat, provides breathing air for the crew, and removes unwanted material from the air stream. The ILMAH uses a blower that takes ambient air for pressurization and breathing air provision. It provides a positive pressure at 1 PSID (pressure differential) above normal atmosphere inside the habitat. The ambient air is pressurized by an industrial fan and sent to a standard HEPA flat panel particulate filter (Bryant GAPBBCAR2025, Honeywell, Morris Plains, NJ). This filter is replaced before each mission lasting up to 30 days. Maintenance personnel changes the filter from the outside. Since the humidity inside the habitat is not removed, water vapor during the months when the analog missions takes place range from 35 to 55%.",
+    "Three student crews inhabited the ILMAH for 30 days. During that period of time, there was no exchange between the interior and exterior environment except pumping the air filtered via ILMAH’s advanced controlling system. In addition, students did not leave the ILMAH at any time for 30 days, and nothing came in or out, including food, people, water, or any supplies, except filtered air. Surface samples were collected consecutively during four sampling events (day 0 [T0], day 13 [T13], day 20 [T20], and day 30 [T30]) from eight designated sampling locations. Prior to inhabitation, the ILMAH surfaces were cleaned with 10% bleach and during the experiment period, it was cleaned weekly with antibacterial wipes.",
+    "Sampling materials and procedure",
+    "Samples were collected using biological sampling kits (BiSKits, Quicksilver Analytics Inc., Abingdon, MD) previously documented as an efficient sampling device for surfaces. All the BiSKits were prepared following the procedure described elsewhere. Briefly, the sterile phosphate buffer saline (PBS) provided by the distributor was discarded from the bottle and replaced with 15 mL of sterile UltraPure DNA free PBS (MoBio Laboratories Inc, Carlsbad, CA). Each BiSKit was rinsed once with PBS that was later collected into a sterile 15-mL falcon tube and kept at 4 °C as a background measure for biological materials associated with macrofoam (sampling device control). This precautionary step was required to overcome, if encountered, microbial contamination associated with sampling devices and other processing reagents. BiSKits prepared as described above were then packed into sterile zip lock bags and shipped at 4 °C to the University of North Dakota where they were kept at 4 °C till the experiment was carried out (within 2 to 3 days).",
+    "The ILMAH architecture was previously described (see Additional file 1: Figure SF1, Fig. 1). Surface samples were collected from eight locations at four consecutive samplings: day 0 (prior to inhabitation), day 13, day 20, and day 30 during the inhabitation and right before ending the experiment. Originally, sampling activities were scheduled at regular intervals days 0, 10, 20, and 30 of human occupation; however, day 10 sampling scheduled on Thursday was delayed to day 13 (Sunday) to avoid risk related to shipping the samples over the weekend. The work schedule of the ILMAH crew members was regulated and is detailed in Additional file 2. Each location (surface area 1 m2) was sampled with one BiSKit in three directions following the same steps, horizontally from the left to the right, vertically from the bottom to the top, and diagonally from the right bottom corner to the left upper corner. After sampling, the sampled BiSKit device was extracted with sterile PBS and sampling fluids were collected in sterile 50-mL falcon tubes. Each BiSKit was washed and extracted twice with the sterile PBS giving approximately 45 mL of unconcentrated sample. Likewise, the BiSKit left open in the sampling area for the time necessary for sampling one location was treated as a field control; the unopened BiSKit was treated as a sampling device (BiSKit) control. Collected samples along with the controls were stored at 4 °C and sent overnight to JPL via cold shipping for further analysis. Sample processing for the microbiological analyses was started within 24 h from the sample collection.",
+    "Sample processing",
+    "Cultivable fungal burden and diversity",
+    "For cultivation assay, samples were serially diluted by 10 and 100 times. One hundred microliters of each dilution was pour plated in duplicates on potato dextrose agar (PDA) and grown at room temperature (~25 °C). Colony-forming units (CFUs) were counted after 7 days of incubation, and cultivable fungal population was calculated per square meter of the sampling area. Simultaneously, up to 5 colonies exhibiting different morphologies were picked and stored as stab cultures in one-tenth semi-solid PDA medium. Cultivable isolates were identified using primers ITS 1F (5′-CTT GGT CAT TTA GAG GAA GTA A-3′) and Tw13 (5′-GGT CCG TGT TTC AAG ACG-3′) that target small and large subunit rRNA gene-coding regions of the small and large ribosomal subunit, including the internal transcribed spacers ITS1 and ITS2. DNA was extracted using freezing (−80 °C) and thawing (+80 °C) cycle of fungal suspension in PBS for 15 min. This process was repeated 3 times. In some cases when DNA was not extracted by the freezing-thawing method, a PowerSoil® DNA Isolation Kit (MoBio) was used according to manufacturer’s instructions. PCR conditions were as follows: 95 °C for 3 min followed by 25 cycles of 95 °C for 30 s, 58 °C for 30 s, 72 °C for 2 min, and final elongation at 72 °C for 10 min. Amplified products were visualized by gel electrophoresis. PCR products were then enzymatically purified by using 40 IU of Exonuclease I (E. coli 20,000 IU/mL New England BioLabs, Inc. Ipswich, MA) and 8 IU of Antarctic Phosphatase (5,000 IU/mL, New England BioLabs, Inc.) per 20 μL amplification product. Heat reactions were carried out in a thermocycler as follows: 37 °C for 30 min, 80 °C for 15 min. Traditional Sanger sequencing was performed at Macrogen (Rockville, MD). The sequences were merged using DNAStar (Madison, WI), identified using UNITE fungal database, and aligned using ClustalW. A phylogenetic tree was constructed using MEGA6.06-mac applying neighbor-joining method. Sequences from one representative of each strain and corresponding type strain were used to create the phylogenetic tree.",
+    "DNA extraction",
+    "The concentrated environmental samples (3 mL) were split into two equal parts. One half of the sample (1.5 mL) was treated with 12.5 μL of 2 mM PMA dye (Biotum, Inc., Hayward, CA), and the other half was left untreated. The final concentration of PMA in each treated sample was 25 μM. After PMA addition, both treated and untreated samples were kept in the dark for 5 min at room temperature and subsequently exposed to light in the PHaST Blue-Photo activation system for tubes (GenIUL, S.L, Terrassa, Spain) for 15 min. PMA-treated samples represent viable microorganisms whereas the non-PMA-treated samples represent the total number of viable and dead microorganisms. After photo activation, each sample was split into two aliquots of 0.75 mL each. One aliquot of each sample was subjected to bead beating for 60 s at 5 m/s on the Fastprep-24 bead-beating instrument (MP Biomedicals, Santa Ana, CA). The solution after bead beating was combined with not bead-beated aliquots (1.5 mL), and then used for DNA extraction using the Maxwell-16 MDx automated system following manufacturer’s instructions (Promega, Madison, WI). Purified DNA was eluted into a final volume of 50 μL of Ultra Pure molecular water and divided into 4 aliquots that were stored at −80 °C.",
+    "Molecular fungal community analysis using Illumina sequencing",
+    "To determine fungal populations, a two-step amplification process was applied prior to MiSeq Illumina sequencing at Research and Testing Laboratory (RTL, Lubbock, TX). The forward primer was constructed with the Illumina i5 sequencing primer (5′-TCG TCG GCA GCG TCA GAT GTG TAT AAG AGA CAG-3′) and the ITS1F primer (5′-CTT GGT CAT TTA GAG GAA GTA A-3′). The reverse primer was constructed with the Illumina i7 sequencing primer (5′-GTC TCG TGG GCT CGG AGA TGT GTA TAA GAG ACA G-3′) and the ITS2aR primer (5′-GCT GCG TTC TTC ATC GAT GC-3′). Amplifications were performed in 25 μL reactions with Qiagen HotStar Taq master mix (Qiagen Inc, Valencia, CA), 1 μL of each 5 μM primer, and 1 μL of template. Reactions were performed on ABI Veriti thermocyclers (Applied Biosytems, Carlsbad, CA) under the following thermal profile: 95 °C for 5 min, then 25 cycles of 94 °C for 30 s, 54 °C for 40 s, 72 °C for 1 min, followed by one cycle of 72 °C for 10 min and 4 °C hold.",
+    "Products from the first stage amplification were added to a second PCR based on qualitatively determined concentrations. Primers for the second PCR were designed based on the Illumina Nextera PCR primers as follows: Forward –AAT GAT ACG GCG ACC ACC GAG ATC TAC AC [i5index] TCG TCG GCA GCG TC and Reverse – CAA GCA GAA GAC GGC ATA CGA GAT [i7index] GTC TCG TGG GCT CGG. The second stage amplification was run the same as the first stage except for 10 cycles.",
+    "Amplification products were visualized with eGels (Life Technologies, Grand Island, NY). Products were then pooled equimolar, and each pool was size selected in two rounds using Agencourt AMPure XP (BeckmanCoulter, Indianapolis, IN) in a 0.7 ratio for both rounds. Size-selected pools were then quantified using the Quibit 2.0 fluorometer (Life Technologies) and loaded on an Illumina MiSeq (Illumina, Inc. San Diego, CA) 2 × 300 flow cell at 10 pM.",
+    "Bioinformatic and statistical analysis of fungal cultivable counts and Illumina sequences",
+    "To assess the difference between fungal abundances in cultivable sample categories (based on time and location), the following univariate statistical analyses were carried out (https://www.r-project.org/). The normal distribution of the populations was tested using the Shapiro-Wilk normality test, and as most were not normally distributed (p value <0.05), we used a Kruskal-Wallis test coupled to a Dunn’s test (https://cran.r-project.org/web/packages/dunn.test/index.html) to investigate differences in the tested populations. Resulting p values were corrected using the Benjamini-Hochberg correction.",
+    "A total of 8,426,774 raw paired reads were processed with mothur v.1.36.1. The 250 bp paired reads were merged by aligning the reads and correcting discordant base calls by requiring one of the base calls to have a Phred quality score at least 6 points higher than the other. Sequences shorter than 200 bp, having more than 8 homopolymers or containing ambiguous base pairs were excluded from the dataset. Subsequently, reads were pre-clustered by combining low-abundant sequences that differed by 3 or less bases of a more abundant sequence. Chimeric sequences in each sample were identified by UCHIME and also excluded from the dataset. Reads were classified using the ribosomal database project (RDP) classifier II implementation of mothur and UNITE fungal rDNA database. Non-fungal sequences were subsequently removed. ITSx was used to exclude non-ITS sequences from the dataset prior to clustering unaligned sequences into operational taxonomic units (OTUs) with a distance of 0.03 using mother v.1.36.1. The nearest neighbor (single-linkage) algorithm was used for this. OTUs were classified by using the consensus taxonomy of all sequences assigned.",
+    "An in-house R-script employing the libraries vegan, ape, gplots, mgcv, and GUniFrac was used to compare the fungal Illumina data (Additional file 3). Each dataset consisting of the OTU abundances per sample was rarefied 1000 times to the lowest number of reads, and an average Bray-Curtis distance was calculated. This distance was then utilized to calculate nonmetric multidimensional scaling (NMDS) or principal coordinate analysis (PCoA), PERMANOVA (Adonis test), and multi-response permutation procedure (MRPP). In addition, the OTU abundances per sample of each dataset were sum normalized and used to employ either an analysis of variance (ANOVA) or a Spearman rank correlation on the statistically significant changing parameters and to generate a heat map (p value 0.05). The change of diversity was measured via the Shannon-Wiener diversity index. OTUs that were unclassified at phylum level were removed. Heat maps were presented at family level.",
+    "The extruded liquid samples from the BiSKit sampler (~45 mL per sample) were concentrated using an InnovaPrep Concentrating Pipette (Innova Prep LLC, Drexel, MO) to a final volume of ~4 mL. Appropriate aliquots of concentrated samples were further used for cultivation (200 μL) and molecular analyses (3 mL)."
+  ],
+  "FIG": [
+    "Picture of the closed habitat from outside",
+    "Statistical analysis of cultivable fungal diversity detected through the 30-day habitation period at all the locations based on colony-forming unit (CFU) counts. To assess the difference between fungal abundances in cultivable sample categories (based on time—A and location—B), we applied the following univariate statistics. The normal distribution of the populations were tested using Shapiro-Wilk normality test, and as most of them were not normally distributed (p value <0.05), we used a Kruskal-Wallis test coupled to a Dunn’s test to investigate differences in the tested populations. Resulting p values were corrected using the Benjamini-Hochberg correction. A CFU counts before crew occupation T0—a were statistically different from CFU counts at T20 and T30—b, but no statistical difference was observed between T0 and T13 counts—ab. Additionally, no statistical differences were observed between any other time points. B CFU counts in the bedroom—a, differed significantly from the CFU counts in lab—b, but no statistical differences were observed between bedroom and kitchen or toilet—ab. No statistical differences were observed between any other locations",
+    "Cultivable fungal diversity detected through the 30-day habitation period at all the locations based on internal transcribed spacer (ITS) sequences. The phylogenetic tree was constructed using neighbor-joining method (bootstrap 1000). In total, 117 isolates were collected 113 of which were successfully sequenced (4 strains either did not show growth or did not respond to the sequencing methods attempted). The numbering of the isolates is explained as follows: F = fungi, first number (0–4) will be the sample collection day (0 = T0, 2 = T13, 3 = T20, 4 = T30), second number (1–8) will be sampling location, and the third number (1–5) is the replicate number of the isolate. For example, F23-02 will be a fungal strain, isolated from T20, at location number 3 and a second isolate. Frequency of isolates is given as a frequency bar after the name of fungus. Colors of the bars correspond to the collection time (single or multiple)",
+    "NMDS ordinations based on Bray-Curtis distances between all samples. a Ordination displaying the distance between non-PMA-treated samples taken at the different time points. b The distance between PMA-treated samples taken at the different time points. c The distance between non-PMA-treated samples taken at the different locations. d NMDS ordination displaying the distance between PMA-treated samples taken at the different locations. A “P” after the respective variable indicates that these are the samples treated with PMA. Plots a, c, and b, d represent the same data but differ in colors to underscore the focus on distribution over time and location, respectively",
+    "Linear representation of alpha diversity averages change over time for cultivable, viable and total mycobiome",
+    "Dominant fungal population and succession patterns observed in 30-day occupation period of the ILMAH system. The OTUs presented in the bar graph are the most abundant. T20 surface samples show different fungal profile when compared to other time points. T30 samples show increase in fungal diversity when compared to other time point",
+    "Box plots of viable dominant fungal families and their succession patterns observed in 30-day occupation period of the ILMAH system. The OTU counts presented in the boxplots are the most abundant. Each time point is represented in a different color: T0—green, T13—orange, T20—red, T30—purple",
+    "Heat map of the taxa that showed a significant correlation (p value 0.01) with the factor time in the PMA-treated sample set. The color blue indicates a low abundance of the single OTU in the respective sample, and orange indicates a high abundance of the single OTU in the respective sample. Each column represents one sample collected throughout the study. The numbering pattern is explained as follows 30 means 30-day study. The first number (0–4) will be the sample collection day (0 = T0, 2 = T13, 3 = T20, 4 = T30), second number (1–8) will be sampling location, and P stands for PMA-treated samples. For example, 30.06P will be a sample collected during the 30-day study from T0 at location 6"
+  ],
+  "RESULTS": [
+    "Results",
+    "Cultivable fungal burden and diversity",
+    "The culture-based fungal abundance of the ILMAH was estimated for each sampling location with colony-forming unit (CFU) values ranging from below detection limit (BDL) to 104 CFU/m2 (Additional file 4: Table ST1a). The highest abundance of the cultivable fungi was observed during the first sampling (T0) followed by ~1 log decrease in CFU during consecutive sampling events (T13, T20, T30) for each living compartment. High fungal population was noticed in samples collected at T0 (Fig. 2A). When statistically treated, the change in fungal abundance within different time points was significant (T0–T20 p = 0.008 and T0–T30 p = 0.0125) (Additional file 5: Table ST2a). The cultivable fungal population for the lab area was higher than observed in other compartments (Fig. 2B, Additional file 4: Table ST1b). A statistically significant difference was observed between the lab area and the bedroom (p = 0.0021) (Additional file 5: Table ST2b).",
+    "One hundred seventeen cultivable isolates were collected and identified targeting the ITS region. Screening sequences against the UNITE fungal database enabled identification of 32 species (Fig. 3). Among the cultivable isolates, only five strains had similarity lower than 97% that did not allow identification to the species level. All of the identified species but one—Hydnopolyporus fimbriatus—belong to the Ascomycota division (Fig. 3). The most abundant cultivable species were Cladosporium cladosporioides (16), Epicoccum nigrum (15), Aspergillus tubingensis (13), Aspergillus fumigatus (8), Alternaria tenuissima (7), and Pennicillium brevicompactum (7). P. brevicompactum was the only, out of the most commonly identified species, that was not present at multiple time points but only at T13 sampling (Fig. 3). Abundance of C. cladosporioides colonies increased during the ILMAH occupation whereas the abundance of E. nigrum, A. tubingensis, and A. tenuissima decreased. Another commonly isolated species, A. fumigatus, was not isolated during the last sampling event. Neither field nor sampling device controls showed cultivable isolates.",
+    "Viable and total mycobiome (iTag Illumina-based analysis)",
+    "The fungal richness of PMA-treated (viable) samples decreased when compared to untreated samples (dead and alive). In PMA-untreated samples, 98 families were detected, whereas OTUs belonging to 41 of these families were not viable. Moreover, both PMA-treated and PMA-untreated samples differed significantly in community relationships (NMDS analysis in Fig. 4, Adonis p value = 0.006 and MRPP, significance of delta = 0.002; A = 0.0419) and their Shannon diversity index indicated a significant reduction (paired T test p = 0.0000012) in viable fungal diversity. Observed differences in the PMA-treated (Fig. 4a, c) and PMA-untreated samples (Fig. 4b, d) indicate that untreated samples are overestimating the observed fungi. This observation was further confirmed when alpha diversity of cultivable, viable, and total mycobiome was plotted over time (Fig. 5). In this research communication, only viable mycobiome was considered and discussed in detail. Illumina-based reads of sampling device and field controls showed negligible signal from DNA contamination and hence not included in the following analysis.",
+    "Viable fungal community structure",
+    "The most abundant phylum that dominated the viable mycobiome of the ILMAH was Ascomycota (90% of all characterized OTUs) followed by Basidiomycota and unclassified fungi (~4 and ~5%, respectively). Incidence of the fungal OTUs at the family level for various time points and locations are presented in Table 1 and Table 2, respectively. The dominant Pleosporaceae (75% of all OTUs) along with unclassified fungi (5%) and Davidiellaceae (4%) constituted 84% of all OTUs present in PMA-treated samples (Tables 1 and 2 and Fig. 6). A closer look into the genus level of Pleosporaceae family indicated the domination of Epicoccum (92.95% of all OTUs) and Alternaria (6.8%) sequences. The dominant fungal OTUs in the ILMAH biome correspond with the most frequently isolated cultivable fungi (Figs. 3 and 6).",
+    "Differences in the fungal community between samples were analyzed by multivariate statistics using ordination analyses and Monte Carlo-based permutation tests. Viable fungal communities showed similar mycobiome profiles throughout the sampling period except from the samples collected at T20, which were distinct (Fig. 4; Adonis p value = 0.001 and MRPP, significance of delta = 0.001 and A = 0.1168, Additional file 6: Figure SF2 MRPP: chance corrected within-group agreement A: 0.1626, significance of delta 0.001; Adonis: delta = 0.019). Interestingly, community profiles were similar between samples collected before crew occupation (T0) and at T13 and T30 (Additional file 7: Figure SF3; chance corrected within-group agreement A: 0.01802, significance of delta: 0.219, Adonis 0.228, Additional file 8: Table ST3).",
+    "Observed differences in multivariate statistics led to the investigation of mycobiome changes on a single-OTU level. First, an Anova test carried out on samples that did not cluster with the rest (Fig. 4) showed presence of representatives of Pleosporaceae, Pleosporales, Saccharomycetales, Tremellales, and Trichocomaceae families. Second, throughout the inhabitation, the level of Pleosporaceae showed significant fluctuation—from 96 to 47% and 70% at T0, T20, and T30, respectively (Fig. 7). Additionally, while Pleosporaceae presence decreased to 47%, a significant increase in the levels of Davidiellaceae (22%), Dothioraceae (11%), Saccharomycetales (8%), and Trichocomaceae (8%) was observed when compared to other time points (Fig. 6, Additional file 9: Table ST4). Interestingly, the presence of less abundant families observed before crew occupancy (T0) increased at (T30), i.e., Davidiellaceae (4.45%), Hypocreaceae (1.26%), Phaeosphaeriaceae (3.54%), Teratosphaeriaceae (5.17%), and Sporidiobolales (2.81%), as well as members of new fungal families were observed, i.e., Capnodiales (0.5%), Chaetomiaceae (3.81%), and Peniophoraceae (1.26%) (Table 1 and Fig. 6, Additional file 9: Table ST4).",
+    "Spearman rank correlation was applied to each OTU’s abundance pattern and sampling event to determine significant correlation of viable fungal families with various time points. The results presented as a heat map contain 13 OTUs that showed a significant correlation with a p value of 0.01 and 32 OTUs with a p value of 0.05. All OTUs but Davidiellaceae, Teratosphaeriaceae, Tremellales_3, Pleosporales, and Pleosporaceae were more abundant during the sampling before the crew inhabited the ILMAH (Fig. 8).",
+    "Further investigation of OTU abundances on the genus level revealed changes in OTU counts over the course of time. The numbers of OTUs identified as Epiccocum, Alternaria, Pleosporales, and Cryptococcus fluctuated from high abundance at T0 to significantly lower counts at T20 and then counts increased again at T30. OTUs identified as Davidiella increased throughout the occupation time whereas OTU counts for Aspergillus, Aureobasidium, and Candida were increasing over time (peak at T20) with a drastic decrease at T30. Location wise before the ILMAH occupation, all compartments exhibited high abundance of Epiccocum OTUs that decreased over time and again increased at T30. Alternaria OTUs were less abundant than the ones identified as Epiccocum genus. Nevertheless, they showed the same fluctuation pattern in all compartments but bedroom. While accumulation of Davidiella OTU counts was observed in bedroom and lab, the OTU counts in the bathroom did not differ between the T0 and T30. At the same time, accumulation of Davidiella OTUs was observed in the kitchen with the highest abundance during the T20 sampling event.",
+    "To sum up, statistical analysis revealed differences in community structure between time points in particular between T20 and any other previous or following time point. Davidiellaceae, Teratosphaeriaceae, Tremellales_3, Pleosporales, and Pleosporaceae families were shown to increase over the occupation time period. On a genus level, Epiccocum, Alternaria, Pleosporales, Davidiella, and Cryptococcus showed increased abundance."
+  ],
+  "TABLE": [
+    "Incidence of the fungal OTUs at the family level for various time points",
+    "Fungal phylum\tFungal family\tNumber of sequences\t \tT0\tT13\tT20\tT30\t \tTotal\tViable\tTotal\tViable\tTotal\tViable\tTotal\tViable\t \tAscomycota\tBotryosphaeriales\t115\t31\t1620\t\t\t\t176\t96\t \tCapnodiales\t\t2\t185\t121\t\t\t61\t4353\t \tChaetomiaceae\t\t\t2415\t1089\t5533\t\t1505\t32981\t \tCucurbitariaceae\t451\t221\t2298\t750\t1879\t\t2272\t1256\t \tDavidiellaceae\t2840\t1423\t42496\t6099\t129620\t28495\t55079\t38510\t \tDothioraceae\t32\t104\t510\t289\t12864\t14785\t4726\t688\t \tHypocreaceae\t174\t68\t2357\t197\t5510\t\t3897\t10952\t \tHypocreales\t73\t86\t9247\t402\t8566\t1\t7989\t5638\t \tLeptosphaeriaceae\t16\t23\t564\t215\t518\t1\t1639\t1\t \tLophiostomataceae\t56\t43\t56\t\t1850\t1\t26\t\t \tMicroascaceae\t\t\t326\t\t27007\t9\t735\t6\t \tMontanulaceae\t627\t232\t11273\t621\t22582\t\t12697\t77\t \tNectriaceae\t82\t121\t2890\t1287\t8479\t804\t2242\t49\t \tPhaeosphaeriaceae\t343\t222\t3551\t105\t6082\t1\t6969\t30695\t \tPleosporaceae\t295115\t380533\t273232\t251840\t172919\t61791\t648825\t619794\t \tPleosporales\t5202\t3071\t6876\t4475\t10056\t13\t12085\t8859\t \tSaccharomycetales\t17\t33\t346\t3\t45461\t10414\t17840\t2092\t \tSclerotiniaceae\t52\t16\t355\t\t1920\t\t99\t\t \tTeratosphaeriaceae\t35\t28\t805\t1\t2\t2\t583\t44749\t \tTrichocomaceae\t68\t32\t10496\t3461\t14625\t10495\t12147\t518\t \tTrichosphaeriales\t3\t\t122\t1750\t\t\t688\t\t \tUnclassified\t712\t686\t5082\t640\t4161\t\t4450\t6317\t \tBasidiomycota\tFilobasidiaceae\t1164\t419\t5997\t8\t11570\t1925\t2550\t4425\t \tPeniophoraceae\t1\t\t\t\t\t\t\t10916\t \tPolyporales\t1\t\t\t\t1339\t\t\t\t \tSporidiobolales\t2563\t1236\t6556\t315\t22900\t2\t35692\t24352\t \tTremellales\t7916\t4158\t42068\t1030\t72870\t9\t34932\t18439\t \tUnclassified\t409\t272\t2151\t2171\t481\t504\t2445\t279\t \tUnclassified\tUnclassified\t2973\t10475\t38015\t17311\t30832\t10320\t41608\t53950",
+    "Incidence of the fungal OTUs at the family level for locations",
+    "Fungal phylum\tFungal family\tNumber of sequences\t \tBedroom\tKitchen\tBathroom\tLab\t \tTotal\tViable\tTotal\tViable\tTotal\tViable\tTotal\tViable\t \tAscomycota\tCapnodiales\t215\t\t26\t121\t\t\t5\t4355\t \tChaetomiaceae\t171\t32858\t1668\t\t2073\t\t5541\t1212\t \tCucurbitariaceae\t1186\t16\t2782\t739\t1248\t57\t1545\t1415\t \tDavidiellaceae\t71145\t17039\t40120\t35104\t53460\t496\t58969\t21888\t \tDothioraceae\t4821\t5774\t161\t286\t172\t9708\t12970\t98\t \tHerpotrichiellaceae\t68\t4\t93\t4\t134\t7\t1407\t28\t \tHypocreaceae\t979\t11\t4622\t93\t2095\t10909\t4133\t204\t \tHypocreales\t9471\t5617\t8792\t408\t1712\t12\t5169\t90\t \tLophiostomataceae\t30\t21\t71\t19\t9\t\t1878\t4\t \tMicroascaceae\t3086\t3\t6642\t3\t18317\t3\t23\t6\t \tMontanulaceae\t9231\t116\t5112\t520\t24292\t68\t7141\t226\t \tNectriaceae\t216\t1374\t5618\t3\t1542\t18\t6177\t866\t \tPhaeosphaeriaceae\t1360\t131\t4209\t55\t6150\t18\t4318\t30819\t \tPleosporaceae\t223517\t357893\t195638\t299314\t247789\t199402\t626137\t457349\t \tPleosporales\t5933\t4284\t6768\t590\t7339\t644\t10668\t10900\t \tSaccharomycetales\t1904\t1658\t18978\t10681\t10035\t49\t29496\t154\t \tTeratosphaeriaceae\t94\t\t55\t9\t13\t8\t932\t44763\t \tTrichocomaceae\t5453\t1\t11611\t1167\t8735\t2236\t10860\t11102\t \tOthers (20)\t1835\t5\t494\t12\t530\t16\t365\t26\t \tUnclassified\t2007\t426\t5203\t468\t668\t3105\t5831\t3644\t \tBasidiomycota\tFilobasidiaceae\t3624\t2198\t935\t120\t8171\t4412\t8259\t47\t \tPeniophoraceae\t\t\t45\t9922\t79\t\t1\t994\t \tPolyporales\t1\t\t\t\t\t\t1339\t\t \tSporidiobolales\t33860\t24869\t15193\t173\t10398\t299\t7923\t564\t \tTremellales\t47729\t17080\t26291\t2479\t9002\t1165\t69144\t2912\t \tUnclassified\t1999\t34\t525\t2172\t1144\t67\t1459\t953\t \tUnclassified\tUnclassified\t37959\t13825\t17047\t26040\t22401\t6260\t29713\t45931"
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Understanding microbial characteristic of a controlled habitat, like the ILMAH, may facilitate discerning the microbial population dynamics as well as the development of appropriate countermeasures. Knowledge about the viable mycobiome will not only allow the development of required maintenance and cleaning procedures in the closed habitat but also prevent it from deteriorating and being a potential health hazard for its inhabitants. Multiple studies have shown that use of propidium monoazide (PMA), a dye that can penetrate the compromised cell walls, enables more accurate analysis of the viable microbiome. It was also shown that PMA treatment might be successfully applied to determine dead and viable counts for various fungal species. As in this study, other report proved that DNA from dead cells, when not removed from samples, before molecular analyses, might overshadow the actual diversity since presence of less abundant microbial species were masked. PMA-treated and PMA-untreated samples varied significantly in the ILMAH fungal community structures (p value = 0.006), and it had been reported before that low abundant species were detected in PMA-treated samples for bacteria, fungi, and viruses. This approach validated the importance of PMA treatment to accurately determine the viable mycobiome of environmental samples. As a result, this study discussed only viable fungal communities to determine succession patterns and community structure over the course of time.",
+    "Various studies showed the positive correlation between changes in the indoor bacteriome and human presence whereas such observation was not confirmed for the mycobiome. Major sources of indoor microbiome were reported to be associated with human skin commensals transmitted via shoes, clothes, coughing, and talking. It was also shown that the indoor mycobiome was mostly influenced by airborne fungi rather than human presence and their shedding, despite the fact that fungi were associated with human skin, lungs, urogenital tract, oral nasal cavities, and the gut. In addition, few studies demonstrated that key determinants for mycobiome indoors might be the age of the built-in environments and the relative humidity, which can enhance fungal growth. A recent 6-month survey on Japanese astronauts on the ISS revealed that the most abundant (dead or alive) fungal genus was Malassezia whereas in this study, the most frequent viable fungal genera of closed habitat were Epiccocum, Alternaria, and Pleosporales, which are environmental organisms rather than human commensals.",
+    "The presence of fungi inside the closed habitat, houses, or any types of man-made buildings was correlated with the amount of the water (relative humidity; RH) present in the environment. The environmental relative moldiness index (ERMI) increases with elevated amounts of water. The most abundant genera in common households were Alternaria, Cladosporium, and Epicoccum whereas Aspergillus and Penicillium were predominant in water-damaged building. Similarly, in this study (measured RH 32 to 55%), the most abundant fungal genera were Epiccocum, Alternaria, Pleosporales, and Cryptococcus, which could be compared with the previous observations for common households. Nevertheless, genera present in houses and closed habitats could have an impact on human health. These molds were associated with allergies and asthma. Elevated level of fungal allergenic molecules, such as enzymes, toxins, cell-wall components, and cross-reactive proteins could induce type I hypersensitivity. Additionally, because of their ability to colonize the human body and produce toxins, volatile organic compounds, and proteases, the common molds (Alternaria, Cladosporium, Epicoccum) could damage airways of immunocompromised occupants, which make them more dangerous than any other allergenic source. In this study, accumulation of Alternaria and Epicoccum genera over time was observed, which, in combination with reported decreased immunity in occupants of confined spaces, e.g., astronauts could lead to developing allergy and asthma symptoms.",
+    "Throughout this study, the abundance of dominant Pleosporaceae family members decreased (94% at T0 to 71% at T30), while other fungal families were observed to increase, possibly as a result of human presence. However, positive correlation between increased fungal diversity and human presence requires studying the mycobiome of the occupants. It might be possible that the implemented cleaning procedures including weekly dusting, sweeping, wet mopping the floor, and antibacterial wipes resulted in suppressed growth of Pleosporaceae members over the time. The community structure observed at T20 was distinct from other time points. Detailed logging data collected during 30-day mission did not show any abnormal accidents or cleaning activities preceding T20 sampling. The recorded data indicated that cleaning was conducted between the sampling events (~4–5 days prior to sampling). However, the inhabiting crew might have inadvertently cleaned just prior to T20 sampling and that might have removed both total and viable fungal populations (Table 1). The significant increase of Davidiellaceae (22%), Dothioraceae (11%), Saccharomycetales (8%), and Trichocomaceae (8%) sequences at T20 might be due to the fact that under-represented members became available for PCR reaction among the competing dominant fungal DNA.",
+    "Both Cladosporium sp. members of Davidiellaceae family and Aurobasidium sp. of Dothioraceae family have the capacity to survive extreme environments like the ice of the Antarctica or radioactive explosion site of Chernobyl Power Plant accident. Additionally, Cladosporium sp. and Aureobasidium pullulans were isolated from hypersaline waters with NaCl concentration reaching 25% indicating high osmotolerance. Penicillium sp. of Trichocomaceae family isolated from high-altitude soil in Indian Himalaya has been shown to tolerate a wide range of pH from 2 to 14 and a salt concentration between 10 and 20%. Most of the Apergillus sp. of Trichocomaceae family is soil fungi or saprophytes, but there has been a recent report of isolation of A. fumigatus from ISS. In-depth analysis of isolate ISSFT-021 and IF1SW-F4 revealed increased UV resistance (in preparation) and virulence in neutrophil-deficient larval zebrafish model of invasive aspergillosis. All in all, the capacity to survive in such extreme environments might help the observed in the study Davidiellaceae, Dothioraceae, and Trichocomaceae species to adjust and survive hostile conditions of the ILMAH."
+  ],
+  "CONCL": [
+    "Conclusions",
+    "Accumulation of viable mycobiome during the experiment duration and differences in fungal community profiles were observed. On a genus level, Epiccocum, Alternaria, Pleosporales, Davidiella, and Cryptococcus showed increased abundance over the occupation time. Unlike results of molecular analyses, cultivable fungi counts decreased over time. Epicoccum nigrum was the most dominant cultivable isolate; however, most of the fungal species detected via molecular approach were not cultured. During human presence, the overall fungal diversity has changed, that in the long run, may lead to a conclusion that proper maintenance protocols of a closed habitat may be required to preserve it from deteriorating and keep it safe for its inhabitants.",
+    "Additional files",
+    "Electronic supplementary material",
+    "The online version of this article (doi:10.1186/s40168-017-0280-8) contains supplementary material, which is available to authorized users."
+  ],
+  "REF": [
+    "References",
+    "A minimal architecture for human journeys to Mars",
+    "Swarmer TM, Anderson L, de León P: Performance review of a pressurized inflatable lunar habitat integrated with an electric rover and pressurized analog planetary suits during an initial ten day simulation. International Conference on Environmental Systems 2014.",
+    "Studying the microbiology of the indoor environment",
+    "Forensic analysis of the microbiome of phones and shoes",
+    "Bacterial communities on classroom surfaces vary with human contact",
+    "Microbial succession in an inflated lunar/Mars analog habitat during a 30-day human occupation",
+    "The ignored diversity: complex bacterial communities in intensive care units revealed by 16S pyrosequencing",
+    "Microbe-I: fungal biota analyses of the Japanese experimental module KIBO of the International Space Station before launch and after being in orbit for about 460 days",
+    "Comprehensive analysis of the skin fungal microbiota of astronauts during a half-year stay at the International Space Station",
+    "Office space bacterial abundance and diversity in three metropolitan areas",
+    "Exploring bacterial diversity in hospital environments by GS-FLX Titanium pyrosequencing",
+    "Bacterial diversity in two neonatal intensive care units (NICUs)",
+    "Microbes in the neonatal intensive care unit resemble those found in the gut of premature infants",
+    "Gupta RK: role of environmental monitoring and microbiological testing during manufacture of sterile drugs and biologics* Am Pharm Rev. 2014. http://www.americanpharmaceuticalreview.com/Featured-Articles/169384-Role-of-Environmental-Monitoring-and-Microbiological-Testing-During-Manufacture-of-Sterile-Drugs-and-Biologics/.",
+    "Bacterial diversity in the indoor air of pharmaceutical environment",
+    "Design considerations for parenteral production facility",
+    "Cleanrooms and tissue banking how happy I could be with either GMP or GTP?",
+    "Risk of acquiring antibiotic-resistant bacteria from prior room occupants",
+    "Hospital-acquired infections due to gram-negative bacteria",
+    "Hospital-acquired Aspergillus fumigatus infection: can molecular typing methods identify an environmental source?",
+    "Fernanda NdSP: a mini review of Candida species in hospital infection: epidemiology, virulence factor and drugs resistance and prophylaxis. Trop Med Surg 2013, 01(05). https://www.esciencecentral.org/journals/a-mini-review-of-candida-species-in-hospital-infection-2329-9088.1000141.php?aid=18547.",
+    "Nosocomial Candida infection in a rural tertiary care hospital",
+    "Analysis of fungal flora in indoor dust by ribosomal DNA sequence analysis, quantitative PCR, and culture",
+    "Associations between fungal species and water-damaged building materials",
+    "A review of cleanroom microflora: types, trends, and patterns",
+    "Mandal J, Brandl H: Bioaerosols in indoor environment—a review with special reference to residential and occupational locations. Open Environ Biol Monit J. 2011; 4(1):83–96.",
+    "Pyrosequencing-derived bacterial, archaeal, and fungal diversity of spacecraft hardware destined for Mars",
+    "Dispersal in microbes: fungi in indoor air are dominated by outdoor air and show dispersal limitation at short distances",
+    "Airborne bacterial communities in residences: similarities and differences with fungi",
+    "Chase J, Fouquier J, Zare M, Sonderegger DL, Knight R, Kelley ST, Siegel J, Caporaso JG. Geography and location are the primary drivers of office microbiome composition. mSystems. 2016;1(2):e00022-00016.",
+    "Microbiomes of the dust particles collected from the International Space Station and Spacecraft Assembly Facilities",
+    "Antarctic microfungi as models for exobiology",
+    "Responses of soil bacterial and fungal communities to extreme desiccation and rewetting",
+    "Evolution and adaptation of fungi at boundaries of life",
+    "Temperature and moisture conditions for life in the extreme arid region of the Atacama desert: four years of observations including the El Nino of 1997-1998",
+    "Microbial ecology of an extreme acidic environment, the Tinto river",
+    "Valerie G. Halophilic fungi in a polyhaline estuarine habitat. J Yeast Fungal Res. 2012;3(3):30–36.",
+    "Ionizing radiation attracts soil fungi",
+    "Ionizing radiation: how fungi cope, adapt, and exploit with the help of melanin",
+    "Melanin pigments of fungi under extreme environmental conditions (review)",
+    "Characteristics of extremophylic fungi from chernobyl nuclear power plant",
+    "Resistance of Antarctic black fungi and cryptoendolithic communities to simulated space and Martian conditions",
+    "Fungi: their role in deterioration of cultural heritage",
+    "Fungi associated with deteriorations of painted wall surfaces: isolation and identification",
+    "The sick building syndrome",
+    "Fungal pollution of indoor environments and its management",
+    "Hidden killers: human fungal infections",
+    "Human and plant fungal pathogens: the role of secondary metabolites",
+    "Stress-induced subclinical reactivation of varicella zoster virus in astronauts",
+    "Evaluation of procedures for the collection, processing, and analysis of biomolecules from low-biomass surfaces",
+    "Fungal communities from methane hydrate-bearing deep-sea marine sediments in South China Sea",
+    "Community structure of ectomycorrhizal fungi in a Pinus muricata forest: minimal overlap between the mature forest and resistant propagule communities",
+    "The UNITE database for molecular identification of fungi—recent updates and future perspectives",
+    "MEGA6: molecular evolutionary genetics analysis version 6.0.",
+    "Cryptosporidium propidium monoazide-PCR, a molecular biology-based technique for genotyping of viable Cryptosporidium oocysts",
+    "ITS primers with enhanced specificity for basidiomycetes—application to the identification of mycorrhizae and rusts",
+    "Amplification and direct sequencing of fungal ribosomal RNA genes for phylogenetics",
+    "Controlling the false discovery rate: a practical and powerful approach to multiple testing",
+    "Introducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities",
+    "Ironing out the wrinkles in the rare biosphere through improved OTU clustering",
+    "UCHIME improves sensitivity and speed of chimera detection",
+    "Naive Bayesian classifier for rapid assignment of rRNA sequences into the new bacterial taxonomy",
+    "Bengtsson-Palme J, Ryberg M, Hartmann M, Branco S, Wang Z, Godhe A, De Wit P, Sánchez-García M, Ebersberger I, de Sousa F et al. Improved software detection and extraction of ITS1 and ITS2 from ribosomal ITS sequences of fungi and other eukaryotes for analysis of environmental sequencing data. Methods Ecol Evol 2013:n/a-n/a.",
+    "gyrB as a phylogenetic discriminator for members of the Bacillus anthracis-cereus-thuringiensis group",
+    "A viability-linked metagenomic analysis of cleanroom environments: eukarya, prokaryotes, and viruses",
+    "Indoor fungal diversity and asthma: a meta-analysis and systematic review of risk factors",
+    "Use of propidium monoazide for live/dead distinction in microbial ecology",
+    "New perspectives on viable microbial communities in low-biomass cleanroom environments",
+    "Quantifying fungal viability in air and water samples using quantitative PCR after treatment with propidium monoazide (PMA)",
+    "Propidium monoazide combined with real-time quantitative PCR to quantify viable Alternaria spp. contamination in tomato products",
+    "Longitudinal analysis of microbial interaction between humans and the indoor environment",
+    "The diversity and distribution of fungi on residential surfaces",
+    "Dispersal of skin microorganisms*",
+    "Modern cleanroom clothing systems: people as a contamination source",
+    "The human mycobiome in health and disease",
+    "Topographic diversity of fungal and bacterial communities in human skin",
+    "The emerging world of the fungal microbiome",
+    "Gut fungal microbiota: the Yin and Yang of inflammatory bowel disease",
+    "Key determinants of the fungal and bacterial microbiomes in homes",
+    "The relationship between environmental relative moldiness index values and asthma",
+    "The spectrum of fungal allergy",
+    "Exposure to Alternaria alternata in US homes is associated with asthma symptoms",
+    "Efficacy and safety of immunotherapy for allergies to Alternaria alternata in children",
+    "Fungi and allergic lower respiratory tract diseases",
+    "Monocyte phenotype and cytokine production profiles are dysregulated by short-duration spaceflight",
+    "Seifert KA: Compendium of soil fungi—by K.H. Domsch, W. Gams & T.-H. Anderson. Eur J Soil Sci. 2009;59:1007.",
+    "Fungi from Chernobyl: mycobiota of the inner regions of the containment structures of the damaged nuclear reactor",
+    "Hypersaline waters in salterns a “ natural ecological niches for halophilic black yeasts",
+    "Yeast diversity in hypersaline habitats",
+    "Cold, pH and salt tolerant Penicillium spp. inhabit the high altitude soils in Himalaya, India",
+    "Biology and ecology of mycotoxigenic Aspergillus species as related to economic and health concerns",
+    "Knox BP, Blachowicz A, Palmer JM, Romsdahl J, Huttenlocher A, Wang CC, Keller NP, Venkateswaran K: Characterization of Aspergillus fumigatus isolates from air and surfaces of the International Space Station. mSphere 2016, 1(5). http://msphere.asm.org/content/1/5/e00227-16."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A minimal architecture for human journeys to Mars",
+      "autores": [
+        {
+          "nombre_completo": "H Price",
+          "nombres": "H",
+          "apellidos": "Price"
+        },
+        {
+          "nombre_completo": "J Baker",
+          "nombres": "J",
+          "apellidos": "Baker"
+        },
+        {
+          "nombre_completo": "F Naderi",
+          "nombres": "F",
+          "apellidos": "Naderi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "New Space",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "73",
+      "lpage": "81"
+    },
+    {
+      "titulo": "Swarmer TM, Anderson L, de León P: Performance review of a pressurized inflatable lunar habitat integrated with an electric rover and pressurized analog planetary suits during an initial ten day simulation. International Conference on Environmental Systems 2014.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Studying the microbiology of the indoor environment",
+      "autores": [
+        {
+          "nombre_completo": "ST Kelley",
+          "nombres": "ST",
+          "apellidos": "Kelley"
+        },
+        {
+          "nombre_completo": "JA Gilbert",
+          "nombres": "JA",
+          "apellidos": "Gilbert"
+        }
+      ],
+      "pmid": "23514020",
+      "fuente": "Genome Biol",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "202",
+      "lpage": ""
+    },
+    {
+      "titulo": "Forensic analysis of the microbiome of phones and shoes",
+      "autores": [
+        {
+          "nombre_completo": "S Lax",
+          "nombres": "S",
+          "apellidos": "Lax"
+        },
+        {
+          "nombre_completo": "JT Hampton-Marcell",
+          "nombres": "JT",
+          "apellidos": "Hampton-Marcell"
+        },
+        {
+          "nombre_completo": "SM Gibbons",
+          "nombres": "SM",
+          "apellidos": "Gibbons"
+        },
+        {
+          "nombre_completo": "GB Colares",
+          "nombres": "GB",
+          "apellidos": "Colares"
+        },
+        {
+          "nombre_completo": "D Smith",
+          "nombres": "D",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "JA Eisen",
+          "nombres": "JA",
+          "apellidos": "Eisen"
+        },
+        {
+          "nombre_completo": "JA Gilbert",
+          "nombres": "JA",
+          "apellidos": "Gilbert"
+        }
+      ],
+      "pmid": "25969737",
+      "fuente": "Microbiome",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "21",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacterial communities on classroom surfaces vary with human contact",
+      "autores": [
+        {
+          "nombre_completo": "JF Meadow",
+          "nombres": "JF",
+          "apellidos": "Meadow"
+        },
+        {
+          "nombre_completo": "AE Altrichter",
+          "nombres": "AE",
+          "apellidos": "Altrichter"
+        },
+        {
+          "nombre_completo": "SW Kembel",
+          "nombres": "SW",
+          "apellidos": "Kembel"
+        },
+        {
+          "nombre_completo": "M Moriyama",
+          "nombres": "M",
+          "apellidos": "Moriyama"
+        },
+        {
+          "nombre_completo": "TK O'Connor",
+          "nombres": "TK",
+          "apellidos": "O'Connor"
+        },
+        {
+          "nombre_completo": "AM Womack",
+          "nombres": "AM",
+          "apellidos": "Womack"
+        },
+        {
+          "nombre_completo": "GZ Brown",
+          "nombres": "GZ",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "JL Green",
+          "nombres": "JL",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "BJ Bohannan",
+          "nombres": "BJ",
+          "apellidos": "Bohannan"
+        }
+      ],
+      "pmid": "24602274",
+      "fuente": "Microbiome",
+      "anio": "2014",
+      "volumen": "2",
+      "fpage": "7",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbial succession in an inflated lunar/Mars analog habitat during a 30-day human occupation",
+      "autores": [
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "A Blachowicz",
+          "nombres": "A",
+          "apellidos": "Blachowicz"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "A Checinska",
+          "nombres": "A",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "T Swarmer",
+          "nombres": "T",
+          "apellidos": "Swarmer"
+        },
+        {
+          "nombre_completo": "P de Leon",
+          "nombres": "P",
+          "apellidos": "de Leon"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "27250991",
+      "fuente": "Microbiome",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "22",
+      "lpage": ""
+    },
+    {
+      "titulo": "The ignored diversity: complex bacterial communities in intensive care units revealed by 16S pyrosequencing",
+      "autores": [
+        {
+          "nombre_completo": "L Oberauner",
+          "nombres": "L",
+          "apellidos": "Oberauner"
+        },
+        {
+          "nombre_completo": "C Zachow",
+          "nombres": "C",
+          "apellidos": "Zachow"
+        },
+        {
+          "nombre_completo": "S Lackner",
+          "nombres": "S",
+          "apellidos": "Lackner"
+        },
+        {
+          "nombre_completo": "C Hogenauer",
+          "nombres": "C",
+          "apellidos": "Hogenauer"
+        },
+        {
+          "nombre_completo": "KH Smolle",
+          "nombres": "KH",
+          "apellidos": "Smolle"
+        },
+        {
+          "nombre_completo": "G Berg",
+          "nombres": "G",
+          "apellidos": "Berg"
+        }
+      ],
+      "pmid": "23475210",
+      "fuente": "Sci Rep",
+      "anio": "2013",
+      "volumen": "3",
+      "fpage": "1413",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbe-I: fungal biota analyses of the Japanese experimental module KIBO of the International Space Station before launch and after being in orbit for about 460 days",
+      "autores": [
+        {
+          "nombre_completo": "K Satoh",
+          "nombres": "K",
+          "apellidos": "Satoh"
+        },
+        {
+          "nombre_completo": "Y Nishiyama",
+          "nombres": "Y",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "T Yamazaki",
+          "nombres": "T",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "T Sugita",
+          "nombres": "T",
+          "apellidos": "Sugita"
+        },
+        {
+          "nombre_completo": "Y Tsukii",
+          "nombres": "Y",
+          "apellidos": "Tsukii"
+        },
+        {
+          "nombre_completo": "K Takatori",
+          "nombres": "K",
+          "apellidos": "Takatori"
+        },
+        {
+          "nombre_completo": "Y Benno",
+          "nombres": "Y",
+          "apellidos": "Benno"
+        },
+        {
+          "nombre_completo": "K Makimura",
+          "nombres": "K",
+          "apellidos": "Makimura"
+        }
+      ],
+      "pmid": "21950271",
+      "fuente": "Microbiol Immunol",
+      "anio": "2011",
+      "volumen": "55",
+      "fpage": "823",
+      "lpage": "829"
+    },
+    {
+      "titulo": "Comprehensive analysis of the skin fungal microbiota of astronauts during a half-year stay at the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "T Sugita",
+          "nombres": "T",
+          "apellidos": "Sugita"
+        },
+        {
+          "nombre_completo": "T Yamazaki",
+          "nombres": "T",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "K Makimura",
+          "nombres": "K",
+          "apellidos": "Makimura"
+        },
+        {
+          "nombre_completo": "O Cho",
+          "nombres": "O",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "S Yamada",
+          "nombres": "S",
+          "apellidos": "Yamada"
+        },
+        {
+          "nombre_completo": "H Ohshima",
+          "nombres": "H",
+          "apellidos": "Ohshima"
+        },
+        {
+          "nombre_completo": "C Mukai",
+          "nombres": "C",
+          "apellidos": "Mukai"
+        }
+      ],
+      "pmid": "26773135",
+      "fuente": "Med Mycol",
+      "anio": "2016",
+      "volumen": "54",
+      "fpage": "232",
+      "lpage": "239"
+    },
+    {
+      "titulo": "Office space bacterial abundance and diversity in three metropolitan areas",
+      "autores": [
+        {
+          "nombre_completo": "KM Hewitt",
+          "nombres": "KM",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "CP Gerba",
+          "nombres": "CP",
+          "apellidos": "Gerba"
+        },
+        {
+          "nombre_completo": "SL Maxwell",
+          "nombres": "SL",
+          "apellidos": "Maxwell"
+        },
+        {
+          "nombre_completo": "ST Kelley",
+          "nombres": "ST",
+          "apellidos": "Kelley"
+        }
+      ],
+      "pmid": "22666400",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e37849",
+      "lpage": ""
+    },
+    {
+      "titulo": "Exploring bacterial diversity in hospital environments by GS-FLX Titanium pyrosequencing",
+      "autores": [
+        {
+          "nombre_completo": "M Poza",
+          "nombres": "M",
+          "apellidos": "Poza"
+        },
+        {
+          "nombre_completo": "C Gayoso",
+          "nombres": "C",
+          "apellidos": "Gayoso"
+        },
+        {
+          "nombre_completo": "MJ Gomez",
+          "nombres": "MJ",
+          "apellidos": "Gomez"
+        },
+        {
+          "nombre_completo": "S Rumbo-Feal",
+          "nombres": "S",
+          "apellidos": "Rumbo-Feal"
+        },
+        {
+          "nombre_completo": "M Tomas",
+          "nombres": "M",
+          "apellidos": "Tomas"
+        },
+        {
+          "nombre_completo": "J Aranda",
+          "nombres": "J",
+          "apellidos": "Aranda"
+        },
+        {
+          "nombre_completo": "A Fernandez",
+          "nombres": "A",
+          "apellidos": "Fernandez"
+        },
+        {
+          "nombre_completo": "G Bou",
+          "nombres": "G",
+          "apellidos": "Bou"
+        }
+      ],
+      "pmid": "22952889",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e44105",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacterial diversity in two neonatal intensive care units (NICUs)",
+      "autores": [
+        {
+          "nombre_completo": "KM Hewitt",
+          "nombres": "KM",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "FL Mannino",
+          "nombres": "FL",
+          "apellidos": "Mannino"
+        },
+        {
+          "nombre_completo": "A Gonzalez",
+          "nombres": "A",
+          "apellidos": "Gonzalez"
+        },
+        {
+          "nombre_completo": "JH Chase",
+          "nombres": "JH",
+          "apellidos": "Chase"
+        },
+        {
+          "nombre_completo": "JG Caporaso",
+          "nombres": "JG",
+          "apellidos": "Caporaso"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        },
+        {
+          "nombre_completo": "ST Kelley",
+          "nombres": "ST",
+          "apellidos": "Kelley"
+        }
+      ],
+      "pmid": "23372757",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e54703",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbes in the neonatal intensive care unit resemble those found in the gut of premature infants",
+      "autores": [
+        {
+          "nombre_completo": "B Brooks",
+          "nombres": "B",
+          "apellidos": "Brooks"
+        },
+        {
+          "nombre_completo": "BA Firek",
+          "nombres": "BA",
+          "apellidos": "Firek"
+        },
+        {
+          "nombre_completo": "CS Miller",
+          "nombres": "CS",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "I Sharon",
+          "nombres": "I",
+          "apellidos": "Sharon"
+        },
+        {
+          "nombre_completo": "BC Thomas",
+          "nombres": "BC",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "R Baker",
+          "nombres": "R",
+          "apellidos": "Baker"
+        },
+        {
+          "nombre_completo": "MJ Morowitz",
+          "nombres": "MJ",
+          "apellidos": "Morowitz"
+        },
+        {
+          "nombre_completo": "JF Banfield",
+          "nombres": "JF",
+          "apellidos": "Banfield"
+        }
+      ],
+      "pmid": "24468033",
+      "fuente": "Microbiome",
+      "anio": "2014",
+      "volumen": "2",
+      "fpage": "1",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gupta RK: role of environmental monitoring and microbiological testing during manufacture of sterile drugs and biologics* Am Pharm Rev. 2014. http://www.americanpharmaceuticalreview.com/Featured-Articles/169384-Role-of-Environmental-Monitoring-and-Microbiological-Testing-During-Manufacture-of-Sterile-Drugs-and-Biologics/.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacterial diversity in the indoor air of pharmaceutical environment",
+      "autores": [
+        {
+          "nombre_completo": "HK Park",
+          "nombres": "HK",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "JH Han",
+          "nombres": "JH",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "Y Joung",
+          "nombres": "Y",
+          "apellidos": "Joung"
+        },
+        {
+          "nombre_completo": "SH Cho",
+          "nombres": "SH",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "SA Kim",
+          "nombres": "SA",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "SB Kim",
+          "nombres": "SB",
+          "apellidos": "Kim"
+        }
+      ],
+      "pmid": "24314234",
+      "fuente": "J Appl Microbiol",
+      "anio": "2014",
+      "volumen": "116",
+      "fpage": "718",
+      "lpage": "727"
+    },
+    {
+      "titulo": "Design considerations for parenteral production facility",
+      "autores": [
+        {
+          "nombre_completo": "PV Ingle",
+          "nombres": "PV",
+          "apellidos": "Ingle"
+        },
+        {
+          "nombre_completo": "VK Chatap",
+          "nombres": "VK",
+          "apellidos": "Chatap"
+        },
+        {
+          "nombre_completo": "NM Bhatia",
+          "nombres": "NM",
+          "apellidos": "Bhatia"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int J Pharma Res Rev",
+      "anio": "2014",
+      "volumen": "3",
+      "fpage": "15",
+      "lpage": "28"
+    },
+    {
+      "titulo": "Cleanrooms and tissue banking how happy I could be with either GMP or GTP?",
+      "autores": [
+        {
+          "nombre_completo": "J Klykens",
+          "nombres": "J",
+          "apellidos": "Klykens"
+        },
+        {
+          "nombre_completo": "JP Pirnay",
+          "nombres": "JP",
+          "apellidos": "Pirnay"
+        },
+        {
+          "nombre_completo": "G Verbeken",
+          "nombres": "G",
+          "apellidos": "Verbeken"
+        },
+        {
+          "nombre_completo": "O Giet",
+          "nombres": "O",
+          "apellidos": "Giet"
+        },
+        {
+          "nombre_completo": "E Baudoux",
+          "nombres": "E",
+          "apellidos": "Baudoux"
+        },
+        {
+          "nombre_completo": "R Jashari",
+          "nombres": "R",
+          "apellidos": "Jashari"
+        },
+        {
+          "nombre_completo": "A Vanderkelen",
+          "nombres": "A",
+          "apellidos": "Vanderkelen"
+        },
+        {
+          "nombre_completo": "N Ectors",
+          "nombres": "N",
+          "apellidos": "Ectors"
+        }
+      ],
+      "pmid": "23288450",
+      "fuente": "Cell Tissue Bank",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "571",
+      "lpage": "578"
+    },
+    {
+      "titulo": "Risk of acquiring antibiotic-resistant bacteria from prior room occupants",
+      "autores": [
+        {
+          "nombre_completo": "SS Huang",
+          "nombres": "SS",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "R Datta",
+          "nombres": "R",
+          "apellidos": "Datta"
+        },
+        {
+          "nombre_completo": "R Platt",
+          "nombres": "R",
+          "apellidos": "Platt"
+        }
+      ],
+      "pmid": "17030826",
+      "fuente": "Arch Intern Med",
+      "anio": "2006",
+      "volumen": "166",
+      "fpage": "1945",
+      "lpage": "1951"
+    },
+    {
+      "titulo": "Hospital-acquired infections due to gram-negative bacteria",
+      "autores": [
+        {
+          "nombre_completo": "AY Peleg",
+          "nombres": "AY",
+          "apellidos": "Peleg"
+        },
+        {
+          "nombre_completo": "DC Hooper",
+          "nombres": "DC",
+          "apellidos": "Hooper"
+        }
+      ],
+      "pmid": "20463340",
+      "fuente": "N Engl J Med",
+      "anio": "2010",
+      "volumen": "362",
+      "fpage": "1804",
+      "lpage": "1813"
+    },
+    {
+      "titulo": "Hospital-acquired Aspergillus fumigatus infection: can molecular typing methods identify an environmental source?",
+      "autores": [
+        {
+          "nombre_completo": "F Symoens",
+          "nombres": "F",
+          "apellidos": "Symoens"
+        },
+        {
+          "nombre_completo": "J Burnod",
+          "nombres": "J",
+          "apellidos": "Burnod"
+        },
+        {
+          "nombre_completo": "B Lebeau",
+          "nombres": "B",
+          "apellidos": "Lebeau"
+        },
+        {
+          "nombre_completo": "MA Viviani",
+          "nombres": "MA",
+          "apellidos": "Viviani"
+        },
+        {
+          "nombre_completo": "MA Piens",
+          "nombres": "MA",
+          "apellidos": "Piens"
+        },
+        {
+          "nombre_completo": "AM Tortorano",
+          "nombres": "AM",
+          "apellidos": "Tortorano"
+        },
+        {
+          "nombre_completo": "N Nolard",
+          "nombres": "N",
+          "apellidos": "Nolard"
+        },
+        {
+          "nombre_completo": "F Chapuis",
+          "nombres": "F",
+          "apellidos": "Chapuis"
+        },
+        {
+          "nombre_completo": "R Grillot",
+          "nombres": "R",
+          "apellidos": "Grillot"
+        }
+      ],
+      "pmid": "12372328",
+      "fuente": "J Hosp Infect",
+      "anio": "2002",
+      "volumen": "52",
+      "fpage": "60",
+      "lpage": "67"
+    },
+    {
+      "titulo": "Fernanda NdSP: a mini review of Candida species in hospital infection: epidemiology, virulence factor and drugs resistance and prophylaxis. Trop Med Surg 2013, 01(05). https://www.esciencecentral.org/journals/a-mini-review-of-candida-species-in-hospital-infection-2329-9088.1000141.php?aid=18547.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Nosocomial Candida infection in a rural tertiary care hospital",
+      "autores": [
+        {
+          "nombre_completo": "surname:Sheevani",
+          "nombres": "surname:Sheevani",
+          "apellidos": ""
+        },
+        {
+          "nombre_completo": "P Sharma",
+          "nombres": "P",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "A Aggarwal",
+          "nombres": "A",
+          "apellidos": "Aggarwal"
+        }
+      ],
+      "pmid": "23544180",
+      "fuente": "J Clin Diagn Res",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "405",
+      "lpage": "406"
+    },
+    {
+      "titulo": "Analysis of fungal flora in indoor dust by ribosomal DNA sequence analysis, quantitative PCR, and culture",
+      "autores": [
+        {
+          "nombre_completo": "M Pitkaranta",
+          "nombres": "M",
+          "apellidos": "Pitkaranta"
+        },
+        {
+          "nombre_completo": "T Meklin",
+          "nombres": "T",
+          "apellidos": "Meklin"
+        },
+        {
+          "nombre_completo": "A Hyvarinen",
+          "nombres": "A",
+          "apellidos": "Hyvarinen"
+        },
+        {
+          "nombre_completo": "L Paulin",
+          "nombres": "L",
+          "apellidos": "Paulin"
+        },
+        {
+          "nombre_completo": "P Auvinen",
+          "nombres": "P",
+          "apellidos": "Auvinen"
+        },
+        {
+          "nombre_completo": "A Nevalainen",
+          "nombres": "A",
+          "apellidos": "Nevalainen"
+        },
+        {
+          "nombre_completo": "H Rintala",
+          "nombres": "H",
+          "apellidos": "Rintala"
+        }
+      ],
+      "pmid": "17981947",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2008",
+      "volumen": "74",
+      "fpage": "233",
+      "lpage": "244"
+    },
+    {
+      "titulo": "Associations between fungal species and water-damaged building materials",
+      "autores": [
+        {
+          "nombre_completo": "B Andersen",
+          "nombres": "B",
+          "apellidos": "Andersen"
+        },
+        {
+          "nombre_completo": "JC Frisvad",
+          "nombres": "JC",
+          "apellidos": "Frisvad"
+        },
+        {
+          "nombre_completo": "I Sondergaard",
+          "nombres": "I",
+          "apellidos": "Sondergaard"
+        },
+        {
+          "nombre_completo": "IS Rasmussen",
+          "nombres": "IS",
+          "apellidos": "Rasmussen"
+        },
+        {
+          "nombre_completo": "LS Larsen",
+          "nombres": "LS",
+          "apellidos": "Larsen"
+        }
+      ],
+      "pmid": "21531835",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2011",
+      "volumen": "77",
+      "fpage": "4180",
+      "lpage": "4188"
+    },
+    {
+      "titulo": "A review of cleanroom microflora: types, trends, and patterns",
+      "autores": [
+        {
+          "nombre_completo": "T Sandle",
+          "nombres": "T",
+          "apellidos": "Sandle"
+        }
+      ],
+      "pmid": "22293526",
+      "fuente": "PDA J Pharm Sci Technol",
+      "anio": "2011",
+      "volumen": "65",
+      "fpage": "392",
+      "lpage": "403"
+    },
+    {
+      "titulo": "Mandal J, Brandl H: Bioaerosols in indoor environment—a review with special reference to residential and occupational locations. Open Environ Biol Monit J. 2011; 4(1):83–96.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Pyrosequencing-derived bacterial, archaeal, and fungal diversity of spacecraft hardware destined for Mars",
+      "autores": [
+        {
+          "nombre_completo": "MT La Duc",
+          "nombres": "MT",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "HR Nilsson",
+          "nombres": "HR",
+          "apellidos": "Nilsson"
+        },
+        {
+          "nombre_completo": "T Torok",
+          "nombres": "T",
+          "apellidos": "Torok"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "22729532",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2012",
+      "volumen": "78",
+      "fpage": "5912",
+      "lpage": "5922"
+    },
+    {
+      "titulo": "Dispersal in microbes: fungi in indoor air are dominated by outdoor air and show dispersal limitation at short distances",
+      "autores": [
+        {
+          "nombre_completo": "RI Adams",
+          "nombres": "RI",
+          "apellidos": "Adams"
+        },
+        {
+          "nombre_completo": "M Miletto",
+          "nombres": "M",
+          "apellidos": "Miletto"
+        },
+        {
+          "nombre_completo": "JW Taylor",
+          "nombres": "JW",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "TD Bruns",
+          "nombres": "TD",
+          "apellidos": "Bruns"
+        }
+      ],
+      "pmid": "23426013",
+      "fuente": "ISME J",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "1262",
+      "lpage": "1273"
+    },
+    {
+      "titulo": "Airborne bacterial communities in residences: similarities and differences with fungi",
+      "autores": [
+        {
+          "nombre_completo": "RI Adams",
+          "nombres": "RI",
+          "apellidos": "Adams"
+        },
+        {
+          "nombre_completo": "M Miletto",
+          "nombres": "M",
+          "apellidos": "Miletto"
+        },
+        {
+          "nombre_completo": "SE Lindow",
+          "nombres": "SE",
+          "apellidos": "Lindow"
+        },
+        {
+          "nombre_completo": "JW Taylor",
+          "nombres": "JW",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "TD Bruns",
+          "nombres": "TD",
+          "apellidos": "Bruns"
+        }
+      ],
+      "pmid": "24603548",
+      "fuente": "PLoS One",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e91283",
+      "lpage": ""
+    },
+    {
+      "titulo": "Chase J, Fouquier J, Zare M, Sonderegger DL, Knight R, Kelley ST, Siegel J, Caporaso JG. Geography and location are the primary drivers of office microbiome composition. mSystems. 2016;1(2):e00022-00016.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbiomes of the dust particles collected from the International Space Station and Spacecraft Assembly Facilities",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska",
+          "nombres": "A",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "JR White",
+          "nombres": "JR",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "D Kumar",
+          "nombres": "D",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "HR Nilsson",
+          "nombres": "HR",
+          "apellidos": "Nilsson"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "J Perry",
+          "nombres": "J",
+          "apellidos": "Perry"
+        }
+      ],
+      "pmid": "26502721",
+      "fuente": "Microbiome",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Antarctic microfungi as models for exobiology",
+      "autores": [
+        {
+          "nombre_completo": "S Onofri",
+          "nombres": "S",
+          "apellidos": "Onofri"
+        },
+        {
+          "nombre_completo": "L Selbmann",
+          "nombres": "L",
+          "apellidos": "Selbmann"
+        },
+        {
+          "nombre_completo": "L Zucconi",
+          "nombres": "L",
+          "apellidos": "Zucconi"
+        },
+        {
+          "nombre_completo": "S Pagano",
+          "nombres": "S",
+          "apellidos": "Pagano"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Planet Space Sci",
+      "anio": "2004",
+      "volumen": "52",
+      "fpage": "229",
+      "lpage": "237"
+    },
+    {
+      "titulo": "Responses of soil bacterial and fungal communities to extreme desiccation and rewetting",
+      "autores": [
+        {
+          "nombre_completo": "RL Barnard",
+          "nombres": "RL",
+          "apellidos": "Barnard"
+        },
+        {
+          "nombre_completo": "CA Osborne",
+          "nombres": "CA",
+          "apellidos": "Osborne"
+        },
+        {
+          "nombre_completo": "MK Firestone",
+          "nombres": "MK",
+          "apellidos": "Firestone"
+        }
+      ],
+      "pmid": "23823489",
+      "fuente": "ISME J",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "2229",
+      "lpage": "2241"
+    },
+    {
+      "titulo": "Evolution and adaptation of fungi at boundaries of life",
+      "autores": [
+        {
+          "nombre_completo": "S Onofri",
+          "nombres": "S",
+          "apellidos": "Onofri"
+        },
+        {
+          "nombre_completo": "L Selbmann",
+          "nombres": "L",
+          "apellidos": "Selbmann"
+        },
+        {
+          "nombre_completo": "GS de Hoog",
+          "nombres": "GS",
+          "apellidos": "de Hoog"
+        },
+        {
+          "nombre_completo": "M Grube",
+          "nombres": "M",
+          "apellidos": "Grube"
+        },
+        {
+          "nombre_completo": "D Barreca",
+          "nombres": "D",
+          "apellidos": "Barreca"
+        },
+        {
+          "nombre_completo": "S Ruisi",
+          "nombres": "S",
+          "apellidos": "Ruisi"
+        },
+        {
+          "nombre_completo": "L Zucconi",
+          "nombres": "L",
+          "apellidos": "Zucconi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv Space Res",
+      "anio": "2007",
+      "volumen": "40",
+      "fpage": "1657",
+      "lpage": "1664"
+    },
+    {
+      "titulo": "Temperature and moisture conditions for life in the extreme arid region of the Atacama desert: four years of observations including the El Nino of 1997-1998",
+      "autores": [
+        {
+          "nombre_completo": "CP McKay",
+          "nombres": "CP",
+          "apellidos": "McKay"
+        },
+        {
+          "nombre_completo": "EI Friedmann",
+          "nombres": "EI",
+          "apellidos": "Friedmann"
+        },
+        {
+          "nombre_completo": "B Gomez-Silva",
+          "nombres": "B",
+          "apellidos": "Gomez-Silva"
+        },
+        {
+          "nombre_completo": "L Caceres-Villanueva",
+          "nombres": "L",
+          "apellidos": "Caceres-Villanueva"
+        },
+        {
+          "nombre_completo": "DT Andersen",
+          "nombres": "DT",
+          "apellidos": "Andersen"
+        },
+        {
+          "nombre_completo": "R Landheim",
+          "nombres": "R",
+          "apellidos": "Landheim"
+        }
+      ],
+      "pmid": "14577886",
+      "fuente": "Astrobiology",
+      "anio": "2003",
+      "volumen": "3",
+      "fpage": "393",
+      "lpage": "406"
+    },
+    {
+      "titulo": "Microbial ecology of an extreme acidic environment, the Tinto river",
+      "autores": [
+        {
+          "nombre_completo": "E Gonzalez-Toril",
+          "nombres": "E",
+          "apellidos": "Gonzalez-Toril"
+        },
+        {
+          "nombre_completo": "E Llobet-Brossa",
+          "nombres": "E",
+          "apellidos": "Llobet-Brossa"
+        },
+        {
+          "nombre_completo": "EO Casamayor",
+          "nombres": "EO",
+          "apellidos": "Casamayor"
+        },
+        {
+          "nombre_completo": "R Amann",
+          "nombres": "R",
+          "apellidos": "Amann"
+        },
+        {
+          "nombre_completo": "R Amils",
+          "nombres": "R",
+          "apellidos": "Amils"
+        }
+      ],
+      "pmid": "12902280",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2003",
+      "volumen": "69",
+      "fpage": "4853",
+      "lpage": "4865"
+    },
+    {
+      "titulo": "Valerie G. Halophilic fungi in a polyhaline estuarine habitat. J Yeast Fungal Res. 2012;3(3):30–36.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ionizing radiation attracts soil fungi",
+      "autores": [
+        {
+          "nombre_completo": "NN Zhdanova",
+          "nombres": "NN",
+          "apellidos": "Zhdanova"
+        },
+        {
+          "nombre_completo": "T Tugay",
+          "nombres": "T",
+          "apellidos": "Tugay"
+        },
+        {
+          "nombre_completo": "J Dighton",
+          "nombres": "J",
+          "apellidos": "Dighton"
+        },
+        {
+          "nombre_completo": "V Zheltonozhsky",
+          "nombres": "V",
+          "apellidos": "Zheltonozhsky"
+        },
+        {
+          "nombre_completo": "P Mcdermott",
+          "nombres": "P",
+          "apellidos": "Mcdermott"
+        }
+      ],
+      "pmid": "15506020",
+      "fuente": "Mycol Res",
+      "anio": "2004",
+      "volumen": "108",
+      "fpage": "1089",
+      "lpage": "1096"
+    },
+    {
+      "titulo": "Ionizing radiation: how fungi cope, adapt, and exploit with the help of melanin",
+      "autores": [
+        {
+          "nombre_completo": "E Dadachova",
+          "nombres": "E",
+          "apellidos": "Dadachova"
+        },
+        {
+          "nombre_completo": "A Casadevall",
+          "nombres": "A",
+          "apellidos": "Casadevall"
+        }
+      ],
+      "pmid": "18848901",
+      "fuente": "Curr Opin Microbiol",
+      "anio": "2008",
+      "volumen": "11",
+      "fpage": "525",
+      "lpage": "531"
+    },
+    {
+      "titulo": "Melanin pigments of fungi under extreme environmental conditions (review)",
+      "autores": [
+        {
+          "nombre_completo": "NN Gessler",
+          "nombres": "NN",
+          "apellidos": "Gessler"
+        },
+        {
+          "nombre_completo": "AS Egorova",
+          "nombres": "AS",
+          "apellidos": "Egorova"
+        },
+        {
+          "nombre_completo": "TA Belozerskaya",
+          "nombres": "TA",
+          "apellidos": "Belozerskaya"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Appl Biochem Microbiol",
+      "anio": "2014",
+      "volumen": "50",
+      "fpage": "105",
+      "lpage": "113"
+    },
+    {
+      "titulo": "Characteristics of extremophylic fungi from chernobyl nuclear power plant",
+      "autores": [
+        {
+          "nombre_completo": "T Belozerskaya",
+          "nombres": "T",
+          "apellidos": "Belozerskaya"
+        },
+        {
+          "nombre_completo": "K Aslanidi",
+          "nombres": "K",
+          "apellidos": "Aslanidi"
+        },
+        {
+          "nombre_completo": "A Ivanova",
+          "nombres": "A",
+          "apellidos": "Ivanova"
+        },
+        {
+          "nombre_completo": "N Gessler",
+          "nombres": "N",
+          "apellidos": "Gessler"
+        },
+        {
+          "nombre_completo": "A Egorova",
+          "nombres": "A",
+          "apellidos": "Egorova"
+        },
+        {
+          "nombre_completo": "Y Karpenko",
+          "nombres": "Y",
+          "apellidos": "Karpenko"
+        },
+        {
+          "nombre_completo": "S Olishevskaya",
+          "nombres": "S",
+          "apellidos": "Olishevskaya"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Curr Res Technol Educ Topics Applied Microbiol Microbial Biotechnol",
+      "anio": "2010",
+      "volumen": "1",
+      "fpage": "88",
+      "lpage": "94"
+    },
+    {
+      "titulo": "Resistance of Antarctic black fungi and cryptoendolithic communities to simulated space and Martian conditions",
+      "autores": [
+        {
+          "nombre_completo": "S Onofri",
+          "nombres": "S",
+          "apellidos": "Onofri"
+        },
+        {
+          "nombre_completo": "D Barreca",
+          "nombres": "D",
+          "apellidos": "Barreca"
+        },
+        {
+          "nombre_completo": "L Selbmann",
+          "nombres": "L",
+          "apellidos": "Selbmann"
+        },
+        {
+          "nombre_completo": "D Isola",
+          "nombres": "D",
+          "apellidos": "Isola"
+        },
+        {
+          "nombre_completo": "E Rabbow",
+          "nombres": "E",
+          "apellidos": "Rabbow"
+        },
+        {
+          "nombre_completo": "G Horneck",
+          "nombres": "G",
+          "apellidos": "Horneck"
+        },
+        {
+          "nombre_completo": "JP de Vera",
+          "nombres": "JP",
+          "apellidos": "de Vera"
+        },
+        {
+          "nombre_completo": "J Hatton",
+          "nombres": "J",
+          "apellidos": "Hatton"
+        },
+        {
+          "nombre_completo": "L Zucconi",
+          "nombres": "L",
+          "apellidos": "Zucconi"
+        }
+      ],
+      "pmid": "19287532",
+      "fuente": "Stud Mycol",
+      "anio": "2008",
+      "volumen": "61",
+      "fpage": "99",
+      "lpage": "109"
+    },
+    {
+      "titulo": "Fungi: their role in deterioration of cultural heritage",
+      "autores": [
+        {
+          "nombre_completo": "K Sterflinger",
+          "nombres": "K",
+          "apellidos": "Sterflinger"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Fungal Biol Rev",
+      "anio": "2010",
+      "volumen": "24",
+      "fpage": "47",
+      "lpage": "55"
+    },
+    {
+      "titulo": "Fungi associated with deteriorations of painted wall surfaces: isolation and identification",
+      "autores": [
+        {
+          "nombre_completo": "P Elumalai",
+          "nombres": "P",
+          "apellidos": "Elumalai"
+        },
+        {
+          "nombre_completo": "E Elumalai",
+          "nombres": "E",
+          "apellidos": "Elumalai"
+        },
+        {
+          "nombre_completo": "E David",
+          "nombres": "E",
+          "apellidos": "David"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Eur J Acad Essays",
+      "anio": "2014",
+      "volumen": "1",
+      "fpage": "48",
+      "lpage": "50"
+    },
+    {
+      "titulo": "The sick building syndrome",
+      "autores": [
+        {
+          "nombre_completo": "SM Joshi",
+          "nombres": "SM",
+          "apellidos": "Joshi"
+        }
+      ],
+      "pmid": "20040980",
+      "fuente": "Indian J Occup Environ Med",
+      "anio": "2008",
+      "volumen": "12",
+      "fpage": "61",
+      "lpage": "64"
+    },
+    {
+      "titulo": "Fungal pollution of indoor environments and its management",
+      "autores": [
+        {
+          "nombre_completo": "AA Haleem Khan",
+          "nombres": "AA",
+          "apellidos": "Haleem Khan"
+        },
+        {
+          "nombre_completo": "S Mohan Karuppayil",
+          "nombres": "S",
+          "apellidos": "Mohan Karuppayil"
+        }
+      ],
+      "pmid": "23961203",
+      "fuente": "Saudi J Biol Sci",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "405",
+      "lpage": "426"
+    },
+    {
+      "titulo": "Hidden killers: human fungal infections",
+      "autores": [
+        {
+          "nombre_completo": "GD Brown",
+          "nombres": "GD",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "DW Denning",
+          "nombres": "DW",
+          "apellidos": "Denning"
+        },
+        {
+          "nombre_completo": "NA Gow",
+          "nombres": "NA",
+          "apellidos": "Gow"
+        },
+        {
+          "nombre_completo": "SM Levitz",
+          "nombres": "SM",
+          "apellidos": "Levitz"
+        },
+        {
+          "nombre_completo": "MG Netea",
+          "nombres": "MG",
+          "apellidos": "Netea"
+        },
+        {
+          "nombre_completo": "TC White",
+          "nombres": "TC",
+          "apellidos": "White"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sci Transl Med",
+      "anio": "2012",
+      "volumen": "4",
+      "fpage": "165rv113",
+      "lpage": ""
+    },
+    {
+      "titulo": "Human and plant fungal pathogens: the role of secondary metabolites",
+      "autores": [
+        {
+          "nombre_completo": "DH Scharf",
+          "nombres": "DH",
+          "apellidos": "Scharf"
+        },
+        {
+          "nombre_completo": "T Heinekamp",
+          "nombres": "T",
+          "apellidos": "Heinekamp"
+        },
+        {
+          "nombre_completo": "AA Brakhage",
+          "nombres": "AA",
+          "apellidos": "Brakhage"
+        }
+      ],
+      "pmid": "24497825",
+      "fuente": "PLoS Pathog",
+      "anio": "2014",
+      "volumen": "10",
+      "fpage": "e1003859",
+      "lpage": ""
+    },
+    {
+      "titulo": "Stress-induced subclinical reactivation of varicella zoster virus in astronauts",
+      "autores": [
+        {
+          "nombre_completo": "SK Mehta",
+          "nombres": "SK",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "RJ Cohrs",
+          "nombres": "RJ",
+          "apellidos": "Cohrs"
+        },
+        {
+          "nombre_completo": "B Forghani",
+          "nombres": "B",
+          "apellidos": "Forghani"
+        },
+        {
+          "nombre_completo": "G Zerbe",
+          "nombres": "G",
+          "apellidos": "Zerbe"
+        },
+        {
+          "nombre_completo": "DH Gilden",
+          "nombres": "DH",
+          "apellidos": "Gilden"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        }
+      ],
+      "pmid": "14635028",
+      "fuente": "J Med Virol",
+      "anio": "2004",
+      "volumen": "72",
+      "fpage": "174",
+      "lpage": "179"
+    },
+    {
+      "titulo": "Evaluation of procedures for the collection, processing, and analysis of biomolecules from low-biomass surfaces",
+      "autores": [
+        {
+          "nombre_completo": "K Kwan",
+          "nombres": "K",
+          "apellidos": "Kwan"
+        },
+        {
+          "nombre_completo": "M Cooper",
+          "nombres": "M",
+          "apellidos": "Cooper"
+        },
+        {
+          "nombre_completo": "MT La Duc",
+          "nombres": "MT",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "C Stam",
+          "nombres": "C",
+          "apellidos": "Stam"
+        },
+        {
+          "nombre_completo": "JN Benardini",
+          "nombres": "JN",
+          "apellidos": "Benardini"
+        },
+        {
+          "nombre_completo": "G Scalzi",
+          "nombres": "G",
+          "apellidos": "Scalzi"
+        },
+        {
+          "nombre_completo": "C Moissl-Eichinger",
+          "nombres": "C",
+          "apellidos": "Moissl-Eichinger"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "21398492",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2011",
+      "volumen": "77",
+      "fpage": "2943",
+      "lpage": "2953"
+    },
+    {
+      "titulo": "Fungal communities from methane hydrate-bearing deep-sea marine sediments in South China Sea",
+      "autores": [
+        {
+          "nombre_completo": "X Lai",
+          "nombres": "X",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "L Cao",
+          "nombres": "L",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "H Tan",
+          "nombres": "H",
+          "apellidos": "Tan"
+        },
+        {
+          "nombre_completo": "S Fang",
+          "nombres": "S",
+          "apellidos": "Fang"
+        },
+        {
+          "nombre_completo": "Y Huang",
+          "nombres": "Y",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "S Zhou",
+          "nombres": "S",
+          "apellidos": "Zhou"
+        }
+      ],
+      "pmid": "18059498",
+      "fuente": "ISME J",
+      "anio": "2007",
+      "volumen": "1",
+      "fpage": "756",
+      "lpage": "762"
+    },
+    {
+      "titulo": "Community structure of ectomycorrhizal fungi in a Pinus muricata forest: minimal overlap between the mature forest and resistant propagule communities",
+      "autores": [
+        {
+          "nombre_completo": "DL Taylor",
+          "nombres": "DL",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "TD Bruns",
+          "nombres": "TD",
+          "apellidos": "Bruns"
+        }
+      ],
+      "pmid": "10620228",
+      "fuente": "Mol Ecol",
+      "anio": "1999",
+      "volumen": "8",
+      "fpage": "1837",
+      "lpage": "1850"
+    },
+    {
+      "titulo": "The UNITE database for molecular identification of fungi—recent updates and future perspectives",
+      "autores": [
+        {
+          "nombre_completo": "K Abarenkov",
+          "nombres": "K",
+          "apellidos": "Abarenkov"
+        },
+        {
+          "nombre_completo": "R Henrik Nilsson",
+          "nombres": "R",
+          "apellidos": "Henrik Nilsson"
+        },
+        {
+          "nombre_completo": "KH Larsson",
+          "nombres": "KH",
+          "apellidos": "Larsson"
+        },
+        {
+          "nombre_completo": "IJ Alexander",
+          "nombres": "IJ",
+          "apellidos": "Alexander"
+        },
+        {
+          "nombre_completo": "U Eberhardt",
+          "nombres": "U",
+          "apellidos": "Eberhardt"
+        },
+        {
+          "nombre_completo": "S Erland",
+          "nombres": "S",
+          "apellidos": "Erland"
+        },
+        {
+          "nombre_completo": "K Hoiland",
+          "nombres": "K",
+          "apellidos": "Hoiland"
+        },
+        {
+          "nombre_completo": "R Kjoller",
+          "nombres": "R",
+          "apellidos": "Kjoller"
+        },
+        {
+          "nombre_completo": "E Larsson",
+          "nombres": "E",
+          "apellidos": "Larsson"
+        },
+        {
+          "nombre_completo": "T Pennanen",
+          "nombres": "T",
+          "apellidos": "Pennanen"
+        }
+      ],
+      "pmid": "20409185",
+      "fuente": "New Phytol",
+      "anio": "2010",
+      "volumen": "186",
+      "fpage": "281",
+      "lpage": "285"
+    },
+    {
+      "titulo": "MEGA6: molecular evolutionary genetics analysis version 6.0.",
+      "autores": [
+        {
+          "nombre_completo": "K Tamura",
+          "nombres": "K",
+          "apellidos": "Tamura"
+        },
+        {
+          "nombre_completo": "G Stecher",
+          "nombres": "G",
+          "apellidos": "Stecher"
+        },
+        {
+          "nombre_completo": "D Peterson",
+          "nombres": "D",
+          "apellidos": "Peterson"
+        },
+        {
+          "nombre_completo": "A Filipski",
+          "nombres": "A",
+          "apellidos": "Filipski"
+        },
+        {
+          "nombre_completo": "S Kumar",
+          "nombres": "S",
+          "apellidos": "Kumar"
+        }
+      ],
+      "pmid": "24132122",
+      "fuente": "Mol Biol Evol",
+      "anio": "2013",
+      "volumen": "30",
+      "fpage": "2725",
+      "lpage": "2729"
+    },
+    {
+      "titulo": "Cryptosporidium propidium monoazide-PCR, a molecular biology-based technique for genotyping of viable Cryptosporidium oocysts",
+      "autores": [
+        {
+          "nombre_completo": "CC Brescia",
+          "nombres": "CC",
+          "apellidos": "Brescia"
+        },
+        {
+          "nombre_completo": "SM Griffin",
+          "nombres": "SM",
+          "apellidos": "Griffin"
+        },
+        {
+          "nombre_completo": "MW Ware",
+          "nombres": "MW",
+          "apellidos": "Ware"
+        },
+        {
+          "nombre_completo": "EA Varughese",
+          "nombres": "EA",
+          "apellidos": "Varughese"
+        },
+        {
+          "nombre_completo": "AI Egorov",
+          "nombres": "AI",
+          "apellidos": "Egorov"
+        },
+        {
+          "nombre_completo": "EN Villegas",
+          "nombres": "EN",
+          "apellidos": "Villegas"
+        }
+      ],
+      "pmid": "19749067",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2009",
+      "volumen": "75",
+      "fpage": "6856",
+      "lpage": "6863"
+    },
+    {
+      "titulo": "ITS primers with enhanced specificity for basidiomycetes—application to the identification of mycorrhizae and rusts",
+      "autores": [
+        {
+          "nombre_completo": "M Gardes",
+          "nombres": "M",
+          "apellidos": "Gardes"
+        },
+        {
+          "nombre_completo": "TD Bruns",
+          "nombres": "TD",
+          "apellidos": "Bruns"
+        }
+      ],
+      "pmid": "8180733",
+      "fuente": "Mol Ecol",
+      "anio": "1993",
+      "volumen": "2",
+      "fpage": "113",
+      "lpage": "118"
+    },
+    {
+      "titulo": "Amplification and direct sequencing of fungal ribosomal RNA genes for phylogenetics",
+      "autores": [
+        {
+          "nombre_completo": "TJ White",
+          "nombres": "TJ",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "T Bruns",
+          "nombres": "T",
+          "apellidos": "Bruns"
+        },
+        {
+          "nombre_completo": "S Lee",
+          "nombres": "S",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J Taylor",
+          "nombres": "J",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PCR Protocols",
+      "anio": "1990",
+      "volumen": "18",
+      "fpage": "315",
+      "lpage": "322"
+    },
+    {
+      "titulo": "Controlling the false discovery rate: a practical and powerful approach to multiple testing",
+      "autores": [
+        {
+          "nombre_completo": "Y Benjamini",
+          "nombres": "Y",
+          "apellidos": "Benjamini"
+        },
+        {
+          "nombre_completo": "Y Hochberg",
+          "nombres": "Y",
+          "apellidos": "Hochberg"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J R Stat Soc Ser B Methodol",
+      "anio": "1995",
+      "volumen": "57",
+      "fpage": "289",
+      "lpage": "300"
+    },
+    {
+      "titulo": "Introducing mothur: open-source, platform-independent, community-supported software for describing and comparing microbial communities",
+      "autores": [
+        {
+          "nombre_completo": "PD Schloss",
+          "nombres": "PD",
+          "apellidos": "Schloss"
+        },
+        {
+          "nombre_completo": "SL Westcott",
+          "nombres": "SL",
+          "apellidos": "Westcott"
+        },
+        {
+          "nombre_completo": "T Ryabin",
+          "nombres": "T",
+          "apellidos": "Ryabin"
+        },
+        {
+          "nombre_completo": "JR Hall",
+          "nombres": "JR",
+          "apellidos": "Hall"
+        },
+        {
+          "nombre_completo": "M Hartmann",
+          "nombres": "M",
+          "apellidos": "Hartmann"
+        },
+        {
+          "nombre_completo": "EB Hollister",
+          "nombres": "EB",
+          "apellidos": "Hollister"
+        },
+        {
+          "nombre_completo": "RA Lesniewski",
+          "nombres": "RA",
+          "apellidos": "Lesniewski"
+        },
+        {
+          "nombre_completo": "BB Oakley",
+          "nombres": "BB",
+          "apellidos": "Oakley"
+        },
+        {
+          "nombre_completo": "DH Parks",
+          "nombres": "DH",
+          "apellidos": "Parks"
+        },
+        {
+          "nombre_completo": "CJ Robinson",
+          "nombres": "CJ",
+          "apellidos": "Robinson"
+        }
+      ],
+      "pmid": "19801464",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2009",
+      "volumen": "75",
+      "fpage": "7537",
+      "lpage": "7541"
+    },
+    {
+      "titulo": "Ironing out the wrinkles in the rare biosphere through improved OTU clustering",
+      "autores": [
+        {
+          "nombre_completo": "SM Huse",
+          "nombres": "SM",
+          "apellidos": "Huse"
+        },
+        {
+          "nombre_completo": "DM Welch",
+          "nombres": "DM",
+          "apellidos": "Welch"
+        },
+        {
+          "nombre_completo": "HG Morrison",
+          "nombres": "HG",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "ML Sogin",
+          "nombres": "ML",
+          "apellidos": "Sogin"
+        }
+      ],
+      "pmid": "20236171",
+      "fuente": "Environ Microbiol",
+      "anio": "2010",
+      "volumen": "12",
+      "fpage": "1889",
+      "lpage": "1898"
+    },
+    {
+      "titulo": "UCHIME improves sensitivity and speed of chimera detection",
+      "autores": [
+        {
+          "nombre_completo": "RC Edgar",
+          "nombres": "RC",
+          "apellidos": "Edgar"
+        },
+        {
+          "nombre_completo": "BJ Haas",
+          "nombres": "BJ",
+          "apellidos": "Haas"
+        },
+        {
+          "nombre_completo": "JC Clemente",
+          "nombres": "JC",
+          "apellidos": "Clemente"
+        },
+        {
+          "nombre_completo": "C Quince",
+          "nombres": "C",
+          "apellidos": "Quince"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "21700674",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "2194",
+      "lpage": "2200"
+    },
+    {
+      "titulo": "Naive Bayesian classifier for rapid assignment of rRNA sequences into the new bacterial taxonomy",
+      "autores": [
+        {
+          "nombre_completo": "Q Wang",
+          "nombres": "Q",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "GM Garrity",
+          "nombres": "GM",
+          "apellidos": "Garrity"
+        },
+        {
+          "nombre_completo": "JM Tiedje",
+          "nombres": "JM",
+          "apellidos": "Tiedje"
+        },
+        {
+          "nombre_completo": "JR Cole",
+          "nombres": "JR",
+          "apellidos": "Cole"
+        }
+      ],
+      "pmid": "17586664",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2007",
+      "volumen": "73",
+      "fpage": "5261",
+      "lpage": "5267"
+    },
+    {
+      "titulo": "Bengtsson-Palme J, Ryberg M, Hartmann M, Branco S, Wang Z, Godhe A, De Wit P, Sánchez-García M, Ebersberger I, de Sousa F et al. Improved software detection and extraction of ITS1 and ITS2 from ribosomal ITS sequences of fungi and other eukaryotes for analysis of environmental sequencing data. Methods Ecol Evol 2013:n/a-n/a.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "gyrB as a phylogenetic discriminator for members of the Bacillus anthracis-cereus-thuringiensis group",
+      "autores": [
+        {
+          "nombre_completo": "MT La Duc",
+          "nombres": "MT",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "M Satomi",
+          "nombres": "M",
+          "apellidos": "Satomi"
+        },
+        {
+          "nombre_completo": "N Agata",
+          "nombres": "N",
+          "apellidos": "Agata"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "14967230",
+      "fuente": "J Microbiol Methods",
+      "anio": "2004",
+      "volumen": "56",
+      "fpage": "383",
+      "lpage": "394"
+    },
+    {
+      "titulo": "A viability-linked metagenomic analysis of cleanroom environments: eukarya, prokaryotes, and viruses",
+      "autores": [
+        {
+          "nombre_completo": "T Weinmaier",
+          "nombres": "T",
+          "apellidos": "Weinmaier"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "MT La Duc",
+          "nombres": "MT",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "D Ciobanu",
+          "nombres": "D",
+          "apellidos": "Ciobanu"
+        },
+        {
+          "nombre_completo": "JF Cheng",
+          "nombres": "JF",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "N Ivanova",
+          "nombres": "N",
+          "apellidos": "Ivanova"
+        },
+        {
+          "nombre_completo": "T Rattei",
+          "nombres": "T",
+          "apellidos": "Rattei"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        }
+      ],
+      "pmid": "26642878",
+      "fuente": "Microbiome",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "62",
+      "lpage": ""
+    },
+    {
+      "titulo": "Indoor fungal diversity and asthma: a meta-analysis and systematic review of risk factors",
+      "autores": [
+        {
+          "nombre_completo": "RA Sharpe",
+          "nombres": "RA",
+          "apellidos": "Sharpe"
+        },
+        {
+          "nombre_completo": "N Bearman",
+          "nombres": "N",
+          "apellidos": "Bearman"
+        },
+        {
+          "nombre_completo": "CR Thornton",
+          "nombres": "CR",
+          "apellidos": "Thornton"
+        },
+        {
+          "nombre_completo": "K Husk",
+          "nombres": "K",
+          "apellidos": "Husk"
+        },
+        {
+          "nombre_completo": "NJ Osborne",
+          "nombres": "NJ",
+          "apellidos": "Osborne"
+        }
+      ],
+      "pmid": "25159468",
+      "fuente": "J Allergy Clin Immunol",
+      "anio": "2015",
+      "volumen": "135",
+      "fpage": "110",
+      "lpage": "122"
+    },
+    {
+      "titulo": "Use of propidium monoazide for live/dead distinction in microbial ecology",
+      "autores": [
+        {
+          "nombre_completo": "A Nocker",
+          "nombres": "A",
+          "apellidos": "Nocker"
+        },
+        {
+          "nombre_completo": "P Sossa-Fernandez",
+          "nombres": "P",
+          "apellidos": "Sossa-Fernandez"
+        },
+        {
+          "nombre_completo": "MD Burr",
+          "nombres": "MD",
+          "apellidos": "Burr"
+        },
+        {
+          "nombre_completo": "AK Camper",
+          "nombres": "AK",
+          "apellidos": "Camper"
+        }
+      ],
+      "pmid": "17586667",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2007",
+      "volumen": "73",
+      "fpage": "5111",
+      "lpage": "5117"
+    },
+    {
+      "titulo": "New perspectives on viable microbial communities in low-biomass cleanroom environments",
+      "autores": [
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "MT La Duc",
+          "nombres": "MT",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "E Bargoma",
+          "nombres": "E",
+          "apellidos": "Bargoma"
+        },
+        {
+          "nombre_completo": "JN Benardini",
+          "nombres": "JN",
+          "apellidos": "Benardini"
+        },
+        {
+          "nombre_completo": "GL Andersen",
+          "nombres": "GL",
+          "apellidos": "Andersen"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "23051695",
+      "fuente": "ISME J",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "312",
+      "lpage": "324"
+    },
+    {
+      "titulo": "Quantifying fungal viability in air and water samples using quantitative PCR after treatment with propidium monoazide (PMA)",
+      "autores": [
+        {
+          "nombre_completo": "S Vesper",
+          "nombres": "S",
+          "apellidos": "Vesper"
+        },
+        {
+          "nombre_completo": "C McKinstry",
+          "nombres": "C",
+          "apellidos": "McKinstry"
+        },
+        {
+          "nombre_completo": "C Hartmann",
+          "nombres": "C",
+          "apellidos": "Hartmann"
+        },
+        {
+          "nombre_completo": "M Neace",
+          "nombres": "M",
+          "apellidos": "Neace"
+        },
+        {
+          "nombre_completo": "S Yoder",
+          "nombres": "S",
+          "apellidos": "Yoder"
+        },
+        {
+          "nombre_completo": "A Vesper",
+          "nombres": "A",
+          "apellidos": "Vesper"
+        }
+      ],
+      "pmid": "18160156",
+      "fuente": "J Microbiol Methods",
+      "anio": "2008",
+      "volumen": "72",
+      "fpage": "180",
+      "lpage": "184"
+    },
+    {
+      "titulo": "Propidium monoazide combined with real-time quantitative PCR to quantify viable Alternaria spp. contamination in tomato products",
+      "autores": [
+        {
+          "nombre_completo": "A Crespo-Sempere",
+          "nombres": "A",
+          "apellidos": "Crespo-Sempere"
+        },
+        {
+          "nombre_completo": "N Estiarte",
+          "nombres": "N",
+          "apellidos": "Estiarte"
+        },
+        {
+          "nombre_completo": "S Marin",
+          "nombres": "S",
+          "apellidos": "Marin"
+        },
+        {
+          "nombre_completo": "V Sanchis",
+          "nombres": "V",
+          "apellidos": "Sanchis"
+        },
+        {
+          "nombre_completo": "AJ Ramos",
+          "nombres": "AJ",
+          "apellidos": "Ramos"
+        }
+      ],
+      "pmid": "23796654",
+      "fuente": "Int J Food Microbiol",
+      "anio": "2013",
+      "volumen": "165",
+      "fpage": "214",
+      "lpage": "220"
+    },
+    {
+      "titulo": "Longitudinal analysis of microbial interaction between humans and the indoor environment",
+      "autores": [
+        {
+          "nombre_completo": "S Lax",
+          "nombres": "S",
+          "apellidos": "Lax"
+        },
+        {
+          "nombre_completo": "DP Smith",
+          "nombres": "DP",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "J Hampton-Marcell",
+          "nombres": "J",
+          "apellidos": "Hampton-Marcell"
+        },
+        {
+          "nombre_completo": "SM Owens",
+          "nombres": "SM",
+          "apellidos": "Owens"
+        },
+        {
+          "nombre_completo": "KM Handley",
+          "nombres": "KM",
+          "apellidos": "Handley"
+        },
+        {
+          "nombre_completo": "NM Scott",
+          "nombres": "NM",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "SM Gibbons",
+          "nombres": "SM",
+          "apellidos": "Gibbons"
+        },
+        {
+          "nombre_completo": "P Larsen",
+          "nombres": "P",
+          "apellidos": "Larsen"
+        },
+        {
+          "nombre_completo": "BD Shogan",
+          "nombres": "BD",
+          "apellidos": "Shogan"
+        },
+        {
+          "nombre_completo": "S Weiss",
+          "nombres": "S",
+          "apellidos": "Weiss"
+        }
+      ],
+      "pmid": "25170151",
+      "fuente": "Science",
+      "anio": "2014",
+      "volumen": "345",
+      "fpage": "1048",
+      "lpage": "1052"
+    },
+    {
+      "titulo": "The diversity and distribution of fungi on residential surfaces",
+      "autores": [
+        {
+          "nombre_completo": "RI Adams",
+          "nombres": "RI",
+          "apellidos": "Adams"
+        },
+        {
+          "nombre_completo": "M Miletto",
+          "nombres": "M",
+          "apellidos": "Miletto"
+        },
+        {
+          "nombre_completo": "JW Taylor",
+          "nombres": "JW",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "TD Bruns",
+          "nombres": "TD",
+          "apellidos": "Bruns"
+        }
+      ],
+      "pmid": "24223861",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e78866",
+      "lpage": ""
+    },
+    {
+      "titulo": "Dispersal of skin microorganisms*",
+      "autores": [
+        {
+          "nombre_completo": "WC Noble",
+          "nombres": "WC",
+          "apellidos": "Noble"
+        }
+      ],
+      "pmid": "1103939",
+      "fuente": "Br J Dermatol",
+      "anio": "1975",
+      "volumen": "93",
+      "fpage": "477",
+      "lpage": "485"
+    },
+    {
+      "titulo": "Modern cleanroom clothing systems: people as a contamination source",
+      "autores": [
+        {
+          "nombre_completo": "B Reinmüller",
+          "nombres": "B",
+          "apellidos": "Reinmüller"
+        },
+        {
+          "nombre_completo": "B Ljungqvist",
+          "nombres": "B",
+          "apellidos": "Ljungqvist"
+        }
+      ],
+      "pmid": "14674513",
+      "fuente": "PDA J Pharm Sci Technol",
+      "anio": "2003",
+      "volumen": "57",
+      "fpage": "114",
+      "lpage": "125"
+    },
+    {
+      "titulo": "The human mycobiome in health and disease",
+      "autores": [
+        {
+          "nombre_completo": "L Cui",
+          "nombres": "L",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "A Morris",
+          "nombres": "A",
+          "apellidos": "Morris"
+        },
+        {
+          "nombre_completo": "E Ghedin",
+          "nombres": "E",
+          "apellidos": "Ghedin"
+        }
+      ],
+      "pmid": "23899327",
+      "fuente": "Genome Med",
+      "anio": "2013",
+      "volumen": "5",
+      "fpage": "63",
+      "lpage": ""
+    },
+    {
+      "titulo": "Topographic diversity of fungal and bacterial communities in human skin",
+      "autores": [
+        {
+          "nombre_completo": "K Findley",
+          "nombres": "K",
+          "apellidos": "Findley"
+        },
+        {
+          "nombre_completo": "J Oh",
+          "nombres": "J",
+          "apellidos": "Oh"
+        },
+        {
+          "nombre_completo": "J Yang",
+          "nombres": "J",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "S Conlan",
+          "nombres": "S",
+          "apellidos": "Conlan"
+        },
+        {
+          "nombre_completo": "C Deming",
+          "nombres": "C",
+          "apellidos": "Deming"
+        },
+        {
+          "nombre_completo": "JA Meyer",
+          "nombres": "JA",
+          "apellidos": "Meyer"
+        },
+        {
+          "nombre_completo": "D Schoenfeld",
+          "nombres": "D",
+          "apellidos": "Schoenfeld"
+        },
+        {
+          "nombre_completo": "E Nomicos",
+          "nombres": "E",
+          "apellidos": "Nomicos"
+        },
+        {
+          "nombre_completo": "M Park",
+          "nombres": "M",
+          "apellidos": "Park"
+        }
+      ],
+      "pmid": "23698366",
+      "fuente": "Nature",
+      "anio": "2013",
+      "volumen": "498",
+      "fpage": "367",
+      "lpage": "370"
+    },
+    {
+      "titulo": "The emerging world of the fungal microbiome",
+      "autores": [
+        {
+          "nombre_completo": "GB Huffnagle",
+          "nombres": "GB",
+          "apellidos": "Huffnagle"
+        },
+        {
+          "nombre_completo": "MC Noverr",
+          "nombres": "MC",
+          "apellidos": "Noverr"
+        }
+      ],
+      "pmid": "23685069",
+      "fuente": "Trends Microbiol",
+      "anio": "2013",
+      "volumen": "21",
+      "fpage": "334",
+      "lpage": "341"
+    },
+    {
+      "titulo": "Gut fungal microbiota: the Yin and Yang of inflammatory bowel disease",
+      "autores": [
+        {
+          "nombre_completo": "ML Richard",
+          "nombres": "ML",
+          "apellidos": "Richard"
+        },
+        {
+          "nombre_completo": "B Lamas",
+          "nombres": "B",
+          "apellidos": "Lamas"
+        },
+        {
+          "nombre_completo": "G Liguori",
+          "nombres": "G",
+          "apellidos": "Liguori"
+        },
+        {
+          "nombre_completo": "TW Hoffmann",
+          "nombres": "TW",
+          "apellidos": "Hoffmann"
+        },
+        {
+          "nombre_completo": "H Sokol",
+          "nombres": "H",
+          "apellidos": "Sokol"
+        }
+      ],
+      "pmid": "25545379",
+      "fuente": "Inflamm Bowel Dis",
+      "anio": "2015",
+      "volumen": "21",
+      "fpage": "656",
+      "lpage": "665"
+    },
+    {
+      "titulo": "Key determinants of the fungal and bacterial microbiomes in homes",
+      "autores": [
+        {
+          "nombre_completo": "EM Kettleson",
+          "nombres": "EM",
+          "apellidos": "Kettleson"
+        },
+        {
+          "nombre_completo": "A Adhikari",
+          "nombres": "A",
+          "apellidos": "Adhikari"
+        },
+        {
+          "nombre_completo": "S Vesper",
+          "nombres": "S",
+          "apellidos": "Vesper"
+        },
+        {
+          "nombre_completo": "K Coombs",
+          "nombres": "K",
+          "apellidos": "Coombs"
+        },
+        {
+          "nombre_completo": "R Indugula",
+          "nombres": "R",
+          "apellidos": "Indugula"
+        },
+        {
+          "nombre_completo": "T Reponen",
+          "nombres": "T",
+          "apellidos": "Reponen"
+        }
+      ],
+      "pmid": "25707017",
+      "fuente": "Environ Res",
+      "anio": "2015",
+      "volumen": "138",
+      "fpage": "130",
+      "lpage": "135"
+    },
+    {
+      "titulo": "The relationship between environmental relative moldiness index values and asthma",
+      "autores": [
+        {
+          "nombre_completo": "S Vesper",
+          "nombres": "S",
+          "apellidos": "Vesper"
+        },
+        {
+          "nombre_completo": "L Wymer",
+          "nombres": "L",
+          "apellidos": "Wymer"
+        }
+      ],
+      "pmid": "26861576",
+      "fuente": "Int J Hyg Environ Health",
+      "anio": "2016",
+      "volumen": "219",
+      "fpage": "233",
+      "lpage": "238"
+    },
+    {
+      "titulo": "The spectrum of fungal allergy",
+      "autores": [
+        {
+          "nombre_completo": "B Simon-Nobbe",
+          "nombres": "B",
+          "apellidos": "Simon-Nobbe"
+        },
+        {
+          "nombre_completo": "U Denk",
+          "nombres": "U",
+          "apellidos": "Denk"
+        },
+        {
+          "nombre_completo": "V Poll",
+          "nombres": "V",
+          "apellidos": "Poll"
+        },
+        {
+          "nombre_completo": "R Rid",
+          "nombres": "R",
+          "apellidos": "Rid"
+        },
+        {
+          "nombre_completo": "M Breitenbach",
+          "nombres": "M",
+          "apellidos": "Breitenbach"
+        }
+      ],
+      "pmid": "17709917",
+      "fuente": "Int Arch Allergy Immunol",
+      "anio": "2008",
+      "volumen": "145",
+      "fpage": "58",
+      "lpage": "86"
+    },
+    {
+      "titulo": "Exposure to Alternaria alternata in US homes is associated with asthma symptoms",
+      "autores": [
+        {
+          "nombre_completo": "PM Salo",
+          "nombres": "PM",
+          "apellidos": "Salo"
+        },
+        {
+          "nombre_completo": "SJ;suffix:Jr Arbes",
+          "nombres": "SJ;suffix:Jr",
+          "apellidos": "Arbes"
+        },
+        {
+          "nombre_completo": "M Sever",
+          "nombres": "M",
+          "apellidos": "Sever"
+        },
+        {
+          "nombre_completo": "R Jaramillo",
+          "nombres": "R",
+          "apellidos": "Jaramillo"
+        },
+        {
+          "nombre_completo": "RD Cohn",
+          "nombres": "RD",
+          "apellidos": "Cohn"
+        },
+        {
+          "nombre_completo": "SJ London",
+          "nombres": "SJ",
+          "apellidos": "London"
+        },
+        {
+          "nombre_completo": "DC Zeldin",
+          "nombres": "DC",
+          "apellidos": "Zeldin"
+        }
+      ],
+      "pmid": "17030243",
+      "fuente": "J Allergy Clin Immunol",
+      "anio": "2006",
+      "volumen": "118",
+      "fpage": "892",
+      "lpage": "898"
+    },
+    {
+      "titulo": "Efficacy and safety of immunotherapy for allergies to Alternaria alternata in children",
+      "autores": [
+        {
+          "nombre_completo": "P Kuna",
+          "nombres": "P",
+          "apellidos": "Kuna"
+        },
+        {
+          "nombre_completo": "J Kaczmarek",
+          "nombres": "J",
+          "apellidos": "Kaczmarek"
+        },
+        {
+          "nombre_completo": "M Kupczyk",
+          "nombres": "M",
+          "apellidos": "Kupczyk"
+        }
+      ],
+      "pmid": "21281874",
+      "fuente": "J Allergy Clin Immunol",
+      "anio": "2011",
+      "volumen": "127",
+      "fpage": "502",
+      "lpage": "508"
+    },
+    {
+      "titulo": "Fungi and allergic lower respiratory tract diseases",
+      "autores": [
+        {
+          "nombre_completo": "AP Knutsen",
+          "nombres": "AP",
+          "apellidos": "Knutsen"
+        },
+        {
+          "nombre_completo": "RK Bush",
+          "nombres": "RK",
+          "apellidos": "Bush"
+        },
+        {
+          "nombre_completo": "JG Demain",
+          "nombres": "JG",
+          "apellidos": "Demain"
+        },
+        {
+          "nombre_completo": "DW Denning",
+          "nombres": "DW",
+          "apellidos": "Denning"
+        },
+        {
+          "nombre_completo": "A Dixit",
+          "nombres": "A",
+          "apellidos": "Dixit"
+        },
+        {
+          "nombre_completo": "A Fairs",
+          "nombres": "A",
+          "apellidos": "Fairs"
+        },
+        {
+          "nombre_completo": "PA Greenberger",
+          "nombres": "PA",
+          "apellidos": "Greenberger"
+        },
+        {
+          "nombre_completo": "B Kariuki",
+          "nombres": "B",
+          "apellidos": "Kariuki"
+        },
+        {
+          "nombre_completo": "H Kita",
+          "nombres": "H",
+          "apellidos": "Kita"
+        },
+        {
+          "nombre_completo": "VP Kurup",
+          "nombres": "VP",
+          "apellidos": "Kurup"
+        }
+      ],
+      "pmid": "22284927",
+      "fuente": "J Allergy Clin Immunol",
+      "anio": "2012",
+      "volumen": "129",
+      "fpage": "280",
+      "lpage": "291"
+    },
+    {
+      "titulo": "Monocyte phenotype and cytokine production profiles are dysregulated by short-duration spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "B Crucian",
+          "nombres": "B",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "R Stowe",
+          "nombres": "R",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "H Quiriarte",
+          "nombres": "H",
+          "apellidos": "Quiriarte"
+        },
+        {
+          "nombre_completo": "D Pierson",
+          "nombres": "D",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "C Sams",
+          "nombres": "C",
+          "apellidos": "Sams"
+        }
+      ],
+      "pmid": "21888268",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "2011",
+      "volumen": "82",
+      "fpage": "857",
+      "lpage": "862"
+    },
+    {
+      "titulo": "Seifert KA: Compendium of soil fungi—by K.H. Domsch, W. Gams & T.-H. Anderson. Eur J Soil Sci. 2009;59:1007.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fungi from Chernobyl: mycobiota of the inner regions of the containment structures of the damaged nuclear reactor",
+      "autores": [
+        {
+          "nombre_completo": "NN Zhdanova",
+          "nombres": "NN",
+          "apellidos": "Zhdanova"
+        },
+        {
+          "nombre_completo": "VA Zakharchenko",
+          "nombres": "VA",
+          "apellidos": "Zakharchenko"
+        },
+        {
+          "nombre_completo": "VV Vember",
+          "nombres": "VV",
+          "apellidos": "Vember"
+        },
+        {
+          "nombre_completo": "LT Nakonechnaya",
+          "nombres": "LT",
+          "apellidos": "Nakonechnaya"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mycol Res",
+      "anio": "2000",
+      "volumen": "104",
+      "fpage": "1421",
+      "lpage": "1426"
+    },
+    {
+      "titulo": "Hypersaline waters in salterns a “ natural ecological niches for halophilic black yeasts",
+      "autores": [
+        {
+          "nombre_completo": "N Gunde-Cimerman",
+          "nombres": "N",
+          "apellidos": "Gunde-Cimerman"
+        },
+        {
+          "nombre_completo": "P Zalar",
+          "nombres": "P",
+          "apellidos": "Zalar"
+        },
+        {
+          "nombre_completo": "S Hoog",
+          "nombres": "S",
+          "apellidos": "Hoog"
+        },
+        {
+          "nombre_completo": "A Plemenitasd",
+          "nombres": "A",
+          "apellidos": "Plemenitasd"
+        }
+      ],
+      "pmid": "10858582",
+      "fuente": "FEMS Microbiol Ecol",
+      "anio": "2000",
+      "volumen": "32",
+      "fpage": "235",
+      "lpage": "240"
+    },
+    {
+      "titulo": "Yeast diversity in hypersaline habitats",
+      "autores": [
+        {
+          "nombre_completo": "L Butinar",
+          "nombres": "L",
+          "apellidos": "Butinar"
+        },
+        {
+          "nombre_completo": "S Santos",
+          "nombres": "S",
+          "apellidos": "Santos"
+        },
+        {
+          "nombre_completo": "I Spencer-Martins",
+          "nombres": "I",
+          "apellidos": "Spencer-Martins"
+        },
+        {
+          "nombre_completo": "A Oren",
+          "nombres": "A",
+          "apellidos": "Oren"
+        },
+        {
+          "nombre_completo": "N Gunde-Cimerman",
+          "nombres": "N",
+          "apellidos": "Gunde-Cimerman"
+        }
+      ],
+      "pmid": "15766773",
+      "fuente": "FEMS Microbiol Lett",
+      "anio": "2005",
+      "volumen": "244",
+      "fpage": "229",
+      "lpage": "234"
+    },
+    {
+      "titulo": "Cold, pH and salt tolerant Penicillium spp. inhabit the high altitude soils in Himalaya, India",
+      "autores": [
+        {
+          "nombre_completo": "K Dhakar",
+          "nombres": "K",
+          "apellidos": "Dhakar"
+        },
+        {
+          "nombre_completo": "A Sharma",
+          "nombres": "A",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "A Pandey",
+          "nombres": "A",
+          "apellidos": "Pandey"
+        }
+      ],
+      "pmid": "24233773",
+      "fuente": "World J Microbiol Biotechnol",
+      "anio": "2013",
+      "volumen": "30",
+      "fpage": "1315",
+      "lpage": "1324"
+    },
+    {
+      "titulo": "Biology and ecology of mycotoxigenic Aspergillus species as related to economic and health concerns",
+      "autores": [
+        {
+          "nombre_completo": "DM Wilson",
+          "nombres": "DM",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "W Mubatanhema",
+          "nombres": "W",
+          "apellidos": "Mubatanhema"
+        },
+        {
+          "nombre_completo": "Z Jurjevic",
+          "nombres": "Z",
+          "apellidos": "Jurjevic"
+        }
+      ],
+      "pmid": "11922097",
+      "fuente": "Adv Exp Med Biol",
+      "anio": "2002",
+      "volumen": "504",
+      "fpage": "3",
+      "lpage": "17"
+    },
+    {
+      "titulo": "Knox BP, Blachowicz A, Palmer JM, Romsdahl J, Huttenlocher A, Wang CC, Keller NP, Venkateswaran K: Characterization of Aspergillus fumigatus isolates from air and surfaces of the International Space Station. mSphere 2016, 1(5). http://msphere.asm.org/content/1/5/e00227-16.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    }
+  ]
+}

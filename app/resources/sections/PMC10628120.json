@@ -1,0 +1,3217 @@
+{
+  "TITLE": [
+    "Phylogenomics, phenotypic, and functional traits of five novel (Earth-derived) bacterial species isolated from the International Space Station and their prevalence in metagenomes"
+  ],
+  "ABSTRACT": [
+    "With the advent of long-term human habitation in space and on the moon, understanding how the built environment microbiome of space habitats differs from Earth habitats, and how microbes survive, proliferate and spread in space conditions, is becoming more important. The microbial tracking mission series has been monitoring the microbiome of the International Space Station (ISS) for almost a decade. During this mission series, six unique strains of Gram-stain-positive bacteria, including two spore-forming and three non-spore-forming species, were isolated from the environmental surfaces of the ISS. The analysis of their 16S rRNA gene sequences revealed > 99% similarities with previously described bacterial species. To further explore their phylogenetic affiliation, whole genome sequencing was undertaken. For all strains, the gyrB gene exhibited < 93% similarity with closely related species, which proved effective in categorizing these ISS strains as novel species. Average nucleotide identity and digital DNA–DNA hybridization values, when compared to any known bacterial species, were < 94% and <50% respectively for all species described here. Traditional biochemical tests, fatty acid profiling, polar lipid, and cell wall composition analyses were performed to generate phenotypic characterization of these ISS strains. A study of the shotgun metagenomic reads from the ISS samples, from which the novel species were isolated, showed that only 0.1% of the total reads mapped to the novel species, supporting the idea that these novel species are rare in the ISS environments. In-depth annotation of the genomes unveiled a variety of genes linked to amino acid and derivative synthesis, carbohydrate metabolism, cofactors, vitamins, prosthetic groups, pigments, and protein metabolism. Further analysis of these ISS-isolated organisms revealed that, on average, they contain 46 genes associated with virulence, disease, and defense. The main predicted functions of these genes are: conferring resistance to antibiotics and toxic compounds, and enabling invasion and intracellular resistance. After conducting antiSMASH analysis, it was found that there are roughly 16 cluster types across the six strains, including β-lactone and type III polyketide synthase (T3PKS) clusters. Based on these multi-faceted taxonomic methods, it was concluded that these six ISS strains represent five novel species, which we propose to name as follows: Arthrobacter burdickii IIF3SC-B10T (= NRRL B-65660T = DSM 115933T), Leifsonia virtsii F6_8S_P_1AT (= NRRL B-65661T = DSM 115931T), Leifsonia williamsii F6_8S_P_1BT (= NRRL B-65662T = DSM 115932T), Paenibacillus vandeheii F6_3S_P_1CT (= NRRL B-65663T = DSM 115940T), and Sporosarcina highlanderae F6_3S_P_2T (= NRRL B-65664T = DSM 115943T). Identifying and characterizing the genomes and phenotypes of novel microbes found in space habitats, like those explored in this study, is integral for expanding our genomic databases of space-relevant microbes. This approach offers the only reliable method to determine species composition, track microbial dispersion, and anticipate potential threats to human health from monitoring microbes on the surfaces and equipment within space habitats. By unraveling these microbial mysteries, we take a crucial step towards ensuring the safety and success of future space missions."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Multiple low-Earth orbit and lunar orbit space habitats are being planned by governmental and commercial entities as part of the newly revitalized space industry in the 2020s. Cleaning practices and microbial monitoring to ensure crew safety will likely be based on information garnered from studies of the International Space Station (ISS), which is the only space habitat currently in orbit with a long-term history of human habitation. Surfaces of the crew resupply vehicles and cargo destined to the ISS are cleaned to minimize microbial contamination and protect crew health. Nevertheless, the constant presence of human crew members (approximately six at any given time) on the ISS may lead to the shedding of microorganisms onto its surfaces, potentially causing recontamination and becoming dominant members of the habitat’s microbiome. As a result, ISS surfaces are required to be routinely (once a week) cleaned to maintain a low biomass level (< 104 CFU/100 cm2 bacteria and < 100 CFU/100 cm2 fungi).",
+    "Despite this rigorous cleaning and maintenance, it has been reported that some resilient microbes, albeit in low numbers, have adapted to microgravity conditions and persist. Examples are the discovery of a novel bacterial genus found repeatedly in metagenomes, which has subsequently been isolated from ISS surfaces during further sampling campaigns, and the isolation of the same clonal strains of Acinetobacter pittii from ISS surfaces during different years and sampling campaigns. Characterizing the genomes and adaptation mechanisms of rare or novel species that manage to recolonize ISS surfaces is important because rare species are more likely to have narrow niche breadth, and so are persisting due to adaptive mechanisms to the stresses of radiation, desiccation, and microgravity conditions rather than via generalist strategies. Such microbes are therefore also fertile grounds for biotechnology applications research.",
+    "Characterizing novel microbial species on the ISS is crucial for monitoring microbial contamination and protecting astronaut health. The process of whole genome sequencing (WGS) and phenotypic characterization of any novel microbial species found on the ISS helps to identify potential pathogens, as well as to understand potential impact on the spacecraft and its equipment (for example, in biofouling). Easily detecting or identifying a potential microbial threat, whether it be to human health or to the operation of the spacecraft or space station, depends on having an up-to-date, comprehensive database of microbial genomes, their species identity and their phenotypic characteristics (for example, are they known to carry or easily acquire antimicrobial resistance genes, are they UV resistant, what types of surfaces are they more likely to be found on, etc.). This is particularly the case when genetic information about a microbial threat is collected via shotgun metagenomic sequencing rather than by whole genome sequencing of pure culture; in that case, accurate identification relies entirely on an accurate database. The process of characterizing the previously unsequenced cultivable microbiome of space habitats continues to reduce the amount of microbial ‘dark matter’ found in metagenomic sequencing results.",
+    "In the ongoing Microbial Tracking (MT) investigation of the ISS, out of 510 genomes sequenced, 56 microbial species have been isolated multiple times, representing 27 microbial genera (19 bacteria and 8 fungi). Dominant microbial species include bacterial genera Staphylococcus, Pseudomonas, Bacillus, and Acinetobacter, yeast genus Rhodotorula, and fungal genera Penicillium, Aureobasidium, and Aspergillus. In this communication, six strains isolated from various ISS environmental surfaces belonging to five novel bacterial species constituting four different genera (Arthrobacter, Leifsonia, Paenibacillus and Sporosarcina) are described. Since recent bacterial taxonomy heavily depends on genomic characterization, WGS of these novel species were generated and compared with publicly available genomes of closely related species.",
+    "One of the objectives of this study was to establish these six strains as novel species, for which chemotaxonomic, phenotypic, physiological, and phylogenetic (using taxonomic marker genes) analyses were carried out. To discover the phylogenetic placement within their respective genera, we have employed multiple gene analyses and WGS-based phylogenies containing all shared single-copy core genes. The second objective was to quantify the abundance of these recently identified species in the metagenomes of ISS surfaces. Hence, an in-depth analysis was conducted on the metagenomes collected during seven different flight missions, consisting of 106 individual samples, to assess the presence and prevalence of the species. In addition, an attempt was made to generate metagenome assembled genomes (MAGs) of these novel species from the ISS metagenomes. Finally, antiSMASH analysis was performed to identify, annotate, and analyze secondary metabolite biosynthesis gene clusters (BGCs) in the genomes of these novel bacterial species. Specialized metabolites and natural products encoded by these novel bacterial BGCs might provide insight into how different bacterial species thrive and interact in ISS conditions."
+  ],
+  "METHODS": [
+    "Materials and methods",
+    "Sample collection and isolation",
+    "During the MT-1 and MT-2 mission series, samples were collected from the same set of eight surfaces aboard the ISS using pre-packaged and pre-sterilized wipes. Upon return to Earth, among other strains belonging to previously defined species, six strains were isolated from both the Advanced Resistive Exercise Device (ARED) platform and crew quarters when grown on blood agar (37 °C for 24 h) or R2A (25 °C for 7 days) media which were unable to be assigned to a known species and were suspected to be novel. Preliminary 16S rRNA gene sequence analysis indicated that strains isolated during Flight 3 (n = 1) from the ARED platform (IIF3SC-B10T) and Flight 6 (n = 5) from both the ARED platform (F6_3S_P_1B and F6_3S_P_1CT) and crew quarters (F6_8S_P_1AT, F6_8S_P_1BT and F6_8S_P_1C) belonged to four different genera: Arthrobacter, Leifsonia, Paenibacillus, and Sporosarcina. However, further WGS analysis is required to identify the strains at the species level.",
+    "Light microscopy and SEM",
+    "A liquid culture of spore-forming strains was heat shocked (80 °C for 10 min), then plated on Tryptic Soy Agar (TSA) and grown at 30 °C for 5 days to induce endospore formation. Endospore staining with malachite green and safranin was performed using the Schaeffer-Fulton method. Light microscopy and phase contrast images were taken on an Olympus BX53 microscope with an Olympus DP25 camera using Olympus cellSens software.",
+    "All strains were grown out on TSA media at 24 °C for 72 h. An isolated colony was fixed in a 4 °C solution of 2.5% glutaraldehyde (Ted Pella Inc., Redding, CA, United States) in 0.1 M sodium cacodylate (NaCaco) (Sigma Aldrich) for an hour. The suspended cells were collected using a vacuum pump and a 0.2 µm Isopore filter membrane (MilliporeSigma, Burlington, MA, United States), and then transferred into a 1.5 ml centrifuge tube. The sample was incubated in 0.1 M NaCaco solution at 4 °C for 10 min and then replaced with fresh 0.1 M NaCaco solution; this washing step was repeated a total of 3 times. The sample then went through dehydration by a step series of increasing IPA and water solutions at 10 min intervals. The series was: 50%, 70%, 80%, 90%, 95% and 100%, with the final 100% rinsing occurring 3 times. The sample was stored at 4 °C in 100% IPA until it was then critically point dried in a Tousimis Automegasamdri 915B critical point dryer (Rockville, MD, United States). Samples were affixed with carbon tape to SEM stubs (Ted Pella Inc.) and then were coated in a ~ 12 nm thick carbon layer by a Leica EM ACE600 Carbon Evaporator (Deerfield, IL, United States). SEM images were collected on a FEI Quanta 200F microscope (Themo Fisher, Waltham, MA, United States) located at the California Institute of Technologies Kavli Nanoscience Institute.",
+    "Biochemical tests and phenotype characterization",
+    "Growth temperature and other phenotypic parameters of the tested strains were assessed as follows. Bacterial strains were inoculated in both solid (R2A plates) and liquid (trypticase soy broth (TSB), BD Diagnostics Cat # 257107) media in 15 ml loose-capped centrifuge tubes and grown at temperatures of 4, 15, 25, 30, 37, and 45 °C. Growth on plates and in tubes was monitored daily for 7 days, and incubation was halted if growth was observed. Samples grown at 4 °C and 15 °C were incubated for an additional 4 weeks and 2 weeks, respectively, for final growth assessment. Salt tolerance was determined by inoculating the strains onto R2A plates containing 0–5% added NaCl, as well as agar containing only peptone plus 0 or 1% NaCl and examining growth after 7 days of incubation at 30 °C. Oxidase activity was determined by using OxiDrops™ Liquid Oxidase Reagent (Hardy Diagnostics) on solid culture. Catalase activity was determined by observing effervescence when bacterial colonies were mixed with hydrogen peroxide on a sterile glass slide. Finally, pH tolerance (4 to 10) was tested by adjusting the pH of TSB broth with biological buffers, as described in Xu et al..",
+    "Biochemical tests were performed for each strain using a Gram-positive identification card (Vitek 2 GP ID, bioMérieux) according to manufacturers’ protocol. Briefly, freshly grown colonies were transferred aseptically into a saline (aqueous 0.45% to 0.50% NaCl, pH 4.5 to 7.0) tube to prepare homogenous suspension with a density equivalent to a McFarland No. 0.50 to 0.63 using a calibrated VITEK® 2 DensiCHEK™ Plus. The suspension tube and Vitek 2 GP ID card were placed in the cassette and incubated at 37 °C. Data entry, cassette loading to instrument and retrieval of raw data were done according to the VITEK instrument user manual. Test results were recorded within 10 h of incubation.",
+    "Phenotypic fingerprints were generated through GNIII MicroPlate according to BioLog's protocol. Briefly, freshly grown colonies were transferred aseptically into the inoculum solution A (Cat #. 72401; BioLog) to prepare homogenous suspension with a density equivalent to a McFarland No. 0.50. Inoculum was loaded onto BioLog GNIII MicroPlate (100 µl per well) and incubated at 37 °C for 24 h. OmniLog values (A590-A750) were recorded after a minimum 10 h of incubation using MicroPlate reader (FLUO star Omega, BMG Labtech, Germany).",
+    "Chemotaxonomy",
+    "To analyze the fatty acid methyl esters (FAME), cells were grown on TSA at 30 °C for 48 h until they reached mid-exponential growth phase. The harvested cell biomass was subjected to saponification, methylation, and extraction for fatty acid analysis, which was carried out using the Microbial Identification System (MIDI) with the Aerobe (RTSBA6) database (Sherlock version 6.0) following the standard protocol. A gas chromatograph (Agilent 7890A) with a flame ionization detector was used for FAME analysis, and identification and comparison of the results were made using the MIDI System.",
+    "To extract and analyze quinones, polar lipids and peptidoglycans, cells were cultivated on TSA for 3 days at 30 °C. The polar lipids and quinones were extracted and analyzed by two-dimensional thin-layer chromatography (2D-TLC). To visualize the different classes of polar lipids, the developed TLC plates were treated with 10% (w/v) ethanolic phosphomolybdic acid for total lipids, 0.2% (w/v) ninhydrin in butanol for aminolipids (specific for amino groups), Dittmer and Lester’s Zinzadze reagent for phospholipids (specific for phosphates), and α-naphthol for glycolipids (specific for sugars). Peptidoglycans were extracted and analyzed for the diagnostic amino acids from whole cells.",
+    "DNA extraction and whole genome sequencing",
+    "To extract genomic DNA from the novel species, the ZymoBIOMICS DNA MagBead kit was utilized, following the manufacturer's instructions. To prepare the library for WGS, an Illumina Nextera DNA Flex library preparation kit was used as described earlier. Sequencing of prepared libraries was carried out on a NovaSeq 6000 S4 flow cell paired-end 2 × 150-bp platform. The read qualities were evaluated using FastQC v.0.11.7, and subsequenly quality filtered, trimmed and cleared of adapter sequences using fastp v0.20. Draft genomes were assembled using SPAdes v.3.11.1 up to the scaffold level, and the assembly quality was evaluated using QUAST v.5.0.2. The default settings were employed for all steps except for fastp, which included 512 adapters screening.",
+    "In addition to Illumina WGS, a secondary round of sequencing was carried out for strains IIF3SC-B10T and F6_8S_P_1BT using Oxford Nanopore sequencing. Additionally, Sporosarcina thermotolerans CCUG 53480 T, kindly provided by Dr. Edward Moore from the Culture Collection University of Gothenburg (CCUG), Sweden, also underwent WGS with the use of Nanopore MinION (Oxford Nanopore Technologies, Oxford, UK). Nanopore sequencing libraries were prepared using the SQK-RBK114.24 rapid chemistry-based barcoding kit (Oxford Nanopore Technologies, Oxford, UK). Long read sequencing was conducted using an R.10.4.1 flow cell. Base calling was performed via MinKnow/Guppy. Adapters were trimmed using Porechop (v.0.2.4) and reads were filtered using filtlong v.0.2.1, with parameters –min_length 1000 –keep_percent 90. For strains IIF3SC-B10T and F6_8S_P_1BT, a hybrid genome assembly was generated using Unicycler (v.0.5.0). For strain CCUG 53480T a long-read only assembly was generated using the same tool with default settings. Genome assembly quality was assessed using QUAST (v.5.2.0).",
+    "ANI and dDDH analyses",
+    "To elucidate species affiliation of the isolated genomes, we retrieved all validly described and representative genomes of four identified genera from the NCBI database using the command-line tool ‘bit’. We calculated the Average Nucleotide Identity (ANI) and digital DNA–DNA hybridization (dDDH) values to perform pairwise nucleotide-level comparisons. For ANI calculations, we employed FastANI v.1.33, which is a rapid alignment-free computational method, with the novel species as a query against other genomes. To estimate the in-silico DNA–DNA hybridization, we used the recommended formula 2 of the Genome-to-Genome Distance Calculator (GGDC) v.3.0 with the BLAST + alignment tool. To further evaluate the genetic relatedness of the genomes of the genera Sporosarcina, ANI based analysis was used. All available genomes on the NCBI GenBank database under the genera Sporosarcina (n = 93) were retrieved using ncbi-genome-download (v.0.3.1). An all-vs-all ANI analysis of the genomes was conducted and drawn using ANIclustermap (v.1.2.0).",
+    "Phylogenetic analysis",
+    "The 16S rRNA gene sequences of the novel species were extracted from their WGS. Phylogenetic trees were constructed for each genus by incorporating publicly available 16S sequences of all the species within the respective genus. In cases where only the WGS was publicly available, a blast wrapper script was employed to extract the 16S sequence. The trees were rooted using a related species within the same family. The DECIPHER package was used to align and trim the 16S sequences. To build phylogenetic trees, the phangorn package was used on maximum likelihood with AIC values and 1,000 bootstrap replicates. The trees were visualized using Interactive Tree of Life (iTOL).",
+    "We created a whole genome-based phylogenies to identify closely related species of the isolated genomes. We used GToTree v.1.7.07, a Hidden Markov Model (HMM) based command-line tool which aligns identified single copy genes using Muscle v.3.8 and produces concatenated protein alignment. For the Arthrobacter and Leifsonia genomes, we used 138 single-copy gene (SCG) sets of Actinobacteria, while for the Paenibacillus and Sporosarcina genomes, we used 119 SCG sets of Firmicutes. IQTREE v.2.2.0.3 with ModelFinder-Plus was then used to construct the phylogenetic tree from the protein alignment with 1,000 ultrafast bootstrap replicates. We further retrieved 4,552 complete, non-anomalous, representative genomes of bacteria from NCBI Reference Sequence (RefSeq) database and constructed a phylogenetic tree of life along with the novel species using 16 SCG-set as previously described (data not shown). Genomes containing at least 40% of the total 16 SGC targets were placed in the phylogenetic tree. All the trees were further annotated and visualized using interactive Tree Of Life (iTOL) v.6.7.",
+    "Mapping metagenome sequence reads from ISS to isolated novel species",
+    "To investigate the presence of the isolated novel species in environmental samples from ISS, we retrieved paired-end metagenomics reads from two microbial tracking (MT) missions, MT-1 (n = 42) and MT-2 (n = 64), from the NCBI Short Read Archive with project accession PRJNA438545 and PRJNA781277, respectively. Quality filtering of the metagenomes was performed using Trimmomatic v.0.39 with a sliding window of 4 bases and an average quality per base cutoff of 20. We used MetaCompass v.2.0 to perform reference-guided assembly of the aligned metagenome reads against isolated genomes of novel species. We quantified the number of reads that aligned to the isolated genomes and assessed the breadth of the coverage of the assembled reads in each sample. We further tried to bin the contigs using MetaBAT v.2.12.1, but were unable to resolve any MAGs.",
+    "Genome annotation and prediction of secondary-metabolite biosynthetic potential",
+    "The gene prediction and annotation of the novel genomes were performed using the Rapid Annotations based on Subsystem Technology (RAST) online server using RAST-tk annotation scheme. The Resistance Gene Identifier (RGI) v6.0.1 web portal which utilizes the CARD v3.2.6 database was used to identify antibiotic resistance genes and markers in the novel species from ISS environments with only “Perfect” and “Strict” matches. Secondary metabolite biosynthetic gene clusters (BGCs) were identified within each novel genomes using antiSMASH v.7.0.0 with a “strict” detection system. The identified BGCs were curated for functional annotation using MIBiG v.3.1 JSON file via an in-house Python script."
+  ],
+  "RESULTS": [
+    "Results",
+    "The six strains isolated during this study belonged to five novel species spanning four bacterial genera. Among the six strains, four were non-spore-forming members and two strains formed endospores. Based on 16S rRNA gene similarities, not all strains were identified into a novel bacterial species, but ANI/dDDH analyses allowed them to be placed into five distinct bacterial species. They were: Arthrobacter burdickii IIF3SC-B10T, Leifsonia virtsii F6_8S_P_1AT, Leifsonia williamsii F6_8S_P_1BT, Paenibacillus vandeheii F6_3S_P_1CT, and Sporosarcina highlanderae F6_3S_P_2T. In addition, the WGS of S. thermotolerans CCUG 53480T was generated and compared with the genome of S. highlanderae F6_3S_P_2T to identify the variable, conserved, and distinctive genomic traits.",
+    "Genome characteristics and relatedness indices",
+    "Table 1 summarizes the assembly statistics for all six strains. The draft genomes of the novel bacterial species were assembled using high-quality sequences, and their assembly quality varied from a single contig to 49 scaffolds. The non-spore-forming strains had high GC contents, ranging from 68% to 71.4%, whereas spore-forming strains, such as P. vandeheii F6_3S_P_1CT (46.1%) and S. highlanderae F6_3S_P_2T (41.6%), had low GC content. The total number of predicted genes was 2166 for S. highlanderae F6_3S_P_2T and 4861 for P. vandeheii F6_3S_P_1CT. However, the non-spore-forming bacterial species had ~ 3444 to 3850 coding regions (Table 1). In addition to the novel species, the complete genome of S. thermotolerans CCUG 53480T was generated and compared to S. highlanderae F6_3S_P_2T strain since both shared > 99% 16S rRNA gene sequence similarities.",
+    "Table 2 presents the similarities among closely related members of the novel species based on ANI, dDDH, and two marker genes (16S rRNA and gyrB). The 16S rRNA gene sequences of all five novel species described in this study exhibited > 99% similarities to previously established species. However, the gyrB gene sequence similarities of the novel species with the closely related species ranged from 88.6 to 92.8% and could serve as a genetic marker to distinguish the novel species. Moreover, ANI indices (< 95%) and dDDH values (< 70%) fell below the threshold levels of bacterial species identity and confirmed that the examined ISS strains were novel species.",
+    "Phylogeny",
+    "The comparison of 16S rRNA gene sequences of A. burdickii IIF3SC-B10T, isolated from the air particles collected from ARED during Flight 2, revealed a high similarity (> 99.6%) to most established Arthrobacter species. This suggests that the 16S rRNA gene may not be an adequate marker for distinguishing members within this genus. However, upon analyzing the gyrB gene sequences of this phylogenetic clade, the similarity values were found to be below 85.9%. Furthermore, strain IIF3SC-B10T displayed low values for digital dDDH (24.5%) and ANI indices (82.9%). These findings provide additional evidence supporting its classification as a novel species.",
+    "In the 16S rDNA-based phylogenetic tree encompassing all Arthrobacter species (Fig. 1A), with Micrococcus antarcticus as the outgroup, strain IIF3SC-B10T clustered together with officially named species such as A. agilis, A. cheniae, A. bussei, and A. antioxidans (Fig. 1A). However, in the WGS-based tree (Fig. 1B), constructed using a concatenated alignment of gene clusters from 59 genomes containing 138 single-copy core genes common to all Actinobacteria, A. burdickii was found to be distinct from the A. ruber and A. cheniae clades. Instead, it exhibited closer similarity to the unrecognized species A. sedimenti (ANI 93.8%).",
+    "The 16S rRNA gene sequences of L. virtsii F6_8S_P_1AT, isolated from crew quarters in Flight 6, exhibited > 98.9% similarity to L. soli and L. shinshuensis, indicating that the 16S rRNA gene is not a suitable marker for distinguishing members of this genus. Upon comparing the gyrB gene sequences of the members of this phylogenetic clade, the similarity values were below 91.7%. However, the strain F6_8S_P_1AT exhibited low dDDH values (< 28.3%) and ANI indices (86.3%), providing further evidence that it belongs to a novel species. In the 16S rDNA-based phylogenetic tree of all Leifsonia species, with Rathayibacter tritici as the outgroup, strain F6_8S_P_1AT was placed within a clade that also included the validly described species L. aquatica, L. xyli, L. lichenia, L. shinshuensis, and L. soli (Fig. 2A). However, in the WGS-based tree (Fig. 2B), which was constructed using a concatenated alignment of gene clusters of eight available genomes containing a total of 138 single-copy core genes common to all species in the Actinobacteria, L. virtsii was separated from all these Leifsonia species. The next closest member was L. soli (ANI 86.3%).",
+    "In addition to L. virtsii, two strains were identified as L. williamsii based on their gyrB sequence similarity (91.6%), ANI index (84.3%), and dDDH value (24.7%), which were below the species threshold level. Surprisingly, despite the high 16S rRNA gene sequence similarity between L. virtsii and L. williamsii (99.2%), the 16S rRNA gene tree (Fig. 2A) placed them in different clades, supported by 88% bootstrap values. Notably, the L. williamsii strains were isolated from the same crew quarter location as L. virtsii, and they even originated from the same culture plate of R2A medium. Initially, there was a suspicion that they might be clones from the same colony, but further analysis using WGS and gyrB sequencing confirmed that they were distinct novel species. In contrast to the 16S rRNA gene phylogeny, the WGS-based tree (Fig. 2B) clearly differentiated L. williamsii from L. virtsii.",
+    "The 16S rRNA gene sequences of P. vandeheii F6_3S_P_1CT, isolated from the ARED’s surface during Flight 6, exhibited 99.5% similarity to P. pabuli, indicating that the 16S rRNA gene is not a suitable marker for distinguishing members of this genus. Upon comparing the gyrB gene sequences, P. pabuli also exhibited 94.9% similarity with P. vandeheii F6_3S_P_1CT. Since it was established that ~ 95% gyrB as cut-off value for species delineation, WGS was performed which showed that ANI index was only 88.4%. Based on low ANI index and dDDH value (34.6%), P. vandeheii F6_3S_P_1CT is differentiated from P. pabuli and described as a novel species. The 16S rRNA gene-based phylogeny (Fig. 3A) showed that P. xylanivrans, P. taichungensis, and P. paubli formed a tight clade with > 99% similarities among them. However, in the WGS-based tree (Fig. 3B), which was constructed using a concatenated alignment of gene clusters from 244 genomes containing a total of 119 single-copy core genes common to all species in the Firmicutes, P. vandeheii was separated from all these Paenibacillus species and was found to be closer to the P. xylanivorans (ANI 92.8%).",
+    "The strain F6_3S_P_2T, another spore-forming bacterium belonging to the genus Sporosarcina and isolated from the ARED surface during Flight 6, displayed a 99.8% similarity to S. thermotolerans based on the 16S rRNA gene. This finding highlights the difficulty in classifying spore-forming microorganisms using the 16S rRNA gene marker. Hence, the WGS of S. thermotolerans CCUG 53480T was needed to identify the phylogenetic position of S. highlanderae F6_3S_P_2T. Upon comparing the gyrB gene sequences, S. highlanderae F6_3S_P_2T exhibited an 87.0% similarity with S. thermotolerans CCUG 53480T. Furthermore, the ANI index between the genomes of F6_3S_P_2T and S. thermotolerans CCUG 53480T was only 85.3%. Considering the low ANI index and dDDH value (29.8%), S. highlanderae F6_3S_P_2T can be identified as a novel species, distinct from S. thermotolerans. In the 16S rRNA gene-based phylogeny (Fig. 4A), S. thermotolerans, S. luteola, and S. saromensis formed a closely related clade with > 99% similarities among them. However, S. koreensis did not cluster within this clade, despite having a 16S rRNA gene similarity with S. highlanderae. On the other hand, in the WGS-based tree (Fig. 4B), constructed using a concatenated alignment of gene clusters from 15 genomes containing 119 single-copy core genes common to all species in the Firmicutes, S. highlanderae was separated from all other Sporosarcina species. Instead, it exhibited closer similarity to S. thermotolerans (ANI 85.3%).",
+    "Phenotypic characterization",
+    "The cell size (Fig. 5), colony morphology, biochemical characteristics based on Vitek-2 (Supplemental Table S1) and BioLog GNIII (Supplemental Table S2), fatty acid profiles (Supplemental Table S3) and chemotaxonomic features (Supplemental Figure S1) of all five novel species are presented. A. burdickii can be phenotypically differentiated from other closely related Arthrobacter species since maltose, trehalose, cellobiose, turanose, and acetoacetic acid were not utilized as sole carbon substrate (Table 3). The Leifsonia species did not show any specific phenotypic characteristics that could be used to differentiate them from other closely related Leifsonia species; hence, molecular phylogeny is essential (Table 4). P. vandeheii was able to grow at 8% NaCl which can be used as discriminative test. Oxidase test was also positive whereas P. tundrae, P. xylanexedens, and P. amylolitus were negative. In addition, P. vandeheii can be differentiated by the utilization of Tween 40, turanose, γ-hydroxybutyric acid, l-malic acid, and l-serine as sole carbon source from P. taichungensis and P. paubli which are negative (Table 5). S. highlanderae could grow at 4% NaCl only, but S. thermotolerans, S. luteola, and S. saromensis were able to withstand > 7.5% to 10% NaCl concentration (Table 6).",
+    "Chemotaxonomic characterization",
+    "The novel actinobacterial species, namely A. burdickii IIF3SC-B10T, L. virtsii F6_8S_P_1AT and L. williamsii F6_8S_P_1BT, were found to contain diphosphatidylglycerol, phosphatidylglycerol and an unidentified glycolipid as their major polar lipids. Additionally, A. burdickii IIF3SC-B10T was found to possess a significant amount of an unidentified phospholipid (PL1), a characteristic that sets it apart from Leifsonia species. P. vandeheii F6_3S_P_1CT exhibited a complex polar lipid profile, which included phosphatidylglycerol, diphosphatidylglycerol, phosphatidylethanolamine, phosphatidylserine, two unidentified phospholipids and an unidentified aminophospholipid. On the other hand, S. highlanderae F6_3S_P_2T was found to contain phosphatidylglycerol, diphosphatidylglycerol, phosphatidylethanolamine two unidentified phospholipids and an identified lipid. The polar lipid profiles of new species are in excellent agreement with the data published earlier for Arthrobacter, Leifsonia, Paenibacillus, and Sporosarcina.",
+    "Based on this polyphasic taxonomy, the five novel species are described, and their detailed phenotypic, FAME profile, chemotaxonomic, and molecular characteristics are given below.",
+    "Arthrobacter burdickii sp. nov.",
+    "Arthrobacter burdickii (bur.dick’i.i. N.L gen. n. burdickii, referring to Garry Burdick, an accomplished American space engineer).",
+    "Colonies are pink/red-pigmented, convex, round and 0.5 mm in diameter after 3 days of incubation on TSA plate at 25 °C. Cells are coccoid and Gram-stain-positive (approximately 0.7–1.2 μm in diameter with a few that are 1.8 µm in diameter). Growth occurs at 4–37 °C, at pH 5.4–9.3 and in the presence of 0–5% (w/v) NaCl. Positive for catalase and negative for oxidase.",
+    "Positive for leucine arylamidase and alanine arylamidase; negative for arginine dihydrolase 1, β-galactosidase, α-glucosidase, ala-phe-pro arylamidase, cyclodextrin, L-aspartate arylamidase, β galactopiranosidase, α-mannosidase, phosphatase, L-proline arylamidase, β-glucuronidase, α-galactosidase, L-pyrrolydonyl-arylamidase, β-glucuronidase, tyrosine arylamidase, and urease.",
+    "The major fatty acids (> 10%) are anteiso-C15:0, anteiso-C17:0, and anteiso-C17:1 ω9c. Major polar lipid components are diphosphatidylglycerol, phosphatidylglycerol, an unidentified glycolipid and phospholipids. In addition, two unidentified lipids were found in minor amounts. The predominant menaquinone is MK-9(H2). The peptidoglycan is of A3α type, containing lysine, threonine and alanine.",
+    "GC content is 68.0%. The type strain, IIF3SC-B10T (= NRRL B-65660T = DSM 115933T) was isolated from the ARED platform aboard the ISS, in 2015; its genome size is ~ 3.9 Mb and available on NCBI, accession number JAROCG000000000.",
+    "Leifsonia virtsii sp. nov.",
+    "Leifsonia virtsii (virts’i.i. N.L gen. n. virtsii, named in honor of a NASA astronaut; Terry Virts).",
+    "Colonies are circular, convex, smooth, yellow and 1.0–2.8 mm in diameter on TSA medium after 96 h at 25 °C. Cells are aerobic, Gram-stain-positive, motile, short rods, 0.3–0.4 mm wide by 1–2 mm long. Tolerates up to 5% NaCl. Grows at 4–45 °C, with optimum growth at 25 °C, and at pH 5.2–8.6. Positive for oxidase and negative for catalase.",
+    "Positive for the oxidation of dextrin, d-maltose, d-trehalose, d-cellobiose, gentiobiosase, sucrose, d-turanose, raffinoase, α-d-Lactose, d-melibiose, d-salicin, N-acetyl-d-glucosamine, α-d-glucose, d-mannose, d-fructose, d-mannitol, glycerol, gelatin, glycyl-l-proline, l-alanine, pectin, d-galacturonic acid, l-galactonic acid lactone, d-gluconic acid, tetrazolium blue, p-hydroxy-phenylacetic acid, methyl puruvate, potassium tellurite, α-hydroxy-butyric acid and sodium butyrate; resistant to rifamycin SV, nalidixic acid and aztreonam. Positive for d-amygdalin, d-xylose, arginine dihydrolase 1, α-glucosidase, leucine arylamidase, α-galactosidase, alanine arylamidase, tyrosine arylamidase, d-galactose, d-mannitol, d-mannose, salicin and sucrose.",
+    "Phospholipids detected in major amounts are diphosphatidylglycerol, phosphatidylglycerol and an unidentified glycolipid. Meso 2,6-diminopimelic acid is the diagnostic diamino acid of cell wall.",
+    "GC content is 70.5%. The type strain, F6_8S_P_1AT (= NRRL B-65661T = DSM 115931T) was isolated from the crew quarters aboard the ISS, in 2018; its genome size is ~ 4.2 Mb and available on NCBI, accession number JAROCB000000000.",
+    "Leifsonia williamsii sp. nov.",
+    "Leifsonia williamsii (wil.li.ams’i.i. N.L. gen. n. williamsii, named in honor of a NASA astronaut; Jeffrey Williams).",
+    "Colonies are circular, convex, smooth, yellow and 1.0–1.5 mm in diameter on TSA medium after 72 h at 25 °C. Cells are aerobic, Gram-stain-positive, motile, rods, 0.2–0.3 µm in width and 0.8–1.7 µm in length. Tolerates up to 5% NaCl. Grows at 4–45 °C, with optimum growth at 25 °C, and at pH 5.2–9.0. Positive for oxidase and negative for catalase.",
+    "Carbon substrate profiles also showed that majority of the carbon substrates and aminoacids are not utilized as sole carbon source. Positive for the oxidation of dextrin, d-maltose, d-trehalose, d-cellobiose, sucrose, d-turanose, raffinose, α-d-lactose, d-melibiose, d-salicin, N-acetyl-d-glucosamine, α-d-glucose, d-mannose, d-fructose, d-mannitol, glycerol, gelatin, glycyl-l-proline, l-alanine, pectin, d-galacturonic acid, l-galactonic acid lactone, d-gluconic acid, p-hydroxy-phenylacetic acid, methyl pyruvate and α-hydroxy-butyric acid; positive for growth at pH 6, 1% NaCl, rifamycin SV, tetrazolium blue, nalidixic acid, potassium tellurite, aztreonam and sodium butyrate.",
+    "The major fatty acids (> 10%) are anteiso-C15:0, iso-C16:0, and anteiso-C17:0. Phospholipids detected in major amounts are diphosphatidylglycerol, phosphatidylglycerol and an unidentified glycolipid. In addition, an unidentified lipid was found in minor amounts. The major menaquinone is MK-11. Meso 2,6-diminopimelic acid is the diagnostic diamino acid of cell wall.",
+    "GC content is 71.4%. The type strain, F6_8S_P_1BT (= NRRL B-65662T = DSM 115932T) was isolated from the crew quarters aboard the ISS, in 2018; its genome size is ~ 3.9 Mb and available on NCBI, accession number JAROCF000000000.",
+    "Paenibacillus vandeheii sp. nov.",
+    "Paenibacillus vandeheii (van. de.hei’i. N.L. gen. n. vandeheii, named in honor of a NASA astronaut; Mark Vande Hei).",
+    "Cells are Gram-stain-positive, endospore-forming, motile rods (0.6–0.7 µm in width and 2.5–3.5 µm in length). Facultative anaerobe and mesophilic bacterium, with optimum conditions for growth at 30 °C (range 4–37 °C) and pH 7 (range, pH 5.2–9.3), and up to 8% NaCl tolerance. It forms circular and 4 mm in diameter and colonies are beige color on TSA medium. Positive for catalase and oxidase.",
+    "Utilize d-raffinose, salicin, saccharose/sucrose, and d-trehalose as sole carbon substrate. Not utilize d-amygdalin, d-xylose, cyclodextrin, d-sorbitol, d-galactose, d-ribose, l-lactate alkalization, lactose, N-acetyl-d-glucosamine, d-maltose, d-mannitol, d-mannose, Methyl-B-d-glucopyranoside, and pullulan. Positive for the production of β-galactosidase, β galactopiranosidase, and α-galactosidase Negative for phosphatidylinositol phospholipase c, arginine dihydrolase 1, α-glucosidase, ala-phe-pro arylamidase, L-aspartate arylamidase, α-mannosidase, phosphatase, leucine arylamidase, L-proline arylamidase, β-glucuronidase, L-pyrrolydonyl-arylamidase, β-glucuronidase, alanine arylamidase, tyrosine arylamidase, urease, and agrinine dihydrolase 2. Resistant to bacitracin and optochin but sensitive to polymixin B and novobiocin.",
+    "The major fatty acid is anteiso-C15:0, C16:0, and anteiso-C17:0. The major polar lipids are diphosphatidylglycerol, phosphatidylethanolamine, phosphatidylglycerol, phosphatidylserine, an unidentified phospholipid and an unidentified phosphoaminolipid. In addition, an unidentified phospholipid was found in trace amounts. The predominant menaquinone is MK-7. 2,6-diaminopimelic acid is the major diagnostic diamino acid of the cell wall.",
+    "GC content is 46.1%. The type strain, F6_3S_P_1CT (= NRRL B-65663T = DSM 115940T) was isolated from the ARED platform aboard the ISS, in 2018; its genome size is ~ 7.04 Mb and available on NCBI, accession number JAROCD000000000.",
+    "Sporosarcina highlanderae sp. nov.",
+    "Sporosarcina highlanderae (high.lan.der’ae. N.L. gen. n. highlanderae, referring to Sarah Highlander, an accomplished American molecular biologist).",
+    "Cells are Gram-stain-positive, strictly aerobic, motile rods (0.3–0.4 µm in width and 3.3–3.7 µm in length). Spherical endospores are formed in a terminal position. Colonies grown on TSA are circular, convex, beige, and 4 mm in diameter after 5 days at 25 °C. Optimal temperature for growth is 30 °C; growth not at < 10 °C or > 37 °C; pH tolerance is 6.1–9.3. NaCl is not required for growth but can be tolerated up to 4% (w/v). Positive for catalase and oxidase activities.",
+    "d-raffinose, salicin, saccharose/sucrose, and d-trehalose, d-amygdalin, d-xylose, cyclodextrin, d-sorbitol, d-galactose, d-ribose, l-lactate alkalization, lactose, N-acetyl-d-glucosamine, d-maltose, d-mannitol, d-mannose, Methyl-B-d-glucopyranoside, and pullulan are not utilized as sole carbon source. Except for the production of tyrosine arylamidase, negative for β-galactosidase, β galactopiranosidase, α-galactosidase, phosphatidylinositol phospholipase c, arginine dihydrolase 1, α-glucosidase, ala-phe-pro arylamidase, L-aspartate arylamidase, α-mannosidase, phosphatase, leucine arylamidase, L-proline arylamidase, β-glucuronidase, L-pyrrolydonyl-arylamidase, β-glucuronidase, alanine arylamidase, urease, and agrinine dihydrolase 2. Resistant to bacitracin and optochin but sensitive to polymixin B and novobiocin.",
+    "Major fatty acids are anteiso-C15:0, iso-C15:0, and iso-C14:0. Polar lipid profile contained diphosphatidylglycerol, phosphatidylglycerol, phosphatidylethanolamine, two unidentified phospholipids and an unidentified lipid. MK-7 is the major respiratory quinone. The peptidoglycan type is A4α based on L-Lys-L-Ala-D-Asp.",
+    "GC content is 41.6%. The type strain, F6_3S_P_2T (= NRRL B-65664T = DSM 115943T) was isolated from the ARED platform aboard the ISS, in 2018; its genome is ~ 3.4 Mb and available on NCBI, accession number JAROCC000000000.",
+    "Abundance of novel species in ISS metagenomes",
+    "We conducted an analysis of metagenomic reads obtained from two microbial tracking (MT) missions, encompassing seven flights across eight locations on the ISS, with the objective of identifying novel microbial species and potentially retrieving MAGs. To assess the presence of viable and intact cells of the novel species, we utilized propidium monoazide (PMA) treatment on the samples as previously described. Our findings revealed that the majority of the metagenomes had less than 0.1% of their total reads mapped to the novel species. Among all the species analyzed, P. vandeheii F6_3S_P_1CT exhibited the highest mapping, with a maximum of 1.05% of total reads from a sample collected during Flight 2 near the port crew quarters (location 8) during MT-1. Therefore, we can conclude that none of these novel species are dominant in the ISS. Considering the limited proportion of reads mapped to the novel species, we proceeded to perform read assembly to explore the breadth of coverage against the isolated genomes. Interestingly, reads mapped to L. virtsii F6_8S_P_1AT and L. williamsii F6_8S_P_1BT from Flight 6 at location 8 exhibited a breadth of coverage of 59.4% and 80.7% respectively, despite representing a small fraction of the total reads (Fig. 6). However, apart from these cases, the overall breadth of coverage for the genomes was quite low, averaging at 0.21% hence, no MAG was generated. We also analyzed the PMA untreated samples and observed the similar pattern in the distribution of the breadth of coverages. Additionally, we noticed 84.4% breadth of coverage for L. williamsii F6_8S_P_1BT during Flight 7 at location 8 from where the strain was isolated. Despite the presence of a high breadth of coverage for Leifsonia genomes across multiple samples, we were unable to obtain MAGs due to the failure of achieving the minimum coverage depth threshold of 4X.",
+    "Functional characterization of the novel species",
+    "To investigate the genetic characteristics of the six novel strains, we performed a comprehensive genome annotation using RAST-tk (Table 7; Supplemental Table S4). The subsystem mapping results are as follows: A. burdickii IIF3SC-B10T (283 subsystems), L. virtsii F6_8S_P_1AT (273 subsystems), L. williamsii F6_8S_P_1BT (262 subsystems), L. williamsii F6_8S_P_1CT (262 subsystems), P. vandeheii F6_3S_P_1CT (324 subsystems), and S. highlanderae F6_3S_P_2T (307 subsystems). Among the annotated subsystems, the top categories based on average gene counts included amino acids and derivatives (260 genes), carbohydrate metabolism (232 genes), cofactors, vitamins, prosthetic groups, pigments (136 genes), and protein metabolism (171 genes).",
+    "Further analysis of these organisms from the ISS revealed that, on average, they possess 46 genes related to virulence, disease, and defense. Two mechanisms were predicted as the primarily function of these genes: resistance to antibiotics and toxic compounds, and invasion and intracellular resistance. A. burdickii IIF3SC-B10T, in particular, is the only species that harbors the sarcosine oxidase (EC 1.5.3.1) gene, which is involved in the osmotic stress response. On the other hand, P. vandeheii F6_3S_P_1CT and S. highlanderae F6_3S_P_2T, both belonging to the phylum Firmicutes, possess a specific mechanism to respond to bacitracin-induced stress through the bceABRS four-component system. Notably, these two species also possess additional stress response mechanisms for periplasmic stress via the intramembrane protease RasP/YluC. While exploring other factors, it was observed that A. burdickii IIF3SC-B10T does not possess any genes associated with motility. However, the other novel species have genes related to motility, including flagellar biosynthesis proteins. Among all the species, only P. vandeheii F6_3S_P_1CT has the chemotaxis subsystem.",
+    "We conducted further investigations into the metabolic potential of these novel species and made some noteworthy observations. A. burdickii IIF3SC-B10T was found to possess a significantly higher number of genes related to aromatic compound metabolism, while having fewer genes associated with iron metabolism compared to the other species characterized in this study. With the exception of P. vandeheii F6_3S_P_1CT, all the other species exhibited the capability to perform polyhydroxybutyrate metabolism. However, only P. vandeheii F6_3S_P_1CT, due to the presence of gamma-glutamyl transpeptidase (EC 2.3.2.2), can utilize glutathione as a sulfur source.",
+    "Considering the concerns regarding spore-forming bacteria and their resistance to sterilization processes in the ISS, we further explored the spore-forming capabilities of these novel species. As expected, a significant number of genes associated with dormancy and sporulation were predicted in P. vandeheii F6_3S_P_1CT and S. highlanderae F6_3S_P_2T genomes. Between them, P. vandeheii F6_3S_P_1CT exhibited the highest number of 40 genes, primarily associated with spore germination and spore maturation processes. In contrast, the other species are non-spore forming and do not possess specific proteins associated with sporulation.",
+    "Antimicrobial resistance properties of the novel species",
+    "In the isolated five novel species, we searched for antibiotic resistance genes against the CARD database and calculated the percentage identity with the reference sequences. Overall, these genomes showed potential resistance to seven drug classes, including rifamycin and tetracycline antibiotics. Interestingly, we found that all of these genomes contained genes from vancomycin resistance gene clusters with an identity ranging from 30.7% to 51.5%. Among other identified resistance genes, we discovered the presence of rifampicin monooxygenase (RIFMO) in Leifsonia species with a 63% match, which catalyzes the inactivation of the antibiotic rifampicin.",
+    "In P. vandeheii F6_3S_P_1CT, we identified a set of markers, including Llm 23S ribosomal RNA methyltransferase (LlmA_23S_CLI) and chloramphenicol acetyltransferase (CAT), which exhibited high sequence identities of 84.67% and 87.91%, respectively. LlmA_23S_CLI was originally detected in Paenibacillus sp. LC231, a strain isolated from Lechuguilla Cave, NM, USA. Additionally, strain F6_3S_P_1CT was found to possess two genes, qacG and qacJ, which are part of a small multidrug resistance efflux pump conferring resistance to quaternary ammonium compounds (QACs).",
+    "Furthermore, in P. vandeheii F6_3S_P_1CT and S. highlanderae F6_3S_P_2T, we identified the presence of tetracycline-resistant ribosomal protection genes tetB(P) and tet(Q), respectively, with approximately 30% similarity. These provide resistance by preventing the binding of the antibiotic tetracycline to the bacterial ribosome. Moreover, these genomes also encode orthologues of the antibiotic-inactivating enzyme fosfomycin thiol transferase. The genomic mining predicted the presence of AMR genes but the confirmation of the phenotypic resistance requires further investigation.",
+    "Production of secondary metabolites",
+    "To explore the potential for producing secondary metabolites in the newly discovered species, we utilized antiSMASH, a bioinformatics tool for predicting putative BGCs. This analysis revealed a total of 16 cluster types, including βlactone and type III polyketide synthase (T3PKS) clusters (Table 8). In A. burdickii IIF3SC-B10T, we identified a moderately matched thiopeptide antibiotic called TP-1161, known for its effectiveness against multidrug-resistant Gram-stain-positive bacteria and fungi. Furthermore, in the isolated Leifsonia species, we found two well-known gene clusters: T3PKS-alkylresorcinol and NAPAA (non-α poly-amino acids) ε-Poly-l-lysine (ε-PL), both with a 100% match. Among the analyzed species, Leifsonia species shared a partially matched carotenoid BGC with P. vandeheii F6_3S_P_1CT. However, several unique cluster types, including cyclic-lactone-autoinducer, lanthipeptide, lassopeptide, NRP-metallophore, opine-like-metallophore, and proteusin, were identified exclusively in P. vandeheii F6_3S_P_1CT. Notably, within the F6_3S_P_1CT strain, we also identified BGCs paeninodin (60%) and bacillopaline (100%). Lastly, S. highlanderae F6_3S_P_2T exhibited one phosphonate, one T3PKS, and one terpene BGC, although these clusters have not yet been fully characterized."
+  ],
+  "TABLE": [
+    "Assembly statistics for novel bacterial species isolated from the ISS and for the type strain of Sporosarcina thermotolerans.",
+    "Species\tStrain #\tNCBI Accession #\tIsolation location\tNo. of scaffolds/contigs\tGenome size (bp)\tN50 (bp)\tAverage Coverage\tG + C Content(%)\tFiltered reads used for assembly\tCoding sequences\t \tArthrobacter burdickii\tIIF3SC-B10T\tJAROCG000000000\tAdvanced resistive exercise device (ARED) foot platform, ISS\t8\t3,949,978\t3,120,482\t1056\t68.0\t23,248,163\t3,688\t \tLeifsonia virtsii\tF6_8S_P_1AT\tJAROCB000000000\tPort crew quarters, bump out exterior aft wall, ISS\t10\t4,198,603\t988,071\t570\t70.5\t15,053,671\t3,858\t \tLeifsonia williamsii\tF6_8S_P_1BT\tJAROCF000000000\tPort crew quarters, bump out exterior aft wall, ISS\t2\t3,889,882\t3,847,531\t599\t71.4\t15,606,332\t3,444\t \tLeifsonia williamsii\tF6_8S_P_1C\tJARUHI000000000\tPort crew quarters, bump out exterior aft wall, ISS\t19\t3,883,459\t550,775\t504\t71.4\t11,128,441\t3,439\t \tPaenibacillus vandeheii\tF6_3S_P_1CT\tJAROCD000000000\tAdvanced resistive exercise device (ARED) foot platform, ISS\t49\t7,035,527\t437,229\t353\t46.1\t12,976,930\t4,861\t \tSporosarcina highlanderae\tF6_3S_P_2T\tJAROCC000000000\tAdvanced resistive exercise device (ARED) foot platform, ISS\t33\t3,397,737\t269,276\t736\t41.6\t10,980,322\t2,166\t \tSporosarcina thermotolerans\tCCUG 53480T\tCP125968\tHuman blood\t1\t3,659,279\tN/A\t100\t41.3\t102,168\t4,609",
+    "Whole genome, marker genes sequence similarities, and dDDH values between novel bacterial species and nearest neighbors.",
+    "Novel Species (strain number)\tNearest species\tWGS Accession #\tANI (%)\tdDDH (%)\tgyrB (%)\t16S Accession #\t16S (%)\t \tArthrobacter burdickii (IIF3SC-B10T)\tArthrobacter ruber\tGCF_002954225.1\t84.6\t27.2\t88.6\tJX949648\t99.6\t \tArthrobacter cheniae\tGCF_003602275.1\t83.7\t25.9\t85.9\tJX949321\t99.9\t \tArthrobacter bussei\tGCF_009377195.2\t83.4\t25.2\t87.4\tMN080869\t99.9\t \tArthrobacter antioxidans\tGCF_023100725.1\t84.1\t26.9\t88.7\tOL471353\t99.8\t \tArthrobacter agilis\tGCF_900631605.1\t82.9\t24.5\t87.5\tX80748\t99.7\t \tLeifsonia virtsii (F6_8S_P_1AT)\tLeifsonia williamsii sp. nov\tJAROCF000000000\t84.3\t24.7\t91.7\tOQ836672\t99.2\t \tLeifsonia soli\tGCF_013408745.1\t86.3\t28.3\t90.8\tEU912483\t98.9\t \tLeifsonia shinshuensis\tGCF_013410375.1\t84.1\t24.7\t90.6\tMH281744\t98.9\t \tLeifsonia aquatica\tGCF_014190775.1\t84.1\t25.0\t89.4\tX77450\t97.9\t \tLeifsonia naganoensis\tGCF_013410615.1\t83.9\t24.3\t89.6\tAB028941\t98.0\t \tLeifsonia williamsii (F6_8S_P_1BT)\tLeifsonia virtsii sp. nov\tJAROCB000000000\t84.3\t24.7\t91.6\tOQ836671\t99.2\t \tLeifsonia aquatica\tGCF_014190775.1\t84.5\t24.7\t90.3\tX77450\t97.9\t \tLeifsonia shinshuensis\tGCF_013410375.1\t84.3\t25.0\t91.1\tMH281744\t98.9\t \tLeifsonia naganoensis\tGCF_013410615.1\t84.3\t24.7\t90.3\tAB028941\t98.3\t \tLeifsonia soli\tGCF_013408745.1\t83.9\t24.2\t91.4\tEU912483\t98.8\t \tPaenibacillus vandeheii (F6_3S_P_1CT)\tPaenibacillus xylanivorans\tGCF_001280595.1\t92.8\t49.3\t92.8\tKT461879\t99.1\t \tPaenibacillus tundrae\tGCF_026941245.1\t91.0\t42.5\t95.5\tEU558284\t98.3\t \tPaenibacillus taichungensis\tGCF_013359905.1\t90.7\t41.5\t95.2\tEU179327\t99.2\t \tPaenibacillus pabuli\tGCF_001514495.1\t88.4\t34.6\t94.9\tAB045094\t99.5\t \tPaenibacillus xylanilyticus\tGCF_013359935.1\t84.1\t26.2\t88.5\tAY427832\t98.3\t \tSporosarcina highlanderae (F6_3S_P_2T)\tSporosarcina thermotolerans\tCP125968\t85.3\t29.8\t87.0\tFN298445\t99.8\t \tSporosarcina luteola\tGCF_007991495.1\t80.5\t22.4\t81.8\tAB473560\t99.5\t \tSporosarcina koreensis\tGCF_000826145.2\t < 77\t20.1\tNM\tDQ073393\t98.8",
+    "NM, Not able to measure gyrB gene percent similarity.",
+    "Differential phenotypic characteristics of A. burdickii and closely related species.",
+    "Characteristic\tA. burdickii IIF3SC-B10T\tA. cheniae\tA. bussei\tA. antioxidans\tA. agilis\t \tMaximum tolerable NaCl (%) concentration\t5\t3\t7.5\t6.5\t4.5\t \tMaximum temperature for growth (°C)\t30\t30\t45\t37\t35\t \tOxidase activity\t − \t − \t + \t + \t − \t \tMaltose\t − \t + \t + \t + \t + \t \tTrehalose\t − \t + \t + \t + \t + \t \tCellobiose\t − \t + \t + \t + \t + \t \tTuranose\t − \t + \t + \t + \t + \t \tAcetoacetic acid\t − \t + \t + \t + \t + \t \tSucrose\t − \t + \t − \t( +)\t + \t \tα-d-Glucose\t − \t + \t − \t + \t + \t \tStachyose\t + \t − \t + \t( +)\t − \t \td-Galactose\t + \t + \t − \t + \t + \t \t3-Methyl-d-glucose\t + \t − \t( +)\t + \t + \t \tl-Fucose\t + \t − \t + \t + \t + \t \tl-Rhamnose\t − \t + \t + \t + \t − \t \td-Gluconic acid\t + \t + \t − \t + \t + \t \tTween 40\t + \t + \t − \t( +)\t( +)\t \tPropionic acid\t + \t + \t − \t + \t − \t \tAlkaline phosphatase\t − \t − \t + \tNT\t + \t \tCystine arylamidase\t + \t + \t + \tNT\t − \t \tAcid phosphatase\t − \t − \t − \tNT\t + \t \tα-Galactosidase\t − \t − \t + \tNT\t +",
+    "Differential phenotypic characteristics of Leifsonia novel species and closely related species.",
+    "Characteristic\tL. virtsii F6_8S_P_1AT\tL. wiliiamsii F6_8S_P_1BT\tL. aquatica\tL. shinshuensis\tL. soli\t L.xyli subsp. cynodontis\t \tColony color\tYellow\tYellow\tYellow\tWhite\tYellow\tYellow\t \tOxidase\t + \t + \t + \t − \tW\t − \t \tGrowth with 5% NaCl\t + \t + \t + \t − \t − \t − \t \td-Galactose\t + \t + \t + \t − \t − \t − \t \td-Glucose\t + \t + \t + \t − \t + \t + \t \tMaltose\t + \t + \t − \t − \t + \t − \t \td-Mannose\t + \t + \t − \t − \t + \t + \t \tCellobiose\t + \t + \t + \t − \t + \t − \t \td-Galactose\t + \t + \t + \tW\tW\t − \t \td-Glucose\t + \t + \t + \t − \t + \t + \t \tmyo-Inositol\t − \t − \t + \t + \t − \t − \t \tMelibiose\t + \t + \t + \t + \t − \t − \t \td-Rhamnose\t + \t + \t + \tW\t − \t − \t \tTrehalose\t + \t + \t + \t + \t + \t −",
+    "Differential phenotypic characteristics of P. vandeheii and closely related species.",
+    "Characteristic\tP. vandeheii F6_3S_P_1CT\tP. tundrae\tP. taichungensis\tP. pabuli\tP. xylanexedens\tP. amylolyticus\t \tOxidase\t + \t − \t + \t + \t − \t − \t \tTolerance to NaCl concentration (%)\t8\tNT\t7\t5\tNT\tNT\t \tTween 40\t + \t − \t − \t − \t + \t − \t \td-Gluconic acid\t + \t − \t + \t + \t + \t + \t \tMethyl a-d-glucoside\t + \t + \t − \t + \t − \t + \t \td-Sorbitol\t + \t + \t − \t + \t − \t + \t \tTuranose\t + \t + \t − \t − \t − \t + \t \td-Xylose\t − \t + \t + \t + \t − \t + \t \tAcetic Acid\t + \t + \t + \t + \t − \t + \t \tγ-Hydroxybutyric acid\t + \t − \t − \t − \t + \t − \t \tα-Ketoglutaric acid\t − \t − \t − \t − \t − \t − \t \tl-Malic acid\t + \t + \t − \t − \t + \t − \t \tl-Pyroglutamic acid\t − \t − \t − \t − \t + \t − \t \tl-Serine\t + \t + \t − \t − \t + \t −",
+    "Differential phenotypic characteristics of S. highlanderae and closely related species.",
+    "Characteristic\tS. highlanderae F6_3S_P_2T\tS. thermotolerans\tS. luteola\tS. saromensis\t \tNaCl tolerance (%)\t4\t10\t7.5\t9\t \tUrease\t − \t − \t + \t + \t \td-Glucose\t + \t − \t + \t − \t \td-Mannitol\t − \t − \t − \t − \t \td-Fructose\t − \tNA\t + \t −",
+    "Antimicrobial and stress resistance genes detected in novel ISS species.",
+    "Category\tGene\tA. burdickii\tL. virtsii\tL. williamsii F6_8S_P_1BT\tL. williamsii F6_8S_P_1CT\tP. vandeheii\tS. highlanderae\t \tAntibiotics\tMultidrug resistance transporter, Bcr/CflA family\t + \t + \t + \t + \t + \t\t \tAntibiotics\tMulti antimicrobial extrusion protein (Na( +)/drug antiporter), MATE family of MDR efflux pumps\t\t\t + \t + \t + \t\t \tAntibiotics\tAcriflavin resistance protein\t\t\t + \t + \t + \t + \t \tAntibiotics\tStreptothricin acetyltransferase, Streptomyces lavendulae type\t\t\t\t\t + \t + \t \tAntibiotics\tRibosome protection-type tetracycline resistance related proteins, group 2\t\t\t\t\t + \t + \t \tAntibiotics\tFosfomycin resistance protein FosB\t\t\t\t\t + \t + \t \tAntibiotics\tTranscription regulator of multidrug efflux pump operon, TetR (AcrR) family\t\t\t\t\t + \t + \t \tAntibiotics\tMultidrug-efflux transporter, major facilitator superfamily (MFS) (TC 2.A.1)\t\t\t\t\t + \t\t \tAntioxidant\tPF00070 family, FAD-dependent NAD(P)-disulphide oxidoreductase\t + \t + \t + \t + \t\t\t \tβ-lactamase\tMetal-dependent hydrolases of the β-lactamase superfamily III\t + \t\t\t\t + \t\t \tBile salt\tCholoylglycine hydrolase (EC 3.5.1.24)\t\t\t\t\t + \t + \t \tCadmium\tCadmium-transporting ATPase (EC 3.6.3.3)\t\t\t\t\t + \t + \t \tCadmium\tCadmium efflux system accessory protein\t\t\t\t\t + \t + \t \tCadmium\tCadmium-transporting ATPase (EC 3.6.3.3)\t\t\t\t\t + \t + \t \tChromate\tChromate transport protein ChrA\t\t\t\t\t + \t + \t \tCo-Zn-Cad\tCobalt-zinc-cadmium resistance protein CzcD\t\t\t\t\t + \t + \t \tCopper\tCopper resistance protein CopC\t + \t + \t + \t + \t + \t + \t \tCopper\tCopper resistance protein D\t + \t + \t + \t + \t + \t\t \tCopper\tCopper-translocating P-type ATPase (EC 3.6.3.4)\t + \t + \t + \t + \t\t\t \tCopper\tMulticopper oxidase\t + \t + \t\t\t + \t\t \tCopper\tCopper chaperone\t\t + \t + \t + \t\t + \t \tCopper\tCytoplasmic copper homeostasis protein CutC\t\t + \t + \t + \t\t\t \tCopper\tCopper-translocating P-type ATPase (EC 3.6.3.4)\t\t\t\t\t + \t\t \tHeavy metal\tDNA-binding heavy metal response regulator\t + \t\t\t\t\t + \t \tMercury\tMercuric ion reductase (EC 1.16.1.1)\t\t + \t\t\t\t\t \tMercury\tOrganomercurial lyase (EC 4.99.1.2)\t\t + \t\t\t\t + \t \tMercury\tMercuric resistance operon regulatory protein\t\t + \t\t\t\t + \t \tMg and Cobalt\tMagnesium and cobalt efflux protein CorC\t\t + \t + \t + \t\t + \t \tZinc\tResponse regulator of zinc sigma-54-dependent two-component system\t\t\t\t\t +",
+    "Bioactive gene clusters of novel ISS bacterial species.",
+    "Cluster Type\tKnown clusters\tArthrobacter burdickii IIF3SC-B10T\tLeifsonia virtsii F6_8S_P_1AT\tLeifsonia williamsii F6_8S_P_1BT\tLeifsonia williamsii F6_8S_P_1C\tPaenibacillus vandeheii F6_3S_P_1CT\tSporosarcina highlanderae F6_3S_P_2T\t \tβlactone\tMicroansamycin\t7\t\t\t\t\t\t \tCyclic-lactone autoinducer\t\t\t\t\t\tUnknown\t\t \tFuran\t\t\t\tUnknown\tUnknown\t\t\t \tGuanidinotides\t\t\tUnknown\t\t\t\t\t \tLanthipeptide-class-ii\tGramicidin S\t\t\t\t\t15\t\t \tLanthipeptide-class-iv\t\t\t\t\t\t\t\t \tLassopeptide\tPaeninodin\t\t\t\t\t60\t\t \tLinaridin\t\t\t\t\t\t\t\t \tNAPAA\tε-Poly-l-lysine\t\t100\t100\t100\t\t\t \tNRP-metallophore, NRPS\tbacillibactin\t\t\t\t\t100\t\t \tOpine-like-metallophore\tBacillopaline\t\t\t\t\t100\t\t \tPhosphonate\t\t\t\t\t\t\tUnknown\t \tProteusin\t\t\t\t\t\tUnknown\t\t \tT3PKS\t\t\t\t\t\t\tUnknown\t \t\tAlkylresorcinol\t\t100\t100\t100\t\t\t \t\tCorynecin I, II, and III\t\t\t\t\t13\t\t \t\tMeridamycin\t5\t\t\t\t\t\t \tTerpene\t\t\t\t\t\tUnknown\tUnknown\t \t\tCarotenoid\t\t\t\t\t33\t\t \t\tTP-1161\t25\t\t\t\t\t\t \tTerpene, βlactone\tCarotenoid\t\t28\t28\t28",
+    "Each box depicts the percentage of similarity with the reported BGC. Unknown indicates a BGC was identified, but a percentage similarity was not calculated, since no known BGC was found to compare. Empty cells indicate that the BGC was not predicted in that genome."
+  ],
+  "FIG": [
+    "Phylogenetic tree of Arthrobacter species including strain IIF3SC-B10T based on (a) 16S rRNA genes and (b) 138 single-copy core genes of phylum Actinobacteria, keeping Kocuria rhizophila as an outgroup.",
+    "Phylogenetic tree of Leifsonia species including strains F6_8S_P_1AT, F6_8S_P_1BT and F6_8S_P_1C based on (a) 16S rRNA genes and (b) 138 single-copy core genes of phylum Actinobacteria, keeping Nocardia fluminea as an outgroup.",
+    "Phylogenetic tree of Paenibacillus species including strain F6_3S_P_1CT based on (a) 16S rRNA genes and (b) 119 single-copy core genes of phylum Firmicutes, keeping Bacillus subtilis as an outgroup.",
+    "Phylogenetic tree of Sporosarcina species including strain F6_3S_P_2T and Sporosarcina thermotolerans CCUG 53480T based on (a) 16S rRNA genes and (b) 119 single-copy core genes of phylum Firmicutes, keeping Paenibacillus polymyxa as an outgroup.",
+    "SEM images of novel bacterial species.",
+    "Box plots showing breadth of coverage of the consensus genome constructed from mapped reads aligned to the novel species (percent coverage was less than 1% in all cases). Due to high variations in the breadth of coverages of Leifsonia genomes, a broken Y-axis was used. The reads were collected from eight locations on the ISS across seven separate time points/flights as part of the Microbial Tracking project(s)."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "New launch technology and new investment in human exploration of space by governments and private industry are leading to a revitalization of the idea of long-term space habitation. Missions to the moon are already underway, and missions to Mars are planned for the near future. Such missions will be measured in multiple years rather than in months and will have no or little resupply from Earth. In such cases, the microbiome of the space vessel or habitat will need to be monitored for multiple reasons: the spread of pathogens through the air or on surfaces which could infect humans or plants as well as the spread of antimicrobial resistance genes, the health of human commensal microbiomes (and potential overgrowth of secondary pathogens), and the potential for biofouling of fluid lines or water supplies via microbial overgrowth. Also, with no resupply from Earth there is no ability to gain access to Earth’s massive microbial biodiversity. Unless specific microbes are stocked as supplies before launch, the microbes found on the spacecraft or habitat are the only ones which could be used for the many commercial purposes that microbes are used for on Earth: antibiotic or therapeutic discovery, manufacturing of drugs, food, and vitamins, plant growth enhancement, probiotics, etc. Biological in-situ resource utilization may also require bioremediation or bioconversion of raw, potentially toxic materials collected from moons, other planets, or asteroids/comets.",
+    "Whether or not the microbiome of a space habitat can be controlled and repurposed to this extent depends on a number of factors, including (1) whether the microbial diversity of such a space habitat would be sufficient to include all the traits desired for the many purposes listed above, (2) accurate detection and identification of already-known microbes and taxonomic placement of unidentified microbes, including whether shotgun metagenomic sequencing would detect the presence of problematic microbes from low biomass surfaces, and (3) characterization of potential phenotypic traits based on genomic predictions. Like the proverbial mustard seed, perhaps we inadvertently carry a planet’s worth of microbial diversity wherever we travel. The novel microbes described herein are not necessarily any more noteworthy than those which might be isolated from an office building on Earth [though they are likely far more resilient given the harsh conditions of the space environment], and yet each hosts significant potential for affecting human health or for use in assisting plant growth, bioremediation or manufacturing, and offers a glimpse into the genetic and metabolic potential of the microbial diversity of the ISS.",
+    "The most abundant cultivable microbes on ISS surfaces include common, well-studied human commensals such as Staphylococcus, Rhodotorula, Penicillium, and Micrococcus species. However, there are many more that have only been isolated once aboard the ISS and which are at very low abundance—potentially shed from individual astronauts, from experiments such as plant grow-ins, from new pieces of cargo, or from the vast microbial diversity of the human gut—which can be considered a part of the rare microbiome. Although individually rare, members of this community collectively play significant roles in ecosystem functioning and stability, including functional redundancy which enhances the resilience and stability of ecosystems by ensuring that multiple microbial species can perform essential ecological functions, such as nutrient cycling, decomposition, and symbiotic interactions. The novel bacterial species described during this study belong to rare microbial species since their incidence in the shotgun metagenomes was very low, and only the two Leifsonia species had sufficiently high breadth of coverage of mapped metagenomic reads from the ISS crew quarters to have been definitively identified using shotgun metagenomic sequencing without culturing as well.",
+    "Previous to using a WGS approach, the diversity of the ISS cultivable microbiome was significantly underestimated due to reliance on only 16S-based taxonomic identification. However, for many bacterial genera, 16S rRNA gene sequencing strategy fails to differentiate new species with significantly different phenotypic traits. For instance, there is 99.8% similarity between the 16S rRNA genes of S. highlanderae F6_3S_P_2T and S. thermotolerans CCUG 53480T, with a mere 3 base pair substitutions. Without access to the whole genome, S. highlanderae would be categorized as S. thermotolerans, even though it is not a thermophile. Upon accessing all 93 Sporosarcina genomes from the NCBI database and generating an ANI heatmap (Supplemental Figure S2), it was evident that this clade contains at least five novel genera and 56 species which are yet to be described. This inference was based on ANI values of less than 70% for 14 Sporosarcina genomes, encompassing S. highlanderae, S. thermotolerans, and S. luteola and further emphasizes that the 16S rRNA gene on its own is not a reliable tool for differentiating among members of the Sporosarcina genus. Placing these 93 genomes into their phylogenetic affiliation require more study.",
+    "Upon examining 337 ISS bacterial genomes (plus six novel strains) belonging to 36 bacterial species (plus five novel species), it was observed that non-dominant, rare, and phylogenetically undescribed species predicted to produce natural products. As their genetic and phenotypic potential remains uncharacterized, exploration of the rare microbiome can lead to the discovery of novel bioactive compounds, enzymes, and metabolic pathways. Many of these rare microorganisms have untapped biotechnological potential, with applications in fields such as medicine, agriculture, industry, and environmental remediation. Studying the rare microbiome can uncover valuable resources for the development of new biotechnological tools and processes.",
+    "In the case of A. burdickii IIF3SC-B10T, we identified a moderately matched thiopeptide antibiotic called TP-1161, known for its efficacy against multidrug-resistant Gram-stain-positive bacteria and fungi. Leifsonia species contain alkylresorcinol, which exhibits various activities including anticancer, anti-inflammatory, antimicrobial, antioxidant, and genotoxicity effects. Additionally, alkylresorcinol plays a role in bacterial cyst formation during unfavorable environmental conditions. On the other hand, ε-PL is responsible for antimicrobial activity against food spoilage and food-poisoning bacteria.",
+    "In addition, A. burdickii and P. vandeheii also harbor metal-dependent β-lactamase superfamily-I and III proteins, which are known for their involvement in the hydrolysis of β-lactam antibiotics. This enzyme family plays a significant role in conferring resistance to β-lactam antibiotics, including penicillins and cephalosporins. Furthermore, multidrug resistance efflux pumps such as the acriflavine resistance protein and Multidrug And Toxic Compound Extrusion (MATE) family of Multidrug Resistance (MDR) efflux pumps were found to be present in Leifsonia species and spore-formers. These efflux pumps contribute to bacterial resistance by actively pumping out a wide range of antimicrobial compounds from the cell, including antibiotics and toxic compounds, thereby reducing their intracellular concentrations and promoting bacterial survival. The acriflavin resistance protein (AcrA) is a crucial component of the AcrAB-TolC efflux pump, which confers resistance to acriflavin and other antimicrobial compounds. Its role in antibiotic resistance, multidrug efflux, intracellular homeostasis, biofilm formation, and potentially bacterial virulence underscores its significance in bacterial survival and adaptation. Understanding AcrA's function may aid in the development of strategies to combat antibiotic resistance and improve therapeutic approaches against multidrug-resistant bacterial infections. Given its involvement in antibiotic resistance and multidrug efflux, AcrA has emerged as a potential target for the development of novel antimicrobial agents. By inhibiting the function of AcrA or other components of the AcrAB-TolC efflux pump, it may be possible to overcome bacterial resistance and enhance the effectiveness of existing antibiotics.",
+    "Identification of fosfomycin resistance protein (fosB) in both Paenibacillus and Sporosarcina genomes in this study is crucial for effective infection control measures and the development of strategies to combat the spread of antibiotic resistance. It has been reported that fosB is significant due to its impact on the treatment of bacterial infections, the emergence of multidrug resistance, the potential for horizontal gene transfer, and its implications for public health.",
+    "Streptothricin acetyltransferase was present in both Paenibacillus and Sporosarcina genomes and it was reported that streptothricin is a valuable antibiotic with broad-spectrum activity against microorganisms and can help reduce crop losses and increase agricultural productivity. Its significance extends beyond its direct antimicrobial properties, finding applications in research, agriculture, and drug development. Understanding streptothricin's mode of action and resistance mechanisms contributes to our knowledge of antibiotics and aids in the development of novel strategies to combat bacterial infections. Streptothricin has shown efficacy in agricultural practices, particularly in plant and fungal disease management.",
+    "The ribosome protection-type tetracycline resistance-related proteins, group 2, are crucial determinants of resistance to tetracycline antibiotics in both Gram-stain-negative and positive microbes. Their ability to protect ribosomes from the inhibitory effects of tetracycline enables microbial survival and growth in the presence of the antibiotic. The presence of these proteins in spore-forming novel species during this study and not in non-spore-forming bacteria needs further research.",
+    "Choloylglycine hydrolase plays a critical role in bile acid metabolism, enterohepatic circulation, and the regulation of the bile acid pool and predicted only in the S. highlanderae genome. Its activity influences the composition and function of the gut microbiota and has implications for host health and disease. Understanding the significance of this enzyme provides insights into bile acid metabolism disorders and potential therapeutic approaches for related conditions.",
+    "Multiple genes for bioremediation of toxic material, enhanced plant growth, and survival in extreme conditions are predicted in the genomes of these novel species. Except for P. vandeheii F6_3S_P_1CT, all the other species possess the capability to perform polyhydroxybutyrate metabolism. However, P. vandeheii F6_3S_P_1CT stands out as it can utilize glutathione as a sulfur source, due to the presence of gamma-glutamyl transpeptidase (EC 2.3.2.2).",
+    "Within the P. vandeheii F6_3S_P_1CT strain, we identified paeninodin (60%) and bacillopaline (100%), which were originally characterized in Paenibacillus dendritiformis C454 and Paenibacillus mucilaginosus KNP414, respectively. Furthermore, this strain harbors a siderophore gene cluster (100%) responsible for producing the antimycobacterial agent bacillibactin. The siderophore cluster also facilitates the conversion of iron from Fe3+ to Fe2+, which is a more usable form for the microbe and its plant host under iron-limited conditions. Siderophore synthesis gene clusters are rare in Paenibacillus species and are believed to have been acquired through horizontal gene transfer events.",
+    "Genome mining resulted in identifying key functional genes of the novel species described in this study are listed in Table 7. Among all the novel species, mining of A. burdickii genome shows metal-dependent hydrolases of the β-lactamase superfamily III (MBL-III) enzyme. The MBL-III enzymes have shown potential in bioremediation processes aimed at the degradation of environmental pollutants. The ability of MBL-III enzymes to degrade diverse chemical compounds, including pesticides, herbicides, and aromatic compounds, makes them valuable tools in the cleanup of contaminated environments. These MBL-III enzymes can contribute to the removal and detoxification of pollutants, reducing their impact on ecosystems. Similarly, only in the genome of A. burdickii, DNA-binding heavy metal response regulator is predicted as shown in Arthrobacter sp. H-02-3 which plays a crucial role in cellular responses to heavy metal exposure, including detoxification, metal homeostasis, stress response, and environmental adaptation.",
+    "In the genome of L. virtsii, organomercurial lyase is predicted which is reported to play a crucial role in the detoxification of organomercurial compounds, contributing to the protection of organisms and ecosystems by actinobacteria. Its significance lies in the detoxification of toxic organomercurials, environmental protection, potential applications in bioremediation, insights into enzyme mechanisms, and biotechnological applications. Understanding and harnessing the capabilities of organomercurial lyase can aid in addressing mercury pollution and developing sustainable solutions for environmental and human health challenges.",
+    "The magnesium and cobalt efflux protein (CorC) plays a significant role in maintaining metal ion homeostasis, protecting against metal toxicity, facilitating adaptation to metal-rich environments, and contributing to bacterial stress response. Its activity is important for cellular functions and can also impact antibiotic resistance. The identification of CorC in only three Leifsonia genomes during this study, while not observed in other novel species, holds significant potential for enhancing our understanding of the mechanisms employed by actinobacterial group to regulate metal ions and adapt to diverse environmental conditions.",
+    "In summary, the rare microbiome is instrumental in maintaining ecosystem stability, adapting to environmental changes, facilitating ecological interactions, spurring biotechnological innovation, and bolstering conservation efforts. Investigations into, and preservation of, the rare microbiome enhance our understanding of microbial diversity and ecosystem dynamics, thereby contributing to the sustainable management of the ecosystems. Conservation strategies should consider the preservation of rare microorganisms, as their loss could precipitate cascading effects on ecosystem functioning and resilience. Our study of novel microbes and predicted bioactive compounds contributes to our understanding of the microbial ecosystem on the ISS and lays the groundwork for further investigation into the potential implications of these novel species for the health and well-being of the ISS crew, as well as future space missions. The presence of specific genes and proteins in these novel species underscores their adaptive capabilities and potential resistance mechanisms against a variety of environmental challenges, including exposure to antibiotics. A deeper understanding of the genetic composition and functional capabilities of these novel species provides valuable insights into their survival strategies and could contribute to the development of improved antimicrobial therapies and strategies to combat antibiotic resistance.",
+    "Supplementary Information",
+    "Publisher's note",
+    "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+    "These authors contributed equally: Anna C. Simpson and Pratyay Sengupta."
+  ],
+  "SUPPL": [
+    "Supplementary Information",
+    "The online version contains supplementary material available at 10.1038/s41598-023-44172-w.",
+    "Data availability",
+    "The draft genome sequences of all the strains characterized in this study were deposited in NCBI under BioProject PRJNA935338 and their BioSample accessions are: SAMN33786427 (A. burdickii IIF3SC-B10T), SAMN33786433 (L. virtsii F6_8S_P_1AT) SAMN33786428 (L. williamsii F6_8S_P_1BT), SAMN33786431 (P. vandeheii F6_3S_P_1CT), SAMN33786432 (S. highlanderae F6_3S_P_2T), and SAMN34051999 (L. williamsii F6_8S_P_1C). The WGS accession numbers are given in the species description section and the genome versions described in this paper are the first versions."
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "K.V. and N.S. managed the ISS strain collection and the ISS strain genome sequencing project. A.S. and K.V. conceived and designed the study. K.V. generated the draft of the manuscript with contribution from all authors. A.S. and N.S. performed the initial taxonomic analysis and genome assembly. A.S. and F.Z. performed 16S rRNA gene analysis and metagenomic characterization. A.S., P.S., N.S., and K.R. performed genomic and metagenomic characterization. A.H., P.D.R., and A.S. performed the microbiological experiments and carried out the phenotypic assays. A.H. and P.D.R. performed Vitek and BioLog based biochemical characterization. C.E.M. generated shotgun metagenome sequences using Illumina platform. G.M. generated long read sequencing data and performed associated genomic analysis. C.P. performed SEM. All authors read and approved the final manuscript. All authors have given consent for publication."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "Part of the research described in this publication was carried out at the Jet Propulsion Laboratory, California Institute of Technology, under a contract with National Aeronautics and Space Administration (80NM0018D0004). This research was funded by a 2012 Space Biology NNH12ZTT001N grant no. 19-12829-26 under Task Order NNN13D111T award to KV. PS is supported through Prime Minister’s Research Fellowship from the Ministry of Education, Government of India. The funders had no role in study design, data collection and interpretation, the writing of the manuscript, or the decision to submit the work for publication."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "The authors declare no competing interests."
+  ],
+  "REF": [
+    "References",
+    "Assessing the risk of transfer of microorganisms at the International Space Station Due to cargo delivery by commercial resupply vehicles",
+    "Space Station conditions are selective but do not alter microbial characteristics relevant to human health",
+    "Microbial monitoring of the International Space Station",
+    "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+    "Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+    "Multidrug-resistant Acinetobacter pittii is adapting to and exhibiting potential succession aboard the International Space Station",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "Microbial tracking-2, a metagenomics analysis of bacteria and fungi onboard the International Space Station",
+    "Complete genome sequence of Klebsiella quasipneumoniae subsp. similipneumoniae strain IF3SW-P1, isolated from the International Space Station",
+    "Draft genome sequences of various bacterial phyla isolated from the International Space Station",
+    "Draft genome sequences of fungi isolated from the International Space Station during the microbial tracking-2 experiment",
+    "Draft genome sequences of Klebsiella species isolated from the International Space Station",
+    "Draft genome sequences of Bacillaceae strains isolated from the International Space Station",
+    "Draft genome sequences of Rhodotorula mucilaginosa strains isolated from the International Space Station",
+    "Draft genome sequences of Sphingomonas species associated with the International Space Station",
+    "Draft genome sequences of Tremellomycetes strains isolated from the International Space Station",
+    "Draft genome sequences of Lactobacillales isolated from the International Space Station",
+    "Draft genome sequences of Enterobacteriales strains isolated from the International Space Station",
+    "Correction to: Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+    "Draft genome sequences of two Fusarium oxysporum isolates cultured from infected zinnia hybrida plants grown on the International Space Station",
+    "Draft genome sequences of Acinetobacter and Bacillus strains isolated from Spacecraft-Associated Surfaces",
+    "Draft genome sequences from a novel clade of Bacillus cereus sensu lato strains, isolated from the International Space Station",
+    "Draft genome sequence of Solibacillus kalamii, isolated from an air filter aboard the International Space Station",
+    "Draft genome sequences of two Aspergillus fumigatus strains, isolated from the International Space Station",
+    "Draft genome sequences of biosafety level 2 opportunistic pathogens isolated from the environmental surfaces of the International Space Station",
+    "A simplified method of staining endospores",
+    "Naxibacter alkalitolerans gen. nov., sp. nov., a novel member of the family ‘Oxalobacteraceae’ isolated from China",
+    "Single derivatization method for routine analysis of bacterial whole-cell fatty acid methyl esters, including hydroxy acids",
+    "Sasser, M. Identification of bacteria by gas chromatography of cellular fatty acids, MIDI Technical Note 101 (1990).",
+    "Paisley, R. MIS Whole Cell Fatty Acid Analysis by Gas Chromatography Training Manual (1996).",
+    "An integrated procedure for the extraction of bacterial isoprenoid quinones and polar lipids",
+    "Simplified approach to identification of aerobic actinomycetes by thin-layer chromatography",
+    "Andrews, S. FastQC: A Quality Control Tool for High Throughput Sequence Data (2010). Retrieved from http://www.bioinformatics.babraham.ac.uk/projects/fastqc/",
+    "fastp: An ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: A new genome assembly algorithm and its applications to single-cell sequencing",
+    "QUAST: Quality assessment tool for genome assemblies",
+    "Completing bacterial genome assemblies with multiplex MinION sequencing",
+    "Unicycler: Resolving bacterial genome assemblies from short and long sequencing reads",
+    "Bit: A multipurpose collection of bioinformatics tools [version 1; peer review: 2 not approved]",
+    "Genome sequence-based species delimitation with confidence intervals and improved distance functions",
+    "Using DECIPHER v2.0 to analyze big biological sequence data in R",
+    "phangorn: Phylogenetic analysis in R",
+    "Interactive tree of life v2: Online annotation and display of phylogenetic trees made easy",
+    "GToTree: A user-friendly workflow for phylogenomics",
+    "Terrace aware data structure for phylogenomic inference from supermatrices",
+    "ModelFinder: Fast model selection for accurate phylogenetic estimates",
+    "IQ-TREE 2: New models and efficient methods for phylogenetic inference in the genomic era",
+    "A new view of the tree of life",
+    "Interactive tree of life (iTOL) v5: An online tool for phylogenetic tree display and annotation",
+    "Trimmomatic: A flexible trimmer for Illumina sequence data",
+    "MetaCompass: Reference-guided assembly of metagenomes",
+    "RASTtk: A modular and extensible implementation of the RAST algorithm for building custom annotation pipelines and annotating batches of genomes",
+    "antiSMASH 7.0: New and improved predictions for detection, regulation, chemical structures and visualisation",
+    "MIBiG 3.0: A community-driven effort to annotate experimentally validated biosynthetic gene clusters",
+    "Review of the taxonomy of the genus Arthrobacter, emendation of the genus Arthrobacter sensu lato, proposal to reclassify selected species of the genus Arthrobacter in the novel genera Glutamicibacter gen. nov., Paeniglutamicibacter gen. nov., Pseudoglutamicibacter gen. nov., Paenarthrobacter gen. nov. and Pseudarthrobacter gen. nov., and emended description of Arthrobacter roseus",
+    "Leifsonia flava sp. nov., a novel actinobacterium isolated from the rhizosphere of Aquilegia viridiflora",
+    "Paenibacillus rhizoplanae sp. nov., isolated from the rhizosphere of Zea mays",
+    "Cohnella thermotolerans gen. nov., sp. nov., and classification of 'Paenibacillus hongkongensis' as Cohnella hongkongensis sp. nov",
+    "Description of Paenisporosarcina quisquiliarum gen. nov., sp. nov., and reclassification of Sporosarcina macmurdoensis Reddy et al. 2003 as Paenisporosarcina macmurdoensis comb. nov",
+    "CARD 2023: Expanded curation, support for machine learning, and resistome prediction at the comprehensive antibiotic resistance database",
+    "A diverse intrinsic antibiotic resistome from a cave bacterium",
+    "Production of a new thiopeptide antibiotic, TP-1161, by a marine Nocardiopsis Species",
+    "First complete genome of a multidrug-resistant strain of the novel human pathogen Kalamiella piersonii (GABEKP28) identified in human saliva",
+    "Genomic characterization and virulence potential of two Fusarium oxysporum isolates cultured from the International Space Station",
+    "Machine learning algorithm to characterize antimicrobial resistance associated with the International Space Station surface microbiome",
+    "Antimicrobial coating efficacy for prevention of Pseudomonas aeruginosa biofilm growth on ISS water system materials",
+    "New perspectives on viable microbial communities in low-biomass cleanroom environments",
+    "Genomic characterization of potential plant growth-promoting features of Sphingomonas strains isolated from the International Space Station",
+    "Metabolic modeling of the International Space Station microbiome reveals key microbial interactions",
+    "Biological activity of phenolic lipids",
+    "Sigma factor RpoS controls alkylresorcinol synthesis through ArpR, a LysR-type regulatory protein, during encystment of Azotobacter vinelandii",
+    "The antimicrobial mechanism of action of epsilon-poly-l-lysine",
+    "Diversity analysis and metagenomic insights into antibiotic and metal resistance among Himalayan hot spring bacteriobiome insinuating inherent environmental baseline levels of antibiotic and metal tolerance",
+    "Reviving antibiotics: Efflux pump inhibitors that interact with AcrA, a membrane fusion protein of the AcrAB-TolC multidrug efflux pump",
+    "Genomic characterization and assessment of the virulence and antibiotic resistance of the novel species Paenibacillus sp. strain VT-400, a potentially pathogenic bacterium in the oral cavity of patients with hematological malignancies",
+    "Streptomyces sp. JCK-6131 protects plants against bacterial and fungal diseases via two mechanisms",
+    "Tetracycline antibiotics: mode of action, applications, molecular biology, and epidemiology of bacterial resistance",
+    "Characterization of cholylglycine hydrolase from a bile-adapted strain of Xanthomonas maltophilia and its application for quantitative hydrolysis of conjugated bile salts",
+    "Bile acids and the gut microbiome",
+    "Brucella abortus choloylglycine hydrolase affects cell envelope composition and host cell internalization",
+    "Bacterial gamma-glutamyl transpeptidase, an emerging biocatalyst: Insights into structure-function relationship and its biotechnological applications",
+    "Insights into the unique phosphorylation of the lasso peptide paeninodin",
+    "Bioinformatic mapping of opine-like zincophore biosynthesis in bacteria",
+    "Nalli, Y. et al. Bacillibactin class siderophores produced by the endophyte Bacillus subtilis NPROOT3 as antimycobacterial agents. Lett. Appl. Microbiol.76 (2023).",
+    "Current knowledge and perspectives of Paenibacillus: a review",
+    "One origin for metallo-β-lactamase activity, or two? An investigation assessing a diverse set of reconstructed ancestral sequences based on a sample of phylogenetic trees",
+    "Metallo-β-lactamases in the age of multidrug resistance: From structure and mechanism to evolution, dissemination, and inhibitor design",
+    "Genomic characterization of a mercury resistant Arthrobacter sp. H-02–3 reveals the presence of heavy metal and antibiotic resistance determinants"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Assessing the risk of transfer of microorganisms at the International Space Station Due to cargo delivery by commercial resupply vehicles",
+      "autores": [
+        {
+          "nombre_completo": "S Mhatre",
+          "nombres": "S",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "AC Sielaff",
+          "nombres": "AC",
+          "apellidos": "Sielaff"
+        },
+        {
+          "nombre_completo": "M Mora",
+          "nombres": "M",
+          "apellidos": "Mora"
+        },
+        {
+          "nombre_completo": "S Duller",
+          "nombres": "S",
+          "apellidos": "Duller"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        }
+      ],
+      "pmid": "33240227",
+      "fuente": "Front. Microbiol.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space Station conditions are selective but do not alter microbial characteristics relevant to human health",
+      "autores": [
+        {
+          "nombre_completo": "M Mora",
+          "nombres": "M",
+          "apellidos": "Mora"
+        },
+        {
+          "nombre_completo": "L Wink",
+          "nombres": "L",
+          "apellidos": "Wink"
+        },
+        {
+          "nombre_completo": "I Kogler",
+          "nombres": "I",
+          "apellidos": "Kogler"
+        },
+        {
+          "nombre_completo": "A Mahnert",
+          "nombres": "A",
+          "apellidos": "Mahnert"
+        },
+        {
+          "nombre_completo": "P Rettberg",
+          "nombres": "P",
+          "apellidos": "Rettberg"
+        },
+        {
+          "nombre_completo": "P Schwendner",
+          "nombres": "P",
+          "apellidos": "Schwendner"
+        }
+      ],
+      "pmid": "31488812",
+      "fuente": "Nat. Commun.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "3990",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbial monitoring of the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "D Pierson",
+          "nombres": "D",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "D Botkin",
+          "nombres": "D",
+          "apellidos": "Botkin"
+        },
+        {
+          "nombre_completo": "R Bruce",
+          "nombres": "R",
+          "apellidos": "Bruce"
+        },
+        {
+          "nombre_completo": "V Castro",
+          "nombres": "V",
+          "apellidos": "Castro"
+        },
+        {
+          "nombre_completo": "M Smith",
+          "nombres": "M",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "C Oubre",
+          "nombres": "C",
+          "apellidos": "Oubre"
+        },
+        {
+          "nombre_completo": "J Moldenhauer",
+          "nombres": "J",
+          "apellidos": "Moldenhauer"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Environmental Monitoring: A Comprehensive Handbook",
+      "anio": "2012",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30514368",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "214",
+      "lpage": ""
+    },
+    {
+      "titulo": "Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "SS Mhatre",
+          "nombres": "SS",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "31011775",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2019",
+      "volumen": "103",
+      "fpage": "4483",
+      "lpage": "4497"
+    },
+    {
+      "titulo": "Multidrug-resistant Acinetobacter pittii is adapting to and exhibiting potential succession aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "BT Tierney",
+          "nombres": "BT",
+          "apellidos": "Tierney"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "AC Simpson",
+          "nombres": "AC",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "AM Hujer",
+          "nombres": "AM",
+          "apellidos": "Hujer"
+        },
+        {
+          "nombre_completo": "RA Bonomo",
+          "nombres": "RA",
+          "apellidos": "Bonomo"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "36503581",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "210",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbial tracking-2, a metagenomics analysis of bacteria and fungi onboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "MD Morrison",
+          "nombres": "MD",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "JB Thissen",
+          "nombres": "JB",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "DJ Smith",
+          "nombres": "DJ",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S Mehta",
+          "nombres": "S",
+          "apellidos": "Mehta"
+        }
+      ],
+      "pmid": "34980280",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "1",
+      "lpage": "19"
+    },
+    {
+      "titulo": "Complete genome sequence of Klebsiella quasipneumoniae subsp. similipneumoniae strain IF3SW-P1, isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NS Sushenko",
+          "nombres": "NS",
+          "apellidos": "Sushenko"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "DL Vellone",
+          "nombres": "DL",
+          "apellidos": "Vellone"
+        },
+        {
+          "nombre_completo": "SW Tighe",
+          "nombres": "SW",
+          "apellidos": "Tighe"
+        },
+        {
+          "nombre_completo": "BP Hedlund",
+          "nombres": "BP",
+          "apellidos": "Hedlund"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "35735981",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2022",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of various bacterial phyla isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "AC Simpson",
+          "nombres": "AC",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "NB O’Hara",
+          "nombres": "NB",
+          "apellidos": "O’Hara"
+        }
+      ],
+      "pmid": "33927037",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "e00214",
+      "lpage": "e221"
+    },
+    {
+      "titulo": "Draft genome sequences of fungi isolated from the International Space Station during the microbial tracking-2 experiment",
+      "autores": [
+        {
+          "nombre_completo": "AC Simpson",
+          "nombres": "AC",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "JR Bateh",
+          "nombres": "JR",
+          "apellidos": "Bateh"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        }
+      ],
+      "pmid": "34528817",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "e0075121e",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Klebsiella species isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "SA Solomon",
+          "nombres": "SA",
+          "apellidos": "Solomon"
+        },
+        {
+          "nombre_completo": "AR Bharadwaj",
+          "nombres": "AR",
+          "apellidos": "Bharadwaj"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "NB O’Hara",
+          "nombres": "NB",
+          "apellidos": "O’Hara"
+        }
+      ],
+      "pmid": "33060271",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00923",
+      "lpage": "e1020"
+    },
+    {
+      "titulo": "Draft genome sequences of Bacillaceae strains isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "R Daudu",
+          "nombres": "R",
+          "apellidos": "Daudu"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "NB O'Hara",
+          "nombres": "NB",
+          "apellidos": "O'Hara"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "33122406",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Rhodotorula mucilaginosa strains isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "R Daudu",
+          "nombres": "R",
+          "apellidos": "Daudu"
+        },
+        {
+          "nombre_completo": "CW Parker",
+          "nombres": "CW",
+          "apellidos": "Parker"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "NB O’Hara",
+          "nombres": "NB",
+          "apellidos": "O’Hara"
+        }
+      ],
+      "pmid": "32732232",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00570",
+      "lpage": "e620"
+    },
+    {
+      "titulo": "Draft genome sequences of Sphingomonas species associated with the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S Bijlani",
+          "nombres": "S",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "CCC Wang",
+          "nombres": "CCC",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "32586865",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Tremellomycetes strains isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S Bijlani",
+          "nombres": "S",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "CCC Wang",
+          "nombres": "CCC",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "32586865",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Lactobacillales isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "AR Bharadwaj",
+          "nombres": "AR",
+          "apellidos": "Bharadwaj"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "NB O’Hara",
+          "nombres": "NB",
+          "apellidos": "O’Hara"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        }
+      ],
+      "pmid": "32972947",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00942",
+      "lpage": "e1020"
+    },
+    {
+      "titulo": "Draft genome sequences of Enterobacteriales strains isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "AR Bharadwaj",
+          "nombres": "AR",
+          "apellidos": "Bharadwaj"
+        },
+        {
+          "nombre_completo": "R Daudu",
+          "nombres": "R",
+          "apellidos": "Daudu"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M Debieu",
+          "nombres": "M",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "NB O'Hara",
+          "nombres": "NB",
+          "apellidos": "O'Hara"
+        }
+      ],
+      "pmid": "33060271",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Correction to: Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "SS Mhatre",
+          "nombres": "SS",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "31302709",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2019",
+      "volumen": "103",
+      "fpage": "6851",
+      "lpage": "6852"
+    },
+    {
+      "titulo": "Draft genome sequences of two Fusarium oxysporum isolates cultured from infected zinnia hybrida plants grown on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "G Massa",
+          "nombres": "G",
+          "apellidos": "Massa"
+        },
+        {
+          "nombre_completo": "M Hummerick",
+          "nombres": "M",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "C Khodadad",
+          "nombres": "C",
+          "apellidos": "Khodadad"
+        },
+        {
+          "nombre_completo": "A Schuerger",
+          "nombres": "A",
+          "apellidos": "Schuerger"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "29930033",
+      "fuente": "Genome Announc.",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Acinetobacter and Bacillus strains isolated from Spacecraft-Associated Surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Seuylemezian",
+          "nombres": "A",
+          "apellidos": "Seuylemezian"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "K Cooper",
+          "nombres": "K",
+          "apellidos": "Cooper"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "29567731",
+      "fuente": "Genome Announc.",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences from a novel clade of Bacillus cereus sensu lato strains, isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "S Ratnayake",
+          "nombres": "S",
+          "apellidos": "Ratnayake"
+        },
+        {
+          "nombre_completo": "RK Pope",
+          "nombres": "RK",
+          "apellidos": "Pope"
+        },
+        {
+          "nombre_completo": "TE Blank",
+          "nombres": "TE",
+          "apellidos": "Blank"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        }
+      ],
+      "pmid": "28860236",
+      "fuente": "Genome Announc.",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequence of Solibacillus kalamii, isolated from an air filter aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A Seuylemezian",
+          "nombres": "A",
+          "apellidos": "Seuylemezian"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "28860236",
+      "fuente": "Genome Announc.",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "e00696",
+      "lpage": "e717"
+    },
+    {
+      "titulo": "Draft genome sequences of two Aspergillus fumigatus strains, isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "A Blachowicz",
+          "nombres": "A",
+          "apellidos": "Blachowicz"
+        },
+        {
+          "nombre_completo": "A Checinska",
+          "nombres": "A",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "C Wang",
+          "nombres": "C",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "28034853",
+      "fuente": "Genome Announc.",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of biosafety level 2 opportunistic pathogens isolated from the environmental surfaces of the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JE Allen",
+          "nombres": "JE",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "J Thissen",
+          "nombres": "J",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "C Jaing",
+          "nombres": "C",
+          "apellidos": "Jaing"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "28034853",
+      "fuente": "Genome Announc.",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A simplified method of staining endospores",
+      "autores": [
+        {
+          "nombre_completo": "AB Schaeffer",
+          "nombres": "AB",
+          "apellidos": "Schaeffer"
+        },
+        {
+          "nombre_completo": "MD Fulton",
+          "nombres": "MD",
+          "apellidos": "Fulton"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Science",
+      "anio": "1990",
+      "volumen": "1933",
+      "fpage": "194",
+      "lpage": ""
+    },
+    {
+      "titulo": "Naxibacter alkalitolerans gen. nov., sp. nov., a novel member of the family ‘Oxalobacteraceae’ isolated from China",
+      "autores": [
+        {
+          "nombre_completo": "P Xu",
+          "nombres": "P",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "W-J Li",
+          "nombres": "W-J",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "S-K Tang",
+          "nombres": "S-K",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "Y-Q Zhang",
+          "nombres": "Y-Q",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G-Z Chen",
+          "nombres": "G-Z",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "H-H Chen",
+          "nombres": "H-H",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Syst. Evolut. Microbiol.",
+      "anio": "2005",
+      "volumen": "55",
+      "fpage": "1149",
+      "lpage": "1153"
+    },
+    {
+      "titulo": "Single derivatization method for routine analysis of bacterial whole-cell fatty acid methyl esters, including hydroxy acids",
+      "autores": [
+        {
+          "nombre_completo": "LT Miller",
+          "nombres": "LT",
+          "apellidos": "Miller"
+        }
+      ],
+      "pmid": "7130373",
+      "fuente": "J. Clin. Microbiol.",
+      "anio": "1982",
+      "volumen": "16",
+      "fpage": "584",
+      "lpage": "586"
+    },
+    {
+      "titulo": "Sasser, M. Identification of bacteria by gas chromatography of cellular fatty acids, MIDI Technical Note 101 (1990).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Paisley, R. MIS Whole Cell Fatty Acid Analysis by Gas Chromatography Training Manual (1996).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "An integrated procedure for the extraction of bacterial isoprenoid quinones and polar lipids",
+      "autores": [
+        {
+          "nombre_completo": "DE Minnikin",
+          "nombres": "DE",
+          "apellidos": "Minnikin"
+        },
+        {
+          "nombre_completo": "AG O'Donnell",
+          "nombres": "AG",
+          "apellidos": "O'Donnell"
+        },
+        {
+          "nombre_completo": "M Goodfellow",
+          "nombres": "M",
+          "apellidos": "Goodfellow"
+        },
+        {
+          "nombre_completo": "G Alderson",
+          "nombres": "G",
+          "apellidos": "Alderson"
+        },
+        {
+          "nombre_completo": "M Athalye",
+          "nombres": "M",
+          "apellidos": "Athalye"
+        },
+        {
+          "nombre_completo": "A Schaal",
+          "nombres": "A",
+          "apellidos": "Schaal"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Microbiol. Methods",
+      "anio": "1984",
+      "volumen": "2",
+      "fpage": "233",
+      "lpage": "241"
+    },
+    {
+      "titulo": "Simplified approach to identification of aerobic actinomycetes by thin-layer chromatography",
+      "autores": [
+        {
+          "nombre_completo": "JL Staneck",
+          "nombres": "JL",
+          "apellidos": "Staneck"
+        },
+        {
+          "nombre_completo": "GD Roberts",
+          "nombres": "GD",
+          "apellidos": "Roberts"
+        }
+      ],
+      "pmid": "4605116",
+      "fuente": "Appl. Microbiol.",
+      "anio": "1974",
+      "volumen": "28",
+      "fpage": "226",
+      "lpage": "231"
+    },
+    {
+      "titulo": "Andrews, S. FastQC: A Quality Control Tool for High Throughput Sequence Data (2010). Retrieved from http://www.bioinformatics.babraham.ac.uk/projects/fastqc/",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: An ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: A new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J. Comput. Biol.",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "QUAST: Quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V Saveliev",
+          "nombres": "V",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "Completing bacterial genome assemblies with multiplex MinION sequencing",
+      "autores": [
+        {
+          "nombre_completo": "RR Wick",
+          "nombres": "RR",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "LM Judd",
+          "nombres": "LM",
+          "apellidos": "Judd"
+        },
+        {
+          "nombre_completo": "CL Gorrie",
+          "nombres": "CL",
+          "apellidos": "Gorrie"
+        },
+        {
+          "nombre_completo": "KE Holt",
+          "nombres": "KE",
+          "apellidos": "Holt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microbial. Genom.",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "10",
+      "lpage": ""
+    },
+    {
+      "titulo": "Unicycler: Resolving bacterial genome assemblies from short and long sequencing reads",
+      "autores": [
+        {
+          "nombre_completo": "RR Wick",
+          "nombres": "RR",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "LM Judd",
+          "nombres": "LM",
+          "apellidos": "Judd"
+        },
+        {
+          "nombre_completo": "CL Gorrie",
+          "nombres": "CL",
+          "apellidos": "Gorrie"
+        },
+        {
+          "nombre_completo": "KE Holt",
+          "nombres": "KE",
+          "apellidos": "Holt"
+        }
+      ],
+      "pmid": "28594827",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2017",
+      "volumen": "13",
+      "fpage": "e1005595",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bit: A multipurpose collection of bioinformatics tools [version 1; peer review: 2 not approved]",
+      "autores": [
+        {
+          "nombre_completo": "M Lee",
+          "nombres": "M",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "",
+      "fuente": "F1000Research",
+      "anio": "2022",
+      "volumen": "11",
+      "fpage": "122",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome sequence-based species delimitation with confidence intervals and improved distance functions",
+      "autores": [
+        {
+          "nombre_completo": "JP Meier-Kolthoff",
+          "nombres": "JP",
+          "apellidos": "Meier-Kolthoff"
+        },
+        {
+          "nombre_completo": "AF Auch",
+          "nombres": "AF",
+          "apellidos": "Auch"
+        },
+        {
+          "nombre_completo": "H-P Klenk",
+          "nombres": "H-P",
+          "apellidos": "Klenk"
+        },
+        {
+          "nombre_completo": "M Goker",
+          "nombres": "M",
+          "apellidos": "Goker"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinform.",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "60",
+      "lpage": ""
+    },
+    {
+      "titulo": "Using DECIPHER v2.0 to analyze big biological sequence data in R",
+      "autores": [
+        {
+          "nombre_completo": "ES Wright",
+          "nombres": "ES",
+          "apellidos": "Wright"
+        }
+      ],
+      "pmid": "",
+      "fuente": "R J.",
+      "anio": "2016",
+      "volumen": "8",
+      "fpage": "352",
+      "lpage": "359"
+    },
+    {
+      "titulo": "phangorn: Phylogenetic analysis in R",
+      "autores": [
+        {
+          "nombre_completo": "KP Schliep",
+          "nombres": "KP",
+          "apellidos": "Schliep"
+        }
+      ],
+      "pmid": "21169378",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "592",
+      "lpage": "593"
+    },
+    {
+      "titulo": "Interactive tree of life v2: Online annotation and display of phylogenetic trees made easy",
+      "autores": [
+        {
+          "nombre_completo": "I Letunic",
+          "nombres": "I",
+          "apellidos": "Letunic"
+        },
+        {
+          "nombre_completo": "P Bork",
+          "nombres": "P",
+          "apellidos": "Bork"
+        }
+      ],
+      "pmid": "21470960",
+      "fuente": "Nucl. Acids Res.",
+      "anio": "2011",
+      "volumen": "39",
+      "fpage": "W475",
+      "lpage": "W478"
+    },
+    {
+      "titulo": "GToTree: A user-friendly workflow for phylogenomics",
+      "autores": [
+        {
+          "nombre_completo": "MD Lee",
+          "nombres": "MD",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "30865266",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "4162",
+      "lpage": "4164"
+    },
+    {
+      "titulo": "Terrace aware data structure for phylogenomic inference from supermatrices",
+      "autores": [
+        {
+          "nombre_completo": "O Chernomor",
+          "nombres": "O",
+          "apellidos": "Chernomor"
+        },
+        {
+          "nombre_completo": "A von Haeseler",
+          "nombres": "A",
+          "apellidos": "von Haeseler"
+        },
+        {
+          "nombre_completo": "BQ Minh",
+          "nombres": "BQ",
+          "apellidos": "Minh"
+        }
+      ],
+      "pmid": "27121966",
+      "fuente": "Syst. Biol.",
+      "anio": "2016",
+      "volumen": "65",
+      "fpage": "997",
+      "lpage": "1008"
+    },
+    {
+      "titulo": "ModelFinder: Fast model selection for accurate phylogenetic estimates",
+      "autores": [
+        {
+          "nombre_completo": "S Kalyaanamoorthy",
+          "nombres": "S",
+          "apellidos": "Kalyaanamoorthy"
+        },
+        {
+          "nombre_completo": "BQ Minh",
+          "nombres": "BQ",
+          "apellidos": "Minh"
+        },
+        {
+          "nombre_completo": "TKF Wong",
+          "nombres": "TKF",
+          "apellidos": "Wong"
+        },
+        {
+          "nombre_completo": "A von Haeseler",
+          "nombres": "A",
+          "apellidos": "von Haeseler"
+        },
+        {
+          "nombre_completo": "LS Jermiin",
+          "nombres": "LS",
+          "apellidos": "Jermiin"
+        }
+      ],
+      "pmid": "28481363",
+      "fuente": "Nat. Methods",
+      "anio": "2017",
+      "volumen": "14",
+      "fpage": "587",
+      "lpage": "589"
+    },
+    {
+      "titulo": "IQ-TREE 2: New models and efficient methods for phylogenetic inference in the genomic era",
+      "autores": [
+        {
+          "nombre_completo": "BQ Minh",
+          "nombres": "BQ",
+          "apellidos": "Minh"
+        },
+        {
+          "nombre_completo": "HA Schmidt",
+          "nombres": "HA",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "O Chernomor",
+          "nombres": "O",
+          "apellidos": "Chernomor"
+        },
+        {
+          "nombre_completo": "D Schrempf",
+          "nombres": "D",
+          "apellidos": "Schrempf"
+        },
+        {
+          "nombre_completo": "MD Woodhams",
+          "nombres": "MD",
+          "apellidos": "Woodhams"
+        },
+        {
+          "nombre_completo": "A von Haeseler",
+          "nombres": "A",
+          "apellidos": "von Haeseler"
+        }
+      ],
+      "pmid": "32011700",
+      "fuente": "Mol. Biol. Evol.",
+      "anio": "2020",
+      "volumen": "37",
+      "fpage": "1530",
+      "lpage": "1534"
+    },
+    {
+      "titulo": "A new view of the tree of life",
+      "autores": [
+        {
+          "nombre_completo": "LA Hug",
+          "nombres": "LA",
+          "apellidos": "Hug"
+        },
+        {
+          "nombre_completo": "BJ Baker",
+          "nombres": "BJ",
+          "apellidos": "Baker"
+        },
+        {
+          "nombre_completo": "K Anantharaman",
+          "nombres": "K",
+          "apellidos": "Anantharaman"
+        },
+        {
+          "nombre_completo": "CT Brown",
+          "nombres": "CT",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "CJ Castelle",
+          "nombres": "CJ",
+          "apellidos": "Castelle"
+        }
+      ],
+      "pmid": "27572647",
+      "fuente": "Nat. Microbiol.",
+      "anio": "2016",
+      "volumen": "1",
+      "fpage": "16048",
+      "lpage": ""
+    },
+    {
+      "titulo": "Interactive tree of life (iTOL) v5: An online tool for phylogenetic tree display and annotation",
+      "autores": [
+        {
+          "nombre_completo": "I Letunic",
+          "nombres": "I",
+          "apellidos": "Letunic"
+        },
+        {
+          "nombre_completo": "P Bork",
+          "nombres": "P",
+          "apellidos": "Bork"
+        }
+      ],
+      "pmid": "33885785",
+      "fuente": "Nucl. Acids Res.",
+      "anio": "2021",
+      "volumen": "49",
+      "fpage": "W293",
+      "lpage": "W296"
+    },
+    {
+      "titulo": "Trimmomatic: A flexible trimmer for Illumina sequence data",
+      "autores": [
+        {
+          "nombre_completo": "AM Bolger",
+          "nombres": "AM",
+          "apellidos": "Bolger"
+        },
+        {
+          "nombre_completo": "M Lohse",
+          "nombres": "M",
+          "apellidos": "Lohse"
+        },
+        {
+          "nombre_completo": "B Usadel",
+          "nombres": "B",
+          "apellidos": "Usadel"
+        }
+      ],
+      "pmid": "24695404",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "2114",
+      "lpage": "2120"
+    },
+    {
+      "titulo": "MetaCompass: Reference-guided assembly of metagenomes",
+      "autores": [
+        {
+          "nombre_completo": "V Cepeda",
+          "nombres": "V",
+          "apellidos": "Cepeda"
+        },
+        {
+          "nombre_completo": "B Liu",
+          "nombres": "B",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "M Almeida",
+          "nombres": "M",
+          "apellidos": "Almeida"
+        },
+        {
+          "nombre_completo": "CM Hill",
+          "nombres": "CM",
+          "apellidos": "Hill"
+        },
+        {
+          "nombre_completo": "S Koren",
+          "nombres": "S",
+          "apellidos": "Koren"
+        },
+        {
+          "nombre_completo": "TJ Treangen",
+          "nombres": "TJ",
+          "apellidos": "Treangen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "bioRxiv",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "RASTtk: A modular and extensible implementation of the RAST algorithm for building custom annotation pipelines and annotating batches of genomes",
+      "autores": [
+        {
+          "nombre_completo": "T Brettin",
+          "nombres": "T",
+          "apellidos": "Brettin"
+        },
+        {
+          "nombre_completo": "JJ Davis",
+          "nombres": "JJ",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "T Disz",
+          "nombres": "T",
+          "apellidos": "Disz"
+        },
+        {
+          "nombre_completo": "RA Edwards",
+          "nombres": "RA",
+          "apellidos": "Edwards"
+        },
+        {
+          "nombre_completo": "S Gerdes",
+          "nombres": "S",
+          "apellidos": "Gerdes"
+        },
+        {
+          "nombre_completo": "GJ Olsen",
+          "nombres": "GJ",
+          "apellidos": "Olsen"
+        }
+      ],
+      "pmid": "25666585",
+      "fuente": "Sci. Rep.",
+      "anio": "2015",
+      "volumen": "5",
+      "fpage": "8365",
+      "lpage": ""
+    },
+    {
+      "titulo": "antiSMASH 7.0: New and improved predictions for detection, regulation, chemical structures and visualisation",
+      "autores": [
+        {
+          "nombre_completo": "K Blin",
+          "nombres": "K",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "S Shaw",
+          "nombres": "S",
+          "apellidos": "Shaw"
+        },
+        {
+          "nombre_completo": "HE Augustijn",
+          "nombres": "HE",
+          "apellidos": "Augustijn"
+        },
+        {
+          "nombre_completo": "ZL Reitz",
+          "nombres": "ZL",
+          "apellidos": "Reitz"
+        },
+        {
+          "nombre_completo": "F Biermann",
+          "nombres": "F",
+          "apellidos": "Biermann"
+        },
+        {
+          "nombre_completo": "M Alanjary",
+          "nombres": "M",
+          "apellidos": "Alanjary"
+        }
+      ],
+      "pmid": "37904617",
+      "fuente": "Nucl. Acids Res.",
+      "anio": "2023",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "MIBiG 3.0: A community-driven effort to annotate experimentally validated biosynthetic gene clusters",
+      "autores": [
+        {
+          "nombre_completo": "BR Terlouw",
+          "nombres": "BR",
+          "apellidos": "Terlouw"
+        },
+        {
+          "nombre_completo": "K Blin",
+          "nombres": "K",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "JC Navarro-Muñoz",
+          "nombres": "JC",
+          "apellidos": "Navarro-Muñoz"
+        },
+        {
+          "nombre_completo": "NE Avalon",
+          "nombres": "NE",
+          "apellidos": "Avalon"
+        },
+        {
+          "nombre_completo": "MG Chevrette",
+          "nombres": "MG",
+          "apellidos": "Chevrette"
+        },
+        {
+          "nombre_completo": "S Egbert",
+          "nombres": "S",
+          "apellidos": "Egbert"
+        }
+      ],
+      "pmid": "36399496",
+      "fuente": "Nucl. Acids Res.",
+      "anio": "2023",
+      "volumen": "51",
+      "fpage": "D603",
+      "lpage": "D610"
+    },
+    {
+      "titulo": "Review of the taxonomy of the genus Arthrobacter, emendation of the genus Arthrobacter sensu lato, proposal to reclassify selected species of the genus Arthrobacter in the novel genera Glutamicibacter gen. nov., Paeniglutamicibacter gen. nov., Pseudoglutamicibacter gen. nov., Paenarthrobacter gen. nov. and Pseudarthrobacter gen. nov., and emended description of Arthrobacter roseus",
+      "autores": [
+        {
+          "nombre_completo": "HJ Busse",
+          "nombres": "HJ",
+          "apellidos": "Busse"
+        }
+      ],
+      "pmid": "26486726",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2016",
+      "volumen": "66",
+      "fpage": "9",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Leifsonia flava sp. nov., a novel actinobacterium isolated from the rhizosphere of Aquilegia viridiflora",
+      "autores": [
+        {
+          "nombre_completo": "Y Cai",
+          "nombres": "Y",
+          "apellidos": "Cai"
+        },
+        {
+          "nombre_completo": "WZ Tao",
+          "nombres": "WZ",
+          "apellidos": "Tao"
+        },
+        {
+          "nombre_completo": "YJ Ma",
+          "nombres": "YJ",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "J Cheng",
+          "nombres": "J",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "MY Zhang",
+          "nombres": "MY",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "YX Zhang",
+          "nombres": "YX",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "30047083",
+      "fuente": "J. Microbiol.",
+      "anio": "2018",
+      "volumen": "56",
+      "fpage": "549",
+      "lpage": "555"
+    },
+    {
+      "titulo": "Paenibacillus rhizoplanae sp. nov., isolated from the rhizosphere of Zea mays",
+      "autores": [
+        {
+          "nombre_completo": "P Kämpfer",
+          "nombres": "P",
+          "apellidos": "Kämpfer"
+        },
+        {
+          "nombre_completo": "HJ Busse",
+          "nombres": "HJ",
+          "apellidos": "Busse"
+        },
+        {
+          "nombre_completo": "JA McInroy",
+          "nombres": "JA",
+          "apellidos": "McInroy"
+        },
+        {
+          "nombre_completo": "CH Hu",
+          "nombres": "CH",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "JW Kloepper",
+          "nombres": "JW",
+          "apellidos": "Kloepper"
+        },
+        {
+          "nombre_completo": "SP Glaeser",
+          "nombres": "SP",
+          "apellidos": "Glaeser"
+        }
+      ],
+      "pmid": "28068214",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2017",
+      "volumen": "67",
+      "fpage": "1058",
+      "lpage": "1063"
+    },
+    {
+      "titulo": "Cohnella thermotolerans gen. nov., sp. nov., and classification of 'Paenibacillus hongkongensis' as Cohnella hongkongensis sp. nov",
+      "autores": [
+        {
+          "nombre_completo": "P Kämpfer",
+          "nombres": "P",
+          "apellidos": "Kämpfer"
+        },
+        {
+          "nombre_completo": "R Rossello-Mora",
+          "nombres": "R",
+          "apellidos": "Rossello-Mora"
+        },
+        {
+          "nombre_completo": "E Falsen",
+          "nombres": "E",
+          "apellidos": "Falsen"
+        },
+        {
+          "nombre_completo": "HJ Busse",
+          "nombres": "HJ",
+          "apellidos": "Busse"
+        },
+        {
+          "nombre_completo": "BJ Tindall",
+          "nombres": "BJ",
+          "apellidos": "Tindall"
+        }
+      ],
+      "pmid": "16585694",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2006",
+      "volumen": "56",
+      "fpage": "781",
+      "lpage": "786"
+    },
+    {
+      "titulo": "Description of Paenisporosarcina quisquiliarum gen. nov., sp. nov., and reclassification of Sporosarcina macmurdoensis Reddy et al. 2003 as Paenisporosarcina macmurdoensis comb. nov",
+      "autores": [
+        {
+          "nombre_completo": "S Krishnamurthi",
+          "nombres": "S",
+          "apellidos": "Krishnamurthi"
+        },
+        {
+          "nombre_completo": "A Bhattacharya",
+          "nombres": "A",
+          "apellidos": "Bhattacharya"
+        },
+        {
+          "nombre_completo": "S Mayilraj",
+          "nombres": "S",
+          "apellidos": "Mayilraj"
+        },
+        {
+          "nombre_completo": "P Saha",
+          "nombres": "P",
+          "apellidos": "Saha"
+        },
+        {
+          "nombre_completo": "P Schumann",
+          "nombres": "P",
+          "apellidos": "Schumann"
+        },
+        {
+          "nombre_completo": "T Chakrabarti",
+          "nombres": "T",
+          "apellidos": "Chakrabarti"
+        }
+      ],
+      "pmid": "19502317",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2009",
+      "volumen": "59",
+      "fpage": "1364",
+      "lpage": "1370"
+    },
+    {
+      "titulo": "CARD 2023: Expanded curation, support for machine learning, and resistome prediction at the comprehensive antibiotic resistance database",
+      "autores": [
+        {
+          "nombre_completo": "BP Alcock",
+          "nombres": "BP",
+          "apellidos": "Alcock"
+        },
+        {
+          "nombre_completo": "W Huynh",
+          "nombres": "W",
+          "apellidos": "Huynh"
+        },
+        {
+          "nombre_completo": "R Chalil",
+          "nombres": "R",
+          "apellidos": "Chalil"
+        },
+        {
+          "nombre_completo": "KW Smith",
+          "nombres": "KW",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "R Raphenya Amogelang",
+          "nombres": "R",
+          "apellidos": "Raphenya Amogelang"
+        },
+        {
+          "nombre_completo": "MA Wlodarski",
+          "nombres": "MA",
+          "apellidos": "Wlodarski"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucl. Acids Res.",
+      "anio": "2022",
+      "volumen": "51",
+      "fpage": "D690",
+      "lpage": "D699"
+    },
+    {
+      "titulo": "A diverse intrinsic antibiotic resistome from a cave bacterium",
+      "autores": [
+        {
+          "nombre_completo": "AC Pawlowski",
+          "nombres": "AC",
+          "apellidos": "Pawlowski"
+        },
+        {
+          "nombre_completo": "W Wang",
+          "nombres": "W",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Koteva",
+          "nombres": "K",
+          "apellidos": "Koteva"
+        },
+        {
+          "nombre_completo": "HA Barton",
+          "nombres": "HA",
+          "apellidos": "Barton"
+        },
+        {
+          "nombre_completo": "AG McArthur",
+          "nombres": "AG",
+          "apellidos": "McArthur"
+        },
+        {
+          "nombre_completo": "GD Wright",
+          "nombres": "GD",
+          "apellidos": "Wright"
+        }
+      ],
+      "pmid": "27929110",
+      "fuente": "Nat. Commun.",
+      "anio": "2016",
+      "volumen": "7",
+      "fpage": "13803",
+      "lpage": ""
+    },
+    {
+      "titulo": "Production of a new thiopeptide antibiotic, TP-1161, by a marine Nocardiopsis Species",
+      "autores": [
+        {
+          "nombre_completo": "K Engelhardt",
+          "nombres": "K",
+          "apellidos": "Engelhardt"
+        },
+        {
+          "nombre_completo": "KF Degnes",
+          "nombres": "KF",
+          "apellidos": "Degnes"
+        },
+        {
+          "nombre_completo": "M Kemmler",
+          "nombres": "M",
+          "apellidos": "Kemmler"
+        },
+        {
+          "nombre_completo": "H Bredholt",
+          "nombres": "H",
+          "apellidos": "Bredholt"
+        },
+        {
+          "nombre_completo": "E Fjærvik",
+          "nombres": "E",
+          "apellidos": "Fjærvik"
+        },
+        {
+          "nombre_completo": "G Klinkenberg",
+          "nombres": "G",
+          "apellidos": "Klinkenberg"
+        }
+      ],
+      "pmid": "20562278",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2010",
+      "volumen": "76",
+      "fpage": "4969",
+      "lpage": "4976"
+    },
+    {
+      "titulo": "First complete genome of a multidrug-resistant strain of the novel human pathogen Kalamiella piersonii (GABEKP28) identified in human saliva",
+      "autores": [
+        {
+          "nombre_completo": "F McDonagh",
+          "nombres": "F",
+          "apellidos": "McDonagh"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "AM Lonappan",
+          "nombres": "AM",
+          "apellidos": "Lonappan"
+        },
+        {
+          "nombre_completo": "B Hallahan",
+          "nombres": "B",
+          "apellidos": "Hallahan"
+        },
+        {
+          "nombre_completo": "A Tuohy",
+          "nombres": "A",
+          "apellidos": "Tuohy"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Glob. Antimicrobial. Res.",
+      "anio": "2023",
+      "volumen": "32",
+      "fpage": "31",
+      "lpage": "34"
+    },
+    {
+      "titulo": "Genomic characterization and virulence potential of two Fusarium oxysporum isolates cultured from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "P van Dam",
+          "nombres": "P",
+          "apellidos": "van Dam"
+        },
+        {
+          "nombre_completo": "A Zaborin",
+          "nombres": "A",
+          "apellidos": "Zaborin"
+        },
+        {
+          "nombre_completo": "O Zaborina",
+          "nombres": "O",
+          "apellidos": "Zaborina"
+        },
+        {
+          "nombre_completo": "JA Gilbert",
+          "nombres": "JA",
+          "apellidos": "Gilbert"
+        },
+        {
+          "nombre_completo": "T Torok",
+          "nombres": "T",
+          "apellidos": "Torok"
+        }
+      ],
+      "pmid": "30944876",
+      "fuente": "mSystems",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Machine learning algorithm to characterize antimicrobial resistance associated with the International Space Station surface microbiome",
+      "autores": [
+        {
+          "nombre_completo": "P Madrigal",
+          "nombres": "P",
+          "apellidos": "Madrigal"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "E Gaudioso",
+          "nombres": "E",
+          "apellidos": "Gaudioso"
+        },
+        {
+          "nombre_completo": "F Hernández-Del-Olmo",
+          "nombres": "F",
+          "apellidos": "Hernández-Del-Olmo"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "35999570",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "134",
+      "lpage": ""
+    },
+    {
+      "titulo": "Antimicrobial coating efficacy for prevention of Pseudomonas aeruginosa biofilm growth on ISS water system materials",
+      "autores": [
+        {
+          "nombre_completo": "MK Mettler",
+          "nombres": "MK",
+          "apellidos": "Mettler"
+        },
+        {
+          "nombre_completo": "CW Parker",
+          "nombres": "CW",
+          "apellidos": "Parker"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "BM Peyton",
+          "nombres": "BM",
+          "apellidos": "Peyton"
+        }
+      ],
+      "pmid": "35464913",
+      "fuente": "Front. Microbiol.",
+      "anio": "2022",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "New perspectives on viable microbial communities in low-biomass cleanroom environments",
+      "autores": [
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "MT La Duc",
+          "nombres": "MT",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "E Bargoma",
+          "nombres": "E",
+          "apellidos": "Bargoma"
+        },
+        {
+          "nombre_completo": "JN Benardini",
+          "nombres": "JN",
+          "apellidos": "Benardini"
+        },
+        {
+          "nombre_completo": "GL Andersen",
+          "nombres": "GL",
+          "apellidos": "Andersen"
+        }
+      ],
+      "pmid": "23051695",
+      "fuente": "ISME J.",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "312",
+      "lpage": "324"
+    },
+    {
+      "titulo": "Genomic characterization of potential plant growth-promoting features of Sphingomonas strains isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "J Lombardino",
+          "nombres": "J",
+          "apellidos": "Lombardino"
+        },
+        {
+          "nombre_completo": "S Bijlani",
+          "nombres": "S",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "R Barker",
+          "nombres": "R",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S Gilroy",
+          "nombres": "S",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "35019675",
+      "fuente": "Microbiol. Spectr.",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "e0199421",
+      "lpage": ""
+    },
+    {
+      "titulo": "Metabolic modeling of the International Space Station microbiome reveals key microbial interactions",
+      "autores": [
+        {
+          "nombre_completo": "RK Kumar",
+          "nombres": "RK",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "S Balakrishnan",
+          "nombres": "S",
+          "apellidos": "Balakrishnan"
+        },
+        {
+          "nombre_completo": "CW Parker",
+          "nombres": "CW",
+          "apellidos": "Parker"
+        },
+        {
+          "nombre_completo": "K Raman",
+          "nombres": "K",
+          "apellidos": "Raman"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "35791019",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "102",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biological activity of phenolic lipids",
+      "autores": [
+        {
+          "nombre_completo": "M Stasiuk",
+          "nombres": "M",
+          "apellidos": "Stasiuk"
+        },
+        {
+          "nombre_completo": "A Kozubek",
+          "nombres": "A",
+          "apellidos": "Kozubek"
+        }
+      ],
+      "pmid": "20213924",
+      "fuente": "Cell. Mol. Life Sci.",
+      "anio": "2010",
+      "volumen": "67",
+      "fpage": "841",
+      "lpage": "860"
+    },
+    {
+      "titulo": "Sigma factor RpoS controls alkylresorcinol synthesis through ArpR, a LysR-type regulatory protein, during encystment of Azotobacter vinelandii",
+      "autores": [
+        {
+          "nombre_completo": "Y Romero",
+          "nombres": "Y",
+          "apellidos": "Romero"
+        },
+        {
+          "nombre_completo": "S Moreno",
+          "nombres": "S",
+          "apellidos": "Moreno"
+        },
+        {
+          "nombre_completo": "J Guzmán",
+          "nombres": "J",
+          "apellidos": "Guzmán"
+        },
+        {
+          "nombre_completo": "G Espín",
+          "nombres": "G",
+          "apellidos": "Espín"
+        },
+        {
+          "nombre_completo": "D Segura",
+          "nombres": "D",
+          "apellidos": "Segura"
+        }
+      ],
+      "pmid": "23378510",
+      "fuente": "J Bacteriol.",
+      "anio": "2013",
+      "volumen": "195",
+      "fpage": "1834",
+      "lpage": "1844"
+    },
+    {
+      "titulo": "The antimicrobial mechanism of action of epsilon-poly-l-lysine",
+      "autores": [
+        {
+          "nombre_completo": "M Hyldgaard",
+          "nombres": "M",
+          "apellidos": "Hyldgaard"
+        },
+        {
+          "nombre_completo": "T Mygind",
+          "nombres": "T",
+          "apellidos": "Mygind"
+        },
+        {
+          "nombre_completo": "BS Vad",
+          "nombres": "BS",
+          "apellidos": "Vad"
+        },
+        {
+          "nombre_completo": "M Stenvang",
+          "nombres": "M",
+          "apellidos": "Stenvang"
+        },
+        {
+          "nombre_completo": "DE Otzen",
+          "nombres": "DE",
+          "apellidos": "Otzen"
+        },
+        {
+          "nombre_completo": "RL Meyer",
+          "nombres": "RL",
+          "apellidos": "Meyer"
+        }
+      ],
+      "pmid": "25304506",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2014",
+      "volumen": "80",
+      "fpage": "7758",
+      "lpage": "7770"
+    },
+    {
+      "titulo": "Diversity analysis and metagenomic insights into antibiotic and metal resistance among Himalayan hot spring bacteriobiome insinuating inherent environmental baseline levels of antibiotic and metal tolerance",
+      "autores": [
+        {
+          "nombre_completo": "IN Najar",
+          "nombres": "IN",
+          "apellidos": "Najar"
+        },
+        {
+          "nombre_completo": "MT Sherpa",
+          "nombres": "MT",
+          "apellidos": "Sherpa"
+        },
+        {
+          "nombre_completo": "S Das",
+          "nombres": "S",
+          "apellidos": "Das"
+        },
+        {
+          "nombre_completo": "N Thakur",
+          "nombres": "N",
+          "apellidos": "Thakur"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Glob. Antimicrobial. Res.",
+      "anio": "2020",
+      "volumen": "21",
+      "fpage": "342",
+      "lpage": "352"
+    },
+    {
+      "titulo": "Reviving antibiotics: Efflux pump inhibitors that interact with AcrA, a membrane fusion protein of the AcrAB-TolC multidrug efflux pump",
+      "autores": [
+        {
+          "nombre_completo": "N Abdali",
+          "nombres": "N",
+          "apellidos": "Abdali"
+        },
+        {
+          "nombre_completo": "JM Parks",
+          "nombres": "JM",
+          "apellidos": "Parks"
+        },
+        {
+          "nombre_completo": "KM Haynes",
+          "nombres": "KM",
+          "apellidos": "Haynes"
+        },
+        {
+          "nombre_completo": "JL Chaney",
+          "nombres": "JL",
+          "apellidos": "Chaney"
+        },
+        {
+          "nombre_completo": "AT Green",
+          "nombres": "AT",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "D Wolloscheck",
+          "nombres": "D",
+          "apellidos": "Wolloscheck"
+        }
+      ],
+      "pmid": "27768847",
+      "fuente": "ACS Infect. Dis.",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "89",
+      "lpage": "98"
+    },
+    {
+      "titulo": "Genomic characterization and assessment of the virulence and antibiotic resistance of the novel species Paenibacillus sp. strain VT-400, a potentially pathogenic bacterium in the oral cavity of patients with hematological malignancies",
+      "autores": [
+        {
+          "nombre_completo": "G Tetz",
+          "nombres": "G",
+          "apellidos": "Tetz"
+        },
+        {
+          "nombre_completo": "V Tetz",
+          "nombres": "V",
+          "apellidos": "Tetz"
+        },
+        {
+          "nombre_completo": "M Vecherkovskaya",
+          "nombres": "M",
+          "apellidos": "Vecherkovskaya"
+        }
+      ],
+      "pmid": "26900405",
+      "fuente": "Gut Pathogens.",
+      "anio": "2016",
+      "volumen": "8",
+      "fpage": "6",
+      "lpage": ""
+    },
+    {
+      "titulo": "Streptomyces sp. JCK-6131 protects plants against bacterial and fungal diseases via two mechanisms",
+      "autores": [
+        {
+          "nombre_completo": "KD Le",
+          "nombres": "KD",
+          "apellidos": "Le"
+        },
+        {
+          "nombre_completo": "J Kim",
+          "nombres": "J",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "HT Nguyen",
+          "nombres": "HT",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "NH Yu",
+          "nombres": "NH",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "AR Park",
+          "nombres": "AR",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "CW Lee",
+          "nombres": "CW",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "34603354",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "726266",
+      "lpage": ""
+    },
+    {
+      "titulo": "Tetracycline antibiotics: mode of action, applications, molecular biology, and epidemiology of bacterial resistance",
+      "autores": [
+        {
+          "nombre_completo": "I Chopra",
+          "nombres": "I",
+          "apellidos": "Chopra"
+        },
+        {
+          "nombre_completo": "M Roberts",
+          "nombres": "M",
+          "apellidos": "Roberts"
+        }
+      ],
+      "pmid": "11381101",
+      "fuente": "Microbiol. Mol. Biol. Rev.",
+      "anio": "2001",
+      "volumen": "65",
+      "fpage": "232",
+      "lpage": "260"
+    },
+    {
+      "titulo": "Characterization of cholylglycine hydrolase from a bile-adapted strain of Xanthomonas maltophilia and its application for quantitative hydrolysis of conjugated bile salts",
+      "autores": [
+        {
+          "nombre_completo": "M Dean",
+          "nombres": "M",
+          "apellidos": "Dean"
+        },
+        {
+          "nombre_completo": "C Cervellati",
+          "nombres": "C",
+          "apellidos": "Cervellati"
+        },
+        {
+          "nombre_completo": "E Casanova",
+          "nombres": "E",
+          "apellidos": "Casanova"
+        },
+        {
+          "nombre_completo": "M Squerzanti",
+          "nombres": "M",
+          "apellidos": "Squerzanti"
+        },
+        {
+          "nombre_completo": "V Lanzara",
+          "nombres": "V",
+          "apellidos": "Lanzara"
+        },
+        {
+          "nombre_completo": "A Medici",
+          "nombres": "A",
+          "apellidos": "Medici"
+        }
+      ],
+      "pmid": "12039776",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2002",
+      "volumen": "68",
+      "fpage": "3126",
+      "lpage": "3128"
+    },
+    {
+      "titulo": "Bile acids and the gut microbiome",
+      "autores": [
+        {
+          "nombre_completo": "JM Ridlon",
+          "nombres": "JM",
+          "apellidos": "Ridlon"
+        },
+        {
+          "nombre_completo": "DJ Kang",
+          "nombres": "DJ",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "PB Hylemon",
+          "nombres": "PB",
+          "apellidos": "Hylemon"
+        },
+        {
+          "nombre_completo": "JS Bajaj",
+          "nombres": "JS",
+          "apellidos": "Bajaj"
+        }
+      ],
+      "pmid": "24625896",
+      "fuente": "Curr. Opin. Gastroenterol.",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "332",
+      "lpage": "338"
+    },
+    {
+      "titulo": "Brucella abortus choloylglycine hydrolase affects cell envelope composition and host cell internalization",
+      "autores": [
+        {
+          "nombre_completo": "MI Marchesini",
+          "nombres": "MI",
+          "apellidos": "Marchesini"
+        },
+        {
+          "nombre_completo": "J Connolly",
+          "nombres": "J",
+          "apellidos": "Connolly"
+        },
+        {
+          "nombre_completo": "MV Delpino",
+          "nombres": "MV",
+          "apellidos": "Delpino"
+        },
+        {
+          "nombre_completo": "PC Baldi",
+          "nombres": "PC",
+          "apellidos": "Baldi"
+        },
+        {
+          "nombre_completo": "CV Mujer",
+          "nombres": "CV",
+          "apellidos": "Mujer"
+        },
+        {
+          "nombre_completo": "VG DelVecchio",
+          "nombres": "VG",
+          "apellidos": "DelVecchio"
+        }
+      ],
+      "pmid": "22174816",
+      "fuente": "PLoS ONE",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "e28480",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacterial gamma-glutamyl transpeptidase, an emerging biocatalyst: Insights into structure-function relationship and its biotechnological applications",
+      "autores": [
+        {
+          "nombre_completo": "M Saini",
+          "nombres": "M",
+          "apellidos": "Saini"
+        },
+        {
+          "nombre_completo": "A Kashyap",
+          "nombres": "A",
+          "apellidos": "Kashyap"
+        },
+        {
+          "nombre_completo": "S Bindal",
+          "nombres": "S",
+          "apellidos": "Bindal"
+        },
+        {
+          "nombre_completo": "K Saini",
+          "nombres": "K",
+          "apellidos": "Saini"
+        },
+        {
+          "nombre_completo": "R Gupta",
+          "nombres": "R",
+          "apellidos": "Gupta"
+        }
+      ],
+      "pmid": "33897647",
+      "fuente": "Front. Microbiol.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "641251",
+      "lpage": ""
+    },
+    {
+      "titulo": "Insights into the unique phosphorylation of the lasso peptide paeninodin",
+      "autores": [
+        {
+          "nombre_completo": "S Zhu",
+          "nombres": "S",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "JD Hegemann",
+          "nombres": "JD",
+          "apellidos": "Hegemann"
+        },
+        {
+          "nombre_completo": "CD Fage",
+          "nombres": "CD",
+          "apellidos": "Fage"
+        },
+        {
+          "nombre_completo": "M Zimmermann",
+          "nombres": "M",
+          "apellidos": "Zimmermann"
+        },
+        {
+          "nombre_completo": "X Xie",
+          "nombres": "X",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "U Linne",
+          "nombres": "U",
+          "apellidos": "Linne"
+        }
+      ],
+      "pmid": "27151214",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2016",
+      "volumen": "291",
+      "fpage": "13662",
+      "lpage": "13678"
+    },
+    {
+      "titulo": "Bioinformatic mapping of opine-like zincophore biosynthesis in bacteria",
+      "autores": [
+        {
+          "nombre_completo": "JR Morey",
+          "nombres": "JR",
+          "apellidos": "Morey"
+        },
+        {
+          "nombre_completo": "TE Kehl-Fie",
+          "nombres": "TE",
+          "apellidos": "Kehl-Fie"
+        }
+      ],
+      "pmid": "32817386",
+      "fuente": "mSystems",
+      "anio": "2020",
+      "volumen": "5",
+      "fpage": "e00554-20",
+      "lpage": ""
+    },
+    {
+      "titulo": "Nalli, Y. et al. Bacillibactin class siderophores produced by the endophyte Bacillus subtilis NPROOT3 as antimycobacterial agents. Lett. Appl. Microbiol.76 (2023).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Current knowledge and perspectives of Paenibacillus: a review",
+      "autores": [
+        {
+          "nombre_completo": "EN Grady",
+          "nombres": "EN",
+          "apellidos": "Grady"
+        },
+        {
+          "nombre_completo": "J MacDonald",
+          "nombres": "J",
+          "apellidos": "MacDonald"
+        },
+        {
+          "nombre_completo": "L Liu",
+          "nombres": "L",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "A Richman",
+          "nombres": "A",
+          "apellidos": "Richman"
+        },
+        {
+          "nombre_completo": "Z-C Yuan",
+          "nombres": "Z-C",
+          "apellidos": "Yuan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microbiol. Cell Fact.",
+      "anio": "2016",
+      "volumen": "15",
+      "fpage": "203",
+      "lpage": ""
+    },
+    {
+      "titulo": "One origin for metallo-β-lactamase activity, or two? An investigation assessing a diverse set of reconstructed ancestral sequences based on a sample of phylogenetic trees",
+      "autores": [
+        {
+          "nombre_completo": "RG Alderson",
+          "nombres": "RG",
+          "apellidos": "Alderson"
+        },
+        {
+          "nombre_completo": "D Barker",
+          "nombres": "D",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "JB Mitchell",
+          "nombres": "JB",
+          "apellidos": "Mitchell"
+        }
+      ],
+      "pmid": "25185655",
+      "fuente": "J. Mol. Evol.",
+      "anio": "2014",
+      "volumen": "79",
+      "fpage": "117",
+      "lpage": "129"
+    },
+    {
+      "titulo": "Metallo-β-lactamases in the age of multidrug resistance: From structure and mechanism to evolution, dissemination, and inhibitor design",
+      "autores": [
+        {
+          "nombre_completo": "G Bahr",
+          "nombres": "G",
+          "apellidos": "Bahr"
+        },
+        {
+          "nombre_completo": "LJ González",
+          "nombres": "LJ",
+          "apellidos": "González"
+        },
+        {
+          "nombre_completo": "AJ Vila",
+          "nombres": "AJ",
+          "apellidos": "Vila"
+        }
+      ],
+      "pmid": "34129337",
+      "fuente": "Chem. Rev.",
+      "anio": "2021",
+      "volumen": "121",
+      "fpage": "7957",
+      "lpage": "8094"
+    },
+    {
+      "titulo": "Genomic characterization of a mercury resistant Arthrobacter sp. H-02–3 reveals the presence of heavy metal and antibiotic resistance determinants",
+      "autores": [
+        {
+          "nombre_completo": "A Pathak",
+          "nombres": "A",
+          "apellidos": "Pathak"
+        },
+        {
+          "nombre_completo": "R Jaswal",
+          "nombres": "R",
+          "apellidos": "Jaswal"
+        },
+        {
+          "nombre_completo": "A Chauhan",
+          "nombres": "A",
+          "apellidos": "Chauhan"
+        }
+      ],
+      "pmid": "32010097",
+      "fuente": "Front. Microbiol.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "3039",
+      "lpage": ""
+    }
+  ]
+}

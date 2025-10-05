@@ -1,0 +1,2917 @@
+{
+  "TITLE": [
+    "Spaceflight-Induced Gene Expression Profiles in the Mouse Brain Are Attenuated by Treatment with the Antioxidant BuOE"
+  ],
+  "ABSTRACT": [
+    "The demands of deep space pose a health risk to the central nervous system that has long been a concern when sending humans to space. While little is known about how spaceflight affects transcription spatially in the brain, a greater understanding of this process has the potential to aid strategies that mitigate the effects of spaceflight on the brain. Therefore, we performed GeoMx Digital Spatial Profiling of mouse brains subjected to either spaceflight or grounded controls. Four brain regions were selected: Cortex, Frontal Cortex, Corunu Ammonis I, and Dentate Gyrus. Antioxidants have emerged as a potential means of attenuating the effects of spaceflight, so we treated a subset of the mice with a superoxide dismutase mimic, MnTnBuOE-2-PyP 5+ (BuOE). Our analysis revealed hundreds of differentially expressed genes due to spaceflight in each of the four brain regions. Both common and region-specific transcriptomic responses were observed. Metabolic pathways and pathways sensitive to oxidative stress were enriched in the four brain regions due to spaceflight. These findings enhance our understanding of brain regional variation in susceptibility to spaceflight conditions. BuOE reduced the transcriptomic effects of spaceflight at a large number of genes, suggesting that this compound may attenuate oxidative stress-induced brain damage caused by the spaceflight environment."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "Radiation exposure and other stressors experienced during extended deep-space missions have the potential to compromise the function of many bodily systems. The health risks of spaceflight-induced damage related to the central nervous system (CNS), such as cognitive impairment and neurodegenerative effects, have long been a concern. Animal studies have shown that memory, cognition, motor activity, and other neural functions can be affected under stressful conditions that include both radiation exposure and the spaceflight environment.",
+    "Normal brain function relies on a diverse set of differentiated cell types, including neurons, glia, and vasculature in different regions. There have been, however, relatively few studies on the effects of spaceflight stress on specific brain regions. One study found that spaceflight conditions induced distinct protein expression changes in different regions of the mouse brain. Regional differences were also documented following simulated microgravity in human brain gray and white matter. Our previous flight study demonstrated that exposure to the spaceflight environment induces significant changes in protein expression related to neuronal structure and metabolic function, and there were distinct changes in protein expression in grey versus white matter.",
+    "One brain region that is of immense interest in the context of spaceflight is the cortex (CT). It plays a key role in sensory and motor function and is closely associated with locomotion, learning, memory, and coordination. Spaceflight and ground simulation studies have given evidence that microgravity conditions negatively affect sensorimotor and behavioral performance, and the functional architecture of the human brain, all of which are associated with cortical activity. These significant neurochemical changes were also observed in the rat prefrontal cortex by heavy charged particle irradiation. The frontal cortex (FCT) plays a role in memory, attention, judgment, consciousness, and behavior. Pathophysiological changes in the FCT are associated with depression and anxiety.",
+    "Another brain region that is critical to understand in the context of spaceflight is the hippocampus, a complex brain structure embedded deep in the temporal lobe. It plays a major role in learning and memory. Ground-based analog studies have found that simulated microgravity influences cognitive function, with increased anxiety and depression-like behaviors that were associated with hippocampal activities. In addition, significantly altered expression of many proteins that relate to metabolism and structure in the hippocampus has been observed to occur under simulated microgravity. Space radiation studies have revealed cognitive detriment and changes in morphology in the hippocampal dentate gyrus (DG) and Cornu Ammonis 1 (CA) regions following oxygen-particle irradiation. The DG is located in the deep region of the hippocampus and has been shown to play an important role in pattern separation and associative memory. The CA contains pyramidal cells with a vast network of interneurons; its function is related to memory and consciousness.",
+    "Spaceflight conditions are associated with oxidative stress, which contributes to cellular damage in a variety of tissues. MnTnBuOE-2-PyP5+ (BuOE), a manganese porphyrin superoxide dismutase (SOD) mimic, also termed BMX-001, is remarkably beneficial in many animal models of oxidative stress injury. One study demonstrated that BuOE can reduce oxidative stress damage to the brain caused by radiation exposure. Our recent study showed that BuOE treatment during spaceflight significantly reduces the immunoreactivity of the oxidative stress biomarker 4-hydroxynonena (4-HNE) in the retina. This suggests that BuOE is effective in alleviating stress responses to spaceflight. Our present study will test whether BuOE treatment during spaceflight can attenuate spaceflight-induced alterations in gene transcription in specific brain regions.",
+    "Despite broad interest in understanding region-specific stress responses, characterizing these changes has been a challenge. More recently, spatial transcriptomics technology has been developed, which allows us to simultaneously quantify gene expression levels and their spatial distribution within tissue sections. This method can help to better understand biological responses as well as disease development. In this study, we took advantage of this technology by using the Nanostring GeoMx® digital spatial profiling (DSP) platform to investigate spaceflight-induced changes in gene expression profiles in mouse CT, FCT, and hippocampal DG and CA regions, both with and without BuOE treatment. Our unique spatial sequencing data may, for the first time, provide insights into the organization and response of specific brain regions to the spaceflight environment, potentially improving risk assessment of long-term space travel."
+  ],
+  "RESULTS": [
+    "2. Results",
+    "2.1. Gene Expression Profiling of CA, DG, CT, and FCT Samples Subjected to Spaceflight",
+    "We performed in situ RNA assays in the brains of mice subjected to spaceflight (FLT), as well as grounded controls (GC), using DSP. Half of the mice were treated with BuOE, while the other half were treated with saline (SAL). Four regions within the brain of each mouse were assayed: the CA, DG, CT, and FCT (Figure 1A). All samples achieved high sequencing saturation (Supplementary File S1: Figure S1A), and Q3 normalization was performed on the data (Supplementary File S1: Figure S1B) for all downstream analyses. Normalized count values of gene expression were highly correlated across replicates of the four samples (Supplementary File S1: Figure S1C–F). A principal components analysis (PCA) revealed that spaceflight had an effect on all four regions in SAL control animals, with CA and DG being impacted the most (Figure 1B).",
+    "We next performed a differential expression analysis (FLT versus GC) on the SAL data from each brain region and identified a total of 408 differentially expressed genes (DEGs) in CA, 271 in DG, 189 in FCT, and 150 in CT (Figure 2A–D). Each brain region largely had a unique set of DEGs, though a small number of DEGs were common to two or more regions (Figure 2E).",
+    "The top five DEGs by magnitude of fold change are as follows: Ptgds, Cpne7, Cdkn2d, Msrb1, and Bsph1 for CA (Figure 3A and Supplementary File S1: Figure S2A), Sst, Crygc, Psrc1, Abtb2, and Kcna4 for DG (Figure 3B and Supplementary File S1: Figure S2B), Arc, Ptgds, Col6a1, Tshz2, and Dmrt2 for FCT (Figure 3C and Supplementary File S1: Figure S2C), and Arc, Ptgds, Mobp, Gm9936, and Apod for CT (Figure 3D and Supplementary File S1: Figure S2D). Many of these top-changing genes play important roles in apoptosis, cell cycle, neuroinflammation, neurotransmission, myelination, and mitochondrial and metabolic stress response.",
+    "In order to determine whether spaceflight might accelerate certain disease processes in the brain, we compared the FLT-SAL vs. GC-SAL DEGs to curated lists of gene-disease associations. Alzheimer’s disease (AD) was the most frequent disease associated with the DEGs, and each brain region had at least one DEG with a known association with AD; in all, 22 of the GC-SAL vs. FLT-SAL DEGs have a known association with a neurological disease (Supplementary File S2). This raises the possibility that spaceflight stress may increase the risk of onset and/or progression of certain neurological disorders, such as AD.",
+    "Next, we performed a pathway analysis of the GC-SAL vs. FLT-SAL DEGs from each region independently. Importantly, each of the four brain regions had at least one pathway known to be affected by oxidative stress that was significantly enriched: VEGF signaling pathway in CA (Figure 4A), Calcium signaling pathway in DG (Figure 4B), FoxO signaling pathway in FCT (Figure 4C), and ECM-receptor interaction in CT (Figure 4D). In addition, a number of metabolic pathways were also significantly enriched, such as pyruvate metabolism and glycolysis/gluconeogenesis in CA, cAMP signaling pathway in DG, pantothenate and CoA biosynthesis in FCT, and glycosphingolipid biosynthesis in CT.",
+    "2.2. BuOE Attenuates Spaceflight-Induced Transcriptional Changes in the CA, DG, FCT, and CT",
+    "Finally, given that we observed a robust transcriptional response to spaceflight, we sought to determine if treatment with BuOE would attenuate these changes. A PCA of global transcription shows that in all brain regions examined except FCT, BuOE during spaceflight brought transcription levels closer to GC animals (Figure 5A and Supplementary File S1: Figure S3A), suggesting a partial attenuation of spaceflight transcriptional alterations by BuOE. Even for FCT, the distance between FLT-BuOE and GC-BuOE was smaller than the distance between FLT-SAL and GC-SAL, again suggesting BuOE results in a reduced transcriptional response due to spaceflight. We obtained BuOE-induced DEGs (FLT-SAL vs. FLT-BuOE) using the same criteria as for the spaceflight-induced DEGs (GC-SAL vs. FLT-SAL). We expected that if BuOE attenuates spaceflight-induced differential expression, then BuOE-induced DEGs should tend to change in the opposite direction as the spaceflight-induced DEGs. Indeed, for all brain regions, significantly more spaceflight-induced DEGs changed in the opposite direction as BuOE-induced DEGs (Figure 5B–E). We also performed a permutation test (see Section 4) in which genes were shuffled in order to randomly select up- and down-regulated BuOE-induced DEGs, and checked the overlaps with the spaceflight-induced DEGs. For all brain regions, the number of random overlaps after 1000 permutations was never as large as the number of actual overlaps in the opposite direction (Supplementary File S1: Figure S3B–E).",
+    "At many of the spaceflight-induced DEGs, the direction of change in expression by BuOE during spaceflight, regardless of significance, tended to be in the opposite direction, and in many cases these changes were not induced by BuOE in GC mice (Supplementary File S1: Figure S4A), again suggesting a partial attenuation of spaceflight-induced transcriptional changes in the brain by BuOE. Of note, such an attenuation was observed for several genes in the significantly enriched pathways responsive to oxidative stress; e.g., VEGF signaling pathway in CA (Figure 6A), Calcium signaling pathway in DG (Figure 6B), FoxO signaling pathway in FCT (Figure 6C), and ECM-receptor interaction in CT (Figure 6D). Similarly, BuOE also attenuated spaceflight-induced changes in the expression of several genes associated with Alzheimer’s disease (Supplementary File S1: Figure S4B–E)."
+  ],
+  "DISCUSS": [
+    "3. Discussion",
+    "In this study, we performed a differential expression analysis of spaceflight versus GC mice and identified 944 genes that were significantly altered by spaceflight in at least one of the four brain regions examined. Our results revealed common and region-specific gene expression changes in the brain due to spaceflight, with the most robust changes observed in the hippocampal CA 1 and DG regions, suggesting that these regions may be particularly vulnerable to spaceflight. The hippocampus is not only the center for learning and memory, it is a site for neurogenesis as well. Numerous cell types in the hippocampus contribute to generating neurons important for encoding new memories, spatial learning, and cognitive flexibility. Space radiation may damage hippocampal cells and thus potentially suppress neurogenesis, leading to memory decline, anxiety, and depression. Hippocampal neuronal circuitry also modulates and affects physiology and functional connectivity with more distant brain regions, including the prefrontal cortex.",
+    "In order to determine whether spaceflight might accelerate certain disease processes in the brain, we looked for known associations with neurological disease amidst the spaceflight-induced DEGs. Several of the DEGs have known associations with Alzheimer’s disease, as well as other neurological diseases. Previous studies have shown that space radiation contributes to amyloid pathologies, neuroinflammation, and cognitive function impairments resembling age-associated cognitive decline in animals. Our results add to the growing body of evidence that space stressors could induce or accelerate neurodegenerative processes.",
+    "To obtain insights into the biological processes being affected in the brain by spaceflight, we performed pathway analyses on the spaceflight-induced DEGs. Interestingly, several pathways known to be altered by oxidative stress were significantly enriched in the four brain regions due to spaceflight: VEGF signaling in CA, calcium signaling in DG, FoxO signaling in FCT, and ECM-receptor interaction in CT. In addition, a number of metabolic pathways were among the most significantly enriched, consistent with numerous studies that have found alterations in metabolism and its regulation due to spaceflight-induced neuroendocrine and psychophysiological changes. For example, a mouse study revealed an accumulation of lipids in the liver after spaceflight. Studies also show that space stressors induce metabolic changes in mouse plasma and in the expression of metabolism-related genes. Longitudinal metabolomic profiles revealed sex-specific perturbations in glucose and amino acid metabolism that result from the stressors of long-duration spaceflight; therefore, follow-up studies on sexually dimorphic transcriptional responses to spaceflight in the brain may be warranted.",
+    "The Circadian Entrainment pathway was significantly altered by spaceflight in DG. This is consistent with our previous spaceflight genomic study, which showed spaceflight altered some genes associated with circadian rhythm in the mouse retina. Spaceflight missions often expose astronauts to atypical sleep–wake cycles and work schedules. Changes in circadian rhythm may have a significant impact on neurobehavior and neurophysiological processes. Previous studies have found that circadian rhythm disruption or circadian misalignment in astronauts may affect performance and cognitive function. Our results suggest that changes in circadian rhythm induced by spaceflight may involve the DG region. This could help in developing countermeasures for sleep disturbance during spaceflight.",
+    "Our findings will help to improve the understanding of regional variation or sensitivities in susceptibility to brain injury and neurodegenerative diseases that exist during spaceflight. In addition, our findings may provide novel insight into cellular mechanisms and operational risks that underlie the effects of spaceflight-mediated structural and functional damage to different brain regions. In future studies, the regulatory mechanism for regional differences in stress response should be further explored in terms of variations of cell types, vasculature, neurotransmitter profiles, hemodynamics, and metabolism.",
+    "Studies have shown a spaceflight-induced increase in the production of lipid peroxidation products and a decrease in antioxidant enzyme activity. It has been suggested that in stressful environments, antioxidant expression of SOD and catalase are reduced to conserve energy. BuOE, a recently developed antioxidant compound, is among the most highly potent metalloporphyrins that have been evaluated for safety and efficacy. Many animal studies have demonstrated that BuOE is highly effective in mitigating oxidative stress induced by radiation exposure. We therefore treated a subset of our mice with BuOE in order to test its ability to attenuate spaceflight-induced changes in transcription in the CA, DG, FCT, and CT. Treatment with BuOE reversed spaceflight-induced changes in transcription of a substantial number of DEGs, and a statistically significant number of spaceflight-induced DEGs changed in the opposite direction as did BuOE-induced DEGs, suggesting that BuOE may be effective in attenuating at least some of the effects of spaceflight stress on the brain.",
+    "We presented evidence that BuOE may attenuate the consequences of oxidative stress on the brain during spaceflight. BuOE attenuated spaceflight-induced changes in the expression of a number of genes in the oxidative stress–responsive pathways that were enriched due to spaceflight. We note that BuOE had a particularly strong effect in reversing spaceflight-induced changes of the following genes in oxidative stress–responsive pathways (Figure 6): Prkca in the CA, Atp2b4 in the DG, Homer1 in the FCT, and Itga7 in the CT. Since we had identified known associations between spaceflight-induced DEGs and neurological diseases, we speculated whether BuOE attenuated the effects of these genes as well. Indeed, we found that BuOE reversed spaceflight-induced changes in the expression of several genes with known associations to Alzheimer’s disease.",
+    "Our results suggest that BuOE affects each brain region in a distinct way. The PCA (Figure 5A) suggests that the region with the greatest degree of attenuation by BuOE was the CT, in that treatment with BuOE brings the spaceflight transcriptomic profile closest to that of grounded controls in CT. On the other hand, BuOE treatment actually moved the spaceflight transcriptomic profile further away from grounded control animals in FCT, suggesting that FCT may be the region with the most resistance to superoxide scavengers. The DG and CA had intermediate responses to BuOE relative to the CT and FCT. Taken together, our results on BuOE warrant further study as a potential therapeutic candidate for CNS protection against brain injury and neurodegeneration induced by ionizing radiation and environmental stress."
+  ],
+  "METHODS": [
+    "4. Materials and Methods",
+    "4.1. Spaceflight and Mouse Groups",
+    "Ten-week-old C57BL/6 male mice were launched at the Kennedy Space Center (KSC) and spent 35 days aboard the International Space Station (ISS). All mice were maintained at an ambient temperature of 26–28 °C with a 12-h light/dark cycle during the flight. All mice were provided NASA Nutrient-upgraded Rodent Food Bar (NuRFB) and autoclaved deionized water ad libitum. MnTnBuOE-2-PyP5+ (BuOE) at 1 mg/kg (0.2 mL) was administrated subcutaneously 7 days prior to the flight launch and weekly aboard the ISS. All mice were subdivided into saline or BuOE-treated groups. Upon return to the Earth, spaceflight mice were transported to the research laboratory at Roskamp Institute, Sarasota, Florida, within 20 h of splashdown. Mice were exsanguinated by closed-cardiac blood collection under deep Ketamine/Xylazine (150/45 mg/kg) anesthesia, followed by cervical dislocation as a secondary euthanasia method to ensure death. Ground control mice were maintained on Earth for 35 days in flight hardware cages under similar environmental conditions as the flight groups, including the same food, light/dark, temperature, treatment (SAL or BuOE), and euthanasia regimens. The protocol for GC mice commenced three days subsequent to the commencement of the protocol for spaceflight mice.",
+    "After sacrifice, mouse brains were then removed and prepared as follows. The left hemibrains were fixed in 4% paraformaldehyde in phosphate-buffered saline (PBS) for 24 h and then rinsed and washed with PBS for immunohistochemistry (IHC) assays or spatial genomics profiling. The right brains were flash-frozen and stored at −80 °C for further analysis. The study was approved by the Institutional Animal Care and Use Committee (IACUC) of Loma Linda University (LLU), Roskamp Institute, and The National Aeronautics and Space Administration (NASA).",
+    "4.2. GeoMx DSP",
+    "DSP technology enables us to select specific regions of interest (ROIs) with high magnification. Three 6 μm formalin-fixed, paraffin-embedded (FFPE) tissue sections selected at a similar focal plane from three mice in each group were mounted on one slide for a total of 4 slides, one for each group (GC-SAL, GC-BuOE, FLT-SAL, and FLT-BuOE). Slides were baked for 2 h at 65 °C for paraffin removal before loading onto a Leica BOND RX for tissue rehydration in EtOH and ddH2O, heat-induced epitope retrieval (ER2 for 20 min at 100 °C) and proteinase K treatment (1.0 μg/mL for 15 min at 37 °C). Tissue sections were then hybridized with the Mouse Whole Transcriptome Atlas (WTA) probes overnight at 37 °C. Following 2 × 5 min stringent washes (1:1 4× SSC buffer and formamide), the slides were blocked for 30 min and then incubated with morphology marker antibodies for 1 h to guide region of interest (ROI) selection: GFAP (Texas Red/615nm channel, Alexa 594 fluorophore, 1:200 dilution, shown in green in Figure 1A, NBP2-33184DL594, Novus Biologicals, Littleton, CO, USA), and Iba1 (Cy5/666nm channel, Alexa 647 fluorophore, 1:100 dilution, shown in yellow in Figure 1A, 48934S, Cell Signalling Technologies, Danvers, MA, USA). Syto83 (Cy3/568 nm channel, Alexa 532 fluorophore, 1:10 dilution, shown in blue in Figure 1A, S11364, Invitrogen, Waltham, MA, USA) was used as a nuclear stain.",
+    "After ROI selection, UV light was directed by the GeoMx (, accessed on 3 February 2022, NanoString Technologies, Inc., Seattle, WA, USA) device at each area of illumination (AOI), releasing the RNA-ID containing oligonucleotide tags from the WTA probes for collection into a unique well for each AOI. For library preparation, Illumina i5 and i7 dual indexing primers were added to the oligonucleotide tags during PCR to uniquely index each AOI. AMPure XP beads (Beckman Coulter, Indianapolis, IN, USA) were used for PCR purification. Library concentration was measured using a Qubit fluorometer (Thermo Fisher Scientific, Waltham, MA, USA), and quality was assessed using a Bioanalyzer (Agilent Technologies Inc., Santa Clara, CA, USA). Sequencing was performed on an Illumina NovaSeq 6000 (Illumina Inc., San Diego, CA, USA).",
+    "4.3. GeoMx DSP Data Analysis",
+    "Raw .fastq files were processed into gene count data for each AOI using the GeoMx® NGS Pipeline via Amazon Web Services. All subsequent data analysis described in this subsection was performed using the online GeoMx DSP analysis platform, GeoMx DSP Control Center version 3.0.0.111. Raw reads were trimmed, stitched, aligned, and finally deduplicated using default parameters. Using Q3 normalized read count data, a differential expression analysis of FLT-SAL versus GC-SAL, and FLT-BuOE versus FLT-GC, was performed for each brain region independently. Statistical significance of differential expression was measured by t-test (non-paired), and permutation q-values (p-adjusted) were calculated. Genes with q < 0.05 and |log2 FC| > 0.585 were considered differentially expressed and used for downstream analysis.",
+    "4.4. Association of DEG’s with Neurological Disease",
+    "A list of genes with known associations to human neurological diseases was obtained using the DisGeNET browse feature with the filters “Disease class: Mental disorders” and “Semantic type: disease or syndrome”. Only genes from curated databases were used.",
+    "4.5. Pathway Analysis",
+    "The online tool Enrichr was used to perform pathway mapping for GC-SAL vs. FLT-SAL DEGs from each region independently. Enriched pathways in this paper are from the KEGG 2019 Mouse pathway analysis in the “legacy” tab of the Enrichr website.",
+    "4.6. Principal Component Analysis",
+    "Q3 normalized read counts output by the online GeoMx DSP analysis platform, as described above, were used as inputs for the PCA. The analysis was done in R version 4.0.3. The R function aov() was used to perform a linear analysis of variance (ANOVA) at each gene, using each biological sample as a factor. The R function qvalue() was then used to calculate ANOVA q-values for all genes, based on the p-values output by aov. Significant genes from the ANOVA (q < 0.05) were then input into the R function PCA() in order to generate PCA plots.",
+    "4.7. Statistical Comparison of Spaceflight-Induced and BuOE-Induced DEG Overlaps",
+    "For a given brain region, let N = total # of spaceflight-induced DEGs (GC-SAL vs. FLT-SAL) plus total # of BuOE-induced DEGs (FLT-SAL vs. FLT-BuOE) for that region. For each brain region, a 2 × 2 contingency matrix,   was constructed, where X11 = # of spaceflight-induced DEGs changing in the opposite direction as BuOE-induced DEGs, X12 = N − X11, X21 = # of spaceflight-induced DEGs changing in the same direction as BuOE-induced DEGs, X22 = N − X21. Fisher’s exact test was then calculated on each 2 × 2 contingency matrix in order to obtain a p-value for the null hypothesis that the proportion of overlapping DEGs changing in the opposite direction was the same as the proportion of overlapping DEGs changing in the same direction.",
+    "4.8. Permutation Testing of Spaceflight-Induced and BuOE-Induced DEG Overlaps",
+    "For each brain region, a random set of BuOE-induced DEGs was selected as follows. The total set of gene symbols analyzed was shuffled using the “shuf” command in Ubuntu 20.04.5 LTS. The top Nup genes in the shuffled file were selected as the upregulated, BuOE-induced DEGs, where Nup = total # of actual upregulated, BuOE-induced DEGs (FLT-SAL vs. FLT-BuOE) for the brain region. Similarly, the bottom Ndown genes in the shuffled file were selected as the downregulated, BuOE-induced DEGs, where Ndown = total # of actual downregulated, BuOE-induced DEGs in the brain region. The randomly selected DEGs were then compared with the actual spaceflight-induced DEGs (GC-SAL vs. FLT-SAL) to determine how many changed in opposite directions. This shuffling procedure was repeated 1000 times for each brain region.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following supporting information can be downloaded at: .",
+    "Data Availability Statement",
+    "The data presented in this study are openly available in NCBI GEO, accession number GSE239336. Custom scripts used for data analysis in this study are available on the github repository (, accessed on 21 July 2023)."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, X.M.; formal analysis, I.K., S.A. and S.J.; investigation, S.S. and J.H.; methodology, X.M.; resources, J.C.; writing—original draft, I.K. and X.M.; writing—review and editing, I.K., S.A., S.S., J.H., S.J., M.P., J.C. and X.M. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Animal experiments were approved by the National Aeronautics and Space Administration (NASA) Animal Care and Use Committee (IACUC) on 14 October 2021 (Protocol Number: RR-18), Roskamp Institute IACUC on 7 October 2021 (Protocol Number RR-18), and Loma Linda University Health IACUC on 8 February 2022 (Protocol Number: 8170051).",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Immune system dysregulation following short- vs long-duration spaceflight",
+    "Perceptual-motor performance and associated kinematics in space",
+    "Cognitive performance during prismatic displacement as a partial analogue of “space fog”",
+    "Effects of alpha-lipoic acid on associative and spatial memory of sham-irradiated and 56Fe-irradiated C57BL/6J male mice",
+    "Early effects of whole-body (56)Fe irradiation on hippocampal function in C57BL/6J mice",
+    "Persistent nature of alterations in cognition and neuronal circuit excitability after exposure to simulated cosmic radiation in mice",
+    "Space Radiation-Induced Alterations in the Hippocampal Ubiquitin-Proteome System",
+    "What happens to your brain on the way to Mars",
+    "Evaluation of gene, protein and neurotrophin expression in the brain of mice exposed to space environment for 91 days",
+    "Effect of Simulated Microgravity on Human Brain Gray Matter and White Matter--Evidence from MRI",
+    "Proteomic Analysis of Mouse Brain Subjected to Spaceflight",
+    "Contribution of electrophysiological studies to cerebellar physiology",
+    "Effects of a spaceflight analog environment on brain connectivity and behavior",
+    "Cortical thickness of primary motor and vestibular brain regions predicts recovery from fall and balance directly after spaceflight",
+    "Altered regional homogeneity with short-term simulated microgravity and its relationship with changed performance in mental transformation",
+    "Combined effects of antiorthostatic suspension and ionizing radiation on the behaviour and neurotransmitters changes in different brain structures of rats",
+    "The effects of irradiation by C-12 carbon ions on monoamine exchange in several rat brain structures",
+    "Cell type-specific transcriptional programs in mouse prefrontal cortex during adolescence and addiction",
+    "Prefrontal Physiomarkers of Anxiety and Depression in Parkinson’s Disease",
+    "Hippocampus in health and disease: An overview",
+    "Medial prefrontal cortex and hippocampus in mice differently affected by simulate microgravity and social isolation associated with the alternation of emotional and cognitive functions",
+    "Proteomic analysis of mice hippocampus in simulated microgravity environment",
+    "Effect of Prolonged Simulated Microgravity on Metabolic Proteins in Rat Hippocampus: Steps toward Safe Space Travel",
+    "Late Effects of (16)O-Particle Radiation on Female Social and Cognitive Behavior and Hippocampal Physiology",
+    "The dentate gyrus in Alzheimer’s disease",
+    "Space flight and oxidative stress",
+    "Superoxide dismutase mimics: Chemistry, pharmacology, and therapeutic potential",
+    "Radioprotection of the brain white matter by Mn(III) n-Butoxyethylpyridylporphyrin-based superoxide dismutase mimic MnTnBuOE-2-PyP5+",
+    "Evidence of Spaceflight-Induced Adverse Effects on Photoreceptors and Retinal Function in the Mouse Eye",
+    "An introduction to spatial transcriptomics for biomedical research",
+    "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+    "GeoMx RNA Assay: High Multiplex, Digital, Spatial Analysis of RNA in FFPE Tissue",
+    "Functions and dysfunctions of adult hippocampal neurogenesis",
+    "Targeting hippocampal neurogenesis to protect astronauts’ cognition and mood from decline due to space radiation effects",
+    "Cosmic ray hit frequencies in critical sites in the central nervous system",
+    "Adult Neurogenesis in the Hippocampus: From Stem Cells to Behavior",
+    "Adult Mammalian Neural Stem Cells and Neurogenesis: Five Decades Later",
+    "Reset of hippocampal-prefrontal circuitry facilitates learning",
+    "Space-like (56)Fe irradiation manifests mild, early sex-specific behavioral and neuropathological changes in wildtype and Alzheimer’s-like transgenic mice",
+    "28Silicon radiation-induced enhancement of synaptic plasticity in the hippocampus of naive and cognitively tested mice",
+    "VEGF in the nervous system",
+    "Calcium and oxidative stress: From cell signaling to cell death",
+    "Forkhead Homeobox Type O Transcription Factors in the Responses to Oxidative Stress",
+    "Linking Oxidative Stress and DNA Damage to Changes in the Expression of Extracellular Matrix Components",
+    "Shifts in metabolism and its regulation under the effect of spaceflight factors",
+    "Spaceflight Activates Lipotoxic Pathways in Mouse Liver",
+    "Nrf2 plays a critical role in the metabolic response during and after spaceflight",
+    "Longitudinal metabolomic profiles reveal sex-specific adjustments to long-duration spaceflight and return to Earth",
+    "Spaceflight influences gene expression, photoreceptor integrity, and oxidative stress-related damage in the murine retina",
+    "The development of lighting countermeasures for sleep disruption and circadian misalignment during spaceflight",
+    "The alteration of human sleep and circadian rhythms during spaceflight",
+    "Multi-system responses to altered gravity and spaceflight: Insights from Drosophila melanogaster",
+    "Circadian rhythms, sleep, and performance in space",
+    "Circadian misalignment affects sleep and medication use before and during spaceflight",
+    "Effects of dynamic lighting on circadian phase, self-reported sleep and performance during a 45-day space analog mission with chronic variable sleep deficiency",
+    "Anthropogenic Zinc Exposure Increases Mortality and Antioxidant Gene Expression in Monarch Butterflies with Low Access to Dietary Macronutrients",
+    "Nonclinical Safety and Toxicokinetics of MnTnBuOE-2-PyP5+ (BMX-001)",
+    "SOD therapeutics: Latest insights into their structure-activity relationships and impact on the cellular redox-based signaling pathways",
+    "Impact of TREM2 risk variants on brain region-specific immune activation and plaque microenvironment in Alzheimer’s disease patient brain samples",
+    "Multiplex digital spatial profiling of proteins and RNA in fixed tissue",
+    "High-Plex Spatially Resolved RNA and Protein Detection Using Digital Spatial Profiling: A Technology Designed for Immuno-oncology Biomarker Discovery and Translational Research",
+    "DisGeNET: A comprehensive platform integrating information on human disease-associated genes and variants",
+    "Enrichr: Interactive and collaborative HTML5 gene list enrichment analysis tool",
+    "Enrichr: A comprehensive gene set enrichment analysis web server 2016 update",
+    "KEGG: Kyoto encyclopedia of genes and genomes",
+    "Analysis of Variance; Designed Experiments",
+    "The positive false discovery rate: A Bayesian interpretation and the q-value"
+  ],
+  "FIG": [
+    "DSP of the mouse brain under spaceflight and grounded control conditions. (A), A representative image (FLT_SAL_2|005, 006, 007, and 008) of the brain regions profiled by DSP in this study. (B) Principal components analysis of the SAL transcriptomic data from the indicated brain regions. Filled circles represent the GC data, while empty circles represent the FLT data.",
+    "Differentially expressed genes due to spaceflight conditions. (A–D), Volcano plots summarizing the differential gene expression analysis of the indicated region, comparing FLT-SAL versus GC-SAL. The number of DEGs is indicated for each brain region. Gene symbols are shown for the top 10 DEGs by the magnitude of the log2 fold change (FC). (E), Heatmap of differential expression (DE) using log2 FC values of the FLT-SAL versus GC-SAL DEGs from the indicated regions, along with normalized gene expression values of the indicated samples and regions. Genes are ordered by hierarchical clustering of the log2 FC values.",
+    "Top spaceflight DEGs. (A–D), Barplots showing the normalized expression values of the top 5 DEGs (FLT-SAL versus GC-SAL) by magnitude of log2 fold change.",
+    "Pathway analysis. Bar plots showing the p-value for the 7 most statistically significant pathways containing FLT-SAL versus GC-SAL DEGs in (A): CA, (B): DG, (C): FCT, (D): CT.",
+    "BuOE attenuates spaceflight-induced gene expression changes. (A), Principal components analysis of the indicated regions and treatment conditions. Each gene was averaged across replicates to obtain the PCA. Individual replicates are shown in the PCA in Supplementary File S1: Figure S3A. (B–E), Barplots comparing the number of spaceflight-induced DEGs (GC-SAL vs. FLT-SAL) that change in the opposite versus the same direction (dir) as BuOE-induced DEGs (FLT-SAL vs. FLT-BuOE). p-values were calculated by Fisher’s Exact test. *** p < 10−5; **** p < 10−10.",
+    "BuOE attenuation of spaceflight-induced gene expression changes of genes in oxidative stress–responsive pathways. (A–D), log2 fold change (FC) values of genes from the indicated comparisons, regions, and pathways. The top 20 genes by magnitude of log2 FC from either of the two comparisons are shown. Genes are ordered by hierarchical clustering. GC vs. FLT (SAL) = GC-SAL versus FLT-SAL; SAL vs. BuOE (FLT) = FLT-SAL versus FLT-BuOE."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Immune system dysregulation following short- vs long-duration spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "B.E. Crucian",
+          "nombres": "B.E.",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "R.P. Stowe",
+          "nombres": "R.P.",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "D.L. Pierson",
+          "nombres": "D.L.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "C.F. Sams",
+          "nombres": "C.F.",
+          "apellidos": "Sams"
+        }
+      ],
+      "pmid": "18785351",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "2008",
+      "volumen": "79",
+      "fpage": "835",
+      "lpage": "843"
+    },
+    {
+      "titulo": "Perceptual-motor performance and associated kinematics in space",
+      "autores": [
+        {
+          "nombre_completo": "B. Fowler",
+          "nombres": "B.",
+          "apellidos": "Fowler"
+        },
+        {
+          "nombre_completo": "S. Meehan",
+          "nombres": "S.",
+          "apellidos": "Meehan"
+        },
+        {
+          "nombre_completo": "A. Singhal",
+          "nombres": "A.",
+          "apellidos": "Singhal"
+        }
+      ],
+      "pmid": "19292011",
+      "fuente": "Hum. Factors",
+      "anio": "2008",
+      "volumen": "50",
+      "fpage": "879",
+      "lpage": "892"
+    },
+    {
+      "titulo": "Cognitive performance during prismatic displacement as a partial analogue of “space fog”",
+      "autores": [
+        {
+          "nombre_completo": "R.B. Welch",
+          "nombres": "R.B.",
+          "apellidos": "Welch"
+        },
+        {
+          "nombre_completo": "M. Hoover",
+          "nombres": "M.",
+          "apellidos": "Hoover"
+        },
+        {
+          "nombre_completo": "E.F. Southward",
+          "nombres": "E.F.",
+          "apellidos": "Southward"
+        }
+      ],
+      "pmid": "19750873",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "2009",
+      "volumen": "80",
+      "fpage": "771",
+      "lpage": "780"
+    },
+    {
+      "titulo": "Effects of alpha-lipoic acid on associative and spatial memory of sham-irradiated and 56Fe-irradiated C57BL/6J male mice",
+      "autores": [
+        {
+          "nombre_completo": "L.E. Villasana",
+          "nombres": "L.E.",
+          "apellidos": "Villasana"
+        },
+        {
+          "nombre_completo": "R.A. Rosenthal",
+          "nombres": "R.A.",
+          "apellidos": "Rosenthal"
+        },
+        {
+          "nombre_completo": "S.R. Doctrow",
+          "nombres": "S.R.",
+          "apellidos": "Doctrow"
+        },
+        {
+          "nombre_completo": "T. Pfankuch",
+          "nombres": "T.",
+          "apellidos": "Pfankuch"
+        },
+        {
+          "nombre_completo": "D.G. Zuloaga",
+          "nombres": "D.G.",
+          "apellidos": "Zuloaga"
+        },
+        {
+          "nombre_completo": "A.M. Garfinkel",
+          "nombres": "A.M.",
+          "apellidos": "Garfinkel"
+        },
+        {
+          "nombre_completo": "J. Raber",
+          "nombres": "J.",
+          "apellidos": "Raber"
+        }
+      ],
+      "pmid": "23051895",
+      "fuente": "Pharmacol. Biochem. Behav.",
+      "anio": "2013",
+      "volumen": "103",
+      "fpage": "487",
+      "lpage": "493"
+    },
+    {
+      "titulo": "Early effects of whole-body (56)Fe irradiation on hippocampal function in C57BL/6J mice",
+      "autores": [
+        {
+          "nombre_completo": "G.E. Haley",
+          "nombres": "G.E.",
+          "apellidos": "Haley"
+        },
+        {
+          "nombre_completo": "L. Yeiser",
+          "nombres": "L.",
+          "apellidos": "Yeiser"
+        },
+        {
+          "nombre_completo": "R.H. Olsen",
+          "nombres": "R.H.",
+          "apellidos": "Olsen"
+        },
+        {
+          "nombre_completo": "M.J. Davis",
+          "nombres": "M.J.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "L.A. Johnson",
+          "nombres": "L.A.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "J. Raber",
+          "nombres": "J.",
+          "apellidos": "Raber"
+        }
+      ],
+      "pmid": "23510274",
+      "fuente": "Radiat. Res.",
+      "anio": "2013",
+      "volumen": "179",
+      "fpage": "590",
+      "lpage": "596"
+    },
+    {
+      "titulo": "Persistent nature of alterations in cognition and neuronal circuit excitability after exposure to simulated cosmic radiation in mice",
+      "autores": [
+        {
+          "nombre_completo": "V.K. Parihar",
+          "nombres": "V.K.",
+          "apellidos": "Parihar"
+        },
+        {
+          "nombre_completo": "M. Maroso",
+          "nombres": "M.",
+          "apellidos": "Maroso"
+        },
+        {
+          "nombre_completo": "A. Syage",
+          "nombres": "A.",
+          "apellidos": "Syage"
+        },
+        {
+          "nombre_completo": "B.D. Allen",
+          "nombres": "B.D.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "M.C. Angulo",
+          "nombres": "M.C.",
+          "apellidos": "Angulo"
+        },
+        {
+          "nombre_completo": "I. Soltesz",
+          "nombres": "I.",
+          "apellidos": "Soltesz"
+        },
+        {
+          "nombre_completo": "C.L. Limoli",
+          "nombres": "C.L.",
+          "apellidos": "Limoli"
+        }
+      ],
+      "pmid": "29540322",
+      "fuente": "Exp. Neurol.",
+      "anio": "2018",
+      "volumen": "305",
+      "fpage": "44",
+      "lpage": "55"
+    },
+    {
+      "titulo": "Space Radiation-Induced Alterations in the Hippocampal Ubiquitin-Proteome System",
+      "autores": [
+        {
+          "nombre_completo": "A. Tidmore",
+          "nombres": "A.",
+          "apellidos": "Tidmore"
+        },
+        {
+          "nombre_completo": "S.M. Dutta",
+          "nombres": "S.M.",
+          "apellidos": "Dutta"
+        },
+        {
+          "nombre_completo": "A.S. Fesshaye",
+          "nombres": "A.S.",
+          "apellidos": "Fesshaye"
+        },
+        {
+          "nombre_completo": "W.K. Russell",
+          "nombres": "W.K.",
+          "apellidos": "Russell"
+        },
+        {
+          "nombre_completo": "V.D. Duncan",
+          "nombres": "V.D.",
+          "apellidos": "Duncan"
+        },
+        {
+          "nombre_completo": "R.A. Britten",
+          "nombres": "R.A.",
+          "apellidos": "Britten"
+        }
+      ],
+      "pmid": "34299332",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "What happens to your brain on the way to Mars",
+      "autores": [
+        {
+          "nombre_completo": "V.K. Parihar",
+          "nombres": "V.K.",
+          "apellidos": "Parihar"
+        },
+        {
+          "nombre_completo": "B. Allen",
+          "nombres": "B.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "K.K. Tran",
+          "nombres": "K.K.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "T.G. Macaraeg",
+          "nombres": "T.G.",
+          "apellidos": "Macaraeg"
+        },
+        {
+          "nombre_completo": "E.M. Chu",
+          "nombres": "E.M.",
+          "apellidos": "Chu"
+        },
+        {
+          "nombre_completo": "S.F. Kwok",
+          "nombres": "S.F.",
+          "apellidos": "Kwok"
+        },
+        {
+          "nombre_completo": "N.N. Chmielewski",
+          "nombres": "N.N.",
+          "apellidos": "Chmielewski"
+        },
+        {
+          "nombre_completo": "B.M. Craver",
+          "nombres": "B.M.",
+          "apellidos": "Craver"
+        },
+        {
+          "nombre_completo": "J.E. Baulch",
+          "nombres": "J.E.",
+          "apellidos": "Baulch"
+        },
+        {
+          "nombre_completo": "M.M. Acharya",
+          "nombres": "M.M.",
+          "apellidos": "Acharya"
+        }
+      ],
+      "pmid": "26180843",
+      "fuente": "Sci. Adv.",
+      "anio": "2015",
+      "volumen": "1",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Evaluation of gene, protein and neurotrophin expression in the brain of mice exposed to space environment for 91 days",
+      "autores": [
+        {
+          "nombre_completo": "D. Santucci",
+          "nombres": "D.",
+          "apellidos": "Santucci"
+        },
+        {
+          "nombre_completo": "F. Kawano",
+          "nombres": "F.",
+          "apellidos": "Kawano"
+        },
+        {
+          "nombre_completo": "T. Ohira",
+          "nombres": "T.",
+          "apellidos": "Ohira"
+        },
+        {
+          "nombre_completo": "M. Terada",
+          "nombres": "M.",
+          "apellidos": "Terada"
+        },
+        {
+          "nombre_completo": "N. Nakai",
+          "nombres": "N.",
+          "apellidos": "Nakai"
+        },
+        {
+          "nombre_completo": "N. Francia",
+          "nombres": "N.",
+          "apellidos": "Francia"
+        },
+        {
+          "nombre_completo": "E. Alleva",
+          "nombres": "E.",
+          "apellidos": "Alleva"
+        },
+        {
+          "nombre_completo": "L. Aloe",
+          "nombres": "L.",
+          "apellidos": "Aloe"
+        },
+        {
+          "nombre_completo": "T. Ochiai",
+          "nombres": "T.",
+          "apellidos": "Ochiai"
+        },
+        {
+          "nombre_completo": "R. Cancedda",
+          "nombres": "R.",
+          "apellidos": "Cancedda"
+        }
+      ],
+      "pmid": "22808101",
+      "fuente": "PLoS ONE",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effect of Simulated Microgravity on Human Brain Gray Matter and White Matter--Evidence from MRI",
+      "autores": [
+        {
+          "nombre_completo": "K. Li",
+          "nombres": "K.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "X. Guo",
+          "nombres": "X.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "Z. Jin",
+          "nombres": "Z.",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "X. Ouyang",
+          "nombres": "X.",
+          "apellidos": "Ouyang"
+        },
+        {
+          "nombre_completo": "Y. Zeng",
+          "nombres": "Y.",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "J. Feng",
+          "nombres": "J.",
+          "apellidos": "Feng"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "L. Yao",
+          "nombres": "L.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "L. Ma",
+          "nombres": "L.",
+          "apellidos": "Ma"
+        }
+      ],
+      "pmid": "26270525",
+      "fuente": "PLoS ONE",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Proteomic Analysis of Mouse Brain Subjected to Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "L.B. Sandberg",
+          "nombres": "L.B.",
+          "apellidos": "Sandberg"
+        },
+        {
+          "nombre_completo": "D.S. Gridley",
+          "nombres": "D.S.",
+          "apellidos": "Gridley"
+        },
+        {
+          "nombre_completo": "E.C. Herrmann",
+          "nombres": "E.C.",
+          "apellidos": "Herrmann"
+        },
+        {
+          "nombre_completo": "G. Zhang",
+          "nombres": "G.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "R. Raghavan",
+          "nombres": "R.",
+          "apellidos": "Raghavan"
+        },
+        {
+          "nombre_completo": "R.A. Zubarev",
+          "nombres": "R.A.",
+          "apellidos": "Zubarev"
+        },
+        {
+          "nombre_completo": "B. Zhang",
+          "nombres": "B.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "L.S. Stodieck",
+          "nombres": "L.S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "V.L. Ferguson",
+          "nombres": "V.L.",
+          "apellidos": "Ferguson"
+        }
+      ],
+      "pmid": "30577490",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2018",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Contribution of electrophysiological studies to cerebellar physiology",
+      "autores": [
+        {
+          "nombre_completo": "R.S. Dow",
+          "nombres": "R.S.",
+          "apellidos": "Dow"
+        }
+      ],
+      "pmid": "3053783",
+      "fuente": "J. Clin. Neurophysiol.",
+      "anio": "1988",
+      "volumen": "5",
+      "fpage": "307",
+      "lpage": "323"
+    },
+    {
+      "titulo": "Effects of a spaceflight analog environment on brain connectivity and behavior",
+      "autores": [
+        {
+          "nombre_completo": "K. Cassady",
+          "nombres": "K.",
+          "apellidos": "Cassady"
+        },
+        {
+          "nombre_completo": "V. Koppelmans",
+          "nombres": "V.",
+          "apellidos": "Koppelmans"
+        },
+        {
+          "nombre_completo": "P. Reuter-Lorenz",
+          "nombres": "P.",
+          "apellidos": "Reuter-Lorenz"
+        },
+        {
+          "nombre_completo": "Y. De Dios",
+          "nombres": "Y.",
+          "apellidos": "De Dios"
+        },
+        {
+          "nombre_completo": "N. Gadd",
+          "nombres": "N.",
+          "apellidos": "Gadd"
+        },
+        {
+          "nombre_completo": "S. Wood",
+          "nombres": "S.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "R.R. Castenada",
+          "nombres": "R.R.",
+          "apellidos": "Castenada"
+        },
+        {
+          "nombre_completo": "I. Kofman",
+          "nombres": "I.",
+          "apellidos": "Kofman"
+        },
+        {
+          "nombre_completo": "J. Bloomberg",
+          "nombres": "J.",
+          "apellidos": "Bloomberg"
+        },
+        {
+          "nombre_completo": "A. Mulavara",
+          "nombres": "A.",
+          "apellidos": "Mulavara"
+        }
+      ],
+      "pmid": "27423254",
+      "fuente": "Neuroimage",
+      "anio": "2016",
+      "volumen": "141",
+      "fpage": "18",
+      "lpage": "30"
+    },
+    {
+      "titulo": "Cortical thickness of primary motor and vestibular brain regions predicts recovery from fall and balance directly after spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "V. Koppelmans",
+          "nombres": "V.",
+          "apellidos": "Koppelmans"
+        },
+        {
+          "nombre_completo": "A.P. Mulavara",
+          "nombres": "A.P.",
+          "apellidos": "Mulavara"
+        },
+        {
+          "nombre_completo": "R.D. Seidler",
+          "nombres": "R.D.",
+          "apellidos": "Seidler"
+        },
+        {
+          "nombre_completo": "Y.E. De Dios",
+          "nombres": "Y.E.",
+          "apellidos": "De Dios"
+        },
+        {
+          "nombre_completo": "J.J. Bloomberg",
+          "nombres": "J.J.",
+          "apellidos": "Bloomberg"
+        },
+        {
+          "nombre_completo": "S.J. Wood",
+          "nombres": "S.J.",
+          "apellidos": "Wood"
+        }
+      ],
+      "pmid": "35469104",
+      "fuente": "Brain Struct. Funct.",
+      "anio": "2022",
+      "volumen": "227",
+      "fpage": "2073",
+      "lpage": "2086"
+    },
+    {
+      "titulo": "Altered regional homogeneity with short-term simulated microgravity and its relationship with changed performance in mental transformation",
+      "autores": [
+        {
+          "nombre_completo": "Y. Liao",
+          "nombres": "Y.",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "D. Miao",
+          "nombres": "D.",
+          "apellidos": "Miao"
+        },
+        {
+          "nombre_completo": "Y. Huan",
+          "nombres": "Y.",
+          "apellidos": "Huan"
+        },
+        {
+          "nombre_completo": "H. Yin",
+          "nombres": "H.",
+          "apellidos": "Yin"
+        },
+        {
+          "nombre_completo": "Y. Xi",
+          "nombres": "Y.",
+          "apellidos": "Xi"
+        },
+        {
+          "nombre_completo": "X. Liu",
+          "nombres": "X.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "23755162",
+      "fuente": "PLoS ONE",
+      "anio": "2014",
+      "volumen": "8",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Combined effects of antiorthostatic suspension and ionizing radiation on the behaviour and neurotransmitters changes in different brain structures of rats",
+      "autores": [
+        {
+          "nombre_completo": "V.S. Kokhan",
+          "nombres": "V.S.",
+          "apellidos": "Kokhan"
+        },
+        {
+          "nombre_completo": "M.I. Matveeva",
+          "nombres": "M.I.",
+          "apellidos": "Matveeva"
+        },
+        {
+          "nombre_completo": "A.S. Bazyan",
+          "nombres": "A.S.",
+          "apellidos": "Bazyan"
+        },
+        {
+          "nombre_completo": "V.S. Kudrin",
+          "nombres": "V.S.",
+          "apellidos": "Kudrin"
+        },
+        {
+          "nombre_completo": "A. Mukhametov",
+          "nombres": "A.",
+          "apellidos": "Mukhametov"
+        },
+        {
+          "nombre_completo": "A.S. Shtemberg",
+          "nombres": "A.S.",
+          "apellidos": "Shtemberg"
+        }
+      ],
+      "pmid": "27776994",
+      "fuente": "Behav. Brain Res.",
+      "anio": "2017",
+      "volumen": "320",
+      "fpage": "473",
+      "lpage": "483"
+    },
+    {
+      "titulo": "The effects of irradiation by C-12 carbon ions on monoamine exchange in several rat brain structures",
+      "autores": [
+        {
+          "nombre_completo": "M.I. Matveeva",
+          "nombres": "M.I.",
+          "apellidos": "Matveeva"
+        },
+        {
+          "nombre_completo": "A.S. Shtemberg",
+          "nombres": "A.S.",
+          "apellidos": "Shtemberg"
+        },
+        {
+          "nombre_completo": "G.N. Timoshenko",
+          "nombres": "G.N.",
+          "apellidos": "Timoshenko"
+        },
+        {
+          "nombre_completo": "E.A. Krasavin",
+          "nombres": "E.A.",
+          "apellidos": "Krasavin"
+        },
+        {
+          "nombre_completo": "V.B. Narkevich",
+          "nombres": "V.B.",
+          "apellidos": "Narkevich"
+        },
+        {
+          "nombre_completo": "P.M. Klodt",
+          "nombres": "P.M.",
+          "apellidos": "Klodt"
+        },
+        {
+          "nombre_completo": "V.S. Kudrin",
+          "nombres": "V.S.",
+          "apellidos": "Kudrin"
+        },
+        {
+          "nombre_completo": "A.S. Bazyan",
+          "nombres": "A.S.",
+          "apellidos": "Bazyan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Neurochem. J.",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "303",
+      "lpage": "307"
+    },
+    {
+      "titulo": "Cell type-specific transcriptional programs in mouse prefrontal cortex during adolescence and addiction",
+      "autores": [
+        {
+          "nombre_completo": "A. Bhattacherjee",
+          "nombres": "A.",
+          "apellidos": "Bhattacherjee"
+        },
+        {
+          "nombre_completo": "M.N. Djekidel",
+          "nombres": "M.N.",
+          "apellidos": "Djekidel"
+        },
+        {
+          "nombre_completo": "R. Chen",
+          "nombres": "R.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "W. Chen",
+          "nombres": "W.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L.M. Tuesta",
+          "nombres": "L.M.",
+          "apellidos": "Tuesta"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "31519873",
+      "fuente": "Nat. Commun.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "4169",
+      "lpage": ""
+    },
+    {
+      "titulo": "Prefrontal Physiomarkers of Anxiety and Depression in Parkinson’s Disease",
+      "autores": [
+        {
+          "nombre_completo": "C. de Hemptinne",
+          "nombres": "C.",
+          "apellidos": "de Hemptinne"
+        },
+        {
+          "nombre_completo": "W. Chen",
+          "nombres": "W.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "C.A. Racine",
+          "nombres": "C.A.",
+          "apellidos": "Racine"
+        },
+        {
+          "nombre_completo": "A.L. Seritan",
+          "nombres": "A.L.",
+          "apellidos": "Seritan"
+        },
+        {
+          "nombre_completo": "A.M. Miller",
+          "nombres": "A.M.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "M.S. Yaroshinsky",
+          "nombres": "M.S.",
+          "apellidos": "Yaroshinsky"
+        },
+        {
+          "nombre_completo": "S.S. Wang",
+          "nombres": "S.S.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "R. Gilron",
+          "nombres": "R.",
+          "apellidos": "Gilron"
+        },
+        {
+          "nombre_completo": "S. Little",
+          "nombres": "S.",
+          "apellidos": "Little"
+        },
+        {
+          "nombre_completo": "I. Bledsoe",
+          "nombres": "I.",
+          "apellidos": "Bledsoe"
+        }
+      ],
+      "pmid": "34744613",
+      "fuente": "Front. Neurosci.",
+      "anio": "2021",
+      "volumen": "15",
+      "fpage": "748165",
+      "lpage": ""
+    },
+    {
+      "titulo": "Hippocampus in health and disease: An overview",
+      "autores": [
+        {
+          "nombre_completo": "K.S. Anand",
+          "nombres": "K.S.",
+          "apellidos": "Anand"
+        },
+        {
+          "nombre_completo": "V. Dhikav",
+          "nombres": "V.",
+          "apellidos": "Dhikav"
+        }
+      ],
+      "pmid": "23349586",
+      "fuente": "Ann. Indian Acad. Neurol.",
+      "anio": "2012",
+      "volumen": "15",
+      "fpage": "239",
+      "lpage": "246"
+    },
+    {
+      "titulo": "Medial prefrontal cortex and hippocampus in mice differently affected by simulate microgravity and social isolation associated with the alternation of emotional and cognitive functions",
+      "autores": [
+        {
+          "nombre_completo": "R. Liang",
+          "nombres": "R.",
+          "apellidos": "Liang"
+        },
+        {
+          "nombre_completo": "L. Wang",
+          "nombres": "L.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. Sun",
+          "nombres": "S.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "C. Zheng",
+          "nombres": "C.",
+          "apellidos": "Zheng"
+        },
+        {
+          "nombre_completo": "J. Yang",
+          "nombres": "J.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "D. Ming",
+          "nombres": "D.",
+          "apellidos": "Ming"
+        }
+      ],
+      "pmid": "35491026",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2022",
+      "volumen": "33",
+      "fpage": "21",
+      "lpage": "32"
+    },
+    {
+      "titulo": "Proteomic analysis of mice hippocampus in simulated microgravity environment",
+      "autores": [
+        {
+          "nombre_completo": "P. Sarkar",
+          "nombres": "P.",
+          "apellidos": "Sarkar"
+        },
+        {
+          "nombre_completo": "S. Sarkar",
+          "nombres": "S.",
+          "apellidos": "Sarkar"
+        },
+        {
+          "nombre_completo": "V. Ramesh",
+          "nombres": "V.",
+          "apellidos": "Ramesh"
+        },
+        {
+          "nombre_completo": "B.E. Hayes",
+          "nombres": "B.E.",
+          "apellidos": "Hayes"
+        },
+        {
+          "nombre_completo": "R.L. Thomas",
+          "nombres": "R.L.",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "B.L. Wilson",
+          "nombres": "B.L.",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "H. Kim",
+          "nombres": "H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S. Barnes",
+          "nombres": "S.",
+          "apellidos": "Barnes"
+        },
+        {
+          "nombre_completo": "A. Kulkarni",
+          "nombres": "A.",
+          "apellidos": "Kulkarni"
+        },
+        {
+          "nombre_completo": "N. Pellis",
+          "nombres": "N.",
+          "apellidos": "Pellis"
+        }
+      ],
+      "pmid": "16512669",
+      "fuente": "J. Proteome Res.",
+      "anio": "2006",
+      "volumen": "5",
+      "fpage": "548",
+      "lpage": "553"
+    },
+    {
+      "titulo": "Effect of Prolonged Simulated Microgravity on Metabolic Proteins in Rat Hippocampus: Steps toward Safe Space Travel",
+      "autores": [
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "I. Javed",
+          "nombres": "I.",
+          "apellidos": "Javed"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "S. Lu",
+          "nombres": "S.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "G. Peng",
+          "nombres": "G.",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H. Qing",
+          "nombres": "H.",
+          "apellidos": "Qing"
+        },
+        {
+          "nombre_completo": "Y. Deng",
+          "nombres": "Y.",
+          "apellidos": "Deng"
+        }
+      ],
+      "pmid": "26523826",
+      "fuente": "J. Proteome Res.",
+      "anio": "2016",
+      "volumen": "15",
+      "fpage": "29",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Late Effects of (16)O-Particle Radiation on Female Social and Cognitive Behavior and Hippocampal Physiology",
+      "autores": [
+        {
+          "nombre_completo": "F. Kiffer",
+          "nombres": "F.",
+          "apellidos": "Kiffer"
+        },
+        {
+          "nombre_completo": "T. Alexander",
+          "nombres": "T.",
+          "apellidos": "Alexander"
+        },
+        {
+          "nombre_completo": "J.E. Anderson",
+          "nombres": "J.E.",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "T. Groves",
+          "nombres": "T.",
+          "apellidos": "Groves"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "V. Sridharan",
+          "nombres": "V.",
+          "apellidos": "Sridharan"
+        },
+        {
+          "nombre_completo": "M. Boerma",
+          "nombres": "M.",
+          "apellidos": "Boerma"
+        },
+        {
+          "nombre_completo": "A.R. Allen",
+          "nombres": "A.R.",
+          "apellidos": "Allen"
+        }
+      ],
+      "pmid": "30664396",
+      "fuente": "Radiat. Res.",
+      "anio": "2019",
+      "volumen": "191",
+      "fpage": "278",
+      "lpage": "294"
+    },
+    {
+      "titulo": "The dentate gyrus in Alzheimer’s disease",
+      "autores": [
+        {
+          "nombre_completo": "T.G. Ohm",
+          "nombres": "T.G.",
+          "apellidos": "Ohm"
+        }
+      ],
+      "pmid": "17765747",
+      "fuente": "Prog. Brain Res.",
+      "anio": "2007",
+      "volumen": "163",
+      "fpage": "723",
+      "lpage": "740"
+    },
+    {
+      "titulo": "Space flight and oxidative stress",
+      "autores": [
+        {
+          "nombre_completo": "T.P. Stein",
+          "nombres": "T.P.",
+          "apellidos": "Stein"
+        }
+      ],
+      "pmid": "12361781",
+      "fuente": "Nutrition",
+      "anio": "2002",
+      "volumen": "18",
+      "fpage": "867",
+      "lpage": "871"
+    },
+    {
+      "titulo": "Superoxide dismutase mimics: Chemistry, pharmacology, and therapeutic potential",
+      "autores": [
+        {
+          "nombre_completo": "I. Batinic-Haberle",
+          "nombres": "I.",
+          "apellidos": "Batinic-Haberle"
+        },
+        {
+          "nombre_completo": "J.S. Reboucas",
+          "nombres": "J.S.",
+          "apellidos": "Reboucas"
+        },
+        {
+          "nombre_completo": "I. Spasojevic",
+          "nombres": "I.",
+          "apellidos": "Spasojevic"
+        }
+      ],
+      "pmid": "20095865",
+      "fuente": "Antioxid. Redox Signal.",
+      "anio": "2010",
+      "volumen": "13",
+      "fpage": "877",
+      "lpage": "918"
+    },
+    {
+      "titulo": "Radioprotection of the brain white matter by Mn(III) n-Butoxyethylpyridylporphyrin-based superoxide dismutase mimic MnTnBuOE-2-PyP5+",
+      "autores": [
+        {
+          "nombre_completo": "D.H. Weitzel",
+          "nombres": "D.H.",
+          "apellidos": "Weitzel"
+        },
+        {
+          "nombre_completo": "A. Tovmasyan",
+          "nombres": "A.",
+          "apellidos": "Tovmasyan"
+        },
+        {
+          "nombre_completo": "K.A. Ashcraft",
+          "nombres": "K.A.",
+          "apellidos": "Ashcraft"
+        },
+        {
+          "nombre_completo": "Z. Rajic",
+          "nombres": "Z.",
+          "apellidos": "Rajic"
+        },
+        {
+          "nombre_completo": "T. Weitner",
+          "nombres": "T.",
+          "apellidos": "Weitner"
+        },
+        {
+          "nombre_completo": "C. Liu",
+          "nombres": "C.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "W. Li",
+          "nombres": "W.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "A.F. Buckley",
+          "nombres": "A.F.",
+          "apellidos": "Buckley"
+        },
+        {
+          "nombre_completo": "M.R. Prasad",
+          "nombres": "M.R.",
+          "apellidos": "Prasad"
+        },
+        {
+          "nombre_completo": "K.H. Young",
+          "nombres": "K.H.",
+          "apellidos": "Young"
+        }
+      ],
+      "pmid": "25319393",
+      "fuente": "Mol. Cancer Ther.",
+      "anio": "2015",
+      "volumen": "14",
+      "fpage": "70",
+      "lpage": "79"
+    },
+    {
+      "titulo": "Evidence of Spaceflight-Induced Adverse Effects on Photoreceptors and Retinal Function in the Mouse Eye",
+      "autores": [
+        {
+          "nombre_completo": "X. Mao",
+          "nombres": "X.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "S. Stanbouly",
+          "nombres": "S.",
+          "apellidos": "Stanbouly"
+        },
+        {
+          "nombre_completo": "J. Holley",
+          "nombres": "J.",
+          "apellidos": "Holley"
+        },
+        {
+          "nombre_completo": "M. Pecaut",
+          "nombres": "M.",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "J. Crapo",
+          "nombres": "J.",
+          "apellidos": "Crapo"
+        }
+      ],
+      "pmid": "37108526",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2023",
+      "volumen": "24",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "An introduction to spatial transcriptomics for biomedical research",
+      "autores": [
+        {
+          "nombre_completo": "C.G. Williams",
+          "nombres": "C.G.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "H.J. Lee",
+          "nombres": "H.J.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "T. Asatsuma",
+          "nombres": "T.",
+          "apellidos": "Asatsuma"
+        },
+        {
+          "nombre_completo": "R. Vento-Tormo",
+          "nombres": "R.",
+          "apellidos": "Vento-Tormo"
+        },
+        {
+          "nombre_completo": "A. Haque",
+          "nombres": "A.",
+          "apellidos": "Haque"
+        }
+      ],
+      "pmid": "35761361",
+      "fuente": "Genome Med.",
+      "anio": "2022",
+      "volumen": "14",
+      "fpage": "68",
+      "lpage": ""
+    },
+    {
+      "titulo": "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "P.L. Stahl",
+          "nombres": "P.L.",
+          "apellidos": "Stahl"
+        },
+        {
+          "nombre_completo": "F. Salmen",
+          "nombres": "F.",
+          "apellidos": "Salmen"
+        },
+        {
+          "nombre_completo": "S. Vickovic",
+          "nombres": "S.",
+          "apellidos": "Vickovic"
+        },
+        {
+          "nombre_completo": "A. Lundmark",
+          "nombres": "A.",
+          "apellidos": "Lundmark"
+        },
+        {
+          "nombre_completo": "J.F. Navarro",
+          "nombres": "J.F.",
+          "apellidos": "Navarro"
+        },
+        {
+          "nombre_completo": "J. Magnusson",
+          "nombres": "J.",
+          "apellidos": "Magnusson"
+        },
+        {
+          "nombre_completo": "S. Giacomello",
+          "nombres": "S.",
+          "apellidos": "Giacomello"
+        },
+        {
+          "nombre_completo": "M. Asp",
+          "nombres": "M.",
+          "apellidos": "Asp"
+        },
+        {
+          "nombre_completo": "J.O. Westholm",
+          "nombres": "J.O.",
+          "apellidos": "Westholm"
+        },
+        {
+          "nombre_completo": "M. Huss",
+          "nombres": "M.",
+          "apellidos": "Huss"
+        }
+      ],
+      "pmid": "27365449",
+      "fuente": "Science",
+      "anio": "2016",
+      "volumen": "353",
+      "fpage": "78",
+      "lpage": "82"
+    },
+    {
+      "titulo": "GeoMx RNA Assay: High Multiplex, Digital, Spatial Analysis of RNA in FFPE Tissue",
+      "autores": [
+        {
+          "nombre_completo": "D.R. Zollinger",
+          "nombres": "D.R.",
+          "apellidos": "Zollinger"
+        },
+        {
+          "nombre_completo": "S.E. Lingle",
+          "nombres": "S.E.",
+          "apellidos": "Lingle"
+        },
+        {
+          "nombre_completo": "K. Sorg",
+          "nombres": "K.",
+          "apellidos": "Sorg"
+        },
+        {
+          "nombre_completo": "J.M. Beechem",
+          "nombres": "J.M.",
+          "apellidos": "Beechem"
+        },
+        {
+          "nombre_completo": "C.R. Merritt",
+          "nombres": "C.R.",
+          "apellidos": "Merritt"
+        }
+      ],
+      "pmid": "32394392",
+      "fuente": "Methods Mol. Biol.",
+      "anio": "2020",
+      "volumen": "2148",
+      "fpage": "331",
+      "lpage": "345"
+    },
+    {
+      "titulo": "Functions and dysfunctions of adult hippocampal neurogenesis",
+      "autores": [
+        {
+          "nombre_completo": "K.M. Christian",
+          "nombres": "K.M.",
+          "apellidos": "Christian"
+        },
+        {
+          "nombre_completo": "H. Song",
+          "nombres": "H.",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "G.L. Ming",
+          "nombres": "G.L.",
+          "apellidos": "Ming"
+        }
+      ],
+      "pmid": "24905596",
+      "fuente": "Ann. Rev. Neurosci.",
+      "anio": "2014",
+      "volumen": "37",
+      "fpage": "243",
+      "lpage": "262"
+    },
+    {
+      "titulo": "Targeting hippocampal neurogenesis to protect astronauts’ cognition and mood from decline due to space radiation effects",
+      "autores": [
+        {
+          "nombre_completo": "C. McNerlin",
+          "nombres": "C.",
+          "apellidos": "McNerlin"
+        },
+        {
+          "nombre_completo": "F. Guan",
+          "nombres": "F.",
+          "apellidos": "Guan"
+        },
+        {
+          "nombre_completo": "L. Bronk",
+          "nombres": "L.",
+          "apellidos": "Bronk"
+        },
+        {
+          "nombre_completo": "K. Lei",
+          "nombres": "K.",
+          "apellidos": "Lei"
+        },
+        {
+          "nombre_completo": "D. Grosshans",
+          "nombres": "D.",
+          "apellidos": "Grosshans"
+        },
+        {
+          "nombre_completo": "D.W. Young",
+          "nombres": "D.W.",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "M.W. Gaber",
+          "nombres": "M.W.",
+          "apellidos": "Gaber"
+        },
+        {
+          "nombre_completo": "M. Maletic-Savatic",
+          "nombres": "M.",
+          "apellidos": "Maletic-Savatic"
+        }
+      ],
+      "pmid": "36336363",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2022",
+      "volumen": "35",
+      "fpage": "170",
+      "lpage": "179"
+    },
+    {
+      "titulo": "Cosmic ray hit frequencies in critical sites in the central nervous system",
+      "autores": [
+        {
+          "nombre_completo": "S.B. Curtis",
+          "nombres": "S.B.",
+          "apellidos": "Curtis"
+        },
+        {
+          "nombre_completo": "M.E. Vazquez",
+          "nombres": "M.E.",
+          "apellidos": "Vazquez"
+        },
+        {
+          "nombre_completo": "J.W. Wilson",
+          "nombres": "J.W.",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "W. Atwell",
+          "nombres": "W.",
+          "apellidos": "Atwell"
+        },
+        {
+          "nombre_completo": "M. Kim",
+          "nombres": "M.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "J. Capala",
+          "nombres": "J.",
+          "apellidos": "Capala"
+        }
+      ],
+      "pmid": "11541397",
+      "fuente": "Adv. Space Res.",
+      "anio": "1998",
+      "volumen": "22",
+      "fpage": "197",
+      "lpage": "207"
+    },
+    {
+      "titulo": "Adult Neurogenesis in the Hippocampus: From Stem Cells to Behavior",
+      "autores": [
+        {
+          "nombre_completo": "J.T. Goncalves",
+          "nombres": "J.T.",
+          "apellidos": "Goncalves"
+        },
+        {
+          "nombre_completo": "S.T. Schafer",
+          "nombres": "S.T.",
+          "apellidos": "Schafer"
+        },
+        {
+          "nombre_completo": "F.H. Gage",
+          "nombres": "F.H.",
+          "apellidos": "Gage"
+        }
+      ],
+      "pmid": "27814520",
+      "fuente": "Cell",
+      "anio": "2016",
+      "volumen": "167",
+      "fpage": "897",
+      "lpage": "914"
+    },
+    {
+      "titulo": "Adult Mammalian Neural Stem Cells and Neurogenesis: Five Decades Later",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Bond",
+          "nombres": "A.M.",
+          "apellidos": "Bond"
+        },
+        {
+          "nombre_completo": "G.L. Ming",
+          "nombres": "G.L.",
+          "apellidos": "Ming"
+        },
+        {
+          "nombre_completo": "H. Song",
+          "nombres": "H.",
+          "apellidos": "Song"
+        }
+      ],
+      "pmid": "26431181",
+      "fuente": "Cell Stem Cell",
+      "anio": "2015",
+      "volumen": "17",
+      "fpage": "385",
+      "lpage": "395"
+    },
+    {
+      "titulo": "Reset of hippocampal-prefrontal circuitry facilitates learning",
+      "autores": [
+        {
+          "nombre_completo": "A.J. Park",
+          "nombres": "A.J.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "A.Z. Harris",
+          "nombres": "A.Z.",
+          "apellidos": "Harris"
+        },
+        {
+          "nombre_completo": "K.M. Martyniuk",
+          "nombres": "K.M.",
+          "apellidos": "Martyniuk"
+        },
+        {
+          "nombre_completo": "C.Y. Chang",
+          "nombres": "C.Y.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "A.I. Abbas",
+          "nombres": "A.I.",
+          "apellidos": "Abbas"
+        },
+        {
+          "nombre_completo": "D.C. Lowes",
+          "nombres": "D.C.",
+          "apellidos": "Lowes"
+        },
+        {
+          "nombre_completo": "C. Kellendonk",
+          "nombres": "C.",
+          "apellidos": "Kellendonk"
+        },
+        {
+          "nombre_completo": "J.A. Gogos",
+          "nombres": "J.A.",
+          "apellidos": "Gogos"
+        },
+        {
+          "nombre_completo": "J.A. Gordon",
+          "nombres": "J.A.",
+          "apellidos": "Gordon"
+        }
+      ],
+      "pmid": "33627872",
+      "fuente": "Nature",
+      "anio": "2021",
+      "volumen": "591",
+      "fpage": "615",
+      "lpage": "619"
+    },
+    {
+      "titulo": "Space-like (56)Fe irradiation manifests mild, early sex-specific behavioral and neuropathological changes in wildtype and Alzheimer’s-like transgenic mice",
+      "autores": [
+        {
+          "nombre_completo": "B. Liu",
+          "nombres": "B.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "R.G. Hinshaw",
+          "nombres": "R.G.",
+          "apellidos": "Hinshaw"
+        },
+        {
+          "nombre_completo": "K.X. Le",
+          "nombres": "K.X.",
+          "apellidos": "Le"
+        },
+        {
+          "nombre_completo": "M.A. Park",
+          "nombres": "M.A.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "S. Wang",
+          "nombres": "S.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "A.P. Belanger",
+          "nombres": "A.P.",
+          "apellidos": "Belanger"
+        },
+        {
+          "nombre_completo": "S. Dubey",
+          "nombres": "S.",
+          "apellidos": "Dubey"
+        },
+        {
+          "nombre_completo": "J.L. Frost",
+          "nombres": "J.L.",
+          "apellidos": "Frost"
+        },
+        {
+          "nombre_completo": "Q. Shi",
+          "nombres": "Q.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "P. Holton",
+          "nombres": "P.",
+          "apellidos": "Holton"
+        }
+      ],
+      "pmid": "31431669",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "12118",
+      "lpage": ""
+    },
+    {
+      "titulo": "28Silicon radiation-induced enhancement of synaptic plasticity in the hippocampus of naive and cognitively tested mice",
+      "autores": [
+        {
+          "nombre_completo": "J. Raber",
+          "nombres": "J.",
+          "apellidos": "Raber"
+        },
+        {
+          "nombre_completo": "E. Rudobeck",
+          "nombres": "E.",
+          "apellidos": "Rudobeck"
+        },
+        {
+          "nombre_completo": "M. Campbell-Beachler",
+          "nombres": "M.",
+          "apellidos": "Campbell-Beachler"
+        },
+        {
+          "nombre_completo": "A.R. Allen",
+          "nombres": "A.R.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "B. Allen",
+          "nombres": "B.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "S. Rosi",
+          "nombres": "S.",
+          "apellidos": "Rosi"
+        },
+        {
+          "nombre_completo": "G.A. Nelson",
+          "nombres": "G.A.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "S. Ramachandran",
+          "nombres": "S.",
+          "apellidos": "Ramachandran"
+        },
+        {
+          "nombre_completo": "J. Turner",
+          "nombres": "J.",
+          "apellidos": "Turner"
+        },
+        {
+          "nombre_completo": "J.R. Fike",
+          "nombres": "J.R.",
+          "apellidos": "Fike"
+        }
+      ],
+      "pmid": "24673255",
+      "fuente": "Radiat. Res.",
+      "anio": "2014",
+      "volumen": "181",
+      "fpage": "362",
+      "lpage": "368"
+    },
+    {
+      "titulo": "VEGF in the nervous system",
+      "autores": [
+        {
+          "nombre_completo": "J.M. Rosenstein",
+          "nombres": "J.M.",
+          "apellidos": "Rosenstein"
+        },
+        {
+          "nombre_completo": "J.M. Krum",
+          "nombres": "J.M.",
+          "apellidos": "Krum"
+        },
+        {
+          "nombre_completo": "C. Ruhrberg",
+          "nombres": "C.",
+          "apellidos": "Ruhrberg"
+        }
+      ],
+      "pmid": "20885857",
+      "fuente": "Organogenesis",
+      "anio": "2010",
+      "volumen": "6",
+      "fpage": "107",
+      "lpage": "114"
+    },
+    {
+      "titulo": "Calcium and oxidative stress: From cell signaling to cell death",
+      "autores": [
+        {
+          "nombre_completo": "G. Ermak",
+          "nombres": "G.",
+          "apellidos": "Ermak"
+        },
+        {
+          "nombre_completo": "K.J. Davies",
+          "nombres": "K.J.",
+          "apellidos": "Davies"
+        }
+      ],
+      "pmid": "11841831",
+      "fuente": "Mol. Immunol.",
+      "anio": "2002",
+      "volumen": "38",
+      "fpage": "713",
+      "lpage": "721"
+    },
+    {
+      "titulo": "Forkhead Homeobox Type O Transcription Factors in the Responses to Oxidative Stress",
+      "autores": [
+        {
+          "nombre_completo": "P. Storz",
+          "nombres": "P.",
+          "apellidos": "Storz"
+        }
+      ],
+      "pmid": "20618067",
+      "fuente": "Antioxid. Redox Signal.",
+      "anio": "2011",
+      "volumen": "14",
+      "fpage": "593",
+      "lpage": "605"
+    },
+    {
+      "titulo": "Linking Oxidative Stress and DNA Damage to Changes in the Expression of Extracellular Matrix Components",
+      "autores": [
+        {
+          "nombre_completo": "S.G. Martins",
+          "nombres": "S.G.",
+          "apellidos": "Martins"
+        },
+        {
+          "nombre_completo": "R. Zilhao",
+          "nombres": "R.",
+          "apellidos": "Zilhao"
+        },
+        {
+          "nombre_completo": "S. Thorsteinsdottir",
+          "nombres": "S.",
+          "apellidos": "Thorsteinsdottir"
+        },
+        {
+          "nombre_completo": "A.R. Carlos",
+          "nombres": "A.R.",
+          "apellidos": "Carlos"
+        }
+      ],
+      "pmid": "34394183",
+      "fuente": "Front. Genet.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "673002",
+      "lpage": ""
+    },
+    {
+      "titulo": "Shifts in metabolism and its regulation under the effect of spaceflight factors",
+      "autores": [
+        {
+          "nombre_completo": "I.M. Larina",
+          "nombres": "I.M.",
+          "apellidos": "Larina"
+        },
+        {
+          "nombre_completo": "I.A. Nichiporuk",
+          "nombres": "I.A.",
+          "apellidos": "Nichiporuk"
+        },
+        {
+          "nombre_completo": "O.M. Veselova",
+          "nombres": "O.M.",
+          "apellidos": "Veselova"
+        },
+        {
+          "nombre_completo": "G.Y. Vasilieva",
+          "nombres": "G.Y.",
+          "apellidos": "Vasilieva"
+        },
+        {
+          "nombre_completo": "I.A. Popova",
+          "nombres": "I.A.",
+          "apellidos": "Popova"
+        }
+      ],
+      "pmid": "23700613",
+      "fuente": "Aviakosm. Ekolog. Med.",
+      "anio": "2013",
+      "volumen": "47",
+      "fpage": "21",
+      "lpage": "30"
+    },
+    {
+      "titulo": "Spaceflight Activates Lipotoxic Pathways in Mouse Liver",
+      "autores": [
+        {
+          "nombre_completo": "K.R. Jonscher",
+          "nombres": "K.R.",
+          "apellidos": "Jonscher"
+        },
+        {
+          "nombre_completo": "A. Alfonso-Garcia",
+          "nombres": "A.",
+          "apellidos": "Alfonso-Garcia"
+        },
+        {
+          "nombre_completo": "J.L. Suhalim",
+          "nombres": "J.L.",
+          "apellidos": "Suhalim"
+        },
+        {
+          "nombre_completo": "D.J. Orlicky",
+          "nombres": "D.J.",
+          "apellidos": "Orlicky"
+        },
+        {
+          "nombre_completo": "E.O. Potma",
+          "nombres": "E.O.",
+          "apellidos": "Potma"
+        },
+        {
+          "nombre_completo": "V.L. Ferguson",
+          "nombres": "V.L.",
+          "apellidos": "Ferguson"
+        },
+        {
+          "nombre_completo": "M.L. Bouxsein",
+          "nombres": "M.L.",
+          "apellidos": "Bouxsein"
+        },
+        {
+          "nombre_completo": "T.A. Bateman",
+          "nombres": "T.A.",
+          "apellidos": "Bateman"
+        },
+        {
+          "nombre_completo": "L.S. Stodieck",
+          "nombres": "L.S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "M. Levi",
+          "nombres": "M.",
+          "apellidos": "Levi"
+        }
+      ],
+      "pmid": "27097220",
+      "fuente": "PLoS ONE",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Nrf2 plays a critical role in the metabolic response during and after spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Uruno",
+          "nombres": "A.",
+          "apellidos": "Uruno"
+        },
+        {
+          "nombre_completo": "D. Saigusa",
+          "nombres": "D.",
+          "apellidos": "Saigusa"
+        },
+        {
+          "nombre_completo": "T. Suzuki",
+          "nombres": "T.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "A. Yumoto",
+          "nombres": "A.",
+          "apellidos": "Yumoto"
+        },
+        {
+          "nombre_completo": "T. Nakamura",
+          "nombres": "T.",
+          "apellidos": "Nakamura"
+        },
+        {
+          "nombre_completo": "N. Matsukawa",
+          "nombres": "N.",
+          "apellidos": "Matsukawa"
+        },
+        {
+          "nombre_completo": "T. Yamazaki",
+          "nombres": "T.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "R. Saito",
+          "nombres": "R.",
+          "apellidos": "Saito"
+        },
+        {
+          "nombre_completo": "K. Taguchi",
+          "nombres": "K.",
+          "apellidos": "Taguchi"
+        },
+        {
+          "nombre_completo": "M. Suzuki",
+          "nombres": "M.",
+          "apellidos": "Suzuki"
+        }
+      ],
+      "pmid": "34887485",
+      "fuente": "Commun. Biol.",
+      "anio": "2021",
+      "volumen": "4",
+      "fpage": "1381",
+      "lpage": ""
+    },
+    {
+      "titulo": "Longitudinal metabolomic profiles reveal sex-specific adjustments to long-duration spaceflight and return to Earth",
+      "autores": [
+        {
+          "nombre_completo": "J.E. Stroud",
+          "nombres": "J.E.",
+          "apellidos": "Stroud"
+        },
+        {
+          "nombre_completo": "M.S. Gale",
+          "nombres": "M.S.",
+          "apellidos": "Gale"
+        },
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "M. Heer",
+          "nombres": "M.",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "T. Montina",
+          "nombres": "T.",
+          "apellidos": "Montina"
+        },
+        {
+          "nombre_completo": "G.A.S. Metz",
+          "nombres": "G.A.S.",
+          "apellidos": "Metz"
+        }
+      ],
+      "pmid": "36319708",
+      "fuente": "Cell Mol. Life Sci.",
+      "anio": "2022",
+      "volumen": "79",
+      "fpage": "578",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight influences gene expression, photoreceptor integrity, and oxidative stress-related damage in the murine retina",
+      "autores": [
+        {
+          "nombre_completo": "E.G. Overbey",
+          "nombres": "E.G.",
+          "apellidos": "Overbey"
+        },
+        {
+          "nombre_completo": "W.A. da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "da Silveira"
+        },
+        {
+          "nombre_completo": "S. Stanbouly",
+          "nombres": "S.",
+          "apellidos": "Stanbouly"
+        },
+        {
+          "nombre_completo": "N.C. Nishiyama",
+          "nombres": "N.C.",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "G.D. Roque-Torres",
+          "nombres": "G.D.",
+          "apellidos": "Roque-Torres"
+        },
+        {
+          "nombre_completo": "M.J. Pecaut",
+          "nombres": "M.J.",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "D.C. Zawieja",
+          "nombres": "D.C.",
+          "apellidos": "Zawieja"
+        },
+        {
+          "nombre_completo": "C. Wang",
+          "nombres": "C.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J.S. Willey",
+          "nombres": "J.S.",
+          "apellidos": "Willey"
+        },
+        {
+          "nombre_completo": "M.D. Delp",
+          "nombres": "M.D.",
+          "apellidos": "Delp"
+        }
+      ],
+      "pmid": "31527661",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "13304",
+      "lpage": ""
+    },
+    {
+      "titulo": "The development of lighting countermeasures for sleep disruption and circadian misalignment during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "G.C. Brainard",
+          "nombres": "G.C.",
+          "apellidos": "Brainard"
+        },
+        {
+          "nombre_completo": "L.K. Barger",
+          "nombres": "L.K.",
+          "apellidos": "Barger"
+        },
+        {
+          "nombre_completo": "R.R. Soler",
+          "nombres": "R.R.",
+          "apellidos": "Soler"
+        },
+        {
+          "nombre_completo": "J.P. Hanifin",
+          "nombres": "J.P.",
+          "apellidos": "Hanifin"
+        }
+      ],
+      "pmid": "27607152",
+      "fuente": "Curr. Opin. Pulm. Med.",
+      "anio": "2016",
+      "volumen": "22",
+      "fpage": "535",
+      "lpage": "544"
+    },
+    {
+      "titulo": "The alteration of human sleep and circadian rhythms during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Gundel",
+          "nombres": "A.",
+          "apellidos": "Gundel"
+        },
+        {
+          "nombre_completo": "V.V. Polyakov",
+          "nombres": "V.V.",
+          "apellidos": "Polyakov"
+        },
+        {
+          "nombre_completo": "J. Zulley",
+          "nombres": "J.",
+          "apellidos": "Zulley"
+        }
+      ],
+      "pmid": "9125693",
+      "fuente": "J. Sleep Res.",
+      "anio": "1997",
+      "volumen": "6",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "Multi-system responses to altered gravity and spaceflight: Insights from Drosophila melanogaster",
+      "autores": [
+        {
+          "nombre_completo": "J. Iyer",
+          "nombres": "J.",
+          "apellidos": "Iyer"
+        },
+        {
+          "nombre_completo": "S.D. Mhatre",
+          "nombres": "S.D.",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "R. Gilbert",
+          "nombres": "R.",
+          "apellidos": "Gilbert"
+        },
+        {
+          "nombre_completo": "S. Bhattacharya",
+          "nombres": "S.",
+          "apellidos": "Bhattacharya"
+        }
+      ],
+      "pmid": "36126744",
+      "fuente": "Neurosci. Biobehav. Rev.",
+      "anio": "2022",
+      "volumen": "142",
+      "fpage": "104880",
+      "lpage": ""
+    },
+    {
+      "titulo": "Circadian rhythms, sleep, and performance in space",
+      "autores": [
+        {
+          "nombre_completo": "M.M. Mallis",
+          "nombres": "M.M.",
+          "apellidos": "Mallis"
+        },
+        {
+          "nombre_completo": "C.W. DeRoshia",
+          "nombres": "C.W.",
+          "apellidos": "DeRoshia"
+        }
+      ],
+      "pmid": "15943202",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "2005",
+      "volumen": "76",
+      "fpage": "B94",
+      "lpage": "B107"
+    },
+    {
+      "titulo": "Circadian misalignment affects sleep and medication use before and during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "E.E. Flynn-Evans",
+          "nombres": "E.E.",
+          "apellidos": "Flynn-Evans"
+        },
+        {
+          "nombre_completo": "L.K. Barger",
+          "nombres": "L.K.",
+          "apellidos": "Barger"
+        },
+        {
+          "nombre_completo": "A.A. Kubey",
+          "nombres": "A.A.",
+          "apellidos": "Kubey"
+        },
+        {
+          "nombre_completo": "J.P. Sullivan",
+          "nombres": "J.P.",
+          "apellidos": "Sullivan"
+        },
+        {
+          "nombre_completo": "C.A. Czeisler",
+          "nombres": "C.A.",
+          "apellidos": "Czeisler"
+        }
+      ],
+      "pmid": "28725719",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15019",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of dynamic lighting on circadian phase, self-reported sleep and performance during a 45-day space analog mission with chronic variable sleep deficiency",
+      "autores": [
+        {
+          "nombre_completo": "S.A. Rahman",
+          "nombres": "S.A.",
+          "apellidos": "Rahman"
+        },
+        {
+          "nombre_completo": "B.A. Kent",
+          "nombres": "B.A.",
+          "apellidos": "Kent"
+        },
+        {
+          "nombre_completo": "L.K. Grant",
+          "nombres": "L.K.",
+          "apellidos": "Grant"
+        },
+        {
+          "nombre_completo": "T. Clark",
+          "nombres": "T.",
+          "apellidos": "Clark"
+        },
+        {
+          "nombre_completo": "J.P. Hanifin",
+          "nombres": "J.P.",
+          "apellidos": "Hanifin"
+        },
+        {
+          "nombre_completo": "L.K. Barger",
+          "nombres": "L.K.",
+          "apellidos": "Barger"
+        },
+        {
+          "nombre_completo": "C.A. Czeisler",
+          "nombres": "C.A.",
+          "apellidos": "Czeisler"
+        },
+        {
+          "nombre_completo": "G.C. Brainard",
+          "nombres": "G.C.",
+          "apellidos": "Brainard"
+        },
+        {
+          "nombre_completo": "M.A. St Hilaire",
+          "nombres": "M.A.",
+          "apellidos": "St Hilaire"
+        },
+        {
+          "nombre_completo": "S.W. Lockley",
+          "nombres": "S.W.",
+          "apellidos": "Lockley"
+        }
+      ],
+      "pmid": "35996978",
+      "fuente": "J. Pineal Res.",
+      "anio": "2022",
+      "volumen": "73",
+      "fpage": "e12826",
+      "lpage": ""
+    },
+    {
+      "titulo": "Anthropogenic Zinc Exposure Increases Mortality and Antioxidant Gene Expression in Monarch Butterflies with Low Access to Dietary Macronutrients",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Shephard",
+          "nombres": "A.M.",
+          "apellidos": "Shephard"
+        },
+        {
+          "nombre_completo": "N.S. Brown",
+          "nombres": "N.S.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "E.C. Snell-Rood",
+          "nombres": "E.C.",
+          "apellidos": "Snell-Rood"
+        }
+      ],
+      "pmid": "35119130",
+      "fuente": "Environ. Toxicol. Chem.",
+      "anio": "2022",
+      "volumen": "41",
+      "fpage": "1286",
+      "lpage": "1296"
+    },
+    {
+      "titulo": "Nonclinical Safety and Toxicokinetics of MnTnBuOE-2-PyP5+ (BMX-001)",
+      "autores": [
+        {
+          "nombre_completo": "S.C. Gad",
+          "nombres": "S.C.",
+          "apellidos": "Gad"
+        },
+        {
+          "nombre_completo": "D.W.;suffix:Jr. Sullivan",
+          "nombres": "D.W.;suffix:Jr.",
+          "apellidos": "Sullivan"
+        },
+        {
+          "nombre_completo": "I. Spasojevic",
+          "nombres": "I.",
+          "apellidos": "Spasojevic"
+        },
+        {
+          "nombre_completo": "C.V. Mujer",
+          "nombres": "C.V.",
+          "apellidos": "Mujer"
+        },
+        {
+          "nombre_completo": "C.B. Spainhour",
+          "nombres": "C.B.",
+          "apellidos": "Spainhour"
+        },
+        {
+          "nombre_completo": "J.D. Crapo",
+          "nombres": "J.D.",
+          "apellidos": "Crapo"
+        }
+      ],
+      "pmid": "27098749",
+      "fuente": "Int. J. Toxicol.",
+      "anio": "2016",
+      "volumen": "35",
+      "fpage": "438",
+      "lpage": "453"
+    },
+    {
+      "titulo": "SOD therapeutics: Latest insights into their structure-activity relationships and impact on the cellular redox-based signaling pathways",
+      "autores": [
+        {
+          "nombre_completo": "I. Batinic-Haberle",
+          "nombres": "I.",
+          "apellidos": "Batinic-Haberle"
+        },
+        {
+          "nombre_completo": "A. Tovmasyan",
+          "nombres": "A.",
+          "apellidos": "Tovmasyan"
+        },
+        {
+          "nombre_completo": "E.R. Roberts",
+          "nombres": "E.R.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "Z. Vujaskovic",
+          "nombres": "Z.",
+          "apellidos": "Vujaskovic"
+        },
+        {
+          "nombre_completo": "K.W. Leong",
+          "nombres": "K.W.",
+          "apellidos": "Leong"
+        },
+        {
+          "nombre_completo": "I. Spasojevic",
+          "nombres": "I.",
+          "apellidos": "Spasojevic"
+        }
+      ],
+      "pmid": "23875805",
+      "fuente": "Antioxid. Redox Signal.",
+      "anio": "2014",
+      "volumen": "20",
+      "fpage": "2372",
+      "lpage": "2415"
+    },
+    {
+      "titulo": "Impact of TREM2 risk variants on brain region-specific immune activation and plaque microenvironment in Alzheimer’s disease patient brain samples",
+      "autores": [
+        {
+          "nombre_completo": "S. Prokop",
+          "nombres": "S.",
+          "apellidos": "Prokop"
+        },
+        {
+          "nombre_completo": "K.R. Miller",
+          "nombres": "K.R.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "S.R. Labra",
+          "nombres": "S.R.",
+          "apellidos": "Labra"
+        },
+        {
+          "nombre_completo": "R.M. Pitkin",
+          "nombres": "R.M.",
+          "apellidos": "Pitkin"
+        },
+        {
+          "nombre_completo": "K. Hoxha",
+          "nombres": "K.",
+          "apellidos": "Hoxha"
+        },
+        {
+          "nombre_completo": "S. Narasimhan",
+          "nombres": "S.",
+          "apellidos": "Narasimhan"
+        },
+        {
+          "nombre_completo": "L. Changolkar",
+          "nombres": "L.",
+          "apellidos": "Changolkar"
+        },
+        {
+          "nombre_completo": "A. Rosenbloom",
+          "nombres": "A.",
+          "apellidos": "Rosenbloom"
+        },
+        {
+          "nombre_completo": "V.M. Lee",
+          "nombres": "V.M.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J.Q. Trojanowski",
+          "nombres": "J.Q.",
+          "apellidos": "Trojanowski"
+        }
+      ],
+      "pmid": "31350575",
+      "fuente": "Acta Neuropathol.",
+      "anio": "2019",
+      "volumen": "138",
+      "fpage": "613",
+      "lpage": "630"
+    },
+    {
+      "titulo": "Multiplex digital spatial profiling of proteins and RNA in fixed tissue",
+      "autores": [
+        {
+          "nombre_completo": "C.R. Merritt",
+          "nombres": "C.R.",
+          "apellidos": "Merritt"
+        },
+        {
+          "nombre_completo": "G.T. Ong",
+          "nombres": "G.T.",
+          "apellidos": "Ong"
+        },
+        {
+          "nombre_completo": "S.E. Church",
+          "nombres": "S.E.",
+          "apellidos": "Church"
+        },
+        {
+          "nombre_completo": "K. Barker",
+          "nombres": "K.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "P. Danaher",
+          "nombres": "P.",
+          "apellidos": "Danaher"
+        },
+        {
+          "nombre_completo": "G. Geiss",
+          "nombres": "G.",
+          "apellidos": "Geiss"
+        },
+        {
+          "nombre_completo": "M. Hoang",
+          "nombres": "M.",
+          "apellidos": "Hoang"
+        },
+        {
+          "nombre_completo": "J. Jung",
+          "nombres": "J.",
+          "apellidos": "Jung"
+        },
+        {
+          "nombre_completo": "Y. Liang",
+          "nombres": "Y.",
+          "apellidos": "Liang"
+        },
+        {
+          "nombre_completo": "J. McKay-Fleisch",
+          "nombres": "J.",
+          "apellidos": "McKay-Fleisch"
+        }
+      ],
+      "pmid": "32393914",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2020",
+      "volumen": "38",
+      "fpage": "586",
+      "lpage": "599"
+    },
+    {
+      "titulo": "High-Plex Spatially Resolved RNA and Protein Detection Using Digital Spatial Profiling: A Technology Designed for Immuno-oncology Biomarker Discovery and Translational Research",
+      "autores": [
+        {
+          "nombre_completo": "J.M. Beechem",
+          "nombres": "J.M.",
+          "apellidos": "Beechem"
+        }
+      ],
+      "pmid": "31502169",
+      "fuente": "Methods Mol. Biol.",
+      "anio": "2020",
+      "volumen": "2055",
+      "fpage": "563",
+      "lpage": "583"
+    },
+    {
+      "titulo": "DisGeNET: A comprehensive platform integrating information on human disease-associated genes and variants",
+      "autores": [
+        {
+          "nombre_completo": "J. Pinero",
+          "nombres": "J.",
+          "apellidos": "Pinero"
+        },
+        {
+          "nombre_completo": "A. Bravo",
+          "nombres": "A.",
+          "apellidos": "Bravo"
+        },
+        {
+          "nombre_completo": "N. Queralt-Rosinach",
+          "nombres": "N.",
+          "apellidos": "Queralt-Rosinach"
+        },
+        {
+          "nombre_completo": "A. Gutierrez-Sacristan",
+          "nombres": "A.",
+          "apellidos": "Gutierrez-Sacristan"
+        },
+        {
+          "nombre_completo": "J. Deu-Pons",
+          "nombres": "J.",
+          "apellidos": "Deu-Pons"
+        },
+        {
+          "nombre_completo": "E. Centeno",
+          "nombres": "E.",
+          "apellidos": "Centeno"
+        },
+        {
+          "nombre_completo": "J. Garcia-Garcia",
+          "nombres": "J.",
+          "apellidos": "Garcia-Garcia"
+        },
+        {
+          "nombre_completo": "F. Sanz",
+          "nombres": "F.",
+          "apellidos": "Sanz"
+        },
+        {
+          "nombre_completo": "L.I. Furlong",
+          "nombres": "L.I.",
+          "apellidos": "Furlong"
+        }
+      ],
+      "pmid": "27924018",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D833",
+      "lpage": "D839"
+    },
+    {
+      "titulo": "Enrichr: Interactive and collaborative HTML5 gene list enrichment analysis tool",
+      "autores": [
+        {
+          "nombre_completo": "E.Y. Chen",
+          "nombres": "E.Y.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "C.M. Tan",
+          "nombres": "C.M.",
+          "apellidos": "Tan"
+        },
+        {
+          "nombre_completo": "Y. Kou",
+          "nombres": "Y.",
+          "apellidos": "Kou"
+        },
+        {
+          "nombre_completo": "Q. Duan",
+          "nombres": "Q.",
+          "apellidos": "Duan"
+        },
+        {
+          "nombre_completo": "Z. Wang",
+          "nombres": "Z.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "G.V. Meirelles",
+          "nombres": "G.V.",
+          "apellidos": "Meirelles"
+        },
+        {
+          "nombre_completo": "N.R. Clark",
+          "nombres": "N.R.",
+          "apellidos": "Clark"
+        },
+        {
+          "nombre_completo": "A. Ma’ayan",
+          "nombres": "A.",
+          "apellidos": "Ma’ayan"
+        }
+      ],
+      "pmid": "23586463",
+      "fuente": "BMC Bioinform.",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enrichr: A comprehensive gene set enrichment analysis web server 2016 update",
+      "autores": [
+        {
+          "nombre_completo": "M.V. Kuleshov",
+          "nombres": "M.V.",
+          "apellidos": "Kuleshov"
+        },
+        {
+          "nombre_completo": "M.R. Jones",
+          "nombres": "M.R.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "A.D. Rouillard",
+          "nombres": "A.D.",
+          "apellidos": "Rouillard"
+        },
+        {
+          "nombre_completo": "N.F. Fernandez",
+          "nombres": "N.F.",
+          "apellidos": "Fernandez"
+        },
+        {
+          "nombre_completo": "Q. Duan",
+          "nombres": "Q.",
+          "apellidos": "Duan"
+        },
+        {
+          "nombre_completo": "Z. Wang",
+          "nombres": "Z.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. Koplev",
+          "nombres": "S.",
+          "apellidos": "Koplev"
+        },
+        {
+          "nombre_completo": "S.L. Jenkins",
+          "nombres": "S.L.",
+          "apellidos": "Jenkins"
+        },
+        {
+          "nombre_completo": "K.M. Jagodnik",
+          "nombres": "K.M.",
+          "apellidos": "Jagodnik"
+        },
+        {
+          "nombre_completo": "A. Lachmann",
+          "nombres": "A.",
+          "apellidos": "Lachmann"
+        }
+      ],
+      "pmid": "27141961",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2016",
+      "volumen": "44",
+      "fpage": "W90",
+      "lpage": "W97"
+    },
+    {
+      "titulo": "KEGG: Kyoto encyclopedia of genes and genomes",
+      "autores": [
+        {
+          "nombre_completo": "M. Kanehisa",
+          "nombres": "M.",
+          "apellidos": "Kanehisa"
+        },
+        {
+          "nombre_completo": "S. Goto",
+          "nombres": "S.",
+          "apellidos": "Goto"
+        }
+      ],
+      "pmid": "10592173",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2000",
+      "volumen": "28",
+      "fpage": "27",
+      "lpage": "30"
+    },
+    {
+      "titulo": "Analysis of Variance; Designed Experiments",
+      "autores": [
+        {
+          "nombre_completo": "J.M. Chambers",
+          "nombres": "J.M.",
+          "apellidos": "Chambers"
+        },
+        {
+          "nombre_completo": "T. Hastie",
+          "nombres": "T.",
+          "apellidos": "Hastie"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Statistical Models in S",
+      "anio": "1992",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The positive false discovery rate: A Bayesian interpretation and the q-value",
+      "autores": [
+        {
+          "nombre_completo": "J.D. Storey",
+          "nombres": "J.D.",
+          "apellidos": "Storey"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Ann. Stat.",
+      "anio": "2003",
+      "volumen": "31",
+      "fpage": "2013",
+      "lpage": "2035"
+    }
+  ]
+}

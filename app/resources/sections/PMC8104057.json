@@ -1,0 +1,236 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Aspergillus and Penicillium Species Isolated from the International Space Station and Crew Resupply Vehicle Capsule"
+  ],
+  "ABSTRACT": [
+    "The draft whole-genome sequences (WGS) of 30 fungal strains isolated from the International Space Station and belonging to the Penicillium and Aspergillus genera were assembled. The WGS will allow for detailed genomic characterization to determine the possible applications and importance for space and biotechnological industries.",
+    "ABSTRACT",
+    "The draft whole-genome sequences (WGS) of 30 fungal strains isolated from the International Space Station and belonging to the Penicillium and Aspergillus genera were assembled. The WGS will allow for detailed genomic characterization to determine the possible applications and importance for space and biotechnological industries."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "During an ongoing microbial tracking study of the International Space Station (ISS), 30 strains representing seven species belonging to the Penicillium (n = 5) and Aspergillus (n = 2) genera were isolated, and whole-genome sequences (WGS) were generated. The Penicillium genus encompasses more than 350 species found worldwide in soil, vegetation, air, indoor environments, and food. Aspergillus species are saprophytes found in a variety of environmental niches; however, some of them are also opportunistic human pathogens. Members of the Penicillium and Aspergillus genera are of economic and industrial importance, including Penicillium chrysogenum, which is used to produce β-lactam antibiotics, Penicillium camemberti, which is used for maturation of soft cheeses such as Camembert, Brie, and Neufchatel, and Aspergillus niger, which is a known producer of citric acid. Recently, Penicillium polonicum has been shown to tolerate and effectively remove lead (Pb) from polluted water, indicating a promising solution for new remediation strategies to purify contaminated water. Lastly, Aspergillus unguis, Penicillium dipodomyicola, and Penicillium griseoroseum have been reported to produce novel bioactive compounds. Considering existing and yet-to-be uncovered, versatile applications of Penicillium and Aspergillus species, characterization of WGS of these fungi is critical. Additionally, since fungi are excellent models for studying evolution and adaptation, due to their experimental features, the ISS-isolated species are of unique significance for investigating how microgravity and irradiation affect them when compared to their ground counterparts.",
+    "The procedure for collecting samples and performing consecutive processing steps has been described elsewhere. Briefly, surface samples were collected with premoistened polyester wipes and then resuspended in 200 ml of sterile phosphate-buffered saline (PBS) with vigorous shaking. The extracted samples were concentrated using InnovaPrep (Drexel, MO) CP-150 concentrating pipettes. Aliquots (100 μl) of each sample were plated onto potato dextrose agar (PDA) containing 100 μg/ml chloramphenicol and incubated at 25°C for 7 days. A single colony was picked, restreaked onto PDA, and incubated at 25°C for 7 days. About 1 μg of biomass grown overnight was collected and used for DNA extraction with the ZymoBIOMICS DNA MagBead kit (Zymo Corp., Irvine, CA). To acquire the WGS, shotgun libraries were prepared following the Illumina Nextera Flex protocol, and paired-end sequencing of 30 strains was performed on a NovaSeq 6000 S4 flow cell paired-end 2 × 150-bp platform. The quality of the raw reads obtained was confirmed with FastQC (v0.11.7). Assessment of the quality filtering steps and adapter removal were performed using fastp (v0.20.0). The cleaned sequences were assembled with SPAdes using the automatic coverage cutoff value (v3.11.1). Assembly quality, number of contigs, N50 values, and genome size were calculated using QUAST (v5.0.2). Default parameters were used for all software. The species were identified based on the internal transcribed spacer (ITS), calmodulin, and β-tubulin sequences extracted from the assembled genomes. The details of the final assemblies and phylogenetic identification are summarized in Table 1.",
+    "Data availability.",
+    "The WGS and raw data have been deposited in GenBank under the BioProject accession numbers PRJNA659567 and PRJNA667181. This project has also been deposited in the NASA GeneLab system (https://genelab-data.ndc.nasa.gov/genelab/accession/GLDS-350/). The versions described in this paper are the first versions."
+  ],
+  "TABLE": [
+    "Summary of the draft WGS of 30 Aspergillus and Penicillium strains isolated from the ISS",
+    "Straina\tSpecies identified based on ITS gene\tSpecies identified based on calmodulin gene\tSpecies identified based on β-tubulin gene\tGenBank accession no.\tSRA accession no.\tIsolation locationb\tNo. of scaffolds\tGenome size (bp)\tN50 (bp)\tMedian coverage (×)\tG+C content (%)\tNo. of filtered reads used for assembly (million)\t \tF3-1F3-F\tAspergillus niger\tAspergillus niger\tAspergillus niger\tJADBHA000000000\tSRR12819683\tCupola\t75\t35,865,776\t1,033,225\t55\t49.46\t22.16\t \tF3-4F1-F\tAspergillus niger\tAspergillus welwitschiae\tAspergillus welwitschiae\tJADBHC000000000\tSRR12819679\tDining table\t342\t37,533,732\t885,952\t64\t49.25\t25.45\t \tF3-4F2-F\tAspergillus niger\tAspergillus welwitschiae\tAspergillus welwitschiae\tJADBHD000000000\tSRR12819678\tDining table\t361\t37,317,966\t948,069\t51\t49.41\t21.20\t \tIIF6SW-F2\tAspergillus unguis\tAspergillus unguis\tAspergillus unguis\tJADBGV000000000\tSRR12819688\tPMM\t20\t25,892,012\t2,741,393\t93\t50.3\t26.47\t \tIF2SW-F1\tPenicillium camemberti\tPenicillium biforme\tPenicillium biforme\tJACSPF000000000\tSRR12825356\tWHC\t834\t35,011,981\t266,841\t56\t47.69\t23.59\t \tIIF8SW-F2\tPenicillium camemberti\tPenicillium biforme\tPenicillium biforme\tJACSOP000000000\tSRR12825359\tCrew quarters\t846\t35,011,981\t262,211\t55\t47.7\t22.46\t \tIIF8SW-F3\tPenicillium camemberti\tPenicillium biforme\tPenicillium biforme\tJACSOO000000000\tSRR12825358\tCrew quarters\t828\t35,011,981\t256,141\t53\t47.69\t22.37\t \tF3-3F1-F\tPenicillium camemberti\tPenicillium biforme\tPenicillium biforme\tJADBHB000000000\tSRR12819682\tARED\t1,098\t36,854,083\t303,871\t56\t47.69\t22.97\t \tIF1SG-B2\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJADBGS000000000\tSRR12819681\tOutside CRV capsule\t676\t33,342,700\t1,054,379\t71\t48.81\t26.71\t \tIF1SW-F3\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSPG000000000\tSRR12825368\tCupola\t764\t32,524,241\t638,283\t57\t48.92\t21.32\t \tIF2SG-B2\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJADBGT000000000\tSRR12819680\tOutside CRV capsule\t648\t33,347,836\t931,557\t93\t48.81\t34.88\t \tIF2SW-F4\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSPE000000000\tSRR12825355\tWHC\t1,277\t32,524,241\t640,412\t41\t48.76\t16.80\t \tIF2SW-F5\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSPD000000000\tSRR12825354\tWHC\t445\t32,524,241\t718,663\t82\t48.96\t28.82\t \tIF3SW-F3\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSPB000000000\tSRR12825352\tARED\t843\t32,524,241\t497,770\t42\t48.94\t15.73\t \tIF4SG-B1\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJADBGU000000000\tSRR12819689\tInside CRV capsule\t651\t33,345,064\t939,642\t76\t48.81\t28.76\t \tIF4SW-F1\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSPA000000000\tSRR12825351\tDining table\t481\t32,524,241\t947,115\t54\t48.96\t18.77\t \tIF7SW-F1\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSOZ000000000\tSRR12825350\tLAB\t485\t32,524,241\t782,807\t72\t48.96\t25.44\t \tIIF2*SW-F2\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium harmonense\tJADBGW000000000\tSRR12819687\tWHC\t460\t32,073,134\t709,694\t64\t48.99\t22.76\t \tIIF3SW-F2\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSOU000000000\tSRR12825364\tARED\t1,276\t32,524,241\t643,620\t48\t48.76\t19.83\t \tIIF8SW-F4\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSON000000000\tSRR12825357\tCrew quarters\t434\t32,524,241\t1,028,283\t74\t48.96\t26.01\t \tF3-2F3-F\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium harmonense\tJADBGX000000000\tSRR12819686\tWHC\t353\t31,592,617\t579,954\t77\t48.84\t26.27\t \tF3-2F4-F\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJADBGY000000000\tSRR12819685\tWHC\t568\t32,430,262\t701,540\t99\t48.94\t34.71\t \tF3-2F5-F\tPenicillium chrysogenum\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJADBGZ000000000\tSRR12819684\tWHC\t486\t32,607,577\t1,028,360\t66\t48.84\t23.62\t \tIF7SW-F3\tPenicillium dipodomyicola\tPenicillium chrysogenum\tPenicillium tardochrysogenum\tJACSOY000000000\tSRR12825349\tLAB\t1,372\t32,524,241\t578,872\t45\t48.81\t17.99\t \tIIF7SW-F2\tPenicillium dipodomyicola\tPenicillium chrysogenum\tPenicillium harmonense\tJACSOR000000000\tSRR12825361\tLAB\t431\t32,524,241\t842,068\t76\t48.99\t27.38\t \tIIF7SW-F4\tPenicillium dipodomyicola\tPenicillium chrysogenum\tPenicillium harmonense\tJACSOQ000000000\tSRR12825360\tLAB\t455\t32,524,241\t585,026\t71\t48.99\t25.46\t \tIF3SW-F1\tPenicillium griseoroseum\tPenicillium chrysogenum\tPenicillium harmonense\tJACSPC000000000\tSRR12825353\tARED\t559\t32,524,241\t577,257\t61\t48.99\t24.14\t \tIF7SW-F5\tPenicillium griseoroseum\tPenicillium chrysogenum\tPenicillium harmonense\tJACSOW000000000\tSRR12825366\tLAB\t361\t32,524,241\t492,361\t39\t48.85\t17.39\t \tIIF4SW-F4\tPenicillium griseoroseum\tPenicillium chrysogenum\tPenicillium harmonense\tJACSOT000000000\tSRR12825362\tDining table\t348\t32,524,241\t481,150\t80\t48.85\t28.75\t \tIIF1SW-F3\tPenicillium polonicum\t \tPenicillium tardochrysogenum\tJACSOV000000000\tSRR12825365\tCupola\t464\t32,524,241\t1,262,860\t72\t48.96\t25.30",
+    "F1, flight 1; F2, flight 2; F3, flight 3; F4, flight 4; F5, flight 5; SG, surface from CRV; SW, surface wipes from ISS environment. F and B at the end are strain numbers.",
+    "PMM, permanent multipurpose module; WHC, waste and hygiene compartment; ARED, advanced resistive exercise device; CRV, crew resupply vehicle; LAB, panel near portable water dispenser."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "Identification and nomenclature of the genus Penicillium",
+    "Aspergillus species in indoor environments and their possible occupational and public health hazards",
+    "The current role of Aspergillus and Penicillium in human and animal health",
+    "Engineering of the filamentous fungus Penicillium chrysogenum as cell factory for natural products",
+    "Domestication of the emblematic white cheese-making fungus Penicillium camemberti and its diversification into two varieties",
+    "Utilization of different agro-industrial wastes for sustainable bioproduction of citric acid by Aspergillus niger",
+    "Biotechnological production of citric acid",
+    "Removal mechanism of Pb(II) by Penicillium polonicum: immobilization, adsorption, and bioaccumulation",
+    "A new alkaloid from Penicillium dipodomyicola",
+    "Antimicrobial and antioxidant activities of different extracts from Aspergillus unguis SPMD-EGY grown on different media",
+    "Depsidone and phthalide derivatives from the soil-derived fungus Aspergillus unguis PSU-RSPG199",
+    "Genome sequencing and secondary metabolism of the postharvest pathogen Penicillium griseofulvum",
+    "Fungal evolutionary genomics provides insight into the mechanisms of adaptive divergence in eukaryotes",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "FastQC: a quality control tool for high throughput sequence data",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identification and nomenclature of the genus Penicillium",
+      "autores": [],
+      "pmid": "25505353",
+      "fuente": "Stud Mycol",
+      "anio": "2014",
+      "volumen": "78",
+      "fpage": "343",
+      "lpage": "371"
+    },
+    {
+      "titulo": "Aspergillus species in indoor environments and their possible occupational and public health hazards",
+      "autores": [],
+      "pmid": "28681011",
+      "fuente": "Curr Med Mycol",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "36",
+      "lpage": "42"
+    },
+    {
+      "titulo": "The current role of Aspergillus and Penicillium in human and animal health",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Med Mycol",
+      "anio": "1994",
+      "volumen": "32",
+      "fpage": "17",
+      "lpage": "32"
+    },
+    {
+      "titulo": "Engineering of the filamentous fungus Penicillium chrysogenum as cell factory for natural products",
+      "autores": [],
+      "pmid": "30524395",
+      "fuente": "Front Microbiol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "2768",
+      "lpage": ""
+    },
+    {
+      "titulo": "Domestication of the emblematic white cheese-making fungus Penicillium camemberti and its diversification into two varieties",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Curr Biol",
+      "anio": "2020",
+      "volumen": "30",
+      "fpage": "P4441",
+      "lpage": "4453"
+    },
+    {
+      "titulo": "Utilization of different agro-industrial wastes for sustainable bioproduction of citric acid by Aspergillus niger",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Biochem Eng J",
+      "anio": "2011",
+      "volumen": "54",
+      "fpage": "83",
+      "lpage": "92"
+    },
+    {
+      "titulo": "Biotechnological production of citric acid",
+      "autores": [],
+      "pmid": "24031566",
+      "fuente": "Braz J Microbiol",
+      "anio": "2010",
+      "volumen": "41",
+      "fpage": "862",
+      "lpage": "875"
+    },
+    {
+      "titulo": "Removal mechanism of Pb(II) by Penicillium polonicum: immobilization, adsorption, and bioaccumulation",
+      "autores": [],
+      "pmid": "32493948",
+      "fuente": "Sci Rep",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "9079",
+      "lpage": ""
+    },
+    {
+      "titulo": "A new alkaloid from Penicillium dipodomyicola",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Chem Nat Compd",
+      "anio": "2015",
+      "volumen": "51",
+      "fpage": "733",
+      "lpage": "735"
+    },
+    {
+      "titulo": "Antimicrobial and antioxidant activities of different extracts from Aspergillus unguis SPMD-EGY grown on different media",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Bull Natl Res Cent",
+      "anio": "2018",
+      "volumen": "42",
+      "fpage": "29",
+      "lpage": ""
+    },
+    {
+      "titulo": "Depsidone and phthalide derivatives from the soil-derived fungus Aspergillus unguis PSU-RSPG199",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Tetrahedron Lett",
+      "anio": "2016",
+      "volumen": "57",
+      "fpage": "4348",
+      "lpage": "4351"
+    },
+    {
+      "titulo": "Genome sequencing and secondary metabolism of the postharvest pathogen Penicillium griseofulvum",
+      "autores": [],
+      "pmid": "26729047",
+      "fuente": "BMC Genomics",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "19",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fungal evolutionary genomics provides insight into the mechanisms of adaptive divergence in eukaryotes",
+      "autores": [],
+      "pmid": "24341913",
+      "fuente": "Mol Ecol",
+      "anio": "2014",
+      "volumen": "23",
+      "fpage": "753",
+      "lpage": "773"
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "FastQC: a quality control tool for high throughput sequence data",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    }
+  ]
+}

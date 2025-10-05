@@ -1,0 +1,2206 @@
+{
+  "TITLE": [
+    "An extensive allelic series of Drosophila kae1 mutants reveals diverse and tissue-specific requirements for t6A biogenesis"
+  ],
+  "ABSTRACT": [
+    "N6-threonylcarbamoyl-adenosine (t6A) is one of the few RNA modifications that is universally present in life. This modification occurs at high frequency at position 37 of most tRNAs that decode ANN codons, and stabilizes cognate anticodon–codon interactions. Nearly all genetic studies of the t6A pathway have focused on single-celled organisms. In this study, we report the isolation of an extensive allelic series in the Drosophila ortholog of the core t6A biosynthesis factor Kae1. kae1 hemizygous larvae exhibit decreases in t6A that correlate with allele strength; however, we still detect substantial t6A-modified tRNAs even during the extended larval phase of null alleles. Nevertheless, complementation of Drosophila Kae1 and other t6A factors in corresponding yeast null mutants demonstrates that these metazoan genes execute t6A synthesis. Turning to the biological consequences of t6A loss, we characterize prominent kae1 melanotic masses and show that they are associated with lymph gland overgrowth and ectopic generation of lamellocytes. On the other hand, kae1 mutants exhibit other phenotypes that reflect insufficient tissue growth. Interestingly, whole-tissue and clonal analyses show that strongly mitotic tissues such as imaginal discs are exquisitely sensitive to loss of kae1, whereas nonproliferating tissues are less affected. Indeed, despite overt requirements of t6A for growth of many tissues, certain strong kae1 alleles achieve and sustain enlarged body size during their extended larval phase. Our studies highlight tissue-specific requirements of the t6A pathway in a metazoan context and provide insights into the diverse biological roles of this fundamental RNA modification during animal development and disease."
+  ],
+  "INTRO": [
+    "INTRODUCTION",
+    "Beyond the four canonical ribonucleosides present in RNA, nearly all life forms bear an array of modified bases in various transcript populations. Over 100 chemical modifications have been documented, with dozens often present in individual species; the majority of distinct modified ribonucleosides occur on tRNA. Altogether, RNA modifications collectively play diverse roles in RNA quality control, secondary structure, transcript stability, translational efficiency, translational fidelity, and regulation of RNA–protein interactions and can influence disease and cancer progression.",
+    "While many post-transcriptional modifications of RNA are broadly conserved, only a few are universal across known life forms. One prominent example is N6-threonylcarbamoyladenosine (t6A), which is found at high frequency at position 37 of tRNAs that decode ANN codons. This modification was recognized decades ago, and it stabilizes cognate codon–anticodon interactions through a stacking interaction that stabilizes the weak interaction with the first codon base, which comprises a weak A–U pair. However, the enzymes that generate this modification remained elusive until relatively recently.",
+    "Based on the inference that all organisms harbor t6A-modified tRNAs, bioinformatic isolation of universally conserved genes of unknown function yielded a short list of candidate genes that first led to the identification of YrdC/Sua5 as a t6A pathway component. Subsequently, members of the universal gene family Kae1/Qri7/YgjD were recognized to be essential for t6A biosynthesis, along with its partner proteins (in yeast) Pcc1 and Bud32. Of note, mutations in components of the Kae1, Pcc1, Bud32, and Cgi121 complex (collectively termed KEOPS) had been isolated some years earlier, via divergent approaches intended at identifying factors in telomere maintenance and splicing/transcription. At the time, the molecular role of the KEOPS complex was obscure, but its deep conservation justified solving the atomic structures of the archaeal Kae1/Bud32 natural fusion protein and the entire eukaryotic KEOPS complex. These studies assigned Kae1 as an ASKHA-type ATPase, Bud32 as a kinase, and Pcc1 as a dimerization subunit, with Kae1 physically interacting with both Bud32 and Pcc1.",
+    "Only later, with the recognition that these genes are involved in t6A accumulation, did efforts become possible to reconstitute the biosynthesis of t6A-modified tRNA in vitro, using purified bacterial YrdC (Sua5) and YgjD (Kae1) and two bacterial-specific genes that cluster with YgjD, namely YjeE and YeaZ. Similarly, yeast Sua5 and KEOPS complex sufficed to generate t6A-modified tRNA in vitro. The proposed mechanism is that Sua5 converts bicarbonate and threonine via a series of intermediates into threonylcarbamoyladenylate, which is transferred to the active site of Kae1 within the KEOPS complex to modify tRNA position A37.",
+    "Notably, Kae1 is the only truly universally conserved component of KEOPS, and eukaryotes contain a paralog of Kae1 termed Qri7 that is mitochondrially localized. The fact that no other KEOPS components localize to mitochondria led to a suspicion that Qri7 represents a primal core factor that does not require additional presumably accessory KEOPS components. Indeed, subcellular redirection of Qri7 to the cytoplasm rescued the slow growth phenotypes of all KEOPS members that are defective for t6A accumulation. Moreover, in vitro synthesis of t6A-modified tRNA was reconstituted solely with purified Sua5, Qri7, and substrate tRNA, in the presence of threonine, bicarbonate, and ATP. Thus, Kae1/Qri7 is the central downstream enzyme in the generation of t6A-modified tRNA.",
+    "The assignment of core genes in the t6A pathway permits organismal phenotypes to be correlated with the absence of these modified tRNAs. Budding yeast t6A pathway mutants are very slow-growing, while the bacterial pathway (e.g., in Bacillus subtilis and Escherichia coli) is essential for viability and cell morphology. These seemingly general defects befit loss of a fundamental RNA modification pathway, but do not lend insight into particular processes. Otherwise, mutants of KEOPS complex members in single-celled organisms have impact on telomere maintenance, transcription, and genome stability, although it remains unclear how directly the loss of t6A relates to these phenotypes.",
+    "However, certain phenotypes now seem to be directly related to the biochemical function of t6A in improving translational fidelity. Of note, yeast sua5 was originally isolated as a suppressor of cyc1 alleles harboring an aberrant upstream start codon (uORF), implicating Sua5 in start site selection; AUG is indeed recognized by a t6A-modified tRNA. Correspondingly, Sua5 affects various aspects of normal translation, as mutants exhibit increased leaky scanning through AUG, frameshifting, and nonsense suppression. One prominent locus controlled via endogenous uORFs is the amino acid starvation-responsive transcription factor GCN4. Indeed, not only does sua5 derepress GCN4, KEOPS mutants (kae1 and pcc1) induce a gene expression signature that is substantially enriched for Gcn4 targets. These precedents suggest that it may be possible to make linkages between altered translation and organismal phenotypes, even for this “housekeeping” cellular activity.",
+    "To date, genetic analysis of t6A pathway components has mostly been limited to single cell organisms, such as microbes and yeast. One study on the Drosophila melanogaster Bud32/PRPK homolog utilized RNAi-mediated knockdowns to define growth related defects upon bud32 depletion, although biochemical evidence was not presented for an impact on t6A biogenesis in this condition. Interestingly, the growth defects were related to PI3K/TOR signaling, and could be partially restored by expression of activated S6-kinase.",
+    "In this study, we describe the isolation of a large allelic series of D. melanogaster kae1 mutants, ranging from weak hypomorphs, strong mutants, to null alleles. These present various growth-related defects, developmental delay, and melanotic tumors. We present extensive biochemical and genetic evidence that Drosophila kae1 and its partners are core factors in t6A biogenesis. Notably, our phenotypic analysis reveals substantial differences in the genetic requirements for t6A in proliferating versus nonproliferating tissues. In particular, analysis of mitotic tissues in full knockout and in clonal settings indicates an essential requirement for kae1, whereas various nonproliferating tissues can be maintained in the null state for weeks. Moreover, kae1 appears to act as a tumor suppressor in the larval hematopoietic tissue. These data highlight biological complexity in the requirements of a general regulatory factor, and the utility of the Drosophila model to further understand the roles of t6A modification during animal development and disease."
+  ],
+  "RESULTS": [
+    "RESULTS",
+    "Isolation of the “Black Spot” complementation group",
+    "During efforts to isolate mutants in the 72D-F region, we conducted an F2 EMS mutagenesis screen against Df(3L)ED220, which deletes 324,210 bp of chromosome 3L:16,080,584–16,404,777 (see Materials and Methods). We screened ∼7000 crosses of animals bearing mutagenized chromosomes to this deficiency, and recovered 64 lethals. Within this collection, we recognized numerous alleles for which hemizygous larvae bore characteristic melanotic masses, which we colloquially termed “Black Spot” mutants (Fig. 1A). These mutants failed to complement each other, and they typically exhibited an extended larval period prior to lethality (Fig. 1B–D; Supplemental Fig. 1). Notably, while Drosophila larvae complete their larval stages around day 5 and commence pupation, some Black Spot mutants survive as larvae for up to 18 d. Systematic tests against all of the lethal alleles we obtained in this genomic interval revealed additional noncomplementing mutations. Many of these mutants lacked black spots or generated them with low frequency (Fig. 1B–D). Several of these alleles were able to develop to pupal stages or even into pharate adults as hemizygotes, suggesting they might represent hypomorphs. Overall, these eight alleles appear to represent an extensive allelic series.",
+    "Black Spot mutants affect the Drosophila ortholog of Kae1",
+    "To identify the gene mutated in Black Spot mutants, we used P-element mapping to narrow the region of interest within the deficiency (Supplemental Fig. 2). Coding exons from genes in the region were amplified by PCR from DNA extracted from hemizygous mutant larvae and sequenced. We identified one locus (CG4933), the fly ortholog of Kae1, that harbored nonconservative changes in all eight alleles (Fig. 2A). Subsequently, we identified two uncharacterized mutants in 72F-73A (l(3)72Fb[209] and l(3)72Fb[331], V Bedian, pers. comm. to FlyBase) that failed to complement Black Spot mutants. Sequencing showed that the l(3)72Fb alleles exhibit missense and nonsense mutations in CG4933, respectively. Notably, while l(3)72Fb[209] mutates a residue in the ATP-binding pocket, none of the other point mutations directly affect any functionally characterized regions (e.g., other residues that bind ATP or metal ion, or Kae1 faces that bind its partner KEOPS proteins Pcc1 or Bud32, Fig. 2A). Finally, we found that PBac{WH}CG4933[f01978], which carries a piggyBac insertion into the CG4933 5′ UTR, also failed to complement Black Spot mutants. These observations strongly support that CG4933 corresponds to Black Spot. Consistent with this, qRT-PCR analysis of several independent point mutants showed moderate decreases in CG4933 transcripts, and these were undetectable in f01978 hemizygotes (Fig. 2B,C).",
+    "To confirm that Black Spot phenotypes were functionally due to loss of CG4933, we generated untagged and GFP-tagged genomic transgenes using the P[acman] backbone. Both CG4933 constructs rescued independent lethal hemizygotes (1A13 and f01978) to adult viability, and no melanotic masses were observed in rescued animals (e.g., Figs. 1E, 3 and other data not shown). In summary, we have isolated metazoan mutants of kae1, encoding a universal tRNA modification factor, representing the first extensive allelic series of a t6A pathway factor in any organism.",
+    "Decrease, but not elimination, of t6A-modified tRNAs in kae1 mutants",
+    "Although Sua5/KEOPS genes are well-conserved across different domains of life, their involvement in t6A synthesis has not formally been demonstrated outside of unicellular models. We initially utilized primer extension assays to assess potential defects in the accumulation of t6A-modified tRNAs. As positive controls, we assayed RNAs isolated from wild-type yeast and sua5, kae1, and bud32 knockouts. Extensions using an end-labeled primer specific for tRNA-Ile[AAU] showed that t6A pathway mutants were specifically depleted of a stalled product at the normally modified position A37, whereas primer extension patterns for control tRNA-Val[UAC] were not substantially altered (Fig. 3A). Similar assays of third instar larvae bearing various strong Drosophila kae1 alleles in trans to a deficiency also revealed alteration at A37 (Fig. 3B). However, the loss of modified tRNAs in the total population were notably modest compared to the yeast mutants, since yeast kae1 mutants retain only a few percent of total t6A; see also Figure 4.",
+    "Inspection of modENCODE data shows that Drosophila kae1 is ubiquitously expressed but present at highest levels in ovaries and the early blastoderm embryo, indicating its strong maternal deposition. Some maternal gene products can support organismal processes for days, and tRNAs themselves are typically expected to be relatively stable, although loss of some tRNA modifications is documented to render tRNAs unstable. Because of these considerations, we sought to extend the analysis of kae1 zygotic mutants as late as possible. Bearing in mind that normal Drosophila complete their larval stages by ∼5 d, we collected RNA from 12-d and 18-d kae1 mutant larvae. However, we did not observe further decreases in the level of t6A-modified tRNAs even at these extended timepoints (Fig. 3).",
+    "To provide a global assessment on the amount of t6A-modified tRNAs in kae1 mutants, we purified total tRNA, enzymatically hydrolyzed the tRNA to ribonucleosides, and analyzed these using liquid chromatography-coupled triple quadrupole mass spectrometry (LC-MS/MS) using a dynamic MRM method. This analysis showed a mild (∼10%) decrease of t6A-modified tRNAs in hemizygotes of the weak allele kae1[7A9], and more substantial decreases (∼40%) in hemizygotes of the strong/null alleles kae1[1A13] and kae1[f01978] (Fig. 3C). We also observed full restoration of t6A-modified tRNAs in LC-MS/MS analysis of P[acman]-CG4933/+; kae1[1A13]/Df larvae, consistent with the viability rescue conferred by the genomic transgene.",
+    "Together, these observations provide evidence that kae1 is required for normal accumulation t6A-modified tRNAs in a metazoan setting. We cannot rule out that the remaining modified tRNAs are exceptionally stable. However, quantitative analysis did not reveal further decrease of t6A-modified tRNAs in kae1[f01978]/Df between 6- and 12-d larvae, suggesting that perdurance is not the major underlying cause of the remaining t6A. An alternate scenario is that they are contributed by the mitochondrial pool, which is presumably generated by the mitochondrial Kae1 paralog Qri7 (annotated as Drosophila CG14231). We note that Qri7 generates only a minute fraction of total t6A-modified tRNAs in yeast, suggesting a potential difference between these eukaryotic species.",
+    "Drosophila Sua5/KEOPS genes complement corresponding yeast null mutants",
+    "Because the fly null mutants did not fully eliminate t6A, we sought supporting evidence on the role of Drosophila Kae1 in this pathway. Therefore, we conducted genetic replacement assays in a simpler heterologous host system, namely, in S. cerevisiae mutants in t6A pathway genes. As described, these are slow-growing but can be maintained in the null condition and are nearly completely deficient for t6A.",
+    "To judge the overall relationship of the fly orthologs to their yeast counterparts, we tested for direct complementation of several yeast t6A mutants (Fig. 3A) by their Drosophila orthologs. We cloned the open reading frames for Drosophila kae1, bud32, and sua5 into the yeast expression plasmid, pADH416. Because yeast mutants in these three genes grow very poorly, we transformed the Drosophila expression constructs into the corresponding yeast heterozygous diploid mutants. As controls, the same diploids were transformed with plasmids expressing the yeast protein, and with an empty vector. The transformed diploids were sporulated and then dissected to yield haploid segregants. Haploids containing plasmids expressing the Drosophila or yeast protein, or the empty vector, were identified and then streaked to individual colonies on selective medium.",
+    "The results of growth after ∼66 h at 30°C are shown in Figure 4A–C. Colony size is a sensitive measure of growth rate for yeast. Drosophila sua5, whose product generates the substrate for the KEOPS complex, yielded growth rescue that was comparable to its yeast ortholog (Fig. 4A). On the other hand, the two KEOPS components Drosophila kae1 and bud32 both conferred substantial rescue, as compared with vector control transformants, but growth was not as robust as with the cognate yeast factors (Fig. 4B,C). The relative degree of complementation was also apparent on the dissection plates on which the haploid spores germinated. Representative tetrads are shown in Supplemental Figure 3 for the kae1 and bud32 heterozygotes. In both cases, colonies identified as containing the Drosophila gene were larger than colonies containing vector or no plasmid, but not as large as wild-type colonies.",
+    "As the rescues by individual fly KEOPS proteins were less robust than with the cognate yeast factors, we tested if their function could be improved by supplying multiple Drosophila factors. This proved to be the case. Figure 4D shows a kae1 mutant expressing Drosophila Kae1 + Pcc1 (sector 1), Drosophila Kae1 + Bud32 (sector 2), or Drosophila Kae1 alone (sector 3). Coexpression with either Kae1 partner improved growth rescue. Similarly, coexpression of Drosophila Bud32 and Kae1 yielded enhanced rescue of yeast bud32 (Fig. 4E, sector 2), relative to Drosophila Bud32 alone (sector 3). Notably, expressing Drosophila Bud32 and Pcc1 together did not improve complementation of yeast bud32 relative to Bud32 alone (Fig. 4E, cf. sectors 1 and 3). This is consistent with the fact that Bud32 and Pcc1 do not interact directly in the complex, whereas both of them physically contact different faces of Kae1 in the KEOPS complex. The growth improvements in these double complementation tests were also visible on tetrad dissection plates (Supplemental Fig. 3).",
+    "Rescue of t6A-modified tRNAs in yeast kae1 mutants by Drosophila KEOPS factors",
+    "We performed biochemical analysis of tRNA modification in mutant and rescued yeast. Primer extensions using a probe against tRNA-Ile[AAU] recapitulated strong loss in the A37 band in kae1 mutant yeast transformed with an empty vector, which was fully restored by the S. cerevisiae KAE1 expression construct (Fig. 4F). Comparison with yeast transformed with various combinations of Drosophila KEOPS factors showed strong agreement between growth properties and accumulation of t6A. That is, we observed moderate rescue by fly kae1 alone, but much stronger improvement by including other members of the Drosophila KEOPS complex (Fig. 4F).",
+    "We extended the above analysis of individual tRNAs to the total tRNA population using LC-MS/MS. These assays were strongly correlated with the relative degree of rescue observed in primer extension analysis. In particular, this quantitative method allowed us to distinguish greater restoration of t6A by Drosophila kae1 + bud32, relative to kae1 + pcc1 (Fig. 4G). In particular, the rescue by Drosophila kae1 + bud32 was equivalent to the cognate rescue by yeast kae1. Finally, we note that LC-MS/MS analysis of yeast samples also detected cyclic t6A (ct6A). It has been reported that ct6A is formed by cyclization of t6A and was observed in diverse domains of life including yeast, but not in any vertebrates tested. Consistent with this, we did not detect ct6A above background in the analysis of fly tRNAs (data not shown).",
+    "In the yeast profilings, trends in ct6A levels closely mirrored those of t6A (Fig. 4G). ct6A levels were below the limit of detection in kae1 mutants, and rescued to similar relative levels as with t6A by the KEOPS expression constructs. However, ct6A peak areas were approximately fivefold smaller than corresponding levels of t6A. Despite efforts to minimize hydrolysis by conducting the analysis at neutral pH, it is possible that a portion of ct6A was hydrolyzed to t6A during sample preparation. In any case, these results clearly demonstrate the biochemical activity of Drosophila KEOPS genes including Kae1 in the biogenesis of N6-threonylcarbamoyladenosine-modified tRNAs. Since we did not detect ct6A in Drosophila samples, we will continue to generally refer to t6A in the remainder of this study.",
+    "kae1 mutants exhibit aberrant hematopoietic development and activity",
+    "Having established the role of Drosophila Kae1 and its partners in t6A biosynthesis, we sought to examine the nature of developmental defects caused by absence of this tRNA modification pathway. We began with the analysis of the namesake “Black Spots,” which resemble phenotypes associated with derangement in the development and/or deployment of the hematopoietic system. Therefore, we investigated the status of the lymph gland as well as circulating blood cells in the hemolymph.",
+    "We first examined kae1[1A13]/Df(3L)ED220 larvae, which exhibit a strong molecular defect in t6A biogenesis (Fig. 3C) and generate “black spots” with nearly complete penetrance (Fig. 1A). The hemolymph of control TM6B sibling third instar larvae exhibit normal distributions of blood cells (Fig. 5A), primarily plasmatocytes (identifiable as ∼10 µM diameter cells) and more rare lamellocytes (40–50 µM diameter cells). In contrast, hemolymph smears of ∼10-d-old kae1[1A13] hemizygous larvae showed increased density of blood cells, and in particular, massive overrepresentation of lamellocytes (Fig. 5B). We also identified large circulating aggregates that resembled lymph gland fragments (Fig. 5C), as well as apparent phalloidin-rich tumors that were packed with lamellocytes (Fig. 5D). The latter could be melanized and were identifiable as “black spots,” but they were not necessarily pigmented, suggesting they had not yet initiated the melanogenesis cascade.",
+    "Notably, lamellocyte overproduction is a frequent feature of other characterized mutants bearing melanotic masses. Therefore, we analyzed the status of the Drosophila hematopoietic tissue, the lymph gland. The compact disposition of the anterior lobe in normal third instar lymph gland is shown in Figure 5E and shows few lamellocytes. In contrast, ∼10-d-old kae1[1A13] hemizygous larval lymph glands show abundant maturation of lamellocytes and are typically enlarged (Fig. 5F,G). Often, we find that the anterior lobe was in the process of dispersing, or completely detached from the dorsal vessel (Fig. 5H). This correlates with the observation of apparent lymph tissue in the circulatory system (Fig. 5C). We observed similar phenotypes with the hypomorphic combination kae1[1A2]/Df(3L)ED220, except that its hematopoietic alterations were weaker and/or slower to develop (Supplemental Fig. 4). That is, defects were less robust at day 8 relative to day 10 larvae.",
+    "As mentioned, most kae1 mutants exhibit a vastly extended larval stage. Thus, we considered it plausible that the enlarged lymph tissues developed progressively over this aberrant larval period. To ask whether kae1 mutants exhibit defects during the normal course of larval development, we examined [1A2] (weak), [1A13] (strong), and [f10978] (null) kae1 hemizygotes at the second instar. We observed overrepresentation of lamellocytes in anterior lymph gland lobes in all genotypes, although [1A2] was not overgrown and [1A13] was only slightly enlarged relative to control (Fig. 5I–K). However, [f10978] exhibited both considerable overgrowth and ectopic commitment to lamellocyte fates (Fig. 5L). This is despite the fact that [f10978] develops modest frequencies of black spot compared with [1A13] (Fig. 1), indicating that hematopoietic tumors can exist without melanization of nodules. We also note that [f10978] exhibit lymph gland overgrowth despite the comparably small size of these larvae (Fig. 1), indicating partial uncoupling of organism size and individual organ size.",
+    "To verify their status as “tumors,” we stained second instar lymph glands for phospho-Histone H3 (pH3), a marker of mitotic cells. Figure 5M,N shows that kae1[1A13]/Df mutants also show expansion of their posterior lobes, although not as robust as with the anterior lobe. Nevertheless, these tissues show clear increases in the frequency of anti-pH3-labeled cells, indicating that the expanded hematopoietic tissues are accounted for by increased cell division, as well as alteration in cell fate toward lamellocytes.",
+    "Essential requirement for kae1 in imaginal discs but not throughout the larval CNS",
+    "A conspicuous aspect of the strong kae1 alleles were their nearly complete absence of imaginal discs. These begin as small cell populations that are set aside in the embryo, and proliferate during larval stages to increase their numbers ∼1000-fold, generating the tissues that will form the adult structures during metamorphosis. We mounted larval brain-imaginal disc complexes from wild-type and two strong kae1 mutants for comparison (Fig. 6A–C). Discs were completely absent in most larvae, or at best yielded tiny tissue rudiments that might potentially be discs, but cannot confidently be assigned to any particular disc identity. In contrast, the CNS was slightly smaller but remained present. Closer inspection revealed that the optic lobes were strongly reduced in size in kae1 mutants, whereas the ventral nerve cord (VNC) was less affected (Fig. 6A–C). Notably, the optic lobes are the main proliferating centers in the larval CNS, whereas the VNC is primarily composed of post-mitotic neurons.",
+    "We further examined the role of kae1 in proliferating tissues by generating negatively marked somatic clones in wing imaginal discs. In this system, both daughters of a mitotic recombination event are marked and remain distinguished as clones. The homozygous mutant clone is detected by loss of a marker (e.g., ubi-GFP) whereas its homozygous wild-type “twinspot” clone expresses the marker more intensely than the surrounding heterozygous tissue. Control FRT80 clones exhibit similar relative sizes to their twinspots (Fig. 6D,D′). In contrast, FRT80 kae1[1A13] clones were never recovered in imaginal discs, even though their twinspots were sizable (Fig. 6E,E′). We quantified the differences in clone/twinspot sizes in Figure 6F. These data imply substantial growth and/or competitive disadvantage of cells lacking the t6A modification pathway, which must have been removed from development after only a few cell divisions at most. We note that somatic clones of kae1 should still have inherited at least some Kae1 protein, mRNA, and/or t6A-modified tRNAs, yet failed to survive. From this, we infer that perdurance is not a major cause for the ability of kae1 null zygotic mutants to survive for over two and a half weeks (Fig. 1).",
+    "Differential requirements of kae1 in mitotic and nonproliferating larval tissues",
+    "The clonal analyses caused us to evaluate more carefully the extent to which different tissues were affected in kae1 mutants. It is clear that kae1-deficient cells exhibit growth defects in some contexts. Nevertheless, our original isolation of kae1 mutants as extremely long-lived larvae exhibiting hematopoietic expansion (Fig. 1) indicates that many cells and tissues can not only survive, but seemingly thrive in the kae1 null state for weeks. For example, differentiated post-mitotic blood cells such as lamellocytes are both overrepresented and actively functional in encapsulation during the extended larval phase of kae1 mutants (Fig. 5D; Supplemental Fig. 4).",
+    "We surveyed other tissues that were maintained in kae1 mutant larvae, including the gut (Supplemental Fig. 5), salivary glands (Fig. 7A–F), fat body, and somatic musculature (Fig. 7G–I). For the most part, all of these tissues are dominantly or solely composed of nonproliferating cells during the larval stages. Therefore, these observations solidify the notion that mitotic cells are preferentially affected by loss of kae1. However, this does not mean that defects were lacking in these other larval tissues. Interestingly, quantitative analysis showed tissue-specific and allele-specific differences between their behavior. For example, even though kae1[1A13]/Df mutants maintain only marginally more t6A than kae1[f10978]/Df mutants (Fig. 3C), we observed progressively smaller salivary glands in kae1 mutants with less t6A (Fig. 7J). More strikingly, the size of salivary gland cells was mostly unaffected in [1A13] hemizygotes, whereas they were tiny by comparison in [f10978] hemizygotes (Fig. 7K). Thus, the slight amount of t6A in a strongly hypomorphic kae1 condition can maintain salivary gland cell size, even though these glands evidently have fewer cells than normal, whereas the null condition compromises both cell and organ size in the salivary gland. In contrast, the absolute size of the body wall musculature is largely unaffected in kae1[1A13]/Df, and only slightly reduced in the kae1[f10978]/Df mutants (Fig. 7L,M). Indeed, the small size of kae1 null larvae (Fig. 1E) may be sufficient to explain the small size of its muscles, which are expected to scale to body size.",
+    "Distinct effects of depleting kae1 in mitotic and post-mitotic contexts of an individual tissue",
+    "Our extensive phenotypic analyses reveal strikingly distinct requirements for Kae1 in mitotic and nonproliferating larval tissues. To test for potentially distinct requirements for kae1 in mitotic and post-mitotic contexts within the same tissue, we turned to an RNAi approach. The developing eye is convenient for this purpose, as characterized drivers can be used to express transgenes in the undifferentiated, mitotic portion of the eye primordium (ey-Gal4) or in the post-mitotic photoreceptors (GMR-Gal4). Analysis of ey-Gal4 > UAS-kae1-RNAi flies showed strongly malformed eyes, which were small and rough (Fig. 7N,O). We obtained similar results with independent RNAi transgenes (data not shown). In contrast, GMR-Gal4 > UAS-kae1-RNAi produced eyes that developed normally, with all transgenes tested (Fig. 7P).",
+    "Cellular analysis demonstrated that depletion of kae1 using ey-Gal4 caused developmental defects. Compared to the normal size and differentiation status of normal third instar eye discs, stained for the photoreceptor marker Elav and cone cell marker Cut, ey-Gal4 > UAS-kae1-RNAi discs exhibit rudimentary eye discs with disturbed patterning (Fig. 7Q,R). On the other hand, knockdown with GMR-Gal4 did not affect larval eye development (data not shown). Therefore, kae1 is critically required in mitotic, but not in post-mitotic, eye cells."
+  ],
+  "FIG": [
+    "Isolation and characterization of Black Spot mutants. (A) Exemplar of the Black Spot phenotype. [1A13]/Df(3L)ED220 larvae exhibit melanotic nodules of various sizes; a particularly large one is labeled with an arrowhead (“BS”). (B–D) Complementation tests identified a collection of Black Spot mutants, only some of which actually generate melanotic masses with high penetrance (examples labeled with arrowheads). Normal (wt) animals complete their third instar larval stage by day ∼5, and proceed to ∼5 d of pupal development. Pupae containing pharate animals are visible by day ∼10, and they eclose shortly thereafter as adult flies. Wt animals are shown as a reference to the left of B and C. In contrast, many hemizygous Black Spot alleles are substantially developmentally delayed and maintain their larval phase until days 12 (C) to 16 (D), with some living mutants detected at day 18 (not shown). All of the larvae collected in this summary were mobile and thus alive. Hypomorphic mutants could pupate and even advance to the pharate stage; however, it is likely that some of the pupae shown at the latest days are deceased. See Supplemental Figure 1 for additional notes regarding the larval extended phase, lethal phase, and black spot penetrance at different ages in the different hemizygous mutants. (E) Several of the Black Spot mutants attain larger larval size than normal; shown are [1A13] hemizygotes as an example. Other alleles such as [f10978] are growth deficient. All alleles tested could be rescued by kae1 genomic transgenes; shown is rescue of [f10978]/Df larva.",
+    "Summary of Drosophila kae1 (CG4933) mutant alleles. (A) An alignment of fruit fly, human, yeast, and archaeal orthologs of Kae1. Functionally/structurally defined regions are highlighted, including the binding regions for Pcc1 and Bud32, and the ATP- and ion-binding regions. All Black Spot alleles recovered from our screen revealed that point mutations affected well-conserved residues. Notably, none of the mutations directly affects a known functional site, although a few mutations are in the vicinity of such regions. The noncomplementing allele l(3)72Fb[331], identified from a public stock collection, bears a nonsense mutation in kae1. Note that 1A2 and 1A19 induce the same coding change, even though these were isolated from different chromosomes in the screen. (B) qRT-PCR analysis of kae1 from various homozygous or hemizygous mutants. All of our point alleles maintain substantial levels of kae1 transcripts, although several of them are reduced by 20%–30%. The pBac insertion into the 5′ UTR of kae1, f[10978], appears to be a null allele as no transcript was detected. (C) Agarose gel analysis of qRT-PCR amplicons confirms the absence of kae1 transcripts in f[10978]/Df larvae.",
+    "Analysis of t6A-modified tRNAs in yeast KEOPS and Drosophila kae1 mutants. (A) Analysis of yeast t6A pathway mutants is shown as a control. Primer extension assays yield a ladder of bands indicating the presence of stalled products. These include a band at position A37 of tRNA-Ile[AAU] of wild-type yeast that is strongly depleted in yeast t6A pathway mutants, thus indicating a t6A-modified nucleoside. tRNA-Val[UAC] is shown as a control for a non-t6A-bearing substrate. The ladder positions are inaccurate due to incomplete digestion; therefore, sizes are labeled according to the input primer. (B) Analysis of Drosophila kae1 mutants. Modifications of the A37 positions of tRNA-Met[CAU] and tRNA-Ile[AAU] are decreased although not eliminated in two strong hemizygous conditions of kae1. The reduction observed in kae1[1A13]/Df was rescued by a P[acman]-kae1 genomic transgene (“kae1+”). Note that mutant larvae were collected at an advanced age in their extended larval period to separate them from potential maternal contributions; the normal larval period ends at ∼5 d. (C) LC-MS/MS analysis of total tRNAs from Drosophila kae1 hemizygous mutant larvae. We observe a minor decrease in total t6A-modified tRNAs in the hypomorphic allele [7A9] and stronger decreases in the strong/null alleles [f01978] and [1A13]. The levels of t6A-modified tRNAs did not decrease further in exceptionally long-lived kae1 mutant larvae, and the loss of t6A was rescued by a kae1 genomic transgene.",
+    "Genetic and molecular complementation of yeast t6A mutants with Drosophila orthologs. (A–C) Single complementation tests. The schematic depicts the transformations of cognate yeast genes and their fly orthologs, assayed for complementation of sua5 (A), kae1 (B), and bud32 (C) null mutants. Comparison of single colony sizes indicates substantial growth rescue by fly proteins, although not as robust as the yeast counterparts. (D,E) Double complementation tests. The schematics depict combinations of fly orthologs assayed for complementation of kae1 (D) and bud32 (E) null mutants. Improved growth rescue by supplying combinations of fly factors was noticeable, particularly for Drosophila kae1 + bud32. (F) Primer extension analysis demonstrating molecular rescue of t6A-modified tRNA-Ile by yeast and fly factors. (G) Mass spectrometry analysis of total yeast tRNAs. kae1 mutant yeast has borderline detectable levels of t6A-modified tRNAs, which are restored by complementation with yeast KAE1 and by Drosophila KEOPS genes. Consistent with the behavior in yeast growth (D) and in primer extension assays (F), the combination of Drosophila kae1 + bud32 conferred the best rescue of t6A-modified tRNAs.",
+    "Hematopoietic overgrowth and blood cell defects in kae1 mutants. All samples were stained with Hoechst (blue) to label DNA and rhodamine phalloidin (red) to label F-actin; all scale bars, 50 µm. Control animals were TM6B siblings of crosses used to generate kae1/Df(3L)ED220 larvae and are thus heterozygous for kae1. (A) Control hemolymph shows the typical profile in which most circulating hemocytes are plasmatocytes ([P] asterisks). (B) kae1[1A13] hemizygous hemolymph shows increased density of blood cells, as well as numerous lamellocytes, often present in clusters ([L] arrowheads). Lamellocytes (∼40–50 µm in diameter) are larger than plasmatocytes (10 µm in diameter). (C) Large aggregates bearing organized structure were observed in circulation as were overt tumors that are packed with plasmatocytes and lamellocytes (D). The latter correspond to the melanotic masses observed in live “black spot” larvae. (E–H) Anterior lobe of lymph gland from third instar in control (E) and from aged kae1/Df(3L)ED220 larvae (F–H); the dorsal vessel (DV) is labeled. The kae1 mutants exhibit strong overcommitment to lamellocyte fate in the lymph gland (F) and typically have overgrown lobes (G). Frequently, the anterior lobe was observed in the process of dispersal or was detached entirely from the dorsal vessel (H). (I–L) Analysis of anterior lymph gland lobes in second instar larvae. Compared with control (I), all kae1 mutants exhibit ectopic lamellocytes (J–L). The hypomorphs [1A2] (J) and [1A13] (K) are relatively normally sized, but the null [f01978] (L) is strongly overgrown. (M,N) Analysis of mitotic cells (labeled with anti-phospho-Histone H3, green) in posterior lobes of lymph glands from control (M) and [1A13]/Df (N). The kae1 mutant has overgrown posterior lobes that harbor more actively dividing cells.",
+    "Essential requirement for kae1 in imaginal disc cells. (A–C) Preparations of third instar brain-disc complexes, stained for DAPI (gray), phalloidin (red) and the post-mitotic neuronal marker Elav (blue). Scale bars, 200 μm. (A) Wt complexes show the CNS (in outline) and an array of discs that generate the adult body structures. Because not all the discs remain attached to each other during dissection, a composite image that captures all of the discs is shown. These include pairs of wing (W), haltere (H), and eye-antennal (EA) discs, and six leg (L) discs. In kae1[1A13] (B) and kae1[f01978] (C) hemizygotes, essentially no imaginal discs are found, even though the CNS can be readily identified. The CNS can be divided into the optic lobes (OL, dotted lines) and the ventral nerve cord (VNC). The CNS is mildly smaller in kae1[1A13]/Df larvae (B) and substantially reduced in kae1[f01978]/Df larvae (C); however, note that the OL is preferentially reduced. The VNC harbors a stronger proportion of post-mitotic neurons than the OLs, as evidenced by Elav staining. (D,E) Analysis of mitotic clones generated in wing imaginal discs of control lacZ FRT80 (D) and kae1 FRT80 (E) chromosomes; enlargements are shown in D′ and E′. The clones are generated in a heterozygous (+/−) ub-GFP FRT80 background, which produces an intermediate level of GFP. Homozygous mutant clones (−/−) lack GFP whereas their sibling twin-spot clones (+/+) express elevated levels of GFP. Seventy-two hours after clone induction, all three cell populations are identified in the control experiment (D), whereas homozygous kae1 mutant cells were not recovered in wing discs (E). (F) Quantification of relative sizes of clones and their sibling twin-spots. n = 26 lacZ clones and 20 kae1 clones analyzed. Scale bars, 200 μm, except D′, E′, 50 μm.",
+    "Differential requirements of kae1 in mitotic vs. nonproliferating tissues. Larval tissues were analyzed from kae1[1A13] and kae1[f01978] hemizygotes, which fully lack imaginal discs (Fig. 6). (A–I) Immunostaining of dissected tissues, using DAPI (blue) and phalloidin (red). (A–F) Salivary glands (and some attached fat bodies) imaged at 10× to visualize entire glands (A–C) and at 20× to emphasize individual cell sizes (D–F). (G–I) Body wall musculature. Selected muscles VL1-4 and LO1 are labeled. The length of a body segment is denoted with the double arrow lines. (J) Quantifications of salivary gland sizes (n = 10 all genotypes) and (K) salivary gland cell sizes (n = 15 cells from the distal tip measured in each of eight glands, all genotypes). Although kae1[1A13]/Df larvae exhibit severe defects in mitotic tissues, the overall salivary gland size and cell size are more modestly affected. The null allele kae1[f01978] is severely compromised in both aspects of the salivary gland. (L) Quantifications of VL1 muscle length and (M) VL2 muscle length. kae1[1A13]/Df larvae exhibit normal muscle sizes, while the null allele is only ∼40% reduced. Error bar shows standard error; all statistical analyses were unpaired Student's t-tests. (N–P) Adult eyes bearing Gal4 driver alone (N) or expressing kae1-RNAi under control of ey-Gal4 (O) or GMR-Gal4 (P). The former is active in the proliferating eye primordium, whereas the latter is active in post-mitotic photoreceptor neurons. (Q,R) Third instar eye-antennal imaginal discs stained for DAPI, Cut (green, to label cone cells) and Elav (red, to label photoreceptors). Compared to the control disc (Q), depletion of kae1 using ey-Gal4 induces severely defective eye development. All scale bars, 200 μm."
+  ],
+  "DISCUSS": [
+    "DISCUSSION",
+    "Confirmation of the t6A modification pathway in a metazoan",
+    "To date, nearly all studies of the t6A biogenesis pathway have been conducted in unicellular organisms such as bacteria or yeast. The first functional study of a metazoan t6A component involved knockdown of the mitochondrial Kae1 paralog Qri7 (OSGEP-L) in Caenorhabditis elegans, which induced defective mitochondrial morphology and function. Subsequently, a knockdown study of the D. melanogaster Bud32/PRPK reported growth defects relating to defective TOR signaling. However, neither study assessed biochemical defects in t6A accumulation per se. Furthermore, knockdown approaches do not generally achieve genetic null states.",
+    "We demonstrate loss of t6A-modified tRNAs in Drosophila kae1 mutants, using both primer extension of individual species and mass spectrometry to examine the bulk population. Moreover, we demonstrate substantial cross-species rescue by fly Kae1 (and its partners) in yeast kae1 mutants, both in terms of growth capacity and in recovery of t6A-modified tRNAs. While this work was in preparation, similar observations using the kae1 transposon insertion alleles were reported by the Glavic group. Our findings corroborate and extend their results. Nevertheless, our detection of substantial t6A-modified tRNAs in Drosophila kae1 mutants was unexpected.",
+    "Previous characterization of yeast kae1 mutants, which we confirm here, showed nearly complete absence of t6A-modified tRNAs. This raises two general possibilities. First, it may be that t6A-modified tRNAs are exceptionally stable in Drosophila. In this scenario, even though we assayed timepoints going well past the established range of maternal effects (e.g., up to 18 d, or the equivalent of a week-old adult fly), those modified tRNAs that were maternally deposited or generated from maternal kae1 mRNA and/or protein persisted all that time. Alternatively, many species, including yeast and Drosophila, express a mitochondrial Kae1 paralog named Qri7. Although mitochondrially derived t6A appears to comprise a minute portion of the total pool in single-celled organisms, the situation might be different in a metazoan. For example, the substantial populations of nonproliferating tissues that tolerate deletion of kae1 include the larval musculature, which sustain larval locomotion in mutants for weeks. Therefore, the remaining t6A-modified tRNAs in kae1 null mutant larvae may potentially be contributed by the abundant mitochondria in muscles. In the future, characterization of a Drosophila Qri7 (CG14231) knockout would provide a useful comparison, especially to see if Qri7 loss preferentially affects tissues with exceptional needs for oxidative phosphorylation.",
+    "An extensive allelic series of kae1 mutants reveal diverse biology of t6A",
+    "The first allele in a t6A biogenesis component, yeast sua5-1, was isolated in a forward genetic screen as an extragenic suppressor of a mutant cyc1 allele bearing an aberrant uORF. UV and X-rays were used as mutagens in these screens, and cloning of sua5-1 revealed a single-base substitution resulting in an S107F missense alteration. Subsequently, other genetic efforts hit various KEOPS components of the t6A pathway, but these studies utilized screening of a deletion collection or a multicopy suppressor scheme. All of these studies pre-dated the connection of Sua5/KEOPS factors to t6A biogenesis, and for the most part, studies have focused on generation of straight or conditional knockout alleles.",
+    "We describe the first extensive set of point mutations in a t6A pathway component. These mutations sort along a comprehensive allelic series that includes null alleles, strong mutants, and weak hypomorphs. We document allele-specific phenotypic severities in different tissues, and also note that biochemically strong hypomorphs exhibit modest phenotypes in some settings (e.g., exhibit normal somatic musculature) but phenocopy null alleles in other settings (e.g., completely lack imaginal discs). These discrepancies highlight the utility of the allelic series in dissecting multiple requirements of essential housekeeping genes in regulating fundamental cellular processes in vivo. Future studies can continue to exploit these alleles to elucidate the biology of t6A modification. For example, it remains unclear what underlying causes provoke the dramatic hematopoietic responses in kae1 mutants, and our alleles provide unique means for querying this. Of note, substantial hematopoietic overgrowth is observed in both strong hypomorphs and the null condition, but only the former proceeds reliably toward generation of melanotic nodules.",
+    "The kae1 alleles we report should also be valuable for understanding the mechanism of t6A modification. Extensive structural studies delineate the Kae1 active site and binding surfaces with its partners Pcc1 and Bud32. Interestingly, only one of our many point mutations directly affects any of these functionally characterized regions (Fig. 2A). This highlights the usage of a forward genetic screen to identify relevant mutations. This mutant collection can be utilized as a basis of structure-function studies to assess how these uncharacterized residues might affect formation of the KEOPS complex, productive t6A transfer, or potentially the specificity of substrate tRNA recognition.",
+    "Differential requirements of t6A in proliferating and nonproliferating cells",
+    "Studies of the biology of t6A modification pathway in metazoan systems are only in their infancy. The Glavic group reported foundational studies using transgenic RNAi against Drosophila Prpk/Bud32, and their recent work and our current study extend this to genuine kae1 mutants. There are general similarities between the phenotypes of fruit fly and unicellular organism mutants, in that these genes are lethal (as in bacteria) and exhibit substantially defective growth (as in yeast). Of course, one of the major opportunities specifically available in higher eukaryotes is to examine potential cell- and tissue-specific requirements. Here, we find evidence for differential requirements for kae1 in distinct cell types.",
+    "Quite noticeably, strong kae1 mutants completely lack imaginal discs. The progenitor populations of discs are set aside during embryonic development, and they proliferate extensively during larval stages to generate the tissues that will form the adult body plan during metamorphosis. Although we cannot precisely assess the timing of effective depletion of maternal stores of t6A-modifed tRNAs (i.e., that are directly deposited into the oocyte, or that are generated via maternally deposited kae1 mRNA and/or protein), our clonal studies demonstrate a timely impact on removal of the kae1 genomic locus. That is, even though there exists substantial likelihood of Kae1 and t6A-modified tRNAs inherited from the mother cell prior to mitotic recombination, kae1 mutant disc cells are quickly disadvantaged and rapidly removed during the course of normal development.",
+    "Overall, we note these kae1 phenotypes are strikingly similar to certain other Drosophila mutants. For example, we and others previously characterized mutants of the central E1 and E2 enzymes in the SUMO pathway (the heterodimeric pair Aos1/Uba2 and Ubc9, respectively), and these develop a range of defects that are strikingly similar to what we documented for kae1 mutants. Phenotypes common to loss of Kae1 and SUMO include extended larval phases before lethality, presence of melanotic tumors, and preferential defects in mitotic versus nonproliferating cells, as evidenced by their lack of imaginal discs while retaining diverse other larval tissues. Similarly, a number of zygotic cell cycle mutants specifically abrogate development of imaginal discs while generally sparing other endoreplicated and post-mitotic larval tissues. Altogether, these analyses highlight how mutations in seemingly “general” cellular regulators can reveal tissue-specific requirements. Moreover, they suggest that several fundamental regulatory pathways are preferentially required in highly mitotic tissues. Whether this simply indicates that diverse processes mutate to a common terminal zygotic phenotype, reflecting the distinct biology of mitotic and nonproliferating cells, or whether there are actually mechanistic links between t6A, SUMO, and the cell cycle, remains to be dissected in the future."
+  ],
+  "METHODS": [
+    "MATERIALS AND METHODS",
+    "Genetic screen for kae1 alleles",
+    "The region uncovered by Df(3L)ED220 was subjected to a lethal F2 screen after EMS mutagenesis. In total, we conducted nine rounds of mutagenesis using isogenized w[1118] males (rounds 1 and 2) or w ; FRT80B males (subsequent rounds). The animals were desiccated and fed 25mM EMS in 20% sucrose, then mated with w; TM3 Sb/TM6B females. Individual F1 TM6B males were crossed to w; Df(3L)ED220 w+/TM6B females (Bloomington #8077). Vials were scored for lethality by the absence of empty non-Tb pupal cases. Owing to the w+ marker integral to Df(3L)ED220, stocks of new lethal alleles were recovered by collecting white-eyed flies carrying TM6B, and re-balancing. In total, we conducted nine rounds of mutagenesis, and scored >7000 viable crosses to the deficiency, yielding 64 lethals.",
+    "The kae1 alleles [1A2], [1A13], and [1A19] were recovered in the w[1118] background, while [3A7], [5C3], [7A6], [7A9], and [9D1], FRT80B/TM6B were recovered in the w[1118]; FRT80B background. We subsequently identified other alleles of kae1 in stocks obtained from the Bloomington Stock Center, namely pBac-CG4933[f01978]/TM6B (#18497), l(3)72Fb[209]/TM6B (#4793), and l(3)72Fb[331]/TM6B (#4794).",
+    "Construction of CG4933 rescue transgenes",
+    "4925AR TAAGCAATTATTTGATAGTCAATCTTTCG",
+    "CG4933R AAGGAACAGGCCCTTTAAGTGGG",
+    "We amplified the genomic region encompassing CG4933 and part of the upstream flanking gene using the primers below. The fragment was cloned into pGEM-T-easy and sequence verified. The fragment was then excised with NotI and cloned into NotI digested attB-P[acman], which had been treated with calf intestinal phosphatase.",
+    "We generated GFP-tagged CG4933 genomic transgene using recombineering, utilizing a two-step positive/negative selection. We performed positive/negative galK selection mediated by growth on MacConkey agar (positive selection for integration of the galK cassette) and growth on media containing 2-deoxygalactose (negative selection for replacement of galK cassette with GFP[S65T] CDS). Sequences (galK cassette and GFP[S65T] CDS) were amplified with primers described below from pgalK and pBD1010 (Barry Dickson), respectively. Purified PCR products were electroporated into SW102 bacteria with the appropriate attB p[acman] CG4933 vector and selection was carried out as described previously.",
+    "C term - galK insertion",
+    "CT4933galK-F",
+    "GTGACTCAGCGATTTCGAACGGACGAAGTGCTGGTCAGCTGGCGGGATGACCCTGTTGACAATTAATCATCGGCA",
+    "CT4933galK-R",
+    "TAGTTATTTAATAAACAAACGATGCACAGAAATAAGTTCTTGTGGTGATTATCAGCACTGTCCTGCTCCTT",
+    "C term - GFP insertion",
+    "CT4933GFP-F",
+    "GTGACTCAGCGATTTCGAACGGACGAAGTGCTGGTCAGCTGGCGGGATGACATGAGTAAAGGAGAAGAACTTTTC",
+    "CT4933GFP-R",
+    "TAGTTATTTAATAAACAAACGATGCACAGAAATAAGTTCTTGTGGTGATTATTTGTATAGTTCATCCATGCC",
+    "Primers for galK recombineering of GFP into C-terminus of CG4933:",
+    "Immunostaining and clonal analysis",
+    "Analysis of hematopoietic system",
+    "Developmentally synchronized larvae from crosses w; kae1[IA2]/TM6B X Df(3L)ED220/TM6B and w; kae1[IA13]/TM6B X Df(3L)ED220/TM6B were collected, washed in phosphate buffered saline, pH 7.4, and either imaged without dissection using a Leica MZFLIII, or were dissected for hemolymph contents, lymph glands, and tumors, at 4, 8, and 10 d after egg laying, according to previously described methods. To obtain larval blood cells and tumors, animals were bled gently, and hemolymph contents, including tumors, were recovered directly on slides. Larval samples were fixed in 4% paraformaldehyde in PBS, pH 7.4, stained with Rhodamine Phalloidin (Invitrogen) and Hoechst 33258 (Molecular Probes), and imaged with Zeiss laser Scanning 510 confocal microscope. Images were recorded at 8 bit. AxioVision LE 4.5 or Zeiss LSM5 AxioVision software was used to process images.",
+    "Analysis of other larval tissues",
+    "Imaginal discs, brains, and muscles were dissected and stained following previously described protocol. Antibodies used were mouse anti-Cut (DSHB, 1:50), rat anti-Elav (DSHB, 1:500), Alexa Fluor-568 phalloidin (Life Technologies, 1:1000). Appropriate secondary antibodies conjugated to Alexa 488, 568, and 647 were then used. Tissues were mounted in VECTASHIELD Antifade Mounting Medium with DAPI.",
+    "Clonal analysis",
+    "We analyzed hsFlp; [w+, arm-lacZ] FRT80B/[w+, ubi-GFP] FRT80B and hsFlp; kae1[1A13] FRT80B/[w+, ubi-GFP] FRT80B animals. Larvae were heat-shocked at 37°C for 40 min at 72 h after egg laying, and were dissected 3 d after heat shock.",
+    "RT-PCR",
+    "Total RNA from homozygous or hemizygous larvae were extracted with TRIzol (Invitrogen), followed by DNase treatment using TURBO DNA-free Kit (Ambion). cDNA were synthesized using SuperScript III First-Strand Synthesis System with random primers (Invitrogen). QPCR reaction was performed with CFX96 Touch Real-Time PCR Detection System (Bio-Rad). Primers used were Kae1_RT_F, TTTGGGTATTGAAGGCAGTG, and Kae1_RT_R, CAGGAAACCTTCTCCTGGTG, and RPL32_RT_F, CCGCTTCAAGGGACAGTATC, and RPL32_RT_R, ACGTTGTGCACCAGGAACTT.",
+    "tRNA primer extension assays",
+    "S.c. Ile primer: gggatcgaaccgctgatc",
+    "S.c. Met primer: aggttcgaactctcgacc",
+    "S.c. Val primer: aggttcgaactcgggatc",
+    "D.m. Ile primer: gggatcgaacccgcgac",
+    "D.m. Met primer: aggtttcgatcctcggacc",
+    "D.m. Val Primer: gggatcgaaccggagacc",
+    "Two micrograms of tRNA extracted with mirVana miRNA isolation kit (Ambion) was mixed with 1 pmol of [γ-32P]-labeled primer in 5 μL 1× First-strand buffer (Invitrogen), heated to 95°C and then slowly cooled down to 37°C. Annealed RNA/primer was collected by brief centrifugation, added with 5 μL retro-transcription reaction mix, including 0.5 mM dNTPs, 0.01 M DTT, 200 units SuperScript III (Invitrogen) in 1× First-strand buffer and incubated at 50°C for 50 min, followed by heat inactivation at 70°C for 15 min. Reaction samples were then electrophoresed with 15% polyacrylamide–urea sequencing gels (40 cm long).",
+    "Yeast strains and plasmids",
+    "All yeast strains are derivatives of W303 a/α diploids homozygous for trp1 leu2 ura3 his3 ade2. The following derivatives of W303 were used: EJP51 KAE1/kae1::kanMX6, RS2586 BUD32/bud32::kanMX6, and YYF1 SUA5/sua5::kanMX6. PCR was used to amplify the Drosophila cDNAs for KAE1, BUD32, PCC1, and SUA5 open reading frames. The cDNAs were cloned into a yeast expression plasmid vector, pADH416 or pADH415, with selectable markers URA3 or LEU2, respectively. These plasmids express the Drosophila proteins from the ADH promoter on a single copy plasmid. As controls, the corresponding yeast genes were expressed under their own promoters in the single copy vector pRS316. The plasmid expressing yeast Kae1 was described previously and yeast Pcc1, Bud32, and Sua5 expressing plasmids are pXZ1, pXZ2, and pXZ3, respectively.",
+    "Mass spectrometric analysis of tRNA modifications",
+    "Chemicals",
+    "All chemicals and reagents used were obtained at the highest purity available and were used without further purification unless stated. Benzonase, bacterial alkaline phosphatase, butylated hydroxytoluene, acetonitrile, and buffer salts were purchased from Sigma-Aldrich. Coformycin was obtained from the National Cancer Institute. Phosphodiesterase I was purchased from Worthington. Tetrahydrouridine was purchased from Calbiochem. Water purified through a Milli-Q system (Millipore) was used throughout our studies. Sartorius Vivaspin 500-brand centrifugal filter units were used for dialysis and sample concentration.",
+    "Extraction and purification of Drosophila and yeast RNA",
+    "Total RNAs were isolated using TRIzol and then subjected to a two-step purification to obtain tRNA. First, a PureLink RNA Mini extraction kit (Life Technologies) was used to precipitate the ribosomal RNA in the sample. In the second step, size-exclusion chromatography (SEC-HPLC) was performed using an Agilent Bio SEC-3 column with 10 mM ammonium acetate at pH 7 as the mobile phase. Neutral pH was selected to minimize hydrolysis of ct6A. tRNA and rRNA were collected as separate fractions, vacuum concentrated and reconstituted in water. tRNA concentrations were determined by UV spectroscopy at 260 nm. In the yeast samples, the proportion of tRNA to ribosomal RNA was much higher so only SEC-HPLC fractionation was required to obtain pure tRNA for analysis.",
+    "Nucleoside preparation",
+    "Four micrograms of purified tRNA from each sample was digested using a mixture of Benzonase (21.5 U), bacterial alkaline phosphatase (0.5 U) and phosphodiesterase I (0.21 U) in a final reaction volume of 100 µL. Enzymes were dialyzed into 10 mM ammonium acetate at pH 7 immediately prior to use by washing twice with 10 kDa MWCO Vivaspin 500 spin filters. The reaction mixture was supplemented with MgCl2, CaCl2, and ZnCl2, each at a concentration of 0.1 mM. Nucleobase deaminase inhibitors coformycin and tetrahydrouridine were added at a concentration of 10 µg/mL and 50 µg/mL, respectively, and butylated hydroxytoluene (an antioxidant) was added at a concentration of 0.5 mM. The digestion was allowed to proceed for 2 h at 37°C and was stopped upon removal of the enzymes by microfiltration with 10 kDa spin filters.",
+    "LC-MS/MS analysis of RNA nucleosides",
+    "Ribonucleosides were separated using a Synergy Fusion RP, 2.5 µm particle size, 100 Å pore size, 100 mm length, 2 mm inner diameter from Phenomenex, on an Agilent 1290 series HPLC system equipped with a diode array detector. Mobile phase A was 5 mM ammonium acetate and mobile phase B was pure acetonitrile. Gradient elution started with 100% A for 1 min, increased to 10% B after 10 min, 40% after 14 min, 80% after 20 min and regeneration of starting conditions with 100% A for 5 additional minutes. The flow rate was 0.35 mL/min and the column temperature 35°C. The effluent from the column was directed through the DAD before entering the Agilent 6430 triple quadrupole mass spectrometer in dynamic multiple reaction monitoring (MRM) mode. The MS was operated in positive ion mode with the following parameters: electro-spray ionization (ESI-MS), fragmentor voltage (average) 80 V, cell accelerator voltage 2 V, N2-gas temperature 350°C, N2-gas flow 10 L/min, nebulizer 40 psi, capillary 3500 V.",
+    "Modified nucleosides were identified based on having both the correct retention time and mass transition. Under our chromatography conditions, t6A eluted at 8.6 min while ct6A eluted at 6.8 min. Mass transitions were m/z 413 → 281 for t6A and m/z 395 → 263 for ct6A, both corresponding to the neutral loss of ribose. 15N-2-Deoxyadenosine was added to each sample as an internal standard.",
+    "Data analysis",
+    "In each sample, the UV peak areas at 260 nm of the four canonical ribonucleosides—cytidine, uridine, guanosine, and adenosine—were integrated and summed together. Peaks corresponding to detection of MRM transitions for the modified nucleosides were first normalized to the peak area of the internal standard (15N-2-deoxyadenosine) to account for inter-sample detection fluctuations, followed by a second normalization to the summed peak areas of the canonical nucleosides to account for the amount of injected RNA. The adjusted peak areas of the five samples were calculated as a percentage of the corresponding wild-type control sample."
+  ],
+  "SUPPL": [
+    "SUPPLEMENTAL MATERIAL",
+    "Supplemental material is available for this article.",
+    "Supplementary Material",
+    "Article published online ahead of print. Article and publication date are at http://www.rnajournal.org/cgi/doi/10.1261/rna.053934.115."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Bringing order to translation: the contributions of transfer RNA anticodon-domain modifications",
+    "Rapid tRNA decay can result from lack of nonessential modifications",
+    "A genome-based approach for the identification of essential bacterial genes",
+    "Diversity and dynamics of the Drosophila transcriptome",
+    "Gcn4 misregulation reveals a direct role for the evolutionary conserved EKC/KEOPS in the t6A modification of tRNAs",
+    "Biosynthesis of threonylcarbamoyl adenosine (t6A), a universal tRNA nucleoside",
+    "FlyBase: introduction of the Drosophila melanogaster Release 6 reference genome assembly and large-scale migration of genome annotations",
+    "A genome-wide screen identifies the evolutionarily conserved KEOPS complex as a telomere regulator",
+    "The universal YrdC/Sua5 family is required for the formation of threonylcarbamoyladenosine in tRNA",
+    "A role for the universal Kae1/Qri7/YgjD (COG0533) family in tRNA modification",
+    "‘Conserved hypothetical’ proteins: prioritization of targets for experimental study",
+    "Genes controlling essential cell-cycle functions in Drosophila melanogaster",
+    "Why should cancer biologists care about tRNAs? tRNA synthesis, mRNA translation and the control of growth",
+    "Posttranscriptionally modified nucleosides in transfer RNA: their locations and frequencies",
+    "tRNA modifications regulate translation during cellular stress",
+    "Extragenic suppressors of a translation initiation defect in the cyc1 gene of Saccharomyces cerevisiae",
+    "Conserved network of proteins essential for bacterial viability",
+    "Studies on the half life time of rat liver transfer RNA species",
+    "Structure of the archaeal Kae1/Bud32 fusion protein MJ1130: a model for the eukaryotic EKC/KEOPS subcomplex",
+    "Translational regulation of GCN4 and the general amino acid control of yeast",
+    "Quality control pathways for nucleus-encoded eukaryotic tRNA biosynthesis and subcellular trafficking",
+    "Global analysis of protein localization in budding yeast",
+    "Drosophila p53-related protein kinase is required for PI3K/TOR pathway-dependent growth",
+    "Sumoylation is tumor-suppressive and confers proliferative quiescence to hematopoietic progenitors in Drosophila melanogaster larvae",
+    "A differential requirement for SUMOylation in proliferating and non-proliferating cells during Drosophila development",
+    "Emerging roles of tRNA in adaptive translation, signalling dynamics and disease",
+    "Yeast homolog of a cancer-testis antigen defines a new transcription complex",
+    "Hematopoietic progenitors and hemocyte lineages in the Drosophila lymph gland",
+    "neuralized functions cell-autonomously to regulate a subset of Notch-dependent processes during adult Drosophila development",
+    "The neurogenic suppressor of sairless DNA-binding protein mediates the transcriptional activation of the enhancer of split complex genes triggered by Notch signaling",
+    "Functional analysis and regulation of nuclear import of dorsal during the immune response in Drosophila",
+    "The Sua5 protein is essential for normal translational regulation in yeast",
+    "Heterochromatin protein 1 is required for the normal expression of two heterochromatin genes in Drosophila",
+    "MODOMICS: a database of RNA modification pathways—2013 update",
+    "Atomic structure of the KEOPS complex: an ancient protein kinase-containing molecular machine",
+    "Cell cycling and patterned cell proliferation in the wing primordium of Drosophila",
+    "Melanotic mutants in Drosophila: pathways and phenotypes",
+    "A cyclic form of N6-threonylcarbamoyladenosine as a widely distributed tRNA hypermodification",
+    "Isolation and characterization of SUA5, a novel gene required for normal growth in Saccharomyces cerevisiae",
+    "Qri7/OSGEPL, the mitochondrial version of the universal Kae1/YgjD protein, is essential for mitochondrial genome maintenance",
+    "In vitro biosynthesis of a universal t6A tRNA modification in Archaea and Eukarya",
+    "The levels of a universally conserved tRNA modification regulate cell growth",
+    "An introduction to parasitic wasps of Drosophila and the antiparasite immune response",
+    "Compilation of tRNA sequences and sequences of tRNA genes",
+    "The highly conserved KEOPS/EKC complex is essential for a universal tRNA modification, t6A",
+    "Quantitative analysis of ribonucleoside modifications in tRNA by HPLC-coupled mass spectrometry",
+    "P[acman]: a BAC transgenic platform for targeted insertion of large DNA fragments in D. melanogaster",
+    "Reconstitution and characterization of eukaryotic N6-threonylcarbamoylation of tRNA using a minimal enzyme system",
+    "Simple and highly efficient BAC recombineering using galK selection",
+    "Effect of threonylcarbamoyl modification (t6A) in yeast tRNA Arg III on codon-anticodon and anticodon-anticodon interactions. A thermodynamic and kinetic evaluation",
+    "Accurate translation of the genetic code depends on tRNA modified nucleosides",
+    "Mapping Drosophila mutations with molecularly defined P element insertions",
+    "The ATP-mediated formation of the YgjD-YeaZ-YjeE complex is required for the biosynthesis of tRNA t6A in Escherichia coli"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bringing order to translation: the contributions of transfer RNA anticodon-domain modifications",
+      "autores": [
+        {
+          "nombre_completo": "PF Agris",
+          "nombres": "PF",
+          "apellidos": "Agris"
+        }
+      ],
+      "pmid": "18552770",
+      "fuente": "EMBO Rep",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "629",
+      "lpage": "635"
+    },
+    {
+      "titulo": "Rapid tRNA decay can result from lack of nonessential modifications",
+      "autores": [
+        {
+          "nombre_completo": "A Alexandrov",
+          "nombres": "A",
+          "apellidos": "Alexandrov"
+        },
+        {
+          "nombre_completo": "I Chernyakov",
+          "nombres": "I",
+          "apellidos": "Chernyakov"
+        },
+        {
+          "nombre_completo": "W Gu",
+          "nombres": "W",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "SL Hiley",
+          "nombres": "SL",
+          "apellidos": "Hiley"
+        },
+        {
+          "nombre_completo": "TR Hughes",
+          "nombres": "TR",
+          "apellidos": "Hughes"
+        },
+        {
+          "nombre_completo": "EJ Grayhack",
+          "nombres": "EJ",
+          "apellidos": "Grayhack"
+        },
+        {
+          "nombre_completo": "EM Phizicky",
+          "nombres": "EM",
+          "apellidos": "Phizicky"
+        }
+      ],
+      "pmid": "16387656",
+      "fuente": "Mol Cell",
+      "anio": "2006",
+      "volumen": "21",
+      "fpage": "87",
+      "lpage": "96"
+    },
+    {
+      "titulo": "A genome-based approach for the identification of essential bacterial genes",
+      "autores": [
+        {
+          "nombre_completo": "F Arigoni",
+          "nombres": "F",
+          "apellidos": "Arigoni"
+        },
+        {
+          "nombre_completo": "F Talabot",
+          "nombres": "F",
+          "apellidos": "Talabot"
+        },
+        {
+          "nombre_completo": "M Peitsch",
+          "nombres": "M",
+          "apellidos": "Peitsch"
+        },
+        {
+          "nombre_completo": "MD Edgerton",
+          "nombres": "MD",
+          "apellidos": "Edgerton"
+        },
+        {
+          "nombre_completo": "E Meldrum",
+          "nombres": "E",
+          "apellidos": "Meldrum"
+        },
+        {
+          "nombre_completo": "E Allet",
+          "nombres": "E",
+          "apellidos": "Allet"
+        },
+        {
+          "nombre_completo": "R Fish",
+          "nombres": "R",
+          "apellidos": "Fish"
+        },
+        {
+          "nombre_completo": "T Jamotte",
+          "nombres": "T",
+          "apellidos": "Jamotte"
+        },
+        {
+          "nombre_completo": "ML Curchod",
+          "nombres": "ML",
+          "apellidos": "Curchod"
+        },
+        {
+          "nombre_completo": "H Loferer",
+          "nombres": "H",
+          "apellidos": "Loferer"
+        }
+      ],
+      "pmid": "9743119",
+      "fuente": "Nat Biotechnol",
+      "anio": "1998",
+      "volumen": "16",
+      "fpage": "851",
+      "lpage": "856"
+    },
+    {
+      "titulo": "Diversity and dynamics of the Drosophila transcriptome",
+      "autores": [
+        {
+          "nombre_completo": "JB Brown",
+          "nombres": "JB",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "N Boley",
+          "nombres": "N",
+          "apellidos": "Boley"
+        },
+        {
+          "nombre_completo": "R Eisman",
+          "nombres": "R",
+          "apellidos": "Eisman"
+        },
+        {
+          "nombre_completo": "G May",
+          "nombres": "G",
+          "apellidos": "May"
+        },
+        {
+          "nombre_completo": "M Stoiber",
+          "nombres": "M",
+          "apellidos": "Stoiber"
+        },
+        {
+          "nombre_completo": "MO Duff",
+          "nombres": "MO",
+          "apellidos": "Duff"
+        },
+        {
+          "nombre_completo": "BW Booth",
+          "nombres": "BW",
+          "apellidos": "Booth"
+        },
+        {
+          "nombre_completo": "J Wen",
+          "nombres": "J",
+          "apellidos": "Wen"
+        },
+        {
+          "nombre_completo": "S Park",
+          "nombres": "S",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "AM Suzuki",
+          "nombres": "AM",
+          "apellidos": "Suzuki"
+        }
+      ],
+      "pmid": "24670639",
+      "fuente": "Nature",
+      "anio": "2014",
+      "volumen": "512",
+      "fpage": "393",
+      "lpage": "399"
+    },
+    {
+      "titulo": "Gcn4 misregulation reveals a direct role for the evolutionary conserved EKC/KEOPS in the t6A modification of tRNAs",
+      "autores": [
+        {
+          "nombre_completo": "MC Daugeron",
+          "nombres": "MC",
+          "apellidos": "Daugeron"
+        },
+        {
+          "nombre_completo": "TL Lenstra",
+          "nombres": "TL",
+          "apellidos": "Lenstra"
+        },
+        {
+          "nombre_completo": "M Frizzarin",
+          "nombres": "M",
+          "apellidos": "Frizzarin"
+        },
+        {
+          "nombre_completo": "B El Yacoubi",
+          "nombres": "B",
+          "apellidos": "El Yacoubi"
+        },
+        {
+          "nombre_completo": "X Liu",
+          "nombres": "X",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "A Baudin-Baillieu",
+          "nombres": "A",
+          "apellidos": "Baudin-Baillieu"
+        },
+        {
+          "nombre_completo": "P Lijnzaad",
+          "nombres": "P",
+          "apellidos": "Lijnzaad"
+        },
+        {
+          "nombre_completo": "L Decourty",
+          "nombres": "L",
+          "apellidos": "Decourty"
+        },
+        {
+          "nombre_completo": "C Saveanu",
+          "nombres": "C",
+          "apellidos": "Saveanu"
+        },
+        {
+          "nombre_completo": "A Jacquier",
+          "nombres": "A",
+          "apellidos": "Jacquier"
+        }
+      ],
+      "pmid": "21459853",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2011",
+      "volumen": "39",
+      "fpage": "6148",
+      "lpage": "6160"
+    },
+    {
+      "titulo": "Biosynthesis of threonylcarbamoyl adenosine (t6A), a universal tRNA nucleoside",
+      "autores": [
+        {
+          "nombre_completo": "C Deutsch",
+          "nombres": "C",
+          "apellidos": "Deutsch"
+        },
+        {
+          "nombre_completo": "B El Yacoubi",
+          "nombres": "B",
+          "apellidos": "El Yacoubi"
+        },
+        {
+          "nombre_completo": "V de Crécy-Lagard",
+          "nombres": "V",
+          "apellidos": "de Crécy-Lagard"
+        },
+        {
+          "nombre_completo": "D Iwata-Reuyl",
+          "nombres": "D",
+          "apellidos": "Iwata-Reuyl"
+        }
+      ],
+      "pmid": "22378793",
+      "fuente": "J Biol Chem",
+      "anio": "2012",
+      "volumen": "287",
+      "fpage": "13666",
+      "lpage": "13673"
+    },
+    {
+      "titulo": "FlyBase: introduction of the Drosophila melanogaster Release 6 reference genome assembly and large-scale migration of genome annotations",
+      "autores": [
+        {
+          "nombre_completo": "G dos Santos",
+          "nombres": "G",
+          "apellidos": "dos Santos"
+        },
+        {
+          "nombre_completo": "AJ Schroeder",
+          "nombres": "AJ",
+          "apellidos": "Schroeder"
+        },
+        {
+          "nombre_completo": "JL Goodman",
+          "nombres": "JL",
+          "apellidos": "Goodman"
+        },
+        {
+          "nombre_completo": "VB Strelets",
+          "nombres": "VB",
+          "apellidos": "Strelets"
+        },
+        {
+          "nombre_completo": "MA Crosby",
+          "nombres": "MA",
+          "apellidos": "Crosby"
+        },
+        {
+          "nombre_completo": "J Thurmond",
+          "nombres": "J",
+          "apellidos": "Thurmond"
+        },
+        {
+          "nombre_completo": "DB Emmert",
+          "nombres": "DB",
+          "apellidos": "Emmert"
+        },
+        {
+          "nombre_completo": "WM Gelbart",
+          "nombres": "WM",
+          "apellidos": "Gelbart"
+        }
+      ],
+      "pmid": "25398896",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "D690",
+      "lpage": "D697"
+    },
+    {
+      "titulo": "A genome-wide screen identifies the evolutionarily conserved KEOPS complex as a telomere regulator",
+      "autores": [
+        {
+          "nombre_completo": "M Downey",
+          "nombres": "M",
+          "apellidos": "Downey"
+        },
+        {
+          "nombre_completo": "R Houlsworth",
+          "nombres": "R",
+          "apellidos": "Houlsworth"
+        },
+        {
+          "nombre_completo": "L Maringele",
+          "nombres": "L",
+          "apellidos": "Maringele"
+        },
+        {
+          "nombre_completo": "A Rollie",
+          "nombres": "A",
+          "apellidos": "Rollie"
+        },
+        {
+          "nombre_completo": "M Brehme",
+          "nombres": "M",
+          "apellidos": "Brehme"
+        },
+        {
+          "nombre_completo": "S Galicia",
+          "nombres": "S",
+          "apellidos": "Galicia"
+        },
+        {
+          "nombre_completo": "S Guillard",
+          "nombres": "S",
+          "apellidos": "Guillard"
+        },
+        {
+          "nombre_completo": "M Partington",
+          "nombres": "M",
+          "apellidos": "Partington"
+        },
+        {
+          "nombre_completo": "MK Zubko",
+          "nombres": "MK",
+          "apellidos": "Zubko"
+        },
+        {
+          "nombre_completo": "NJ Krogan",
+          "nombres": "NJ",
+          "apellidos": "Krogan"
+        }
+      ],
+      "pmid": "16564010",
+      "fuente": "Cell",
+      "anio": "2006",
+      "volumen": "124",
+      "fpage": "1155",
+      "lpage": "1168"
+    },
+    {
+      "titulo": "The universal YrdC/Sua5 family is required for the formation of threonylcarbamoyladenosine in tRNA",
+      "autores": [
+        {
+          "nombre_completo": "B El Yacoubi",
+          "nombres": "B",
+          "apellidos": "El Yacoubi"
+        },
+        {
+          "nombre_completo": "B Lyons",
+          "nombres": "B",
+          "apellidos": "Lyons"
+        },
+        {
+          "nombre_completo": "Y Cruz",
+          "nombres": "Y",
+          "apellidos": "Cruz"
+        },
+        {
+          "nombre_completo": "R Reddy",
+          "nombres": "R",
+          "apellidos": "Reddy"
+        },
+        {
+          "nombre_completo": "B Nordin",
+          "nombres": "B",
+          "apellidos": "Nordin"
+        },
+        {
+          "nombre_completo": "F Agnelli",
+          "nombres": "F",
+          "apellidos": "Agnelli"
+        },
+        {
+          "nombre_completo": "JR Williamson",
+          "nombres": "JR",
+          "apellidos": "Williamson"
+        },
+        {
+          "nombre_completo": "P Schimmel",
+          "nombres": "P",
+          "apellidos": "Schimmel"
+        },
+        {
+          "nombre_completo": "MA Swairjo",
+          "nombres": "MA",
+          "apellidos": "Swairjo"
+        },
+        {
+          "nombre_completo": "V de Crécy-Lagard",
+          "nombres": "V",
+          "apellidos": "de Crécy-Lagard"
+        }
+      ],
+      "pmid": "19287007",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2009",
+      "volumen": "37",
+      "fpage": "2894",
+      "lpage": "2909"
+    },
+    {
+      "titulo": "A role for the universal Kae1/Qri7/YgjD (COG0533) family in tRNA modification",
+      "autores": [
+        {
+          "nombre_completo": "B El Yacoubi",
+          "nombres": "B",
+          "apellidos": "El Yacoubi"
+        },
+        {
+          "nombre_completo": "I Hatin",
+          "nombres": "I",
+          "apellidos": "Hatin"
+        },
+        {
+          "nombre_completo": "C Deutsch",
+          "nombres": "C",
+          "apellidos": "Deutsch"
+        },
+        {
+          "nombre_completo": "T Kahveci",
+          "nombres": "T",
+          "apellidos": "Kahveci"
+        },
+        {
+          "nombre_completo": "JP Rousset",
+          "nombres": "JP",
+          "apellidos": "Rousset"
+        },
+        {
+          "nombre_completo": "D Iwata-Reuyl",
+          "nombres": "D",
+          "apellidos": "Iwata-Reuyl"
+        },
+        {
+          "nombre_completo": "AG Murzin",
+          "nombres": "AG",
+          "apellidos": "Murzin"
+        },
+        {
+          "nombre_completo": "V de Crécy-Lagard",
+          "nombres": "V",
+          "apellidos": "de Crécy-Lagard"
+        }
+      ],
+      "pmid": "21285948",
+      "fuente": "EMBO J",
+      "anio": "2011",
+      "volumen": "30",
+      "fpage": "882",
+      "lpage": "893"
+    },
+    {
+      "titulo": "‘Conserved hypothetical’ proteins: prioritization of targets for experimental study",
+      "autores": [
+        {
+          "nombre_completo": "MY Galperin",
+          "nombres": "MY",
+          "apellidos": "Galperin"
+        },
+        {
+          "nombre_completo": "EV Koonin",
+          "nombres": "EV",
+          "apellidos": "Koonin"
+        }
+      ],
+      "pmid": "15479782",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2004",
+      "volumen": "32",
+      "fpage": "5452",
+      "lpage": "5463"
+    },
+    {
+      "titulo": "Genes controlling essential cell-cycle functions in Drosophila melanogaster",
+      "autores": [
+        {
+          "nombre_completo": "M Gatti",
+          "nombres": "M",
+          "apellidos": "Gatti"
+        },
+        {
+          "nombre_completo": "BS Baker",
+          "nombres": "BS",
+          "apellidos": "Baker"
+        }
+      ],
+      "pmid": "2498166",
+      "fuente": "Genes Dev",
+      "anio": "1989",
+      "volumen": "3",
+      "fpage": "438",
+      "lpage": "453"
+    },
+    {
+      "titulo": "Why should cancer biologists care about tRNAs? tRNA synthesis, mRNA translation and the control of growth",
+      "autores": [
+        {
+          "nombre_completo": "SS Grewal",
+          "nombres": "SS",
+          "apellidos": "Grewal"
+        }
+      ],
+      "pmid": "25497380",
+      "fuente": "Biochim Biophys Acta",
+      "anio": "2015",
+      "volumen": "1849",
+      "fpage": "898",
+      "lpage": "907"
+    },
+    {
+      "titulo": "Posttranscriptionally modified nucleosides in transfer RNA: their locations and frequencies",
+      "autores": [
+        {
+          "nombre_completo": "H Grosjean",
+          "nombres": "H",
+          "apellidos": "Grosjean"
+        },
+        {
+          "nombre_completo": "M Sprinzl",
+          "nombres": "M",
+          "apellidos": "Sprinzl"
+        },
+        {
+          "nombre_completo": "S Steinberg",
+          "nombres": "S",
+          "apellidos": "Steinberg"
+        }
+      ],
+      "pmid": "7541252",
+      "fuente": "Biochimie",
+      "anio": "1995",
+      "volumen": "77",
+      "fpage": "139",
+      "lpage": "141"
+    },
+    {
+      "titulo": "tRNA modifications regulate translation during cellular stress",
+      "autores": [
+        {
+          "nombre_completo": "C Gu",
+          "nombres": "C",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "TJ Begley",
+          "nombres": "TJ",
+          "apellidos": "Begley"
+        },
+        {
+          "nombre_completo": "PC Dedon",
+          "nombres": "PC",
+          "apellidos": "Dedon"
+        }
+      ],
+      "pmid": "25304425",
+      "fuente": "FEBS Lett",
+      "anio": "2014",
+      "volumen": "588",
+      "fpage": "4287",
+      "lpage": "4296"
+    },
+    {
+      "titulo": "Extragenic suppressors of a translation initiation defect in the cyc1 gene of Saccharomyces cerevisiae",
+      "autores": [
+        {
+          "nombre_completo": "M Hampsey",
+          "nombres": "M",
+          "apellidos": "Hampsey"
+        },
+        {
+          "nombre_completo": "JG Na",
+          "nombres": "JG",
+          "apellidos": "Na"
+        },
+        {
+          "nombre_completo": "I Pinto",
+          "nombres": "I",
+          "apellidos": "Pinto"
+        },
+        {
+          "nombre_completo": "DE Ware",
+          "nombres": "DE",
+          "apellidos": "Ware"
+        },
+        {
+          "nombre_completo": "RW Berroteran",
+          "nombres": "RW",
+          "apellidos": "Berroteran"
+        }
+      ],
+      "pmid": "1666843",
+      "fuente": "Biochimie",
+      "anio": "1991",
+      "volumen": "73",
+      "fpage": "1445",
+      "lpage": "1455"
+    },
+    {
+      "titulo": "Conserved network of proteins essential for bacterial viability",
+      "autores": [
+        {
+          "nombre_completo": "JI Handford",
+          "nombres": "JI",
+          "apellidos": "Handford"
+        },
+        {
+          "nombre_completo": "B Ize",
+          "nombres": "B",
+          "apellidos": "Ize"
+        },
+        {
+          "nombre_completo": "G Buchanan",
+          "nombres": "G",
+          "apellidos": "Buchanan"
+        },
+        {
+          "nombre_completo": "GP Butland",
+          "nombres": "GP",
+          "apellidos": "Butland"
+        },
+        {
+          "nombre_completo": "J Greenblatt",
+          "nombres": "J",
+          "apellidos": "Greenblatt"
+        },
+        {
+          "nombre_completo": "A Emili",
+          "nombres": "A",
+          "apellidos": "Emili"
+        },
+        {
+          "nombre_completo": "T Palmer",
+          "nombres": "T",
+          "apellidos": "Palmer"
+        }
+      ],
+      "pmid": "19376873",
+      "fuente": "J Bacteriol",
+      "anio": "2009",
+      "volumen": "191",
+      "fpage": "4732",
+      "lpage": "4749"
+    },
+    {
+      "titulo": "Studies on the half life time of rat liver transfer RNA species",
+      "autores": [
+        {
+          "nombre_completo": "J Hanoune",
+          "nombres": "J",
+          "apellidos": "Hanoune"
+        },
+        {
+          "nombre_completo": "MK Agarwal",
+          "nombres": "MK",
+          "apellidos": "Agarwal"
+        }
+      ],
+      "pmid": "11945454",
+      "fuente": "FEBS Lett",
+      "anio": "1970",
+      "volumen": "11",
+      "fpage": "78",
+      "lpage": "80"
+    },
+    {
+      "titulo": "Structure of the archaeal Kae1/Bud32 fusion protein MJ1130: a model for the eukaryotic EKC/KEOPS subcomplex",
+      "autores": [
+        {
+          "nombre_completo": "A Hecker",
+          "nombres": "A",
+          "apellidos": "Hecker"
+        },
+        {
+          "nombre_completo": "R Lopreiato",
+          "nombres": "R",
+          "apellidos": "Lopreiato"
+        },
+        {
+          "nombre_completo": "M Graille",
+          "nombres": "M",
+          "apellidos": "Graille"
+        },
+        {
+          "nombre_completo": "B Collinet",
+          "nombres": "B",
+          "apellidos": "Collinet"
+        },
+        {
+          "nombre_completo": "P Forterre",
+          "nombres": "P",
+          "apellidos": "Forterre"
+        },
+        {
+          "nombre_completo": "D Libri",
+          "nombres": "D",
+          "apellidos": "Libri"
+        },
+        {
+          "nombre_completo": "H van Tilbeurgh",
+          "nombres": "H",
+          "apellidos": "van Tilbeurgh"
+        }
+      ],
+      "pmid": "19172740",
+      "fuente": "EMBO J",
+      "anio": "2008",
+      "volumen": "27",
+      "fpage": "2340",
+      "lpage": "2351"
+    },
+    {
+      "titulo": "Translational regulation of GCN4 and the general amino acid control of yeast",
+      "autores": [
+        {
+          "nombre_completo": "AG Hinnebusch",
+          "nombres": "AG",
+          "apellidos": "Hinnebusch"
+        }
+      ],
+      "pmid": "16153175",
+      "fuente": "Annu Rev Microbiol",
+      "anio": "2005",
+      "volumen": "59",
+      "fpage": "407",
+      "lpage": "450"
+    },
+    {
+      "titulo": "Quality control pathways for nucleus-encoded eukaryotic tRNA biosynthesis and subcellular trafficking",
+      "autores": [
+        {
+          "nombre_completo": "AK Hopper",
+          "nombres": "AK",
+          "apellidos": "Hopper"
+        },
+        {
+          "nombre_completo": "HY Huang",
+          "nombres": "HY",
+          "apellidos": "Huang"
+        }
+      ],
+      "pmid": "25848089",
+      "fuente": "Mol Cell Biol",
+      "anio": "2015",
+      "volumen": "35",
+      "fpage": "2052",
+      "lpage": "2058"
+    },
+    {
+      "titulo": "Global analysis of protein localization in budding yeast",
+      "autores": [
+        {
+          "nombre_completo": "WK Huh",
+          "nombres": "WK",
+          "apellidos": "Huh"
+        },
+        {
+          "nombre_completo": "JV Falvo",
+          "nombres": "JV",
+          "apellidos": "Falvo"
+        },
+        {
+          "nombre_completo": "LC Gerke",
+          "nombres": "LC",
+          "apellidos": "Gerke"
+        },
+        {
+          "nombre_completo": "AS Carroll",
+          "nombres": "AS",
+          "apellidos": "Carroll"
+        },
+        {
+          "nombre_completo": "RW Howson",
+          "nombres": "RW",
+          "apellidos": "Howson"
+        },
+        {
+          "nombre_completo": "JS Weissman",
+          "nombres": "JS",
+          "apellidos": "Weissman"
+        },
+        {
+          "nombre_completo": "EK O'Shea",
+          "nombres": "EK",
+          "apellidos": "O'Shea"
+        }
+      ],
+      "pmid": "14562095",
+      "fuente": "Nature",
+      "anio": "2003",
+      "volumen": "425",
+      "fpage": "686",
+      "lpage": "691"
+    },
+    {
+      "titulo": "Drosophila p53-related protein kinase is required for PI3K/TOR pathway-dependent growth",
+      "autores": [
+        {
+          "nombre_completo": "C Ibar",
+          "nombres": "C",
+          "apellidos": "Ibar"
+        },
+        {
+          "nombre_completo": "VF Cataldo",
+          "nombres": "VF",
+          "apellidos": "Cataldo"
+        },
+        {
+          "nombre_completo": "C Vásquez-Doorman",
+          "nombres": "C",
+          "apellidos": "Vásquez-Doorman"
+        },
+        {
+          "nombre_completo": "P Olguín",
+          "nombres": "P",
+          "apellidos": "Olguín"
+        },
+        {
+          "nombre_completo": "A Glavic",
+          "nombres": "A",
+          "apellidos": "Glavic"
+        }
+      ],
+      "pmid": "23444356",
+      "fuente": "Development",
+      "anio": "2013",
+      "volumen": "140",
+      "fpage": "1282",
+      "lpage": "1291"
+    },
+    {
+      "titulo": "Sumoylation is tumor-suppressive and confers proliferative quiescence to hematopoietic progenitors in Drosophila melanogaster larvae",
+      "autores": [
+        {
+          "nombre_completo": "ME Kalamarz",
+          "nombres": "ME",
+          "apellidos": "Kalamarz"
+        },
+        {
+          "nombre_completo": "I Paddibhatla",
+          "nombres": "I",
+          "apellidos": "Paddibhatla"
+        },
+        {
+          "nombre_completo": "C Nadar",
+          "nombres": "C",
+          "apellidos": "Nadar"
+        },
+        {
+          "nombre_completo": "S Govind",
+          "nombres": "S",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "23213407",
+      "fuente": "Biol Open",
+      "anio": "2012",
+      "volumen": "1",
+      "fpage": "161",
+      "lpage": "172"
+    },
+    {
+      "titulo": "A differential requirement for SUMOylation in proliferating and non-proliferating cells during Drosophila development",
+      "autores": [
+        {
+          "nombre_completo": "K Kanakousaki",
+          "nombres": "K",
+          "apellidos": "Kanakousaki"
+        },
+        {
+          "nombre_completo": "MC Gibson",
+          "nombres": "MC",
+          "apellidos": "Gibson"
+        }
+      ],
+      "pmid": "22745316",
+      "fuente": "Development",
+      "anio": "2012",
+      "volumen": "139",
+      "fpage": "2751",
+      "lpage": "2762"
+    },
+    {
+      "titulo": "Emerging roles of tRNA in adaptive translation, signalling dynamics and disease",
+      "autores": [
+        {
+          "nombre_completo": "S Kirchner",
+          "nombres": "S",
+          "apellidos": "Kirchner"
+        },
+        {
+          "nombre_completo": "Z Ignatova",
+          "nombres": "Z",
+          "apellidos": "Ignatova"
+        }
+      ],
+      "pmid": "25534324",
+      "fuente": "Nat Rev Genet",
+      "anio": "2015",
+      "volumen": "16",
+      "fpage": "98",
+      "lpage": "112"
+    },
+    {
+      "titulo": "Yeast homolog of a cancer-testis antigen defines a new transcription complex",
+      "autores": [
+        {
+          "nombre_completo": "E Kisseleva-Romanova",
+          "nombres": "E",
+          "apellidos": "Kisseleva-Romanova"
+        },
+        {
+          "nombre_completo": "R Lopreiato",
+          "nombres": "R",
+          "apellidos": "Lopreiato"
+        },
+        {
+          "nombre_completo": "A Baudin-Baillieu",
+          "nombres": "A",
+          "apellidos": "Baudin-Baillieu"
+        },
+        {
+          "nombre_completo": "JC Rousselle",
+          "nombres": "JC",
+          "apellidos": "Rousselle"
+        },
+        {
+          "nombre_completo": "L Ilan",
+          "nombres": "L",
+          "apellidos": "Ilan"
+        },
+        {
+          "nombre_completo": "K Hofmann",
+          "nombres": "K",
+          "apellidos": "Hofmann"
+        },
+        {
+          "nombre_completo": "A Namane",
+          "nombres": "A",
+          "apellidos": "Namane"
+        },
+        {
+          "nombre_completo": "C Mann",
+          "nombres": "C",
+          "apellidos": "Mann"
+        },
+        {
+          "nombre_completo": "D Libri",
+          "nombres": "D",
+          "apellidos": "Libri"
+        }
+      ],
+      "pmid": "16874308",
+      "fuente": "EMBO J",
+      "anio": "2006",
+      "volumen": "25",
+      "fpage": "3576",
+      "lpage": "3585"
+    },
+    {
+      "titulo": "Hematopoietic progenitors and hemocyte lineages in the Drosophila lymph gland",
+      "autores": [
+        {
+          "nombre_completo": "J Krzemien",
+          "nombres": "J",
+          "apellidos": "Krzemien"
+        },
+        {
+          "nombre_completo": "J Oyallon",
+          "nombres": "J",
+          "apellidos": "Oyallon"
+        },
+        {
+          "nombre_completo": "M Crozatier",
+          "nombres": "M",
+          "apellidos": "Crozatier"
+        },
+        {
+          "nombre_completo": "A Vincent",
+          "nombres": "A",
+          "apellidos": "Vincent"
+        }
+      ],
+      "pmid": "20707995",
+      "fuente": "Dev Biol",
+      "anio": "2010",
+      "volumen": "346",
+      "fpage": "310",
+      "lpage": "319"
+    },
+    {
+      "titulo": "neuralized functions cell-autonomously to regulate a subset of Notch-dependent processes during adult Drosophila development",
+      "autores": [
+        {
+          "nombre_completo": "EC Lai",
+          "nombres": "EC",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "GM Rubin",
+          "nombres": "GM",
+          "apellidos": "Rubin"
+        }
+      ],
+      "pmid": "11180964",
+      "fuente": "Dev Biol",
+      "anio": "2001",
+      "volumen": "231",
+      "fpage": "217",
+      "lpage": "233"
+    },
+    {
+      "titulo": "The neurogenic suppressor of sairless DNA-binding protein mediates the transcriptional activation of the enhancer of split complex genes triggered by Notch signaling",
+      "autores": [
+        {
+          "nombre_completo": "M Lecourtois",
+          "nombres": "M",
+          "apellidos": "Lecourtois"
+        },
+        {
+          "nombre_completo": "F Schweisguth",
+          "nombres": "F",
+          "apellidos": "Schweisguth"
+        }
+      ],
+      "pmid": "7590238",
+      "fuente": "Genes Dev",
+      "anio": "1995",
+      "volumen": "9",
+      "fpage": "2598",
+      "lpage": "2608"
+    },
+    {
+      "titulo": "Functional analysis and regulation of nuclear import of dorsal during the immune response in Drosophila",
+      "autores": [
+        {
+          "nombre_completo": "B Lemaitre",
+          "nombres": "B",
+          "apellidos": "Lemaitre"
+        },
+        {
+          "nombre_completo": "M Meister",
+          "nombres": "M",
+          "apellidos": "Meister"
+        },
+        {
+          "nombre_completo": "S Govind",
+          "nombres": "S",
+          "apellidos": "Govind"
+        },
+        {
+          "nombre_completo": "P Georgel",
+          "nombres": "P",
+          "apellidos": "Georgel"
+        },
+        {
+          "nombre_completo": "R Steward",
+          "nombres": "R",
+          "apellidos": "Steward"
+        },
+        {
+          "nombre_completo": "JM Reichhart",
+          "nombres": "JM",
+          "apellidos": "Reichhart"
+        },
+        {
+          "nombre_completo": "JA Hoffmann",
+          "nombres": "JA",
+          "apellidos": "Hoffmann"
+        }
+      ],
+      "pmid": "7859742",
+      "fuente": "EMBO J",
+      "anio": "1995",
+      "volumen": "14",
+      "fpage": "536",
+      "lpage": "545"
+    },
+    {
+      "titulo": "The Sua5 protein is essential for normal translational regulation in yeast",
+      "autores": [
+        {
+          "nombre_completo": "CA Lin",
+          "nombres": "CA",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "SR Ellis",
+          "nombres": "SR",
+          "apellidos": "Ellis"
+        },
+        {
+          "nombre_completo": "HL True",
+          "nombres": "HL",
+          "apellidos": "True"
+        }
+      ],
+      "pmid": "19884342",
+      "fuente": "Mol Cell Biol",
+      "anio": "2010",
+      "volumen": "30",
+      "fpage": "354",
+      "lpage": "363"
+    },
+    {
+      "titulo": "Heterochromatin protein 1 is required for the normal expression of two heterochromatin genes in Drosophila",
+      "autores": [
+        {
+          "nombre_completo": "BY Lu",
+          "nombres": "BY",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "PC Emtage",
+          "nombres": "PC",
+          "apellidos": "Emtage"
+        },
+        {
+          "nombre_completo": "BJ Duyf",
+          "nombres": "BJ",
+          "apellidos": "Duyf"
+        },
+        {
+          "nombre_completo": "AJ Hilliker",
+          "nombres": "AJ",
+          "apellidos": "Hilliker"
+        },
+        {
+          "nombre_completo": "JC Eissenberg",
+          "nombres": "JC",
+          "apellidos": "Eissenberg"
+        }
+      ],
+      "pmid": "10835392",
+      "fuente": "Genetics",
+      "anio": "2000",
+      "volumen": "155",
+      "fpage": "699",
+      "lpage": "708"
+    },
+    {
+      "titulo": "MODOMICS: a database of RNA modification pathways—2013 update",
+      "autores": [
+        {
+          "nombre_completo": "MA Machnicka",
+          "nombres": "MA",
+          "apellidos": "Machnicka"
+        },
+        {
+          "nombre_completo": "K Milanowska",
+          "nombres": "K",
+          "apellidos": "Milanowska"
+        },
+        {
+          "nombre_completo": "O Osman Oglou",
+          "nombres": "O",
+          "apellidos": "Osman Oglou"
+        },
+        {
+          "nombre_completo": "E Purta",
+          "nombres": "E",
+          "apellidos": "Purta"
+        },
+        {
+          "nombre_completo": "M Kurkowska",
+          "nombres": "M",
+          "apellidos": "Kurkowska"
+        },
+        {
+          "nombre_completo": "A Olchowik",
+          "nombres": "A",
+          "apellidos": "Olchowik"
+        },
+        {
+          "nombre_completo": "W Januszewski",
+          "nombres": "W",
+          "apellidos": "Januszewski"
+        },
+        {
+          "nombre_completo": "S Kalinowski",
+          "nombres": "S",
+          "apellidos": "Kalinowski"
+        },
+        {
+          "nombre_completo": "S Dunin-Horkawicz",
+          "nombres": "S",
+          "apellidos": "Dunin-Horkawicz"
+        },
+        {
+          "nombre_completo": "KM Rother",
+          "nombres": "KM",
+          "apellidos": "Rother"
+        }
+      ],
+      "pmid": "23118484",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "D262",
+      "lpage": "D267"
+    },
+    {
+      "titulo": "Atomic structure of the KEOPS complex: an ancient protein kinase-containing molecular machine",
+      "autores": [
+        {
+          "nombre_completo": "DY Mao",
+          "nombres": "DY",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "D Neculai",
+          "nombres": "D",
+          "apellidos": "Neculai"
+        },
+        {
+          "nombre_completo": "M Downey",
+          "nombres": "M",
+          "apellidos": "Downey"
+        },
+        {
+          "nombre_completo": "S Orlicky",
+          "nombres": "S",
+          "apellidos": "Orlicky"
+        },
+        {
+          "nombre_completo": "YZ Haffani",
+          "nombres": "YZ",
+          "apellidos": "Haffani"
+        },
+        {
+          "nombre_completo": "DF Ceccarelli",
+          "nombres": "DF",
+          "apellidos": "Ceccarelli"
+        },
+        {
+          "nombre_completo": "JS Ho",
+          "nombres": "JS",
+          "apellidos": "Ho"
+        },
+        {
+          "nombre_completo": "RK Szilard",
+          "nombres": "RK",
+          "apellidos": "Szilard"
+        },
+        {
+          "nombre_completo": "W Zhang",
+          "nombres": "W",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "CS Ho",
+          "nombres": "CS",
+          "apellidos": "Ho"
+        }
+      ],
+      "pmid": "18951093",
+      "fuente": "Mol Cell",
+      "anio": "2008",
+      "volumen": "32",
+      "fpage": "259",
+      "lpage": "275"
+    },
+    {
+      "titulo": "Cell cycling and patterned cell proliferation in the wing primordium of Drosophila",
+      "autores": [
+        {
+          "nombre_completo": "M Milán",
+          "nombres": "M",
+          "apellidos": "Milán"
+        },
+        {
+          "nombre_completo": "S Campuzano",
+          "nombres": "S",
+          "apellidos": "Campuzano"
+        },
+        {
+          "nombre_completo": "A García-Bellido",
+          "nombres": "A",
+          "apellidos": "García-Bellido"
+        }
+      ],
+      "pmid": "8570608",
+      "fuente": "Proc Natl Acad Sci",
+      "anio": "1996",
+      "volumen": "93",
+      "fpage": "640",
+      "lpage": "645"
+    },
+    {
+      "titulo": "Melanotic mutants in Drosophila: pathways and phenotypes",
+      "autores": [
+        {
+          "nombre_completo": "S Minakhina",
+          "nombres": "S",
+          "apellidos": "Minakhina"
+        },
+        {
+          "nombre_completo": "R Steward",
+          "nombres": "R",
+          "apellidos": "Steward"
+        }
+      ],
+      "pmid": "16816412",
+      "fuente": "Genetics",
+      "anio": "2006",
+      "volumen": "174",
+      "fpage": "253",
+      "lpage": "263"
+    },
+    {
+      "titulo": "A cyclic form of N6-threonylcarbamoyladenosine as a widely distributed tRNA hypermodification",
+      "autores": [
+        {
+          "nombre_completo": "K Miyauchi",
+          "nombres": "K",
+          "apellidos": "Miyauchi"
+        },
+        {
+          "nombre_completo": "S Kimura",
+          "nombres": "S",
+          "apellidos": "Kimura"
+        },
+        {
+          "nombre_completo": "T Suzuki",
+          "nombres": "T",
+          "apellidos": "Suzuki"
+        }
+      ],
+      "pmid": "23242255",
+      "fuente": "Nat Chem Biol",
+      "anio": "2013",
+      "volumen": "9",
+      "fpage": "105",
+      "lpage": "111"
+    },
+    {
+      "titulo": "Isolation and characterization of SUA5, a novel gene required for normal growth in Saccharomyces cerevisiae",
+      "autores": [
+        {
+          "nombre_completo": "JG Na",
+          "nombres": "JG",
+          "apellidos": "Na"
+        },
+        {
+          "nombre_completo": "I Pinto",
+          "nombres": "I",
+          "apellidos": "Pinto"
+        },
+        {
+          "nombre_completo": "M Hampsey",
+          "nombres": "M",
+          "apellidos": "Hampsey"
+        }
+      ],
+      "pmid": "1325384",
+      "fuente": "Genetics",
+      "anio": "1992",
+      "volumen": "131",
+      "fpage": "791",
+      "lpage": "801"
+    },
+    {
+      "titulo": "Qri7/OSGEPL, the mitochondrial version of the universal Kae1/YgjD protein, is essential for mitochondrial genome maintenance",
+      "autores": [
+        {
+          "nombre_completo": "J Oberto",
+          "nombres": "J",
+          "apellidos": "Oberto"
+        },
+        {
+          "nombre_completo": "N Breuil",
+          "nombres": "N",
+          "apellidos": "Breuil"
+        },
+        {
+          "nombre_completo": "A Hecker",
+          "nombres": "A",
+          "apellidos": "Hecker"
+        },
+        {
+          "nombre_completo": "F Farina",
+          "nombres": "F",
+          "apellidos": "Farina"
+        },
+        {
+          "nombre_completo": "C Brochier-Armanet",
+          "nombres": "C",
+          "apellidos": "Brochier-Armanet"
+        },
+        {
+          "nombre_completo": "E Culetto",
+          "nombres": "E",
+          "apellidos": "Culetto"
+        },
+        {
+          "nombre_completo": "P Forterre",
+          "nombres": "P",
+          "apellidos": "Forterre"
+        }
+      ],
+      "pmid": "19578062",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2009",
+      "volumen": "37",
+      "fpage": "5343",
+      "lpage": "5352"
+    },
+    {
+      "titulo": "In vitro biosynthesis of a universal t6A tRNA modification in Archaea and Eukarya",
+      "autores": [
+        {
+          "nombre_completo": "L Perrochia",
+          "nombres": "L",
+          "apellidos": "Perrochia"
+        },
+        {
+          "nombre_completo": "E Crozat",
+          "nombres": "E",
+          "apellidos": "Crozat"
+        },
+        {
+          "nombre_completo": "A Hecker",
+          "nombres": "A",
+          "apellidos": "Hecker"
+        },
+        {
+          "nombre_completo": "W Zhang",
+          "nombres": "W",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "J Bareille",
+          "nombres": "J",
+          "apellidos": "Bareille"
+        },
+        {
+          "nombre_completo": "B Collinet",
+          "nombres": "B",
+          "apellidos": "Collinet"
+        },
+        {
+          "nombre_completo": "H van Tilbeurgh",
+          "nombres": "H",
+          "apellidos": "van Tilbeurgh"
+        },
+        {
+          "nombre_completo": "P Forterre",
+          "nombres": "P",
+          "apellidos": "Forterre"
+        },
+        {
+          "nombre_completo": "T Basta",
+          "nombres": "T",
+          "apellidos": "Basta"
+        }
+      ],
+      "pmid": "23258706",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "1953",
+      "lpage": "1964"
+    },
+    {
+      "titulo": "The levels of a universally conserved tRNA modification regulate cell growth",
+      "autores": [
+        {
+          "nombre_completo": "D Rojas-Benitez",
+          "nombres": "D",
+          "apellidos": "Rojas-Benitez"
+        },
+        {
+          "nombre_completo": "PC Thiaville",
+          "nombres": "PC",
+          "apellidos": "Thiaville"
+        },
+        {
+          "nombre_completo": "V de Crécy-Lagard",
+          "nombres": "V",
+          "apellidos": "de Crécy-Lagard"
+        },
+        {
+          "nombre_completo": "A Glavic",
+          "nombres": "A",
+          "apellidos": "Glavic"
+        }
+      ],
+      "pmid": "26063805",
+      "fuente": "J Biol Chem",
+      "anio": "2015",
+      "volumen": "290",
+      "fpage": "18699",
+      "lpage": "18707"
+    },
+    {
+      "titulo": "An introduction to parasitic wasps of Drosophila and the antiparasite immune response",
+      "autores": [
+        {
+          "nombre_completo": "C Small",
+          "nombres": "C",
+          "apellidos": "Small"
+        },
+        {
+          "nombre_completo": "I Paddibhatla",
+          "nombres": "I",
+          "apellidos": "Paddibhatla"
+        },
+        {
+          "nombre_completo": "R Rajwani",
+          "nombres": "R",
+          "apellidos": "Rajwani"
+        },
+        {
+          "nombre_completo": "S Govind",
+          "nombres": "S",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "22588641",
+      "fuente": "J Vis Exp",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e3347",
+      "lpage": ""
+    },
+    {
+      "titulo": "Compilation of tRNA sequences and sequences of tRNA genes",
+      "autores": [
+        {
+          "nombre_completo": "M Sprinzl",
+          "nombres": "M",
+          "apellidos": "Sprinzl"
+        },
+        {
+          "nombre_completo": "KS Vassilenko",
+          "nombres": "KS",
+          "apellidos": "Vassilenko"
+        }
+      ],
+      "pmid": "15608164",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2005",
+      "volumen": "33",
+      "fpage": "D139",
+      "lpage": "D140"
+    },
+    {
+      "titulo": "The highly conserved KEOPS/EKC complex is essential for a universal tRNA modification, t6A",
+      "autores": [
+        {
+          "nombre_completo": "M Srinivasan",
+          "nombres": "M",
+          "apellidos": "Srinivasan"
+        },
+        {
+          "nombre_completo": "P Mehta",
+          "nombres": "P",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "Y Yu",
+          "nombres": "Y",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "E Prugar",
+          "nombres": "E",
+          "apellidos": "Prugar"
+        },
+        {
+          "nombre_completo": "EV Koonin",
+          "nombres": "EV",
+          "apellidos": "Koonin"
+        },
+        {
+          "nombre_completo": "AW Karzai",
+          "nombres": "AW",
+          "apellidos": "Karzai"
+        },
+        {
+          "nombre_completo": "R Sternglanz",
+          "nombres": "R",
+          "apellidos": "Sternglanz"
+        }
+      ],
+      "pmid": "21183954",
+      "fuente": "EMBO J",
+      "anio": "2011",
+      "volumen": "30",
+      "fpage": "873",
+      "lpage": "881"
+    },
+    {
+      "titulo": "Quantitative analysis of ribonucleoside modifications in tRNA by HPLC-coupled mass spectrometry",
+      "autores": [
+        {
+          "nombre_completo": "D Su",
+          "nombres": "D",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "CT Chan",
+          "nombres": "CT",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "C Gu",
+          "nombres": "C",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "KS Lim",
+          "nombres": "KS",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "YH Chionh",
+          "nombres": "YH",
+          "apellidos": "Chionh"
+        },
+        {
+          "nombre_completo": "ME McBee",
+          "nombres": "ME",
+          "apellidos": "McBee"
+        },
+        {
+          "nombre_completo": "BS Russell",
+          "nombres": "BS",
+          "apellidos": "Russell"
+        },
+        {
+          "nombre_completo": "IR Babu",
+          "nombres": "IR",
+          "apellidos": "Babu"
+        },
+        {
+          "nombre_completo": "TJ Begley",
+          "nombres": "TJ",
+          "apellidos": "Begley"
+        },
+        {
+          "nombre_completo": "PC Dedon",
+          "nombres": "PC",
+          "apellidos": "Dedon"
+        }
+      ],
+      "pmid": "24625781",
+      "fuente": "Nat Protoc",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "828",
+      "lpage": "841"
+    },
+    {
+      "titulo": "P[acman]: a BAC transgenic platform for targeted insertion of large DNA fragments in D. melanogaster",
+      "autores": [
+        {
+          "nombre_completo": "KJ Venken",
+          "nombres": "KJ",
+          "apellidos": "Venken"
+        },
+        {
+          "nombre_completo": "Y He",
+          "nombres": "Y",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "RA Hoskins",
+          "nombres": "RA",
+          "apellidos": "Hoskins"
+        },
+        {
+          "nombre_completo": "HJ Bellen",
+          "nombres": "HJ",
+          "apellidos": "Bellen"
+        }
+      ],
+      "pmid": "17138868",
+      "fuente": "Science",
+      "anio": "2006",
+      "volumen": "314",
+      "fpage": "1747",
+      "lpage": "1751"
+    },
+    {
+      "titulo": "Reconstitution and characterization of eukaryotic N6-threonylcarbamoylation of tRNA using a minimal enzyme system",
+      "autores": [
+        {
+          "nombre_completo": "LC Wan",
+          "nombres": "LC",
+          "apellidos": "Wan"
+        },
+        {
+          "nombre_completo": "DY Mao",
+          "nombres": "DY",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "D Neculai",
+          "nombres": "D",
+          "apellidos": "Neculai"
+        },
+        {
+          "nombre_completo": "J Strecker",
+          "nombres": "J",
+          "apellidos": "Strecker"
+        },
+        {
+          "nombre_completo": "D Chiovitti",
+          "nombres": "D",
+          "apellidos": "Chiovitti"
+        },
+        {
+          "nombre_completo": "I Kurinov",
+          "nombres": "I",
+          "apellidos": "Kurinov"
+        },
+        {
+          "nombre_completo": "G Poda",
+          "nombres": "G",
+          "apellidos": "Poda"
+        },
+        {
+          "nombre_completo": "N Thevakumaran",
+          "nombres": "N",
+          "apellidos": "Thevakumaran"
+        },
+        {
+          "nombre_completo": "F Yuan",
+          "nombres": "F",
+          "apellidos": "Yuan"
+        },
+        {
+          "nombre_completo": "RK Szilard",
+          "nombres": "RK",
+          "apellidos": "Szilard"
+        }
+      ],
+      "pmid": "23620299",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "6332",
+      "lpage": "6346"
+    },
+    {
+      "titulo": "Simple and highly efficient BAC recombineering using galK selection",
+      "autores": [
+        {
+          "nombre_completo": "S Warming",
+          "nombres": "S",
+          "apellidos": "Warming"
+        },
+        {
+          "nombre_completo": "N Costantino",
+          "nombres": "N",
+          "apellidos": "Costantino"
+        },
+        {
+          "nombre_completo": "DL Court",
+          "nombres": "DL",
+          "apellidos": "Court"
+        },
+        {
+          "nombre_completo": "NA Jenkins",
+          "nombres": "NA",
+          "apellidos": "Jenkins"
+        },
+        {
+          "nombre_completo": "NG Copeland",
+          "nombres": "NG",
+          "apellidos": "Copeland"
+        }
+      ],
+      "pmid": "15731329",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2005",
+      "volumen": "33",
+      "fpage": "e36",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effect of threonylcarbamoyl modification (t6A) in yeast tRNA Arg III on codon-anticodon and anticodon-anticodon interactions. A thermodynamic and kinetic evaluation",
+      "autores": [
+        {
+          "nombre_completo": "J Weissenbach",
+          "nombres": "J",
+          "apellidos": "Weissenbach"
+        },
+        {
+          "nombre_completo": "H Grosjean",
+          "nombres": "H",
+          "apellidos": "Grosjean"
+        }
+      ],
+      "pmid": "6788546",
+      "fuente": "Eur J Biochem",
+      "anio": "1981",
+      "volumen": "116",
+      "fpage": "207",
+      "lpage": "213"
+    },
+    {
+      "titulo": "Accurate translation of the genetic code depends on tRNA modified nucleosides",
+      "autores": [
+        {
+          "nombre_completo": "C Yarian",
+          "nombres": "C",
+          "apellidos": "Yarian"
+        },
+        {
+          "nombre_completo": "H Townsend",
+          "nombres": "H",
+          "apellidos": "Townsend"
+        },
+        {
+          "nombre_completo": "W Czestkowski",
+          "nombres": "W",
+          "apellidos": "Czestkowski"
+        },
+        {
+          "nombre_completo": "E Sochacka",
+          "nombres": "E",
+          "apellidos": "Sochacka"
+        },
+        {
+          "nombre_completo": "AJ Malkiewicz",
+          "nombres": "AJ",
+          "apellidos": "Malkiewicz"
+        },
+        {
+          "nombre_completo": "R Guenther",
+          "nombres": "R",
+          "apellidos": "Guenther"
+        },
+        {
+          "nombre_completo": "A Miskiewicz",
+          "nombres": "A",
+          "apellidos": "Miskiewicz"
+        },
+        {
+          "nombre_completo": "PF Agris",
+          "nombres": "PF",
+          "apellidos": "Agris"
+        }
+      ],
+      "pmid": "11861649",
+      "fuente": "J Biol Chem",
+      "anio": "2002",
+      "volumen": "277",
+      "fpage": "16391",
+      "lpage": "16395"
+    },
+    {
+      "titulo": "Mapping Drosophila mutations with molecularly defined P element insertions",
+      "autores": [
+        {
+          "nombre_completo": "RG Zhai",
+          "nombres": "RG",
+          "apellidos": "Zhai"
+        },
+        {
+          "nombre_completo": "PR Hiesinger",
+          "nombres": "PR",
+          "apellidos": "Hiesinger"
+        },
+        {
+          "nombre_completo": "TW Koh",
+          "nombres": "TW",
+          "apellidos": "Koh"
+        },
+        {
+          "nombre_completo": "P Verstreken",
+          "nombres": "P",
+          "apellidos": "Verstreken"
+        },
+        {
+          "nombre_completo": "KL Schulze",
+          "nombres": "KL",
+          "apellidos": "Schulze"
+        },
+        {
+          "nombre_completo": "Y Cao",
+          "nombres": "Y",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "H Jafar-Nejad",
+          "nombres": "H",
+          "apellidos": "Jafar-Nejad"
+        },
+        {
+          "nombre_completo": "KK Norga",
+          "nombres": "KK",
+          "apellidos": "Norga"
+        },
+        {
+          "nombre_completo": "H Pan",
+          "nombres": "H",
+          "apellidos": "Pan"
+        },
+        {
+          "nombre_completo": "V Bayat",
+          "nombres": "V",
+          "apellidos": "Bayat"
+        }
+      ],
+      "pmid": "12960394",
+      "fuente": "Proc Natl Acad Sci",
+      "anio": "2003",
+      "volumen": "100",
+      "fpage": "10860",
+      "lpage": "10865"
+    },
+    {
+      "titulo": "The ATP-mediated formation of the YgjD-YeaZ-YjeE complex is required for the biosynthesis of tRNA t6A in Escherichia coli",
+      "autores": [
+        {
+          "nombre_completo": "W Zhang",
+          "nombres": "W",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "B Collinet",
+          "nombres": "B",
+          "apellidos": "Collinet"
+        },
+        {
+          "nombre_completo": "L Perrochia",
+          "nombres": "L",
+          "apellidos": "Perrochia"
+        },
+        {
+          "nombre_completo": "D Durand",
+          "nombres": "D",
+          "apellidos": "Durand"
+        },
+        {
+          "nombre_completo": "H van Tilbeurgh",
+          "nombres": "H",
+          "apellidos": "van Tilbeurgh"
+        }
+      ],
+      "pmid": "25578970",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "1804",
+      "lpage": "1817"
+    }
+  ]
+}

@@ -1,0 +1,1830 @@
+{
+  "TITLE": [
+    "Detection of Genes in Arabidopsis thaliana L. Responding to DNA Damage from Radiation and Other Stressors in Spaceflight"
+  ],
+  "ABSTRACT": [
+    "Ionizing radiation present in extraterrestrial environment is an important factor that affects plants grown in spaceflight. Pearson correlation-based gene regulatory network inferencing from transcriptional responses of the plant Arabidopsis thaliana L. grown in real and simulated spaceflight conditions acquired by GeneLab, followed by topological and spectral analysis of the networks is performed. Gene regulatory subnetworks are extracted for DNA damage response processes. Analysis of radiation-induced ATR/ATM protein–protein interactions in Arabidopsis reveals interaction profile similarities under low radiation doses suggesting novel mechanisms of DNA damage response involving non-radiation-induced genes regulating other stress responses in spaceflight. The Jaccard similarity index shows that the genes AT2G31320, AT4G21070, AT2G46610, and AT3G27060 perform similar functions under low doses of radiation. The incremental association Markov blanket method reveals non-radiation-induced genes linking DNA damage response to root growth and plant development. Eighteen radiation-induced genes and sixteen non-radiation-induced gene players have been identified from the ATR/ATM protein interaction complexes involved in heat, salt, water, osmotic stress responses, and plant organogenesis. Network analysis and logistic regression ranking detected AT3G27060, AT1G07500, AT5G66140, and AT3G21280 as key gene players involved in DNA repair processes. High atomic weight, high energy, and gamma photon radiation result in higher intensity of DNA damage response in the plant resulting in elevated values for several network measures such as spectral gap and girth. Nineteen flavonoid and carotenoid pigment activations involved in pigment biosynthesis processes are identified in low radiation dose total light spaceflight environment but are not found to have significant regulations under very high radiation dose environment."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "Space is an environment that may have harmful effects on living organisms due to its hostile characteristics such as low oxygen, microgravity, lower pressure, and radiation. Radiation is the emission of energy as electromagnetic waves or as moving subatomic particles, especially high-energy particles. Radiation is of two types: non-ionizing and Ionizing Radiation (IR). The radiation experienced in low Earth orbit is primarily low Linear Energy Transfer (LET) present in the International Space Station (ISS). Organisms in space are exposed to radiation, which affects the health of humans and the anatomy and growth of plants and animals. Space missions have to deal with IR in current spacecraft and future long-term deep-space missions. Plants are affected by radiation resulting in damage to cellular components and damage to Deoxyribonucleic Acid (DNA). Exposure to radiation causes DNA lesions in plant cells such as single-stranded breaks, Double Strand Breaks (DSB), mismatches, and modified bases. This leads to DNA Damage Response (DDR) that includes signal transduction, triggering either DNA repair, cell survival, or cell death.",
+    "The plant Arabidopsis thaliana (Arabidopsis) is a member of the mustard family widely used as a model organism in plant biology for studies of the cellular and molecular biology of flowering plants. It has a rapid life cycle of about six weeks from germination to mature plants. It can be easily cultivated in restricted space, has a small genome, a large number of mutant lines, extensive genetic maps, and genomic resources. Hence, it has been chosen as a model organism for spaceflight studies by research communities. Similar to observations made on terrestrial plant stressors, spaceflight missions have made extensive observations and collected transcriptional gene regulatory datasets of Arabidopsis. Plants have evolved genes that participate in DNA repair pathways that help the plant to survive the effects of radiation. Exposure to IR in Arabidopsis has shown a decrease in DNA methylation with no effect on morphology or root growth or seed germination. Ataxia-telangiectasia and Rad3-related protein (ATR) and Ataxia-Telangiectasia Mutate (ATM) are Arabidopsis homologs of the human ATR and ATM genes, which are activated by DNA single and double-stranded breaks in eukaryotes. ATM-dependent transcriptional changes in Arabidopsis due to IR and its influence on root growth are discussed in. Two mutants of Arabidopsis defective in the ATR and ATM protein kinases have shown hypersensitivity to radiation resulting in the upregulation of hundreds of genes, while both ATR and ATM mutants responded with transcriptional changes to DNA damage due to radiation. The effect of acute radiation on Arabidopsis growth and its impact on protein-coding genes is presented in.",
+    "Apart from DDR, plants adopt pigment biosynthesis processes to protect them against Ultraviolet (UV) radiation. These pigments are flavonoids, betalains, and carotenoids. Flavonoids provide a range of color from pale-yellow to blue and belong to the class of phenylpropanoids. Carotenoids contain up to 15 conjugated double bonds. It has been shown that light induces expression of carotenoid genes during leaf, flower development, and fruit ripening in Arabidopsis. Carotenoids protect the plant against excessive light and add color to the flowers, fruits, and seeds.",
+    "163 ATR/ATM genes in Arabidopsis have been shown experimentally as responding to ionizing radiation in. We call these ATR/ATM genes radiation-induced genes and other downstream genes of stress signaling non-radiation-induced genes. There is no putative radiation subnetwork analysis for detecting radiation and non-radiation induced genes that are involved in biological processes related to radiation response in the plant. In this paper, we are analyzing the effects of low LET radiation on Arabidopsis found in low Earth orbit experienced by current spaceflight missions STS-129 and SpaceX. As long term spaceflight missions beyond the shielding effects of Earth’s atmosphere and magnetic field are contemplated, we also analyze the effects of two different types of IR on Arabidopsis: gamma photons, which have low rates of linear energy transfer (LET), and relativistic Fe nuclei (here termed HZE), a high LET form of IR. The regulation of the Carotenoid Biosynthesis Process (CBP) at the transcriptional level is important for the production of plant hormones, photosynthesis, and dispensing of seeds. In this paper, we investigate CBP regulation in the spaceflight environment, as well.",
+    "As modules are more informative for the regulatory mechanism of a biological process, we perform module-based analysis and have identified radiation and non-radiation induced gene/protein interactions in DNA repair processes, as well as flavonoids and carotenoids that respond to light environment in spaceflight. We call these modules subnetworks. The hypothesis of this research is: if subnetworks of radiation-induced biological processes are extracted, then hub genes and target (authority) genes including non-radiation induced genes can be identified, because network analysis detects and ranks hub genes and authority genes. Furthermore, topological and algebraic spectral network analysis enables the comparison of the subnetworks for different doses of radiation, revealing similarities and differences in the regulation of these processes."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "Datasets from the GeneLab repository are mined for studying the effects of low radiation doses in low Earth orbit, and very high doses of high LET and gamma photos found beyond Earth’s atmosphere on Arabidopsis. All the omics datasets in GeneLab are preprocessed and normalized before being published. The radiation metadata for GLDS-7, 120, 37, 38, and 46 are given in Supplementary Table S1.",
+    "2.1. GeneLab Datasets",
+    "GLDS-7: the dataset contains microarray gene expression data from the tissues (roots, leaves, and hypocotyls) of the plant Arabidopsis Wassilewskija (WS) and Columbia (Col-0) ecotypes grown in spaceflight and ground control. Ground control experiments were conducted using identical ABRS hardware and an environmental chamber programmed to International Space Station (ISS) environmental conditions. The data contains 20,000 genes with five expression values per component.",
+    "GLDS-120 dataset contains the transcriptomics data of the Arabidopsis WS and Col-0 ecotypes, and the gene Phytochrome D (phyD) mutant of ecotype Col-0. The different stressors imposed on the plants are light and dark in spaceflight, and light and dark on the ground. Gene expression data are available for pairs of combinations of genotypes and ecotypes.",
+    "The GLDS-7 and GLS-120 datasets were collected under a low dose of radiation, with an average absorbance of 1.25 milliGray (mGY) and an average absorbance of 1.655 mGY for low-LET (SAA), and an average cumulative absorbed dose of 1.86 mGY.",
+    "GLDS-37 dataset contains the transcriptomic data of four different ecotypes of Arabidopsis in spaceflight microgravity and on the ground: Col-0, LER-2, WS-2, and Cvi-0. The seeds of the mentioned ecotypes are germinated in orbit and grown for eight days. Ground control data is collected under the same environmental stressors. RNAseq is performed to analyze the transcriptomic changes of the ecotypes.",
+    "GLDS-38 dataset contains proteomics and transcriptomics data of the Arabidopsis seedlings. The seeds were flown in the International Space Station (ISS) and allowed to germinate and grow for three days in microgravity. Arabidopsis Wild Type Col-0 seeds were plated onto twenty-two 60 mm Petri plates, loaded into PDFUs, and inserted 4 Biological Research in Canisters (BRICs).",
+    "The GLDS 37 dataset was collected under a low radiation dose with a cumulative absorbed dose of 1.06 mGY. The GLDS-38 data was collected under a low radiation dose with a cumulative absorbed dose of 0.38 mGY. The above four datasets correspond to radiation exposure in low Earth orbit spaceflights.",
+    "GLDS-46 dataset was collected under HZE (1 Giga electron Volt (GeV) Fe26+ high mass, high charge, and high energy relativistic particles) and photons (γR) which have low rates of Linear Energy Transfer (LET) on Arabidopsis seedlings. Both types of radiation showed DSB damage response. This dataset was collected under a very high dose of 100 Gy at a dose rate of 1.8 Gy/min. A 100 Gy radiation dose in Arabidopsis would generate the same number of DSBs as a 4Gy dose in humans. We are interested in this dataset because of foreseen long-term manned missions beyond the Earth’s atmosphere and magnetic field to the moon and Mars.",
+    "2.2. Gene Regulatory Network Inferencing Using Pearson Correlation",
+    "We define a graph-based representation for the gene expressions. Formally, a graph is a pair of sets G:= (V,E) where |V| is the set of vertices (molecules, genes, proteins, nodes, points) and |E| is the set of edges, which is an ordered pair of V. The graph (V, E, o, t) is called directed, if directed edges are allowed, i.e., not all edges have reverse edges as members of E. In a directed graph G = (V,E,o,t), the edges e = (u,v), the origin of e is denoted by o and the terminal v is denoted by t(v).",
+    "The Pearson’s correlation coefficient between two variables (genes, nodes) is defined as the covariance of the two variables (x and y) divided by the product of their standard deviations. Gene expression values ranging from three to eight for each gene are used to compute Pearson correlation. The expression values are linearly related, hence Pearson correlation is used. We have applied Pearson correlation network analysis to identify key gene players for cell wall biosynthesis, and root growth in Arabidopsis in spaceflight using the gene expression values from GLDS-7 and GLDS-120 datasets. The Pearson correlation coefficient is used as the measure of correlation (between −1 to 1) and gene pairs are considered co-expressed if their p-value is less than or equal to the corrected threshold p-value. The t-test is used to establish if the correlation coefficient is significantly different from zero, and, hence there is evidence of an association between the two variables. The genes are treated as nodes and the relation between them is an edge. Therefore, the genes with the highest degree are related to a higher number of target or authority genes. Those genes that have the highest degree or intramodule (within graph) connectivity are treated as hub genes to construct the gene regulatory networks (GRNs). Vertices (u,v) are the edges (arcs), respectively. A graph is weighted if each edge e is assigned a real-valued weight w. In our approach, the weights of the edges between two nodes (genes) are the correlation values.",
+    "2.3. Causal Relations Discovery Using Incremental Association Markov Blanket (IAMB) Method",
+    "Causal relations are difficult to infer and require careful application of experimental interventions. However, causal relations can be discovered by statistical analysis of purely observational data, which is known as causal structure learning. Using Markov properties, a gene is conditionally independent of all other genes except its parents, children, and children’s parent variables (genes). Causal relationships are useful for combining omics data with Genome Wide Association Studies (GWAS), for inferring relationships between genotype and phenotype.",
+    "The method used for causal relation inferencing here is the Markov Blankets (MB) method and Bayesian Network (BN) learning. Joint conditional probabilities are represented by a graph in a Bayesian network, the nodes (genes) are connected by the Markov property which states that a node is conditionally independent of its nondescendants, given its parents. Applying the faithfulness condition, the IAMB of any node (gene) in a BN is the set of parents, children, and spouses (the other parents of their common children) of the gene. We determine the direct causes of a gene’s upregulation, the effects on a gene or a protein due to the upregulation of the gene, as well as the upregulation of the causes of the activation of the gene. In our case, each gene is a variable with a series of expression values. The Markov blanket of a gene X is the smallest set MB(X) containing all genes carrying information about X that cannot be obtained from any other gene. The MB(X) of a node (gene) X includes its parents, children, and spouses which are the strongly relevant genes to gene X; that is, of genes that support and are associated with the target gene (X). Association measures and conditional independent tests are applied to identify the strongly relevant genes. Hence, MB(T) is a causal structure learning algorithm useful for the discovery of regulatory interactions among genes from gene expression data.",
+    "2.4. Computation of Network Measures",
+    "The network measures include spectral gap, girth or diameter, density, connected components, and Jaccard similarity. These are used to compare the subnetworks for each of the processes.",
+    "Spectral gap: For a graph G, the Laplacian eigenvalues can be ordered as 1 = |λ1| ≥ |λ2|≥ · · · ≥|λn| (G may be directed or undirected, weighted or unweighted, simple or not). The Spectral gap is defined as: δλ = |λ1| − |λ2|. By normalizing the Laplacian matrix of G, the eigenvalues are λ1 ≥ λ2 ≥ · · · ≥ λn > 0, and the Laplacian spectral gap will be: δλ = 1 − |λ2|. The spectral gap is also known as a random walk, in terms of this concept λ2 is the most important eigenvalue. Note that if the spectral gap is 0, which means λ2 = 1 (Γ is not (strongly) connected or if Γ is bipartite), this means a typical random walk will not converge to a unique distribution or dominant eigenvector. As long as the spectral gap is greater than 0, which means |λ2| < 1, then the random walk converges to a unique dominant eigenvector, and the spectral gap measures the rate of convergence, the larger the spectral gap (the smaller|λ2|), the better the network flow (large h(G), diffusion, mixing, random walk, expansion, sparsity, and other highly desirable properties of the network G).",
+    "Girth of a graph is the smallest positive integer  such that Trace(Ar) > 0. Let d = d(G) be the smallest integer (if it exists) so that for every pair of vertices (u,v) there is a walk of length at most d from u to v. Then d(G) is called the diameter or maximum eccentricity of the graph G.",
+    "Density of a graph is the ratio between the number of edges and the number of possible edges. Density is a measure of the compactness of a module (subnetwork) and measures the connectivity strength of pairs of genes in the module.",
+    "Connected component in a directed graph is a subgraph in which any two vertices are connected by paths, and which is connected to no additional vertices in the super graph.",
+    "Jaccard similarity index is used to quantify the neighborhood similarity between two vertices (genes), it is also called topological similarity. The Jaccard index calculates the proportion of v-type genes between two u-type genes, relative to the total number of v-type genes connected to either u-type genes. An index of 1 indicates the exact similarity between u and v, while 0 indicates no similarity between the two sets. The above measures are computed for the subnetworks. If the Jaccard similarity is 0.5, it indicates that half of the genes in one subnetwork are also found in the other subnetwork. Furthermore, hub genes of subnetworks are compared using the degree distribution and subgraph centrality measures.",
+    "Degree distribution is the number of neighbors connected to a node; in other words, it is the number of edges incident on a node. The degree distribution can give information about the structure of a network. The networks can be directed or undirected. In the undirected case, the degree of node i is the number of connections it has, and it can be represented as an adjacency matrix, with the sum over all nodes. For directed graphs, there are two types of degree distributions: in-degree, which is the number of connections entering the node, and out-degree, which is the number of outgoing connections. The degree distribution for a directed graph is the fraction of vertices of degree kin and kout. In this case, the degree distribution is computed for the hub genes in the four low radiation dose subnetworks.",
+    "Subgraph Centrality of a node is a weighted sum of closed walks of different lengths in the network starting and ending at a node. Centrality measures are used widely in biological networks to infer protein-protein interactions and identify essential proteins.",
+    "2.5. Logistic Regression-Based Gene Ranking",
+    "Logistic regression, also called a logit model, is a statistical method for analyzing a dataset in which there is any number of variables that determine an outcome. The goal of this method is to find the best fitting model to describe the relationship between a dichotomous characteristic of interest (dependent variable; response or outcome variable) and the explanatory variable. It is used to model the log-odds of a gene belonging to a specific category as a linear function of the statistical significance. Most likely enriched gene sets will be identified based on the p-value or based on the odds ratio if a ranking independent of category size is desired. The logistic regression method is an extension of the χ2-test and has higher statistical power than other methods because the important values do not depend on a threshold.",
+    "Figure 1 shows the steps involved in the extraction of radiation subnetworks. Pearson correlation and IAMB methods outlined in Section 2B and 2C are applied to the GLDS-7, 120, 37, 38, and 46 expression values of Arabidopsis Col-0 ecotype in spaceflight to construct the GRNs. Weak correlations are eliminated by thresholding p-values which correspond to the largest t-test statistics in the Pearson correlation GRNs. GSEA is used to extract subnetworks of significant DDR processes with a majority of higher activations of radiation-induced ATR/ATM genes. Radiation-induced ATR/ATM hub genes are identified in the subnetworks. In these subnetworks, genes that have strong correlations with radiation-induced ATR/ATM genes are detected. The genes significantly altered due to other spaceflight parameters that are not correlated with ATR/ATM genes are not detected. Network measurements listed in Section 2D are computed and used to analyze the subnetworks. Certain non-radiation-induced genes that interact with the radiation-induced hub genes are detected in the DDR processes subnetworks. The associated processes and molecular functions of the key non-radiation induced genes that interact with the ATR/ATM radiation-induced hub genes are identified. Flavonoid and carotenoid biosynthesis processes are identified from the Pearson GRNs and MB causal relational networks and their corresponding subnetworks are extracted. The carotenoid and flavonoid hub genes are detected in the subnetworks. The logistic regression method explained in Section 2E takes the network measurements for the radiation-induced hub genes in the subnetworks as input and ranks them from the most to the least significant.",
+    "The Pearson correlation GRN construction is implemented in Python, and the causal relational analysis using the IAMB method is implemented in R. The computational algorithms for the network measures, and logistic regression ranking of hub genes are implemented in Python. The github link for the scripts is provided in the Supplementary Material."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "The gene expression values (three in GLDS-120, three in GLDS-38, five in GLDS -7, six in GLDS-37, and eight in GLDS-46) are used to construct Pearson correlation GRNs. The datasets are analyzed separately. Weak correlations with p-values greater than 0.0005 are removed. A Gene Set Enrichment Analysis (GSEA) of the Pearson correlation GRNs for low radiation dose datasets reveals four main processes with higher activation of the ATR and ATM genes. They are cellular response to stimulus, cellular response to stress, cellular response to DNA damage stimulus, and DNA metabolic processes. The radiation protection pigment biosynthesis processes identified are the flavonoid biosynthesis process and carotene catabolic process. The subnetworks for these processes are extracted from the GRNs for each dataset. The hub genes are detected by thresholding the degree distribution of the subnetworks. A threshold between 5 and 34 for the degree distribution is used to select the hub genes for the Low Radiation Dose (LRD - LRD1 refers to GLDS-37, LRD2 refers to GLDS-38, LRD3 refers to GLDS-7 and LRD4 refers to GLDS-120) subnetworks. A threshold of 19 to 47 is used to select the hub genes for the very high radiation dose subnetworks (HZE and γR radiation GLDS-46 dataset). The protein-protein interactions in the subnetworks are discussed below. The hub genes for each process are given by their Arabidopsis Gene Identifier and their gene names inside the parenthesis. The gene names are also listed in the Supplementary Tables S2 and S3. The gene ontologies of the ATG genes are obtained from.",
+    "3.1. Cellular Response to Stimulus",
+    "Cellular response to stimulus process is the mechanism by which a cell detects and responds to external or internal signaling stimuli causing the cell to change in state or activity in terms of movement, secretion, enzyme production, and gene expression. Table 1 and Table 2 show the degree distribution and subgraph centrality measure for the hub genes in the subnetworks for the cellular response to stimulus process in Arabidopsis grown in low radiation dose datasets LRD1 and LRD2, and datasets LRD3 and LRD4, respectively. The higher centrality values in LRD4 subnetwork show the greater occurrence of the three genes AT3G27060 (TSO2), AT3G51920 (CML9), and AT1G70940 (PIN3) (Table 2) in the pathways of other genes and play an active role in the cellular response to stimulus process. A higher value of degree distribution for the hub-gene indicates that it is the most influential gene in the biological pathway. The low radiation dose subnetworks for LRD1 and LRD2 datasets have more hub genes for this process (Table 1). The genes AT3G13380 (BRL3), AT3G61630 (CRF6), and AT5G61600 (ERF104) have higher values than other hub genes in the low radiation dose subnetworks. They are brassinosteroid receptor proteins and ethylene-responsive transcription factors involved in protein and DNA-binding molecular functions.",
+    "3.2. Cellular Response to Stress",
+    "Environmental stressors such as extreme temperature, exposure to toxins, radiation, and mechanical damage result in molecular changes that cells undergo in response to these stressors. Table 3 shows the degree distribution and subgraph centrality measure for the hub genes in the subnetworks for the cellular response to stress process for low radiation dose (datasets LRD1 and LRD2).",
+    "The AT5G48720 (XRI1) has a higher degree distribution and subgraph centrality measures in the low radiation dose (LRD2) subnetwork (Table 3). While there are four hub genes involved in cellular response to stress in the low radiation dose LRD1 and LRD2 subnetworks, there is only one hub gene in the low radiation dose LRD3 and LRD4 subnetworks (Table 4).",
+    "3.3. Cellular Response to DNA Damage Stimulus",
+    "DNA damage due to environmental stress such as radiation or errors in metabolism causes the cell to change in state or activity in terms of movement, secretion, enzyme production, and gene expression. There are no common hub genes for this process in the LRD1 and LRD2 subnetworks. However, the same gene AT3G27060 that responds to stress also shows higher activity in response to DNA damage stimuli in LRD3 and LRD4 subnetworks. The network measures for this process are given in the second row in Table 4.",
+    "3.4. DNA Metabolic Process",
+    "DNA metabolism includes both DNA synthesis and degradation reactions involved in DNA replication and repair. Through this process, the cellular DNA levels are maintained. The LRD1 and LRD2 subnetworks do not have any common hub genes for this process, but the AT3G27060 is involved in this process in the LRD3 and LRD4 subnetworks. It also has high subgraph centrality values in both the cellular response to DNA damage and DNA metabolic processes (second and third rows of Table 4) showing that it is involved in several pathways for both the cellular response to DNA damage and DNA metabolic processes.",
+    "Figure 2 shows the subnetwork for cellular response to stress process under low radiation dose (LRD3 dataset), and Figure 3 shows the subnetwork for the DNA metabolic process under low radiation dose (LRD4 dataset), respectively. The degree distribution and subgraph centrality have the highest values for the hub genes in the total light low radiation dose subnetwork from the LRD4 dataset as can be seen in Figure 3. All the genes except the hub genes (red circles) are non-radiation-induced in this subnetwork. These genes are involved in responses to osmotic and water stress, and response to cadmium ions, metal ions, inorganic substances, and water deprivation.",
+    "3.5. Flavonoid Biosynthesis and Carotenoid Catabolic Processes",
+    "The subnetworks for flavonoid biosynthesis and carotenoid catabolic processes with higher activations of genes that encode and regulate flavonoids and carotenoids are extracted from GRNs of Arabidopsis grown in total light environment (LRD4) dataset. Figure 4A,B show the interaction profiles of these genes with green circles for flavonoid encoding genes, and yellow circles for carotenoid encoding genes, respectively. These pigments are involved in UV radiation protection. They have been reported to have higher regulations in several ground-based studies on UV response of Arabidopsis. There are higher regulations of flavonoids and carotenoids, which also include negative regulations as indicated by the weights on the edges of Figure 4A,B. From the low radiation dose dataset LRD4, we also find causal relations of five flavonoid genes and nine carotenoid genes, as shown in Figure 4C.",
+    "3.6. Subnetwork Measurments for the Low, and Very High Radiation Dose DDR Processes",
+    "We compare the subnetworks for low radiation doses using topological and algebraic network measures. Table 5 summarizes these measures. We constructed GRNs and applied GSEA to extract the subnetworks for DDR processes with a larger regulation of the ATR/ATM genes for the very high radiation dose of HZE and γR radiation dataset (GLDS-46). We analyzed the subnetwork measurements for this dataset to understand the effects of very high doses of radiation on plants grown for life support in long-term deep-space missions beyond the Earth’s atmosphere to the Moon and Mars. The two main processes identified from the GRNs of the very high radiation dose datasets are DNA metabolic process and nucleic acid response process. Figure 5 shows the subnetwork for the DNA metabolic process in Arabidopsis under a very high HZE radiation dose. Figure 6 shows the subnetwork for the nucleic acid response process under a very high γR radiation dose. The network measures for these two processes are summarized in Table 6.",
+    "The HZE and γR dataset corresponds to a very high radiation dose of 100 Gy at a dose rate of 1.8 Gy/min., and 30 Gy at a dose rate of 2.5 Gy/min., respectively. Hence, the spectral gap measures are much higher for these subnetworks ranging from 7.5153 to 12.2554 as seen in Table 6, whereas the spectral gaps for the low radiation dose subnetworks in Table 5 have lesser values ranging from 0.068 to 0.858. The larger the spectral gap (the smaller |λ2|), the higher the network flow with sparseness, expansion, diffusion, and random walk. Hence, these networks have a higher measure of random walks, implying that the nodes that lie closer to each other in the network perform similar functions. This also indicates that the plant has higher transcriptional costs in adapting to the very high levels of radiation in the environment. The low radiation dose subnetworks (LRD3 and LRD4) have a large number of connected components ranging from 3 to 9, while the HZE and γR subnetworks have only one connected component. Also, the low radiation dose subnetworks have an average shortest path of 1.5 and a diameter of 1 or 2. The processes for the very high dose of HZE and γR radiation subnetworks have an average shortest path of 3.25 and a diameter between 2 and 5. Also, there are no non-radiation-induced genes identified in the very high radiation dose subnetworks.",
+    "3.7. Jaccard Similarity Between Subnetworks",
+    "The Jaccard similarity indices in Table 7 show the neighborhood similarity of radiation-induced ATR/ATM hub-genes for the DDR processes influenced by very high doses of HZE and γR radiation. It also shows the similarity of the neighborhood for the hub gene in the two subnetworks for the low radiation dose DDR processes. The values closer to one indicate that the genes AT2G31320 (PARP1), AT4G21070 (BRCA1), and AT2G46610 (RS31A), and AT3G27060 (TSO2) have similar interactions in the subnetworks for the two processes. The closer the values are to zero, the genes have minimal interaction similarity in the neighborhood for the two processes.",
+    "3.8. Logistic Regression Ranking of Hub Genes",
+    "The subgraph centrality, closeness centrality, degree distribution, page rank, and eigenvalue centrality network measures are used by the logistic regression method to rank the top correlated genes from the Pearson GRNs. Apart from the hub genes for the subnetworks, the other top-ranked radiation-induced genes from the low radiation dose subnetworks are AT3G21280 (UBP7), AT1G07500 (SMR5), and AT5G66140 (PAD2). Logistic regression of the top correlated genes in the HZE and γR subnetworks resulted in all of the high ranked genes being radiation-induced ATR/ATM genes. No non-radiation-induced genes are among the top 50 ranked genes for the very high radiation dose subnetworks.",
+    "3.9. Causal Relational Network Analysis",
+    "Figure 7 shows a part of the causal relational subnetwork for the LRD1 dataset. There are two key radiation-induced genes AT1G27940 (Q9C7F8) and AT3G60420 (Q9M217) related to eight non-radiation-induced genes. In a causal graph, for any node (gene) X, its parents and children are the immediate nodes (genes) that are strongly relevant in its activation. The higher activation of a parent gene will lead to the activation of the child gene, as well. The activation of the parent gene is the cause, and the activation of the child gene is the effect. The MB(AT1G27940) has six children genes, and the MB(AT3G60420) has two parent genes, which indicates that this gene has a causal relationship with these two other genes. In addition, there are 82, 72, 69, and 69 one-to-one causal relations between radiation-induced genes and non-radiation genes in each of the LRD1, LRD2, LRD3, and LRD4 subnetworks, respectively. The parent gene carries information most relevant to the child gene, that cannot be obtained from another gene. The key radiation-induced genes for low radiation dose are shown in Figure 8 in red color. The MB(AT4G28950) has one child AT1G10800, MB(AT1G23000) has one parent AT5G40380, and MB(AT1G15580) has one child AT1G06360. The genes that are related to AT3G60420 are involved in plant growth and developmental processes. The genes AT1G10800, AT1G06350 (ADS4), and AT5G40380 (CRK42) (Figure 8) encode proteins and are involved in other biological processes such as ATP binding, protein phosphorylation, fatty acid biosynthesis, and metabolic processes."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "4.1. Computational Strategy",
+    "Radiation data for GLDS studies in the ISS are provided in. Previous studies of Arabidopsis in spaceflight missions have focused on non-radiation stress responses that are due to microgravity, although radiation is an important stressor in spaceflight. The effect of ionizing radiation has been presented using traditional fold change analysis methods in. The novelty of our approach is the performance of computational modular subnetwork analysis of biological processes involving a majority of radiation-induced genes. Our modular analysis approach provides a better insight into the complex gene interaction profiles between radiation-induced and non-radiation-induced genes in DDR processes. We have also determined gene associations using the Bayesian Markov blanket method which identifies key genes based on the relevance of gene associations. This method is attractive because of its ability to describe complex stochastic processes with noisy observations. We have used IAMB innovatively in identifying causal relations between ATR/ATM radiation-induced genes and non-radiation-induced genes. We have innovatively used the Jaccard similarity index to show the similarity of neighborhood interactions of ATR/ATM genes in the subnetworks for DDR processes. This index is not biased by low-level, noise-derived, variability in expression. We have also shown how topological network measures of degree distribution are useful for the extraction of subnetwork modules from larger GRNs. The subnetworks sampled from the original GRNs also have a scale-free topology with a degree distribution that follows an exponential power law. Centrality measures are useful for distinguishing protein complexes. It has been shown that the subgraph centrality has better discriminatory power than other centrality measures such as Eigenvector, closeness, and betweenness centrality. Subgraph centrality has been used here to distinguish the hub genes involved in the DDR processes. The network measures of diameter, connected components, and density have important biological implications as they can predict gene regulatory interaction landscape intrinsic to the organism. The density is the lowest for the LRD2 dataset indicating the sparseness of the subnetworks. The network measures for the subnetworks reveal quantitatively different emerging properties for Arabidopsis grown in different radiation dose environments. The number of connected components and diameter of the subnetworks for the DDR processes show large variability for low and very high radiation doses. The spectral gap has large values in the very high radiation dose subnetworks than in low radiation dose subnetworks indicating sparseness and high connectivity of the networks. Many biological systems are modular which results from the sparseness in the GRNs. The novel algebraic analysis using spectral gap computations informs us about the diffusion, mixing, and expansion properties of important genes in different radiation dose environments. Through spectral analysis, we have shown that very high doses of radiation, results in large complex biomolecular networks with higher values of the spectral gap. Several machine learning methods such as logistic regression, support vector machine, random forest regression, naïve Bayes classifier, stochastic gradient boosting, and artificial neural networks have been applied to gene expression data to identify differentially expressed genes. The advantage of logistic regression is that it allows the evaluation of multiple explanatory variables. It is easy to implement, interpret, and train. It is better than linear regression which produces continuous output, while logistic regression produces discrete output. This method has ranked the ATR/ATM hub genes of low radiation dose subnetworks, and 50 ATR/ATM genes as the top gene players responding to DNA damage and/or ionizing radiation in spaceflight.",
+    "4.2. ATR/ATM Gene Interactions",
+    "The ATR/ATM radiation-induced genes involved in DNA repair response in Arabidopsis are shown as hub-genes (red color) in the subnetwork modules in Figure 2, Figure 3, Figure 5 and Figure 6. We have identified other non-radiation-induced gene players from the DDR processes. These genes encode proteins that are involved in DNA repair as well as other responses to Reactive Oxygen Species (ROS) and oxidative stress, osmotic stress, salt stress, light stress, cell growth, and metabolic processes. The pigment biosynthesis process subnetworks shown in Figure 4 (LRD4—GLDS 120 dataset) reveal significant genetic interactions with non-pigment genes, as well. This dataset was collected from Arabidopsis grown for 11 days in the ambient light of ISS. None of the flavonoids and carotenoids show significant regulations in the other low radiation dose datasets, and very high doses of HZE and γR radiation datasets, and the reason for this could be the absence of light stimulation.",
+    "In Figure 2, Figure 3, Figure 5 and Figure 6 the AT2G30250 (WRKY) transcription factors and other Arabidopsis ATR and ATM orthologues identified as hub genes are activated by several downstream target genes of stress signaling. The role of the ATR and ATM as the initiators of comprehensive signal transductions in response to DNA damage and/or ionizing radiation is probably achieved at the post-translational level. Figure 4B represents the ABA biosynthetic activation as part of the stress responses which involves some of the carotenoid catabolic pathways.",
+    "The HZE and γR radiation DDR responses of the plant exhibit complex subnetworks for the DNA metabolic and the nucleic acid processes in response to very high doses of radiation. The genes AT3G13380, AT5G61600, AT5G48720, and AT3G27060 in low radiation dose subnetworks play key roles in the regulation of plant biological processes enabling the plant to be repair proficient, thereby inhibiting any phenotypic changes during growth. The causal associations of key ATR/ATM genes with other genes show the most relevant genes important for the adaptation of the plant to different levels of radiation. The 18 genes AT3G13380, AT3G61630, AT5G61600, AT3G27060, AT3G51920, AT1G70940, AT5G48720, AT2G31320, AT4G21070, AT2G46610, AT3G21280, AT1G07500, AT5G66140, AT1G27940, AT3G60420, AT4G28950, AT1G23000, and AT1G15580 identified in this research are essential regulators of the processes in response to DNA damage. Table 8 summarizes the functions of the ATR/ATM genes which shows clearly that these genes are not only involved in DNA damage response but are also involved in other biological processes.",
+    "Table 9 summarizes the functions of the non-radiation-induced key genes encoding proteins that have significant regulatory activity and are also involved in non-DDR processes such as stress responses specifically to salt, water, heat, and light stress and in regulating plant development and root growth. The top five genes are the non-radiation-induced gene players identified from the DNA metabolic process subnetwork in Figure 3. The bottom 11 genes are identified from causal relational subnetworks.",
+    "The ATR/ATM radiation-induced genes respond to DNA damage and/or ionizing radiation in concert with non-radiation-induced genes that respond to other environmental stressors such as ROS, salt, light, heat, and water changes in spaceflight. The MB causal relational subnetworks show the ATR/ATM genes related with genes that regulate root development, and plant growth, indicating that increased radiation tolerance by genetic activations may have a side effect on the plant growth. This fact has to be considered while genetically engineering plants for DNA repair response which may have undesired side-effects such as reduced yield. Further experiments are necessary to study the effect of long-term exposure of plants to space radiation and the best mechanisms to overcome the harmful effects of radiation. The overexpression of several genes and their side effects may be averted by suitable enclosures that can shield the plant from spaceflight radiation."
+  ],
+  "CONCL": [
+    "5. Conclusions",
+    "We have applied advanced network analysis and machine learning approaches to detect key genes involved in DDR and their links with genes involved in spaceflight stress responses in Arabidopsis. Our analysis shows that the DDR processes are intermixed with the regulation of critical functions necessary for the plant to adapt to the spaceflight environment. There is a significant difference in the regulation of these processes in a low radiation dose environment where ATR/ATM radiation-induced genes interact with many downstream genes, whereas in the very high HZE and γR radiation dose environment, the DDR processes are regulated chiefly by ATR/ATM genes.",
+    "Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following are available online at , Supplementary Table S1. Radiation Metadata for GLDS-7, GLDS-37, GLDS-38, and GLDS-46 datasets. GLDS-120 dataset was acquired under similar conditions of GLDS-7. Supplementary Table S2. Gene names for the ATG numbers for hub genes and authority genes in Figure 2, Figure 3 and Figure 4. Supplementary Table S3. Gene names for the ATG numbers for hub genes and authority genes in Figure 5 and Figure 6. The scripts of available at , accessed on 10 June 2021.",
+    "Data Availability Statement",
+    ", accessed on 1 August 2020."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, V.M.; methodology, V.M., J.O.-S. and V.D.-M.; software, J.O.-S. and V.D.-M.; validation, J.O.-S. and V.D.-M.; formal analysis, V.M., J.O.-S. and V.D.-M.; investigation, V.M. and J.O.-S.; data curation, J.O.-S. and V.D.-M.; writing—original draft preparation, V.M. and J.O.-S.; writing—review and editing, V.M. and J.O.-S.; visualization, J.O.-S. and V.D.-M.; supervision, V.M.; project administration, V.M.; funding acquisition, V.M. All authors have read and agreed to the published version of the manuscript."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This research was funded by NASA EPSCoR, grant number 80NSSC19M0167. The APC is funded by 80NSSC19M0167. Opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of NASA.",
+    "Institutional Review Board Statement",
+    "Not Applicable.",
+    "Informed Consent Statement",
+    "Not Applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Space Radiation and Human Exposures, A Primer",
+    "Why Space Radiation Matters",
+    "NASA genelab platform utilized for biological response to space radiation in animal models",
+    "Bridging plant and human radiation response and DNA repair through an in silico approach",
+    "Growth and Development of Ecotypes of Arabidopsis thaliana: Preliminary Experiments to Prepare for a Moon Lander Mission",
+    "Spaceflight-induced alternative splicing during seedling development in Arabidopsis thaliana",
+    "Developmental, Morphological and Physiological Traits in Plants Exposed for Five Generations to Chronic Low-Level Ionising Radiation",
+    "DNA damage sensing by the ATM and ATR kinases",
+    "ATM-mediated transcriptional and developmental responses to γ-rays in Arabidopsis",
+    "ATR and ATM play both distinct and additive roles in response to ionizing radiation",
+    "Genetic Consequences of Acute/Chronic Gamma and Carbon Ion Irradiation of Arabidopsis thaliana",
+    "Biosynthesis of plant pigments: Anthocyanins, betalains and carotenoids",
+    "Carotenoid biosynthesis in flowering plants",
+    "Light-dependent regulation of carotenoid biosynthesis in plants",
+    "Carotenoid Biosynthesis in Arabidopsis: A Colorful Pathway",
+    "TAIR—Reference Genome Sequence",
+    "High atomic weight, high-energy radiation (HZE) induces transcriptional responses shared with conventional stresses in addition to a core ‘DSB’ response specific to clastogenic treatments",
+    "(Differential) Co-Expression Analysis of Gene Expression: A Survey of Best Practices",
+    "NASA Gene Lab Data Repository",
+    "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+    "Genetic dissection of the Arabidopsis spaceflight transcriptome: Are some responses dispensable for the physiological adaptation of plants to spaceflight?",
+    "From Genes to Photosynthesis in Arabidopsis thaliana",
+    "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+    "Transcriptome and proteome responses in RNAlater preserved tissue of Arabidopsis thaliana",
+    "Quantifying gene regulatory relationships with association measures: A comparative study",
+    "Network Analysis of Gene Transcriptions of Arabidopsis thaliana in Spaceflight Microgravity",
+    "Bayesian Networks for Omics Data Analysis",
+    "A comparison of methods for inferring causal relationships between genotype and phenotype using additional biological measurements",
+    "A Markov-blanket-based model for gene regulatory network inference",
+    "Three-Fast-Inter Incremental Association Markov Blanket learning algorithm",
+    "Assessing the Effectiveness of Causality Inference Methods for Gene Regulatory Networks",
+    "Algorithms for Large Scale Markov Blanket Discovery",
+    "Learning Bayesian network structure using Markov blanket decomposition",
+    "Using Markov blankets for causal structure learning",
+    "On the origin of biomolecular networks",
+    "Using networks to measure similarity between genes: Association index selection",
+    "Incorporating topological information for predicting robust cancer subnetwork markers in human protein-protein interaction network",
+    "Node centrality in weighted networks: Generalizing degree and shortest paths",
+    "ATria: A novel centrality algorithm applied to biological networks",
+    "DiffSLC: A graph centrality method to detect essential proteins of a protein-protein interaction network",
+    "LRpath: A logistic regression approach for identifying enriched biological groups in gene expression data",
+    "ShinyGO",
+    "Gene Ontology and GO Annotations",
+    "Spaceflight transcriptomes: Unique responses to a novel environment",
+    "A regulatory module controlling stress-induced cell cycle arrest in Arabidopsis",
+    "Genome-wide analysis of the core DNA replication machinery in the higher plants Arabidopsis and rice1[W][OA]",
+    "Beyond Arabidopsis: Differential UV-B response mediated by UVR8 in diverse species",
+    "Applications of Random Walk Model on Biological Networks",
+    "Radiation Data for GLDS Studies on the International Space Station",
+    "Comparison of alternative approaches for analysing multi-level RNA-seq data",
+    "Network Analysis of Local Gene Regulators in Arabidopsis thaliana under Spaceflight Stress",
+    "A centrality measure for cycles and subgraphs II",
+    "About the Discriminant Power of the Subgraph Centrality and Other Centrality Measures About the Discriminant Power of the Subgraph Centrality and Other Centrality Measures (Working Paper)",
+    "Topological and statistical analyses of gene regulatory networks reveal unifying yet quantitatively different emergent properties",
+    "A Guide to Conquer the Biological Network Era Using Graph Theory",
+    "On the role of sparseness in the evolution of modularity in gene regulatory networks",
+    "Gene Regulatory Network Inference: Connecting Plant Biology and Mathematical Modeling",
+    "ATM, ATR and DNA-PKcs kinases-the lessons from the mouse models: Inhibition = deletion"
+  ],
+  "FIG": [
+    "Flow diagram showing the sequence of steps followed for extraction of radiation response subnetworks from the gene expression values in the GLDS datasets and network analysis.",
+    "Subnetwork for cellular response to stress process in Arabidopsis under low radiation dose (LRD3) dataset. Red circles are hub genes. There are 7 significant hub genes in this subnetwork. Larger the circles, higher the value of in-degree distribution.",
+    "Subnetwork for DNA metabolic process under low radiation dose (LRD4) dataset. Red circles are hub genes. The hub genes AT3G27060 (TS02) and AT2G21790 (RNR1) are being activated by the genes at the non-arrow end of the edge. Both of these genes have a high in-degree distribution.",
+    "(A) Subnetwork for flavonoids biosynthesis process under light environment in space Figure 4. (GLDS-120) dataset. (B) Subnetwork showing carotenoid AT3G14440 interactions. This is a key enzyme in the biosynthesis of abscisic acid. It is regulated in response to drought and salinity and expressed in roots, flowers and seeds. (C) Markov blanket subnetwork showing causal relations of flavonoids (green) and carotenoids (yellow).",
+    "Subnetwork for DNA metabolic process in Arabidopsis under very high HZE radiation dose. Hub genes are indicated by red circles. There are seven significant hub genes in this subnetwork. Larger the circles, higher the activation of the hub genes.",
+    "Subnetwork for the nucleic acid response process in Arabidopsis under very high γR radiation. Red circles are hub genes. There are nine significant hub genes in this subnetwork. Larger the circles, higher the activation of the hub genes.",
+    "Markov blanket subnetworks for low radiation dose dataset (LRD1).",
+    "Markov blanket subnetworks for low radiation dose dataset (LRD3—left and LRD4—right)."
+  ],
+  "TABLE": [
+    "Network measures for hub genes in the subnetworks for the cellular response to stimulus process under low radiation dose.",
+    "Arabidopsis Gene Identifier for Hub Genes\tDegree Distribution\tSubgraph Centrality\t \tLRD1\tLRD2\tLRD1\tLRD2\t \tAT1G08260\t1\t1\t1.5431\t1.5431\t \tAT1G29440\t1\t1\t1.5431\t1.5431\t \tAT2G30360\t1\t4\t1.5431\t1.5431\t \tAT3G13380\t12\t7\t15.9895\t7.0825\t \tAT3G51920\t6\t1\t5.8344\t1.5431\t \tAT3G61630\t2\t13\t2.1782\t18.4146\t \tAT4G28950\t1\t3\t1.5431\t2.9146\t \tAT5G07100\t1\t9\t1.5431\t10.0677\t \tAT5G40840\t4\t4\t3.7622\t3.7622\t \tAT5G48720\t1\t20\t1.5431\t3.7622\t \tAT5G61600\t1\t15\t2.1782\t18.4146",
+    "Network measures for hub genes in the subnetworks for the cellular response to stimulus process under low radiation dose.",
+    "Arabidopsis Gene Identifier for Hub Genes\tDegree Distribution\tSubgraph Centrality\t \tLRD3\tLRD4\tLRD3\tLRD4\t \tAT3G27060\t2\t22\t2.3811\t6253.2089\t \tAT3G51920\t4\t40\t4.9976\t11,529.486\t \tAT1G70940\t1\t22\t1.5907\t12,412.744",
+    "Network measures for hub genes in the subnetworks for the cellular response to stress process under low radiation dose.",
+    "Arabidopsis Gene Identifier for Hub Genes\tDegree Distribution\tSubgraph Centrality\t \tLRD1\tLRD2\tLRD1\tLRD2\t \tAT1G08260\t1\t1\t1.5431\t1.5431\t \tAT5G40840\t4\t4\t3.7622\t3.7622\t \tAT5G07100\t1\t9\t1.5431\t10.0677\t \tAT5G48720\t1\t20\t1.5431\t43.7775",
+    "Network measures for hub gene AT3G27060 in the subnetwork for the cellular response to stress process (row 1), cellular response to DNA damage stimulus (row 2) and DNA metabolic process (row 3) under low radiation doses.",
+    "DDR Processes\tDegree Distribution\tSubgraph Centrality\t \tLRD3\tLRD4\tLRD3\tLRD4\t \tCellular response to stress\t3\t22\t54.4538\t2.9737\t \tCellular response to DNA damage stimulus\t2\t33\t2.1782\t156.2451\t \tDNA metabolic process\t2\t22\t2.3811\t57.2840",
+    "Network measures for the subnetworks for low radiation dose DDR processes.",
+    "Cellular Response to Stimulus\t \tNetwork Measurements\tLRD3\tLRD4\tLRD1\tLRD2\t \tSpectral gap\t0.3347\t6.172\t2.013\t0.099\t \tDensity\t0.0489\t0.0711\t0.022\t0.0037\t \tDiameter\t1\t1\t1\t1\t \tConn. Comps.\t3\t2\t3\t28\t \tCellular Response to Stress\t \tSpectral gap\t0.7923\t4.69\t0.99\t0.099\t \tDensity\t0.027\t0.087\t0.102\t0.0104\t \tDiameter\t2\t1\t1\t1\t \tConn. Comps.\t9\t1\t5\t17\t \tDNA Metabolic Process\t \tSpectral gap\t0.858\t1.202\t0.99\t0.4112\t \tDensity\t0.5714\t0.038\t0.166\t0.0059\t \tDiameter\t1\t1\t1\t2\t \tConn. Comps\t6\t2\t3\t69\t \tCellular Response to DNA Damage Stimulus\t \tSpectral gap\t0.068\t5.74\t0.99\t0.1399\t \tDensity\t0.055\t0.058\t0.166\t0.0074\t \tDiameter\t1\t1\t1\t2\t \tConn. Comps.\t7\t1\t3\t55",
+    "Network measures for the subnetworks for very high HZE and γR radiation dose DDR processes.",
+    "Network Measurements\tDNA Metabolic Process\tNucleic Acid Response Process\t \tHZE\tγR\tHZE\tγR\t \tDensity\t0.1782\t0.2040\t0.2465\t0.2211\t \tSpectral gap\t7.5153\t8.9726\t12.2554\t10.4919\t \tDiameter\t2\t4\t2\t5",
+    "Jaccard similarity index between subnetworks for different levels of radiation doses.",
+    "Subnetwork with Hub-Gene\tJaccard Similarity Index between HZE and γR Subnetworks\t \tDNA Metabolic Process\tNucleic Acid Response Process\t \tAT1G09815\t0.5789\t0.5789\t \tAT2G31320\t0.6176\t 0.6176 \t \tAT4G21070\t0.7619\t-\t \tAT1G13330\t0.4814\t0.4285\t \tAT4G29170\t0.4444\t0.4444\t \tAT2G46610\t-\t0.6250\t \tSubnetwork with hub-gene\tJaccard similarity index between LRD3 and LRD4 subnetworks \t \tDNA metabolic process and Response to DNA damage to stimulus\tDNA metabolic process & Response to DNA damage to stimulus\t \tAT3G27060\t1.0\t0.1224",
+    "Key ATR/ATM radiation-induced genes identified from the DDR process subnetworks.",
+    "Arabidopsis Gene Identifier\tGene Coding Protein Description\t \tAT3G13380\t\t \tProtein binding, protein serine kinase activity\t \t\t \tAT3G61630\t\t \tCotyledon development, embryo development ending in seed dormancy, leaf development, regulation of transcription, DNA-templated\t \t\t \tAT5G61600\tCell division, defense response to fungus, phloem or xylem histogenesis, positive regulation of transcription, DNA-templated\t \tAT3G27060\tDirectly involved in synthesis of deoxyribonucleotides, DNA repair, DNA replication, multicellular organism development, programmed cell death, regulation of cell cycle\t \tAT3G51920\t\t \tResponse to salt stress and water deprivation, calcium ion binding.\t \t\t \tAT1G70940\t\t \tPositive gravitropism, regulation of root meristem growth, response to light stimulus, root development, root hair elongation, root hair initiation\t \t\t \tAT5G48720\tDNA repair, female meiotic nuclear division, pollen development, response to X-ray \t \tAT2G31320\t\t \tDNA ADP-ribosylation, DNA repair, double-strand break repair, protein ADP-ribosylation, protein poly-ADP-ribosylation, response to abscisic acid, response to oxidative stress\t \t\t \tAT4G21070\t\t \tDNA recombination, DNA repair, cellular response to gamma radiation, double-strand break repair via homologous recombination, negative regulation of fatty acid biosynthetic process\t \t\t \tAT2G46610\tmRNA splicing, via spliceosome, RNA binding, protein binding \t \tAT3G21280\tProtein deubiquitination, ubiquitin-dependent protein catabolic process \t \tAT1G07500\tCellular response to DNA damage stimulus, negative regulation of mitotic nuclear division, regulation of DNA endoreduplication\t \tAT5G66140\tProteasomal ubiquitin-independent protein catabolic process\t \tAT1G27940\tATPase-coupled transmembrane transporter activity and nucleotide binding\t \tAT3G60420\t\t \tPhosphoglycerate mutase family protein\t \t\t \tAT4G28950\t\t \tMeiotic DNA repair, pollen development, and responds to X-ray\t \t\t \tAT1G23000\t\t \tHeavy metal transport/detoxification superfamily protein involved in metal ion transport\t \t\t \tAT1G15580\tRegulation of transcription, DNA-templated, response to auxin",
+    "Key non-radiation-induced genes interacting with ATR/ATM radiation induced genes.",
+    "Arabidopsis Gene Identifier\tGene Coding Protein Description\t \tAT1G01470\t\t \tInduced in response to wounding and light stress. Might be involved in protection against desiccation.\t \t\t \t\t \tAT1G06390\t \t\t\t \tThis gene is involved in response to osmotic stress. This protein can interact with the BZR1 protein involved in brassinosteroid-mediated signaling in a Y2H assay and promotes BZR1 phosphorylation in protoplasts.\t \t\t \t\t \tAT1G05850\t \t\t\t \tEssential for tolerance to heat, salt and drought stresses. Also involved in root hair development, cell expansion and response to cytokinin.\t \t\t \t\t \tAT1G05680\t \t\t\t \tThis enzyme can also transfer glycosyl groups to several compounds related to the explosive TNT when this synthetic compound is taken up from the environment.\t \t\t \t\t \tAT1G05620\t \t\t\t \tTranscript levels for this gene are elevated in older leaves suggesting that it may play a role in purine catabolism during senescence.\t \t\t \tAT3G22370\t\t \tPlays a role in shoot acclimation to low temperature. Also is capable of ameliorating reactive oxygen species production when the cytochrome pathway is inhibited.\t \t\t \tAT5G43680\t\t \tThe protein is localized to the inner mitochondrial membrane that is nuclear-encoded and is essential for plant growth and development.\t \t\t \t\t \tAT2G19620\t \t\t\t \tPlays a role in dehydration stress response.\t \t\t \tAT4G34410\t\t \tDirect participation in auxin biosynthesis leading to the plant’s ability to tolerate salt stress.\t \t\t \t\t \tAT2G19620\t \t\t\t \tPlays a role in dehydration stress response.\t \t\t \tAT4G31480\t\t \tRequired for plant growth, salt tolerance, and maintenance of the structure of the Golgi apparatus.\t \t\t \t\t \tAT1G72490\t \t\t\t \tIt is expressed in roots and involved in leaf root architecture, specifically the orientation of lateral root angles\t \t\t \tAT5G61020\t\t \tInvolved in cell proliferation during plant organogenesis.\t \t\t \tAT5G45420\t\t \tPlays a role in root hair elongation.\t \t\t \t\t\t \tImportant role in controlling root skewing and maintaining the microtubule network.\t \t\t \t\t \tAT4G35100\t \t\t\t \tSalt-stress-inducible Major Intrinsic Protein (MIP)\t \t\t \tAT1G13900\t\t \tEncodes a dual-localized acid phosphatase (mitochondria and chloroplast) that modulates carbon metabolism."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space Radiation and Human Exposures, A Primer",
+      "autores": [
+        {
+          "nombre_completo": "G.A. Nelson",
+          "nombres": "G.A.",
+          "apellidos": "Nelson"
+        }
+      ],
+      "pmid": "27018778",
+      "fuente": "Radiat. Res.",
+      "anio": "2016",
+      "volumen": "185",
+      "fpage": "349",
+      "lpage": "358"
+    },
+    {
+      "titulo": "Why Space Radiation Matters",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA genelab platform utilized for biological response to space radiation in animal models",
+      "autores": [
+        {
+          "nombre_completo": "J.T. McDonald",
+          "nombres": "J.T.",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "R. Stainforth",
+          "nombres": "R.",
+          "apellidos": "Stainforth"
+        },
+        {
+          "nombre_completo": "J. Miller",
+          "nombres": "J.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "T. Cahill",
+          "nombres": "T.",
+          "apellidos": "Cahill"
+        },
+        {
+          "nombre_completo": "W.A.D. Silveira",
+          "nombres": "W.A.D.",
+          "apellidos": "Silveira"
+        },
+        {
+          "nombre_completo": "K.S. Rathi",
+          "nombres": "K.S.",
+          "apellidos": "Rathi"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "D. Taylor",
+          "nombres": "D.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "V. Chauhan",
+          "nombres": "V.",
+          "apellidos": "Chauhan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cancers",
+      "anio": "2020",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bridging plant and human radiation response and DNA repair through an in silico approach",
+      "autores": [
+        {
+          "nombre_completo": "Z. Nikitaki",
+          "nombres": "Z.",
+          "apellidos": "Nikitaki"
+        },
+        {
+          "nombre_completo": "A. Pavlopoulou",
+          "nombres": "A.",
+          "apellidos": "Pavlopoulou"
+        },
+        {
+          "nombre_completo": "M. Holá",
+          "nombres": "M.",
+          "apellidos": "Holá"
+        },
+        {
+          "nombre_completo": "M. Donà",
+          "nombres": "M.",
+          "apellidos": "Donà"
+        },
+        {
+          "nombre_completo": "I. Michalopoulos",
+          "nombres": "I.",
+          "apellidos": "Michalopoulos"
+        },
+        {
+          "nombre_completo": "A. Balestrazzi",
+          "nombres": "A.",
+          "apellidos": "Balestrazzi"
+        },
+        {
+          "nombre_completo": "K.J. Angelis",
+          "nombres": "K.J.",
+          "apellidos": "Angelis"
+        },
+        {
+          "nombre_completo": "A.G. Georgakilas",
+          "nombres": "A.G.",
+          "apellidos": "Georgakilas"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cancers",
+      "anio": "2017",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Growth and Development of Ecotypes of Arabidopsis thaliana: Preliminary Experiments to Prepare for a Moon Lander Mission",
+      "autores": [
+        {
+          "nombre_completo": "T. Shymanovich",
+          "nombres": "T.",
+          "apellidos": "Shymanovich"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravit. Space Res.",
+      "anio": "2020",
+      "volumen": "8",
+      "fpage": "18",
+      "lpage": "24"
+    },
+    {
+      "titulo": "Spaceflight-induced alternative splicing during seedling development in Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "N.S. Beisel",
+          "nombres": "N.S.",
+          "apellidos": "Beisel"
+        },
+        {
+          "nombre_completo": "J. Noble",
+          "nombres": "J.",
+          "apellidos": "Noble"
+        },
+        {
+          "nombre_completo": "W.B. Barbazuk",
+          "nombres": "W.B.",
+          "apellidos": "Barbazuk"
+        },
+        {
+          "nombre_completo": "A.L. Paul",
+          "nombres": "A.L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R.J. Ferl",
+          "nombres": "R.J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "30623021",
+      "fuente": "NPJ Microgravity",
+      "anio": "2019",
+      "volumen": "5",
+      "fpage": "1",
+      "lpage": "5"
+    },
+    {
+      "titulo": "Developmental, Morphological and Physiological Traits in Plants Exposed for Five Generations to Chronic Low-Level Ionising Radiation",
+      "autores": [
+        {
+          "nombre_completo": "N.M. Caplin",
+          "nombres": "N.M.",
+          "apellidos": "Caplin"
+        },
+        {
+          "nombre_completo": "A. Halliday",
+          "nombres": "A.",
+          "apellidos": "Halliday"
+        },
+        {
+          "nombre_completo": "N.J. Willey",
+          "nombres": "N.J.",
+          "apellidos": "Willey"
+        }
+      ],
+      "pmid": "32117356",
+      "fuente": "Front. Plant. Sci.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "1",
+      "lpage": "14"
+    },
+    {
+      "titulo": "DNA damage sensing by the ATM and ATR kinases",
+      "autores": [
+        {
+          "nombre_completo": "A. Maréchal",
+          "nombres": "A.",
+          "apellidos": "Maréchal"
+        },
+        {
+          "nombre_completo": "L. Zou",
+          "nombres": "L.",
+          "apellidos": "Zou"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cold Spring Harb. Perspect. Biol.",
+      "anio": "2013",
+      "volumen": "5",
+      "fpage": "1",
+      "lpage": "17"
+    },
+    {
+      "titulo": "ATM-mediated transcriptional and developmental responses to γ-rays in Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "L. Ricaud",
+          "nombres": "L.",
+          "apellidos": "Ricaud"
+        },
+        {
+          "nombre_completo": "C. Proux",
+          "nombres": "C.",
+          "apellidos": "Proux"
+        },
+        {
+          "nombre_completo": "J.-P. Renou",
+          "nombres": "J.-P.",
+          "apellidos": "Renou"
+        },
+        {
+          "nombre_completo": "O. Pichon",
+          "nombres": "O.",
+          "apellidos": "Pichon"
+        },
+        {
+          "nombre_completo": "S. Fochesato",
+          "nombres": "S.",
+          "apellidos": "Fochesato"
+        },
+        {
+          "nombre_completo": "P. Ortet",
+          "nombres": "P.",
+          "apellidos": "Ortet"
+        },
+        {
+          "nombre_completo": "M.-H. Montané",
+          "nombres": "M.-H.",
+          "apellidos": "Montané"
+        }
+      ],
+      "pmid": "17487278",
+      "fuente": "PLoS ONE",
+      "anio": "2007",
+      "volumen": "2",
+      "fpage": "e430",
+      "lpage": ""
+    },
+    {
+      "titulo": "ATR and ATM play both distinct and additive roles in response to ionizing radiation",
+      "autores": [
+        {
+          "nombre_completo": "K.M. Culligan",
+          "nombres": "K.M.",
+          "apellidos": "Culligan"
+        },
+        {
+          "nombre_completo": "C.E. Robertson",
+          "nombres": "C.E.",
+          "apellidos": "Robertson"
+        },
+        {
+          "nombre_completo": "J. Foreman",
+          "nombres": "J.",
+          "apellidos": "Foreman"
+        },
+        {
+          "nombre_completo": "P. Doerner",
+          "nombres": "P.",
+          "apellidos": "Doerner"
+        },
+        {
+          "nombre_completo": "A.B. Britt",
+          "nombres": "A.B.",
+          "apellidos": "Britt"
+        }
+      ],
+      "pmid": "17227549",
+      "fuente": "Plant J.",
+      "anio": "2006",
+      "volumen": "48",
+      "fpage": "947",
+      "lpage": "961"
+    },
+    {
+      "titulo": "Genetic Consequences of Acute/Chronic Gamma and Carbon Ion Irradiation of Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "Y. Hase",
+          "nombres": "Y.",
+          "apellidos": "Hase"
+        },
+        {
+          "nombre_completo": "K. Satoh",
+          "nombres": "K.",
+          "apellidos": "Satoh"
+        },
+        {
+          "nombre_completo": "H. Seito",
+          "nombres": "H.",
+          "apellidos": "Seito"
+        },
+        {
+          "nombre_completo": "Y. Oono",
+          "nombres": "Y.",
+          "apellidos": "Oono"
+        }
+      ],
+      "pmid": "32117356",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Biosynthesis of plant pigments: Anthocyanins, betalains and carotenoids",
+      "autores": [
+        {
+          "nombre_completo": "Y. Tanaka",
+          "nombres": "Y.",
+          "apellidos": "Tanaka"
+        },
+        {
+          "nombre_completo": "N. Sasaki",
+          "nombres": "N.",
+          "apellidos": "Sasaki"
+        },
+        {
+          "nombre_completo": "A. Ohmiya",
+          "nombres": "A.",
+          "apellidos": "Ohmiya"
+        }
+      ],
+      "pmid": "18476875",
+      "fuente": "Plant J.",
+      "anio": "2008",
+      "volumen": "54",
+      "fpage": "733",
+      "lpage": "749"
+    },
+    {
+      "titulo": "Carotenoid biosynthesis in flowering plants",
+      "autores": [
+        {
+          "nombre_completo": "J. Hirschberg",
+          "nombres": "J.",
+          "apellidos": "Hirschberg"
+        }
+      ],
+      "pmid": "11312131",
+      "fuente": "Curr. Opin. Plant Biol.",
+      "anio": "2001",
+      "volumen": "4",
+      "fpage": "210",
+      "lpage": "218"
+    },
+    {
+      "titulo": "Light-dependent regulation of carotenoid biosynthesis in plants",
+      "autores": [
+        {
+          "nombre_completo": "L. Pizarro",
+          "nombres": "L.",
+          "apellidos": "Pizarro"
+        },
+        {
+          "nombre_completo": "C. Stange",
+          "nombres": "C.",
+          "apellidos": "Stange"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cienc. Investig. Agrar.",
+      "anio": "2009",
+      "volumen": "36",
+      "fpage": "143",
+      "lpage": "162"
+    },
+    {
+      "titulo": "Carotenoid Biosynthesis in Arabidopsis: A Colorful Pathway",
+      "autores": [
+        {
+          "nombre_completo": "M.Á. Ruiz-Sola",
+          "nombres": "M.Á.",
+          "apellidos": "Ruiz-Sola"
+        },
+        {
+          "nombre_completo": "M. Rodríguez-Concepción",
+          "nombres": "M.",
+          "apellidos": "Rodríguez-Concepción"
+        }
+      ],
+      "pmid": "22582030",
+      "fuente": "Arab. B",
+      "anio": "2012",
+      "volumen": "10",
+      "fpage": "e0158",
+      "lpage": ""
+    },
+    {
+      "titulo": "TAIR—Reference Genome Sequence",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "High atomic weight, high-energy radiation (HZE) induces transcriptional responses shared with conventional stresses in addition to a core ‘DSB’ response specific to clastogenic treatments",
+      "autores": [
+        {
+          "nombre_completo": "V. Missirian",
+          "nombres": "V.",
+          "apellidos": "Missirian"
+        },
+        {
+          "nombre_completo": "P.A. Conklin",
+          "nombres": "P.A.",
+          "apellidos": "Conklin"
+        },
+        {
+          "nombre_completo": "K.M. Culligan",
+          "nombres": "K.M.",
+          "apellidos": "Culligan"
+        },
+        {
+          "nombre_completo": "N.D. Huefner",
+          "nombres": "N.D.",
+          "apellidos": "Huefner"
+        },
+        {
+          "nombre_completo": "A.B. Britt",
+          "nombres": "A.B.",
+          "apellidos": "Britt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2014",
+      "volumen": "5",
+      "fpage": "1",
+      "lpage": "17"
+    },
+    {
+      "titulo": "(Differential) Co-Expression Analysis of Gene Expression: A Survey of Best Practices",
+      "autores": [
+        {
+          "nombre_completo": "H.A. Chowdhury",
+          "nombres": "H.A.",
+          "apellidos": "Chowdhury"
+        },
+        {
+          "nombre_completo": "D.K. Bhattacharyya",
+          "nombres": "D.K.",
+          "apellidos": "Bhattacharyya"
+        },
+        {
+          "nombre_completo": "J.K. Kalita",
+          "nombres": "J.K.",
+          "apellidos": "Kalita"
+        }
+      ],
+      "pmid": "30668502",
+      "fuente": "IEEE/ACM Trans. Comput. Biol. Bioinform.",
+      "anio": "2020",
+      "volumen": "17",
+      "fpage": "1154",
+      "lpage": "1173"
+    },
+    {
+      "titulo": "NASA Gene Lab Data Repository",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A.L. Paul",
+          "nombres": "A.L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A.K. Zupanska",
+          "nombres": "A.K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "E.R. Schultz",
+          "nombres": "E.R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R.J. Ferl",
+          "nombres": "R.J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "23919896",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "112",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genetic dissection of the Arabidopsis spaceflight transcriptome: Are some responses dispensable for the physiological adaptation of plants to spaceflight?",
+      "autores": [
+        {
+          "nombre_completo": "A.L. Paul",
+          "nombres": "A.L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "N.J. Sng",
+          "nombres": "N.J.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "A.K. Zupanska",
+          "nombres": "A.K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "A. Krishnamurthy",
+          "nombres": "A.",
+          "apellidos": "Krishnamurthy"
+        },
+        {
+          "nombre_completo": "E.R. Schultz",
+          "nombres": "E.R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R.J. Ferl",
+          "nombres": "R.J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "28662188",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0180186",
+      "lpage": ""
+    },
+    {
+      "titulo": "From Genes to Photosynthesis in Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "D. Leister",
+          "nombres": "D.",
+          "apellidos": "Leister"
+        },
+        {
+          "nombre_completo": "A. Schneider",
+          "nombres": "A.",
+          "apellidos": "Schneider"
+        }
+      ],
+      "pmid": "14667042",
+      "fuente": "Int. Rev. Cytol.",
+      "anio": "2003",
+      "volumen": "228",
+      "fpage": "31",
+      "lpage": "83"
+    },
+    {
+      "titulo": "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "W.G. Choi",
+          "nombres": "W.G.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "R.J. Barker",
+          "nombres": "R.J.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S.H. Kim",
+          "nombres": "S.H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S.J. Swanson",
+          "nombres": "S.J.",
+          "apellidos": "Swanson"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "30644539",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "123",
+      "lpage": "136"
+    },
+    {
+      "titulo": "Transcriptome and proteome responses in RNAlater preserved tissue of Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "C.P.S. Kruse",
+          "nombres": "C.P.S.",
+          "apellidos": "Kruse"
+        },
+        {
+          "nombre_completo": "P. Basu",
+          "nombres": "P.",
+          "apellidos": "Basu"
+        },
+        {
+          "nombre_completo": "D.R. Luesse",
+          "nombres": "D.R.",
+          "apellidos": "Luesse"
+        },
+        {
+          "nombre_completo": "S.E. Wyatt",
+          "nombres": "S.E.",
+          "apellidos": "Wyatt"
+        }
+      ],
+      "pmid": "28423006",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0175943",
+      "lpage": ""
+    },
+    {
+      "titulo": "Quantifying gene regulatory relationships with association measures: A comparative study",
+      "autores": [
+        {
+          "nombre_completo": "Z.P. Liu",
+          "nombres": "Z.P.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "28179914",
+      "fuente": "Front. Genet.",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Network Analysis of Gene Transcriptions of Arabidopsis thaliana in Spaceflight Microgravity",
+      "autores": [
+        {
+          "nombre_completo": "V. Manian",
+          "nombres": "V.",
+          "apellidos": "Manian"
+        },
+        {
+          "nombre_completo": "J. Orozco",
+          "nombres": "J.",
+          "apellidos": "Orozco"
+        },
+        {
+          "nombre_completo": "H. Gangapuram",
+          "nombres": "H.",
+          "apellidos": "Gangapuram"
+        },
+        {
+          "nombre_completo": "H. Janwa",
+          "nombres": "H.",
+          "apellidos": "Janwa"
+        },
+        {
+          "nombre_completo": "C. Agrinsoni",
+          "nombres": "C.",
+          "apellidos": "Agrinsoni"
+        }
+      ],
+      "pmid": "33668919",
+      "fuente": "Genes",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bayesian Networks for Omics Data Analysis",
+      "autores": [
+        {
+          "nombre_completo": "A.K. Gavai",
+          "nombres": "A.K.",
+          "apellidos": "Gavai"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Ph.D. Thesis",
+      "anio": "2009",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A comparison of methods for inferring causal relationships between genotype and phenotype using additional biological measurements",
+      "autores": [
+        {
+          "nombre_completo": "H.F. Ainsworth",
+          "nombres": "H.F.",
+          "apellidos": "Ainsworth"
+        },
+        {
+          "nombre_completo": "S.Y. Shin",
+          "nombres": "S.Y.",
+          "apellidos": "Shin"
+        },
+        {
+          "nombre_completo": "H.J. Cordell",
+          "nombres": "H.J.",
+          "apellidos": "Cordell"
+        }
+      ],
+      "pmid": "28691305",
+      "fuente": "Genet. Epidemiol.",
+      "anio": "2017",
+      "volumen": "41",
+      "fpage": "577",
+      "lpage": "586"
+    },
+    {
+      "titulo": "A Markov-blanket-based model for gene regulatory network inference",
+      "autores": [
+        {
+          "nombre_completo": "R. Ram",
+          "nombres": "R.",
+          "apellidos": "Ram"
+        },
+        {
+          "nombre_completo": "M. Chetty",
+          "nombres": "M.",
+          "apellidos": "Chetty"
+        }
+      ],
+      "pmid": "",
+      "fuente": "IEEE/ACM Trans. Comput. Biol. Bioinforma.",
+      "anio": "2011",
+      "volumen": "8",
+      "fpage": "353",
+      "lpage": "367"
+    },
+    {
+      "titulo": "Three-Fast-Inter Incremental Association Markov Blanket learning algorithm",
+      "autores": [
+        {
+          "nombre_completo": "X. Yang",
+          "nombres": "X.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Ou",
+          "nombres": "Y.",
+          "apellidos": "Ou"
+        },
+        {
+          "nombre_completo": "Y. Tong",
+          "nombres": "Y.",
+          "apellidos": "Tong"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Pattern Recognit. Lett.",
+      "anio": "2019",
+      "volumen": "122",
+      "fpage": "73",
+      "lpage": "78"
+    },
+    {
+      "titulo": "Assessing the Effectiveness of Causality Inference Methods for Gene Regulatory Networks",
+      "autores": [
+        {
+          "nombre_completo": "S.S. Ahmed",
+          "nombres": "S.S.",
+          "apellidos": "Ahmed"
+        },
+        {
+          "nombre_completo": "S. Roy",
+          "nombres": "S.",
+          "apellidos": "Roy"
+        },
+        {
+          "nombre_completo": "J. Kalita",
+          "nombres": "J.",
+          "apellidos": "Kalita"
+        }
+      ],
+      "pmid": "",
+      "fuente": "IEEE/ACM Trans. Comput. Biol. Bioinforma.",
+      "anio": "2020",
+      "volumen": "17",
+      "fpage": "56",
+      "lpage": "70"
+    },
+    {
+      "titulo": "Algorithms for Large Scale Markov Blanket Discovery",
+      "autores": [
+        {
+          "nombre_completo": "I. Tsamardinos",
+          "nombres": "I.",
+          "apellidos": "Tsamardinos"
+        },
+        {
+          "nombre_completo": "C. Aliferis",
+          "nombres": "C.",
+          "apellidos": "Aliferis"
+        },
+        {
+          "nombre_completo": "A. Statnikov",
+          "nombres": "A.",
+          "apellidos": "Statnikov"
+        },
+        {
+          "nombre_completo": "E. Statnikov",
+          "nombres": "E.",
+          "apellidos": "Statnikov"
+        }
+      ],
+      "pmid": "",
+      "fuente": "FLAIRS Conf.",
+      "anio": "2003",
+      "volumen": "",
+      "fpage": "376",
+      "lpage": "381"
+    },
+    {
+      "titulo": "Learning Bayesian network structure using Markov blanket decomposition",
+      "autores": [
+        {
+          "nombre_completo": "A.T. Bui",
+          "nombres": "A.T.",
+          "apellidos": "Bui"
+        },
+        {
+          "nombre_completo": "C.H. Jun",
+          "nombres": "C.H.",
+          "apellidos": "Jun"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Pattern Recognit. Lett.",
+      "anio": "2012",
+      "volumen": "33",
+      "fpage": "2134",
+      "lpage": "2140"
+    },
+    {
+      "titulo": "Using Markov blankets for causal structure learning",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Pellet",
+          "nombres": "J.P.",
+          "apellidos": "Pellet"
+        },
+        {
+          "nombre_completo": "A. Elisseeff",
+          "nombres": "A.",
+          "apellidos": "Elisseeff"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Mach. Learn. Res.",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "1295",
+      "lpage": "1342"
+    },
+    {
+      "titulo": "On the origin of biomolecular networks",
+      "autores": [
+        {
+          "nombre_completo": "H. Janwa",
+          "nombres": "H.",
+          "apellidos": "Janwa"
+        },
+        {
+          "nombre_completo": "S.E. Massey",
+          "nombres": "S.E.",
+          "apellidos": "Massey"
+        },
+        {
+          "nombre_completo": "J. Velev",
+          "nombres": "J.",
+          "apellidos": "Velev"
+        },
+        {
+          "nombre_completo": "B. Mishra",
+          "nombres": "B.",
+          "apellidos": "Mishra"
+        }
+      ],
+      "pmid": "31024611",
+      "fuente": "Front. Genet.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "240",
+      "lpage": "257"
+    },
+    {
+      "titulo": "Using networks to measure similarity between genes: Association index selection",
+      "autores": [
+        {
+          "nombre_completo": "J.I.F. Bass",
+          "nombres": "J.I.F.",
+          "apellidos": "Bass"
+        },
+        {
+          "nombre_completo": "A. Diallo",
+          "nombres": "A.",
+          "apellidos": "Diallo"
+        },
+        {
+          "nombre_completo": "J. Nelson",
+          "nombres": "J.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "J.M. Soto",
+          "nombres": "J.M.",
+          "apellidos": "Soto"
+        },
+        {
+          "nombre_completo": "C.L. Myers",
+          "nombres": "C.L.",
+          "apellidos": "Myers"
+        },
+        {
+          "nombre_completo": "A.J.M. Walhout",
+          "nombres": "A.J.M.",
+          "apellidos": "Walhout"
+        }
+      ],
+      "pmid": "24296474",
+      "fuente": "Nat. Methods",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "1169",
+      "lpage": "1176"
+    },
+    {
+      "titulo": "Incorporating topological information for predicting robust cancer subnetwork markers in human protein-protein interaction network",
+      "autores": [
+        {
+          "nombre_completo": "N. Khunlertgit",
+          "nombres": "N.",
+          "apellidos": "Khunlertgit"
+        },
+        {
+          "nombre_completo": "B.J. Yoon",
+          "nombres": "B.J.",
+          "apellidos": "Yoon"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinform.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "143",
+      "lpage": "152"
+    },
+    {
+      "titulo": "Node centrality in weighted networks: Generalizing degree and shortest paths",
+      "autores": [
+        {
+          "nombre_completo": "T. Opsahl",
+          "nombres": "T.",
+          "apellidos": "Opsahl"
+        },
+        {
+          "nombre_completo": "F. Agneessens",
+          "nombres": "F.",
+          "apellidos": "Agneessens"
+        },
+        {
+          "nombre_completo": "J. Skvoretz",
+          "nombres": "J.",
+          "apellidos": "Skvoretz"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Soc. Netw.",
+      "anio": "2010",
+      "volumen": "32",
+      "fpage": "245",
+      "lpage": "251"
+    },
+    {
+      "titulo": "ATria: A novel centrality algorithm applied to biological networks",
+      "autores": [
+        {
+          "nombre_completo": "T. Cickovski",
+          "nombres": "T.",
+          "apellidos": "Cickovski"
+        },
+        {
+          "nombre_completo": "E. Peake",
+          "nombres": "E.",
+          "apellidos": "Peake"
+        },
+        {
+          "nombre_completo": "V. Aguiar-Pulido",
+          "nombres": "V.",
+          "apellidos": "Aguiar-Pulido"
+        },
+        {
+          "nombre_completo": "G. Narasimhan",
+          "nombres": "G.",
+          "apellidos": "Narasimhan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinform.",
+      "anio": "2017",
+      "volumen": "18",
+      "fpage": "1",
+      "lpage": "10"
+    },
+    {
+      "titulo": "DiffSLC: A graph centrality method to detect essential proteins of a protein-protein interaction network",
+      "autores": [
+        {
+          "nombre_completo": "D. Mistry",
+          "nombres": "D.",
+          "apellidos": "Mistry"
+        },
+        {
+          "nombre_completo": "R.P. Wise",
+          "nombres": "R.P.",
+          "apellidos": "Wise"
+        },
+        {
+          "nombre_completo": "J.A. Dickerson",
+          "nombres": "J.A.",
+          "apellidos": "Dickerson"
+        }
+      ],
+      "pmid": "29121073",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0187091",
+      "lpage": ""
+    },
+    {
+      "titulo": "LRpath: A logistic regression approach for identifying enriched biological groups in gene expression data",
+      "autores": [
+        {
+          "nombre_completo": "M.A. Sartor",
+          "nombres": "M.A.",
+          "apellidos": "Sartor"
+        },
+        {
+          "nombre_completo": "G.D. Leikauf",
+          "nombres": "G.D.",
+          "apellidos": "Leikauf"
+        },
+        {
+          "nombre_completo": "M. Medvedovic",
+          "nombres": "M.",
+          "apellidos": "Medvedovic"
+        }
+      ],
+      "pmid": "19038984",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "211",
+      "lpage": "217"
+    },
+    {
+      "titulo": "ShinyGO",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gene Ontology and GO Annotations",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight transcriptomes: Unique responses to a novel environment",
+      "autores": [
+        {
+          "nombre_completo": "A.-L. Paul",
+          "nombres": "A.-L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A.K. Zupanska",
+          "nombres": "A.K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "D.T. Ostrow",
+          "nombres": "D.T.",
+          "apellidos": "Ostrow"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J.-L. Li",
+          "nombres": "J.-L.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "S. Shanker",
+          "nombres": "S.",
+          "apellidos": "Shanker"
+        },
+        {
+          "nombre_completo": "W.G. Farmerie",
+          "nombres": "W.G.",
+          "apellidos": "Farmerie"
+        },
+        {
+          "nombre_completo": "C.E. Amalfitano",
+          "nombres": "C.E.",
+          "apellidos": "Amalfitano"
+        },
+        {
+          "nombre_completo": "R.J. Ferl",
+          "nombres": "R.J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "22221117",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "40",
+      "lpage": "56"
+    },
+    {
+      "titulo": "A regulatory module controlling stress-induced cell cycle arrest in Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "N. Takahashi",
+          "nombres": "N.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "N. Ogita",
+          "nombres": "N.",
+          "apellidos": "Ogita"
+        },
+        {
+          "nombre_completo": "T. Takahashi",
+          "nombres": "T.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "S. Taniguchi",
+          "nombres": "S.",
+          "apellidos": "Taniguchi"
+        },
+        {
+          "nombre_completo": "M. Tanaka",
+          "nombres": "M.",
+          "apellidos": "Tanaka"
+        },
+        {
+          "nombre_completo": "M. Seki",
+          "nombres": "M.",
+          "apellidos": "Seki"
+        },
+        {
+          "nombre_completo": "M. Umeda",
+          "nombres": "M.",
+          "apellidos": "Umeda"
+        }
+      ],
+      "pmid": "",
+      "fuente": "eLife",
+      "anio": "2019",
+      "volumen": "8",
+      "fpage": "1",
+      "lpage": "27"
+    },
+    {
+      "titulo": "Genome-wide analysis of the core DNA replication machinery in the higher plants Arabidopsis and rice1[W][OA]",
+      "autores": [
+        {
+          "nombre_completo": "R.W. Shultz",
+          "nombres": "R.W.",
+          "apellidos": "Shultz"
+        },
+        {
+          "nombre_completo": "V.M. Tatineni",
+          "nombres": "V.M.",
+          "apellidos": "Tatineni"
+        },
+        {
+          "nombre_completo": "L. Hanley-Bowdoin",
+          "nombres": "L.",
+          "apellidos": "Hanley-Bowdoin"
+        },
+        {
+          "nombre_completo": "W.F. Thompson",
+          "nombres": "W.F.",
+          "apellidos": "Thompson"
+        }
+      ],
+      "pmid": "17556508",
+      "fuente": "Plant Physiol.",
+      "anio": "2007",
+      "volumen": "144",
+      "fpage": "1697",
+      "lpage": "1714"
+    },
+    {
+      "titulo": "Beyond Arabidopsis: Differential UV-B response mediated by UVR8 in diverse species",
+      "autores": [
+        {
+          "nombre_completo": "V.E. Tossi",
+          "nombres": "V.E.",
+          "apellidos": "Tossi"
+        },
+        {
+          "nombre_completo": "J.J. Regalado",
+          "nombres": "J.J.",
+          "apellidos": "Regalado"
+        },
+        {
+          "nombre_completo": "J. Iannicelli",
+          "nombres": "J.",
+          "apellidos": "Iannicelli"
+        },
+        {
+          "nombre_completo": "L.E. Laino",
+          "nombres": "L.E.",
+          "apellidos": "Laino"
+        },
+        {
+          "nombre_completo": "H.P. Burrieza",
+          "nombres": "H.P.",
+          "apellidos": "Burrieza"
+        },
+        {
+          "nombre_completo": "A.S. Escandón",
+          "nombres": "A.S.",
+          "apellidos": "Escandón"
+        },
+        {
+          "nombre_completo": "S.I. Pitta-Álvarez",
+          "nombres": "S.I.",
+          "apellidos": "Pitta-Álvarez"
+        }
+      ],
+      "pmid": "30723482",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "1",
+      "lpage": "17"
+    },
+    {
+      "titulo": "Applications of Random Walk Model on Biological Networks",
+      "autores": [
+        {
+          "nombre_completo": "W. Peng",
+          "nombres": "W.",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z. Zhang",
+          "nombres": "Z.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "F.-X. Wu",
+          "nombres": "F.-X.",
+          "apellidos": "Wu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Curr. Bioinform.",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "211",
+      "lpage": "220"
+    },
+    {
+      "titulo": "Radiation Data for GLDS Studies on the International Space Station",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparison of alternative approaches for analysing multi-level RNA-seq data",
+      "autores": [
+        {
+          "nombre_completo": "I. Mohorianu",
+          "nombres": "I.",
+          "apellidos": "Mohorianu"
+        },
+        {
+          "nombre_completo": "A. Bretman",
+          "nombres": "A.",
+          "apellidos": "Bretman"
+        },
+        {
+          "nombre_completo": "D.T. Smith",
+          "nombres": "D.T.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "E.K. Fowler",
+          "nombres": "E.K.",
+          "apellidos": "Fowler"
+        },
+        {
+          "nombre_completo": "T. Dalmay",
+          "nombres": "T.",
+          "apellidos": "Dalmay"
+        },
+        {
+          "nombre_completo": "T. Chapman",
+          "nombres": "T.",
+          "apellidos": "Chapman"
+        }
+      ],
+      "pmid": "28792517",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0182694",
+      "lpage": ""
+    },
+    {
+      "titulo": "Network Analysis of Local Gene Regulators in Arabidopsis thaliana under Spaceflight Stress",
+      "autores": [
+        {
+          "nombre_completo": "V. Manian",
+          "nombres": "V.",
+          "apellidos": "Manian"
+        },
+        {
+          "nombre_completo": "H. Gangapuram",
+          "nombres": "H.",
+          "apellidos": "Gangapuram"
+        },
+        {
+          "nombre_completo": "J. Orozco",
+          "nombres": "J.",
+          "apellidos": "Orozco"
+        },
+        {
+          "nombre_completo": "H. Janwa",
+          "nombres": "H.",
+          "apellidos": "Janwa"
+        },
+        {
+          "nombre_completo": "C. Agrinsoni",
+          "nombres": "C.",
+          "apellidos": "Agrinsoni"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Computers",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A centrality measure for cycles and subgraphs II",
+      "autores": [
+        {
+          "nombre_completo": "P.L. Giscard",
+          "nombres": "P.L.",
+          "apellidos": "Giscard"
+        },
+        {
+          "nombre_completo": "R.C. Wilson",
+          "nombres": "R.C.",
+          "apellidos": "Wilson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Appl. Netw. Sci.",
+      "anio": "2018",
+      "volumen": "3",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "About the Discriminant Power of the Subgraph Centrality and Other Centrality Measures About the Discriminant Power of the Subgraph Centrality and Other Centrality Measures (Working Paper)",
+      "autores": [
+        {
+          "nombre_completo": "E. Estrada",
+          "nombres": "E.",
+          "apellidos": "Estrada"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2013",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Topological and statistical analyses of gene regulatory networks reveal unifying yet quantitatively different emergent properties",
+      "autores": [
+        {
+          "nombre_completo": "W.Z. Ouma",
+          "nombres": "W.Z.",
+          "apellidos": "Ouma"
+        },
+        {
+          "nombre_completo": "K. Pogacar",
+          "nombres": "K.",
+          "apellidos": "Pogacar"
+        },
+        {
+          "nombre_completo": "E. Grotewold",
+          "nombres": "E.",
+          "apellidos": "Grotewold"
+        }
+      ],
+      "pmid": "29708965",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2018",
+      "volumen": "14",
+      "fpage": "e1006098",
+      "lpage": ""
+    },
+    {
+      "titulo": "A Guide to Conquer the Biological Network Era Using Graph Theory",
+      "autores": [
+        {
+          "nombre_completo": "M. Koutrouli",
+          "nombres": "M.",
+          "apellidos": "Koutrouli"
+        },
+        {
+          "nombre_completo": "E. Karatzas",
+          "nombres": "E.",
+          "apellidos": "Karatzas"
+        },
+        {
+          "nombre_completo": "D. Paez-Espino",
+          "nombres": "D.",
+          "apellidos": "Paez-Espino"
+        },
+        {
+          "nombre_completo": "G.A. Pavlopoulos",
+          "nombres": "G.A.",
+          "apellidos": "Pavlopoulos"
+        }
+      ],
+      "pmid": "32039188",
+      "fuente": "Front. Bioeng. Biotechnol.",
+      "anio": "2020",
+      "volumen": "8",
+      "fpage": "1",
+      "lpage": "26"
+    },
+    {
+      "titulo": "On the role of sparseness in the evolution of modularity in gene regulatory networks",
+      "autores": [
+        {
+          "nombre_completo": "C. Espinosa-Soto",
+          "nombres": "C.",
+          "apellidos": "Espinosa-Soto"
+        }
+      ],
+      "pmid": "29775459",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2018",
+      "volumen": "14",
+      "fpage": "e1006172",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gene Regulatory Network Inference: Connecting Plant Biology and Mathematical Modeling",
+      "autores": [
+        {
+          "nombre_completo": "L. Van den Broeck",
+          "nombres": "L.",
+          "apellidos": "Van den Broeck"
+        },
+        {
+          "nombre_completo": "M. Gordon",
+          "nombres": "M.",
+          "apellidos": "Gordon"
+        },
+        {
+          "nombre_completo": "D. Inzé",
+          "nombres": "D.",
+          "apellidos": "Inzé"
+        },
+        {
+          "nombre_completo": "C. Williams",
+          "nombres": "C.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "R. Sozzani",
+          "nombres": "R.",
+          "apellidos": "Sozzani"
+        }
+      ],
+      "pmid": "32117431",
+      "fuente": "Front. Genet.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "ATM, ATR and DNA-PKcs kinases-the lessons from the mouse models: Inhibition = deletion",
+      "autores": [
+        {
+          "nombre_completo": "D. Menolfi",
+          "nombres": "D.",
+          "apellidos": "Menolfi"
+        },
+        {
+          "nombre_completo": "S. Zha",
+          "nombres": "S.",
+          "apellidos": "Zha"
+        }
+      ],
+      "pmid": "31911829",
+      "fuente": "Cell Biosci.",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "1",
+      "lpage": "15"
+    }
+  ]
+}

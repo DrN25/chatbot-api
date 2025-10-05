@@ -52,8 +52,11 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     action: str
     message: Optional[str] = None
-    keywords: Optional[List[str]] = None
     data: Optional[Any] = None
+    
+    class Config:
+        # Excluir campos None de la respuesta JSON
+        exclude_none = True
 
 # --- Configuración FastAPI ---
 app = FastAPI(
@@ -111,10 +114,17 @@ async def chat_with_bot(request: ChatRequest):
         data = llm_response["data"]
         
         # Para actions de búsqueda con estructura de datos compleja, pasar data directamente
-        if action == "keywords" or action == "recommendations":
+        if action == "keywords":
             return ChatResponse(
                 action=action,
-                message="Búsqueda completada",
+                message="Me muestro articulos que seguramente sean de tu interes",
+                data=data
+            )
+        
+        if action == "recommendations":
+            return ChatResponse(
+                action=action,
+                message="Seguramente estos temas sean de tu interes",
                 data=data
             )
         

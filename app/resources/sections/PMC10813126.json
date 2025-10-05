@@ -1,0 +1,1515 @@
+{
+  "TITLE": [
+    "Metabolomic Profiling of the Secretome from Human Neural Stem Cells Flown into Space"
+  ],
+  "ABSTRACT": [
+    "The change in gravitational force has a significant effect on biological tissues and the entire organism. As with any alteration in the environment, microgravity (µG) produces modifications in the system inducing adaptation to the new condition. In this study, we analyzed the effect of µG on neural stem cells (NSCs) following a space flight to the International Space Station (ISS). After 3 days in space, analysis of the metabolome in culture medium revealed increased glycolysis with augmented pyruvate and glycerate levels, and activated catabolism of branched-chain amino acids (BCAA) and glutamine. NSCs flown into space (SPC-NSCs) also showed increased synthesis of NADH and formation of polyamine spermidine when compared to ground controls (GC-NSCs). Overall, the space environment appears to increase energy demands in response to the µG setting."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "The increasing duration of space missions and consequent need to adapt to the inhospitable conditions of the space environment present new challenges to astronauts. The health and safety of present and future space travelers remains paramount. Long periods of exposure to µG may have detrimental effects on tissues and their regenerative potential, partly due to changes observed in stem cell populations. In particular, the human brain suffers alterations in the structure and electrocortical function induced by microgravity (µG). These alterations manifest when the space crew returns to Earth as problems with motor coordination increase intracranial pressure, and a vestibular system containing otoliths is unable to sense the presence of gravity. At the cellular level, Silvano et al. reported transient cell cycle arrest and cellular stress followed by apoptosis on murine cerebellar neural stem cells (NSCs). The cells recovered their normal cell cycle and stemness upon returning to normal gravity. Our own studies and those from other groups have shown an increase in cell proliferation and metabolic activity of human NSCs on a spaceflight or under simulated µG (sim- µG), in part due to an increase in mitochondrial function. Mattei et al. studied early brain development under simulated µG using human embryonic stem cell-derived neural organoids. Although the organoids were able to form, they reported alterations in the rostral-caudal patterning, indicating that µG favors differentiation toward caudal neural progenitors.",
+    "The impact of a lack of gravitational force on biological systems can be observed soon after the exposure begins. After a 24 h incubation in a sim-µG, a human seminoma cell line exhibited markers of oxidative stress, such as enlarged mitochondria and increased intracellular ROS, protein and lipid oxidation, and SOD. Human gastric mucosal cells showed signs of stress and inflammation following 3 days of sim-µG, whereas oxidative stress on the same cells was detected after 7 days of exposure to microgravity. Our own studies on fetal human NSC-derived oligodendrocyte progenitors (OLPs) revealed increased mitochondrial respiration and increased glycolysis after 24 h of exposure to sim-µG. Moreover, examination of the secretome after exposing OLPs to sim-µG for 3 days increased the TCA cycle and the synthesis of fatty acids and complex lipids. A more detailed study on mitochondrial function in rat hippocampus was performed by Wang et al., following 7 days in a tail suspension model of microgravity. They found downregulation in mitochondrial complexes I, III, and IV, in isocitrate and malate dehydrogenases, as well as upregulation of the antioxidant enzymes PRX6 and DJ-1.",
+    "In this study, we sought to ascertain “gravity sensitive” small molecules secreted by NSCs after short-term exposure to space µG. Our results demonstrate that µG increases energy production, mainly through the TCA cycle, and triggers stress response mechanisms as means for adaptation."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. Cells and Space Flight Information",
+    "A homogeneous population of NSCs was obtained from human-induced pluripotent stem cells (hiPS). The original cells, known as “CS83iCTR-33nxx” (such as skin cells), were “reprogrammed” and provided to us by Cedars-Sinai Medical Center via a material transfer agreement, flown to the International Space Station (ISS), and installed in the Space Technology and Advanced Research System Experiment Facility-1 at 37 °C. NSCs were seeded using STM culture medium designed in our laboratory. For the space flight, NSCs were seeded onto mesh carriers (2 mm × 3 mm) and placed inside a Type IV cell culture chamber. They were flown to the International Space Station (ISS) and installed in the Space Technology and Advanced Research System Experiment Facility-1 at 37 °C. We used the Automated Type IV chamber intended to collect the secretome of NSCs for 3 days while in space to determine their proliferation by BrdU incorporation (Figure 1). After 3 days of incubation, the culture medium was pumped out of the cell chamber, and the units were stored at 4 °C. After splash-down, samples were transported in a controlled environment. Upon arrival to UCLA, the NSCs were retrieved from the hardware, plated onto poly-d-lysine coated flasks in our proprietary stem cell chemically defined medium (STM), and allowed to recover from space flight and splash-down.",
+    "2.2. Secretome Collection",
+    "The culture medium that fed cells during the 3 distinct time points (during the space flight, during the 3 day exposure on the ISS, and following the 3 day exposure but prior to splash-down) were recovered and saved frozen at −80 °C. This medium is commonly known as the conditioned medium and contains proteins, peptides, metabolites, and many more products usually secreted by the cells into the medium. For the purpose of this manuscript, we named this conditioned medium the “secretome”. We use the term “space CM” in comparative figures to differentiate this from conditioned medium derived from ground control or naïve cells.",
+    "2.3. Metabolomic Profile of the Secretome",
+    "The metabolic profile was obtained for each group using the Metabolon Platform (Metabolon). Briefly, each sample or “group” consisted of 5 biological replicate specimens. Three groups of samples were compared: blank (n = 5), which consisted of the culture medium alone, incubated in the same incubator used for our cell cultures; NSCs (n = 5) in 1 G; and NSCs incubated in SPC-flown NSCs (n = 5). The secretome was subjected to methanol extraction, then split into aliquots for analysis by ultrahigh performance liquid chromatography/mass spectrometry (UHPLC/MS) in the positive (two methods), negative, or polar ion mode. Metabolites were identified by automated comparison of ion features to a reference library of chemical standards, followed by visual inspection for quality control, as previously described. Random forest analysis was performed as described. For the box plots, whiskers reflect the 5th and 95th percentiles (with the box displaying the 25th to 75th quartiles); the bisecting line represents the population median, while “+” indicates the population mean. For this study, we considered solely the molecules that presented a significant difference (p < 0.05) between groups, with a metabolite ratio of <1.00. The metabolomics study, compound identification, and statistical analysis were performed as recently published. We used groups of n = 5. For SPC, 1 G, and control medium, Welsh’s two-sample t-tests were performed with ArrayStudio (Omicsoft) or “R” to compare between the data; p < 0.05 was considered significant (Array Studio, RRID:SCR_010970). The false discovery rate (Q-value) was calculated, taking into account the multiple comparisons that normally occur in metabolomic-based studies (Q < 0.05), and was used as an indication of high confidence in the data. Both Hierarchical Clustering Analysis (HCA) and Principal Component Analysis (PCA) were also performed in ArrayStudio."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "3.1. Random Forest and Hierarchical Cluster Analysis",
+    "We performed metabolomic analysis on the culture medium from control Earth-grounded NSCs (GC-NSCs; 1 G) and space-flown NSCs (SPC-NSCs; 0 G). The 3D “secretome” (conditioned culture medium) was produced and collected for 3 days, starting on T + 2 and concluding on T + 5, as illustrated in Figure 1. Therefore, it contains solely the molecules secreted by NSCs while in space (active experiment). A control for changes that may occur in the culture medium under 1 G conditions was added to the analysis.",
+    "In order to gain insight into the potential biomarkers produced by NSCs under the conditions of space flight vs. ground control, we used the Random Forest Analysis (RFA) approach, which uses a forest of decision trees to identify molecules that are important to predict groups. The RFA assessment of blank, ground control, and SPC-flown NSCs was very effective. The biochemical importance plot highlighted a number of amino acids and their catabolites related to glutaminolysis (Ala, Asp, Gln, alpha-ketoglutaramate), BCAA catabolism (1-carboxyethylisoleucine, 1-carboxyethylvaline, 2,3-dihydroxyisovalerate, 3-methyl-2-oxovalerate), nitrogen balance (urea, creatine, N-acetyl-putrescine), glucose and succinate involved in energy production, and lipids and lipid precursors (glycerol, choline, glycerophosphorylcholine) related to the synthesis of phospholipids and cellular membranes (Figure 2).",
+    "3.2. NSCs in Space (SPC-NSCs) Have High Energy Demands",
+    "A total of 221 biochemicals were identified, with significantly different levels of expression between the NSCs-SPC and NSCs-GC secretomes. From them, 79 were increased and 142 were decreased in NSCs-SPC, with respect to NSCs-GC (Figure 3a). Principal Component Analysis (PCA) of this data-set revealed three distinct groups of samples clustered together with a clear separation between them, indicating different biochemical profiles in each group’s secretome (Figure 3b).",
+    "By grouping biochemicals by metabolic pathways, we found increased levels of glutamate and alpha-ketoglutarate and a concomitant reduction in glutamine and alanine aminoacids, which indicates an increase in glutaminolysis to provide substrates to the Tri-Carboxylic Acid Cycle (TCA) for generation of energy (Figure 4). We also observed increased catabolism of branched-chain amino acids (BCAA) and an overall reduction in mitochondrial and cytoplasmic intermediate metabolite levels at 0 G compared to cells that remained at 1 G; Tthe reduction was most evident in the cytoplasmic levels. These findings, along with the fact that levels of BCAA were similar between the two conditions, suggest recent activation of BCAA catabolism (Figure 5a). BCAA catabolism leads to the production of acetyl-CoA, which enters the TCA cycle to generate energy, and propionyl-CoA, which can be directed to either the TCA cycle or the gluconeogenesis pathway. In both cases, the main aim of BCAA catabolism is the production of energy (Figure 5b).",
+    "We then looked at the status of the glycolytic pathway. Higher levels of pyruvate accompanied by lower levels of lactate suggested that cells preferentially utilized the glycolytic pathway for a more efficient TCA energetic pathway (Figure 6), or that lactate was used as an oxidative substrate for energy metabolism. These observations are in concert with the activation of amino acids’ catabolism as a supplementary source of energy, which may indicate that NSCs-SPC require more energy to adapt to 0 G conditions.",
+    "The NAD+/NADH system is an important player in energy metabolism, accumulating energy by reduction of NAD+ and releasing it by oxidation of NADH. Analysis of metabolic intermediates in the synthesis of NAD+ showed that 3 days in space strongly stimulated the synthesis of NAD+ through a de novo pathway as opposed to the salvage pathway, as visualized by a marked increase in nicotinate and reduction in nicotinamide intermediates (Figure 7).",
+    "Amino acid metabolism generates nitrogen waste metabolites. Several fates for this nitrogen exist, including incorporation into creatine or polyamines, transport to the liver via glutamine, and the subsequent production of urea. The levels of creatine, creatinine and urea are reduced in NSCs-SPC compared to NSCs-GC, despite the increased metabolism of amino acids. However, there is a significant increase in the levels of these metabolites after 39 days in space (unpublished results), which suggests that we are witnessing the beginning of the adaptive mechanism to 0 G. Interestingly, polyamine metabolism revealed a significant increase in spermidine, while its precursor putrescine and its metabolites acetylated for degradation—N-acetyl-putrescine and N-acetyl-spermidine—remained low (Figure 8). Considering the involvement of spermidine in cell homeostasis and particularly in autophagy, the increased levels after only 3 days in space may reveal another adaptive mechanism to cope with the stress imposed by low gravity.",
+    "The hierarchical cluster analysis (HCA) evaluates the variable clustering patterns of the metabolites from space-flown NSCs, compared to the ground control. In addition to several amino acids (and related metabolites), the TCA metabolites alpha-ketoglutarate and succinate were higher in NSCs-SPC, consistent with an increase in energy production as discussed above. There was also a reduction in phospholipids (phosphoethanolamine, glycerophosphorylcholine) and ketone bodies (3-hydroxybutirate), with an increase in glycerol-3-phosphate, suggesting that lipids may be used as a source for energy in addition to glucose and amino acids. In the nucleotide area, there was an overall reduction in nitrogen bases and metabolic intermediaries (N-methyl adenosine, orotate, xanthine) (Figure 9)."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "The effect of microgravity on the human body has been increasingly studied over the past several decades, in part due to the higher frequency of space trips, increased duration of space missions, and planning for future space exploration involving long-term flights with humans. The change in gravitational forces, as with any modification in environmental conditions, induces adaptive responses in living organisms. Understanding the gravitational biology of specific cells and organs is essential for successful travel and long-term survival in space. A comprehensive multi-Omics study from NASA’s GeneLab analyzed tissue samples from astronauts, with data pointing to mitochondrial dysfunction as the primary and consistent alteration caused by space travel. Systemic alteration in mitochondrial function causes leaking of ROS and a reduction in antioxidant defenses, leading to increased oxidative stress, which accounts for most of the disorders affecting astronauts’ health.",
+    "Our aim is to investigate the adaptive changes that Central Nervous System (CNS) cells experience in a µG environment. In this work we focused on neural stem cells (NSCs), which have the potential to differentiate into various cell types, and contribute to maintaining the integrity and function of the nervous system in health and disease. Our previous work reported an increased proliferation of NSCs following space travel, which was accompanied by higher oxygen consumption and extracellular acidification rates, indicating increased metabolic activity of the cells in space compared to control NSCs grounded on Earth. Here, we present evidence supporting an increase in the production and consumption of energy through a metabolomic analysis of the cell culture medium. Changes in the levels of intermediates of glycolysis, such as increases in pyruvate and glycerate in the SPC-NSC culture medium, are indicators of activated glycolysis. This activates the TCA cycle for more efficient aerobic energy production, as lactate levels declined significantly in 1 G-NSCs. In line with our findings, Chiang and collaborators exposed human NSCs to simulated µG and found an increase in cell proliferation, supported by enhanced mitochondrial function. In another work, cultures of human biliary stem cells in simulated µG (sim- µG) also displayed activation of the glycolytic pathway, although with the production of fermentation and ketosis byproducts. We have previously reported that simulated µG triggered increased mitochondrial respiration and increased glycolysis in another CNS population, oligodendrocyte progenitors (OLPs), as soon as 24 h after exposure to sim-μG. Moreover, examination of the secretome after 3 days of exposure of OLPs to sim-μG confirmed increased activity in the TCA cycle flux in sim-μG. It appears that soon after being exposed to sim-μG, cells have an acute increase in their need for energy, stimulating glycolysis and leading toward the less efficient anaerobic path, with higher lactic acid production. As the energy demands remain high, the glycolytic pathway transitions toward the TCA aerobic pathway.",
+    "In the present study, another indication of the increase in demand and production of energy elicited by µG is demonstrated by the active catabolism of BCAA observed in SPC-NSC, as the end products acetyl-CoA or propionyl-CoA also serve as substrates for the TCA cycle. Furthermore, the amino acid glutamine renders alpha-ketoglutarate, a TCA intermediary that is poured into the cycle to increase energy production. As more energy is required by cells in µG, more NAD is needed, as the NAD/NADH system is an essential player in energy metabolism. Energy is necessary for all cellular processes and NAD+ plays a key role as an effector substrate for sirtuins, PARPs, and CD38 which trigger signaling processes to maintain tissue physiology under environmental stresses. As subproducts of amino acid catabolism, the polyamine spermidine plays a critical role in the maintenance of cellular homeostasis and is involved in cell growth and proliferation, tissue regeneration, DNA and RNA stabilization, enzymatic modulation, and regulation of translation, among others. More importantly, it induces autophagy through inhibition of several acetyltransferases, including EP300. Via time-lapse microscopy, we observed significant activation of autophagy-like behavior in our cells upon return from space, and by proteomic analysis of NSCs-SPC secretome (manuscript submitted for publication). However, we have exhausted our current samples, and would require a second space flight in order to elucidate whether the phenomenon observed is indeed autophagy. The occurrence of autophagy has also been described in ARPE19 retina cells exposed to sim-μG, where an increase in the production of ROS and mitochondria dysfunction led to the activation of autophagy, and mitophagy.",
+    "Most of the studies on short-term exposure to microgravity were carried out on sim-µG on the Earth’s surface. Our study was carried out onboard the ISS, and samples were also exposed to all the stresses a biological system experiences during the space flight. However, one limitation of this study is the lack of a NSC culture at 1 G onboard the ISS to control for stress from takeoff and travel, as well as for ionizing radiation. Ionizing Radiation (IR) and μG exposure act synergistically in space, producing interactions between adaptive pathways and defense responses. IR generates ROS/RNS, giving rise to oxidative stress and damage. This poses a risk for the CNS, due to its high sensitivity to oxidative injury in the context of elevated levels of oxidizable, unsaturated lipids, and low levels of antioxidant defenses. In a mouse spleen model of low dose radiation exposure, γ-radiation, or high energy particle radiation, the authors observed enrichment of metabolites involved in purine metabolism, TCA, fatty acids, acylcarnitine, and amino acids. Early perturbations were more prominent in the γ irradiated samples, while later responses shifted towards more prominent responses in groups with high energy particle irradiations, suggesting a mitochondrial implication and possible long-term effects on DNA repair. The added effect of IR to sim-µG was reported by Mao et al. in a study performed in mice brains exposed to either low-dose γ-radiation or hindlimb suspension (model for sim-µG), or to both conditions, for 21 days. Higher levels of oxidative stress and NADP oxidase 2, and lower levels of SOD were observed in the combined treatment group. The potential influence of IR on the NSCs in our study is likely mitigated by the short-term exposure of the NSCs to IR and the protection that the Earth’s magnetic field exerts against Solar Particle Events, since the ISS is in a low Earth orbit, although it does not shield from Galactic Cosmic Radiation, which is composed of high-charge and energy particles.",
+    "In conclusion, microgravity poses numerous challenges to the health of astronauts, and the central nervous system is not exempt. The lack of gravity induces a stress response in NSCs, with a resultant increase in energy production and autophagy-like behavior. This may have important implications in the planning of future space travel, especially for trips of extended duration, to ensure that astronauts have sufficient energy available to sustain CNS homeostasis and to optimize their cognitive and physiological function under times of increased stress.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, A.E.-J.; methodology, A.E.-J.; formal analysis, J.C.B.; writing—original draft preparation, J.C.B.; writing—review and editing, A.E.-J.; funding acquisition, A.E.-J. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "SUPPL": [
+    "Data Availability Statement",
+    "The metabolomic raw data will be available upon request."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Stem Cell Health and Tissue Regeneration in Microgravity",
+    "Microgravity Reduces the Differentiation and Regenerative Potential of Embryonic Stem Cells",
+    "The thalamocortical vestibular system in animals and humans",
+    "Cognitive neuroscience in space",
+    "The effect of spaceflight and microgravity on the human brain",
+    "Consequences of Simulated Microgravity in Neural Stem Cells: Biological Effects and Metabolic Response",
+    "Human Neural Stem Cells Flown into Space Proliferate and Generate Young Neurons",
+    "Beta-adrenoceptor pathway enhances mitochondrial function in human neural stem cells via rotary cell culture system",
+    "Generation of Neural Organoids from Human Embryonic Stem Cells Using the Rotary Cell Culture System: Effects of Microgravity on Neural Progenitor Cell Fate",
+    "Simulated Microgravity Exposure Induces Antioxidant Barrier Deregulation and Mitochondria Enlargement in TCam-2 Cell Spheroids",
+    "Proteomic analysis of the effects of simulated microgravity in human gastric mucosal cells",
+    "Simulated microgravity enhances oligodendrocyte mitochondrial function and lipid metabolism",
+    "Effect of Prolonged Simulated Microgravity on Metabolic Proteins in Rat Hippocampus: Steps toward Safe Space Travel",
+    "Selective specification of CNS stem cells into oligodendroglial or neuronal cell lineage: Cell culture and transplant studies",
+    "Culture System for Rodent and Human Oligodendrocyte Specification, Lineage Progression, and Maturation",
+    "Metabolomics Profile of the Secretome of Space-Flown Oligodendrocytes",
+    "Integrated, Nontargeted Ultrahigh Performance Liquid Chromatography/Electrospray Ionization Tandem Mass Spectrometry Platform for the Identification and Relative Quantification of the Small-Molecule Complement of Biological Systems",
+    "Organization of GC/MS and LC/MS metabolomics data into chemical libraries",
+    "Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm",
+    "Bias of the Random Forest Out-of-Bag (OOB) Error for Certain Input Parameters",
+    "Lactate: The ultimate cerebral oxidative energy substrate?",
+    "Comprehensive Multi-omics Analysis Reveals Mitochondrial Stress as a Central Biological Hub for Spaceflight Impact",
+    "The effects of real and simulated microgravity on cellular mitochondrial function",
+    "Simulated microgravity promotes the formation of tridimensional cultures and stimulates pluripotency and a glycolytic metabolism in human hepatic and biliary tree stem/progenitor cells",
+    "NAD + metabolism: Bioenergetics, signaling and manipulation for therapy",
+    "The importance of dietary polyamines in cell regeneration and growth",
+    "Modulation of cellular function by polyamines",
+    "Functions of Polyamines in Mammals",
+    "Induction of autophagy by spermidine promotes longevity",
+    "Spermidine induces autophagy by inhibiting the acetyltransferase EP300",
+    "Biological effects of space environmental factors: A possible interaction between space radiation and microgravity",
+    "Genomic Changes Driven by Radiation-Induced DNA Damage and Microgravity in Human Cells",
+    "Effects of Low Dose Space Radiation Exposures on the Splenic Metabolome",
+    "Simulated Microgravity and Low-Dose/Low-Dose-Rate Radiation Induces Oxidative Damage in the Mouse Brain"
+  ],
+  "FIG": [
+    "Synopsis of the automated experiments. (a) On board SpaceX-16. (b) Timeline displaying initial media change at T + 2 d after NSCs reached space. After 3 days (T + 5 d), the second culture medium was recovered into the second tank just prior to unberth, and stored at 4 °C. This conditioned medium contains the molecules secreted solely while cells were onboarding the ISS. During ascent, descent, and space flight, cells were maintained at 37 °C. Upon arrival to our laboratory, the culture media were recovered separately and placed in numbered tubes with the addition of a cocktail of proteases inhibitors, and saved frozen at −80 °C. (c) View of the cell chamber, where mesh carriers with cells and the travel culture medium travelled. (d,e) Tanks that contained the fresh medium to be released at T + 2 to start the experiment. Tank 2 (E arrow) contained the second fresh medium with which the cells came back to Earth. There was not a 1 G control onboard the space station, as tests were performed two years prior to determine the optimal conditions for the cells. The STaARS-1 EF facility was created by STaARS, inspired by this study to reduce the time astronauts would have to invest in these experiments. This facility was activated, monitored, and controlled from STaARS’ headquarters in Houston, TX. We used a total of four units that were flown aboard SpaceX-16 on 5 December 2018. Image adapted from Vergnes et al..",
+    "Random forest analysis (RFA). The assessment of blank, ground control, and SPC-flown NSCs was highly effective. The biochemical importance plot highlighted biochemicals related to a number of super family pathways: amino acids associated with glutaminolysis (Ala, Asn, Asp, Gln), amino acid metabolites from BCAA catabolism (1-carboxyethylisoleucine, 1-carboxyethylvaline, 2,3-dihydroxyisovalerate, 3-methyl-2-oxovalerate, alpha-ketoglutaramate), metabolites from nitrogen metabolism (urea, creatine, N-acetyl-putrescine), lipids associated with metabolism of phospholipids (malonate, glycerol, choline, glycerophosphorylcholine), and nucleotide metabolism (hypoxanthine, 2′-deoxycytidine). Random forest classification using named metabolites in media of blank compared to 1 G and 0 G NSCs gave a predictive accuracy of 100%. Random chance would be expected to yield a predictive accuracy of 33%. We found two molecules with unclear identities: X25035, which is most likely a peptide, and X25865. RFA was performed as previously described.",
+    "Global biochemical changes. (a) The statistical comparison of metabolites secreted by NSCs during the 3 days aboard the ISS vs. those secreted by GC-NSCs revealed a total of 221 biochemical alterations, of which 79 increased and 142 decreased. This secretome was produced and collected over 3 days, starting on T + 2 and concluding on T + 5, using the automated hardware. Therefore, it contains only those molecules secreted during the 3 days onboard the ISS. Only statistically significant species were considered in the analysis. (b) Principal component analysis (PCA) demonstrates that each of the three sample groups (NSC-SPC [red], NSC-GC [blue], and control medium [yellow]) have a different biochemical profile of its secretome after 3 days, based on its gravitational status.",
+    "Glutaminolysis. (a) Table displaying the fold change ratio of glutamine and its metabolites after spending 3 days in space (0 G) vs. ground control (1 G). Values in red rectangles represent increased levels of the metabolites in space compared to ground control, whereas green rectangles highlight the opposite and white rectangles represent no change. (b) Scheme of the glutamine metabolic pathway.",
+    "BCAA catabolism. (a) Table depicting the fold change ratio of the 3 BCAAs, leucine, isoleucine, and valine, and their metabolites after 3 days in space (SPC) or ground control (GC). Values in red rectangles represent increased levels of the metabolites in space compared to ground control, whereas green rectangles highlight the opposite and white rectangles represent no change. (b) Scheme of the BCAA metabolic pathways. (c) Example of the levels of 2 metabolites.",
+    "Glycolysis. (a) Table displaying fold change ratio of the glycolytic pathway metabolites at 3 days of 0 G vs. 1 G NCS secretome. Values in red rectangles represent increased levels of the metabolites in space compared to ground control, whereas green rectangles highlight the opposite and white rectangles represent no change. (b) Example of 2 metabolites levels. (c) Scheme of the glycolytic pathway.",
+    "NADH synthesis. (a) Table depicting fold change ratio of intermediates of the NADH synthesis pathway intermediates from NSC-SPC (0 G) vs. NSC-GC (1 G) after 3 days of incubation. Values in red rectangles represent increased levels of the metabolites in space compared to ground control, whereas green rectangles highlight the opposite and white rectangles represent no change. (b) Scheme of the “de novo” and “salvage” pathways.",
+    "Nitrogen Metabolism. (a) Table depicting the fold change ratio of nitrogen metabolism intermediates between 0 G vs. 1 G secretomes after 3 days of incubation. Nitrogen metabolites are divided into urea cycle, creatine metabolism, and polyamine metabolism pathways. Values in red rectangles represent increased levels of the metabolites in space compared to ground control, whereas green rectangles highlight the opposite and white rectangles represent no change. (b) Scheme of the integrated nitrogen metabolism.",
+    "The hierarchical cluster analysis (HCA) evaluates the variable clustering patterns of the metabolites from space--lown NSCs and ground control. We show the data in a table format, where the rows represent individual metabolites and the columns represent the secretome sample from which molecules were detected: STM medium (yellow), GC-NSCs (blue), and SPC-NSCs (red). The color of the cell reflects the concentration of each metabolite to its corresponding sample, relative to the mean concentration level across the entire set of tissue samples. Respectively, the colors red, blue, and white within the table indicate an increase, decrease, or no significant change of metabolites. The pathways that the metabolites belong to are indicated to the right of the HCA. The HCA compares the metabolite change between the 0 G, 1 G, and control groups. n  =  5 samples per group. HCA data analysis was generated using ArrayStudio."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Stem Cell Health and Tissue Regeneration in Microgravity",
+      "autores": [
+        {
+          "nombre_completo": "E. Blaber",
+          "nombres": "E.",
+          "apellidos": "Blaber"
+        },
+        {
+          "nombre_completo": "K. Sato",
+          "nombres": "K.",
+          "apellidos": "Sato"
+        },
+        {
+          "nombre_completo": "E.A. Almeida",
+          "nombres": "E.A.",
+          "apellidos": "Almeida"
+        }
+      ],
+      "pmid": "25457968",
+      "fuente": "Stem Cells Dev.",
+      "anio": "2014",
+      "volumen": "23",
+      "fpage": "73",
+      "lpage": "78"
+    },
+    {
+      "titulo": "Microgravity Reduces the Differentiation and Regenerative Potential of Embryonic Stem Cells",
+      "autores": [
+        {
+          "nombre_completo": "E.A. Blaber",
+          "nombres": "E.A.",
+          "apellidos": "Blaber"
+        },
+        {
+          "nombre_completo": "H. Finkelstein",
+          "nombres": "H.",
+          "apellidos": "Finkelstein"
+        },
+        {
+          "nombre_completo": "N. Dvorochkin",
+          "nombres": "N.",
+          "apellidos": "Dvorochkin"
+        },
+        {
+          "nombre_completo": "K.Y. Sato",
+          "nombres": "K.Y.",
+          "apellidos": "Sato"
+        },
+        {
+          "nombre_completo": "R. Yousuf",
+          "nombres": "R.",
+          "apellidos": "Yousuf"
+        },
+        {
+          "nombre_completo": "B.P. Burns",
+          "nombres": "B.P.",
+          "apellidos": "Burns"
+        },
+        {
+          "nombre_completo": "R.K. Globus",
+          "nombres": "R.K.",
+          "apellidos": "Globus"
+        },
+        {
+          "nombre_completo": "E.A. Almeida",
+          "nombres": "E.A.",
+          "apellidos": "Almeida"
+        },
+        {
+          "nombre_completo": "L. Oss-Ronen",
+          "nombres": "L.",
+          "apellidos": "Oss-Ronen"
+        },
+        {
+          "nombre_completo": "R.A. Redden",
+          "nombres": "R.A.",
+          "apellidos": "Redden"
+        }
+      ],
+      "pmid": "26414276",
+      "fuente": "Stem Cells Dev.",
+      "anio": "2015",
+      "volumen": "24",
+      "fpage": "2605",
+      "lpage": "2621"
+    },
+    {
+      "titulo": "The thalamocortical vestibular system in animals and humans",
+      "autores": [
+        {
+          "nombre_completo": "C. Lopez",
+          "nombres": "C.",
+          "apellidos": "Lopez"
+        },
+        {
+          "nombre_completo": "O. Blanke",
+          "nombres": "O.",
+          "apellidos": "Blanke"
+        }
+      ],
+      "pmid": "21223979",
+      "fuente": "Brain Res. Rev.",
+      "anio": "2011",
+      "volumen": "67",
+      "fpage": "119",
+      "lpage": "146"
+    },
+    {
+      "titulo": "Cognitive neuroscience in space",
+      "autores": [
+        {
+          "nombre_completo": "G.G. De la Torre",
+          "nombres": "G.G.",
+          "apellidos": "De la Torre"
+        }
+      ],
+      "pmid": "25370373",
+      "fuente": "Life",
+      "anio": "2014",
+      "volumen": "4",
+      "fpage": "281",
+      "lpage": "294"
+    },
+    {
+      "titulo": "The effect of spaceflight and microgravity on the human brain",
+      "autores": [
+        {
+          "nombre_completo": "A. Van Ombergen",
+          "nombres": "A.",
+          "apellidos": "Van Ombergen"
+        },
+        {
+          "nombre_completo": "A. Demertzi",
+          "nombres": "A.",
+          "apellidos": "Demertzi"
+        },
+        {
+          "nombre_completo": "E. Tomilovskaya",
+          "nombres": "E.",
+          "apellidos": "Tomilovskaya"
+        },
+        {
+          "nombre_completo": "B. Jeurissen",
+          "nombres": "B.",
+          "apellidos": "Jeurissen"
+        },
+        {
+          "nombre_completo": "J. Sijbers",
+          "nombres": "J.",
+          "apellidos": "Sijbers"
+        },
+        {
+          "nombre_completo": "I.B. Kozlovskaya",
+          "nombres": "I.B.",
+          "apellidos": "Kozlovskaya"
+        },
+        {
+          "nombre_completo": "P.M. Parizel",
+          "nombres": "P.M.",
+          "apellidos": "Parizel"
+        },
+        {
+          "nombre_completo": "P.H. Van de Heyning",
+          "nombres": "P.H.",
+          "apellidos": "Van de Heyning"
+        },
+        {
+          "nombre_completo": "S. Sunaert",
+          "nombres": "S.",
+          "apellidos": "Sunaert"
+        },
+        {
+          "nombre_completo": "S. Laureys",
+          "nombres": "S.",
+          "apellidos": "Laureys"
+        }
+      ],
+      "pmid": "28271409",
+      "fuente": "J. Neurol.",
+      "anio": "2017",
+      "volumen": "264",
+      "fpage": "18",
+      "lpage": "22"
+    },
+    {
+      "titulo": "Consequences of Simulated Microgravity in Neural Stem Cells: Biological Effects and Metabolic Response",
+      "autores": [
+        {
+          "nombre_completo": "M. Silvano",
+          "nombres": "M.",
+          "apellidos": "Silvano"
+        },
+        {
+          "nombre_completo": "E. Miele",
+          "nombres": "E.",
+          "apellidos": "Miele"
+        },
+        {
+          "nombre_completo": "M. Valerio",
+          "nombres": "M.",
+          "apellidos": "Valerio"
+        },
+        {
+          "nombre_completo": "L. Casadei",
+          "nombres": "L.",
+          "apellidos": "Casadei"
+        },
+        {
+          "nombre_completo": "F. Begalli",
+          "nombres": "F.",
+          "apellidos": "Begalli"
+        },
+        {
+          "nombre_completo": "A.F. Campese",
+          "nombres": "A.F.",
+          "apellidos": "Campese"
+        },
+        {
+          "nombre_completo": "Z.E.I.N. Besharat",
+          "nombres": "Z.E.I.N.",
+          "apellidos": "Besharat"
+        },
+        {
+          "nombre_completo": "V. Alfano",
+          "nombres": "V.",
+          "apellidos": "Alfano"
+        },
+        {
+          "nombre_completo": "L. Abballe",
+          "nombres": "L.",
+          "apellidos": "Abballe"
+        },
+        {
+          "nombre_completo": "G. Catanzaro",
+          "nombres": "G.",
+          "apellidos": "Catanzaro"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Stem Cell Res. Ther.",
+      "anio": "2015",
+      "volumen": "5",
+      "fpage": "289",
+      "lpage": ""
+    },
+    {
+      "titulo": "Human Neural Stem Cells Flown into Space Proliferate and Generate Young Neurons",
+      "autores": [
+        {
+          "nombre_completo": "C. Cepeda",
+          "nombres": "C.",
+          "apellidos": "Cepeda"
+        },
+        {
+          "nombre_completo": "L. Vergnes",
+          "nombres": "L.",
+          "apellidos": "Vergnes"
+        },
+        {
+          "nombre_completo": "N. Carpo",
+          "nombres": "N.",
+          "apellidos": "Carpo"
+        },
+        {
+          "nombre_completo": "M.J. Schibler",
+          "nombres": "M.J.",
+          "apellidos": "Schibler"
+        },
+        {
+          "nombre_completo": "L.A. Bentolila",
+          "nombres": "L.A.",
+          "apellidos": "Bentolila"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "A. Espinosa-Jeffrey",
+          "nombres": "A.",
+          "apellidos": "Espinosa-Jeffrey"
+        }
+      ],
+      "pmid": "34484810",
+      "fuente": "Appl. Sci.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Beta-adrenoceptor pathway enhances mitochondrial function in human neural stem cells via rotary cell culture system",
+      "autores": [
+        {
+          "nombre_completo": "M.-C. Chiang",
+          "nombres": "M.-C.",
+          "apellidos": "Chiang"
+        },
+        {
+          "nombre_completo": "H. Lin",
+          "nombres": "H.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Y.-C. Cheng",
+          "nombres": "Y.-C.",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "C.-H. Yen",
+          "nombres": "C.-H.",
+          "apellidos": "Yen"
+        },
+        {
+          "nombre_completo": "R.-N. Huang",
+          "nombres": "R.-N.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "K.-H. Lin",
+          "nombres": "K.-H.",
+          "apellidos": "Lin"
+        }
+      ],
+      "pmid": "22524992",
+      "fuente": "J. Neurosci. Methods",
+      "anio": "2012",
+      "volumen": "207",
+      "fpage": "130",
+      "lpage": "136"
+    },
+    {
+      "titulo": "Generation of Neural Organoids from Human Embryonic Stem Cells Using the Rotary Cell Culture System: Effects of Microgravity on Neural Progenitor Cell Fate",
+      "autores": [
+        {
+          "nombre_completo": "C. Mattei",
+          "nombres": "C.",
+          "apellidos": "Mattei"
+        },
+        {
+          "nombre_completo": "A. Alshawaf",
+          "nombres": "A.",
+          "apellidos": "Alshawaf"
+        },
+        {
+          "nombre_completo": "G. D’Abaco",
+          "nombres": "G.",
+          "apellidos": "D’Abaco"
+        },
+        {
+          "nombre_completo": "B. Nayagam",
+          "nombres": "B.",
+          "apellidos": "Nayagam"
+        },
+        {
+          "nombre_completo": "M. Dottori",
+          "nombres": "M.",
+          "apellidos": "Dottori"
+        }
+      ],
+      "pmid": "29649415",
+      "fuente": "Stem Cells Dev.",
+      "anio": "2018",
+      "volumen": "27",
+      "fpage": "848",
+      "lpage": "857"
+    },
+    {
+      "titulo": "Simulated Microgravity Exposure Induces Antioxidant Barrier Deregulation and Mitochondria Enlargement in TCam-2 Cell Spheroids",
+      "autores": [
+        {
+          "nombre_completo": "M. Berardini",
+          "nombres": "M.",
+          "apellidos": "Berardini"
+        },
+        {
+          "nombre_completo": "L. Gesualdi",
+          "nombres": "L.",
+          "apellidos": "Gesualdi"
+        },
+        {
+          "nombre_completo": "C. Morabito",
+          "nombres": "C.",
+          "apellidos": "Morabito"
+        },
+        {
+          "nombre_completo": "F. Ferranti",
+          "nombres": "F.",
+          "apellidos": "Ferranti"
+        },
+        {
+          "nombre_completo": "A. Reale",
+          "nombres": "A.",
+          "apellidos": "Reale"
+        },
+        {
+          "nombre_completo": "M. Zampieri",
+          "nombres": "M.",
+          "apellidos": "Zampieri"
+        },
+        {
+          "nombre_completo": "K. Karpach",
+          "nombres": "K.",
+          "apellidos": "Karpach"
+        },
+        {
+          "nombre_completo": "A. Tinari",
+          "nombres": "A.",
+          "apellidos": "Tinari"
+        },
+        {
+          "nombre_completo": "L. Bertuccini",
+          "nombres": "L.",
+          "apellidos": "Bertuccini"
+        },
+        {
+          "nombre_completo": "S. Guarnieri",
+          "nombres": "S.",
+          "apellidos": "Guarnieri"
+        }
+      ],
+      "pmid": "37626916",
+      "fuente": "Cells",
+      "anio": "2023",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Proteomic analysis of the effects of simulated microgravity in human gastric mucosal cells",
+      "autores": [
+        {
+          "nombre_completo": "S.-Y. Lu",
+          "nombres": "S.-Y.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "S. Guo",
+          "nombres": "S.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "S.-B. Chai",
+          "nombres": "S.-B.",
+          "apellidos": "Chai"
+        },
+        {
+          "nombre_completo": "J.-Q. Yang",
+          "nombres": "J.-Q.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y. Yue",
+          "nombres": "Y.",
+          "apellidos": "Yue"
+        },
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "H.-F. Yan",
+          "nombres": "H.-F.",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "T. Zhang",
+          "nombres": "T.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "P.-M. Sun",
+          "nombres": "P.-M.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "H.-W. Sun",
+          "nombres": "H.-W.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "35065758",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2022",
+      "volumen": "32",
+      "fpage": "26",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Simulated microgravity enhances oligodendrocyte mitochondrial function and lipid metabolism",
+      "autores": [
+        {
+          "nombre_completo": "A. Espinosa-Jeffrey",
+          "nombres": "A.",
+          "apellidos": "Espinosa-Jeffrey"
+        },
+        {
+          "nombre_completo": "K. Nguyen",
+          "nombres": "K.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "S. Kumar",
+          "nombres": "S.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "O. Toshimasa",
+          "nombres": "O.",
+          "apellidos": "Toshimasa"
+        },
+        {
+          "nombre_completo": "R. Hirose",
+          "nombres": "R.",
+          "apellidos": "Hirose"
+        },
+        {
+          "nombre_completo": "K. Reue",
+          "nombres": "K.",
+          "apellidos": "Reue"
+        },
+        {
+          "nombre_completo": "L. Vergnes",
+          "nombres": "L.",
+          "apellidos": "Vergnes"
+        },
+        {
+          "nombre_completo": "J. Kinchen",
+          "nombres": "J.",
+          "apellidos": "Kinchen"
+        },
+        {
+          "nombre_completo": "J. de Vellis",
+          "nombres": "J.",
+          "apellidos": "de Vellis"
+        }
+      ],
+      "pmid": "27680492",
+      "fuente": "J. Neurosci. Res.",
+      "anio": "2016",
+      "volumen": "94",
+      "fpage": "1434",
+      "lpage": "1450"
+    },
+    {
+      "titulo": "Effect of Prolonged Simulated Microgravity on Metabolic Proteins in Rat Hippocampus: Steps toward Safe Space Travel",
+      "autores": [
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "I. Javed",
+          "nombres": "I.",
+          "apellidos": "Javed"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "S. Lu",
+          "nombres": "S.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "G. Peng",
+          "nombres": "G.",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H. Qing",
+          "nombres": "H.",
+          "apellidos": "Qing"
+        },
+        {
+          "nombre_completo": "Y. Deng",
+          "nombres": "Y.",
+          "apellidos": "Deng"
+        }
+      ],
+      "pmid": "26523826",
+      "fuente": "J. Proteome Res.",
+      "anio": "2016",
+      "volumen": "15",
+      "fpage": "29",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Selective specification of CNS stem cells into oligodendroglial or neuronal cell lineage: Cell culture and transplant studies",
+      "autores": [
+        {
+          "nombre_completo": "A. Espinosa-Jeffrey",
+          "nombres": "A.",
+          "apellidos": "Espinosa-Jeffrey"
+        },
+        {
+          "nombre_completo": "S.G. Becker-Catania",
+          "nombres": "S.G.",
+          "apellidos": "Becker-Catania"
+        },
+        {
+          "nombre_completo": "P.M. Zhao",
+          "nombres": "P.M.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "R. Cole",
+          "nombres": "R.",
+          "apellidos": "Cole"
+        },
+        {
+          "nombre_completo": "J. Edmond",
+          "nombres": "J.",
+          "apellidos": "Edmond"
+        },
+        {
+          "nombre_completo": "J. de Vellis",
+          "nombres": "J.",
+          "apellidos": "de Vellis"
+        }
+      ],
+      "pmid": "12205675",
+      "fuente": "J. Neurosci. Res.",
+      "anio": "2002",
+      "volumen": "69",
+      "fpage": "810",
+      "lpage": "825"
+    },
+    {
+      "titulo": "Culture System for Rodent and Human Oligodendrocyte Specification, Lineage Progression, and Maturation",
+      "autores": [
+        {
+          "nombre_completo": "A. Espinosa-Jeffrey",
+          "nombres": "A.",
+          "apellidos": "Espinosa-Jeffrey"
+        },
+        {
+          "nombre_completo": "D.R. Wakeman",
+          "nombres": "D.R.",
+          "apellidos": "Wakeman"
+        },
+        {
+          "nombre_completo": "S.U. Kim",
+          "nombres": "S.U.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "E.Y. Snyder",
+          "nombres": "E.Y.",
+          "apellidos": "Snyder"
+        },
+        {
+          "nombre_completo": "J. de Vellis",
+          "nombres": "J.",
+          "apellidos": "de Vellis"
+        }
+      ],
+      "pmid": "19725014",
+      "fuente": "Curr. Protoc. Stem Cell Biol.",
+      "anio": "2009",
+      "volumen": "10",
+      "fpage": "2D.4.1",
+      "lpage": "2D.4.26"
+    },
+    {
+      "titulo": "Metabolomics Profile of the Secretome of Space-Flown Oligodendrocytes",
+      "autores": [
+        {
+          "nombre_completo": "L. Vergnes",
+          "nombres": "L.",
+          "apellidos": "Vergnes"
+        },
+        {
+          "nombre_completo": "B. Foucaud",
+          "nombres": "B.",
+          "apellidos": "Foucaud"
+        },
+        {
+          "nombre_completo": "C. Cepeda",
+          "nombres": "C.",
+          "apellidos": "Cepeda"
+        },
+        {
+          "nombre_completo": "A. Espinosa-Jeffrey",
+          "nombres": "A.",
+          "apellidos": "Espinosa-Jeffrey"
+        }
+      ],
+      "pmid": "37759473",
+      "fuente": "Cells",
+      "anio": "2023",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Integrated, Nontargeted Ultrahigh Performance Liquid Chromatography/Electrospray Ionization Tandem Mass Spectrometry Platform for the Identification and Relative Quantification of the Small-Molecule Complement of Biological Systems",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Evans",
+          "nombres": "A.M.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "C.D. DeHaven",
+          "nombres": "C.D.",
+          "apellidos": "DeHaven"
+        },
+        {
+          "nombre_completo": "T. Barrett",
+          "nombres": "T.",
+          "apellidos": "Barrett"
+        },
+        {
+          "nombre_completo": "M. Mitchell",
+          "nombres": "M.",
+          "apellidos": "Mitchell"
+        },
+        {
+          "nombre_completo": "E. Milgram",
+          "nombres": "E.",
+          "apellidos": "Milgram"
+        }
+      ],
+      "pmid": "19624122",
+      "fuente": "Anal. Chem.",
+      "anio": "2009",
+      "volumen": "81",
+      "fpage": "6656",
+      "lpage": "6667"
+    },
+    {
+      "titulo": "Organization of GC/MS and LC/MS metabolomics data into chemical libraries",
+      "autores": [
+        {
+          "nombre_completo": "C.D. DeHaven",
+          "nombres": "C.D.",
+          "apellidos": "DeHaven"
+        },
+        {
+          "nombre_completo": "A.M. Evans",
+          "nombres": "A.M.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "H. Dai",
+          "nombres": "H.",
+          "apellidos": "Dai"
+        },
+        {
+          "nombre_completo": "K.A. Lawton",
+          "nombres": "K.A.",
+          "apellidos": "Lawton"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Chemin.",
+      "anio": "2010",
+      "volumen": "2",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm",
+      "autores": [
+        {
+          "nombre_completo": "T.L. Weissgerber",
+          "nombres": "T.L.",
+          "apellidos": "Weissgerber"
+        },
+        {
+          "nombre_completo": "N.M. Milic",
+          "nombres": "N.M.",
+          "apellidos": "Milic"
+        },
+        {
+          "nombre_completo": "S.J. Winham",
+          "nombres": "S.J.",
+          "apellidos": "Winham"
+        },
+        {
+          "nombre_completo": "V.D. Garovic",
+          "nombres": "V.D.",
+          "apellidos": "Garovic"
+        }
+      ],
+      "pmid": "25901488",
+      "fuente": "PLoS Biol.",
+      "anio": "2015",
+      "volumen": "13",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bias of the Random Forest Out-of-Bag (OOB) Error for Certain Input Parameters",
+      "autores": [
+        {
+          "nombre_completo": "M.W. Mitchell",
+          "nombres": "M.W.",
+          "apellidos": "Mitchell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Open J. Stat.",
+      "anio": "2011",
+      "volumen": "1",
+      "fpage": "205",
+      "lpage": "211"
+    },
+    {
+      "titulo": "Lactate: The ultimate cerebral oxidative energy substrate?",
+      "autores": [
+        {
+          "nombre_completo": "A. Schurr",
+          "nombres": "A.",
+          "apellidos": "Schurr"
+        }
+      ],
+      "pmid": "15973352",
+      "fuente": "J. Cereb. Blood Flow Metab.",
+      "anio": "2006",
+      "volumen": "26",
+      "fpage": "142",
+      "lpage": "512"
+    },
+    {
+      "titulo": "Comprehensive Multi-omics Analysis Reveals Mitochondrial Stress as a Central Biological Hub for Spaceflight Impact",
+      "autores": [
+        {
+          "nombre_completo": "W.A. Da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "Da Silveira"
+        },
+        {
+          "nombre_completo": "H. Fazelinia",
+          "nombres": "H.",
+          "apellidos": "Fazelinia"
+        },
+        {
+          "nombre_completo": "S.B. Rosenthal",
+          "nombres": "S.B.",
+          "apellidos": "Rosenthal"
+        },
+        {
+          "nombre_completo": "E.C. Laiakis",
+          "nombres": "E.C.",
+          "apellidos": "Laiakis"
+        },
+        {
+          "nombre_completo": "M.S. Kim",
+          "nombres": "M.S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "Y. Kidane",
+          "nombres": "Y.",
+          "apellidos": "Kidane"
+        },
+        {
+          "nombre_completo": "K.S. Rathi",
+          "nombres": "K.S.",
+          "apellidos": "Rathi"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "B. Stear",
+          "nombres": "B.",
+          "apellidos": "Stear"
+        }
+      ],
+      "pmid": "33242417",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1185",
+      "lpage": "1201"
+    },
+    {
+      "titulo": "The effects of real and simulated microgravity on cellular mitochondrial function",
+      "autores": [
+        {
+          "nombre_completo": "H.P. Nguyen",
+          "nombres": "H.P.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "P.H. Tran",
+          "nombres": "P.H.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "K.-S. Kim",
+          "nombres": "K.-S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S.-G. Yang",
+          "nombres": "S.-G.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "34750383",
+      "fuente": "npj Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "44",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simulated microgravity promotes the formation of tridimensional cultures and stimulates pluripotency and a glycolytic metabolism in human hepatic and biliary tree stem/progenitor cells",
+      "autores": [
+        {
+          "nombre_completo": "D. Costantini",
+          "nombres": "D.",
+          "apellidos": "Costantini"
+        },
+        {
+          "nombre_completo": "D. Overi",
+          "nombres": "D.",
+          "apellidos": "Overi"
+        },
+        {
+          "nombre_completo": "L. Casadei",
+          "nombres": "L.",
+          "apellidos": "Casadei"
+        },
+        {
+          "nombre_completo": "V. Cardinale",
+          "nombres": "V.",
+          "apellidos": "Cardinale"
+        },
+        {
+          "nombre_completo": "L. Nevi",
+          "nombres": "L.",
+          "apellidos": "Nevi"
+        },
+        {
+          "nombre_completo": "G. Carpino",
+          "nombres": "G.",
+          "apellidos": "Carpino"
+        },
+        {
+          "nombre_completo": "S. Di Matteo",
+          "nombres": "S.",
+          "apellidos": "Di Matteo"
+        },
+        {
+          "nombre_completo": "S. Safarikia",
+          "nombres": "S.",
+          "apellidos": "Safarikia"
+        },
+        {
+          "nombre_completo": "M. Valerio",
+          "nombres": "M.",
+          "apellidos": "Valerio"
+        },
+        {
+          "nombre_completo": "F. Melandro",
+          "nombres": "F.",
+          "apellidos": "Melandro"
+        }
+      ],
+      "pmid": "30944365",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "5559",
+      "lpage": ""
+    },
+    {
+      "titulo": "NAD + metabolism: Bioenergetics, signaling and manipulation for therapy",
+      "autores": [
+        {
+          "nombre_completo": "Y. Yang",
+          "nombres": "Y.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "A.A. Sauve",
+          "nombres": "A.A.",
+          "apellidos": "Sauve"
+        }
+      ],
+      "pmid": "27374990",
+      "fuente": "Biochim. Biophys. Acta (BBA) Proteins Proteom.",
+      "anio": "2016",
+      "volumen": "1864",
+      "fpage": "1787",
+      "lpage": "1800"
+    },
+    {
+      "titulo": "The importance of dietary polyamines in cell regeneration and growth",
+      "autores": [
+        {
+          "nombre_completo": "S. Bardócz",
+          "nombres": "S.",
+          "apellidos": "Bardócz"
+        },
+        {
+          "nombre_completo": "T.J. Duguid",
+          "nombres": "T.J.",
+          "apellidos": "Duguid"
+        },
+        {
+          "nombre_completo": "D.S. Brown",
+          "nombres": "D.S.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "G. Grant",
+          "nombres": "G.",
+          "apellidos": "Grant"
+        },
+        {
+          "nombre_completo": "A. Pusztai",
+          "nombres": "A.",
+          "apellidos": "Pusztai"
+        },
+        {
+          "nombre_completo": "A. White",
+          "nombres": "A.",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "A. Ralph",
+          "nombres": "A.",
+          "apellidos": "Ralph"
+        }
+      ],
+      "pmid": "7632663",
+      "fuente": "Br. J. Nutr.",
+      "anio": "1995",
+      "volumen": "73",
+      "fpage": "819",
+      "lpage": "828"
+    },
+    {
+      "titulo": "Modulation of cellular function by polyamines",
+      "autores": [
+        {
+          "nombre_completo": "K. Igarashi",
+          "nombres": "K.",
+          "apellidos": "Igarashi"
+        },
+        {
+          "nombre_completo": "K. Kashiwagi",
+          "nombres": "K.",
+          "apellidos": "Kashiwagi"
+        }
+      ],
+      "pmid": "19643201",
+      "fuente": "Int. J. Biochem. Cell Biol.",
+      "anio": "2010",
+      "volumen": "42",
+      "fpage": "39",
+      "lpage": "51"
+    },
+    {
+      "titulo": "Functions of Polyamines in Mammals",
+      "autores": [
+        {
+          "nombre_completo": "A.E. Pegg",
+          "nombres": "A.E.",
+          "apellidos": "Pegg"
+        }
+      ],
+      "pmid": "27268251",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2016",
+      "volumen": "291",
+      "fpage": "14904",
+      "lpage": "14912"
+    },
+    {
+      "titulo": "Induction of autophagy by spermidine promotes longevity",
+      "autores": [
+        {
+          "nombre_completo": "T. Eisenberg",
+          "nombres": "T.",
+          "apellidos": "Eisenberg"
+        },
+        {
+          "nombre_completo": "H. Knauer",
+          "nombres": "H.",
+          "apellidos": "Knauer"
+        },
+        {
+          "nombre_completo": "A. Schauer",
+          "nombres": "A.",
+          "apellidos": "Schauer"
+        },
+        {
+          "nombre_completo": "S. Büttner",
+          "nombres": "S.",
+          "apellidos": "Büttner"
+        },
+        {
+          "nombre_completo": "C. Ruckenstuhl",
+          "nombres": "C.",
+          "apellidos": "Ruckenstuhl"
+        },
+        {
+          "nombre_completo": "D. Carmona-Gutierrez",
+          "nombres": "D.",
+          "apellidos": "Carmona-Gutierrez"
+        },
+        {
+          "nombre_completo": "J. Ring",
+          "nombres": "J.",
+          "apellidos": "Ring"
+        },
+        {
+          "nombre_completo": "S. Schroeder",
+          "nombres": "S.",
+          "apellidos": "Schroeder"
+        },
+        {
+          "nombre_completo": "C. Magnes",
+          "nombres": "C.",
+          "apellidos": "Magnes"
+        },
+        {
+          "nombre_completo": "L. Antonacci",
+          "nombres": "L.",
+          "apellidos": "Antonacci"
+        }
+      ],
+      "pmid": "19801973",
+      "fuente": "Nat. Cell Biol.",
+      "anio": "2009",
+      "volumen": "11",
+      "fpage": "1305",
+      "lpage": "1314"
+    },
+    {
+      "titulo": "Spermidine induces autophagy by inhibiting the acetyltransferase EP300",
+      "autores": [
+        {
+          "nombre_completo": "F. Pietrocola",
+          "nombres": "F.",
+          "apellidos": "Pietrocola"
+        },
+        {
+          "nombre_completo": "S. Lachkar",
+          "nombres": "S.",
+          "apellidos": "Lachkar"
+        },
+        {
+          "nombre_completo": "D.P. Enot",
+          "nombres": "D.P.",
+          "apellidos": "Enot"
+        },
+        {
+          "nombre_completo": "M. Niso-Santano",
+          "nombres": "M.",
+          "apellidos": "Niso-Santano"
+        },
+        {
+          "nombre_completo": "J.M.B.-S. Pedro",
+          "nombres": "J.M.B.-S.",
+          "apellidos": "Pedro"
+        },
+        {
+          "nombre_completo": "V. Sica",
+          "nombres": "V.",
+          "apellidos": "Sica"
+        },
+        {
+          "nombre_completo": "V. Izzo",
+          "nombres": "V.",
+          "apellidos": "Izzo"
+        },
+        {
+          "nombre_completo": "M.C. Maiuri",
+          "nombres": "M.C.",
+          "apellidos": "Maiuri"
+        },
+        {
+          "nombre_completo": "F. Madeo",
+          "nombres": "F.",
+          "apellidos": "Madeo"
+        },
+        {
+          "nombre_completo": "G. Mariño",
+          "nombres": "G.",
+          "apellidos": "Mariño"
+        }
+      ],
+      "pmid": "25526088",
+      "fuente": "Cell Death Differ.",
+      "anio": "2015",
+      "volumen": "22",
+      "fpage": "509",
+      "lpage": "516"
+    },
+    {
+      "titulo": "Biological effects of space environmental factors: A possible interaction between space radiation and microgravity",
+      "autores": [
+        {
+          "nombre_completo": "F. Yatagai",
+          "nombres": "F.",
+          "apellidos": "Yatagai"
+        },
+        {
+          "nombre_completo": "M. Honma",
+          "nombres": "M.",
+          "apellidos": "Honma"
+        },
+        {
+          "nombre_completo": "N. Dohmae",
+          "nombres": "N.",
+          "apellidos": "Dohmae"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "30797428",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "113",
+      "lpage": "123"
+    },
+    {
+      "titulo": "Genomic Changes Driven by Radiation-Induced DNA Damage and Microgravity in Human Cells",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "J.T. McDonald",
+          "nombres": "J.T.",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "M. Hada",
+          "nombres": "M.",
+          "apellidos": "Hada"
+        },
+        {
+          "nombre_completo": "A. Takahashi",
+          "nombres": "A.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "C.E. Mason",
+          "nombres": "C.E.",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "M. Mognato",
+          "nombres": "M.",
+          "apellidos": "Mognato"
+        }
+      ],
+      "pmid": "34638848",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of Low Dose Space Radiation Exposures on the Splenic Metabolome",
+      "autores": [
+        {
+          "nombre_completo": "E.C. Laiakis",
+          "nombres": "E.C.",
+          "apellidos": "Laiakis"
+        },
+        {
+          "nombre_completo": "I. Shuryak",
+          "nombres": "I.",
+          "apellidos": "Shuryak"
+        },
+        {
+          "nombre_completo": "A. Deziel",
+          "nombres": "A.",
+          "apellidos": "Deziel"
+        },
+        {
+          "nombre_completo": "Y.-W. Wang",
+          "nombres": "Y.-W.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "B.L. Barnette",
+          "nombres": "B.L.",
+          "apellidos": "Barnette"
+        },
+        {
+          "nombre_completo": "Y. Yu",
+          "nombres": "Y.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "R.L. Ullrich",
+          "nombres": "R.L.",
+          "apellidos": "Ullrich"
+        },
+        {
+          "nombre_completo": "A.J. Fornace",
+          "nombres": "A.J.",
+          "apellidos": "Fornace"
+        },
+        {
+          "nombre_completo": "M.R. Emmett",
+          "nombres": "M.R.",
+          "apellidos": "Emmett"
+        }
+      ],
+      "pmid": "33802822",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simulated Microgravity and Low-Dose/Low-Dose-Rate Radiation Induces Oxidative Damage in the Mouse Brain",
+      "autores": [
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "N.C. Nishiyama",
+          "nombres": "N.C.",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "M.J. Pecaut",
+          "nombres": "M.J.",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "M. Campbell-Beachler",
+          "nombres": "M.",
+          "apellidos": "Campbell-Beachler"
+        },
+        {
+          "nombre_completo": "P. Gifford",
+          "nombres": "P.",
+          "apellidos": "Gifford"
+        },
+        {
+          "nombre_completo": "K.E. Haynes",
+          "nombres": "K.E.",
+          "apellidos": "Haynes"
+        },
+        {
+          "nombre_completo": "C. Becronis",
+          "nombres": "C.",
+          "apellidos": "Becronis"
+        },
+        {
+          "nombre_completo": "D.S. Gridley",
+          "nombres": "D.S.",
+          "apellidos": "Gridley"
+        }
+      ],
+      "pmid": "27243749",
+      "fuente": "Radiat. Res.",
+      "anio": "2016",
+      "volumen": "185",
+      "fpage": "647",
+      "lpage": "657"
+    }
+  ]
+}

@@ -1,0 +1,2122 @@
+{
+  "TITLE": [
+    "Detection of Target Genes for Drug Repurposing to Treat Skeletal Muscle Atrophy in Mice Flown in Spaceflight"
+  ],
+  "ABSTRACT": [
+    "Skeletal muscle atrophy is a common condition in aging, diabetes, and in long duration spaceflights due to microgravity. This article investigates multi-modal gene disease and disease drug networks via link prediction algorithms to select drugs for repurposing to treat skeletal muscle atrophy. Key target genes that cause muscle atrophy in the left and right extensor digitorum longus muscle tissue, gastrocnemius, quadriceps, and the left and right soleus muscles are detected using graph theoretic network analysis, by mining the transcriptomic datasets collected from mice flown in spaceflight made available by GeneLab. We identified the top muscle atrophy gene regulators by the Pearson correlation and Bayesian Markov blanket method. The gene disease knowledge graph was constructed using the scalable precision medicine knowledge engine. We computed node embeddings, random walk measures from the networks. Graph convolutional networks, graph neural networks, random forest, and gradient boosting methods were trained using the embeddings, network features for predicting links and ranking top gene-disease associations for skeletal muscle atrophy. Drugs were selected and a disease drug knowledge graph was constructed. Link prediction methods were applied to the disease drug networks to identify top ranked drugs for therapeutic treatment of skeletal muscle atrophy. The graph convolution network performs best in link prediction based on receiver operating characteristic curves and prediction accuracies. The key genes involved in skeletal muscle atrophy are associated with metabolic and neurodegenerative diseases. The drugs selected for repurposing using the graph convolution network method were nutrients, corticosteroids, anti-inflammatory medications, and others related to insulin."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "Spaceflight experiments using mice are being conducted to determine the impact of microgravity on different muscle groups. A major health problem in spaceflight is muscle wastage due to microgravity. The primary muscles in the human body are the muscles of the upper limb and lower limb. Experiments on hind limb muscle wasting after a 13-day shuttle flight have shown reduced knee weight bearing and meniscal degradation, inducing an arthritic phenotype in cartilage and menisci. Changes in electrical impedance characteristics in gastrocnemius muscles are also induced by spaceflight. Skeletal muscle atrophy is a secondary effect of aging (sarcopenia) and diseases such as diabetes, cancer and kidney diseases. The primary muscles in the human body are the upper limb and lower limb. Studies have shown that muscle gene expression is different in spaceflight vs. that on the ground. Models of sarcopenia and age-related muscle loss have been studied in. Spaceflight induces similar muscle loss, and the analysis of their gene expression (see) has revealed that a majority of 272 mRNAs that were significantly altered by spaceflight displayed similar responses to hind limb suspension.",
+    "There are several molecular processes that influence muscle atrophy. The muscle RING-finger protein-1 that plays an important role in muscle remodeling is an E3 ubiquitin ligase expressed in skeletal and cardiac muscle tissues. Spaceflight induces unique muscle atrophy in animal models. The MuRF1 nullified mice did not show improvement in soleus muscle loss, showing that atrophy proceeds under unique mechanisms in spaceflight. Muscle mass is a balance between protein generation and degradation. A decreased rate of synthesis causes skeletal muscle wasting. The ubiquitin proteosome is the protein synthesis pathway in muscle atrophy. It has been shown that proteosome inhibition reduces denervation-induced muscle atrophy. One of the most important muscle-wasting cytokines is tumor necrosis factor-a (TNF-a), elevated levels of which cause significant muscular abnormalities. Although there has been some advancement in understanding cellular and molecular mechanisms such as MuRF1/MAFbx/FOXO pathways and potential triggers behind muscle disuse, there is a significant gap in knowledge in the regulatory mechanism of the associated genes and their functional significance. It is known that anabolic and catabolic pathways regulate muscle atrophy in adult organisms. Deacetylase inhibitors represent a prototype of epigenetic drugs that have been proposed as a possible intervention that targets multiple signaling pathways in the pathogenesis of muscle atrophy. Niclosamide has also been proposed to regulate myogenesis and catabolic pathways in skeletal muscle.",
+    "Apart from microgravity, radiation exposure in spaceflight has been reported to aggravate atrophic processes in soleus and gastrocnemius muscles, which is induced already by spaceflight. Radiation was shown to inhibit the reparative processes. Oxidative stress is increased by higher levels of radiation. The upregulation of heme oxygenase-1 (HO-1) counters cellular damage due to radiation which can be artificially induced. Several countermeasures have been proposed for alleviating muscle wastage in spaceflight. Exercise countermeasures do not alleviate the reduction in muscle function or muscle size due to the unloading effects of spaceflight. While exercise countermeasures seem insufficient for maintaining muscle function in long deep space measures, it is important to find effective countermeasures for long duration spaceflights. Bone loss is preserved and tibialis anterior and gastrocnemius muscle changes are eliminated by countermeasures such as bisphosphonates and anti-RANKL therapies (Denosaumab and OPG-Fc) and treatment of young mice with REGN1033 (a monoclonal antibody against myostatin). With future space missions, finding effective countermeasures for muscle atrophy in spaceflight has gained paramount importance. Simulated microgravity, use of animal models, applications of countermeasures, studies of interrelationships between bone and muscle tissues, and studies on the effect of radiation on skeletal muscles are necessary for human exploration of space. In our earlier paper on drug repurposing, we applied three Machine Learning (ML) methods for identifying drugs for treatment of organ muscle atrophy. In this paper, we have added the Pearson correlation method for identification of key gene regulators of skeletal muscle atrophy, and also have implemented Graph Convolutional Neural Network (GCN) for link prediction. GCN results for identification of repurposable drugs for skeletal muscle atrophy is compared with the GNN method reported as the best method in. NASA’s GeneLab datasets are collected in spaceflight under microgravity and low radiations doses in low Earth orbit. The radiation details of these datasets are provided in. Section 2 presents the GeneLab datasets and ML methods used to identify key diseases associated with skeletal muscle atrophy and drugs for repurposing. Section 3 presents the results of the ML algorithms for link predictions in the constructed Gene Disease Knowledge Graph (GDKG) and Disease Drug Knowledge Graph (DDKG). Section 4 discusses the key genes and repurposable drugs selected by link prediction, and Section 5 presents the conclusions."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "Datasets from the GeneLab repository related to skeletal muscle atrophy were mined for studying the effects of microgravity and low radiation doses in low Earth orbit found beyond Earth’s atmosphere on mice. All the -omics datasets in GeneLab were preprocessed and normalized before being published.",
+    "2.1. GeneLab Datasets",
+    "GLDS-99, 101, 103, 104: A cohort of 16-week-old female mice were flown in the ISS for 37 days. They were euthanized in spaceflight and returned to Earth where left and right extensor digitorum longus muscle tissue (GLDS-99), gastrocnemius (GLDS-101), quadriceps (GLDS-103), and left and right soleus muscles (GLDS-104) samples were collected. RNA and DNA sequencing was carried out. GeneLab processed the RNA sequencing data into gene expression values using standardized methods. These datasets belong to the Rodent Research (RR) payload. The daily average absorbed dose of Galactic Cosmic Radiation (GCR) nucleic particle is 0.13126 mGy, Inner Radiation Belt (IRB) South Atlantic Anomaly (SAA) is 0.07331 mGy, and the cumulative absorbed dose of GCR is 4.98795 mGy, and SAA is 2.78573 mGy.",
+    "GLDS-111 and GLDS-135: Adult male mice C57BL/N6 were flown aboard the BION-M1 biosatellite for 30 days on orbit (BF) or housed in a replicate flight habitat on Earth (BG) as the reference flight control. GeneLab processed RNA sequencing data from mouse soleus and EDL muscles (GLDS-111) and longissimus dorsi and tongue (GLDS-135). The radiation inside the Bion-M1 mouse habitat dosimeters SPD2 and SPD4 recorded an average absorbed dose of 0.630 and 1.149 mGy, respectively. These are averages of low and high LET radiation doses. The total average absorbed radiation dose for the mission is 18.81 mGy and 34.30 mGy for the SPD2 and SPD4 dosimeters, respectively. The total average absorbed dose of Galactic Cosmic Radiation (GCR), Outer Radiation Belt (ORB), and Inner Radiation Belt (IRB) is 0.985 mGy.",
+    "GLDS-21: Mice were flown on the STS-18 shuttle flight mission for 11 days, 19 h and gene expression analysis was performed on gastrocnemius muscle. Mice were maintained on earth for the same period. Additionally, to identify changes that were due to unloading and reloading, ground-based mice were subjected to hind limb suspension for 12 days and microarray analyses were conducted on their calf muscle. The average absorbed radiation dose is 2.19 mGy for the entire mission with an average absorbed radiation dose rate of 0.18 mGy.",
+    "The workflow pipeline for identifying key genes and drugs for treating skeletal muscle atrophy is shown in Figure 1. The stages of the pipeline are numbered from 1 to 4 and each stage is explained below.",
+    "2.2. Finding Regulatory Relationships between Gene Pairs (Stage 1)",
+    "Graph-based Gene Regulatory Network (GRN) inferencing methods of Pearson correlation and Markov Blanket (MB) are utilized to identify the most regulated genes in the seven GeneLab datasets. The gene expression values of pairs of genes are used to compute the Pearson correlation value. The p-values are used to extract the most correlated pairs of genes by selecting all values below 5 × 10−7, which will extract the same pairs of genes as a correlation threshold of 0.9 and above. For identifying causal relational gene pairs, the Markov Blanket (MB) method is used. Joint conditional probabilities are computed from the gene expression values which are used to construct a Bayesian Network (BN). The incremental association Markov blanket of any node (gene) in a BN is the set of parents, children, and spouses (the other parents of their common children) of the gene. The genes are connected by edges if its upregulation is caused by another gene, or if it causes the upregulation of another gene. The MB(X) of a node (gene) X includes its parents, children, and spouses which are the strongly relevant genes to gene X. The output is a list of pairs of genes that are connected by edges. The list of pairs of most correlated genes and causally related genes are combined into one list and input to the next stage in Figure 1.",
+    "2.3. Construction of Knowledge Graphs (Stage 2)",
+    "The selected genes from Stage 1 are input to the Scalable Precision Medicine Open Knowledge Engine (SPOKE), which is a database of databases. SPOKE is used for creating a network based on a data integration approach to prioritize disease-associated genes. It is a graph-theoretic database organized in a hierarchical manner with inputs from molecular research, clinical insights, environmental data and others. Currently it integrates 19 different databases. The SPOKE creates a new graph with the provided list of skeletal muscle atrophy genes and the diseases associated with it. The list of genes and their associated diseases are input to Cytoscape to construct the Gene Disease Knowledge Graph (GDKG). The Disease Drug Knowledge Graph (DDKG) is constructed by finding the top ten drugs used to treat the diseases associated with skeletal muscle atrophy from the DrugBank database. A table of diseases and the top ranked drugs is built and input to Cytoscape to construct the DDKG.",
+    "Graph Concepts and Properties for Analysis of GDKG and DDKG",
+    "Graph concepts of random walk and preferential attachment used by the link prediction algorithms are described in this section. We also compute network measures on the constructed graphs. We follow Janwa, Massey, Velev and Mishra. A graph is a representation of a set of entities and relations among them and represents an underlying concrete network, such as a GRN, the internet, or a social network. We formally present a graph as a pair of sets , where  are the vertices (nodes, points) and  are the edges (arcs), respectively. When  is a set of unordered pairs of vertices, the graph is said to be undirected. In a directed graph (representing key genes and target genes, for example) ,  consists of an ordered set of vertex pairs, i.e., for each edge ,  where  is called the origin of the edge  and  is called the terminus of the edge . A graph is weighted if there is a map (weighting function, ), assigning to each edge a positive real-valued weight. Weighting can represent the strength of a signal in sender–receiver gene interaction, for example. A network’s properties are governed by its topology, such as the degree distribution, clustering coefficients, motifs, assortativity, hierarchicity, etc. (see); a more in-depth treatment regarding biomedical networks is given in. The degree of a vertex , , is the number of edges that connect the vertex with other vertices. In other words, the degree is the number of immediate neighbors of a vertex. In directed graphs, the in-degree and out-degree of a vertex can be defined as the number of incoming and outgoing edges, respectively. Thus, the degree distributions can tell a great deal about the structure of a family of networks. As probability distribution, degree distribution can be binomial, Poisson, or Gaussian (in the limit), or as we will see, it can follow a power–law distribution that is characterized by a scale-free property. We say that a graph is sparse if  (or ). In random probability models such as the Erdos-Renyi model, one does not find nodes of a very high degree.",
+    "Similarity measures computed from neighborhoods in a graph are widely used in link prediction algorithms. A semi-supervised scalable feature learning method is proposed in, where the authors develop a family of biased random walks resulting in a flexible search space of nodes for link (edge) prediction. We have used this method to obtain the highest ranked nodes for possible links between the muscle atrophy gene and its disease associations, as well as between diseases and drugs in the Graph Neural Network (GNN) method.",
+    "Random walks: A walk of length  in a graph is a sequence of alternating vertices and edges,  such that  and  for all . Let  be the diagonal matrix with  along the diagonal. First, we consider the stochastic matrix , which may be thought of as describing the probabilities of certain “information” being moved from one node to a neighboring node by a diffusion process. Let  be a random walk in the graph with , for all , and determined by transition probabilities  which are independent of . Normally, we take , as defined by the stochastic matrix . Apart from random walks, we have computed preferential attachment measures to obtain possible gene–disease and disease–drug link associations. We follow for computation of preferential attachment. For any node  let  denote the set of neighbors of . Let  be a community of  i.e.,  is a set of cohesive vertices such that it contains more connections inside the set than outside the set. The preferential attachment score of  and  is defined as .",
+    "2.4. ML Methods for Link Prediction (Stage 3)",
+    "We used four ML methods for identifying and ranking the top skeletal muscle gene disease associations in the GDKG, and for identifying the top ranked drugs for repurposing from DDKG. The Random Forest (RF), Gradient Boost (GB), and Graph Neural Network (GNN) were used for link prediction and drug repurposing for organ muscle atrophy. In addition to the above, we implemented the GCN method. The problem of link prediction is to predict an edge between two existing nodes in a graph or network. Each of the methods are described below.",
+    "2.4.1. Random Forest (RF) Method",
+    "This method is based on decision trees, and an ensemble of trees is called a decision forest. Each tree is trained on a random subset of input features, and their predictions are combined to improve overall prediction. The tree is based on discriminants instead of likelihoods. Discriminants are estimated by passing class densities. The hyperparameters area: tree depth of 15 with 500 estimators.",
+    "2.4.2. Gradient Boosting (GB) Method",
+    "The GB method is also an ensemble decision tree method which trains one tree at a time. The regression trees were built from the previous step on the prediction error of the previous tree. This is a useful method for tabular datasets. Multiple weak learners are combined to give a better performance. It can find nonlinear relationships between model targets and features and can deal with outliers, and missing values. The feature labels are the value of various node centralities. The positive and negative samples are the labels for the existent and non-existent edge in the network, respectively. The features of the nodes at the end of the edges, along with the positive or negative label, form a well-defined dataset for the task of link prediction. The learning rate is 0.2 for this algorithm.",
+    "2.4.3. Graph Neural Network (GNN) Method",
+    "The GNN is a deep network with ten hidden layers with 100 nodes (neurons) in each of the hidden layers. The activation function for the hidden layers is the Rectified Linear Unit (ReLu) function. The limited-memory Broyden–Fletcher–Goldfarb–Shanno (lbfgs) solver from sktlearn library in Python was used to predict the links. The input layer of the GNN takes as input random walk features computed on the knowledge graphs. The output of the GNN is a matrix of predicted edges.",
+    "2.4.4. Graph Convolution Neural Network (GCN)",
+    "We used the Graph Convolution Neural Network (GCN) for link prediction in GDKG and DDKG for skeletal muscle atrophy and compared it with the above methods. The GCN takes as input the knowledge graph with  number of nodes,  is the  adjacency matrix. The GCN learns the graph , learns node embeddings, and predicts links between the nodes. The layer-wise propagation rule for each neural network layer is",
+    "Here,  is the adjacency matrix of the undirected graph  with added self-connections.  is the identity matrix,  is the diagonal node degree matrix of  and  is the layer-specific trainable weight matrix,  is an activation function. With spectral analysis, a graph convolution is a multiplication of spectra of signal in a Fourier domain. As it is computationally expensive, the convolution kernel is the existing Chebyshev polynomial of Eigenvalues in a spectral domain. A softmax activation function is applied row-wise to  to obtain  where . To evaluate loss in this semi-supervised model, cross-entropy error is calculated as follows:  where  is the set of nodes with labels or the labeled training instances. The weights of the neural network W are trained using gradient descent. Figure 2 shows the GCN trained for link prediction on the GDKG. The GCN has two hidden layers with 32 nodes in the first hidden layer and 16 nodes in the second hidden layer, respectively. The GCN uses Adam optimizer for gradient descent and weight updates for the network. The probabilities of the predicted links range from 0 to 1. These probabilities are predicted using the ReLu activation function shown in Figure 2.",
+    "2.5. Gene-Disease and Disease-Drug Associations (Stage 4)",
+    "The knowledge graphs are split into training and validation sets. The GridSearchCV library is used to estimate the best split of the data for cross validation. This implementation uses 10-fold cross validation for link prediction in both the knowledge graphs. The computation of network features and graph features are implemented in Python using the libraries networkX, node2vec, pandas, numpy, and sktlearn. The link prediction accuracies for the four methods are calculated by comparing a binary label (an edge exists or not exists) with a real valued predicted score. The technique used for evaluation in this setting is the Area Under the Receiver Operating Characteristic (AUROC) curve. The predicted links are sorted from highest probability to lowest probability. The drug nodes with the highest link probability to the disease nodes are selected as candidates for repurposing."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "The seven gene expression datasets have from three to eight expression values. The datasets were combined, and the significantly regulated genes were extracted using the Pearson correlation and Incremental Association Markov Blanket (IAMB) methods. For details on the implementation of Pearson correlation and IAMB, please refer to. Pearson identified the most correlated genes and IAMB identified causally related genes. A total of 473 genes were identified as the most significantly regulated from the seven datasets. Hence, we have included all of these genes in our analysis as important regulators of skeletal muscle atrophy in spaceflight.",
+    "Many diseases such as metabolic and neuromuscular diseases, cancer, chronic inflammatory diseases, and acute critical illness are associated with skeletal muscle atrophy, muscle weakness, and general muscle fatigue. Additionally, skeletal muscle atrophy is the secondary effect of many diseases, and it is important to find the diseases linked with this condition. The Scalable Precision Medicine Knowledge Engine (SPOKE) was used for identifying all the diseases related to muscle atrophy. SPOKE is a large heterogeneous network with many types of biological data organized in a hierarchical structure for the benefit of biomedicine and human health (Scalable Precision Medicine Knowledge Engine n.d.). The maximally regulated genes identified from the GRNs were input to the SPOKE. Figure 3 shows the GDKG constructed from all the diseases related to the muscle atrophy genes. Next, we applied ML methods to predict new gene disease associations in the GDKG.",
+    "Link Prediction Using GCN and Other ML Methods",
+    "The graphs were preprocessed by computing the graph Laplacian. Each node was embedded into a feature vector and input to two hidden layers. Given the graph embedding, GCN model is trained to predict new gene–disease interactions in the GDKG. The GCN predicted 21 new gene disease associations with a probability greater than 0.8. The gene names and associated diseases are given in Table 1. Figure 4 shows the Receiver Operating Characteristics (ROC) curve for link prediction using the GCN and GNN, Random Forest, Gradient Boosting, and preferential attachment methods. The link prediction methods were trained with 80% of the data and the remaining 20% were used for testing. The ten-fold cross validation accuracies for the gene-disease link prediction using the four methods are given in Table 2. The key diseases associated with skeletal muscle atrophy genes were identified and sorted. Out of these top ranked, 100 diseases were selected. The drugs were selected from the drug bank database and the ten most commonly used drugs for each of the diseases were selected. The Disease–Drug Knowledge Graph (DDKG) was then built from the diseases and drugs used to treat them. The DDKG is shown in Figure 5. Since the existing drugs are the most commonly used for these diseases, the link prediction method was used to find new repurposable drugs for these diseases which in turn can be used for repurposing for muscle atrophy in spaceflight. Figure 6 shows the Receiver Operating Characteristics (ROC) curve for link prediction using the GCN, GNN, Random Forest, Gradient Boosting, and preferential attachment methods applied to the DDKG. A total of 60% of the data from the DDKG was used for training and the remaining 40% for testing. Table 3 lists the new predicted links with the highest probabilities for disease and drugs using the GCN link prediction method. The predicted links with highest probabilities for drugs and diseases using the GNN method is given in Table 4 for comparison. The ten-fold cross validation accuracies for link prediction applied to DDKG are given in Table 5. The GDKG and DDKG are massively scalable knowledge graphs and have several properties, such as expansion and diffusion. Graph network measures computed on these graphs are listed in Table 6. The preferential attachment network measure-based link prediction gives an accuracy of 74.64% for the GDKG and 73.55% for the DDKG, respectively.",
+    "We have compared the GCN-based link prediction in the knowledge graphs with other ML methods, Random Forest, Gradient boosting, GNN, and preferential attachment. The GCN method demonstrated the best performance with highest accuracies from ten-fold cross validation for link prediction in both the GDKG and DDKG."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "All of the 423 genes in the GDKG are highly activated and related to muscle atrophy in spaceflight. However, it is necessary to identify a few most important genes related to other conditions that can enable the identification of drugs for repurposing. The GCN link prediction method has achieved the highest accuracy of 96.11%, as seen from AUROC values for the ten-fold cross validation accuracies for the four methods of RF, GB, GNN and GCN given in Table 2. The GCN link prediction method has predicted 20 important genes. Their association with other diseases is given in Table 1. For example, RPS25 is an mRNA significantly affected in spaceflight gastrocnemius and its reduction in bed rest. From Table 1, we see that this gene is not only significantly activated in muscle atrophy but is also associated with disorder of central nervous system. Similarly, many of the muscle atrophy genes in Table 1 such as SNF8, ELK4, FTO, and EIF3H are associated with neurodegenerative diseases. The Eukaryotic Initiation Factor (EIF) is one of the most complex translation initiation factors and consists of several subunits. The EIF3 complexes are central regulators of atrophy in skeletal muscle and are also linked to neurodegenerative diseases. Muscle activity causes the ubiquitin-proteasome system to remove sarcomeric proteins. A decrease in muscle mass is associated with: (1) increased conjugation of ubiquitin to muscle proteins; (2) increased proteasomal ATP-dependent activity; (3) increased protein breakdown that can be efficiently blocked by proteasome inhibitors; and (4) upregulation of transcripts encoding ubiquitin, some ubiquitin-conjugating enzymes (E2), a few ubiquitin-protein ligases (E3) and several proteasome subunits. The proteins such as NDUFS3 identified by the GCN link prediction methods are important for reversion of myopathies in mice. These are atrophy associated proteins (NDUFS3, NDUBF2 part of the ubiquitin-proteasome system. The loss of other target genes such as MEF2A results in progressive atrophy. Myostatin, a member of the TGF-ꞵ family is a negative regulator whose predominant secretion in skeletal muscles causes muscle atrophy. Similarly, an increase in autophagy related gene ATG3 is identified by GCN link prediction. Resistive Exercise (RE) with superimposed vibration mechanosignals (RVE) is proposed to counter muscle atrophy, which is effective against the over expression of Mitochondrial Ribosomal Proteins (MRPs) and Mitochondrial Tu Translation Elongation Factor (TUFM) that cause muscle atrophy. Some of the MRP proteins are identified to be linked with other diseases such as cancer. Lack of Zinc Finger RNA-binding (ZFR) proteins also cause severe muscle wasting. The collagen β(1-O)galactosyltransferase type 1 (COLGALT1) has been identified, whose loss of function also causes muscle atrophy. Many proteins such as RPL7A have increased expression in cancer. Other critical regulators of muscle atrophy such as protein arginine methyltransferases (PRMTs) -PRTM5 is linked by the GCN method. Other genes such as SNW1 are also prioritized in other diseases such as Amyotrophic Lateral Sclerosis (ALS). Hence, we find that genes overexpressed in skeletal muscle atrophy are also found to be prioritized in other diseases such as cancer, and neurodegenerative diseases. Mitochondria-related gene MRPS21 has been identified here as well, whose declined expression has been found in sarcopenia or age-related skeletal muscle deterioration.",
+    "The four ML link prediction methods are applied to the DDKG. As seen from Table 5, the GCN method obtains the highest accuracy of 99.19%. The top ranked drugs with new predicted links and highest probabilities above 0.7 using the GCN method are listed in Table 3. The drug L-carnitine is an essential nutrient that has been proposed as a dietary supplement to enhance ꞵ-oxidation and treat skeletal muscle atrophy conditions. This nutrient is predicted with the highest probability by the GCN method. This is followed by thiamine, which is also an essential nutrient that has been selected by the GCN method. Thiamine is another nutrient whose deficiency causes myotonic dystrophy. It has been found that treating patients with intramuscular thiamine 100mg twice a week for 11 to 12 months is effective in improving muscle strength. Both L-carnitine and thiamine are potential nutrients that can be given as a dietary supplement countermeasure for skeletal muscle atrophy in spaceflight. There is no specific treatment for muscle atrophy, with only recent advances in the identification of treatments such as nanotechnology approaches. However, ML based methods such as the GCN can be used to select drugs. The drugs selected by the GCN method for repurposing are commonly used for the treatment of diseases that are associated with skeletal muscle atrophy. Bimagrumab is an anabolic medication used for treating muscle wasting in COPD. Arcitumomab and golimumab are drugs belonging to the Monoclonal AntiBodies (MABs) family predicted by the GCN method (Table 3). Decline in anabolic signals and activation of catabolic pathways contribute differently to muscle atrophy pathogenesis associated with diseases or unfavorable conditions such as spaceflight. Hence, epigenetic drugs have been proposed to target multiple pathways. Fluocinolone acetonide is a corticosteroid with glucocorticoid activity selected by the GCN method, which could be a useful drug for repurposing for skeletal muscle atrophy. As mentioned in, niclosamide is not a good drug for repurposing for glucocorticoid-induced muscle atrophy or cancer cachexia. Anti-inflammatory drugs such as dexamethasone, and drugs alendronate have been proposed for the therapeutic management of muscle wasting and sarcopenia. Similar drugs such as hydrocortisone and chloroquine are selected by link prediction. Insulin resistance is a significant cause of decreased protein and glucose available for muscle anabolism. It can be noted from Table 3 that four insulin related medications have been selected for repurposing. The four drugs: L-carnitine, clindamycin, vitamin C, L-ornithine, and nelarabine selected by GCN, have also been selected by the GNN method with new predicted links and higher probability as seen in Table 4. Additionally, the common top ranked diseases with predicted links using GCN and GNN from the DDKG are metabolic diseases, type 2 diabetes, cancer, and neurological disorders. Although there is some overlap in the identified diseases and drugs using the GCN and GNN methods, the drugs predicted by the GCN method are more reliable, as this method has the highest accuracy for the link prediction probabilities. It has better performance in training with lesser samples, and validation accuracies.",
+    "The graph-theoretic measures of degree distribution, neighborhood connectivity, Eigenvector centrality, and subgraph centrality for the nodes in the GDKG and DDKG are listed in Supplementary Table S1 for the 473 genes, and in Supplementary Table S2 for the 98 drugs, respectively. The degree distribution ranges from 1 to 171 for the gene nodes in the GDKG network and between 5 to 76 for the drug nodes in the DDKG network, respectively. Some of the gene nodes, as well as drug nodes, have a higher number of connections in the networks. The neighborhood connectivity is higher in the GDKG because the network is constructed using a large number of diseases overlapping with skeletal muscle atrophy. The neighborhood connectivity is ten for all the drug nodes in the DDKG because we selected a maximum of ten significant drugs for each disease. The Eigenvector centrality is a measure of the influence of a node in a network, the higher this score, the greater the connectivity of this node with nodes that have a higher score for the same measure. This measure is similar for the genes and the drugs in both networks. The subgraph centrality of a node is a weighted sum of the numbers of all closed walks of different lengths in the network starting and ending at the node. There are more closed walks for the gene nodes in the GDKG, hence this value is higher for the gene nodes in GDKG than the drug nodes in the DDKG. The graph theoretic measures for the whole GDKG and DDKG networks are given in Table 6. The DDKG network has a higher value of spectral gap, indicating that the network is sparse, and has higher measures for random walk, diffusion, and expansion. The GDKG network has a higher average number of neighbors, indicating that the skeletal muscle genes have higher neighborhood connectivity measure.",
+    "The preferential attachment network measure-based link prediction gives an average accuracy of 74.10%, while the ML-based methods give accuracies above 80%. The random walk measure is shown to be a better network measure for link prediction than preferential attachment. The ML methods of GNN, RF and GB which use random walk features perform better than preferential attachment-based link prediction alone. The ML method of GCN that uses semi-supervised learning of the graph structure by node embeddings performs best for link prediction in both the GDKG and DDKG networks giving an accuracy of 96.11% and 99.19% in the GDKG and DDKG networks, respectively. The average accuracy of the GNN, RF, and Gboost method for link prediction in the GDKG network is 88.69%, whereas the GCN gives a much better accuracy of 96.11%. Overall, ML methods can be used for novel applications such as the identification of new gene regulators of diseases from spaceflight datasets and candidate drugs for their treatment."
+  ],
+  "CONCL": [
+    "5. Conclusions",
+    "Though skeletal muscle atrophy is known to be an incapacitating consequence of several chronic diseases, increasing morbidity and mortality, no drug is approved to treat this condition. It also severely affects animal models flown in spaceflight missions. In this paper, we have presented a comprehensive study on skeletal muscle atrophy identifying the key genes that give rise to this condition in spaceflight microgravity. By the application of ML algorithms, we have identified the main gene regulators of skeletal muscle atrophy that are also highly activated in other diseases. By constructing disease drug networks and applying ML algorithms for link prediction, we have identified top ranking drugs with the highest probability that are novel candidates for the management of skeletal muscle atrophy in spaceflight microgravity. In this work, we have mined seven GeneLab datasets to identify key genes and drugs. Through network analysis and ML methods, we show that our networks are scalable and can be expanded to include as many datasets, genes and drugs for speeding up the process of identifying repurposable drugs for medical conditions that arise in long duration spaceflights.",
+    "Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following are available online at , Table S1: Network measures for the 473 genes in the Gene Disease Knowledge Graph (GDKG); Table S2: Network measures for the Drug nodes in the Drug Disease Knowledge Graph (DDKG).",
+    "Data Availability Statement",
+    ", accessed on 1 August 2021."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, V.M. and J.O.-S.; methodology, V.M., J.O.-S. and V.D.-M.; software, J.O.-S. and V.D.-M.; validation, J.O.-S. and V.D.-M.; formal analysis, V.M., J.O.-S. and V.D.-M.; investigation, V.M. and H.J.; data curation, J.O.-S., V.D.-M. and C.A.; writing—original draft preparation, V.M., H.J., J.O.-S., V.D.-M. and C.A.; writing—review and editing, V.M., H.J., J.O.-S., V.D.-M. and C.A.; visualization, J.O.-S. and V.D.-M.; supervision, V.M. and H.J.; project administration, V.M.; funding acquisition, V.M. and H.J. All authors have read and agreed to the published version of the manuscript."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This research was funded by NASA EPSCoR, grant 80NSSC20M0132. The APC is funded by 80NSSC20M0132. Opinions, findings, conclusions, or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of NASA.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Mammalian and invertebrate models as complementary tools for gaining mechanistic insight on muscle responses to spaceflight",
+    "Spaceflight and hind limb unloading induces an arthritic phenotype in knee articular cartilage and menisci of rodents",
+    "Spaceflight and hind limb unloading induce similar changes in electrical impedance characteristics of mouse gastrocnemius muscle",
+    "Murine models of atrophy, cachexia, and sarcopenia in skeletal muscle",
+    "Effects of spaceflight on murine skeletal muscle gene expression",
+    "Muscle RING-finger protein-1 (MuRF1) functions and cellular localization are regulated by SUMO1 post-translational modification",
+    "Skeletal muscle in MuRF1 null mice is not spared in low-gravity conditions, indicating atrophy proceeds by unique mechanisms in space",
+    "Reduction of Skeletal Muscle Atrophy by a Proteasome Inhibitor in a Rat Model of Denervation",
+    "Combined effect of space flight and radiation on skeletal muscles of rats",
+    "In Vitro Modeling of Microgravity-Induced Muscle Atrophy and Spaceflight Radiation",
+    "Effects of Spaceflight on Musculoskeletal Health: A Systematic Review and Meta-analysis, Considerations for Interplanetary Travel",
+    "Update on the effects of microgravity on the musculoskeletal system",
+    "Towards human exploration of space: The THESEUS review series on muscle and bone research priorities",
+    "An Integrative Network Science and Artificial Intelligence Drug Repurposing Approach for Muscle Atrophy in Spaceflight Microgravity",
+    "NASA Gene Lab Data Repository",
+    "Radiation Data for GLDS Studies on the International Space Station",
+    "Network analysis of local gene regulators in Arabidopsis thaliana under spaceflight stress",
+    "A Markov-blanket-based model for gene regulatory network inference",
+    "Scalable Precision Medicine Knowledge Engine",
+    "Knowledge network embedding of transcriptomic data from spaceflown mice uncovers signs and symptoms associated with terrestrial diseases",
+    "On the origin of biomolecular networks",
+    "Application of network link prediction in drug discovery",
+    "Node2vec: Scalable feature learning for networks",
+    "The link-prediction problem for social networks",
+    "Semi-supervised classification with graph convolutional networks",
+    "Detection of Genes in Arabidopsis thaliana L. Responding to DNA Damage from Radiation and Other Stressors in Spaceflight",
+    "DrugBank Online",
+    "GeneCards®: The Human Gene Database",
+    "Effectiveness of Resistive Vibration Exercise and Whey Protein Supplementation Plus Alkaline Salt on the Skeletal Muscle Proteome Following 21 Days of Bed Rest in Healthy Males",
+    "Autophagy in Rare (NonLysosomal) Neurodegenerative Diseases",
+    "Meta-analysis of expression signatures of muscle atrophy: Gene interaction networks in early and late stages",
+    "eIF3: A factor for human health and disease",
+    "Protein breakdown in muscle wasting: Role of autophagy-lysosome and ubiquitin-proteasome",
+    "Myopathy reversion in mice after restauration of mitochondrial complex I",
+    "Integrated genomic and proteomic analyses identify stimulus-dependent molecular changes associated with distinct modes of skeletal muscle atrophy",
+    "MEF2 impairment underlies skeletal muscle atrophy in polyglutamine disease",
+    "Myostatin Activates the Ubiquitin-Proteasome and Autophagy-Lysosome Systems Contributing to Muscle Wasting in Chronic Kidney Disease",
+    "Vibration mechanosignals superimposed to resistive exercise result in baseline skeletal muscle transcriptome profiles following chronic disuse in bed rest",
+    "Severe muscle wasting and denervation in mice lacking the RNA-binding protein ZFP106",
+    "Loss of function of Colgalt1 disrupts collagen post-translational modification and causes musculoskeletal defects",
+    "Marked increased production of acute phase reactants by skeletal muscle during cancer cachexia",
+    "Role of Protein Arginine Methyltransferases and Inflammation in Muscle Pathophysiology",
+    "Protein Network Analysis to Prioritize Key Genes in Amyotrophic Lateral Sclerosis",
+    "Declined expressions of vast mitochondria-related genes represented by CYCS and transcription factor ESRRA in skeletal muscle aging",
+    "Potential therapeutic role of L-carnitine in skeletal muscle oxidative stress and atrophy conditions",
+    "Can long-term thiamine treatment improve the clinical outcomes of myotonic dystrophy type 1?",
+    "Advance in Drug Delivery for Ageing Skeletal Muscle",
+    "Anabolic medications for muscle wasting in chronic obstructive pulmonary disease: Is the evidence getting stronger?",
+    "Epigenetic drugs in the treatment of skeletal muscle atrophy",
+    "Investigation of niclosamide as a repurposing agent for skeletal muscle atrophy",
+    "Preventing muscle wasting by osteoporosis drug alendronate in vitro and in myopathy models via sirtuin-3 down-regulation",
+    "Oral drugs related with muscle wasting and sarcopenia. A review"
+  ],
+  "FIG": [
+    "Workflow pipeline showing the order of steps involved in constructing GDKG and DDKG and link prediction methods for finding key diseases associated with skeletal muscle atrophy genes and drugs for repurposing.",
+    "Graph Convolutional Network (GCN) is trained on the GDKG network. Figure shows the sparse GCN layer, ReLu activation function, graph embedding, and the decoded GCN with output predicted links between the genes and disease nodes. g1 and g2 are the gene nodes, d1, d2, and d3 are disease nodes. The output predicted links are shown as red dotted lines.",
+    "Gene Disease Network (Red nodes–Genes, Blue nodes–Disease).",
+    "Receiver Operating Characteristic (ROC) curve showing true positive and false positive scores for link prediction in the GDKG using the five methods.",
+    "Disease Drug Network (Red nodes—Drugs, Blue nodes—Diseases).",
+    "Receiver Operating Characteristic (ROC) curve showing the true positive and false positive scores for link prediction in the DDKG using the five methods."
+  ],
+  "TABLE": [
+    "Ranking of genes and diseases with new predicted links using GCN.",
+    "Gene\tDisease Code\tLink Prediction Probabilities\tDisease Name\t \tEIF3H\tICD10:C22\t0.92\tMalignant neoplasm of liver and intrahepatic bile ducts\t \tSNF8\tDOID:178\t0.83\tvascular disease\t \tRPS25\tICD10:G969\t0.77\tDisorder of central nervous system\t \tNDUFB2\tDOID:0050589\t0.79\tinflammatory bowel disease\t \tMTCH2\tDOID:10273\t0.95\theart conduction disease\t \tFTO\tDOID:1289\t0.79\tneurodegenerative disease\t \tNDUFS3\tICD10:I5\t0.97\tNon-ischemic myocardial injury (non-traumatic)\t \tMEF2A\tICD10:C25\t0.79\tMalignant neoplasm of the pancreas\t \tDDA1\tDOID:8857\t0.84\tlupus erythematosus\t \tATG3\tICD10:H8\t0.8\tdisorder of vestibular function\t \tCOG6\tICD10:N429\t0.73\tDisorder of prostate\t \tELK4\tDOID:6364\t0.71\tmigraine\t \tMRPL4\tDOID:2007\t0.73\tPesticide residues in food\t \tZFR\tICD10:N399\t0.78\tDisorder of urinary system\t \tELK4\tICD10:G93\t0.89\tbrain disorder\t \tCOLGALT1\tDOID:0050890\t0.84\tsynucleinopathy\t \tRPL7A\tICD10:K0\t0.81\tDiseases of the oral cavity and salivary glands\t \tPRMT5\tICD10:N399\t0.86\tDisorder of urinary system\t \tMRPS21\tDOID:0050687\t0.89\tcell type cancer\t \tSNW1\tICD10:C64\t0.83\tMalignant neoplasm of kidney",
+    "Ten-fold cross validation accuracies for link prediction using RF, Gboost, and GNN in GDKG.",
+    "Methods\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\tAUROC\t \tRF\t89.39\t88.64\t90.54\t91.76\t89.09\t88.57\t86.04\t91.03\t87.66\t90.94\t88.75\t \tGB\t85.28\t84.62\t87.03\t86.82\t85.62\t86.52\t83.22\t87.33\t82.89\t88.06\t85.69\t \tGNN\t87.70\t90.13\t89.78\t89.96\t88.79\t90.59\t85.60\t89.44\t88.35\t90.26\t88.63\t \tGCN\t88.95\t90.87\t91.21\t92.79\t93.00\t93.20\t94.29\t95.05\t95.72\t96.00\t96.11",
+    "Ranking of drugs and diseases with new predicted links using GCN.",
+    "Drugs\tDisease\tLink Prediction Probability\t \tL-CARNITINE\tMetabolic disease\t1\t \tTHIAMINE\tAutoimmune disease of the musculoskeletal system\t1\t \tTELITHROMYCIN\tBreast cancer\t0.98\t \tFLUOCINOLONE ACETONIDE\tUterine disease\t0.96\t \tRIBOFLAVIN\tAutoimmune disease of the musculoskeletal system\t0.94\t \tAZATHIOPRINE\tCardiovascular system disease\t0.94\t \tIVERMECTIN\tAllergic rhinitis\t0.9\t \tINSULIN LISPRO\tUrinary system disease\t0.9\t \tNELARABINE\tHypervitaminosis\t0.9\t \tSURAMIN\tAllergic rhinitis\t0.89\t \tTETRACYCLINE\tMale reproductive organ cancer\t0.86\t \tINSULIN DETEMIR\tUrinary system disease\t0.85\t \tPRAMLINTIDE\tType 2 diabetes mellitus\t0.84\t \tARCITUMOMAB\tBreast cancer\t0.83\t \tCLINDAMYCIN\tInfluenza and pneumonia\t0.83\t \tL-ORNITHINE\tVasomotor and allergic rhinitis\t0.83\t \tBUDESONIDE\tAutoimmune thyroiditis\t0.82\t \tGOLIMUMAB\tBenign neoplasm\t0.82\t \tARCITUMOMAB\tSkin disease\t0.82\t \tINSULIN, ISOPHANE\tUnspecified diabetes mellitus\t0.82\t \tHYDROCORTISONE\tIntegumentary system cancer\t0.82\t \tCHLOROQUINE\tBone inflammation disease\t0.82\t \tL-CARNITINE\tMalignant neoplasm\t0.82\t \tINSULIN GLARGINE\tDisease of the genitourinary system\t0.81\t \tKETOCONAZOLE\tAllergic rhinitis\t0.8\t \tWARFARIN\tGeneralized skin eruption\t0.79\t \tARCITUMOMAB\tNasal cavity disease\t0.79\t \tKETOCONAZOLE\tMalignant neoplasm of prostate\t0.79\t \tVITAMIN C\tLung disease\t0.78\t \tGALSULFASE\tMalignant neoplasm of other endocrine glands\t0.77\t \tL-ORNITHINE\tArterial fibrillation\t0.75\t \tLUCINACTANT\tMood disorder\t0.75\t \tVITAMIN C\tMental, behavioral and neurodevelopmental disorders\t0.74\t \tTETRACYCLINE\tAllergic rhinitis\t0.74\t \tSURAMIN\tOther disorders of central nervous system\t0.73\t \tSULFASALAZINE\tOther and unspecified noninfective gastroenteritis and colitis\t0.71\t \tTINIDAZOLE\tBronchial disease\t0.71",
+    "Ranking of drugs and diseases with new predicted links using GNN.",
+    "Drugs.\tDisease Name\tLink PredictionProbability\t \tMEMANTINE\tCarcinoma\t0.98\t \tCINNARIZINE\tCarcinoma\t0.97\t \tMEMANTINE\tHeart Disease\t0.97\t \tIXABEPILONE\tComplications Additionally, Ill-Defined Descriptions Of Heart Disease\t0.96\t \tPREDNISOLONE\tMalignant Neoplasm of Other Additionally, Unspecified Urinary Organs\t0.95\t \tCLINDAMYCIN\tArtery Disease\t0.93\t \tCLINDAMYCIN\tUrinary System Disease\t0.93\t \tLUCINACTANT\tMalignant Neoplasm of Other Additionally, Unspecified Major Salivary Glands\t0.93\t \tCINNARIZINE\tCancer\t0.93\t \tETOPOSIDE\tArtery Disease\t0.93\t \tL-ORNITHINE\tCarcinoma\t0.92\t \tLUCINACTANT\tDisorder Of Urinary System\t0.92\t \tIMATINIB\tHeart Conduction Disease\t0.91\t \tL-ORNITHINE\tHeart Disease\t0.89\t \tNELARABINE\tHeart Conduction Disease\t0.88\t \tNIMODIPINE\tAbscess Of Lung Additionally, Mediastinum\t0.87\t \tMETHOTREXATE\tIntegumentary System Cancer\t0.86\t \tPREDNISOLONE\tIn Situ Neoplasms\t0.85\t \tMELATONIN\tCognitive Disorder\t0.85\t \tTEMOZOLOMIDE\tOther Disorders of Urinary System\t0.84\t \tANASTROZOLE\tMalignant Neoplasm of Other Endocrine Glands Additionally, Related Structures\t0.82\t \tFLUOCINOLONE ACETONIDE\tOther Diseases of Liver\t0.79\t \tAGALSIDASE β\tCarbohydrate Metabolism Disease\t0.77\t \tCALCIUM ACETATE\tType 2 Diabetes Mellitus\t0.75\t \tCYSTEAMINE\tOther Disorders of Carbohydrate Metabolism\t0.74\t \tVITAMIN C\tType 2 Diabetes Mellitus\t0.74\t \tL-CARNITINE\tAutosomal Dominant Disease\t0.70\t \tIBUPROFEN\tCardiovascular System Disease\t0.70",
+    "Ten-fold cross validation accuracies for link prediction using RF, Gboost, and GNN in DDKG.",
+    "Methods\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\tAUROC\t \tRF\t96.69\t99.44\t99.60\t98.05\t99.88\t99.65\t98.34\t98.86\t99.68\t99.52\t98.09\t \tGB\t92.10\t97.12\t99.80\t91.60\t99.69\t96.83\t97.07\t94.86\t97.32\t98.39\t96.19\t \tGNN\t95.55\t99.36\t95.56\t95.42\t98.62\t99.22\t97.98\t95.18\t99.86\t100.00\t97.70\t \tGCN\t99.75\t100.00\t99.75\t99.872\t99.87\t100.00\t99.75\t100.00\t100.00\t99.87\t99.19",
+    "Graph theoretic measures for the GDKG and DDKG networks.",
+    "Network Measure\tGDKG\tDDKG\t \tSpectral gap\t37.5218\t99.7221\t \tDensity\t0.0221\t0.0452\t \tAverage number of neighbors\t26.423\t13.345"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mammalian and invertebrate models as complementary tools for gaining mechanistic insight on muscle responses to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "T. Cahill",
+          "nombres": "T.",
+          "apellidos": "Cahill"
+        },
+        {
+          "nombre_completo": "H. Cope",
+          "nombres": "H.",
+          "apellidos": "Cope"
+        },
+        {
+          "nombre_completo": "J.J. Bass",
+          "nombres": "J.J.",
+          "apellidos": "Bass"
+        },
+        {
+          "nombre_completo": "E.G. Overbey",
+          "nombres": "E.G.",
+          "apellidos": "Overbey"
+        },
+        {
+          "nombre_completo": "R. Gilbert",
+          "nombres": "R.",
+          "apellidos": "Gilbert"
+        },
+        {
+          "nombre_completo": "W.A. da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "da Silveira"
+        },
+        {
+          "nombre_completo": "A.M. Paul",
+          "nombres": "A.M.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "S.S. Reinsch",
+          "nombres": "S.S.",
+          "apellidos": "Reinsch"
+        }
+      ],
+      "pmid": "34502375",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight and hind limb unloading induces an arthritic phenotype in knee articular cartilage and menisci of rodents",
+      "autores": [
+        {
+          "nombre_completo": "A.T. Kwok",
+          "nombres": "A.T.",
+          "apellidos": "Kwok"
+        },
+        {
+          "nombre_completo": "N.S. Mohamed",
+          "nombres": "N.S.",
+          "apellidos": "Mohamed"
+        },
+        {
+          "nombre_completo": "J.F. Plate",
+          "nombres": "J.F.",
+          "apellidos": "Plate"
+        },
+        {
+          "nombre_completo": "R.R. Yammani",
+          "nombres": "R.R.",
+          "apellidos": "Yammani"
+        },
+        {
+          "nombre_completo": "S. Rosas",
+          "nombres": "S.",
+          "apellidos": "Rosas"
+        },
+        {
+          "nombre_completo": "T.A. Bateman",
+          "nombres": "T.A.",
+          "apellidos": "Bateman"
+        },
+        {
+          "nombre_completo": "E. Livingston",
+          "nombres": "E.",
+          "apellidos": "Livingston"
+        },
+        {
+          "nombre_completo": "J.E. Moore",
+          "nombres": "J.E.",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "B.A. Kerr",
+          "nombres": "B.A.",
+          "apellidos": "Kerr"
+        },
+        {
+          "nombre_completo": "J. Lee",
+          "nombres": "J.",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "34006989",
+      "fuente": "Sci. Rep.",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "10469",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight and hind limb unloading induce similar changes in electrical impedance characteristics of mouse gastrocnemius muscle",
+      "autores": [
+        {
+          "nombre_completo": "M. Sung",
+          "nombres": "M.",
+          "apellidos": "Sung"
+        },
+        {
+          "nombre_completo": "J. Li",
+          "nombres": "J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "A.J. Spieker",
+          "nombres": "A.J.",
+          "apellidos": "Spieker"
+        },
+        {
+          "nombre_completo": "J. Spatz",
+          "nombres": "J.",
+          "apellidos": "Spatz"
+        },
+        {
+          "nombre_completo": "R. Ellman",
+          "nombres": "R.",
+          "apellidos": "Ellman"
+        },
+        {
+          "nombre_completo": "V.L. Ferguson",
+          "nombres": "V.L.",
+          "apellidos": "Ferguson"
+        },
+        {
+          "nombre_completo": "T.A. Bateman",
+          "nombres": "T.A.",
+          "apellidos": "Bateman"
+        },
+        {
+          "nombre_completo": "G.D. Rosen",
+          "nombres": "G.D.",
+          "apellidos": "Rosen"
+        },
+        {
+          "nombre_completo": "M. Bouxsein",
+          "nombres": "M.",
+          "apellidos": "Bouxsein"
+        },
+        {
+          "nombre_completo": "S.B. Rutkove",
+          "nombres": "S.B.",
+          "apellidos": "Rutkove"
+        }
+      ],
+      "pmid": "24292610",
+      "fuente": "J. Musculoskelet. Neuronal Interact.",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "405",
+      "lpage": "411"
+    },
+    {
+      "titulo": "Murine models of atrophy, cachexia, and sarcopenia in skeletal muscle",
+      "autores": [
+        {
+          "nombre_completo": "M. Romanick",
+          "nombres": "M.",
+          "apellidos": "Romanick"
+        },
+        {
+          "nombre_completo": "L.D.V. Thompson",
+          "nombres": "L.D.V.",
+          "apellidos": "Thompson"
+        },
+        {
+          "nombre_completo": "H.M. Brown-Borg",
+          "nombres": "H.M.",
+          "apellidos": "Brown-Borg"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biochim. Biophys. Acta-Mol. Basis Dis.",
+      "anio": "2013",
+      "volumen": "1832",
+      "fpage": "1410",
+      "lpage": "1420"
+    },
+    {
+      "titulo": "Effects of spaceflight on murine skeletal muscle gene expression",
+      "autores": [
+        {
+          "nombre_completo": "D.L. Allen",
+          "nombres": "D.L.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "E.R. Bandstra",
+          "nombres": "E.R.",
+          "apellidos": "Bandstra"
+        },
+        {
+          "nombre_completo": "B.C. Harrison",
+          "nombres": "B.C.",
+          "apellidos": "Harrison"
+        },
+        {
+          "nombre_completo": "S. Thorng",
+          "nombres": "S.",
+          "apellidos": "Thorng"
+        },
+        {
+          "nombre_completo": "L.S. Stodieck",
+          "nombres": "L.S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "P.J. Kostenuik",
+          "nombres": "P.J.",
+          "apellidos": "Kostenuik"
+        },
+        {
+          "nombre_completo": "S. Morony",
+          "nombres": "S.",
+          "apellidos": "Morony"
+        },
+        {
+          "nombre_completo": "D.L. Lacey",
+          "nombres": "D.L.",
+          "apellidos": "Lacey"
+        },
+        {
+          "nombre_completo": "T.G. Hammond",
+          "nombres": "T.G.",
+          "apellidos": "Hammond"
+        },
+        {
+          "nombre_completo": "L.L. Leinwand",
+          "nombres": "L.L.",
+          "apellidos": "Leinwand"
+        }
+      ],
+      "pmid": "19074574",
+      "fuente": "J. Appl. Physiol.",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "582",
+      "lpage": "592"
+    },
+    {
+      "titulo": "Muscle RING-finger protein-1 (MuRF1) functions and cellular localization are regulated by SUMO1 post-translational modification",
+      "autores": [
+        {
+          "nombre_completo": "G. Heras",
+          "nombres": "G.",
+          "apellidos": "Heras"
+        },
+        {
+          "nombre_completo": "A.V. Namuduri",
+          "nombres": "A.V.",
+          "apellidos": "Namuduri"
+        },
+        {
+          "nombre_completo": "L. Traini",
+          "nombres": "L.",
+          "apellidos": "Traini"
+        },
+        {
+          "nombre_completo": "G. Shevchenko",
+          "nombres": "G.",
+          "apellidos": "Shevchenko"
+        },
+        {
+          "nombre_completo": "A. Falk",
+          "nombres": "A.",
+          "apellidos": "Falk"
+        },
+        {
+          "nombre_completo": "S. Bergström Lind",
+          "nombres": "S.",
+          "apellidos": "Bergström Lind"
+        },
+        {
+          "nombre_completo": "M. Jia",
+          "nombres": "M.",
+          "apellidos": "Jia"
+        },
+        {
+          "nombre_completo": "G. Tian",
+          "nombres": "G.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "S. Gastaldello",
+          "nombres": "S.",
+          "apellidos": "Gastaldello"
+        }
+      ],
+      "pmid": "29868881",
+      "fuente": "J. Mol. Cell Biol.",
+      "anio": "2019",
+      "volumen": "11",
+      "fpage": "356",
+      "lpage": "370"
+    },
+    {
+      "titulo": "Skeletal muscle in MuRF1 null mice is not spared in low-gravity conditions, indicating atrophy proceeds by unique mechanisms in space",
+      "autores": [
+        {
+          "nombre_completo": "S.M. Cadena",
+          "nombres": "S.M.",
+          "apellidos": "Cadena"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "J. Fang",
+          "nombres": "J.",
+          "apellidos": "Fang"
+        },
+        {
+          "nombre_completo": "S. Brachat",
+          "nombres": "S.",
+          "apellidos": "Brachat"
+        },
+        {
+          "nombre_completo": "P. Kuss",
+          "nombres": "P.",
+          "apellidos": "Kuss"
+        },
+        {
+          "nombre_completo": "E. Giorgetti",
+          "nombres": "E.",
+          "apellidos": "Giorgetti"
+        },
+        {
+          "nombre_completo": "L.S. Stodieck",
+          "nombres": "L.S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "M. Kneissel",
+          "nombres": "M.",
+          "apellidos": "Kneissel"
+        },
+        {
+          "nombre_completo": "D.J. Glass",
+          "nombres": "D.J.",
+          "apellidos": "Glass"
+        }
+      ],
+      "pmid": "31253821",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "9397",
+      "lpage": ""
+    },
+    {
+      "titulo": "Reduction of Skeletal Muscle Atrophy by a Proteasome Inhibitor in a Rat Model of Denervation",
+      "autores": [
+        {
+          "nombre_completo": "B.C. Beehler",
+          "nombres": "B.C.",
+          "apellidos": "Beehler"
+        },
+        {
+          "nombre_completo": "P.G. Sleph",
+          "nombres": "P.G.",
+          "apellidos": "Sleph"
+        },
+        {
+          "nombre_completo": "L. Benmassaoud",
+          "nombres": "L.",
+          "apellidos": "Benmassaoud"
+        },
+        {
+          "nombre_completo": "G.J. Grover",
+          "nombres": "G.J.",
+          "apellidos": "Grover"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Exp. Biol. Med.",
+      "anio": "2006",
+      "volumen": "231",
+      "fpage": "335",
+      "lpage": "341"
+    },
+    {
+      "titulo": "Combined effect of space flight and radiation on skeletal muscles of rats",
+      "autores": [
+        {
+          "nombre_completo": "P.V. EI Ilyina-kakueva",
+          "nombres": "P.V.",
+          "apellidos": "EI Ilyina-kakueva"
+        }
+      ],
+      "pmid": "860971",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "1977",
+      "volumen": "48",
+      "fpage": "115",
+      "lpage": "119"
+    },
+    {
+      "titulo": "In Vitro Modeling of Microgravity-Induced Muscle Atrophy and Spaceflight Radiation",
+      "autores": [
+        {
+          "nombre_completo": "C. Harding",
+          "nombres": "C.",
+          "apellidos": "Harding"
+        },
+        {
+          "nombre_completo": "J. Takemoto",
+          "nombres": "J.",
+          "apellidos": "Takemoto"
+        },
+        {
+          "nombre_completo": "E. Vargis",
+          "nombres": "E.",
+          "apellidos": "Vargis"
+        }
+      ],
+      "pmid": "",
+      "fuente": "NASA Sp. Grant Consort.",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "11"
+    },
+    {
+      "titulo": "Effects of Spaceflight on Musculoskeletal Health: A Systematic Review and Meta-analysis, Considerations for Interplanetary Travel",
+      "autores": [
+        {
+          "nombre_completo": "P. Comfort",
+          "nombres": "P.",
+          "apellidos": "Comfort"
+        },
+        {
+          "nombre_completo": "J.J. McMahon",
+          "nombres": "J.J.",
+          "apellidos": "McMahon"
+        },
+        {
+          "nombre_completo": "P.A. Jones",
+          "nombres": "P.A.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "M. Cuthbert",
+          "nombres": "M.",
+          "apellidos": "Cuthbert"
+        },
+        {
+          "nombre_completo": "K. Kendall",
+          "nombres": "K.",
+          "apellidos": "Kendall"
+        },
+        {
+          "nombre_completo": "J.P. Lake",
+          "nombres": "J.P.",
+          "apellidos": "Lake"
+        },
+        {
+          "nombre_completo": "G.G. Haff",
+          "nombres": "G.G.",
+          "apellidos": "Haff"
+        }
+      ],
+      "pmid": "34115344",
+      "fuente": "Sports Med.",
+      "anio": "2021",
+      "volumen": "51",
+      "fpage": "2097",
+      "lpage": "2114"
+    },
+    {
+      "titulo": "Update on the effects of microgravity on the musculoskeletal system",
+      "autores": [
+        {
+          "nombre_completo": "O.J. Juhl",
+          "nombres": "O.J.",
+          "apellidos": "Juhl"
+        },
+        {
+          "nombre_completo": "E.G. Buettmann",
+          "nombres": "E.G.",
+          "apellidos": "Buettmann"
+        },
+        {
+          "nombre_completo": "M.A. Friedman",
+          "nombres": "M.A.",
+          "apellidos": "Friedman"
+        },
+        {
+          "nombre_completo": "R.C. DeNapoli",
+          "nombres": "R.C.",
+          "apellidos": "DeNapoli"
+        },
+        {
+          "nombre_completo": "G.A. Hoppock",
+          "nombres": "G.A.",
+          "apellidos": "Hoppock"
+        },
+        {
+          "nombre_completo": "H.J. Donahue",
+          "nombres": "H.J.",
+          "apellidos": "Donahue"
+        }
+      ],
+      "pmid": "34301942",
+      "fuente": "npj Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "28",
+      "lpage": ""
+    },
+    {
+      "titulo": "Towards human exploration of space: The THESEUS review series on muscle and bone research priorities",
+      "autores": [
+        {
+          "nombre_completo": "T. Lang",
+          "nombres": "T.",
+          "apellidos": "Lang"
+        },
+        {
+          "nombre_completo": "J.J.W.A. Van Loon",
+          "nombres": "J.J.W.A.",
+          "apellidos": "Van Loon"
+        },
+        {
+          "nombre_completo": "S. Bloomfield",
+          "nombres": "S.",
+          "apellidos": "Bloomfield"
+        },
+        {
+          "nombre_completo": "L. Vico",
+          "nombres": "L.",
+          "apellidos": "Vico"
+        },
+        {
+          "nombre_completo": "A. Chopard",
+          "nombres": "A.",
+          "apellidos": "Chopard"
+        },
+        {
+          "nombre_completo": "J. Rittweger",
+          "nombres": "J.",
+          "apellidos": "Rittweger"
+        },
+        {
+          "nombre_completo": "A. Kyparos",
+          "nombres": "A.",
+          "apellidos": "Kyparos"
+        },
+        {
+          "nombre_completo": "D. Blottner",
+          "nombres": "D.",
+          "apellidos": "Blottner"
+        },
+        {
+          "nombre_completo": "I. Vuori",
+          "nombres": "I.",
+          "apellidos": "Vuori"
+        },
+        {
+          "nombre_completo": "R. Gerzer",
+          "nombres": "R.",
+          "apellidos": "Gerzer"
+        }
+      ],
+      "pmid": "28649630",
+      "fuente": "npj Microgravity",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "8",
+      "lpage": ""
+    },
+    {
+      "titulo": "An Integrative Network Science and Artificial Intelligence Drug Repurposing Approach for Muscle Atrophy in Spaceflight Microgravity",
+      "autores": [
+        {
+          "nombre_completo": "V. Manian",
+          "nombres": "V.",
+          "apellidos": "Manian"
+        },
+        {
+          "nombre_completo": "J. Orozco-Sandoval",
+          "nombres": "J.",
+          "apellidos": "Orozco-Sandoval"
+        },
+        {
+          "nombre_completo": "V. Diaz-Martinez",
+          "nombres": "V.",
+          "apellidos": "Diaz-Martinez"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front. Cell Dev. Biol.",
+      "anio": "2021",
+      "volumen": "9",
+      "fpage": "2434",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA Gene Lab Data Repository",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Radiation Data for GLDS Studies on the International Space Station",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Network analysis of local gene regulators in Arabidopsis thaliana under spaceflight stress",
+      "autores": [
+        {
+          "nombre_completo": "V. Manian",
+          "nombres": "V.",
+          "apellidos": "Manian"
+        },
+        {
+          "nombre_completo": "H. Gangapuram",
+          "nombres": "H.",
+          "apellidos": "Gangapuram"
+        },
+        {
+          "nombre_completo": "J. Orozco",
+          "nombres": "J.",
+          "apellidos": "Orozco"
+        },
+        {
+          "nombre_completo": "H. Janwa",
+          "nombres": "H.",
+          "apellidos": "Janwa"
+        },
+        {
+          "nombre_completo": "C. Agrinsoni",
+          "nombres": "C.",
+          "apellidos": "Agrinsoni"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Computers",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A Markov-blanket-based model for gene regulatory network inference",
+      "autores": [
+        {
+          "nombre_completo": "R. Ram",
+          "nombres": "R.",
+          "apellidos": "Ram"
+        },
+        {
+          "nombre_completo": "M. Chetty",
+          "nombres": "M.",
+          "apellidos": "Chetty"
+        }
+      ],
+      "pmid": "21233520",
+      "fuente": "IEEE/ACM Trans. Comput. Biol. Bioinform.",
+      "anio": "2011",
+      "volumen": "8",
+      "fpage": "353",
+      "lpage": "367"
+    },
+    {
+      "titulo": "Scalable Precision Medicine Knowledge Engine",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Knowledge network embedding of transcriptomic data from spaceflown mice uncovers signs and symptoms associated with terrestrial diseases",
+      "autores": [
+        {
+          "nombre_completo": "C.A. Nelson",
+          "nombres": "C.A.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "A.U. Acuna",
+          "nombres": "A.U.",
+          "apellidos": "Acuna"
+        },
+        {
+          "nombre_completo": "A.M. Paul",
+          "nombres": "A.M.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R.T. Scott",
+          "nombres": "R.T.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "A.J. Butte",
+          "nombres": "A.J.",
+          "apellidos": "Butte"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "S.E. Baranzini",
+          "nombres": "S.E.",
+          "apellidos": "Baranzini"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "33445483",
+      "fuente": "Life",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "On the origin of biomolecular networks",
+      "autores": [
+        {
+          "nombre_completo": "H. Janwa",
+          "nombres": "H.",
+          "apellidos": "Janwa"
+        },
+        {
+          "nombre_completo": "S.E. Massey",
+          "nombres": "S.E.",
+          "apellidos": "Massey"
+        },
+        {
+          "nombre_completo": "J. Velev",
+          "nombres": "J.",
+          "apellidos": "Velev"
+        },
+        {
+          "nombre_completo": "B. Mishra",
+          "nombres": "B.",
+          "apellidos": "Mishra"
+        }
+      ],
+      "pmid": "31024611",
+      "fuente": "Front. Genet.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "240",
+      "lpage": "257"
+    },
+    {
+      "titulo": "Application of network link prediction in drug discovery",
+      "autores": [
+        {
+          "nombre_completo": "K. Abbas",
+          "nombres": "K.",
+          "apellidos": "Abbas"
+        },
+        {
+          "nombre_completo": "A. Abbasi",
+          "nombres": "A.",
+          "apellidos": "Abbasi"
+        },
+        {
+          "nombre_completo": "S. Dong",
+          "nombres": "S.",
+          "apellidos": "Dong"
+        },
+        {
+          "nombre_completo": "L. Niu",
+          "nombres": "L.",
+          "apellidos": "Niu"
+        },
+        {
+          "nombre_completo": "L. Yu",
+          "nombres": "L.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "B. Chen",
+          "nombres": "B.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "S.-M. Cai",
+          "nombres": "S.-M.",
+          "apellidos": "Cai"
+        },
+        {
+          "nombre_completo": "Q. Hasan",
+          "nombres": "Q.",
+          "apellidos": "Hasan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinform.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Node2vec: Scalable feature learning for networks",
+      "autores": [
+        {
+          "nombre_completo": "A. Grover",
+          "nombres": "A.",
+          "apellidos": "Grover"
+        },
+        {
+          "nombre_completo": "J. Leskovec",
+          "nombres": "J.",
+          "apellidos": "Leskovec"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "anio": "",
+      "volumen": "",
+      "fpage": "855",
+      "lpage": "864"
+    },
+    {
+      "titulo": "The link-prediction problem for social networks",
+      "autores": [
+        {
+          "nombre_completo": "D. Liben-Nowell",
+          "nombres": "D.",
+          "apellidos": "Liben-Nowell"
+        },
+        {
+          "nombre_completo": "J. Kleinberg",
+          "nombres": "J.",
+          "apellidos": "Kleinberg"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Am. Soc. Inf. Sci. Technol.",
+      "anio": "2007",
+      "volumen": "58",
+      "fpage": "1019",
+      "lpage": "1031"
+    },
+    {
+      "titulo": "Semi-supervised classification with graph convolutional networks",
+      "autores": [
+        {
+          "nombre_completo": "T.N. Kipf",
+          "nombres": "T.N.",
+          "apellidos": "Kipf"
+        },
+        {
+          "nombre_completo": "M. Welling",
+          "nombres": "M.",
+          "apellidos": "Welling"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the 5th International Conference on Learning Representations",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Detection of Genes in Arabidopsis thaliana L. Responding to DNA Damage from Radiation and Other Stressors in Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "V. Manian",
+          "nombres": "V.",
+          "apellidos": "Manian"
+        },
+        {
+          "nombre_completo": "J. Orozco-sandoval",
+          "nombres": "J.",
+          "apellidos": "Orozco-sandoval"
+        },
+        {
+          "nombre_completo": "V. Diaz-Martinez",
+          "nombres": "V.",
+          "apellidos": "Diaz-Martinez"
+        }
+      ],
+      "pmid": "34205326",
+      "fuente": "Genes",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "DrugBank Online",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "GeneCards®: The Human Gene Database",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effectiveness of Resistive Vibration Exercise and Whey Protein Supplementation Plus Alkaline Salt on the Skeletal Muscle Proteome Following 21 Days of Bed Rest in Healthy Males",
+      "autores": [
+        {
+          "nombre_completo": "H.C. Kenny",
+          "nombres": "H.C.",
+          "apellidos": "Kenny"
+        },
+        {
+          "nombre_completo": "G. Tascher",
+          "nombres": "G.",
+          "apellidos": "Tascher"
+        },
+        {
+          "nombre_completo": "A. Ziemianin",
+          "nombres": "A.",
+          "apellidos": "Ziemianin"
+        },
+        {
+          "nombre_completo": "F. Rudwill",
+          "nombres": "F.",
+          "apellidos": "Rudwill"
+        },
+        {
+          "nombre_completo": "A. Zahariev",
+          "nombres": "A.",
+          "apellidos": "Zahariev"
+        },
+        {
+          "nombre_completo": "I. Chery",
+          "nombres": "I.",
+          "apellidos": "Chery"
+        },
+        {
+          "nombre_completo": "G. Gauquelin-Koch",
+          "nombres": "G.",
+          "apellidos": "Gauquelin-Koch"
+        },
+        {
+          "nombre_completo": "M. Barielle",
+          "nombres": "M.",
+          "apellidos": "Barielle"
+        },
+        {
+          "nombre_completo": "M. Heer",
+          "nombres": "M.",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "S. Blanc",
+          "nombres": "S.",
+          "apellidos": "Blanc"
+        }
+      ],
+      "pmid": "32609523",
+      "fuente": "J. Proteome Res. Am. Chem. Soc.",
+      "anio": "2020",
+      "volumen": "19",
+      "fpage": "3438",
+      "lpage": "3451"
+    },
+    {
+      "titulo": "Autophagy in Rare (NonLysosomal) Neurodegenerative Diseases",
+      "autores": [
+        {
+          "nombre_completo": "M. Zatyka",
+          "nombres": "M.",
+          "apellidos": "Zatyka"
+        },
+        {
+          "nombre_completo": "S. Sarkar",
+          "nombres": "S.",
+          "apellidos": "Sarkar"
+        },
+        {
+          "nombre_completo": "T. Barrett",
+          "nombres": "T.",
+          "apellidos": "Barrett"
+        }
+      ],
+      "pmid": "32087199",
+      "fuente": "J. Mol. Biol.",
+      "anio": "2020",
+      "volumen": "432",
+      "fpage": "2735",
+      "lpage": "2753"
+    },
+    {
+      "titulo": "Meta-analysis of expression signatures of muscle atrophy: Gene interaction networks in early and late stages",
+      "autores": [
+        {
+          "nombre_completo": "E. Calura",
+          "nombres": "E.",
+          "apellidos": "Calura"
+        },
+        {
+          "nombre_completo": "S. Cagnin",
+          "nombres": "S.",
+          "apellidos": "Cagnin"
+        },
+        {
+          "nombre_completo": "A. Raffaello",
+          "nombres": "A.",
+          "apellidos": "Raffaello"
+        },
+        {
+          "nombre_completo": "P. Laveder",
+          "nombres": "P.",
+          "apellidos": "Laveder"
+        },
+        {
+          "nombre_completo": "G. Lanfranchi",
+          "nombres": "G.",
+          "apellidos": "Lanfranchi"
+        },
+        {
+          "nombre_completo": "C. Romualdi",
+          "nombres": "C.",
+          "apellidos": "Romualdi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Genom.",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "eIF3: A factor for human health and disease",
+      "autores": [
+        {
+          "nombre_completo": "A. Gomes-Duarte",
+          "nombres": "A.",
+          "apellidos": "Gomes-Duarte"
+        },
+        {
+          "nombre_completo": "R. Lacerda",
+          "nombres": "R.",
+          "apellidos": "Lacerda"
+        },
+        {
+          "nombre_completo": "J. Menezes",
+          "nombres": "J.",
+          "apellidos": "Menezes"
+        },
+        {
+          "nombre_completo": "L. Romão",
+          "nombres": "L.",
+          "apellidos": "Romão"
+        }
+      ],
+      "pmid": "29099306",
+      "fuente": "RNA Biol.",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "26",
+      "lpage": "34"
+    },
+    {
+      "titulo": "Protein breakdown in muscle wasting: Role of autophagy-lysosome and ubiquitin-proteasome",
+      "autores": [
+        {
+          "nombre_completo": "M. Sandri",
+          "nombres": "M.",
+          "apellidos": "Sandri"
+        }
+      ],
+      "pmid": "23665154",
+      "fuente": "Int. J. Biochem. Cell Biol.",
+      "anio": "2013",
+      "volumen": "45",
+      "fpage": "2121",
+      "lpage": "2129"
+    },
+    {
+      "titulo": "Myopathy reversion in mice after restauration of mitochondrial complex I",
+      "autores": [
+        {
+          "nombre_completo": "C.V. Pereira",
+          "nombres": "C.V.",
+          "apellidos": "Pereira"
+        },
+        {
+          "nombre_completo": "S. Peralta",
+          "nombres": "S.",
+          "apellidos": "Peralta"
+        },
+        {
+          "nombre_completo": "T. Arguello",
+          "nombres": "T.",
+          "apellidos": "Arguello"
+        },
+        {
+          "nombre_completo": "S.R. Bacman",
+          "nombres": "S.R.",
+          "apellidos": "Bacman"
+        },
+        {
+          "nombre_completo": "F. Diaz",
+          "nombres": "F.",
+          "apellidos": "Diaz"
+        },
+        {
+          "nombre_completo": "C.T. Moraes",
+          "nombres": "C.T.",
+          "apellidos": "Moraes"
+        }
+      ],
+      "pmid": "31916679",
+      "fuente": "EMBO Mol. Med.",
+      "anio": "2020",
+      "volumen": "12",
+      "fpage": "e10674",
+      "lpage": ""
+    },
+    {
+      "titulo": "Integrated genomic and proteomic analyses identify stimulus-dependent molecular changes associated with distinct modes of skeletal muscle atrophy",
+      "autores": [
+        {
+          "nombre_completo": "L.C. Hunt",
+          "nombres": "L.C.",
+          "apellidos": "Hunt"
+        },
+        {
+          "nombre_completo": "F.A. Graca",
+          "nombres": "F.A.",
+          "apellidos": "Graca"
+        },
+        {
+          "nombre_completo": "V. Pagala",
+          "nombres": "V.",
+          "apellidos": "Pagala"
+        },
+        {
+          "nombre_completo": "Y.D. Wang",
+          "nombres": "Y.D.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Li",
+          "nombres": "Y.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Z.F. Yuan",
+          "nombres": "Z.F.",
+          "apellidos": "Yuan"
+        },
+        {
+          "nombre_completo": "Y. Fan",
+          "nombres": "Y.",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "M. Labelle",
+          "nombres": "M.",
+          "apellidos": "Labelle"
+        },
+        {
+          "nombre_completo": "J. Peng",
+          "nombres": "J.",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "F. Demontis",
+          "nombres": "F.",
+          "apellidos": "Demontis"
+        }
+      ],
+      "pmid": "34758314",
+      "fuente": "Cell Rep.",
+      "anio": "2021",
+      "volumen": "37",
+      "fpage": "109971",
+      "lpage": ""
+    },
+    {
+      "titulo": "MEF2 impairment underlies skeletal muscle atrophy in polyglutamine disease",
+      "autores": [
+        {
+          "nombre_completo": "S.R. Nath",
+          "nombres": "S.R.",
+          "apellidos": "Nath"
+        },
+        {
+          "nombre_completo": "M.L. Lieberman",
+          "nombres": "M.L.",
+          "apellidos": "Lieberman"
+        },
+        {
+          "nombre_completo": "Z. Yu",
+          "nombres": "Z.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "C. Marchioretti",
+          "nombres": "C.",
+          "apellidos": "Marchioretti"
+        },
+        {
+          "nombre_completo": "S.T. Jones",
+          "nombres": "S.T.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "E.C.E. Danby",
+          "nombres": "E.C.E.",
+          "apellidos": "Danby"
+        },
+        {
+          "nombre_completo": "K.M. Van Pelt",
+          "nombres": "K.M.",
+          "apellidos": "Van Pelt"
+        },
+        {
+          "nombre_completo": "G. Sorarù",
+          "nombres": "G.",
+          "apellidos": "Sorarù"
+        },
+        {
+          "nombre_completo": "D.M. Robins",
+          "nombres": "D.M.",
+          "apellidos": "Robins"
+        },
+        {
+          "nombre_completo": "G.P. Bates",
+          "nombres": "G.P.",
+          "apellidos": "Bates"
+        }
+      ],
+      "pmid": "32306066",
+      "fuente": "Acta Neuropathol.",
+      "anio": "2020",
+      "volumen": "140",
+      "fpage": "63",
+      "lpage": "80"
+    },
+    {
+      "titulo": "Myostatin Activates the Ubiquitin-Proteasome and Autophagy-Lysosome Systems Contributing to Muscle Wasting in Chronic Kidney Disease",
+      "autores": [
+        {
+          "nombre_completo": "D.T. Wang",
+          "nombres": "D.T.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y.J. Yang",
+          "nombres": "Y.J.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "R.H. Huang",
+          "nombres": "R.H.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "Z.H. Zhang",
+          "nombres": "Z.H.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "X. Lin",
+          "nombres": "X.",
+          "apellidos": "Lin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Oxid. Med. Cell. Longev.",
+      "anio": "2015",
+      "volumen": "2015",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Vibration mechanosignals superimposed to resistive exercise result in baseline skeletal muscle transcriptome profiles following chronic disuse in bed rest",
+      "autores": [
+        {
+          "nombre_completo": "M. Salanova",
+          "nombres": "M.",
+          "apellidos": "Salanova"
+        },
+        {
+          "nombre_completo": "G. Gambara",
+          "nombres": "G.",
+          "apellidos": "Gambara"
+        },
+        {
+          "nombre_completo": "M. Moriggi",
+          "nombres": "M.",
+          "apellidos": "Moriggi"
+        },
+        {
+          "nombre_completo": "M. Vasso",
+          "nombres": "M.",
+          "apellidos": "Vasso"
+        },
+        {
+          "nombre_completo": "U. Ungethuem",
+          "nombres": "U.",
+          "apellidos": "Ungethuem"
+        },
+        {
+          "nombre_completo": "D.L. Belavý",
+          "nombres": "D.L.",
+          "apellidos": "Belavý"
+        },
+        {
+          "nombre_completo": "D. Felsenberg",
+          "nombres": "D.",
+          "apellidos": "Felsenberg"
+        },
+        {
+          "nombre_completo": "P. Cerretelli",
+          "nombres": "P.",
+          "apellidos": "Cerretelli"
+        },
+        {
+          "nombre_completo": "C. Gelfi",
+          "nombres": "C.",
+          "apellidos": "Gelfi"
+        },
+        {
+          "nombre_completo": "D. Blottner",
+          "nombres": "D.",
+          "apellidos": "Blottner"
+        }
+      ],
+      "pmid": "26596638",
+      "fuente": "Sci. Rep.",
+      "anio": "2015",
+      "volumen": "5",
+      "fpage": "17027",
+      "lpage": ""
+    },
+    {
+      "titulo": "Severe muscle wasting and denervation in mice lacking the RNA-binding protein ZFP106",
+      "autores": [
+        {
+          "nombre_completo": "D.M. Anderson",
+          "nombres": "D.M.",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "J. Cannavino",
+          "nombres": "J.",
+          "apellidos": "Cannavino"
+        },
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "K.M. Anderson",
+          "nombres": "K.M.",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "B.R. Nelson",
+          "nombres": "B.R.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "J. McAnally",
+          "nombres": "J.",
+          "apellidos": "McAnally"
+        },
+        {
+          "nombre_completo": "S. Bezprozvannaya",
+          "nombres": "S.",
+          "apellidos": "Bezprozvannaya"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "W. Lin",
+          "nombres": "W.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "N. Liu",
+          "nombres": "N.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "27418600",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2016",
+      "volumen": "113",
+      "fpage": "E4494",
+      "lpage": "E4503"
+    },
+    {
+      "titulo": "Loss of function of Colgalt1 disrupts collagen post-translational modification and causes musculoskeletal defects",
+      "autores": [
+        {
+          "nombre_completo": "K.A. Geister",
+          "nombres": "K.A.",
+          "apellidos": "Geister"
+        },
+        {
+          "nombre_completo": "A.J. Lopez-Jimenez",
+          "nombres": "A.J.",
+          "apellidos": "Lopez-Jimenez"
+        },
+        {
+          "nombre_completo": "S. Houghtaling",
+          "nombres": "S.",
+          "apellidos": "Houghtaling"
+        },
+        {
+          "nombre_completo": "T.H. Ho",
+          "nombres": "T.H.",
+          "apellidos": "Ho"
+        },
+        {
+          "nombre_completo": "R. Vanacore",
+          "nombres": "R.",
+          "apellidos": "Vanacore"
+        },
+        {
+          "nombre_completo": "D.R. Beier",
+          "nombres": "D.R.",
+          "apellidos": "Beier"
+        }
+      ],
+      "pmid": "31101663",
+      "fuente": "DMM Dis. Model. Mech.",
+      "anio": "2019",
+      "volumen": "12",
+      "fpage": "dmm037176",
+      "lpage": ""
+    },
+    {
+      "titulo": "Marked increased production of acute phase reactants by skeletal muscle during cancer cachexia",
+      "autores": [
+        {
+          "nombre_completo": "I.S. Massart",
+          "nombres": "I.S.",
+          "apellidos": "Massart"
+        },
+        {
+          "nombre_completo": "G. Paulissen",
+          "nombres": "G.",
+          "apellidos": "Paulissen"
+        },
+        {
+          "nombre_completo": "A. Loumaye",
+          "nombres": "A.",
+          "apellidos": "Loumaye"
+        },
+        {
+          "nombre_completo": "P. Lause",
+          "nombres": "P.",
+          "apellidos": "Lause"
+        },
+        {
+          "nombre_completo": "S.A. Pötgens",
+          "nombres": "S.A.",
+          "apellidos": "Pötgens"
+        },
+        {
+          "nombre_completo": "M.M. Thibaut",
+          "nombres": "M.M.",
+          "apellidos": "Thibaut"
+        },
+        {
+          "nombre_completo": "E. Balan",
+          "nombres": "E.",
+          "apellidos": "Balan"
+        },
+        {
+          "nombre_completo": "L. Deldicque",
+          "nombres": "L.",
+          "apellidos": "Deldicque"
+        },
+        {
+          "nombre_completo": "A. Atfi",
+          "nombres": "A.",
+          "apellidos": "Atfi"
+        },
+        {
+          "nombre_completo": "E. Louis",
+          "nombres": "E.",
+          "apellidos": "Louis"
+        }
+      ],
+      "pmid": "33142864",
+      "fuente": "Cancers",
+      "anio": "2020",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Role of Protein Arginine Methyltransferases and Inflammation in Muscle Pathophysiology",
+      "autores": [
+        {
+          "nombre_completo": "H.K. So",
+          "nombres": "H.K.",
+          "apellidos": "So"
+        },
+        {
+          "nombre_completo": "S. Kim",
+          "nombres": "S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "J.S. Kang",
+          "nombres": "J.S.",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "S.J. Lee",
+          "nombres": "S.J.",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "34489731",
+      "fuente": "Front. Physiol.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "712389",
+      "lpage": ""
+    },
+    {
+      "titulo": "Protein Network Analysis to Prioritize Key Genes in Amyotrophic Lateral Sclerosis",
+      "autores": [
+        {
+          "nombre_completo": "R. Kumar",
+          "nombres": "R.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "S. Haider",
+          "nombres": "S.",
+          "apellidos": "Haider"
+        }
+      ],
+      "pmid": "34918006",
+      "fuente": "IBRO Neurosci. Rep.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "25",
+      "lpage": "44"
+    },
+    {
+      "titulo": "Declined expressions of vast mitochondria-related genes represented by CYCS and transcription factor ESRRA in skeletal muscle aging",
+      "autores": [
+        {
+          "nombre_completo": "J. Kan",
+          "nombres": "J.",
+          "apellidos": "Kan"
+        },
+        {
+          "nombre_completo": "Y. Hu",
+          "nombres": "Y.",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "Y. Ge",
+          "nombres": "Y.",
+          "apellidos": "Ge"
+        },
+        {
+          "nombre_completo": "W.S. Zhang",
+          "nombres": "W.S.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S. Lu",
+          "nombres": "S.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "C. Zhao",
+          "nombres": "C.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "R. Zhang",
+          "nombres": "R.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "34229541",
+      "fuente": "Bioengineered",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "3485",
+      "lpage": "3502"
+    },
+    {
+      "titulo": "Potential therapeutic role of L-carnitine in skeletal muscle oxidative stress and atrophy conditions",
+      "autores": [
+        {
+          "nombre_completo": "A. Montesano",
+          "nombres": "A.",
+          "apellidos": "Montesano"
+        },
+        {
+          "nombre_completo": "P. Senesi",
+          "nombres": "P.",
+          "apellidos": "Senesi"
+        },
+        {
+          "nombre_completo": "L. Luzi",
+          "nombres": "L.",
+          "apellidos": "Luzi"
+        },
+        {
+          "nombre_completo": "S. Benedini",
+          "nombres": "S.",
+          "apellidos": "Benedini"
+        },
+        {
+          "nombre_completo": "I. Terruzzi",
+          "nombres": "I.",
+          "apellidos": "Terruzzi"
+        }
+      ],
+      "pmid": "25838869",
+      "fuente": "Oxid. Med. Cell. Longev.",
+      "anio": "2015",
+      "volumen": "2015",
+      "fpage": "646171",
+      "lpage": ""
+    },
+    {
+      "titulo": "Can long-term thiamine treatment improve the clinical outcomes of myotonic dystrophy type 1?",
+      "autores": [
+        {
+          "nombre_completo": "A. Costantini",
+          "nombres": "A.",
+          "apellidos": "Costantini"
+        },
+        {
+          "nombre_completo": "E. Trevi",
+          "nombres": "E.",
+          "apellidos": "Trevi"
+        },
+        {
+          "nombre_completo": "M.I. Pala",
+          "nombres": "M.I.",
+          "apellidos": "Pala"
+        },
+        {
+          "nombre_completo": "R. Fancellu",
+          "nombres": "R.",
+          "apellidos": "Fancellu"
+        }
+      ],
+      "pmid": "27857755",
+      "fuente": "Neural Regen. Res.",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "1487",
+      "lpage": "1491"
+    },
+    {
+      "titulo": "Advance in Drug Delivery for Ageing Skeletal Muscle",
+      "autores": [
+        {
+          "nombre_completo": "Y. Li",
+          "nombres": "Y.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "M. Chen",
+          "nombres": "M.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y. Zhao",
+          "nombres": "Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "M. Li",
+          "nombres": "M.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y. Qin",
+          "nombres": "Y.",
+          "apellidos": "Qin"
+        },
+        {
+          "nombre_completo": "S. Cheng",
+          "nombres": "S.",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "Y. Yang",
+          "nombres": "Y.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "P. Yin",
+          "nombres": "P.",
+          "apellidos": "Yin"
+        },
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "P. Tang",
+          "nombres": "P.",
+          "apellidos": "Tang"
+        }
+      ],
+      "pmid": "32733249",
+      "fuente": "Front. Pharmacol.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "1016",
+      "lpage": ""
+    },
+    {
+      "titulo": "Anabolic medications for muscle wasting in chronic obstructive pulmonary disease: Is the evidence getting stronger?",
+      "autores": [
+        {
+          "nombre_completo": "N. Marchetti",
+          "nombres": "N.",
+          "apellidos": "Marchetti"
+        }
+      ],
+      "pmid": "30110186",
+      "fuente": "Am. J. Respir. Crit. Care Med.",
+      "anio": "2019",
+      "volumen": "199",
+      "fpage": "256",
+      "lpage": "258"
+    },
+    {
+      "titulo": "Epigenetic drugs in the treatment of skeletal muscle atrophy",
+      "autores": [
+        {
+          "nombre_completo": "V. Guasconi",
+          "nombres": "V.",
+          "apellidos": "Guasconi"
+        },
+        {
+          "nombre_completo": "P.L. Puri",
+          "nombres": "P.L.",
+          "apellidos": "Puri"
+        }
+      ],
+      "pmid": "18403918",
+      "fuente": "Curr. Opin. Clin. Nutr. Metab. Care",
+      "anio": "2008",
+      "volumen": "11",
+      "fpage": "233",
+      "lpage": "241"
+    },
+    {
+      "titulo": "Investigation of niclosamide as a repurposing agent for skeletal muscle atrophy",
+      "autores": [
+        {
+          "nombre_completo": "H.J. Kim",
+          "nombres": "H.J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "J.H. Lee",
+          "nombres": "J.H.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "S.W. Kim",
+          "nombres": "S.W.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S.H. Lee",
+          "nombres": "S.H.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "D.W. Jung",
+          "nombres": "D.W.",
+          "apellidos": "Jung"
+        },
+        {
+          "nombre_completo": "D.R. Williams",
+          "nombres": "D.R.",
+          "apellidos": "Williams"
+        }
+      ],
+      "pmid": "34038481",
+      "fuente": "PLoS ONE",
+      "anio": "2021",
+      "volumen": "16",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Preventing muscle wasting by osteoporosis drug alendronate in vitro and in myopathy models via sirtuin-3 down-regulation",
+      "autores": [
+        {
+          "nombre_completo": "H.C. Chiu",
+          "nombres": "H.C.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "C.Y. Chiu",
+          "nombres": "C.Y.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "R.S. Yang",
+          "nombres": "R.S.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "D.C. Chan",
+          "nombres": "D.C.",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "S.H. Liu",
+          "nombres": "S.H.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "C.K. Chiang",
+          "nombres": "C.K.",
+          "apellidos": "Chiang"
+        }
+      ],
+      "pmid": "29512306",
+      "fuente": "J. Cachexia. Sarcopenia Muscle",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "585",
+      "lpage": "602"
+    },
+    {
+      "titulo": "Oral drugs related with muscle wasting and sarcopenia. A review",
+      "autores": [
+        {
+          "nombre_completo": "L. Campins",
+          "nombres": "L.",
+          "apellidos": "Campins"
+        },
+        {
+          "nombre_completo": "M. Camps",
+          "nombres": "M.",
+          "apellidos": "Camps"
+        },
+        {
+          "nombre_completo": "A. Riera",
+          "nombres": "A.",
+          "apellidos": "Riera"
+        },
+        {
+          "nombre_completo": "E. Pleguezuelos",
+          "nombres": "E.",
+          "apellidos": "Pleguezuelos"
+        },
+        {
+          "nombre_completo": "J.C. Yebenes",
+          "nombres": "J.C.",
+          "apellidos": "Yebenes"
+        },
+        {
+          "nombre_completo": "M. Serra-Prat",
+          "nombres": "M.",
+          "apellidos": "Serra-Prat"
+        }
+      ],
+      "pmid": "27578190",
+      "fuente": "Pharmacology",
+      "anio": "2017",
+      "volumen": "99",
+      "fpage": "1",
+      "lpage": "8"
+    }
+  ]
+}

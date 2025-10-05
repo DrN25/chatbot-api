@@ -1,0 +1,570 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences from a Novel Clade of Bacillus cereus Sensu Lato Strains, Isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "ABSTRACT",
+    "The draft genome sequences of six Bacillus strains, isolated from the International Space Station and belonging to the Bacillus anthracis-B. cereus-B. thuringiensis group, are presented here. These strains were isolated from the Japanese Experiment Module (one strain), U.S. Harmony Node 2 (three strains), and Russian Segment Zvezda Module (two strains)."
+  ],
+  "INTRO": [
+    "GENOME ANNOUNCEMENT",
+    "Among the six Bacillus cereus sensu lato strains reported here, three U.S. Harmony Node 2 isolates (ISSFR-3F, ISSFR-9F, and ISSFT-23F) and one Japanese Experiment Module isolate (JEM-2) were sequenced and assembled with both Illumina MiSeq and PacBio RSII sequence data. The remaining assemblies, including two Russian isolates, were sequenced and assembled with only MiSeq data. The MiSeq runs yielded on average 24 to 54 million 300-bp reads (from 1,402× to 3,093× average coverage), while PacBio yielded 4,000 to 116,000 reads (from 7× to 202× average coverage) (Table 1). Due to the extremely high coverage (>1,000×), Illumina MiSeq reads were randomly down-sampled to 100× using an estimated genome size of 5.3 Mb, resulting in an average of 1.2 to 1.5 million paired-end reads per isolate. Next, the down-sampled reads were assembled using iMetAMOS with IDBA_UD and SPAdes. IDBA_UD was selected as the best assembly for all six isolates. Low confidence bases within the selected IDBA_UD assemblies were masked out by mapping all reads to the assembled contigs and detecting conflicting variants with FreeBayes. The PacBio reads were assembled following the methods described by Berlin et al. with Celera Assembler version 8.3rc1 and polished with Quiver. A second round of polishing was performed post-Quiver using the available MiSeq data as input to Pilon.",
+    "The six International Space Station (ISS) isolates were aligned (NUCmer, Parsnp) against members of the B. cereus sensu lato group genomes. The PacBio assemblies were used for all isolates with sufficient read coverage, and Illumina assemblies were used for the remaining isolates. Based on genome size estimates (5.2 to 5.3 Mb), NUCmer pairwise alignments (>99.9% average pairwise nucleotide identity) and maximum-likelihood phylogenetic placement, all six isolates were found to exhibit a very high degree of similarity.",
+    "Finally, due to their high genomic similarity to the B. anthracis type strain (>98% average nucleotide identity), all six genomes were examined for evidence of pathogenicity. However, none of the commonly known B. anthracis signature elements were identified. Specifically, all six ISS isolates (i) contain the plcR ancestral “C” allele, which has been used in large-scale phylogenetic analyses to distinguish B. anthracis strains from the rest of the B. cereus group; (ii) lack significant hits to pXO1 and pXO2 plasmids; and (iii) are phylogenetically placed outside of the B. anthracis clade. Results were consistent with a comparative genomic analysis performed using the Lawrence Livermore National Laboratory Microbial Threat Characterization Pipeline. Altogether, the collective genomic evidence supports the conclusion that the six ISS isolates represent a novel Bacillus sp. located within the B. cereus sensu lato group.",
+    "Accession number(s).",
+    "The complete genome sequences were deposited in NCBI under the accession numbers listed in Table 1 and can be accessed from the NASA GeneLab system (GLDS-64; https://genelab-data.ndc.nasa.gov/genelab/accession/GLDS-64).",
+    "Citation Venkateswaran K, Checinska Sielaff A, Ratnayake S, Pope RK, Blank TE, Stepanov VG, Fox GE, van Tongeren SP, Torres C, Allen J, Jaing C, Pierson D, Perry J, Koren S, Phillippy A, Klubnik J, Treangen TJ, Rosovitz MJ, Bergman NH. 2017. Draft genome sequences from a novel clade of Bacillus cereus sensu lato strains, isolated from the International Space Station. Genome Announc 5:e00680-17. https://doi.org/10.1128/genomeA.00680-17."
+  ],
+  "TABLE": [
+    "De novo assembly statistics of the Bacillus spp. isolated from the ISS",
+    "Isolate no.\tISS module\tGenBank accession no.\tSequencing platform\tNo. of reads\tAvg. read coverage (×)\tN50 (Mb)\tNo. of contigs\t \tISSFR-3F\tU.S.a  \tCP018931\tPacBio\t116,418\t202\t5.2\t2\t \tISSFR-9F\tU.S.\tCP018933\tPacBio\t15,939\t42\t5.2 \t2\t \tISSFR-23F\tU.S.\tMSMO00000000\tPacBio\t8,145\t17\t0.6 \t16\t \tJEM-2\tJapanb  \tCP018935\tPacBio\t40,305\t80\t5.2 \t2\t \tS1-R4H1-FB\tRussian Federationc\tNBNT00000000\tIllumina\t4,275,902\t242\t0.1\t329\t \tS2-R3J1-FB-BA1\tRussian Federation\tNBNR00000000\tIllumina\t11,266,760\t638\t0.4\t388",
+    "U.S., U.S. Segment Harmony Node 2.",
+    "Japan, Kibo Japanese Experiment Module (JEM).",
+    "Russian Federation, Russian Segment Zvezda Module."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Automated ensemble assembly and validation of microbial genomes",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth",
+    "Assembling large genomes with single-molecule sequencing and locality-sensitive hashing",
+    "Nonhybrid, finished microbial genome assemblies from long-read SMRT sequencing data",
+    "Pilon: an integrated tool for comprehensive microbial variant detection and genome assembly improvement",
+    "Using MUMmer to identify similar regions in large sequence sets",
+    "The Harvest suite for rapid core-genome alignment and visualization of thousands of intraspecific microbial genomes",
+    "Genomic characterization of the Bacillus cereus sensu lato species: backdrop to the evolution of Bacillus anthracis",
+    "Use of single nucleotide polymorphisms in the plcR gene for specific identification of Bacillus anthracis"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Automated ensemble assembly and validation of microbial genomes",
+      "autores": [
+        {
+          "nombre_completo": "S Koren",
+          "nombres": "S",
+          "apellidos": "Koren"
+        },
+        {
+          "nombre_completo": "TJ Treangen",
+          "nombres": "TJ",
+          "apellidos": "Treangen"
+        },
+        {
+          "nombre_completo": "CM Hill",
+          "nombres": "CM",
+          "apellidos": "Hill"
+        },
+        {
+          "nombre_completo": "M Pop",
+          "nombres": "M",
+          "apellidos": "Pop"
+        },
+        {
+          "nombre_completo": "AM Phillippy",
+          "nombres": "AM",
+          "apellidos": "Phillippy"
+        }
+      ],
+      "pmid": "24884846",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "126",
+      "lpage": ""
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth",
+      "autores": [
+        {
+          "nombre_completo": "Y Peng",
+          "nombres": "Y",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "HC Leung",
+          "nombres": "HC",
+          "apellidos": "Leung"
+        },
+        {
+          "nombre_completo": "SM Yiu",
+          "nombres": "SM",
+          "apellidos": "Yiu"
+        },
+        {
+          "nombre_completo": "FY Chin",
+          "nombres": "FY",
+          "apellidos": "Chin"
+        }
+      ],
+      "pmid": "22495754",
+      "fuente": "Bioinformatics",
+      "anio": "2012",
+      "volumen": "28",
+      "fpage": "1420",
+      "lpage": "1428"
+    },
+    {
+      "titulo": "Assembling large genomes with single-molecule sequencing and locality-sensitive hashing",
+      "autores": [
+        {
+          "nombre_completo": "K Berlin",
+          "nombres": "K",
+          "apellidos": "Berlin"
+        },
+        {
+          "nombre_completo": "S Koren",
+          "nombres": "S",
+          "apellidos": "Koren"
+        },
+        {
+          "nombre_completo": "CS Chin",
+          "nombres": "CS",
+          "apellidos": "Chin"
+        },
+        {
+          "nombre_completo": "JP Drake",
+          "nombres": "JP",
+          "apellidos": "Drake"
+        },
+        {
+          "nombre_completo": "JM Landolin",
+          "nombres": "JM",
+          "apellidos": "Landolin"
+        },
+        {
+          "nombre_completo": "AM Phillippy",
+          "nombres": "AM",
+          "apellidos": "Phillippy"
+        }
+      ],
+      "pmid": "26006009",
+      "fuente": "Nat Biotechnol",
+      "anio": "2015",
+      "volumen": "33",
+      "fpage": "623",
+      "lpage": "630"
+    },
+    {
+      "titulo": "Nonhybrid, finished microbial genome assemblies from long-read SMRT sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "CS Chin",
+          "nombres": "CS",
+          "apellidos": "Chin"
+        },
+        {
+          "nombre_completo": "DH Alexander",
+          "nombres": "DH",
+          "apellidos": "Alexander"
+        },
+        {
+          "nombre_completo": "SW Turner",
+          "nombres": "SW",
+          "apellidos": "Turner"
+        },
+        {
+          "nombre_completo": "J Korlach",
+          "nombres": "J",
+          "apellidos": "Korlach"
+        },
+        {
+          "nombre_completo": "P Marks",
+          "nombres": "P",
+          "apellidos": "Marks"
+        },
+        {
+          "nombre_completo": "AA Klammer",
+          "nombres": "AA",
+          "apellidos": "Klammer"
+        },
+        {
+          "nombre_completo": "J Drake",
+          "nombres": "J",
+          "apellidos": "Drake"
+        },
+        {
+          "nombre_completo": "C Heiner",
+          "nombres": "C",
+          "apellidos": "Heiner"
+        },
+        {
+          "nombre_completo": "A Clum",
+          "nombres": "A",
+          "apellidos": "Clum"
+        },
+        {
+          "nombre_completo": "A Copeland",
+          "nombres": "A",
+          "apellidos": "Copeland"
+        },
+        {
+          "nombre_completo": "J Huddleston",
+          "nombres": "J",
+          "apellidos": "Huddleston"
+        },
+        {
+          "nombre_completo": "EE Eichler",
+          "nombres": "EE",
+          "apellidos": "Eichler"
+        }
+      ],
+      "pmid": "23644548",
+      "fuente": "Nat Methods",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "563",
+      "lpage": "569"
+    },
+    {
+      "titulo": "Pilon: an integrated tool for comprehensive microbial variant detection and genome assembly improvement",
+      "autores": [
+        {
+          "nombre_completo": "BJ Walker",
+          "nombres": "BJ",
+          "apellidos": "Walker"
+        },
+        {
+          "nombre_completo": "T Abeel",
+          "nombres": "T",
+          "apellidos": "Abeel"
+        },
+        {
+          "nombre_completo": "AM Earl",
+          "nombres": "AM",
+          "apellidos": "Earl"
+        },
+        {
+          "nombre_completo": "T Shea",
+          "nombres": "T",
+          "apellidos": "Shea"
+        },
+        {
+          "nombre_completo": "M Priest",
+          "nombres": "M",
+          "apellidos": "Priest"
+        },
+        {
+          "nombre_completo": "A Abouelliel",
+          "nombres": "A",
+          "apellidos": "Abouelliel"
+        },
+        {
+          "nombre_completo": "S Sakthikumar",
+          "nombres": "S",
+          "apellidos": "Sakthikumar"
+        },
+        {
+          "nombre_completo": "CA Cuomo",
+          "nombres": "CA",
+          "apellidos": "Cuomo"
+        },
+        {
+          "nombre_completo": "Q Zeng",
+          "nombres": "Q",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "J Wortman",
+          "nombres": "J",
+          "apellidos": "Wortman"
+        },
+        {
+          "nombre_completo": "SK Young",
+          "nombres": "SK",
+          "apellidos": "Young"
+        }
+      ],
+      "pmid": "25409509",
+      "fuente": "PLoS One",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Using MUMmer to identify similar regions in large sequence sets",
+      "autores": [
+        {
+          "nombre_completo": "AL Delcher",
+          "nombres": "AL",
+          "apellidos": "Delcher"
+        },
+        {
+          "nombre_completo": "SL Salzberg",
+          "nombres": "SL",
+          "apellidos": "Salzberg"
+        },
+        {
+          "nombre_completo": "AM Phillippy",
+          "nombres": "AM",
+          "apellidos": "Phillippy"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Curr Protoc Bioinformatics",
+      "anio": "2003",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Harvest suite for rapid core-genome alignment and visualization of thousands of intraspecific microbial genomes",
+      "autores": [
+        {
+          "nombre_completo": "TJ Treangen",
+          "nombres": "TJ",
+          "apellidos": "Treangen"
+        },
+        {
+          "nombre_completo": "BD Ondov",
+          "nombres": "BD",
+          "apellidos": "Ondov"
+        },
+        {
+          "nombre_completo": "S Koren",
+          "nombres": "S",
+          "apellidos": "Koren"
+        },
+        {
+          "nombre_completo": "AM Phillippy",
+          "nombres": "AM",
+          "apellidos": "Phillippy"
+        }
+      ],
+      "pmid": "25410596",
+      "fuente": "Genome Biol",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "524",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genomic characterization of the Bacillus cereus sensu lato species: backdrop to the evolution of Bacillus anthracis",
+      "autores": [
+        {
+          "nombre_completo": "ME Zwick",
+          "nombres": "ME",
+          "apellidos": "Zwick"
+        },
+        {
+          "nombre_completo": "SJ Joseph",
+          "nombres": "SJ",
+          "apellidos": "Joseph"
+        },
+        {
+          "nombre_completo": "S Sozhamannan",
+          "nombres": "S",
+          "apellidos": "Sozhamannan"
+        },
+        {
+          "nombre_completo": "AJ Mateczun",
+          "nombres": "AJ",
+          "apellidos": "Mateczun"
+        },
+        {
+          "nombre_completo": "L Du",
+          "nombres": "L",
+          "apellidos": "Du"
+        },
+        {
+          "nombre_completo": "TD Read",
+          "nombres": "TD",
+          "apellidos": "Read"
+        },
+        {
+          "nombre_completo": "X Didelot",
+          "nombres": "X",
+          "apellidos": "Didelot"
+        },
+        {
+          "nombre_completo": "PE Chen",
+          "nombres": "PE",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "KA Bishop-Lilly",
+          "nombres": "KA",
+          "apellidos": "Bishop-Lilly"
+        },
+        {
+          "nombre_completo": "AC Stewart",
+          "nombres": "AC",
+          "apellidos": "Stewart"
+        },
+        {
+          "nombre_completo": "K Willner",
+          "nombres": "K",
+          "apellidos": "Willner"
+        },
+        {
+          "nombre_completo": "N Nolan",
+          "nombres": "N",
+          "apellidos": "Nolan"
+        },
+        {
+          "nombre_completo": "S Lentz",
+          "nombres": "S",
+          "apellidos": "Lentz"
+        },
+        {
+          "nombre_completo": "MK Thomason",
+          "nombres": "MK",
+          "apellidos": "Thomason"
+        }
+      ],
+      "pmid": "22645259",
+      "fuente": "Genome Res",
+      "anio": "2012",
+      "volumen": "22",
+      "fpage": "1512",
+      "lpage": "1524"
+    },
+    {
+      "titulo": "Use of single nucleotide polymorphisms in the plcR gene for specific identification of Bacillus anthracis",
+      "autores": [
+        {
+          "nombre_completo": "WR Easterday",
+          "nombres": "WR",
+          "apellidos": "Easterday"
+        },
+        {
+          "nombre_completo": "MN Van Ert",
+          "nombres": "MN",
+          "apellidos": "Van Ert"
+        },
+        {
+          "nombre_completo": "TS Simonson",
+          "nombres": "TS",
+          "apellidos": "Simonson"
+        },
+        {
+          "nombre_completo": "DM Wagner",
+          "nombres": "DM",
+          "apellidos": "Wagner"
+        },
+        {
+          "nombre_completo": "LJ Kenefic",
+          "nombres": "LJ",
+          "apellidos": "Kenefic"
+        },
+        {
+          "nombre_completo": "CJ Allender",
+          "nombres": "CJ",
+          "apellidos": "Allender"
+        },
+        {
+          "nombre_completo": "P Keim",
+          "nombres": "P",
+          "apellidos": "Keim"
+        }
+      ],
+      "pmid": "15815042",
+      "fuente": "J Clin Microbiol",
+      "anio": "2005",
+      "volumen": "43",
+      "fpage": "1995",
+      "lpage": "1997"
+    }
+  ]
+}

@@ -1,0 +1,1566 @@
+{
+  "TITLE": [
+    "RNAseq and RNA molecular barcoding reveal differential gene expression in cortical bone following hindlimb unloading in female mice"
+  ],
+  "ABSTRACT": [
+    "Disuse-induced bone loss is seen following spinal cord injury, prolonged bed rest, and exposure to microgravity. We performed whole transcriptomic profiling of cortical bone using RNA sequencing (RNAseq) and RNA molecular barcoding (NanoString) on a hindlimb unloading (HLU) mouse model to identify genes whose mRNA transcript abundances change in response to disuse. Eleven-week old female C57BL/6 mice were exposed to ambulatory loading or HLU for 7 days (n = 8/group). Total RNA from marrow-flushed femoral cortical bone was analyzed on HiSeq and NanoString platforms. The expression of several previously reported genes associated with Wnt signaling and metabolism was altered by HLU. Furthermore, the increased abundance of transcripts, such as Pfkfb3 and Mss51, after HLU imply these genes also have roles in the cortical bone’s response to altered mechanical loading. Our study demonstrates that an unbiased approach to assess the whole transcriptomic profile of cortical bone can reveal previously unidentified mechanosensitive genes and may eventually lead to novel targets to prevent disuse-induced osteoporosis."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Mechanical loading plays an important role during musculoskeletal development and maintenance. Reduced mechanical loading from extended immobilization, spinal cord injury, or spaceflight leads to decreased bone mass and mineral density in humans, which increases susceptibility to skeletal fractures. Biological mechanisms underlying skeletal deterioration due to reduced mechanical loading have been studied using hindlimb unloading rodent models, which demonstrated altered Wnt or IGF signaling or Rank/Rankl/Opg pathway. These studies led to several clinical studies that explored the usage of existing or newly developed pharmacological therapies to counter immobilization or spaceflight induced bone loss.",
+    "While prior studies in rodent models demonstrated signaling pathways that contribute to skeletal loss from reduced mechanical loading, limited candidate gene approached precluded exploration of other novel pathways that may also play an important role. Recent advances in whole transcriptome RNA deep sequencing (RNAseq) allow comprehensive, quantitative, and unbiased view of the complete RNA transcriptome. This high-throughput approach can allow identification novel pathways that are altered in response to reduced mechanical loading in rodent models. Prior studies in transgenic mice or mice that underwent increased mechanical loading successfully demonstrated alterations in novel pathways in osteocytes using RNAseq. However, no studies to date examined whole transcriptome profile of osteocytes from mice that underwent reduced mechanical loading.",
+    "Thus, we examined the complete RNA transcriptome in cortical bone from mice that underwent hindlimb unloading for 7 days, with the goal of identifying novel mechanosensitive pathways that respond to mechanical unloading. We validated our RNAseq results by a highly sensitive RNA molecular barcoding technologies (NanoString) examining 60 panel genes."
+  ],
+  "METHODS": [
+    "Material and methods",
+    "Hindlimb unloading",
+    "Eleven-week old, female C57Bl/6J mice were randomly assigned to hindlimb unloading (HLU) or normal weightbearing (Cont) (n = 8/group). The HLU group underwent hindlimb unloading for 7 days according to the previously published studies. In brief, under isoflurane anesthesia, the mouse tail was taped to a freely rotating harness connected to a wheel that moved along the central axis of the custom-made cage. The harness was adjusted such that the mouse could not touch its hind limbs to the floor or the walls of the cage. Mice were maintained on a 12/12 hour light/dark cycle, had ad libitum access to standard laboratory rodent chow and water, and were sacrificed by CO2 inhalation at the end of the experiment. All animal procedures were approved by and performed in accordance with the guidelines of the Beth Israel Deaconess Medical Center Institutional Animal Care and Use Committee.",
+    "RNAseq",
+    "After cutting the ends of bones and flushing marrow with 10 ml phosphate-buffered saline, the cortical bone was placed in an Eppendorf tube and immediately snap-frozen in liquid nitrogen. Subsequently, Trizol was added while the bone is maintained frozen in an eppendorf tube placed in a liquid nitrogen bath, homogenized in the same eppendorf tube with the Fastprep24 machine (MP Biomdicals), and subsequently total RNA was isolated and purified using manufacture recommendations for the PureLink RNA kit (Life Technologies). Using this isolation technique, we routinely obtain 3–6 ug per sample total RNA that has high quality RNA integrity numbers (RIN, Aigilent Technologies) > 7.5. RNA sequencing libraries were prepared using TruSeq RNA Sample Preparation Kit (v2, Illumina, San Diego, CA) per manufacturer recommendations using 500 ng/sample total RNA. Samples were multiplexed (n = 8 per lane) for sequencing on a HiSeq (Illumina) platform and reads were aligned to reference genome (Tophat2). Differential gene expression was analyzed by DESeq2 and relevant biological processes associated with differentially expressed genes were analyzed by Gene Set Enrichment Analysis according to studies by Subramanian et al..",
+    "Nanostring",
+    "To validate our set of differentially regulated genes identified by RNASeq. and to perform targeted gene discovery in our unloading model using the limiting amount of total RNA (3–6 ug/sample) we isolated from murine femurs, we used a NanoString nCounter codeset of sixty differentially expressed genes (Table 1) with 6 housekeeping genes (Actb, Abcf1, B2m, Gapdh, Pol42A, Sirt4). In brief, the nCounter gene codeset contains a matched pair 3′ biotinylated capture probe and a 5′reporter probe tagged with a fluorescent barcode, for each of 236 transcripts. Probes are hybridized to 100 ng of total RNA for 19 h at 65°C, after which excess capture and reporter probes are removed and transcript-specific ternary complexes are immobilized on a streptavidin-coated cartridge. Subsequently, all solution manipulations are carried out using the NanoString preparation station robotic fluids handling platform. Data collection is carried out with the nCounter Digital Analyzer to count individual fluorescent barcodes and quantify target RNA molecules present in each sample. Normalization was carried based on a standard curve constructed using spike in exogenous control constructs and the 6 housekeeping genes included in the codeset."
+  ],
+  "TABLE": [
+    "Differentially expressed genes in the control and hindlimb unloaded (HLU) mouse cortical bone assessed by NanoString.",
+    "Molecular Pathways\tSelected Genes\tDifferentially Expressed Genes\tHLU vs. Control (Fold Change)\tp-value\t \tMesenchymal stem cell (MSC) fate determination and differentiation\tAbi3bp, Fabp4, Apod\t\t\t\t \tOsteoblast function and differentiation\tAspn, Alpl, Bmpr1a, Dkk1, Fzd4, Tgfb1-3, Runx2, Tob1, Opg, Spp1, Sp7, Sparc, Bglap, Myoc, Col1a1, Col1a2, Col3a1, Den, Serpinfl, Sfrp2, Sfrp4, Wnt16, Wnt9a, Wnt5a, Wnt4, Wisp2, Zfyve9, Snca, Bmp4\tFzd4Sfrp2Sfrp4Spp1Bmp4\t1.61.71.71.51.4\t0.030.050.0090.020.02\t \tOsteocyte function and differentiation\tSost, Mef2C, Mepe, Postn, Phex, Npy\tNpy\t1.2\t0.04\t \tOsteoclast function and differentiation\tCtsk, Tnfsfl1(Rankl), Trap (Acp5)\t\t\t\t \tExtracellular matrix proteases\tMmp2, Mmp3, Mmp10, Mmp13, Mmp14, Mmp15\tMmp3Mmp13\t1.81.6\t0.0070.01\t \tProtease inhibitors\tTimp1, Timp2\tTimp1\t1.5\t0.02\t \tCell cycle control, mitochondria, energy balance\tMss51, Scd1, Pfkfb3\tScd1Pfkfb3\t2.01.8\t0.010.004\t \tHousekeeping genes\tActb, Abcf1, B2m, Gapdh, Pol42A, Sirt4"
+  ],
+  "RESULTS": [
+    "Results",
+    "Hindlimb unloading did not alter the quality of RNAseq data. For both groups, individual specimens yielded ~22 million reads with high unique mapping rates (79% for controls and 81% for HLU). RNAseq analysis of cortical bone mRNA from control and HLU mice, without correcting for multiple hypothesis testing, identified 723 genes whose transcript abundances increased ≥ 1.2-fold and 610 genes whose transcript abundances decreased ≥ 1.2-fold. After considering genes whose transcript abundances changed by 1.2-fold and correcting for multiple hypothesis testing (p < 0.1), 8 genes demonstrated increased transcript abundance and 5 genes demonstrated decreased transcript abundance following HLU. Gene set enrichment analysis using these 13 differentially expressed genes pointed to several metabolic processes, monosaccharide metabolism (Pfkfb3, Igfbp5, p < 0.01), peptidase inhibition (Stfa1, Stfa2, p < 0.01), and cellular protein metabolism (Stfa2, Stfa1, Igfbp5, p < 0.01). Wnt signaling was also implicated (Fig 1).",
+    "Transcript abundances measured by RNAseq and Nanostring were similar in control mice (Pearson’s R = 0.90, p < 0.0001, Fig 2A). Changes in transcript abundance between control and HLU mice also correlated significantly between the RNAseq and Nanostring datasets (Pearson’s R = 0.76, p < 0.0001, Fig 2B). Importantly, Nanostring confirmed alterations seen with RNAseq in transcripts associated with Wnt signaling and cell metabolism (Table 1, Fig 3). Scd1 (2-fold, p = 0.01), Pfkfb3 (1.8-fold, p = 0.003), and Fzd4 (1.6-fold, p = 0.03) were all upregulated in cortical bone isolated from hindlimb unloaded mouse. In addition to these genes, we identified Mmp3 (1.8-fold, p = 0.007), Sfrp2 (1.7-fold, p = 0.05), Sfrp4 (1.7-fold, p = 0.009), Mmp13 (1.6-fold, p = 0.01), Bmp4 (1.4-fold, p = 0.02), Timp1 (1.5-fold, p = 0.02), Npy (1.2-fold, p = 0.04), and Spp1 (1.5-fold, p = 0.02) genes to be upregulated in the hindlimb unloaded mouse cortical bone. No downregulated genes were detected."
+  ],
+  "FIG": [
+    "Selected KEGG pathway and gene ontology of biological process altered in cortical bone from hindlimb unloaded mice and the effects of HLU on Wnt signaling and Pfkfb3.",
+    "Correlation between Nanostring and RNAseq transcript abundance in controls (A) and changes in abundance between control and HLU mice (B) with 95% confidence bands of the best-fit line.",
+    "Cell metabolism and Wnt signaling associated transcripts whose abundance changed between control and HLU mice, as assessed by RNAseq and Nanostring analysis."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Our RNAseq dataset provides an unbiased approach for identifying genes whose transcripts change in response to mechanical unloading of cortical bone. We identified novel genes (e.g., Mss51, Pfkfb3) related to cell cycle, mitochondria, and cellular energy balance that were differentially regulated by HLU.",
+    "While mitochondria are typically reduced in size as osteoblasts transition to osteocytes, histopathological studies demonstrate enlarged mitochondria in osteocytes from rats immobilized for ten days. Further, in mice with impaired osteocyte autophagy, enlarged mitochondria are observed as well, and associated with decreased trabecular and cortical bone. Imbalance in osteocyte mitochondrial redox can disrupt the canalicular network and lead to bone loss. Further studies are needed to determine whether the genes we identified may sense altered mechanical loading through a similar mechanism that regulates cellular energy balance in bone.",
+    "Prior studies have also demonstrated that microgravity causes alterations to glycolysis pathways in a variety of cells, including osteoblasts. Importantly, our data show that Pfkfb3, which controls the concentration of fructose 2,6-bisphosphate, a potent allosteric activator of PFK1, is significantly upregulated after HLU. Recent evidence supports the concept that Pfkfb3 provides a signaling mechanism for Wnt3A, altering osteoblast differentiation. Pfkfb3 was also identified de-novo in a gene enrichment analysis of circulating monocytes in patients with osteoporosis, further suggesting a possible role in modulating the bone microenvironment in the setting of low bone density. Our study adds to the evidence that Pfkfb3 may influence bone metabolism in the context of microgravity, disuse-induced bone loss and osteoporosis.",
+    "Mss51 has not been demonstrated to be involved during skeletal development or homeostasis, but recently published study suggests that Mss51 may be involved in bone adaptation following mechanical loading. The alteration in Mss51 appears to be mediated by focal adhesion kinase, which has been shown to be responsive to mechanical loading via fluid flow shear stress in osteoblasts. Mechanical loading likely alters cell-matrix environment, thereby allowing integrins to initiate intracellular signaling to promote bone adaptation. Hindlimb unloading in rats also decreases focal adhesions in mesenchymal stromal cells, which will have resulted in increased Mss51. These studies demonstrate that while Mss51 is conventionally known to be involved during cell metabolism and energy balance, the gene may also be responsive to mechanical loading/unloading via changes in cell-matrix environment.",
+    "Prior studies of hindlimb unloading in rodents have reported that several signaling pathways such as Wnt and Rankl/Opg are altered in osteoblasts and osteocytes following mechanical unloading. While our study demonstrated that Wnt signaling is implicated to be involved, we did not find that sclerostin or Rankl/Opg to be altered following hindlimb unloading. There are several possible factors that may have contributed to differences in study findings. First, it is possible that methodological differences (RNAseq vs. RT-qPCR) used to assess transcript levels contributed to different outcomes. Second, while we carefully removed bone marrow, surrounding soft tissues, and both ends of bone, the cortical bone lining cells may have contributed to heterogeneity of cell population, leading to blunted effects on several signaling pathways known to be altered by hindlimb unloading in osteocytes or osteoblasts. In addition, whereas we examined day 7 of unloading, earlier time points may be needed to observe robust differences in gene expression due to unloading. Prior studies have demonstrated that bones from 6 to 9 months old rats are more responsive to hindlimb unloading than 28 to 32 months old rats, likely due to increased Bmp2 and Igf1 in younger animals. Finally, hindlimb unloading has been shown to affect other physiologic systems in female 11-week-old mice, such as loss of muscle and increased corticosterone metabolites, which has been shown to inhibit bone formation. Altogether, a variety of factors can contribute to inconsistencies in gene expression across studies. Additional suitably powered and well-controlled studies are needed to resolve reported discrepancies among studies.",
+    "We used only female mice, thus precluding analysis of possible sexual dimorphism in mechanosensitive genes. We selected the 7-day timepoint based on our prior studies, but recognize the limitation of this approach which precludes determining the time-course of gene-expression changes. This early timepoint may have led to minimal changes in osteogenic genes in our studies. However, our ability to identify novel genes that may initiate osteogenic responses later, not previously associated with disuse-induced bone loss provides rationale for future studies with multiple timepoints to expand upon the current findings. While there was excellent correlation between the measurements performed with two methods (Fig 2), Nanostring detected more differentially expressed genes than RNAseq (Fig 3). Therefore, although Nanostring can sample a limited, pre-determined portion of cortical bone transcriptome, it can serve as a powerful approach towards identifying mild changes (<2-fold) in transcript abundance.",
+    "Our gene expression approach comparing cortical bone gene expression in HLU and normally loaded mice successfully revealed previously known and unknown genes. Future mechanistic studies examining the functional role of metabolic genes revealed from our study may identify novel mechanosensitive pathways responsible for microgravity- and disuse-induced bone loss. Elucidating these pathways may lead to therapeutic interventions to treat bone loss and prevent fracture risk associated with microgravity, spinal cord injury, or extended bed rest."
+  ],
+  "SUPPL": [
+    "Supporting information"
+  ],
+  "REF": [
+    "References",
+    "Mechanical stimulation of bone in vivo reduces osteocyte expression of Sost/sclerostin",
+    "Skeletal unloading induces resistance to insulin-like growth factor-I (IGF-I) by inhibiting activation of the IGF-I signaling pathways",
+    "The Wnt Inhibitor Sclerostin Is Up-regulated by Mechanical Unloading in Osteocytes in Vitro",
+    "Osteocyte Apoptosis Caused by Hindlimb Unloading is Required to Trigger Osteocyte RANKL Production and Subsequent Resorption of Cortical and Trabecular Bone in Mice Femurs",
+    "Treatment With a Soluble Bone Morphogenetic Protein Type 1A Receptor (BMPR1A) Fusion Protein Increases Bone Mass and Bone Formation in Mice Subjected to Hindlimb Unloading",
+    "Bisphosphonates as a supplement to exercise to protect bone during long-duration spaceflight",
+    "Denosumab increases sublesional bone mass in osteoporotic individuals with recent spinal cord injury",
+    "An RNA-seq protocol to identify mRNA expression changes in mouse diaphyseal bone: applications in mice with bone property altering Lrp5 mutations",
+    "Transcriptional profiling of cortical versus cancellous bone from mechanically-loaded murine tibiae reveals differential gene expression",
+    "Combined effects of botulinum toxin injection and hind limb unloading on bone and muscle",
+    "The temporal response of bone to unloading",
+    "Effects of disrupted beta1-integrin function on the skeletal response to short-term hindlimb unloading in mice",
+    "Changes in the markers of bone metabolism following skeletal unloading",
+    "Sclerostin antibody inhibits skeletal deterioration due to reduced mechanical loading",
+    "Gene expression patterns in bone after 4 days of hind-limb unloading in two inbred strains of mice",
+    "KEGG: Kyoto Encyclopedia of Genes and Genomes",
+    "Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles",
+    "GSEA-P: a desktop application for Gene Set Enrichment Analysis",
+    "Digital multiplexed gene expression analysis using the NanoString nCounter system",
+    "Osteocyte differentiation in the tibia of newborn rabbit: an ultrastructural study of the formation of cytoplasmic processes",
+    "Low bone mass and changes in the osteocyte network in mice lacking autophagy in the osteoblast lineage",
+    "Mitochondrial superoxide in osteocytes perturbs canalicular networks in the setting of age-related osteoporosis",
+    "Effects of microgravity on osteoblast mitochondria: a proteomic and metabolomics profile",
+    "GeneChip expression profiling reveals the alterations of energy metabolism related genes in osteocytes under large gradient high magnetic fields",
+    "WNT-LRP5 signaling induces Warburg effect through mTORC2 activation during osteoblast differentiation",
+    "Detection of significant pathways in osteoporosis based on graph clustering",
+    "A FAK/HDAC5 signaling axis controls osteocyte mechanotransduction",
+    "Focal adhesion kinase plays a role in osteoblast mechanotransduction in vitro but does not affect load-induced bone formation in vivo",
+    "Early activation of the beta-catenin pathway in osteocytes is mediated by nitric oxide, phosphatidyl inositol-3 kinase/Akt, and focal adhesion kinase",
+    "Effects of BMP-2 and FGF2 on the osteogenesis of bone marrow-derived mesenchymal stem cells in hindlimb-unloaded rats",
+    "Osteocyte network; a negative regulatory system for bone mass augmented by the induction of Rankl in osteoblasts and Sost in osteocytes at unloading",
+    "Pulsed electromagnetic fields partially preserve bone mass, microarchitecture, and strength by promoting bone formation in hindlimb-suspended rats",
+    "Periostin expression contributes to cortical bone loss during unloading",
+    "Lipocalin 2: a new mechanoresponding gene regulating bone homeostasis",
+    "Age-dependent bone loss and recovery during hindlimb unloading and subsequent reloading in rats",
+    "Aging alters the skeletal response to disuse in the rat",
+    "Partial reductions in mechanical loading yield proportional changes in bone density, bone architecture, and muscle mass",
+    "Corticosterone selectively targets endo-cortical surfaces by an osteoblast-dependent mechanism"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mechanical stimulation of bone in vivo reduces osteocyte expression of Sost/sclerostin",
+      "autores": [
+        {
+          "nombre_completo": "A. G. Robling",
+          "nombres": "A. G.",
+          "apellidos": "Robling"
+        },
+        {
+          "nombre_completo": "P. J. Niziolek",
+          "nombres": "P. J.",
+          "apellidos": "Niziolek"
+        },
+        {
+          "nombre_completo": "L. A. Baldridge",
+          "nombres": "L. A.",
+          "apellidos": "Baldridge"
+        },
+        {
+          "nombre_completo": "K. W. Condon",
+          "nombres": "K. W.",
+          "apellidos": "Condon"
+        },
+        {
+          "nombre_completo": "M. R. Allen",
+          "nombres": "M. R.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "I. Alam",
+          "nombres": "I.",
+          "apellidos": "Alam"
+        }
+      ],
+      "pmid": "18089564",
+      "fuente": "J Biol Chem",
+      "anio": "2008",
+      "volumen": "283",
+      "fpage": "5866",
+      "lpage": "5875"
+    },
+    {
+      "titulo": "Skeletal unloading induces resistance to insulin-like growth factor-I (IGF-I) by inhibiting activation of the IGF-I signaling pathways",
+      "autores": [
+        {
+          "nombre_completo": "T. Sakata",
+          "nombres": "T.",
+          "apellidos": "Sakata"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "B. P. Halloran",
+          "nombres": "B. P.",
+          "apellidos": "Halloran"
+        },
+        {
+          "nombre_completo": "H. Z. Elalieh",
+          "nombres": "H. Z.",
+          "apellidos": "Elalieh"
+        },
+        {
+          "nombre_completo": "J. Cao",
+          "nombres": "J.",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "D. D. Bikle",
+          "nombres": "D. D.",
+          "apellidos": "Bikle"
+        }
+      ],
+      "pmid": "15040832",
+      "fuente": "J Bone Miner Res",
+      "anio": "2004",
+      "volumen": "19",
+      "fpage": "436",
+      "lpage": "446"
+    },
+    {
+      "titulo": "The Wnt Inhibitor Sclerostin Is Up-regulated by Mechanical Unloading in Osteocytes in Vitro",
+      "autores": [
+        {
+          "nombre_completo": "J. M. Spatz",
+          "nombres": "J. M.",
+          "apellidos": "Spatz"
+        },
+        {
+          "nombre_completo": "M. N. Wein",
+          "nombres": "M. N.",
+          "apellidos": "Wein"
+        },
+        {
+          "nombre_completo": "J. H. Gooi",
+          "nombres": "J. H.",
+          "apellidos": "Gooi"
+        },
+        {
+          "nombre_completo": "Y. Qu",
+          "nombres": "Y.",
+          "apellidos": "Qu"
+        },
+        {
+          "nombre_completo": "J. L. Garr",
+          "nombres": "J. L.",
+          "apellidos": "Garr"
+        },
+        {
+          "nombre_completo": "S. Liu",
+          "nombres": "S.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "25953900",
+      "fuente": "J Biol Chem",
+      "anio": "2015",
+      "volumen": "290",
+      "fpage": "16744",
+      "lpage": "16758"
+    },
+    {
+      "titulo": "Osteocyte Apoptosis Caused by Hindlimb Unloading is Required to Trigger Osteocyte RANKL Production and Subsequent Resorption of Cortical and Trabecular Bone in Mice Femurs",
+      "autores": [
+        {
+          "nombre_completo": "P. Cabahug-Zuckerman",
+          "nombres": "P.",
+          "apellidos": "Cabahug-Zuckerman"
+        },
+        {
+          "nombre_completo": "D. Frikha-Benayed",
+          "nombres": "D.",
+          "apellidos": "Frikha-Benayed"
+        },
+        {
+          "nombre_completo": "R. J. Majeska",
+          "nombres": "R. J.",
+          "apellidos": "Majeska"
+        },
+        {
+          "nombre_completo": "A. Tuthill",
+          "nombres": "A.",
+          "apellidos": "Tuthill"
+        },
+        {
+          "nombre_completo": "S. Yakar",
+          "nombres": "S.",
+          "apellidos": "Yakar"
+        },
+        {
+          "nombre_completo": "S. Judex",
+          "nombres": "S.",
+          "apellidos": "Judex"
+        }
+      ],
+      "pmid": "26852281",
+      "fuente": "J Bone Miner Res",
+      "anio": "2016",
+      "volumen": "31",
+      "fpage": "1356",
+      "lpage": "1365"
+    },
+    {
+      "titulo": "Treatment With a Soluble Bone Morphogenetic Protein Type 1A Receptor (BMPR1A) Fusion Protein Increases Bone Mass and Bone Formation in Mice Subjected to Hindlimb Unloading",
+      "autores": [
+        {
+          "nombre_completo": "F. C. Ko",
+          "nombres": "F. C.",
+          "apellidos": "Ko"
+        },
+        {
+          "nombre_completo": "M. Van Vliet",
+          "nombres": "M.",
+          "apellidos": "Van Vliet"
+        },
+        {
+          "nombre_completo": "R. Ellman",
+          "nombres": "R.",
+          "apellidos": "Ellman"
+        },
+        {
+          "nombre_completo": "D. Grasso",
+          "nombres": "D.",
+          "apellidos": "Grasso"
+        },
+        {
+          "nombre_completo": "D. J. Brooks",
+          "nombres": "D. J.",
+          "apellidos": "Brooks"
+        },
+        {
+          "nombre_completo": "J. M. Spatz",
+          "nombres": "J. M.",
+          "apellidos": "Spatz"
+        }
+      ],
+      "pmid": "30283882",
+      "fuente": "JBMR Plus",
+      "anio": "2017",
+      "volumen": "1",
+      "fpage": "66",
+      "lpage": "72"
+    },
+    {
+      "titulo": "Bisphosphonates as a supplement to exercise to protect bone during long-duration spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Leblanc",
+          "nombres": "A.",
+          "apellidos": "Leblanc"
+        },
+        {
+          "nombre_completo": "T. Matsumoto",
+          "nombres": "T.",
+          "apellidos": "Matsumoto"
+        },
+        {
+          "nombre_completo": "J. Jones",
+          "nombres": "J.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "J. Shapiro",
+          "nombres": "J.",
+          "apellidos": "Shapiro"
+        },
+        {
+          "nombre_completo": "T. Lang",
+          "nombres": "T.",
+          "apellidos": "Lang"
+        },
+        {
+          "nombre_completo": "L. Shackelford",
+          "nombres": "L.",
+          "apellidos": "Shackelford"
+        }
+      ],
+      "pmid": "23334732",
+      "fuente": "Osteoporos Int",
+      "anio": "2013",
+      "volumen": "24",
+      "fpage": "2105",
+      "lpage": "2114"
+    },
+    {
+      "titulo": "Denosumab increases sublesional bone mass in osteoporotic individuals with recent spinal cord injury",
+      "autores": [
+        {
+          "nombre_completo": "L. Gifre",
+          "nombres": "L.",
+          "apellidos": "Gifre"
+        },
+        {
+          "nombre_completo": "J. Vidal",
+          "nombres": "J.",
+          "apellidos": "Vidal"
+        },
+        {
+          "nombre_completo": "J. L. Carrasco",
+          "nombres": "J. L.",
+          "apellidos": "Carrasco"
+        },
+        {
+          "nombre_completo": "A. Muxi",
+          "nombres": "A.",
+          "apellidos": "Muxi"
+        },
+        {
+          "nombre_completo": "E. Portell",
+          "nombres": "E.",
+          "apellidos": "Portell"
+        },
+        {
+          "nombre_completo": "A. Monegal",
+          "nombres": "A.",
+          "apellidos": "Monegal"
+        }
+      ],
+      "pmid": "26423406",
+      "fuente": "Osteoporos Int",
+      "anio": "2016",
+      "volumen": "27",
+      "fpage": "405",
+      "lpage": "410"
+    },
+    {
+      "titulo": "An RNA-seq protocol to identify mRNA expression changes in mouse diaphyseal bone: applications in mice with bone property altering Lrp5 mutations",
+      "autores": [
+        {
+          "nombre_completo": "U. M. Ayturk",
+          "nombres": "U. M.",
+          "apellidos": "Ayturk"
+        },
+        {
+          "nombre_completo": "C. M. Jacobsen",
+          "nombres": "C. M.",
+          "apellidos": "Jacobsen"
+        },
+        {
+          "nombre_completo": "D. C. Christodoulou",
+          "nombres": "D. C.",
+          "apellidos": "Christodoulou"
+        },
+        {
+          "nombre_completo": "J. Gorham",
+          "nombres": "J.",
+          "apellidos": "Gorham"
+        },
+        {
+          "nombre_completo": "J. G. Seidman",
+          "nombres": "J. G.",
+          "apellidos": "Seidman"
+        },
+        {
+          "nombre_completo": "C. E. Seidman",
+          "nombres": "C. E.",
+          "apellidos": "Seidman"
+        }
+      ],
+      "pmid": "23553928",
+      "fuente": "J Bone Miner Res",
+      "anio": "2013",
+      "volumen": "28",
+      "fpage": "2081",
+      "lpage": "2093"
+    },
+    {
+      "titulo": "Transcriptional profiling of cortical versus cancellous bone from mechanically-loaded murine tibiae reveals differential gene expression",
+      "autores": [
+        {
+          "nombre_completo": "N. H. Kelly",
+          "nombres": "N. H.",
+          "apellidos": "Kelly"
+        },
+        {
+          "nombre_completo": "J. C. Schimenti",
+          "nombres": "J. C.",
+          "apellidos": "Schimenti"
+        },
+        {
+          "nombre_completo": "F. P. Ross",
+          "nombres": "F. P.",
+          "apellidos": "Ross"
+        },
+        {
+          "nombre_completo": "M. C. van der Meulen",
+          "nombres": "M. C.",
+          "apellidos": "van der Meulen"
+        }
+      ],
+      "pmid": "26876048",
+      "fuente": "Bone",
+      "anio": "2016",
+      "volumen": "86",
+      "fpage": "22",
+      "lpage": "29"
+    },
+    {
+      "titulo": "Combined effects of botulinum toxin injection and hind limb unloading on bone and muscle",
+      "autores": [
+        {
+          "nombre_completo": "R. Ellman",
+          "nombres": "R.",
+          "apellidos": "Ellman"
+        },
+        {
+          "nombre_completo": "D. J. Grasso",
+          "nombres": "D. J.",
+          "apellidos": "Grasso"
+        },
+        {
+          "nombre_completo": "M. van Vliet",
+          "nombres": "M.",
+          "apellidos": "van Vliet"
+        },
+        {
+          "nombre_completo": "D. J. Brooks",
+          "nombres": "D. J.",
+          "apellidos": "Brooks"
+        },
+        {
+          "nombre_completo": "J. M. Spatz",
+          "nombres": "J. M.",
+          "apellidos": "Spatz"
+        },
+        {
+          "nombre_completo": "C. Conlon",
+          "nombres": "C.",
+          "apellidos": "Conlon"
+        }
+      ],
+      "pmid": "24240478",
+      "fuente": "Calcif Tissue Int",
+      "anio": "2014",
+      "volumen": "94",
+      "fpage": "327",
+      "lpage": "337"
+    },
+    {
+      "titulo": "The temporal response of bone to unloading",
+      "autores": [
+        {
+          "nombre_completo": "R. K. Globus",
+          "nombres": "R. K.",
+          "apellidos": "Globus"
+        },
+        {
+          "nombre_completo": "D. D. Bikle",
+          "nombres": "D. D.",
+          "apellidos": "Bikle"
+        },
+        {
+          "nombre_completo": "E. Morey-Holton",
+          "nombres": "E.",
+          "apellidos": "Morey-Holton"
+        }
+      ],
+      "pmid": "3943489",
+      "fuente": "Endocrinology",
+      "anio": "1986",
+      "volumen": "118",
+      "fpage": "733",
+      "lpage": "742"
+    },
+    {
+      "titulo": "Effects of disrupted beta1-integrin function on the skeletal response to short-term hindlimb unloading in mice",
+      "autores": [
+        {
+          "nombre_completo": "U. T. Iwaniec",
+          "nombres": "U. T.",
+          "apellidos": "Iwaniec"
+        },
+        {
+          "nombre_completo": "T. J. Wronski",
+          "nombres": "T. J.",
+          "apellidos": "Wronski"
+        },
+        {
+          "nombre_completo": "D. Amblard",
+          "nombres": "D.",
+          "apellidos": "Amblard"
+        },
+        {
+          "nombre_completo": "Y. Nishimura",
+          "nombres": "Y.",
+          "apellidos": "Nishimura"
+        },
+        {
+          "nombre_completo": "M. C. van der Meulen",
+          "nombres": "M. C.",
+          "apellidos": "van der Meulen"
+        },
+        {
+          "nombre_completo": "C. E. Wade",
+          "nombres": "C. E.",
+          "apellidos": "Wade"
+        }
+      ],
+      "pmid": "15465888",
+      "fuente": "J Appl Physiol",
+      "anio": "2005",
+      "volumen": "98",
+      "fpage": "690",
+      "lpage": "696"
+    },
+    {
+      "titulo": "Changes in the markers of bone metabolism following skeletal unloading",
+      "autores": [
+        {
+          "nombre_completo": "K. Kurokouchi",
+          "nombres": "K.",
+          "apellidos": "Kurokouchi"
+        },
+        {
+          "nombre_completo": "T. Ito",
+          "nombres": "T.",
+          "apellidos": "Ito"
+        },
+        {
+          "nombre_completo": "S. Ohmori",
+          "nombres": "S.",
+          "apellidos": "Ohmori"
+        },
+        {
+          "nombre_completo": "K. Kanda",
+          "nombres": "K.",
+          "apellidos": "Kanda"
+        },
+        {
+          "nombre_completo": "Y. Murata",
+          "nombres": "Y.",
+          "apellidos": "Murata"
+        },
+        {
+          "nombre_completo": "H. Seo",
+          "nombres": "H.",
+          "apellidos": "Seo"
+        }
+      ],
+      "pmid": "11540541",
+      "fuente": "Environmental medicine: annual report of the Research Institute of Environmental Medicine, Nagoya University",
+      "anio": "1995",
+      "volumen": "39",
+      "fpage": "21",
+      "lpage": "24"
+    },
+    {
+      "titulo": "Sclerostin antibody inhibits skeletal deterioration due to reduced mechanical loading",
+      "autores": [
+        {
+          "nombre_completo": "J. M. Spatz",
+          "nombres": "J. M.",
+          "apellidos": "Spatz"
+        },
+        {
+          "nombre_completo": "R. Ellman",
+          "nombres": "R.",
+          "apellidos": "Ellman"
+        },
+        {
+          "nombre_completo": "A. M. Cloutier",
+          "nombres": "A. M.",
+          "apellidos": "Cloutier"
+        },
+        {
+          "nombre_completo": "L. Louis",
+          "nombres": "L.",
+          "apellidos": "Louis"
+        },
+        {
+          "nombre_completo": "M. van Vliet",
+          "nombres": "M.",
+          "apellidos": "van Vliet"
+        },
+        {
+          "nombre_completo": "L. J. Suva",
+          "nombres": "L. J.",
+          "apellidos": "Suva"
+        }
+      ],
+      "pmid": "23109229",
+      "fuente": "J Bone Miner Res",
+      "anio": "2013",
+      "volumen": "28",
+      "fpage": "865",
+      "lpage": "874"
+    },
+    {
+      "titulo": "Gene expression patterns in bone after 4 days of hind-limb unloading in two inbred strains of mice",
+      "autores": [
+        {
+          "nombre_completo": "N. Zhong",
+          "nombres": "N.",
+          "apellidos": "Zhong"
+        },
+        {
+          "nombre_completo": "R. A. Garman",
+          "nombres": "R. A.",
+          "apellidos": "Garman"
+        },
+        {
+          "nombre_completo": "M. E. Squire",
+          "nombres": "M. E.",
+          "apellidos": "Squire"
+        },
+        {
+          "nombre_completo": "L. R. Donahue",
+          "nombres": "L. R.",
+          "apellidos": "Donahue"
+        },
+        {
+          "nombre_completo": "C. T. Rubin",
+          "nombres": "C. T.",
+          "apellidos": "Rubin"
+        },
+        {
+          "nombre_completo": "M. Hadjiargyrou",
+          "nombres": "M.",
+          "apellidos": "Hadjiargyrou"
+        },
+        {
+          "nombre_completo": "S. Judex",
+          "nombres": "S.",
+          "apellidos": "Judex"
+        }
+      ],
+      "pmid": "15945395",
+      "fuente": "Aviation, Space, and Environmental Medicine",
+      "anio": "2005",
+      "volumen": "76",
+      "fpage": "530",
+      "lpage": "535"
+    },
+    {
+      "titulo": "KEGG: Kyoto Encyclopedia of Genes and Genomes",
+      "autores": [
+        {
+          "nombre_completo": "H. Ogata",
+          "nombres": "H.",
+          "apellidos": "Ogata"
+        },
+        {
+          "nombre_completo": "S. Goto",
+          "nombres": "S.",
+          "apellidos": "Goto"
+        },
+        {
+          "nombre_completo": "K. Sato",
+          "nombres": "K.",
+          "apellidos": "Sato"
+        },
+        {
+          "nombre_completo": "W. Fujibuchi",
+          "nombres": "W.",
+          "apellidos": "Fujibuchi"
+        },
+        {
+          "nombre_completo": "H. Bono",
+          "nombres": "H.",
+          "apellidos": "Bono"
+        },
+        {
+          "nombre_completo": "M. Kanehisa",
+          "nombres": "M.",
+          "apellidos": "Kanehisa"
+        }
+      ],
+      "pmid": "9847135",
+      "fuente": "Nucleic Acids Res",
+      "anio": "1999",
+      "volumen": "27",
+      "fpage": "29",
+      "lpage": "34"
+    },
+    {
+      "titulo": "Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles",
+      "autores": [
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "P. Tamayo",
+          "nombres": "P.",
+          "apellidos": "Tamayo"
+        },
+        {
+          "nombre_completo": "V. K. Mootha",
+          "nombres": "V. K.",
+          "apellidos": "Mootha"
+        },
+        {
+          "nombre_completo": "S. Mukherjee",
+          "nombres": "S.",
+          "apellidos": "Mukherjee"
+        },
+        {
+          "nombre_completo": "B. L. Ebert",
+          "nombres": "B. L.",
+          "apellidos": "Ebert"
+        },
+        {
+          "nombre_completo": "M. A. Gillette",
+          "nombres": "M. A.",
+          "apellidos": "Gillette"
+        }
+      ],
+      "pmid": "16199517",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2005",
+      "volumen": "102",
+      "fpage": "15545",
+      "lpage": "15550"
+    },
+    {
+      "titulo": "GSEA-P: a desktop application for Gene Set Enrichment Analysis",
+      "autores": [
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "H. Kuehn",
+          "nombres": "H.",
+          "apellidos": "Kuehn"
+        },
+        {
+          "nombre_completo": "J. Gould",
+          "nombres": "J.",
+          "apellidos": "Gould"
+        },
+        {
+          "nombre_completo": "P. Tamayo",
+          "nombres": "P.",
+          "apellidos": "Tamayo"
+        },
+        {
+          "nombre_completo": "J. P. Mesirov",
+          "nombres": "J. P.",
+          "apellidos": "Mesirov"
+        }
+      ],
+      "pmid": "17644558",
+      "fuente": "Bioinformatics",
+      "anio": "2007",
+      "volumen": "23",
+      "fpage": "3251",
+      "lpage": "3253"
+    },
+    {
+      "titulo": "Digital multiplexed gene expression analysis using the NanoString nCounter system",
+      "autores": [
+        {
+          "nombre_completo": "M. M. Kulkarni",
+          "nombres": "M. M.",
+          "apellidos": "Kulkarni"
+        }
+      ],
+      "pmid": "21472696",
+      "fuente": "Curr Protoc Mol Biol Chapter",
+      "anio": "2011",
+      "volumen": "25",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Osteocyte differentiation in the tibia of newborn rabbit: an ultrastructural study of the formation of cytoplasmic processes",
+      "autores": [
+        {
+          "nombre_completo": "C. Palumbo",
+          "nombres": "C.",
+          "apellidos": "Palumbo"
+        },
+        {
+          "nombre_completo": "S. Palazzini",
+          "nombres": "S.",
+          "apellidos": "Palazzini"
+        },
+        {
+          "nombre_completo": "D. Zaffe",
+          "nombres": "D.",
+          "apellidos": "Zaffe"
+        },
+        {
+          "nombre_completo": "G. Marotti",
+          "nombres": "G.",
+          "apellidos": "Marotti"
+        }
+      ],
+      "pmid": "2368590",
+      "fuente": "Acta Anat (Basel)",
+      "anio": "1990",
+      "volumen": "137",
+      "fpage": "350",
+      "lpage": "358"
+    },
+    {
+      "titulo": "Low bone mass and changes in the osteocyte network in mice lacking autophagy in the osteoblast lineage",
+      "autores": [
+        {
+          "nombre_completo": "M. Piemontese",
+          "nombres": "M.",
+          "apellidos": "Piemontese"
+        },
+        {
+          "nombre_completo": "M. Onal",
+          "nombres": "M.",
+          "apellidos": "Onal"
+        },
+        {
+          "nombre_completo": "J. Xiong",
+          "nombres": "J.",
+          "apellidos": "Xiong"
+        },
+        {
+          "nombre_completo": "L. Han",
+          "nombres": "L.",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "J. D. Thostenson",
+          "nombres": "J. D.",
+          "apellidos": "Thostenson"
+        },
+        {
+          "nombre_completo": "M. Almeida",
+          "nombres": "M.",
+          "apellidos": "Almeida"
+        }
+      ],
+      "pmid": "27064143",
+      "fuente": "Sci Rep",
+      "anio": "2016",
+      "volumen": "6",
+      "fpage": "24262",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mitochondrial superoxide in osteocytes perturbs canalicular networks in the setting of age-related osteoporosis",
+      "autores": [
+        {
+          "nombre_completo": "K. Kobayashi",
+          "nombres": "K.",
+          "apellidos": "Kobayashi"
+        },
+        {
+          "nombre_completo": "H. Nojiri",
+          "nombres": "H.",
+          "apellidos": "Nojiri"
+        },
+        {
+          "nombre_completo": "Y. Saita",
+          "nombres": "Y.",
+          "apellidos": "Saita"
+        },
+        {
+          "nombre_completo": "D. Morikawa",
+          "nombres": "D.",
+          "apellidos": "Morikawa"
+        },
+        {
+          "nombre_completo": "Y. Ozawa",
+          "nombres": "Y.",
+          "apellidos": "Ozawa"
+        },
+        {
+          "nombre_completo": "K. Watanabe",
+          "nombres": "K.",
+          "apellidos": "Watanabe"
+        }
+      ],
+      "pmid": "25779629",
+      "fuente": "Sci Rep",
+      "anio": "2015",
+      "volumen": "5",
+      "fpage": "9148",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of microgravity on osteoblast mitochondria: a proteomic and metabolomics profile",
+      "autores": [
+        {
+          "nombre_completo": "A. Michaletti",
+          "nombres": "A.",
+          "apellidos": "Michaletti"
+        },
+        {
+          "nombre_completo": "M. Gioia",
+          "nombres": "M.",
+          "apellidos": "Gioia"
+        },
+        {
+          "nombre_completo": "U. Tarantino",
+          "nombres": "U.",
+          "apellidos": "Tarantino"
+        },
+        {
+          "nombre_completo": "L. Zolla",
+          "nombres": "L.",
+          "apellidos": "Zolla"
+        }
+      ],
+      "pmid": "29133864",
+      "fuente": "Sci Rep",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "15376",
+      "lpage": ""
+    },
+    {
+      "titulo": "GeneChip expression profiling reveals the alterations of energy metabolism related genes in osteocytes under large gradient high magnetic fields",
+      "autores": [
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z. H. Chen",
+          "nombres": "Z. H.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "C. Yin",
+          "nombres": "C.",
+          "apellidos": "Yin"
+        },
+        {
+          "nombre_completo": "J. H. Ma",
+          "nombres": "J. H.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "D. J. Li",
+          "nombres": "D. J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "F. Zhao",
+          "nombres": "F.",
+          "apellidos": "Zhao"
+        }
+      ],
+      "pmid": "25635858",
+      "fuente": "PLoS One",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "e0116359",
+      "lpage": ""
+    },
+    {
+      "titulo": "WNT-LRP5 signaling induces Warburg effect through mTORC2 activation during osteoblast differentiation",
+      "autores": [
+        {
+          "nombre_completo": "E. Esen",
+          "nombres": "E.",
+          "apellidos": "Esen"
+        },
+        {
+          "nombre_completo": "J. Chen",
+          "nombres": "J.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "C. M. Karner",
+          "nombres": "C. M.",
+          "apellidos": "Karner"
+        },
+        {
+          "nombre_completo": "A. L. Okunade",
+          "nombres": "A. L.",
+          "apellidos": "Okunade"
+        },
+        {
+          "nombre_completo": "B. W. Patterson",
+          "nombres": "B. W.",
+          "apellidos": "Patterson"
+        },
+        {
+          "nombre_completo": "F. Long",
+          "nombres": "F.",
+          "apellidos": "Long"
+        }
+      ],
+      "pmid": "23623748",
+      "fuente": "Cell Metab",
+      "anio": "2013",
+      "volumen": "17",
+      "fpage": "745",
+      "lpage": "755"
+    },
+    {
+      "titulo": "Detection of significant pathways in osteoporosis based on graph clustering",
+      "autores": [
+        {
+          "nombre_completo": "H. Xiao",
+          "nombres": "H.",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "L. Shan",
+          "nombres": "L.",
+          "apellidos": "Shan"
+        },
+        {
+          "nombre_completo": "H. Zhu",
+          "nombres": "H.",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "F. Xue",
+          "nombres": "F.",
+          "apellidos": "Xue"
+        }
+      ],
+      "pmid": "22992777",
+      "fuente": "Mol Med Rep",
+      "anio": "2012",
+      "volumen": "6",
+      "fpage": "1325",
+      "lpage": "1332"
+    },
+    {
+      "titulo": "A FAK/HDAC5 signaling axis controls osteocyte mechanotransduction",
+      "autores": [
+        {
+          "nombre_completo": "T. Sato",
+          "nombres": "T.",
+          "apellidos": "Sato"
+        },
+        {
+          "nombre_completo": "S. Verma",
+          "nombres": "S.",
+          "apellidos": "Verma"
+        },
+        {
+          "nombre_completo": "C. D. C. Andrade",
+          "nombres": "C. D. C.",
+          "apellidos": "Andrade"
+        },
+        {
+          "nombre_completo": "M. Omeara",
+          "nombres": "M.",
+          "apellidos": "Omeara"
+        },
+        {
+          "nombre_completo": "N. Campbell",
+          "nombres": "N.",
+          "apellidos": "Campbell"
+        },
+        {
+          "nombre_completo": "J. S. Wang",
+          "nombres": "J. S.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "32612176",
+      "fuente": "Nat Commun",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "3282",
+      "lpage": ""
+    },
+    {
+      "titulo": "Focal adhesion kinase plays a role in osteoblast mechanotransduction in vitro but does not affect load-induced bone formation in vivo",
+      "autores": [
+        {
+          "nombre_completo": "A. B. Castillo",
+          "nombres": "A. B.",
+          "apellidos": "Castillo"
+        },
+        {
+          "nombre_completo": "J. T. Blundo",
+          "nombres": "J. T.",
+          "apellidos": "Blundo"
+        },
+        {
+          "nombre_completo": "J. C. Chen",
+          "nombres": "J. C.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "K. L. Lee",
+          "nombres": "K. L.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "N. R. Yereddi",
+          "nombres": "N. R.",
+          "apellidos": "Yereddi"
+        },
+        {
+          "nombre_completo": "E. Jang",
+          "nombres": "E.",
+          "apellidos": "Jang"
+        }
+      ],
+      "pmid": "23028449",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e43291",
+      "lpage": ""
+    },
+    {
+      "titulo": "Early activation of the beta-catenin pathway in osteocytes is mediated by nitric oxide, phosphatidyl inositol-3 kinase/Akt, and focal adhesion kinase",
+      "autores": [
+        {
+          "nombre_completo": "A. Santos",
+          "nombres": "A.",
+          "apellidos": "Santos"
+        },
+        {
+          "nombre_completo": "A. D. Bakker",
+          "nombres": "A. D.",
+          "apellidos": "Bakker"
+        },
+        {
+          "nombre_completo": "B. Zandieh-Doulabi",
+          "nombres": "B.",
+          "apellidos": "Zandieh-Doulabi"
+        },
+        {
+          "nombre_completo": "J. M. de Blieck-Hogervorst",
+          "nombres": "J. M.",
+          "apellidos": "de Blieck-Hogervorst"
+        },
+        {
+          "nombre_completo": "J. Klein-Nulend",
+          "nombres": "J.",
+          "apellidos": "Klein-Nulend"
+        }
+      ],
+      "pmid": "19913504",
+      "fuente": "Biochem Biophys Res Commun",
+      "anio": "2010",
+      "volumen": "391",
+      "fpage": "364",
+      "lpage": "369"
+    },
+    {
+      "titulo": "Effects of BMP-2 and FGF2 on the osteogenesis of bone marrow-derived mesenchymal stem cells in hindlimb-unloaded rats",
+      "autores": [
+        {
+          "nombre_completo": "X. Qian",
+          "nombres": "X.",
+          "apellidos": "Qian"
+        },
+        {
+          "nombre_completo": "C. Zhang",
+          "nombres": "C.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G. Chen",
+          "nombres": "G.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Z. Tang",
+          "nombres": "Z.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "Q. Liu",
+          "nombres": "Q.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "J. Chen",
+          "nombres": "J.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "24880437",
+      "fuente": "Cell Biochem Biophys",
+      "anio": "2014",
+      "volumen": "70",
+      "fpage": "1127",
+      "lpage": "1136"
+    },
+    {
+      "titulo": "Osteocyte network; a negative regulatory system for bone mass augmented by the induction of Rankl in osteoblasts and Sost in osteocytes at unloading",
+      "autores": [
+        {
+          "nombre_completo": "T. Moriishi",
+          "nombres": "T.",
+          "apellidos": "Moriishi"
+        },
+        {
+          "nombre_completo": "R. Fukuyama",
+          "nombres": "R.",
+          "apellidos": "Fukuyama"
+        },
+        {
+          "nombre_completo": "M. Ito",
+          "nombres": "M.",
+          "apellidos": "Ito"
+        },
+        {
+          "nombre_completo": "T. Miyazaki",
+          "nombres": "T.",
+          "apellidos": "Miyazaki"
+        },
+        {
+          "nombre_completo": "T. Maeno",
+          "nombres": "T.",
+          "apellidos": "Maeno"
+        },
+        {
+          "nombre_completo": "Y. Kawai",
+          "nombres": "Y.",
+          "apellidos": "Kawai"
+        }
+      ],
+      "pmid": "22768243",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e40143",
+      "lpage": ""
+    },
+    {
+      "titulo": "Pulsed electromagnetic fields partially preserve bone mass, microarchitecture, and strength by promoting bone formation in hindlimb-suspended rats",
+      "autores": [
+        {
+          "nombre_completo": "D. Jing",
+          "nombres": "D.",
+          "apellidos": "Jing"
+        },
+        {
+          "nombre_completo": "J. Cai",
+          "nombres": "J.",
+          "apellidos": "Cai"
+        },
+        {
+          "nombre_completo": "Y. Wu",
+          "nombres": "Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "G. Shen",
+          "nombres": "G.",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "F. Li",
+          "nombres": "F.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Q. Xu",
+          "nombres": "Q.",
+          "apellidos": "Xu"
+        }
+      ],
+      "pmid": "24753111",
+      "fuente": "J Bone Miner Res",
+      "anio": "2014",
+      "volumen": "29",
+      "fpage": "2250",
+      "lpage": "2261"
+    },
+    {
+      "titulo": "Periostin expression contributes to cortical bone loss during unloading",
+      "autores": [
+        {
+          "nombre_completo": "M. Gerbaix",
+          "nombres": "M.",
+          "apellidos": "Gerbaix"
+        },
+        {
+          "nombre_completo": "L. Vico",
+          "nombres": "L.",
+          "apellidos": "Vico"
+        },
+        {
+          "nombre_completo": "S. L. Ferrari",
+          "nombres": "S. L.",
+          "apellidos": "Ferrari"
+        },
+        {
+          "nombre_completo": "N. Bonnet",
+          "nombres": "N.",
+          "apellidos": "Bonnet"
+        }
+      ],
+      "pmid": "25445447",
+      "fuente": "Bone",
+      "anio": "2015",
+      "volumen": "71",
+      "fpage": "94",
+      "lpage": "100"
+    },
+    {
+      "titulo": "Lipocalin 2: a new mechanoresponding gene regulating bone homeostasis",
+      "autores": [
+        {
+          "nombre_completo": "N. Rucci",
+          "nombres": "N.",
+          "apellidos": "Rucci"
+        },
+        {
+          "nombre_completo": "M. Capulli",
+          "nombres": "M.",
+          "apellidos": "Capulli"
+        },
+        {
+          "nombre_completo": "S. G. Piperni",
+          "nombres": "S. G.",
+          "apellidos": "Piperni"
+        },
+        {
+          "nombre_completo": "A. Cappariello",
+          "nombres": "A.",
+          "apellidos": "Cappariello"
+        },
+        {
+          "nombre_completo": "P. Lau",
+          "nombres": "P.",
+          "apellidos": "Lau"
+        },
+        {
+          "nombre_completo": "P. Frings-Meuthen",
+          "nombres": "P.",
+          "apellidos": "Frings-Meuthen"
+        }
+      ],
+      "pmid": "25112732",
+      "fuente": "J Bone Miner Res",
+      "anio": "2015",
+      "volumen": "30",
+      "fpage": "357",
+      "lpage": "368"
+    },
+    {
+      "titulo": "Age-dependent bone loss and recovery during hindlimb unloading and subsequent reloading in rats",
+      "autores": [
+        {
+          "nombre_completo": "H. C. Cunningham",
+          "nombres": "H. C.",
+          "apellidos": "Cunningham"
+        },
+        {
+          "nombre_completo": "D. W. D. West",
+          "nombres": "D. W. D.",
+          "apellidos": "West"
+        },
+        {
+          "nombre_completo": "L. M. Baehr",
+          "nombres": "L. M.",
+          "apellidos": "Baehr"
+        },
+        {
+          "nombre_completo": "F. D. Tarke",
+          "nombres": "F. D.",
+          "apellidos": "Tarke"
+        },
+        {
+          "nombre_completo": "K. Baar",
+          "nombres": "K.",
+          "apellidos": "Baar"
+        },
+        {
+          "nombre_completo": "S. C. Bodine",
+          "nombres": "S. C.",
+          "apellidos": "Bodine"
+        }
+      ],
+      "pmid": "30021585",
+      "fuente": "BMC Musculoskelet Disord",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "223",
+      "lpage": ""
+    },
+    {
+      "titulo": "Aging alters the skeletal response to disuse in the rat",
+      "autores": [
+        {
+          "nombre_completo": "D. S. Perrien",
+          "nombres": "D. S.",
+          "apellidos": "Perrien"
+        },
+        {
+          "nombre_completo": "N. S. Akel",
+          "nombres": "N. S.",
+          "apellidos": "Akel"
+        },
+        {
+          "nombre_completo": "E. E. Dupont-Versteegden",
+          "nombres": "E. E.",
+          "apellidos": "Dupont-Versteegden"
+        },
+        {
+          "nombre_completo": "R. A. Skinner",
+          "nombres": "R. A.",
+          "apellidos": "Skinner"
+        },
+        {
+          "nombre_completo": "E. R. Siegel",
+          "nombres": "E. R.",
+          "apellidos": "Siegel"
+        },
+        {
+          "nombre_completo": "L. J. Suva",
+          "nombres": "L. J.",
+          "apellidos": "Suva"
+        }
+      ],
+      "pmid": "17068163",
+      "fuente": "Am J Physiol Regul Integr Comp Physiol",
+      "anio": "2007",
+      "volumen": "292",
+      "fpage": "R988",
+      "lpage": "996"
+    },
+    {
+      "titulo": "Partial reductions in mechanical loading yield proportional changes in bone density, bone architecture, and muscle mass",
+      "autores": [
+        {
+          "nombre_completo": "R. Ellman",
+          "nombres": "R.",
+          "apellidos": "Ellman"
+        },
+        {
+          "nombre_completo": "J. Spatz",
+          "nombres": "J.",
+          "apellidos": "Spatz"
+        },
+        {
+          "nombre_completo": "A. Cloutier",
+          "nombres": "A.",
+          "apellidos": "Cloutier"
+        },
+        {
+          "nombre_completo": "R. Palme",
+          "nombres": "R.",
+          "apellidos": "Palme"
+        },
+        {
+          "nombre_completo": "B. A. Christiansen",
+          "nombres": "B. A.",
+          "apellidos": "Christiansen"
+        },
+        {
+          "nombre_completo": "M. L. Bouxsein",
+          "nombres": "M. L.",
+          "apellidos": "Bouxsein"
+        }
+      ],
+      "pmid": "23165526",
+      "fuente": "J Bone Miner Res",
+      "anio": "2013",
+      "volumen": "28",
+      "fpage": "875",
+      "lpage": "885"
+    },
+    {
+      "titulo": "Corticosterone selectively targets endo-cortical surfaces by an osteoblast-dependent mechanism",
+      "autores": [
+        {
+          "nombre_completo": "H. Henneicke",
+          "nombres": "H.",
+          "apellidos": "Henneicke"
+        },
+        {
+          "nombre_completo": "M. Herrmann",
+          "nombres": "M.",
+          "apellidos": "Herrmann"
+        },
+        {
+          "nombre_completo": "R. Kalak",
+          "nombres": "R.",
+          "apellidos": "Kalak"
+        },
+        {
+          "nombre_completo": "T. C. Brennan-Speranza",
+          "nombres": "T. C.",
+          "apellidos": "Brennan-Speranza"
+        },
+        {
+          "nombre_completo": "U. Heinevetter",
+          "nombres": "U.",
+          "apellidos": "Heinevetter"
+        },
+        {
+          "nombre_completo": "N. Bertollo",
+          "nombres": "N.",
+          "apellidos": "Bertollo"
+        }
+      ],
+      "pmid": "21722764",
+      "fuente": "Bone",
+      "anio": "2011",
+      "volumen": "49",
+      "fpage": "733",
+      "lpage": "742"
+    }
+  ]
+}

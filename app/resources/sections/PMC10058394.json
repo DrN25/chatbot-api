@@ -1,0 +1,3376 @@
+{
+  "TITLE": [
+    "Brachypodium distachyon Seedlings Display Accession-Specific Morphological and Transcriptomic Responses to the Microgravity Environment of the International Space Station"
+  ],
+  "ABSTRACT": [
+    "Plants have been recognized as key components of bioregenerative life support systems for space exploration, and many experiments have been carried out to evaluate their adaptability to spaceflight. Unfortunately, few of these experiments have involved monocot plants, which constitute most of the crops used on Earth as sources of food, feed, and fiber. To better understand the ability of monocot plants to adapt to spaceflight, we germinated and grew Brachypodium distachyon seedlings of the Bd21, Bd21-3, and Gaz8 accessions in a customized growth unit on the International Space Station, along with 1-g ground controls. At the end of a 4-day growth period, seedling organ’s growth and morphologies were quantified, and root and shoot transcriptomic profiles were investigated using RNA-seq. The roots of all three accessions grew more slowly and displayed longer root hairs under microgravity conditions relative to ground control. On the other hand, the shoots of Bd21-3 and Gaz-8 grew at similar rates between conditions, whereas those of Bd21 grew more slowly under microgravity. The three Brachypodium accessions displayed dramatically different transcriptomic responses to microgravity relative to ground controls, with the largest numbers of differentially expressed genes (DEGs) found in Gaz8 (4527), followed by Bd21 (1353) and Bd21-3 (570). Only 47 and six DEGs were shared between accessions for shoots and roots, respectively, including DEGs encoding wall-associated proteins and photosynthesis-related DEGs. Furthermore, DEGs associated with the “Oxidative Stress Response” GO group were up-regulated in the shoots and down-regulated in the roots of Bd21 and Gaz8, indicating that Brachypodium roots and shoots deploy distinct biological strategies to adapt to the microgravity environment. A comparative analysis of the Brachypodium oxidative-stress response DEGs with the Arabidopsis ROS wheel suggests a connection between retrograde signaling, light response, and decreased expression of photosynthesis-related genes in microgravity-exposed shoots. In Gaz8, DEGs were also found to preferentially associate with the “Plant Hormonal Signaling” and “MAP Kinase Signaling” KEGG pathways. Overall, these data indicate that Brachypodium distachyon seedlings exposed to the microgravity environment of ISS display accession- and organ-specific responses that involve oxidative stress response, wall remodeling, photosynthesis inhibition, expression regulation, ribosome biogenesis, and post-translational modifications. The general characteristics of these responses are similar to those displayed by microgravity-exposed Arabidopsis thaliana seedlings. However, organ- and accession-specific components of the response dramatically differ both within and between species. These results suggest a need to directly evaluate candidate-crop responses to microgravity to better understand their specific adaptability to this novel environment and develop cultivation strategies allowing them to strive during spaceflight."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "On Earth, plants are exposed to a unidirectional 1-g force that guides the growth of their organs (gravitropism). Furthermore, the weight imposed by gravity on each organ results in a mechanical load that must be counteracted by thick, sturdy cell walls and specialized morphologies. Millions of years of evolution on Earth have assured the effectiveness of these gravitropic, gravi-resistance, and gravimorphogenesis processes, allowing plants to grow and develop properly, forming morphologies that effectively permit completion of their life cycle. Spaceflight, on the other hand, imposes very different constraints on the plants, which they never encountered during their evolution on Earth.",
+    "During spaceflight, the directional cue provided by gravity is insufficient to modulate gravitropism, gravi-resistance, and other directional cues within the environment. Therefore other tropisms have to take over and guide plant organ growth, including light, gradients in water, oxygen, temperature, ions, and chemicals. Similarly, the weightlessness associated with microgravity exposure implies a lack of weight-bearing on plant organs, leading to different mechanical constraints on their growth behaviors. Other critical alterations of the physical environment encountered by plants during spaceflight include a lack of gravity-induced convection resulting in diminished gas exchange at the surface of the plant, altered photosynthesis, respiration, hypoxia, and thermoregulation. Furthermore, exposure to elevated cosmic radiation can substantially impact the morphology, biology, and genetic makeup of plants during spaceflight.",
+    "Overall, the environmental cues that plants experience during spaceflight trigger a range of biological stress responses that lead to phenotypes collectively named “space syndrome”. These include shorter organs, thinner leaves, roots tending to grow away from the light source (negative phototropism) while also skewing in some cases, root hairs of altered size, modified organelle size and shape, altered metabolism, and accumulation of starch, to cite only a few.",
+    "Researchers have heavily relied on transcriptomic and proteomic profiling approaches to reveal key molecular pathways that are responsive to the spaceflight environment relative to ground controls. Experiments using mostly Arabidopsis thaliana seedlings or plant tissue cultures as experimental materials have revealed potential contributions of Ca2+, light and reactive oxygen species (ROS) signaling, cell wall remodeling, and defense responses in plant adaptation to the spaceflight environment. Some of these expression changes were accompanied by alterations in the pattern of CNG and CNN DNA methylation in the proximity of the corresponding genes, suggesting some epigenetic contribution to the process. Interestingly, a short root-hair phenotype displayed by Arabidopsis seedlings grown in the BRIC hardware onboard the Space Shuttle Discovery (STS-131) was accompanied by decreased expression of genes associated with oxidative stress (such as peroxidases) and cell wall remodeling, and reverse genetics demonstrated a contribution of some of these genes in modulation of root hair growth.",
+    "The profiling investigations described above have revealed a large variability in expression responses between experiments due in part to differences in hardware used to grow the plants, growth conditions, and plant genotypes (reviewed in). The latter parameter (plant genotype) is particularly interesting to consider. Indeed, the geographical origin of a specific plant accession plays a key role in defining the type of responses the plant will develop under specific environmental conditions, reflecting an important role for selective forces in dictating the evolution of adaptive traits. Consequently, for any plant species, individual ecotypes carry specific sets of alleles that allowed the plants to not only survive and adapt to the conditions of their native environment, but also result in distinct abilities to cope with new environments to which they might subsequently become exposed. Therefore, it is not surprising that experiments attempting to evaluate Arabidopsis’s ability to adapt to the microgravity environment have revealed dramatic accession-specific differences in their ability to grow, develop, and respond molecularly to this novel environment.",
+    "In fact, most experiments aimed at investigating Arabidopsis transcriptional responses to spaceflight have been carried out using the Col ecotype at the seedling stage or as cell cultures. Additionally, transcriptomic responses to spaceflight of Ler-0 and Ws ecotypes have been investigated in multiple space environments such as in Space Shuttles and the International Space Station (ISS), using a variety of hardware such as the Advanced Biological Research System (ABRS:) or the CARA experiment, respectively. More recently, a landmark paper described a more thorough comparative transcriptomic analysis of four Arabidopsis ecotypes (Col-0, Ws-2, Ler-0, and Cvi-0) exposed to either microgravity conditions or 1-g. Altogether, these experiments demonstrated that different accessions display both common and accession-specific responses to the microgravity environment relative to ground controls. Shared transcriptomic responses included the activation of expression of molecular chaperones that may protect the cells against oxidative damage imposed by the hypoxic conditions that typically develop around plant organs in the absence of convective buoyancy under microgravity.",
+    "While Arabidopsis thaliana serves as an outstanding genetic model for investigations of dicot plant responses to the microgravity environment encountered during spaceflight, most major agriculture crops grown on Earth for food, feed, and fiber are monocots, which diverged from the dicots ~150 million years ago. Unfortunately, comparatively fewer experiments have been carried out to investigate the effects of spaceflight on monocot plant growth, morphology, and expression profiles. The wheat PESTO experiment investigated the growth of semi-dwarf wheat plants (Triticum aestivum L. cv. USU Apo) onboard the ISS relative to 1-g ground controls, demonstrating the existence of morphological differences between these two groups, including thinner leaves with ovoid chloroplasts and greater packaging density for microgravity-exposed plants relative to ground controls. Similar phenotypes were also displayed by microgravity-exposed Zea mays plants. On the other hand, rice seedlings (Oryza sativa L. cv. Koshihikari) grown for 68.5–136 h in the Space Shuttle STS-95 mission displayed longer roots than ground control, a phenotype associated with some thinning of the cell wall along with higher elasticity modulus and viscosity coefficient in space relative to ground controls.",
+    "Shagimardanova and colleagues analyzed the effects of microgravity on the transcriptome of barley (Hordeum vulgare) plants growing in the Lada root module onboard the ISS. They observed substantial transcriptomic differences between spaceflight and ground-control seedlings, including genes preferentially associated with stress response, pathogenesis, and antioxidant pathways. On the other hand, rice seedlings (Oryza sativa L.) germinated and grown in a Science in Microgravity Box (SIMBOX) biological incubator on board the Shenzhou-8 spacecraft displayed dramatically altered photosynthesis characteristics with decreased photosystem 1 (PS1) efficiency relative to ground controls. This phenotype was associated with decreased abundance of proteins associated with the PS1, NAD(P)H dehydrogenase (NDH), and cytochrome b6f (Cytb6f) complexes. Hence, spaceflight may lead to declines in PSI activity in rice, either as a direct consequence of microgravity, or caused by side effects of spaceflight associated with inefficient airflow, high CO2 and ethylene levels, radiation, and/or other experimental parameters.",
+    "In this paper, we present the results of an experiment named APEX-06 (Advanced Plant Experiment-06) aimed at investigating the effect of spaceflight on the growth, morphology, and transcriptome profiles of Brachypodium distachyon, a genetic model for monocots closely related to cereal crops such as oat, wheat, barley, and rice. We show that Brachypodium seedlings grown on the surface of foam substrates within modified Magenta-Box containers display accession-specific alterations in seedling organ growth onboard the ISS relative to ground controls. Surprisingly, exposure of Brachypodium to spaceflight conditions also triggered increased root-hair growth under our cultivation conditions, a phenotype that correlated with altered expression of key genes associated with ROS signaling and root-hair growth in one of the tested accessions. We also report dramatic differences in organ-specific transcriptomic responses to the spaceflight environment between Brachypodium accessions and discuss these observations within the context of monocot plant adaptation to spaceflight. Because a 1× g centrifugation control was not available on ISS for the VEGGIE growth chamber utilized in these experiments, the growth and transcriptomic responses to spaceflight observed in this project may be the consequence of exposure to microgravity, radiation, or other spaceflight-associated parameters such as inefficient airflow and gas exchange, high ethylene levels, and/or other parameters."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. A Novel APEX Growth Unit Allows Transportation of Pre-Planted Dry Brachypodium distachyon Seeds to ISS and Subsequent Activation of Germination",
+    "Experiments aimed at investigating the effects of microgravity environments on plant growth, development, and gene expression relative to ground controls should be conducted such that germination and growth occur under microgravity for the treated plants, avoiding any post-germination exposure to the 1-g conditions of Earth and/or hypergravity and vibration conditions typically experienced during takeoff and flight back to Earth. When using the dicot model plant Arabidopsis thaliana, seeds can be planted in agar-based media on the ground, then treated with far-red light followed by darkness to prevent germination during spaceflight. Unfortunately, this far-red light pretreatment is not sufficient to block the germination of imbibed Brachypodium distachyon seeds before launch. Therefore, we designed a novel foam-based growth system named the APEX Growth Unit, which can be planted with quiescent dry Brachypodium seeds on Earth, then transported to the ISS where the experiment can be activated by injecting growth medium into the foam.",
+    "The APEX Growth Unit is made of a Magenta jar that contains a central Oasis Horticube foam whose general properties are described in the following link:  (accessed on 6 February 2023) (Figure 1A) The foam block is wrapped with medical gauze and Nitex Mesch (Figure 1B), and it is attached to an injection showerhead (Figure 1C). Surface-sterilized dry seeds are inserted in the foam before take-off, and germination is triggered by injection of sterile growth medium through the injection showerhead into the foam upon arrival on ISS. Plants growing on the surface of this foam block are contained within the Magenta jar, which maintains sterile conditions throughout the experiment. Several layers of medical gauze surrounding the nutrient-filled foam block assure better foam-to-root nutrient distribution during plant growth. Furthermore, a layer of Nitex mesh prevents roots from penetrating the foam block, assuring visibility of the root system throughout the experiment and facilitating root harvesting at the end of the growth period.",
+    "To elucidate the effect of microgravity on Brachypodium seedling growth and expression profile, we grew three Brachypodium distachyon accessions (Bd21, Bd21-3, and Gaz8) under both microgravity and ground-control conditions. For each accession, four biological repeats per condition were carried out, each including one APEX Growth Unit (described in Section 2) planted with 28 seeds on the four surfaces of the foam block. A first group of 12 APEX Growth Units was flown to ISS, where astronaut Scott Tingle initiated the experiment by injecting nutrient medium into the foam of each unit and positioning the units into an onboard VEGGIE growth chamber following the blueprint shown in Supplemental Figure S1. This arrangement was designed to minimize differential exposure between accessions to the light gradients existing between the center and corners of the VEGGIE growth unit. After the first day of exposure to red light to synchronize germination, seedlings were grown under red, blue, and green light for a total period of 5 days. At the end of the growth period, seedlings were photographed, harvested, and fixed in RNAlater for subsequent RNA-seq and RT-qPCR analysis.",
+    "A ground control was also carried out at Kennedy Space Center (KSC) with a two-day delay. This ground control mimicked the light, temperature, and CO2 conditions of the ISS experiment as well as the positions of the samples in VEGGIE. At the end of the growth period, ground control samples were photographed, harvested, and fixed in RNAlater following similar protocols as on ISS.",
+    "2.2. Plant Materials and Growth Conditions",
+    "Seeds of three Brachypodium distachyon accessions (Bd21, Bd21-3, and Gaz8) were obtained from Drs. Daniel Wood and Richard Amasino (University of Wisconsin–Madison). They were germinated and grown in soil (Berger Soil, BM2: Perlite: Vermiculite = 2:1:1) side-by-side in the same growth chamber exposed to a constant temperature of 22 °C, 65% relative humidity, 20 h day/4 h night cycles and 100–120 µmol/m2/s cool-white fluorescent light during the days. The plants were fertilized every other week with Blossom Booster Fertilizer (10-30-20). They were allowed to self-fertilize and generate seeds under these conditions. After harvesting, seeds were allowed to rest at room temperature for a minimum of three weeks to lift dormancy. At the time of the experiment, seeds were dehusked, surface-sterilized with five successive 1-min washes with 95% (w/v) ethanol, and then air-dried in a sterile hood for at least 20 min. Then, 24 seeds per APEX Growth Unit were inserted into the foam (6 per side), oriented with the embryo directed outward on the surface. Each accession was represented by a total of four APEX Growth Units (total of 96 seeds per accession). The seeded APEX Growth Units were packed in Cold Bags held at 4 °C and transferred to the Dragon capsule on SpaceX-14 where they were stored for 3 days before launch.",
+    "2.3. ISS Experiment",
+    "SpaceX-14 launched on 2 April 2018, and docked with the ISS ~2 days later. Twelve APEX Growth Units (4 per accession) were unpacked by astronaut Scott Tingle on 12 April 2018, and the experiment was activated by injection of 90 mL half-strength Murashige and Skoog (MS: Sigma M5624 and MES: M2933) liquid medium into each APEX Growth Unit through the injection port (Figure 1). The APEX Growth Units were then integrated into the onboard VEGGIE (Vegetable Production System) growth unit fitted with Magenta-box holders following the pattern illustrated in Supplemental Figure S1. The red-LED lights were switched on to promote synchronized germination (low setting). After 24 h, the green and blue LED lights were also switched on (low setting) and the seedlings were allowed to grow for a period of 4 days under continuous light (blue, green, and red LEDs at an intensity of approximately 40–55 µmol/m2/s). HOBO environmental sensors/data loggers were placed into VEGGIE near the APEX Growth Units to capture the environmental conditions (temperature, humidity) during the entire growth period.",
+    "At the end of this growth period, seedlings were photographed with a Nikon D5 camera and then harvested into Kennedy Fixation Tubes (KFTs) preloaded with RNAlater (one KFT per APEX Growth Unit). Tissue fixation was initiated by forcing RNAlater from the storage chamber of the KFTs into the fixation chamber containing harvested plant tissue. Fixation proceeded at room temperature for a period of 24 h. The tubes were then stored in the Minus-Eighty Laboratory Freezer on the ISS (MELFI) for 20 days before being loaded onto the Dragon capsule and returned to Earth on 5 May 2018. The fixed samples were de-integrated from the KFTs and transferred into 50 mL Falcon Tubes at KSC, then delivered frozen at −80 °C to the Principal Investigator’s laboratory at the University of Wisconsin–Madison for molecular analysis.",
+    "2.4. Ground Control",
+    "A duplicated set of APEX Growth Units planted with seeds from the same three accessions was generated and used for a ground control experiment that was carried out in a VEGGIE growth chamber within the ISS Environmental Simulator (ISSES) at Kennedy Space Center (KSC). The ISSES was programmed to simulate the environmental conditions recorded by the HOBO sensors in the VEGGIE unit of the ISS, with a 2-day delay. The four APEX Growth Units associated with each of the three accessions were positioned within VEGGIE along a pattern that was identical to the one used in the ISS experiment (Supplemental Figure S1). The experimental protocol for this ground control experiment was identical to the one followed on the ISS.",
+    "At the end of the growth period, the seedlings were also photographed with a Nikon D4s camera, then harvested in KFTs and fixed in RNAlater as described for the ISS experiment. After 1-day fixation at room temperature, the samples were transferred to a −80 °C freezer, then sent to the Principle Investigator’s laboratory at the University of Wisconsin-Madison under dry ice for subsequent RNA extraction and expression analysis.",
+    "2.5. RNA Extraction and RNAseq Analysis",
+    "Frozen fixed seedlings were thawed, then dissected to separate shoots and roots. Total RNA was extracted from the root or shoot tissues using Direct-zol RNA Miniprep Plus extraction kits (Zymo Research, Irvine, CA, USA). DNAse-I treatment was performed in column using RNase-Free DNase-I Set (Qiagen, Valencia, CA, USA). RNA quality was monitored using Agilent 2100 Bioanalyzer and Eukaryotic total RNA NanoChip technologies (Agilent Technologies, Santa Clara, CA, USA). Approximately 1 µg total RNA from each sample was used to generate cDNA libraries with rRNA reduction using TruSeq Stranded Total RNAlibrary Prep Plant Kits (lllumina, San Diego, CA, USA). Paired-end sequencing (2 × 150 bp) was performed at the University of Wisconsin–Madison Biotech Center DNA Sequencing Facility using NovaSeq 6000 (Illumina, San Diego, CA, USA). Libraries were multiplexed with a target of ~60 million reads per sample for Bd21. For the other two accessions, Bd21-3 and Gaz8, RNA sequencing was performed by the National Aeronautics and Space Administration (NASA)’s GeneLab Sample Processing Lab ( (accessed on 6 February 2023)) on a Illumina NovaSeq6000. Paired-end sequencing (2 × 100 bp) reactions were performed with ~120 million reads per sample. The corresponding sequencing fastq files have been uploaded into the GeneLab Data Repository ( (accessed on 6 February 2023); OSD-375; GLDS-375).",
+    "2.6. RNA Sequence Mapping and Transcriptional Profiling",
+    "The Tuxedo pipeline was used to map RNAseq sequence reads to the Brachypodium distachyon accession Bd21 reference genome version 3.0 (Phytozome). Briefly, the paired-end 150-bp (Bd21) or 100-bp (Bd21-3 and Gaz8) sequence reads were joined after filtering out low-quality bases with Phred scores below 30. TopHat2 was then used to map the splice junctions between exons after aligning the reads to the Brachypodium distachyon accession Bd21 reference genome version 3.0 (Phytozome) using Bowtie2 as alignment engine; 2-bp mismatches were allowed in this step. The percentages of sequence reads aligned to the reference genome for each sample are summarized in Supplemental Table S1. The overall read mapping rate averaged 75% to 80%, except for one of the Gaz8 root samples in the ground control (B3 position), which displayed a mapping rate of 41.7%. Considering the lower mapping rate for this sample, we excluded it, along with the matched B3 Gaz8 flight sample, from subsequent analyses. HTseq was used to calculate the number of reads assigned to each annotated transcript. The DEseq and EdgeR R-based packages were used to normalize the data and evaluate differential expression between microgravity-exposed and ground control samples. Four biological replicates per accession were used to identify differentially expressed genes. p-values were adjusted for multiple testing using either the Benjamin–Hochberg method (for DEseq) or the q-values set to false discovery rates (FDR) of 0.05 (for EdgeR). Thresholds for significant differences were set at p(q) < 0.05.",
+    "2.7. Bioinformatic Analysis, Annotation, and GO Enrichment of Differentially Expressed Genes",
+    "Differentially expressed genes (DEGs) were annotated using the information available in Phytozome for Brachypodium distachyon accession Bd21 (Brachypodium distachyon Bd21 database, version 3.1;  (accessed on 6 February 2023)). Gene ontology enrichment analysis used the agriGO platform ( (accessed on 6 February 2023)). Singular enrichment analysis (SEA) was chosen for all enrichment analyses. Gene identification numbers (Bradi) associated with each annotated gene in Phytozome were directly used as input for all three accessions. For reactive oxygen species (ROS)-associated DEGs, assignment to defined ROS-wheel categories was performed as defined in, using Arabidopsis orthologs to the Brachypodium DEGs as input. Predicted Arabidopsis orthologs to Brachypodium DEGs were obtained using Phytozome database ( (accessed on 6 February 2023)). The threshold for significant enrichment was set at FDR = 0.05. For protein–protein interaction analysis, the STRING platform was used ( (accessed on 6 February 2023)) to identify potentially interacting DEG partners. GO enrichment and KEGG predictions were obtained directly from the STRING output.",
+    "For cis-acting element identification, we obtained the genomic sequence of the DEG’s transcribed region along with 5 kb of upstream and downstream sequences and used it as input data in the PLACE database to identify possible conserved cis-acting elements in proximity of each DEG ( (accessed on 6 February 2023)).",
+    "For transcription factor prediction and transcriptional regulation network analysis, Bd21 and Gaz8 shoot down-regulated DEGs belonging to the Photosynthesis GO group (GO:0015979) were identified and their Arabidopsis orthologs characterized. PlantRegMap ( (accessed on 6 February 2023)) was then used to search for possible transcription factors (TFs) regulating these DEGs. This list of candidate TFs was compared to the full list of DEGs, allowing the identification of TFs that are differentially expressed in microgravity conditions relative to ground controls. These lists allowed us to reconstruct possible regulatory networks, which were manually drawn using Adobe Illustrator.",
+    "2.8. Morphology Measurement",
+    "High-resolution seedling photographs (with scale) were taken on the ISS and in ground control experiments at the end of the growth period before tissue harvesting and fixation. Shoot and root lengths were measured separately using ImageJ ( (accessed on 6 February 2023)). All germinated seedlings were measured for each accession (n > 68). For root-hair length, the resolution of the photographs was not sufficient to allow determination of hair sizes along each photographed root. Therefore, root-hair length was quantified on only a portion of the seedlings analyzed. For each image, all roots that did not overlap with other roots and whose root hairs were clearly defined and measurable were used. Root-hair length was measured in a region of the root located approximately 3 cm above the root tip, within the mature zone, where the root hairs have reached full-length (n > 10 roots for each accession and growth condition). Student’s t-test with 2-tailed distributions and equal variances was used to determine the statistical significance of observed differences (p < 0.05), using Microsoft Excel.",
+    "2.9. qRT-PCR Analysis",
+    "1 μg total mRNA per sample was reverse-transcribed into cDNA using the qScript cDNA SuperMix and following a protocol recommended by the supplier (QuantaBio, Beverly, MA, USA). Then, 250 ng RNA-equivalent cDNA was used to perform RT-qPCR per reaction. The RT-qPCR reactions (250 ng cDNA, 0.2 μM primers, and 1× Bullseye EvaGreen qPCR Mastermix; MidSci, St. Louis, MO, USA) were run on a LightCycler 480 II Instrument (Roche, Basel, Switzerland). Gene expression was calculated using the delta-Ct approach, and the data were standardized to the UBC18 (Bradi4g00660) reference gene. All flight expression levels were standardized to ground control levels. Student’s t-test with 2-tailed distributions and equal variances was used to determine the statistical significance of observed differences between samples (p < 0.05), using Microsoft Excel (version 2009)."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "3.1. Microgravity Affects Seedling Growth in an Accession-Specific Manner",
+    "In a first attempt to evaluate the effect of the microgravity environment of ISS on Brachypodium seedlings, we investigated the direction of root and shoot growth after five days of cultivation on ISS and a ground control at KSC, and quantified shoot and root growth from pictures taken at the end of the growth period under both conditions. Seedlings grown under microgravity showed more variation in shoot and root growth direction than those grown on the ground (Figure 2A), as expected considering the absence of gravi-response under microgravity. However, seedling organs were not randomly oriented. Shoots generally grew toward the light canopy whereas roots tended to grow away from it (Figure 2A). These directional growth trends may be partly due to the original orientation of the seeds embedded into the foam. However, phototropism may also offer directional guidance under microgravity.",
+    "Morphologically, microgravity-exposed seedling roots were 16% to 18% shorter than ground controls for all three accessions tested at the end of the growth period (Figure 2B). For shoots, we only saw a 20% reduction of growth under microgravity for Bd21, whereas Bd21-3 and Gaz8 shoots grew similarly under both conditions (Figure 2C).",
+    "In addition to observing differences in root and shoot growth under microgravity relative to ground controls, we also noticed a clear root-hair phenotype associated with growth under microgravity conditions. Indeed, the roots of microgravity-grown Brachypodium seedlings of all accessions were hairier than those grown on earth, at least for areas of the roots in direct contact with the feeding-block surface (Figure 2D). Unfortunately, we could not determine if this hairy-root phenotype was associated with increased root-hair density under microgravity. However, representative images from seedlings of all accessions tested were of sufficient resolution to allow the measurement of root-hair sizes. In all cases, root hairs were significantly longer on microgravity-exposed seedlings than ground controls (Figure 2D,E). Overall, these results suggest the existence of genetic variation between Brachypodium accessions for seedling growth responses to microgravity.",
+    "3.2. Microgravity-Exposed Seedling Roots and Shoots Display Distinct Transcriptomic Profiles Compared to Ground Controls",
+    "To evaluate the impact of spaceflight on gene expression, we compared the transcriptome profiles between microgravity conditions (ISS) and ground controls for dissected Bd21, Bd21-3, and Gaz8 Brachypodium distachyon seedling roots and shoots using the DEseq and EdgeR statistical packages. Candidate genes identified by both packages as displaying significant differences in expression between microgravity and ground control conditions are discussed below.",
+    "The three Brachypodium accessions tested in APEX-06 showed distinguishable expression responses to the microgravity environment of ISS. A total of 1027 and 325 genes were found to be differentially expressed (DEGs) between microgravity-exposed and ground-control conditions in shoots and roots, respectively, for Bd21, which is the accession traditionally used as a reference in Brachypodium genome sequencing projects (Figure 3A,B; Supplemental Table S2). Bd21-3, on the other hand, displayed fewer DEGs under microgravity conditions relative to ground controls, including 345 DEGs in shoots and 224 in roots (Supplemental Table S3). For Gaz8, 4186 and 475 genes were differentially expressed in shoots and roots (Supplemental Table S4), respectively (Figure 3A,B). This implies that different Brachypodium accessions may have distinct abilities to adapt to the microgravity environment of ISS based on the dramatic differences in expression responses to microgravity they displayed in this experiment.",
+    "Within each accession, very few DEGs were found to overlap between shoots and roots. In fact, a vast majority of DEGs were differentially expressed in only shoots or roots (Figure 3C). This observation held true for all accessions tested in this study.",
+    "When comparing accessions, only 46 and four DEGs were found to be shared by all three accessions in shoots and roots, respectively. We define these genes as common DEGs (Supplemental Table S5). The common DEGs share several interesting features. First, most of these common DEGs display expression changes in the same direction (up or down) under microgravity conditions relative to ground controls in all three accessions (with only one exception in the shoot samples). This observation may suggest that the common DEGs represent a significant component of plant responses to the microgravity conditions on ISS. Second, we performed a GO enrichment analysis of these common DEGs, using their Arabidopsis orthologues as queries. While the list of common root DEGs was too small to warrant such an analysis, we noticed an enrichment of the list of down-regulated common shoot DEGs for genes associated with the Photosynthesis (GO:0015979; FDR = 8.6 × 10−9), Photosynthesis/Light Reaction (GO:0019684; FDR = 7.4 × 10−7), and Generation of Precursor Metabolites and Energy (GO:0006091; FDR = 6.3 × 10−5) GO groups. All these GO groups belong to the Photosynthesis-Related hierarchy (Supplemental Table S5). This observation is consistent with previous studies in Arabidopsis and rice, and also with our observation discussed in the following section that photosynthesis-related Gene Ontologies (GOs) are enriched in the general lists of down-regulated shoot DEGs in all three accessions (Supplemental Figure S4). Third, several common DEGs found in our list encode cell-wall-related proteins, including two up-regulated wall-associated kinases (WAKs) in shoots and one up-regulated laccase and one down-regulated peroxidase in roots (Supplemental Table S5). This is also consistent with previous studies in rice or Arabidopsis, indicating differential expression of genes associated with cell wall composition and/or extensibility under microgravity conditions.",
+    "3.3. GO Enrichment Analysis Suggests That Brachypodium Roots and Shoots Deploy Distinct Biological Strategies to Cope with the Microgravity Environment on ISS",
+    "To understand the biological processes that may be affected by the microgravity environment, we analyzed our list of DEGs for possible GO enrichments. First, we split the DEG list into four categories for each accession based on their up- or down-regulation in root and shoot tissues, respectively. Figure 4 shows the list of GO groups over-represented in Bd21. Among all four categories, DEGs are enriched for genes associated with the Oxidation-Reduction Process (GO: 0055114) (Figure 4). However, the DEGs belonging to this GO group were distinct between shoot and root tissues (Supplemental Table S6). In the root down-regulated category, most DEGs belong to the peroxidase and cytochrome P450 super families. On the other end, only a few peroxidases were identified in the shoot down-regulated category. Instead, this category contained more photosynthesis-related genes. Moreover, seven peroxidase genes were observed in shoot up-regulated DEGs (Supplemental Table S6), indicating opposite peroxidase expression trends between root and shoot tissues under the microgravity environment for Bd21.",
+    "Next, we expanded our GO enrichment analysis to DEGs identified in all three accessions analyzed in this project. Interestingly, the Oxidation-Reduction process (GO: 0055114) was found to be the only GO group enriched in all four categories of DEGs for all three accessions, reemphasizing the importance of the Oxidation-Reduction process in Brachypodium seedling responses to the microgravity environment on ISS (Supplemental Figures S2–S5).",
+    "Previous studies have shown that transcriptomic responses to a variety of redox homeostasis perturbation experiments in Arabidopsis cluster into eight main groups (the “ROS wheel”), each showing similar patterns of expression changes in response to distinct classes of perturbations. Because our study revealed that the Oxidative-Reduction Process GO group is significantly enriched in the Brachypodium shoot and root transcriptomic responses to the microgravity environment on ISS, we compared our list of DEGs from Bd21 to the clusters identified in the ROS wheel. To do this, we used “best-hit annotation” ( (accessed on 6 February 2023)) to identify Arabidopsis orthologs to our DEGs. From the 325 Bd21 root DEGs identified in our study, 296 have Arabidopsis orthologs, including 259 with unique orthologs. Further, 883 of the 1027 shoot DEGs were also found to have Arabidopsis orthologs, including 797 with unique orthologs (Supplemental Table S7 and S8). The lists of Arabidopsis orthologs to our DEGs were then compared to the lists of core genes associated with each cluster within the ROS wheel (Figure 5, Supplemental Table S9). Of the core genes identified in cluster I of the ROS wheel, 55% were orthologous to Bd21 shoot DEGs in our experiment. This result suggests that Brachypodium Bd21 shoots display expression responses to the microgravity environment on ISS that are similar to those displayed by Arabidopsis plants exposed to redox perturbations associated with defects in the GUN retrograde signaling pathway.",
+    "We performed a similar analysis in the Bd21-3 and Gaz8 accessions (Figure 5; Supplemental Table S9). Arabidopsis orthologs to Bd21-3 shoot DEGs associated with ROS signaling clustered preferentially with group-3 of the ROS wheel, representing early responses to high-light conditions, although this association did not reach statistical significance (chi-squared test; p = 0.54). For Gaz8, Arabidopsis orthologs to shoot DEGs preferentially clustered with both groups 1 and 3 of the ROS wheel (Figure 5; chi-squared test; p = 9.79 × 10−11). Together, these puzzling results suggest the existence of accession-specific responses to oxidative stress under microgravity conditions possibly triggered by differential organ sensitivities to distinct microgravity environment-related stimuli. Our results also suggest that Brachypodium seedlings grown under microgravity condition may use the retrograde signaling pathway to modulate their responses to the microgravity-related stressors and acclimate accordingly.",
+    "3.4. Brachypodium Genes Associated with Photosynthesis Are Down-Regulated under Microgravity Conditions on ISS",
+    "As mentioned in the previous sections, the oxidation-reduction process is important for Brachypodium seedlings growing under microgravity condition. When we compared the ROS wheel with our DEG lists, cluster I from the ROS wheel was significantly enriched within the Bd21 and Gaz8 shoot DEGs (Figure 5). Cluster I is enriched with photosynthesis-related genes. Therefore, these results match our observation that Bd21 and Gaz8 shoot down-regulated DEGs are enriched with photosynthesis-related GO groups (GO.: 0015979, GO: 0019684, GO:0006091) (Supplemental Figure S4). This observation is also consistent with previous reports from Arabidopsis and rice.",
+    "To understand the possible regulatory pathways leading to the down-regulation of photosynthesis-related Brachypodium genes under microgravity conditions, we sought transcription factors whose annotations predict a contribution to expression regulation of the photosynthesis-related DEGs in Bd21. Unfortunately, analyses using the Brachypodium and rice transcription-factor databases ( (accessed on 6 February 2023)) were not sufficiently robust to identify significant DEG expression regulators. Therefore, we used the Arabidopsis orthologs to our DEGs to search for possible regulatory networks.",
+    "In the Arabidopsis genome, a total of 252 genes are annotated as associated with the photosynthesis GO group (GO:0015979). Among them, 99 were orthologous to genes within our DEG list. We used these 99 DEG orthologs as input to retrieve 29 candidate transcription factors that are predicted to regulate these DEGs in Arabidopsis. Brachypodium orthologs to these candidate regulatory transcription factor genes were then identified and compared to our list of DEGs in the Bd21 accession (Supplemental Table S10). This analysis allowed us to build the predicted regulatory networks connecting transcription factor genes associated with photosynthesis-related Bd21-DEG orthologs in Arabidopsis thaliana (Figure 6). Several short linear pathways were identified amongst the dow-regulated DEG orthologs (Figure 6A). On the other end, a more complex, branched regulatory network could be built connecting numerous up-regulated DEG orthologs (Figure 6B). Within this up-regulated network, one pathway has been more thoroughly investigated in Arabidopsis thaliana, involving the PHYTOCHROME-INTERACTING FACTOR1 (PIF1, also named PHYTOCHROME-INTERACTING FACTOR3-LIKE5; PIL5; At2g20180/Bradi5g21950) (Supplemental Figure S6, surrounded by an orange line). This transcription factor preferentially interacts with the Pfr forms of Phytochrome A (PhyA) and Phytochrome B (PhyB) to modulate light effects in plants. Interestingly, the Phytochrome A (PHYA; Bradi1g10520) was also up-regulated in response to the microgravity environment in Brachypodium Bd21 shoots (Supplemental Table S2). Furthermore, up-regulation of PIF1 was previously reported to inhibit photomorphogenesis-related processes in several plant species, including chlorophyll biosynthesis and photosynthesis in Arabidopsis.",
+    "To evaluate a possible effect of microgravity-induced activation of expression of the Brachypodium PIF1-ortholog on the expression of photosynthesis-related genes and processes in Bd21 shoots, we compared our list of Arabidopsis orthologs to the Bd21 shoot DEGs with a list of PIF1/4/5- (PIF-trio) and PIF3-regulated genes in Arabidopsis (obtained from Supplemental Tables S9 and S10 of Zhang et al., 2013). Supplemental Table S11 shows a total of 88 Brachypodium shoot DEGs (64 down-regulated and 24 up-regulated DEGs) whose Arabidopsis orthologs are either AtPIF1/4/5 (PIFtrio)- and/or AtPIF3-regulated genes, with similar patterns (directions) of expression changes. This list of putative PIF-regulated genes is strongly enriched for photosynthesis-related GO groups (GO: 0015979, GO:0006091, and GO:0009765…etc.), as expected (p ≤ 7.6 × 10−29).",
+    "To confirm the differential expression of these potential Brachypodium PIF-target genes under microgravity conditions relative to ground controls, we used a RT-qPCR approach to quantify the expression of both PHYA (Bradi1g10520) and PIF1 (Bradi5g21950) along with four randomly picked DEGs from the list of Brachypodium orthologs to Arabidopsis PIF-response genes (Bradi3g07190, Bradi4g30060, Bradi2g16290, and Bradi1g1213). Results shown in Supplemental Figure S7 demonstrate a significant up-regulation of both PHYA (Bradi1g10520; 5-fold) and PIF1 (Bradi5g21950; 7-fold) in Bd21 under microgravity conditions relative to ground controls. It also demonstrates a down-regulation of all four DEGs under microgravity conditions relative to ground controls, in agreement with our RNAseq results.",
+    "Taken together, our results suggest that up-regulation of PHYA and PIF-gene expression under microgravity correlates with the down-regulation of photosynthesis-related genes in Brachypodium Bd21 shoots. Considering that Brachypodium is only distantly related to Arabidopsis, it will be important to directly test this hypothesis by evaluating the effects of Bradi5g21950 activation on expression regulation and photosynthesis related processes in Brachypodium distachyon.",
+    "While our hypothesis of a role for Bradi5g21950 (Brachypodium PIF1 ortholog) and Bradi1g10520 (PHYA) in mediating the effect of microgravity on photosynthesis-related processes in Bd21 seems reasonable, the situation for Gaz8 may be more complex. Indeed, in Gaz8, seedling exposure to the microgravity environment on ISS appeared to either not affect or down-regulate the expression of PHYA and PIF-related genes (Supplemental Table S4). Furthermore, an analysis of photosynthesis-related Gaz8 DEGs identified 102 transcription factor genes as differentially expressed in Gaz8 under microgravity conditions. Yet, only six of these photosynthesis-related Gaz8 transcription factor DEGs were similar to those discussed above for Bd21 (Figure 6, blue circles). We conclude that another, yet unknown, mechanism may be responsible for regulating expression of photosynthesis-related genes in Gaz8. Whether such an alternative regulatory mechanism may also function, at least partially, in the regulation of photosynthesis-related genes in Bd21 and/or Bd21-3, remains unknown.",
+    "3.5. Genes Annotated as Potential Contributors to Transcriptional and Post-Translational Regulation Are Up-Regulated in Microgravity-Grown Bd21 and Gaz8 Shoots",
+    "In addition to the GO groups associated with plant responses to oxidative stress or photosynthesis discussed in the previous section, we noticed that two main hierarchies of GO groups associated with the Regulation of Transcription, DNA-Templated (GO:0006355) and Protein Modification (GO:0036211) are enriched in the microgravity up-regulated shoot DEGs in both Bd21 and Gaz8 accessions (Supplemental Figures S5). The DEGs associated with these two GO groups are listed in Supplemental Tables S12 and S13.",
+    "In Bd21, 23 DEGs are associated with the Regulation of Transcription, DNA-Templated (GO:0006355). Annotation of best-hit Arabidopsis and rice orthologs to these DEGs suggests that most of them encode transcription factors (Supplemental Table S12). Four of them are predicted to encode ethylene response-element binding proteins or ERFs (Bradi2g27920, Bradi3g18070, Bradi3g38140, and Bradi2g22505), suggesting activation of the ethylene signaling pathway; another two of these transcription factors have been associated with ABA signaling (Bradi2g45000, and Bradi2g45567), potentially contributing to the plant space–stress mitigation.",
+    "Within the DEGs associated with the Protein Modification GO group (GO:0036211), the Phytochrome A (Bradi1g10520) gene discussed in the previous section may be an important modulator of plant responses to the microgravity environment of ISS. Additionally, 26 out of 31 DEGs associated with this GO group encode kinases. Of them, 15 are annotated as receptor-like protein kinases (RLKs), including one annotated as brassinosteroid-receptor kinase-like protein (BRL1) (Supplemental Table S13). It is worth noting that RLKs have been shown to contribute to plant responses to biotic and abiotic stressors as well as cell development. Finally, this list of DEGs associated with GO:0036211 also includes several wall-associated protein kinase (WAKs) genes. Proteins belonging to this group straddle the plasma membrane, connecting the wall with the cytoplasm. Their extracellular domain has been shown to interact with both proteins and pectins in the cell wall whereas their cytoplasmic segment contains a kinase domain that transduces information derived from wall integrity, pathogen invasion, cell shape, deformation, and mechanostimulation, into cellular responses. Microgravity-induced expression of such wall associated protein kinase genes was also reported in Arabidopsis thaliana.",
+    "In Gaz8, 112 up-regulated shoot DEGs are associated with the Regulation of Transcription, DNA-Templated GO group (GO:0006355) and 147 are associated with the Protein Modification group (GO: 0036211) (Supplemental Tables S12 and S13). As in Bd21, multiple ethylene-responsive transcription factors (ERFs) are present in this list of shoot up-regulated DEGs. A couple of auxin response factor genes are also present in this list, as are several WRKY genes not found in the list of differentially expressed DEGs in accession Bd21 (Supplemental Table S12).",
+    "The list of Gaz8-up-regulated DEGs associated with Protein Modification (GO:0036211) includes a majority of genes annotated as kinases, including three that encode kinases associated with the brassinosteroid signaling pathway and several WAKs, as also observed in Bd21. Additionally, this list also includes a large group of genes that encode calcium/calmodulin-dependent protein kinases, which are not differentially expressed in Bd21. This is noteworthy because calcium and calmodulin have been suggested to play important roles in gravity signal transduction and mechanotransduction in Arabidopsis. Finally, the list of up-regulated shoot DEGs associated with GO:0036211 also includes several genes that encode kinases associated with the mitogen-activated kinase cascades, which have been reported to contribute to multiple signaling pathways, including those responding to abiotic and biotic stressors as well as hormonal signaling and developmental regulation.",
+    "3.6. Genes Associated with the “Translation” GO Group (GO:0006412) Are Down-Regulated in Gaz8 Shoots and Roots under the Microgravity Environment on ISS",
+    "As discussed in the previous sections of this manuscript, the three accessions of Brachypodium distachyon we tested showed both common and accession-specific transcriptional responses to microgravity, with the latter group predominating. In Gaz8, we noticed a significant association of down-regulated shoot and root DEGs with GO groups related to translation (GO:0006412; Supplemental Table S14), which was not observed in either Bd21 or Bd21-3 accessions. A majority of these genes encode proteins associated with ribosome biogenesis. Previous studies in rice and Arabidopsis have suggested ribosome biogenesis as an index of cell growth and proliferation in cell cultures. Whether this microgravity-associated decrease in expression of ribosome biogenesis-related genes can explain the short-root phenotype displayed by Gaz8 seedlings grown on ISS remains unknown. Unfortunately, our experimental set-up did not allow quantification of root tip cell size and numbers of meristematic cells in the root apical meristem.",
+    "3.7. Root Hair Growth Is Enhanced under Microgravity Conditions",
+    "As discussed in the first section of results, seedlings grown under microgravity environment carried longer root hairs compared to ground controls. In an attempt to better understand the molecular mechanisms that govern this phenotype, we investigated the possibility that some root DEGs might be candidate root-hair growth regulators. Unfortunately, there is no published root-hair specific transcription profile in Brachypodium. Therefore, we identified both Arabidopsis and rice orthologs to root microgravity-related DEGs and then verified if any of the orthologs to these root-specific DEGs are also differentially expressed in Arabidopsis and/or rice root hairs.",
+    "Starting with rice, this analysis revealed the existence of 19 Bd21 DEGs whose rice orthologs are preferentially expressed in rice root hairs. Unfortunately, only one of these candidate DEGs was up-regulated in Bd21 under microgravity (Bradi3g20045), the remaining 18 being down-regulated (Supplemental Table S15). We then investigated whether Arabidopsis orthologs to the Brachypodium root DEGs are also differentially expressed in Arabidopsis root hairs using the microarray data set published in Lan et al., 2013. Eighteen of the Bd21 root DEGs identified in this study have Arabidopsis orthologs that are also differentially expressed in Arabidopsis root-hair cells with similar expression trends (Supplemental Table S16). Similar comparisons involving Bd21-3 and Gaz-8 accessions identified 11 and 138 DEGs, respectively, with Arabidopsis orthologs showing similar patterns of differential expression in root hair cells. None of these root-hair associated DEGs were identified as differentially expressed in all three accessions. However, Brachypodium orthologs to the Arabidopsis PIN2 gene (At5g57090), which encodes an auxin efflux carrier family protein recently shown to play an important role in root-hair development, were shown to be down-regulated in Brachypodium in response to the microgravity environment (Bradi2g52640 for Bd21 and Bd21-3 and Bradi1g31530 for Gaz8; Supplemental Table S16). Unfortunately, there is to date no evidence that a knock-down mutation of PIN2 will cause a longer root-hair phenotype. Therefore, we currently have no clear molecular explanation for the long root-hair phenotype displayed by Brachypodium seedlings exposed to the microgravity environment of ISS.",
+    "An opposite root-hair response to microgravity has been reported for Arabidopsis seedlings (shorter root hairs relative to ground controls). It should however be cautioned that root-hair growth and development are highly sensitive to a variety of environmental and hormonal constraints such as water, nutrients and oxygen availability, mechanical perturbations, pH and ROS status, exposure to ethylene, etc.. Importantly, the hardware and experimental designs used in the Arabidopsis study discussed in reference and our Brachypodium experiment differ significantly in several respects. For instance, our Brachypodium seedlings were grown in foam-based APEX Growth Units with constant light exposure, while Kwon et al. grew their Arabidopsis seedlings in agar-based media inside the Biological Research in Canisters (BRIC) hardware under complete darkness. The differences in seedling growth conditions between these two experiments could explain, at least partly, the differences in root-hair responses to microgravity."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "In this paper, we describe the morphological and transcriptomic changes displayed by the seedlings of three Brachypodium distachyon accessions in response to the microgravity conditions of ISS relative to ground controls. Microgravity-exposed seedlings of all three accessions displayed shorter roots than ground controls, a phenotype that was previously reported for other plant species such as Cress, wheat, and Arabidopsis. It is however important to note that a decrease in primary root length in response to microgravity is not a general plant response, as other reports have indicated increases in root length for microgravity-exposed seedlings in flax, rice, and soybean. The reasons for such variations in root growth responses to microgravity are not known, although differences in genotypes and growth conditions may be responsible. Some of the gene-expression responses to the microgravity environments uncovered in this study may provide some clues, though. Indeed, genes annotated as regulating cell wall extensibility such as xyloglucan endotransglucosylase/hydrolase (Bradi1g27867) and expansins (Bradi1g74720, Bradi3g50740, Bradi3g50730, and Bradi3g27440), were down-regulated in Bd21 Brachypodium roots under microgravity conditions (Supplemental Table S2). Interestingly, knockout mutations in Arabidopsis orthologs to these genes have been reported to restrict cell wall extensibility and limit cell expansion and root elongation. Similarly, we observed a tendency for many ribosomal-related genes to decrease in expression in Brachypodium roots under microgravity conditions relative to ground controls in Gaz8 accession (Supplemental Table S13). Previous studies using Arabidopsis cell cultures demonstrated a correlation between ribosomal biogenesis and cell growth, observing a depletion in both processes under both microgravity conditions or simulated microgravity. Unfortunately, our experiments were not set up to allow observation of cell numbers in the root apical meristem, or cell elongation in the root elongation zone. Therefore, we cannot determine whether the short-root phenotype displayed by Brachypodium seedlings exposed to microgravity derive from decreased cell proliferation in the root apical meristem or altered cell elongation in the elongation zone.",
+    "Our transcriptomic analysis of Brachypodium responses to the microgravity environment on the ISS differentiated between shoot and root responses. This allowed us to demonstrate dramatic differences in expression responses between shoots and roots for all three Brachypodium accessions analyzed. In fact, only 3% of the DEGs identified in this study were similarly differentially expressed between root and shoot samples. Furthermore, GO enrichment analysis of these DEGs uncovered distinct major GO groups as enriched in shoot and root DEGs, respectively. The few GO groups that were similarly over-represented between shoot and root DEGs included genes that showed opposite expression responses to the microgravity environment between organs, as nicely documented by the expression differences between shoots and roots for distinct subgroups of peroxidase genes belonging to the Oxidative-Reduction Process GO group in Bd21 (Supplemental Figure S6). These results are compatible with those reported for Arabidopsis thaliana seedlings exposed to microgravity. They suggest that the roots and shoots of young Brachypodium or Arabidopsis seedlings develop distinct response strategies to cope with the constraints dictated by exposure to the microgravity environment on ISS. Alternatively, it is also possible that the roots and shoots of young seedlings exposed to microgravity are subject to different environmental constraints imposed by their distinct functional contributions to plant development.",
+    "Similar models can be proposed to explain the vastly distinct transcriptional responses to microgravity displayed by the three Brachypodium accessions analyzed in this study. These accessions evolved under distinct conditions in different ecosystems within the Mediterranean area. The varying selective pressures they encountered during their evolutionary history led to distinct genotypes that likely favored their adaptation to their native environment. When transferred to a new environment such as the microgravity conditions on the ISS, plants belonging to distinct accessions are differentially equipped to respond to these new constraints, leading to diverging root and shoot expression profiles along with differential growth and/or morphological responses. Larger-scale investigations of root and shoot growth and expression responses to microgravity of multiple Brachypodium accessions using genome-wide association studies should, in the longer term, provide exciting new information on key loci contributing to this variation in morphological and molecular adaptive responses to microgravity.",
+    "Plants have been identified as key components of bioregenerative life-support systems for long-term space-exploration missions. This is in large part due to their ability to photosynthesize, thereby recycling CO2 and wastewater to produce O2, carbohydrates, and other biological molecules necessary for plant growth and development. The resulting biomass will constitute a significant source of food, feed, and fiber for the crew. Our data indicate that many photosynthesis-related genes are down-regulated in Brachypodium seedling shoots under microgravity conditions. We showed that such transcriptional responses of photosynthesis-related genes to the microgravity environment of ISS may be associated with oxidative stress exposure leading to an activation of the GUS retrograde signaling pathway and/or activation of PIF gene expression. It is interesting to note that hypergravity exposure, which leads to a strengthening of the cell wall, has recently been associated with increased chloroplast size, photosynthesis, and plant growth in moss, possibly reflecting a source–sink link between photosynthesis and carbohydrate utilization in cell wall restructuring. Furthermore, Arabidopsis PIF proteins have been shown to directly bind to the LAZY4 promoter, thereby activating its expression and modulating the gravitropic response. Therefore, future work will focus on investigating possible mechanistic connections between gravity and microgravity exposure, retrograde signaling between plastids and nucleus, PIF-mediated signaling, photosynthesis, wall restructuring, and carbohydrate metabolism.",
+    "In conclusion, our morphological and transcriptomic study of space-grown Brachypodium seedlings provides new insights into monocot plant responses to spaceflight. Because a 1× g centrifugation control was not available on ISS for the VEGGIE growth chamber, the responses to spaceflight observed in this project cannot be unambiguously assigned to microgravity exposure. Indeed, some of these responses may also result from exposure to other spaceflight-associated parameters such as radiation, inefficient airflow, high ethylene levels, and/or other experimental parameters.",
+    "Some of the responses to spaceflight displayed by Brachypodium distachyon seedlings are similar to those from Arabidopsis thaliana seedlings, including oxidative stress response, decreased expression of photosynthesis-related genes, and wall restructuring. Those types of general responses also appear to be common between Brachypodium distachyon accessions. We also observed some transcriptional responses to microgravity conditions that are more specific to Brachypodium distachyon accessions, suggesting a specificity of response that may be expected from plant populations that have been subjected to distinct evolutionary constraints and are now subjected to a totally new environment (microgravity).",
+    "Our studies focused on the early stages of seedling development, and it will be important to evaluate the contribution of the identified responses to spaceflight at later phases of plant development and reproduction. A careful evaluation of the contribution of each response, general or specific, to the microgravity environment and its significance for plant survival, growth, and productivity under microgravity should lead to the design of better cultivars and/or cultivation methodologies to produce crops with improved potential for use as key components of bioregenerative life support systems for long-term space-exploration missions. Furthermore, the existence of distinct molecular responses to the microgravity environment between species, and between accessions within species, suggests the need to expand these types of studies directly to cultivated crop species of potential use during spaceflight.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following supporting information can be downloaded at : Figure S1: Blueprint showing the positions of each APEX Growth Unit within the VEGGIE growth chambers both onboard ISS and on the ground; Figure S2. Gene Ontology (GO) enrichment analysis of down-regulated root DEGs from 5-day old Brachypodium distachyon seedlings of the Bd21, Bd21-3, and Gaz8 accessions exposed to microgravity conditions on ISS relative to ground-control conditions; Figure S3: Gene Ontology (GO) enrichment analysis of up-regulated root DEGs from 5-day old Brachypodium distachyon seedlings of the Bd21, Bd21-3, and Gaz8 accessions exposed to microgravity conditions on ISS relative to ground-control conditions; Figure S4: Gene Ontology (GO) enrichment analysis of down-regulated shoot DEGs from 5-day old Brachypodium distachyon seedlings of the Bd21, Bd21-3, and Gaz8 accessions exposed to microgravity conditions on ISS relative to ground-control conditions; Figure S5: Gene Ontology (GO) enrichment analysis of up-regulated shoot DEGs from 5-day old Brachypodium distachyon seedlings of the Bd21, Bd21-3, and Gaz8 accessions exposed to microgravity conditions on ISS relative to ground-control conditions; Figure S6: Arabidopsis PIF1 regulatory network connecting transcription factors (purple circles) and target orthologs to Brachypodium Bd21 DEGs associated with the Photosynthesis GO group; Figure S7: The microgravity environment on ISS is associated with increased transcription of phytochrome A (PhyA) and phytochrome interacting factor (PIF) genes (yellow bars) along with decreased expression of photosynthesis-related genes (blue bars) in Brachypodium distachyon seedlings; Table S1: RNAseq reads alignment summary; Table S2: List of Bd21 DEGs organized based on organ type (shoot and root); Table S3: List of Bd21-3 DEGs organized based on organ type (shoot and root); Table S4: List of Gaz8 DEGs organized based on organ type (shoot and root); Table S5: List of common DEGs between all three accessions, organized based on organ type (shoot and root); Table S6: List of all Bd21 DEGs belonging to the Oxidation-Reduction Process GO group (GO:0055114) grouped based on tissue type (root/shoot) and mode of regulation (up/down under microgravity relative to ground control); Table S7: List of Arabidopsis genes whose Brachypodium orthologs are differentially expressed in Bd21 roots under microgravity conditions; Table S8: List of Arabidopsis genes whose Brachypodium orthologs are differentially expressed in Bd21 shoots under microgravity conditions relative to ground controls; Table S9: Chi-squared analysis of shoot DEG ortholog association with ROS wheel groups; Table S10: List of 29 transcription factors predicted to regulate the expression of Bd21 shoot DEGs associated with the Photosynthesis GO group under microgravity conditions; Table S11: Bd21 shoot DEGs whose Arabidopsis orthologs are regulated by either the trio of phytochrome-interacting bHLH factors AtPIF1, 4, and 5 (PIF-trio) and/or by AtPIF3 (PIF3; Zhang et al. 2013); Table S12: List of up-regulated shoot DEGs associated with the Regulation of Transcription, DNA-Templated (GO:0006355) Ontology group in Bd21 and Gaz8 accessions; Table S13: List of up-regulated DEGs belonging to the Protein Modification (GO:0036211) Gene Ontology group in Bd21 and Gaz8; Table S14: List of Gaz8 root and shoot DEGs associated with the Translation Gene Ontology (GO) group (GO:0006412); Table S15: List of root DEGs whose rice orthologs display preferential expression in rice root-hair cells (Moon et al., 2018); Table S16: Root DEGs whose Arabidopsis orthologs are also preferentially expressed in Arabidopsis root hairs (Lan et al., 2013).",
+    "Data Availability Statement",
+    "The RNAseq sequencing fastq files have been uploaded into the GeneLab Data Repository (, accessed on 6 February 2023; GLDS-375)."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, S.-H.S. and P.H.M.; Methodology, S.-H.S., H.G.L. and P.H.M.; Formal Analysis: S.-H.S. and P.H.M.; Investigation, S.-H.S.; Data Curation: S.-H.S.; Writing—original draft preparation: S.-H.S. and P.H.M.; Writing—review and editing: S.-H.S., H.G.L. and P.H.M., Figures: S.-H.S.; Project administration: S.-H.S. and P.H.M.; Funding Acquisition: P.H.M. and S.-H.S. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "The biophysical limitations in physiological transport and exchange in plants grown in microgravity",
+    "Phototropism of Arabidopsis thaliana in microgravity and fractional gravity on the International Space Station",
+    "The tropic response of plant roots to oxygen: Oxytropism in Pisum sativum L.",
+    "Hypergravity-induced changes in gene expression in Arabidopsis hypocotyls",
+    "Induction of hypoxic root metabolism results from physical limitations in O2 bioavailability in microgravity",
+    "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+    "Development and growth of several strains of Arabidopsis seedlings in microgravity",
+    "An endogenous growth pattern of roots is revealed in seedlings grown in microgravity",
+    "Space radiation: The number one risk to astronaut health beyond low earth orbit",
+    "Plant growth strategies are remodeled by spaceflight",
+    "Plastid distribution in columella cells of a starchless Arabidopsis mutant grown in microgravity",
+    "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+    "Microgravity effects on leaf morphology, cell structure, carbon metabolism and mRNA expression of dwarf wheat",
+    "Transcriptional response of Arabidopsis seedlings during spaceflight reveals peroxidase and cell wall remodeling genes associated with root hair development",
+    "Spaceflight transcriptomes: Unique responses to a novel environment",
+    "Genetic dissection of the Arabidopsis spaceflight transcriptome: Are some responses dispensable for the physiological adaptation of plants to spaceflight?",
+    "Transcriptome analyses of Arabidopsis thaliana seedlings grown in space: Implications for gravity-responsive genes",
+    "Spaceflight engages heat shock protein and other molecular chaperone genes in tissue culture cells of Arabidopsis thaliana",
+    "Growth in spaceflight hardware results in alterations to the transcriptome and proteome",
+    "The impact of space environment on gene expression in Arabidopsis thaliana seedlings",
+    "A whole-genome microarray study of Arabidopsis thaliana semisolid callus cultures exposed to microgravity and in microgravity related spaceflight conditions for 5 days on board of Shenzhou 8",
+    "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight",
+    "Spaceflight induces specific alterations in the proteomes of Arabidopsis",
+    "Epigenomics in an extraterrestrial environment: Organ-specific alteration of DNA methylation and gene expression elicited by spaceflight in Arabidopsis thaliana",
+    "Space, the final frontier: A critical review of recent experiments performed in microgravity",
+    "The actin cytoskeleton is a suppressor of the endogenous skewing behaviour of Arabidopsis primary roots in microgravity",
+    "Dating the Monocot-Dicot divergence and the origin of core eudicots using whole chloroplast genomes",
+    "Biological investigations aboard the biosatellite Cosmos-1129",
+    "Growth and cell wall changes in rice roots during spaceflight",
+    "Expression of stress response genes in barley Hordeum vulgare in a spaceflight environment",
+    "Proteomic and physiological studies provide insight into photosynthetic response of rice (Oryza sativa L.) seedlings to microgravity",
+    "Brachypodium as a model for the grasses: Today and the future",
+    "Development of equipment that uses far-red light to impose seed dormancy in Arabidopsis for spaceflight",
+    "Grain dormancy and light quality effects on germination in the model grass Brachypodium distachyon",
+    "Shoot growth in aseptically cultivated daylily and haplopappus plantlets after a 5-day spaceflight",
+    "Growth and photosynthetic responses of wheat plants grown in space",
+    "ISS Payloads Office Cold Stowage Overview",
+    "VEG-01: Veggie hardware validation testing on the International Space Station",
+    "Differential analysis of gene regulation at transcript resolution with RNA-seq",
+    "Differential Expression of RNA-Seq Data at the Gene Level—Te DESeq Package. Bioconductor",
+    "edgeR: A Bioconductor package for differential expression analysis of digital gene expression data",
+    "Genome sequencing and analysis of the model grass Brachypodium distachyon",
+    "The ROS Wheel: Refining ROS Transcriptional Footprints",
+    "agriGO: A GO analysis toolkit for the agricultural community",
+    "agriGO v2.0: A GO analysis toolkit for the agricultural community, 2017 update",
+    "STRING v11: Protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets",
+    "PlantRegMap: Charting functional regulatory maps in plants",
+    "Exploring valid reference genes for gene expression studies in Brachypodium distachyon by real-time PCR",
+    "RNA-seq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+    "Stimulation of elongation growth and xyloglucan breakdown in Arabidopsis hypocotyls under microgravity conditions in space",
+    "Laccases and Peroxidases Co-Localize in Lignified Secondary Cell Walls throughout Stem Development",
+    "A new picture of cell wall protein dynamics in elongating cells of Arabidopsis thaliana: Confirmed actors and newcomers",
+    "The role of retrograde signals during plant stress responses",
+    "Characterization of photosystem I in rice (Oryza sativa L.) seedlings upon exposure to random positioning machine",
+    "Phytochrome Interacting Factors: Central players in phytochrome-mediated light signaling networks",
+    "Phytochromes and Phytochrome Interacting Factors",
+    "Phytochrome-interacting factor 1 is a critical bHLH: Regulator of chlorophyll biosynthesis",
+    "A Quartet of PIF bHLH Factors Provides a Transcriptionally Centered Signaling Hub That Regulates Seedling Morphogenesis through Differential Expression-Patterning of Shared Target Genes in Arabidopsis",
+    "Global Analysis of Expression Profiles of Rice Receptor-Like Kinase Genes",
+    "Sensing the environment: Key roles of membrane-localized kinases in plant perception and response to abiotic stress",
+    "Origin and Diversity of Plant Receptor-Like Kinases",
+    "The Utilization of Plant Facilities on the International Space Station—The Composition, Growth, and Development of Plant Cell Walls under Microgravity Conditions",
+    "Calcium/calmodulin-mediated gravitropic response in plants",
+    "Arabidopsis MAPK signaling pathways and their cross talks in abiotic stress response",
+    "A review of redox signaling and the control of MAP kinase pathway in plants",
+    "Diverse signals converge at MAPK cascades in plant",
+    "Simulated microgravity, Mars gravity, and 2g hypergravity affect cell cycle regulation, ribosome biogenesis, and epigenetics in Arabidopsis cell cultures",
+    "Plant cell proliferation and growth are altered by microgravity conditions in spaceflight",
+    "Mapping gene activity of Arabidopsis root hairs",
+    "Genome-wide analysis of root hair-preferential genes in rice",
+    "Differential auxin-transporting activities of PIN-FORMED proteins in Arabidopsis root hair cells",
+    "SHADE AVOIDANCE 4 Is Required for Proper Auxin Distribution in the Hypocotyl",
+    "KAI2 promotes Arabidopsis root hair elongation at low external phosphate by controlling local accumulation of AUX1 and PIN2",
+    "Root hair growth from the pH point of view",
+    "Highlighting reactive oxygen species as multitaskers in root development",
+    "A gene regulatory network for root hair development",
+    "Random root movements in weightlessness",
+    "Cell-wall architecture and lignin composition of wheat developed in a microgravity environment",
+    "Plant responses to real and simulated microgravity",
+    "Germination and elongation of flax in microgravity",
+    "Enhanced root production in Haplopappus gracilis grown under spaceflight conditions",
+    "Growth patterns for etiolated soybeans germinated under spaceflight conditions",
+    "Expansins: Roles in plant growth and potential applications in crop improvement",
+    "A xyloglucan endotransglucosylase/hydrolase involves in growth of primary root and alters the deposition of cellulose in Arabidopsis",
+    "Population Structure in the Model Grass Brachypodium distachyon Is Highly Correlated with Flowering Differences across Broad Geographic Areas",
+    "A hypergravity environment increases chloroplast size, photosynthesis, and plant growth in the moss Physcomitrella patens",
+    "Light modulates the gravitropic responses through organ-specific PIFs and HY5 regulation of LAZY4 expression in Arabidopsis"
+  ],
+  "FIG": [
+    "The APEX Growth Unit hardware. (A) The central Oasis Hortcube foam block (LC2, Oasis Grower Solutions) is used as a seed support during takeoff as well as following germination. It also serves as a nutrient reservoir during seedling growth. (B) The fully assembled APEX Growth Unit contains a foam block wrapped with a layer of medical gauze, allowing a more homogenous distribution of growth medium at the surface of the block where germinating seedlings are located. An outer layer of Nitex mesh prevents the roots of germinating seedlings from penetrating into the foam block, thereby hindering observation of their growth. (C) A growth-medium injection showerhead carries a central stick that serves as a support for a foam cube within the Magenta box. The injection showerhead is accessible for nutrient injection into the foam block through a port that crosses the Magenta box wall at its bottom. Black lines refer to 1 cm.",
+    "Brachypodium distachyon seedlings display accession-specific morphological alterations in the microgravity environment of ISS relative to ground controls. Accessions include Bd21, Bd21-3, and Gaz8. (A) Representative 5-day-old Brachypodium seedlings of the Bd21, Bd21-3, and Gaz8 accessions grown on the ISS (upper panel) and on Earth (lower) panel). Biometric analysis of (B) root length and (C) shoot length of 5-day-old Brachypodium distachyon seedlings from the Bd21 (n > 69), Bd21-3 (n > 68), and Gaz8 (n > 68) accessions. (D) Close-up view of representative roots of 5-day-old Gaz8 seedlings, showing differences in root-hair lengths between microgravity-exposed (left) and ground-control (right) seedlings. Representative root-hair length measurement is marked in the red line. (E) Quantitative measurement of root hair sizes between microgravity-grown and ground-control 5-day-old seedlings from the Bd21, Bd21-3, and Gaz8 accessions. Based on the resolution of the images, each root was measured once in the root mature zone from the root hair tip to the approximate root epidermal layer (n > 10). In B, C, and E, t-tests were used to determine the significance (* p < 0.05; *** p < 0.001; n > 10).",
+    "Transcriptome analysis of Brachypodium seedlings grown under the microgravity environment of ISS and ground control. (A,B) Venn diagram summarizing the numbers of genes showing differential expression in roots (A) and shoots (B) between microgravity conditions and ground control for the three Brachypodium accessions analyzed here (Bd21, Bd21-3, and Gaz8). Genes showing statistically significant differences between these two conditions using two statistical packages (DESeq and EdgeR) are reported here. (C) Numbers of genes showing significant increases (red upward arrows), decreases (green downward arrows), or no change (horizontal black bar) in expression between microgravity and ground-control conditions in shoots and roots of Brachypodium distachyon seedlings of the Bd21, Bd21-3, and Gaz8 accessions.",
+    "Gene Ontology (GO) enrichment analysis of DEGs from 5-day-old Brachypodium distachyon seedlings of the Bd21 accession exposed to microgravity conditions of ISS relative to ground-control conditions. All DEGs from Bd21 are split into four categories based on tissue (root/shoot) and expression regulation under microgravity relative to ground control (up/down): (A) root down-regulated DEGs, (B) root up-regulated DEGs, (C) shoot down-regulated DEGs, and (D) shoot up-regulated DEGs. Enrichment significance is represented by both FDR numbers and color shading, with darker red representing smaller FDR values. Blue bars represent expected values (total number of genes representing the GO group divided by the total number of genes in the genome), whereas yellow bars represent observed ratios (number of DEGs belonging to the GO group divided by the total number of DEGs). The GO groups are arranged along a hierarchical tree of biological processes. The original information was generated by using the agriGO website ( (accessed on 6 February 2023)). The singular enrichment analysis (SEA) method was used to calculate significance. * refers to the GO groups that belong to two or more different hierarchies and are repeated in the table to better represent the hierarchies.",
+    "Arabidopsis orthologs to Brachypodium root and shoot DEGs with ROS-signaling annotation preferentially associate with specific transcriptional response clusters from the ROS wheel (Willems et al. (2016)). Clusters I-VIII refer to the categories of ROS-related experiments used to establish clusters of transcriptional responses in the ROS wheel meta-analysis. Bars represent the total number of genes present in each cluster. The proportions of genes present in a specific cluster that are also orthologous to specific microgravity-related Brachypodium DEGs (from this study) are represented in yellow.",
+    "Arabidopsis transcriptional regulation networks involving transcription factors predicted to regulate DEG orthologs associated with the Photosynthesis GO group in Bd21. Orthologs to down-regulated (A) and up-regulated (B) transcription factors are shown in this figure. Nodes refer to the transcription factors and arrows indicate the direction of transcription regulation. Green represents down-regulation under microgravity whereas pink refers to up-regulation. Genes that are also orthologous to Gaz8 DEGs are surrounded by a blue circle with the same expression pattern. A regulatory pathway involving the PIF1 gene is surrounded by a yellow outline. See Supplemental Figure S6 for a more detailed description of the PIF1 regulatory network including target genes orthologous to Brachypodium DEGs."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The biophysical limitations in physiological transport and exchange in plants grown in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "D. Porterfield",
+          "nombres": "D.",
+          "apellidos": "Porterfield"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Plant Growth Reg.",
+      "anio": "2002",
+      "volumen": "21",
+      "fpage": "177",
+      "lpage": "190"
+    },
+    {
+      "titulo": "Phototropism of Arabidopsis thaliana in microgravity and fractional gravity on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "J. Kiss",
+          "nombres": "J.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "K. Millar",
+          "nombres": "K.",
+          "apellidos": "Millar"
+        },
+        {
+          "nombre_completo": "R. Edelmann",
+          "nombres": "R.",
+          "apellidos": "Edelmann"
+        }
+      ],
+      "pmid": "22481136",
+      "fuente": "Planta",
+      "anio": "2012",
+      "volumen": "236",
+      "fpage": "635",
+      "lpage": "645"
+    },
+    {
+      "titulo": "The tropic response of plant roots to oxygen: Oxytropism in Pisum sativum L.",
+      "autores": [
+        {
+          "nombre_completo": "D. Porterfield",
+          "nombres": "D.",
+          "apellidos": "Porterfield"
+        },
+        {
+          "nombre_completo": "M. Musgrave",
+          "nombres": "M.",
+          "apellidos": "Musgrave"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Planta",
+      "anio": "1998",
+      "volumen": "20",
+      "fpage": "1",
+      "lpage": "6"
+    },
+    {
+      "titulo": "Hypergravity-induced changes in gene expression in Arabidopsis hypocotyls",
+      "autores": [
+        {
+          "nombre_completo": "R. Yoshioka",
+          "nombres": "R.",
+          "apellidos": "Yoshioka"
+        },
+        {
+          "nombre_completo": "K. Soga",
+          "nombres": "K.",
+          "apellidos": "Soga"
+        },
+        {
+          "nombre_completo": "K. Wakabayashi",
+          "nombres": "K.",
+          "apellidos": "Wakabayashi"
+        },
+        {
+          "nombre_completo": "G. Takeba",
+          "nombres": "G.",
+          "apellidos": "Takeba"
+        },
+        {
+          "nombre_completo": "T. Hoson",
+          "nombres": "T.",
+          "apellidos": "Hoson"
+        }
+      ],
+      "pmid": "14686431",
+      "fuente": "Adv. Space Res.",
+      "anio": "2003",
+      "volumen": "31",
+      "fpage": "2187",
+      "lpage": "2193"
+    },
+    {
+      "titulo": "Induction of hypoxic root metabolism results from physical limitations in O2 bioavailability in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. Liao",
+          "nombres": "J.",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "G. Liu",
+          "nombres": "G.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "O. Monje",
+          "nombres": "O.",
+          "apellidos": "Monje"
+        },
+        {
+          "nombre_completo": "G.W. Stutte",
+          "nombres": "G.W.",
+          "apellidos": "Stutte"
+        },
+        {
+          "nombre_completo": "D.M. Porterfield",
+          "nombres": "D.M.",
+          "apellidos": "Porterfield"
+        }
+      ],
+      "pmid": "15880895",
+      "fuente": "Adv. Space Res.",
+      "anio": "2004",
+      "volumen": "34",
+      "fpage": "1579",
+      "lpage": "1584"
+    },
+    {
+      "titulo": "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "W. Choi",
+          "nombres": "W.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S. Kim",
+          "nombres": "S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S. Swanson",
+          "nombres": "S.",
+          "apellidos": "Swanson"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "30644539",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "123",
+      "lpage": "136"
+    },
+    {
+      "titulo": "Development and growth of several strains of Arabidopsis seedlings in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. Kiss",
+          "nombres": "J.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "E. Brinkmann",
+          "nombres": "E.",
+          "apellidos": "Brinkmann"
+        },
+        {
+          "nombre_completo": "C. Brillouet",
+          "nombres": "C.",
+          "apellidos": "Brillouet"
+        }
+      ],
+      "pmid": "10648194",
+      "fuente": "Int. J. Plant Sci.",
+      "anio": "2000",
+      "volumen": "161",
+      "fpage": "55",
+      "lpage": "62"
+    },
+    {
+      "titulo": "An endogenous growth pattern of roots is revealed in seedlings grown in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "K. Millar",
+          "nombres": "K.",
+          "apellidos": "Millar"
+        },
+        {
+          "nombre_completo": "C. Johnson",
+          "nombres": "C.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "R. Edelmann",
+          "nombres": "R.",
+          "apellidos": "Edelmann"
+        },
+        {
+          "nombre_completo": "J. Kiss",
+          "nombres": "J.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Astrobiology",
+      "anio": "2011",
+      "volumen": "11",
+      "fpage": "786",
+      "lpage": "797"
+    },
+    {
+      "titulo": "Space radiation: The number one risk to astronaut health beyond low earth orbit",
+      "autores": [
+        {
+          "nombre_completo": "J. Chancellor",
+          "nombres": "J.",
+          "apellidos": "Chancellor"
+        },
+        {
+          "nombre_completo": "G. Scott",
+          "nombres": "G.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "J. Sutton",
+          "nombres": "J.",
+          "apellidos": "Sutton"
+        }
+      ],
+      "pmid": "25370382",
+      "fuente": "Life",
+      "anio": "2014",
+      "volumen": "4",
+      "fpage": "491",
+      "lpage": "510"
+    },
+    {
+      "titulo": "Plant growth strategies are remodeled by spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Paul",
+          "nombres": "A.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "C. Amalfitano",
+          "nombres": "C.",
+          "apellidos": "Amalfitano"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "23217113",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Plastid distribution in columella cells of a starchless Arabidopsis mutant grown in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "E. Hilaire",
+          "nombres": "E.",
+          "apellidos": "Hilaire"
+        },
+        {
+          "nombre_completo": "A. Paulsen",
+          "nombres": "A.",
+          "apellidos": "Paulsen"
+        },
+        {
+          "nombre_completo": "C. Brown",
+          "nombres": "C.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "J. Guikema",
+          "nombres": "J.",
+          "apellidos": "Guikema"
+        }
+      ],
+      "pmid": "9177036",
+      "fuente": "Plant Cell Physiol.",
+      "anio": "1997",
+      "volumen": "38",
+      "fpage": "490",
+      "lpage": "494"
+    },
+    {
+      "titulo": "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Paul",
+          "nombres": "A.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A. Zupanska",
+          "nombres": "A.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "E. Schultz",
+          "nombres": "E.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "23919896",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microgravity effects on leaf morphology, cell structure, carbon metabolism and mRNA expression of dwarf wheat",
+      "autores": [
+        {
+          "nombre_completo": "G. Stutte",
+          "nombres": "G.",
+          "apellidos": "Stutte"
+        },
+        {
+          "nombre_completo": "O. Monje",
+          "nombres": "O.",
+          "apellidos": "Monje"
+        },
+        {
+          "nombre_completo": "R. Hatfield",
+          "nombres": "R.",
+          "apellidos": "Hatfield"
+        },
+        {
+          "nombre_completo": "A. Paul",
+          "nombres": "A.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "C. Simone",
+          "nombres": "C.",
+          "apellidos": "Simone"
+        }
+      ],
+      "pmid": "16708225",
+      "fuente": "Planta",
+      "anio": "2006",
+      "volumen": "224",
+      "fpage": "1038",
+      "lpage": "1049"
+    },
+    {
+      "titulo": "Transcriptional response of Arabidopsis seedlings during spaceflight reveals peroxidase and cell wall remodeling genes associated with root hair development",
+      "autores": [
+        {
+          "nombre_completo": "T. Kwon",
+          "nombres": "T.",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J. Sparks",
+          "nombres": "J.",
+          "apellidos": "Sparks"
+        },
+        {
+          "nombre_completo": "J. Nakashima",
+          "nombres": "J.",
+          "apellidos": "Nakashima"
+        },
+        {
+          "nombre_completo": "S. Allen",
+          "nombres": "S.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "Y. Tang",
+          "nombres": "Y.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "E. Blancaflor",
+          "nombres": "E.",
+          "apellidos": "Blancaflor"
+        }
+      ],
+      "pmid": "25587145",
+      "fuente": "Am. J. Bot.",
+      "anio": "2015",
+      "volumen": "102",
+      "fpage": "21",
+      "lpage": "35"
+    },
+    {
+      "titulo": "Spaceflight transcriptomes: Unique responses to a novel environment",
+      "autores": [
+        {
+          "nombre_completo": "A.-L. Paul",
+          "nombres": "A.-L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A. Zupanska",
+          "nombres": "A.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "D. Ostrow",
+          "nombres": "D.",
+          "apellidos": "Ostrow"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J.-L. Li",
+          "nombres": "J.-L.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "S. Shanker",
+          "nombres": "S.",
+          "apellidos": "Shanker"
+        },
+        {
+          "nombre_completo": "W. Farmerie",
+          "nombres": "W.",
+          "apellidos": "Farmerie"
+        },
+        {
+          "nombre_completo": "C. Amalfitano",
+          "nombres": "C.",
+          "apellidos": "Amalfitano"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "22221117",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "40",
+      "lpage": "56"
+    },
+    {
+      "titulo": "Genetic dissection of the Arabidopsis spaceflight transcriptome: Are some responses dispensable for the physiological adaptation of plants to spaceflight?",
+      "autores": [
+        {
+          "nombre_completo": "A. Paul",
+          "nombres": "A.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "N. Sng",
+          "nombres": "N.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "A. Zupanska",
+          "nombres": "A.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "A. Krishnamurthy",
+          "nombres": "A.",
+          "apellidos": "Krishnamurthy"
+        },
+        {
+          "nombre_completo": "E. Schultz",
+          "nombres": "E.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "28662188",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Transcriptome analyses of Arabidopsis thaliana seedlings grown in space: Implications for gravity-responsive genes",
+      "autores": [
+        {
+          "nombre_completo": "M. Correll",
+          "nombres": "M.",
+          "apellidos": "Correll"
+        },
+        {
+          "nombre_completo": "T. Pyle",
+          "nombres": "T.",
+          "apellidos": "Pyle"
+        },
+        {
+          "nombre_completo": "K. Millar",
+          "nombres": "K.",
+          "apellidos": "Millar"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J. Yao",
+          "nombres": "J.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "R. Edelmann",
+          "nombres": "R.",
+          "apellidos": "Edelmann"
+        },
+        {
+          "nombre_completo": "J. Kiss",
+          "nombres": "J.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "23771594",
+      "fuente": "Planta",
+      "anio": "2013",
+      "volumen": "238",
+      "fpage": "519",
+      "lpage": "533"
+    },
+    {
+      "titulo": "Spaceflight engages heat shock protein and other molecular chaperone genes in tissue culture cells of Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "A. Zupanska",
+          "nombres": "A.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "F. Denison",
+          "nombres": "F.",
+          "apellidos": "Denison"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "A.-L. Paul",
+          "nombres": "A.-L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "23258370",
+      "fuente": "Am. J. Bot.",
+      "anio": "2013",
+      "volumen": "100",
+      "fpage": "235",
+      "lpage": "248"
+    },
+    {
+      "titulo": "Growth in spaceflight hardware results in alterations to the transcriptome and proteome",
+      "autores": [
+        {
+          "nombre_completo": "P. Basu",
+          "nombres": "P.",
+          "apellidos": "Basu"
+        },
+        {
+          "nombre_completo": "C. Kruse",
+          "nombres": "C.",
+          "apellidos": "Kruse"
+        },
+        {
+          "nombre_completo": "D. Luesse",
+          "nombres": "D.",
+          "apellidos": "Luesse"
+        },
+        {
+          "nombre_completo": "S. Wyatt",
+          "nombres": "S.",
+          "apellidos": "Wyatt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2017",
+      "volumen": "15",
+      "fpage": "88",
+      "lpage": "96"
+    },
+    {
+      "titulo": "The impact of space environment on gene expression in Arabidopsis thaliana seedlings",
+      "autores": [
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "J. Lu",
+          "nombres": "J.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "H. Zhao",
+          "nombres": "H.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Q. Sun",
+          "nombres": "Q.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "F. Yu",
+          "nombres": "F.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "Y. Pan",
+          "nombres": "Y.",
+          "apellidos": "Pan"
+        },
+        {
+          "nombre_completo": "Y. Chen",
+          "nombres": "Y.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L. Su",
+          "nombres": "L.",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "M. Liu",
+          "nombres": "M.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sci. China",
+      "anio": "2017",
+      "volumen": "60",
+      "fpage": "902",
+      "lpage": "910"
+    },
+    {
+      "titulo": "A whole-genome microarray study of Arabidopsis thaliana semisolid callus cultures exposed to microgravity and in microgravity related spaceflight conditions for 5 days on board of Shenzhou 8",
+      "autores": [
+        {
+          "nombre_completo": "S. Fengler",
+          "nombres": "S.",
+          "apellidos": "Fengler"
+        },
+        {
+          "nombre_completo": "I. Spirer",
+          "nombres": "I.",
+          "apellidos": "Spirer"
+        },
+        {
+          "nombre_completo": "M. Neef",
+          "nombres": "M.",
+          "apellidos": "Neef"
+        },
+        {
+          "nombre_completo": "M. Ecke",
+          "nombres": "M.",
+          "apellidos": "Ecke"
+        },
+        {
+          "nombre_completo": "K. Nieselt",
+          "nombres": "K.",
+          "apellidos": "Nieselt"
+        },
+        {
+          "nombre_completo": "R. Hampp",
+          "nombres": "R.",
+          "apellidos": "Hampp"
+        }
+      ],
+      "pmid": "25654111",
+      "fuente": "Biomed. Res. Int.",
+      "anio": "2015",
+      "volumen": "2015",
+      "fpage": "547495",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "C. Johnson",
+          "nombres": "C.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "S. Pattathil",
+          "nombres": "S.",
+          "apellidos": "Pattathil"
+        },
+        {
+          "nombre_completo": "M. Correll",
+          "nombres": "M.",
+          "apellidos": "Correll"
+        },
+        {
+          "nombre_completo": "J. Kiss",
+          "nombres": "J.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "28827451",
+      "fuente": "Am. J. Bot.",
+      "anio": "2017",
+      "volumen": "104",
+      "fpage": "1219",
+      "lpage": "1231"
+    },
+    {
+      "titulo": "Spaceflight induces specific alterations in the proteomes of Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "J. Koh",
+          "nombres": "J.",
+          "apellidos": "Koh"
+        },
+        {
+          "nombre_completo": "F. Denison",
+          "nombres": "F.",
+          "apellidos": "Denison"
+        },
+        {
+          "nombre_completo": "A.-L. Paul",
+          "nombres": "A.-L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "25517942",
+      "fuente": "Astrobiology",
+      "anio": "2015",
+      "volumen": "15",
+      "fpage": "32",
+      "lpage": "56"
+    },
+    {
+      "titulo": "Epigenomics in an extraterrestrial environment: Organ-specific alteration of DNA methylation and gene expression elicited by spaceflight in Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "M. Zhou",
+          "nombres": "M.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "N. Sng",
+          "nombres": "N.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "C. LeFrois",
+          "nombres": "C.",
+          "apellidos": "LeFrois"
+        },
+        {
+          "nombre_completo": "A. Paul",
+          "nombres": "A.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R. Ferl",
+          "nombres": "R.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Genom.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space, the final frontier: A critical review of recent experiments performed in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. Vandenbrink",
+          "nombres": "J.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "J. Kiss",
+          "nombres": "J.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "26795156",
+      "fuente": "Plant Sci.",
+      "anio": "2016",
+      "volumen": "243",
+      "fpage": "115",
+      "lpage": "119"
+    },
+    {
+      "titulo": "The actin cytoskeleton is a suppressor of the endogenous skewing behaviour of Arabidopsis primary roots in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. Nakashima",
+          "nombres": "J.",
+          "apellidos": "Nakashima"
+        },
+        {
+          "nombre_completo": "F. Liao",
+          "nombres": "F.",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "J.A. Sparks",
+          "nombres": "J.A.",
+          "apellidos": "Sparks"
+        },
+        {
+          "nombre_completo": "Y. Tang",
+          "nombres": "Y.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "E.B. Blancaflor",
+          "nombres": "E.B.",
+          "apellidos": "Blancaflor"
+        }
+      ],
+      "pmid": "23952736",
+      "fuente": "Plant Biol.",
+      "anio": "2014",
+      "volumen": "16",
+      "fpage": "142",
+      "lpage": "150"
+    },
+    {
+      "titulo": "Dating the Monocot-Dicot divergence and the origin of core eudicots using whole chloroplast genomes",
+      "autores": [
+        {
+          "nombre_completo": "S.-M. Chaw",
+          "nombres": "S.-M.",
+          "apellidos": "Chaw"
+        },
+        {
+          "nombre_completo": "C.-C. Chang",
+          "nombres": "C.-C.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "H.-L. Chen",
+          "nombres": "H.-L.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "W.-H. Li",
+          "nombres": "W.-H.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "15114421",
+      "fuente": "J. Mol. Evol.",
+      "anio": "2004",
+      "volumen": "58",
+      "fpage": "424",
+      "lpage": "441"
+    },
+    {
+      "titulo": "Biological investigations aboard the biosatellite Cosmos-1129",
+      "autores": [
+        {
+          "nombre_completo": "M. Tairbekov",
+          "nombres": "M.",
+          "apellidos": "Tairbekov"
+        },
+        {
+          "nombre_completo": "G. Parfyonov",
+          "nombres": "G.",
+          "apellidos": "Parfyonov"
+        },
+        {
+          "nombre_completo": "R. Platonova",
+          "nombres": "R.",
+          "apellidos": "Platonova"
+        },
+        {
+          "nombre_completo": "V. Aramova",
+          "nombres": "V.",
+          "apellidos": "Aramova"
+        },
+        {
+          "nombre_completo": "V. Golov",
+          "nombres": "V.",
+          "apellidos": "Golov"
+        },
+        {
+          "nombre_completo": "A. Rostopshina",
+          "nombres": "A.",
+          "apellidos": "Rostopshina"
+        },
+        {
+          "nombre_completo": "V. Lyubchenko",
+          "nombres": "V.",
+          "apellidos": "Lyubchenko"
+        },
+        {
+          "nombre_completo": "V. Chuchkin",
+          "nombres": "V.",
+          "apellidos": "Chuchkin"
+        }
+      ],
+      "pmid": "11541724",
+      "fuente": "Adv. Space Res.",
+      "anio": "1981",
+      "volumen": "1",
+      "fpage": "89",
+      "lpage": "94"
+    },
+    {
+      "titulo": "Growth and cell wall changes in rice roots during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "T. Hoson",
+          "nombres": "T.",
+          "apellidos": "Hoson"
+        },
+        {
+          "nombre_completo": "K. Soga",
+          "nombres": "K.",
+          "apellidos": "Soga"
+        },
+        {
+          "nombre_completo": "K. Wakabayashi",
+          "nombres": "K.",
+          "apellidos": "Wakabayashi"
+        },
+        {
+          "nombre_completo": "S. Kamisaka",
+          "nombres": "S.",
+          "apellidos": "Kamisaka"
+        },
+        {
+          "nombre_completo": "E. Tanimoto",
+          "nombres": "E.",
+          "apellidos": "Tanimoto"
+        }
+      ],
+      "pmid": "14631940",
+      "fuente": "Plant Soil",
+      "anio": "2003",
+      "volumen": "255",
+      "fpage": "19",
+      "lpage": "26"
+    },
+    {
+      "titulo": "Expression of stress response genes in barley Hordeum vulgare in a spaceflight environment",
+      "autores": [
+        {
+          "nombre_completo": "E. Shagimardanova",
+          "nombres": "E.",
+          "apellidos": "Shagimardanova"
+        },
+        {
+          "nombre_completo": "O. Gusev",
+          "nombres": "O.",
+          "apellidos": "Gusev"
+        },
+        {
+          "nombre_completo": "V. Sychev",
+          "nombres": "V.",
+          "apellidos": "Sychev"
+        },
+        {
+          "nombre_completo": "M. Levinskikh",
+          "nombres": "M.",
+          "apellidos": "Levinskikh"
+        },
+        {
+          "nombre_completo": "M. Sharipova",
+          "nombres": "M.",
+          "apellidos": "Sharipova"
+        },
+        {
+          "nombre_completo": "O. Il’inskaya",
+          "nombres": "O.",
+          "apellidos": "Il’inskaya"
+        },
+        {
+          "nombre_completo": "G. Bingham",
+          "nombres": "G.",
+          "apellidos": "Bingham"
+        },
+        {
+          "nombre_completo": "M. Sugimoto",
+          "nombres": "M.",
+          "apellidos": "Sugimoto"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mol. Biol.",
+      "anio": "2010",
+      "volumen": "44",
+      "fpage": "734",
+      "lpage": "740"
+    },
+    {
+      "titulo": "Proteomic and physiological studies provide insight into photosynthetic response of rice (Oryza sativa L.) seedlings to microgravity",
+      "autores": [
+        {
+          "nombre_completo": "B. Chen",
+          "nombres": "B.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "27096703",
+      "fuente": "Photochem. Photobiol.",
+      "anio": "2016",
+      "volumen": "92",
+      "fpage": "561",
+      "lpage": "570"
+    },
+    {
+      "titulo": "Brachypodium as a model for the grasses: Today and the future",
+      "autores": [
+        {
+          "nombre_completo": "J. Brkljacic",
+          "nombres": "J.",
+          "apellidos": "Brkljacic"
+        },
+        {
+          "nombre_completo": "E. Grotewold",
+          "nombres": "E.",
+          "apellidos": "Grotewold"
+        },
+        {
+          "nombre_completo": "R. Scholl",
+          "nombres": "R.",
+          "apellidos": "Scholl"
+        },
+        {
+          "nombre_completo": "T. Mockler",
+          "nombres": "T.",
+          "apellidos": "Mockler"
+        },
+        {
+          "nombre_completo": "D. Garvin",
+          "nombres": "D.",
+          "apellidos": "Garvin"
+        },
+        {
+          "nombre_completo": "P. Vain",
+          "nombres": "P.",
+          "apellidos": "Vain"
+        },
+        {
+          "nombre_completo": "T. Brutnell",
+          "nombres": "T.",
+          "apellidos": "Brutnell"
+        },
+        {
+          "nombre_completo": "R. Sibout",
+          "nombres": "R.",
+          "apellidos": "Sibout"
+        },
+        {
+          "nombre_completo": "M. Bevan",
+          "nombres": "M.",
+          "apellidos": "Bevan"
+        },
+        {
+          "nombre_completo": "H. Budak",
+          "nombres": "H.",
+          "apellidos": "Budak"
+        }
+      ],
+      "pmid": "21771916",
+      "fuente": "Plant Physiol.",
+      "anio": "2011",
+      "volumen": "157",
+      "fpage": "3",
+      "lpage": "13"
+    },
+    {
+      "titulo": "Development of equipment that uses far-red light to impose seed dormancy in Arabidopsis for spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "C. Fitzgerald",
+          "nombres": "C.",
+          "apellidos": "Fitzgerald"
+        },
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "W.-G. Choi",
+          "nombres": "W.-G.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "S. Swanson",
+          "nombres": "S.",
+          "apellidos": "Swanson"
+        },
+        {
+          "nombre_completo": "S. Stephens",
+          "nombres": "S.",
+          "apellidos": "Stephens"
+        },
+        {
+          "nombre_completo": "C. Huber",
+          "nombres": "C.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "A. Nimunkar",
+          "nombres": "A.",
+          "apellidos": "Nimunkar"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravit. Space Res.",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "8",
+      "lpage": "19"
+    },
+    {
+      "titulo": "Grain dormancy and light quality effects on germination in the model grass Brachypodium distachyon",
+      "autores": [
+        {
+          "nombre_completo": "J.M. Barrero",
+          "nombres": "J.M.",
+          "apellidos": "Barrero"
+        },
+        {
+          "nombre_completo": "J.V. Jacobsen",
+          "nombres": "J.V.",
+          "apellidos": "Jacobsen"
+        },
+        {
+          "nombre_completo": "M.J. Talbot",
+          "nombres": "M.J.",
+          "apellidos": "Talbot"
+        },
+        {
+          "nombre_completo": "R.G. White",
+          "nombres": "R.G.",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "S.M. Swain",
+          "nombres": "S.M.",
+          "apellidos": "Swain"
+        },
+        {
+          "nombre_completo": "D.F. Garvin",
+          "nombres": "D.F.",
+          "apellidos": "Garvin"
+        },
+        {
+          "nombre_completo": "F. Gubler",
+          "nombres": "F.",
+          "apellidos": "Gubler"
+        }
+      ],
+      "pmid": "22039925",
+      "fuente": "New Phytol.",
+      "anio": "2012",
+      "volumen": "193",
+      "fpage": "376",
+      "lpage": "386"
+    },
+    {
+      "titulo": "Shoot growth in aseptically cultivated daylily and haplopappus plantlets after a 5-day spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "H.G. Levine",
+          "nombres": "H.G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "A.D. Krikorian",
+          "nombres": "A.D.",
+          "apellidos": "Krikorian"
+        }
+      ],
+      "pmid": "11537738",
+      "fuente": "Physiol. Plant",
+      "anio": "1992",
+      "volumen": "86",
+      "fpage": "349",
+      "lpage": "359"
+    },
+    {
+      "titulo": "Growth and photosynthetic responses of wheat plants grown in space",
+      "autores": [
+        {
+          "nombre_completo": "B.C. Tripathy",
+          "nombres": "B.C.",
+          "apellidos": "Tripathy"
+        },
+        {
+          "nombre_completo": "C.S. Brown",
+          "nombres": "C.S.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "H.G. Levine",
+          "nombres": "H.G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "A.D. Krikorian",
+          "nombres": "A.D.",
+          "apellidos": "Krikorian"
+        }
+      ],
+      "pmid": "8819868",
+      "fuente": "Plant Physiol.",
+      "anio": "1996",
+      "volumen": "110",
+      "fpage": "801",
+      "lpage": "806"
+    },
+    {
+      "titulo": "ISS Payloads Office Cold Stowage Overview",
+      "autores": [
+        {
+          "nombre_completo": "S. Hutchison",
+          "nombres": "S.",
+          "apellidos": "Hutchison"
+        },
+        {
+          "nombre_completo": "S. Campana",
+          "nombres": "S.",
+          "apellidos": "Campana"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "VEG-01: Veggie hardware validation testing on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "G. Massa",
+          "nombres": "G.",
+          "apellidos": "Massa"
+        },
+        {
+          "nombre_completo": "N. Dufour",
+          "nombres": "N.",
+          "apellidos": "Dufour"
+        },
+        {
+          "nombre_completo": "J. Carver",
+          "nombres": "J.",
+          "apellidos": "Carver"
+        },
+        {
+          "nombre_completo": "M. Hummerick",
+          "nombres": "M.",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "R. Wheeler",
+          "nombres": "R.",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "R. Morrow",
+          "nombres": "R.",
+          "apellidos": "Morrow"
+        },
+        {
+          "nombre_completo": "T. Smith",
+          "nombres": "T.",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Open Agric.",
+      "anio": "2017",
+      "volumen": "2",
+      "fpage": "33",
+      "lpage": "41"
+    },
+    {
+      "titulo": "Differential analysis of gene regulation at transcript resolution with RNA-seq",
+      "autores": [
+        {
+          "nombre_completo": "C. Trapnell",
+          "nombres": "C.",
+          "apellidos": "Trapnell"
+        },
+        {
+          "nombre_completo": "D. Hendrickson",
+          "nombres": "D.",
+          "apellidos": "Hendrickson"
+        },
+        {
+          "nombre_completo": "M. Sauvageau",
+          "nombres": "M.",
+          "apellidos": "Sauvageau"
+        },
+        {
+          "nombre_completo": "L. Goff",
+          "nombres": "L.",
+          "apellidos": "Goff"
+        },
+        {
+          "nombre_completo": "J. Rinn",
+          "nombres": "J.",
+          "apellidos": "Rinn"
+        },
+        {
+          "nombre_completo": "L. Pachter",
+          "nombres": "L.",
+          "apellidos": "Pachter"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nat. Biotech",
+      "anio": "2013",
+      "volumen": "31",
+      "fpage": "46",
+      "lpage": "53"
+    },
+    {
+      "titulo": "Differential Expression of RNA-Seq Data at the Gene Level—Te DESeq Package. Bioconductor",
+      "autores": [
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2013",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "edgeR: A Bioconductor package for differential expression analysis of digital gene expression data",
+      "autores": [
+        {
+          "nombre_completo": "M. Robinson",
+          "nombres": "M.",
+          "apellidos": "Robinson"
+        },
+        {
+          "nombre_completo": "D. McCarthy",
+          "nombres": "D.",
+          "apellidos": "McCarthy"
+        },
+        {
+          "nombre_completo": "G. Smyth",
+          "nombres": "G.",
+          "apellidos": "Smyth"
+        }
+      ],
+      "pmid": "19910308",
+      "fuente": "Bioinformatics",
+      "anio": "2010",
+      "volumen": "26",
+      "fpage": "139",
+      "lpage": "140"
+    },
+    {
+      "titulo": "Genome sequencing and analysis of the model grass Brachypodium distachyon",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Vogel",
+          "nombres": "J.P.",
+          "apellidos": "Vogel"
+        },
+        {
+          "nombre_completo": "D.F. Garvin",
+          "nombres": "D.F.",
+          "apellidos": "Garvin"
+        },
+        {
+          "nombre_completo": "T.C. Mockler",
+          "nombres": "T.C.",
+          "apellidos": "Mockler"
+        },
+        {
+          "nombre_completo": "J. Schmutz",
+          "nombres": "J.",
+          "apellidos": "Schmutz"
+        },
+        {
+          "nombre_completo": "D. Rokhsar",
+          "nombres": "D.",
+          "apellidos": "Rokhsar"
+        },
+        {
+          "nombre_completo": "M.W. Bevan",
+          "nombres": "M.W.",
+          "apellidos": "Bevan"
+        },
+        {
+          "nombre_completo": "K. Barry",
+          "nombres": "K.",
+          "apellidos": "Barry"
+        },
+        {
+          "nombre_completo": "S. Lucas",
+          "nombres": "S.",
+          "apellidos": "Lucas"
+        },
+        {
+          "nombre_completo": "M. Harmon-Smith",
+          "nombres": "M.",
+          "apellidos": "Harmon-Smith"
+        },
+        {
+          "nombre_completo": "K. Lail",
+          "nombres": "K.",
+          "apellidos": "Lail"
+        }
+      ],
+      "pmid": "20148030",
+      "fuente": "Nature",
+      "anio": "2010",
+      "volumen": "463",
+      "fpage": "763",
+      "lpage": "768"
+    },
+    {
+      "titulo": "The ROS Wheel: Refining ROS Transcriptional Footprints",
+      "autores": [
+        {
+          "nombre_completo": "P. Willems",
+          "nombres": "P.",
+          "apellidos": "Willems"
+        },
+        {
+          "nombre_completo": "A. Mhamdi",
+          "nombres": "A.",
+          "apellidos": "Mhamdi"
+        },
+        {
+          "nombre_completo": "S. Stael",
+          "nombres": "S.",
+          "apellidos": "Stael"
+        },
+        {
+          "nombre_completo": "V. Storme",
+          "nombres": "V.",
+          "apellidos": "Storme"
+        },
+        {
+          "nombre_completo": "P. Kerchev",
+          "nombres": "P.",
+          "apellidos": "Kerchev"
+        },
+        {
+          "nombre_completo": "G. Noctor",
+          "nombres": "G.",
+          "apellidos": "Noctor"
+        },
+        {
+          "nombre_completo": "K. Gevaert",
+          "nombres": "K.",
+          "apellidos": "Gevaert"
+        },
+        {
+          "nombre_completo": "F. Van Breusegem",
+          "nombres": "F.",
+          "apellidos": "Van Breusegem"
+        }
+      ],
+      "pmid": "27246095",
+      "fuente": "Plant Physiol.",
+      "anio": "2016",
+      "volumen": "171",
+      "fpage": "1720",
+      "lpage": "1733"
+    },
+    {
+      "titulo": "agriGO: A GO analysis toolkit for the agricultural community",
+      "autores": [
+        {
+          "nombre_completo": "Z. Du",
+          "nombres": "Z.",
+          "apellidos": "Du"
+        },
+        {
+          "nombre_completo": "X. Zhou",
+          "nombres": "X.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y. Ling",
+          "nombres": "Y.",
+          "apellidos": "Ling"
+        },
+        {
+          "nombre_completo": "Z. Zhang",
+          "nombres": "Z.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Z. Su",
+          "nombres": "Z.",
+          "apellidos": "Su"
+        }
+      ],
+      "pmid": "20435677",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2010",
+      "volumen": "38",
+      "fpage": "W64",
+      "lpage": "W70"
+    },
+    {
+      "titulo": "agriGO v2.0: A GO analysis toolkit for the agricultural community, 2017 update",
+      "autores": [
+        {
+          "nombre_completo": "T. Tian",
+          "nombres": "T.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "H. Yan",
+          "nombres": "H.",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "Q. You",
+          "nombres": "Q.",
+          "apellidos": "You"
+        },
+        {
+          "nombre_completo": "X. Yi",
+          "nombres": "X.",
+          "apellidos": "Yi"
+        },
+        {
+          "nombre_completo": "Z. Du",
+          "nombres": "Z.",
+          "apellidos": "Du"
+        },
+        {
+          "nombre_completo": "W. Xu",
+          "nombres": "W.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "Z. Su",
+          "nombres": "Z.",
+          "apellidos": "Su"
+        }
+      ],
+      "pmid": "28472432",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "W122",
+      "lpage": "W129"
+    },
+    {
+      "titulo": "STRING v11: Protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets",
+      "autores": [
+        {
+          "nombre_completo": "D. Szklarczyk",
+          "nombres": "D.",
+          "apellidos": "Szklarczyk"
+        },
+        {
+          "nombre_completo": "A.L. Gable",
+          "nombres": "A.L.",
+          "apellidos": "Gable"
+        },
+        {
+          "nombre_completo": "D. Lyon",
+          "nombres": "D.",
+          "apellidos": "Lyon"
+        },
+        {
+          "nombre_completo": "A. Junge",
+          "nombres": "A.",
+          "apellidos": "Junge"
+        },
+        {
+          "nombre_completo": "S. Wyder",
+          "nombres": "S.",
+          "apellidos": "Wyder"
+        },
+        {
+          "nombre_completo": "J. Huerta-Cepas",
+          "nombres": "J.",
+          "apellidos": "Huerta-Cepas"
+        },
+        {
+          "nombre_completo": "M. Simonovic",
+          "nombres": "M.",
+          "apellidos": "Simonovic"
+        },
+        {
+          "nombre_completo": "N.T. Doncheva",
+          "nombres": "N.T.",
+          "apellidos": "Doncheva"
+        },
+        {
+          "nombre_completo": "J.H. Morris",
+          "nombres": "J.H.",
+          "apellidos": "Morris"
+        },
+        {
+          "nombre_completo": "P. Bork",
+          "nombres": "P.",
+          "apellidos": "Bork"
+        }
+      ],
+      "pmid": "30476243",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D607",
+      "lpage": "D613"
+    },
+    {
+      "titulo": "PlantRegMap: Charting functional regulatory maps in plants",
+      "autores": [
+        {
+          "nombre_completo": "F. Tian",
+          "nombres": "F.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "D.-C. Yang",
+          "nombres": "D.-C.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y.-Q. Meng",
+          "nombres": "Y.-Q.",
+          "apellidos": "Meng"
+        },
+        {
+          "nombre_completo": "J. Jin",
+          "nombres": "J.",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "G. Gao",
+          "nombres": "G.",
+          "apellidos": "Gao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "48",
+      "fpage": "D1104",
+      "lpage": "D1113"
+    },
+    {
+      "titulo": "Exploring valid reference genes for gene expression studies in Brachypodium distachyon by real-time PCR",
+      "autores": [
+        {
+          "nombre_completo": "S.Y. Hong",
+          "nombres": "S.Y.",
+          "apellidos": "Hong"
+        },
+        {
+          "nombre_completo": "P.J. Seo",
+          "nombres": "P.J.",
+          "apellidos": "Seo"
+        },
+        {
+          "nombre_completo": "M.S. Yang",
+          "nombres": "M.S.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "F. Xiang",
+          "nombres": "F.",
+          "apellidos": "Xiang"
+        },
+        {
+          "nombre_completo": "C.M. Park",
+          "nombres": "C.M.",
+          "apellidos": "Park"
+        }
+      ],
+      "pmid": "18992143",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2008",
+      "volumen": "8",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNA-seq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Vandenbrink",
+          "nombres": "J.P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "W.L. Poehlman",
+          "nombres": "W.L.",
+          "apellidos": "Poehlman"
+        },
+        {
+          "nombre_completo": "F. Alex Feltus",
+          "nombres": "F.",
+          "apellidos": "Alex Feltus"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "M. Ciska",
+          "nombres": "M.",
+          "apellidos": "Ciska"
+        },
+        {
+          "nombre_completo": "F. Javier Medina",
+          "nombres": "F.",
+          "apellidos": "Javier Medina"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "31709515",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "1466",
+      "lpage": "1476"
+    },
+    {
+      "titulo": "Stimulation of elongation growth and xyloglucan breakdown in Arabidopsis hypocotyls under microgravity conditions in space",
+      "autores": [
+        {
+          "nombre_completo": "K. Soga",
+          "nombres": "K.",
+          "apellidos": "Soga"
+        },
+        {
+          "nombre_completo": "K. Wakabayashi",
+          "nombres": "K.",
+          "apellidos": "Wakabayashi"
+        },
+        {
+          "nombre_completo": "S. Kamisaka",
+          "nombres": "S.",
+          "apellidos": "Kamisaka"
+        },
+        {
+          "nombre_completo": "T. Hoson",
+          "nombres": "T.",
+          "apellidos": "Hoson"
+        }
+      ],
+      "pmid": "12355165",
+      "fuente": "Planta",
+      "anio": "2002",
+      "volumen": "215",
+      "fpage": "1040",
+      "lpage": "1046"
+    },
+    {
+      "titulo": "Laccases and Peroxidases Co-Localize in Lignified Secondary Cell Walls throughout Stem Development",
+      "autores": [
+        {
+          "nombre_completo": "N. Hoffmann",
+          "nombres": "N.",
+          "apellidos": "Hoffmann"
+        },
+        {
+          "nombre_completo": "A. Benske",
+          "nombres": "A.",
+          "apellidos": "Benske"
+        },
+        {
+          "nombre_completo": "H. Betz",
+          "nombres": "H.",
+          "apellidos": "Betz"
+        },
+        {
+          "nombre_completo": "M. Schuetz",
+          "nombres": "M.",
+          "apellidos": "Schuetz"
+        },
+        {
+          "nombre_completo": "A.L. Samuels",
+          "nombres": "A.L.",
+          "apellidos": "Samuels"
+        }
+      ],
+      "pmid": "32699027",
+      "fuente": "Plant Physiol.",
+      "anio": "2020",
+      "volumen": "184",
+      "fpage": "806",
+      "lpage": "822"
+    },
+    {
+      "titulo": "A new picture of cell wall protein dynamics in elongating cells of Arabidopsis thaliana: Confirmed actors and newcomers",
+      "autores": [
+        {
+          "nombre_completo": "M. Irshad",
+          "nombres": "M.",
+          "apellidos": "Irshad"
+        },
+        {
+          "nombre_completo": "H. Canut",
+          "nombres": "H.",
+          "apellidos": "Canut"
+        },
+        {
+          "nombre_completo": "G. Borderies",
+          "nombres": "G.",
+          "apellidos": "Borderies"
+        },
+        {
+          "nombre_completo": "R. Pont-Lezica",
+          "nombres": "R.",
+          "apellidos": "Pont-Lezica"
+        },
+        {
+          "nombre_completo": "E. Jamet",
+          "nombres": "E.",
+          "apellidos": "Jamet"
+        }
+      ],
+      "pmid": "18796151",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2008",
+      "volumen": "8",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The role of retrograde signals during plant stress responses",
+      "autores": [
+        {
+          "nombre_completo": "T. Crawford",
+          "nombres": "T.",
+          "apellidos": "Crawford"
+        },
+        {
+          "nombre_completo": "N. Lehotai",
+          "nombres": "N.",
+          "apellidos": "Lehotai"
+        },
+        {
+          "nombre_completo": "Å. Strand",
+          "nombres": "Å.",
+          "apellidos": "Strand"
+        }
+      ],
+      "pmid": "29281071",
+      "fuente": "J. Exp. Bot.",
+      "anio": "2017",
+      "volumen": "69",
+      "fpage": "2783",
+      "lpage": "2795"
+    },
+    {
+      "titulo": "Characterization of photosystem I in rice (Oryza sativa L.) seedlings upon exposure to random positioning machine",
+      "autores": [
+        {
+          "nombre_completo": "B. Chen",
+          "nombres": "B.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "A. Zhang",
+          "nombres": "A.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Q. Lu",
+          "nombres": "Q.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "T. Kuang",
+          "nombres": "T.",
+          "apellidos": "Kuang"
+        },
+        {
+          "nombre_completo": "C. Lu",
+          "nombres": "C.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "X. Wen",
+          "nombres": "X.",
+          "apellidos": "Wen"
+        }
+      ],
+      "pmid": "23943138",
+      "fuente": "Photosynth. Res.",
+      "anio": "2013",
+      "volumen": "116",
+      "fpage": "93",
+      "lpage": "105"
+    },
+    {
+      "titulo": "Phytochrome Interacting Factors: Central players in phytochrome-mediated light signaling networks",
+      "autores": [
+        {
+          "nombre_completo": "A. Castillon",
+          "nombres": "A.",
+          "apellidos": "Castillon"
+        },
+        {
+          "nombre_completo": "H. Shen",
+          "nombres": "H.",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "E. Huq",
+          "nombres": "E.",
+          "apellidos": "Huq"
+        }
+      ],
+      "pmid": "17933576",
+      "fuente": "Trends Plant Sci.",
+      "anio": "2007",
+      "volumen": "12",
+      "fpage": "514",
+      "lpage": "521"
+    },
+    {
+      "titulo": "Phytochromes and Phytochrome Interacting Factors",
+      "autores": [
+        {
+          "nombre_completo": "V.N. Pham",
+          "nombres": "V.N.",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "P.K. Kathare",
+          "nombres": "P.K.",
+          "apellidos": "Kathare"
+        },
+        {
+          "nombre_completo": "E. Huq",
+          "nombres": "E.",
+          "apellidos": "Huq"
+        }
+      ],
+      "pmid": "29138351",
+      "fuente": "Plant Physiol.",
+      "anio": "2017",
+      "volumen": "176",
+      "fpage": "1025",
+      "lpage": "1038"
+    },
+    {
+      "titulo": "Phytochrome-interacting factor 1 is a critical bHLH: Regulator of chlorophyll biosynthesis",
+      "autores": [
+        {
+          "nombre_completo": "E. Huq",
+          "nombres": "E.",
+          "apellidos": "Huq"
+        },
+        {
+          "nombre_completo": "B. Al-Sady",
+          "nombres": "B.",
+          "apellidos": "Al-Sady"
+        },
+        {
+          "nombre_completo": "M. Hudson",
+          "nombres": "M.",
+          "apellidos": "Hudson"
+        },
+        {
+          "nombre_completo": "C. Kim",
+          "nombres": "C.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "K. Apel",
+          "nombres": "K.",
+          "apellidos": "Apel"
+        },
+        {
+          "nombre_completo": "P.H. Quail",
+          "nombres": "P.H.",
+          "apellidos": "Quail"
+        }
+      ],
+      "pmid": "15448264",
+      "fuente": "Science",
+      "anio": "2004",
+      "volumen": "305",
+      "fpage": "1937",
+      "lpage": "1941"
+    },
+    {
+      "titulo": "A Quartet of PIF bHLH Factors Provides a Transcriptionally Centered Signaling Hub That Regulates Seedling Morphogenesis through Differential Expression-Patterning of Shared Target Genes in Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "O. Mayba",
+          "nombres": "O.",
+          "apellidos": "Mayba"
+        },
+        {
+          "nombre_completo": "A. Pfeiffer",
+          "nombres": "A.",
+          "apellidos": "Pfeiffer"
+        },
+        {
+          "nombre_completo": "H. Shi",
+          "nombres": "H.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "J.M. Tepperman",
+          "nombres": "J.M.",
+          "apellidos": "Tepperman"
+        },
+        {
+          "nombre_completo": "T.P. Speed",
+          "nombres": "T.P.",
+          "apellidos": "Speed"
+        },
+        {
+          "nombre_completo": "P.H. Quail",
+          "nombres": "P.H.",
+          "apellidos": "Quail"
+        }
+      ],
+      "pmid": "23382695",
+      "fuente": "PLoS Genet.",
+      "anio": "2013",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Global Analysis of Expression Profiles of Rice Receptor-Like Kinase Genes",
+      "autores": [
+        {
+          "nombre_completo": "L.-L. Gao",
+          "nombres": "L.-L.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "H.-W. Xue",
+          "nombres": "H.-W.",
+          "apellidos": "Xue"
+        }
+      ],
+      "pmid": "21765177",
+      "fuente": "Mol. Plant",
+      "anio": "2012",
+      "volumen": "5",
+      "fpage": "143",
+      "lpage": "153"
+    },
+    {
+      "titulo": "Sensing the environment: Key roles of membrane-localized kinases in plant perception and response to abiotic stress",
+      "autores": [
+        {
+          "nombre_completo": "Y. Osakabe",
+          "nombres": "Y.",
+          "apellidos": "Osakabe"
+        },
+        {
+          "nombre_completo": "K. Yamaguchi-Shinozaki",
+          "nombres": "K.",
+          "apellidos": "Yamaguchi-Shinozaki"
+        },
+        {
+          "nombre_completo": "K. Shinozaki",
+          "nombres": "K.",
+          "apellidos": "Shinozaki"
+        },
+        {
+          "nombre_completo": "L.S. Tran",
+          "nombres": "L.S.",
+          "apellidos": "Tran"
+        }
+      ],
+      "pmid": "23307915",
+      "fuente": "J. Exp. Bot.",
+      "anio": "2013",
+      "volumen": "64",
+      "fpage": "445",
+      "lpage": "458"
+    },
+    {
+      "titulo": "Origin and Diversity of Plant Receptor-Like Kinases",
+      "autores": [
+        {
+          "nombre_completo": "A. Dievart",
+          "nombres": "A.",
+          "apellidos": "Dievart"
+        },
+        {
+          "nombre_completo": "C. Gottin",
+          "nombres": "C.",
+          "apellidos": "Gottin"
+        },
+        {
+          "nombre_completo": "C. Périn",
+          "nombres": "C.",
+          "apellidos": "Périn"
+        },
+        {
+          "nombre_completo": "V. Ranwez",
+          "nombres": "V.",
+          "apellidos": "Ranwez"
+        },
+        {
+          "nombre_completo": "N. Chantret",
+          "nombres": "N.",
+          "apellidos": "Chantret"
+        }
+      ],
+      "pmid": "32186895",
+      "fuente": "Annu. Rev. Plant Biol.",
+      "anio": "2020",
+      "volumen": "71",
+      "fpage": "131",
+      "lpage": "156"
+    },
+    {
+      "titulo": "The Utilization of Plant Facilities on the International Space Station—The Composition, Growth, and Development of Plant Cell Walls under Microgravity Conditions",
+      "autores": [
+        {
+          "nombre_completo": "A.-I.K. Jost",
+          "nombres": "A.-I.K.",
+          "apellidos": "Jost"
+        },
+        {
+          "nombre_completo": "T. Hoson",
+          "nombres": "T.",
+          "apellidos": "Hoson"
+        },
+        {
+          "nombre_completo": "T.-H. Iversen",
+          "nombres": "T.-H.",
+          "apellidos": "Iversen"
+        }
+      ],
+      "pmid": "27135317",
+      "fuente": "Plants",
+      "anio": "2015",
+      "volumen": "4",
+      "fpage": "44",
+      "lpage": "62"
+    },
+    {
+      "titulo": "Calcium/calmodulin-mediated gravitropic response in plants",
+      "autores": [
+        {
+          "nombre_completo": "B.W. Poovaiah",
+          "nombres": "B.W.",
+          "apellidos": "Poovaiah"
+        },
+        {
+          "nombre_completo": "T. Yang",
+          "nombres": "T.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "J.J. van Loon",
+          "nombres": "J.J.",
+          "apellidos": "van Loon"
+        }
+      ],
+      "pmid": "15002552",
+      "fuente": "J. Gravit. Physiol.",
+      "anio": "2002",
+      "volumen": "9",
+      "fpage": "P211",
+      "lpage": "P214"
+    },
+    {
+      "titulo": "Arabidopsis MAPK signaling pathways and their cross talks in abiotic stress response",
+      "autores": [
+        {
+          "nombre_completo": "K. Kumar",
+          "nombres": "K.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "S.K. Raina",
+          "nombres": "S.K.",
+          "apellidos": "Raina"
+        },
+        {
+          "nombre_completo": "S.M. Sultan",
+          "nombres": "S.M.",
+          "apellidos": "Sultan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Plant Biochem. Biotechnol.",
+      "anio": "2020",
+      "volumen": "29",
+      "fpage": "700",
+      "lpage": "714"
+    },
+    {
+      "titulo": "A review of redox signaling and the control of MAP kinase pathway in plants",
+      "autores": [
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "C. He",
+          "nombres": "C.",
+          "apellidos": "He"
+        }
+      ],
+      "pmid": "27984790",
+      "fuente": "Redox Biol.",
+      "anio": "2017",
+      "volumen": "11",
+      "fpage": "192",
+      "lpage": "204"
+    },
+    {
+      "titulo": "Diverse signals converge at MAPK cascades in plant",
+      "autores": [
+        {
+          "nombre_completo": "T. Zhang",
+          "nombres": "T.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "T. Yang",
+          "nombres": "T.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S. Xu",
+          "nombres": "S.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "L. Xue",
+          "nombres": "L.",
+          "apellidos": "Xue"
+        },
+        {
+          "nombre_completo": "L. An",
+          "nombres": "L.",
+          "apellidos": "An"
+        }
+      ],
+      "pmid": "16809044",
+      "fuente": "Plant Physiol. Biochem.",
+      "anio": "2006",
+      "volumen": "44",
+      "fpage": "274",
+      "lpage": "283"
+    },
+    {
+      "titulo": "Simulated microgravity, Mars gravity, and 2g hypergravity affect cell cycle regulation, ribosome biogenesis, and epigenetics in Arabidopsis cell cultures",
+      "autores": [
+        {
+          "nombre_completo": "K.Y. Kamal",
+          "nombres": "K.Y.",
+          "apellidos": "Kamal"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "J.J.W.A. van Loon",
+          "nombres": "J.J.W.A.",
+          "apellidos": "van Loon"
+        },
+        {
+          "nombre_completo": "F.J. Medina",
+          "nombres": "F.J.",
+          "apellidos": "Medina"
+        }
+      ],
+      "pmid": "29686401",
+      "fuente": "Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "6424",
+      "lpage": ""
+    },
+    {
+      "titulo": "Plant cell proliferation and growth are altered by microgravity conditions in spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "I. Matía",
+          "nombres": "I.",
+          "apellidos": "Matía"
+        },
+        {
+          "nombre_completo": "F. González-Camacho",
+          "nombres": "F.",
+          "apellidos": "González-Camacho"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "G. Gasset",
+          "nombres": "G.",
+          "apellidos": "Gasset"
+        },
+        {
+          "nombre_completo": "J.J. van Loon",
+          "nombres": "J.J.",
+          "apellidos": "van Loon"
+        },
+        {
+          "nombre_completo": "R. Marco",
+          "nombres": "R.",
+          "apellidos": "Marco"
+        },
+        {
+          "nombre_completo": "F. Javier Medina",
+          "nombres": "F.",
+          "apellidos": "Javier Medina"
+        }
+      ],
+      "pmid": "19864040",
+      "fuente": "J. Plant Physiol.",
+      "anio": "2010",
+      "volumen": "167",
+      "fpage": "184",
+      "lpage": "193"
+    },
+    {
+      "titulo": "Mapping gene activity of Arabidopsis root hairs",
+      "autores": [
+        {
+          "nombre_completo": "P. Lan",
+          "nombres": "P.",
+          "apellidos": "Lan"
+        },
+        {
+          "nombre_completo": "W. Li",
+          "nombres": "W.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "W.D. Lin",
+          "nombres": "W.D.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "S. Santi",
+          "nombres": "S.",
+          "apellidos": "Santi"
+        },
+        {
+          "nombre_completo": "W. Schmidt",
+          "nombres": "W.",
+          "apellidos": "Schmidt"
+        }
+      ],
+      "pmid": "23800126",
+      "fuente": "Genome Biol.",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "R67",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-wide analysis of root hair-preferential genes in rice",
+      "autores": [
+        {
+          "nombre_completo": "S. Moon",
+          "nombres": "S.",
+          "apellidos": "Moon"
+        },
+        {
+          "nombre_completo": "A.K.N. Chandran",
+          "nombres": "A.K.N.",
+          "apellidos": "Chandran"
+        },
+        {
+          "nombre_completo": "G. An",
+          "nombres": "G.",
+          "apellidos": "An"
+        },
+        {
+          "nombre_completo": "C. Lee",
+          "nombres": "C.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "K.H. Jung",
+          "nombres": "K.H.",
+          "apellidos": "Jung"
+        }
+      ],
+      "pmid": "30159808",
+      "fuente": "Rice",
+      "anio": "2018",
+      "volumen": "11",
+      "fpage": "48",
+      "lpage": ""
+    },
+    {
+      "titulo": "Differential auxin-transporting activities of PIN-FORMED proteins in Arabidopsis root hair cells",
+      "autores": [
+        {
+          "nombre_completo": "A. Ganguly",
+          "nombres": "A.",
+          "apellidos": "Ganguly"
+        },
+        {
+          "nombre_completo": "S.H. Lee",
+          "nombres": "S.H.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "M. Cho",
+          "nombres": "M.",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "O.R. Lee",
+          "nombres": "O.R.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "H. Yoo",
+          "nombres": "H.",
+          "apellidos": "Yoo"
+        },
+        {
+          "nombre_completo": "H.T. Cho",
+          "nombres": "H.T.",
+          "apellidos": "Cho"
+        }
+      ],
+      "pmid": "20439545",
+      "fuente": "Plant Physiol.",
+      "anio": "2010",
+      "volumen": "153",
+      "fpage": "1046",
+      "lpage": "1061"
+    },
+    {
+      "titulo": "SHADE AVOIDANCE 4 Is Required for Proper Auxin Distribution in the Hypocotyl",
+      "autores": [
+        {
+          "nombre_completo": "Y. Ge",
+          "nombres": "Y.",
+          "apellidos": "Ge"
+        },
+        {
+          "nombre_completo": "F. Yan",
+          "nombres": "F.",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "M. Zourelidou",
+          "nombres": "M.",
+          "apellidos": "Zourelidou"
+        },
+        {
+          "nombre_completo": "M. Wang",
+          "nombres": "M.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K. Ljung",
+          "nombres": "K.",
+          "apellidos": "Ljung"
+        },
+        {
+          "nombre_completo": "A. Fastner",
+          "nombres": "A.",
+          "apellidos": "Fastner"
+        },
+        {
+          "nombre_completo": "U.Z. Hammes",
+          "nombres": "U.Z.",
+          "apellidos": "Hammes"
+        },
+        {
+          "nombre_completo": "M. Di Donato",
+          "nombres": "M.",
+          "apellidos": "Di Donato"
+        },
+        {
+          "nombre_completo": "M. Geisler",
+          "nombres": "M.",
+          "apellidos": "Geisler"
+        },
+        {
+          "nombre_completo": "C. Schwechheimer",
+          "nombres": "C.",
+          "apellidos": "Schwechheimer"
+        }
+      ],
+      "pmid": "27872246",
+      "fuente": "Plant Physiol.",
+      "anio": "2017",
+      "volumen": "173",
+      "fpage": "788",
+      "lpage": "800"
+    },
+    {
+      "titulo": "KAI2 promotes Arabidopsis root hair elongation at low external phosphate by controlling local accumulation of AUX1 and PIN2",
+      "autores": [
+        {
+          "nombre_completo": "J.A. Villaécija-Aguilar",
+          "nombres": "J.A.",
+          "apellidos": "Villaécija-Aguilar"
+        },
+        {
+          "nombre_completo": "C. Körösy",
+          "nombres": "C.",
+          "apellidos": "Körösy"
+        },
+        {
+          "nombre_completo": "L. Maisch",
+          "nombres": "L.",
+          "apellidos": "Maisch"
+        },
+        {
+          "nombre_completo": "M. Hamon-Josse",
+          "nombres": "M.",
+          "apellidos": "Hamon-Josse"
+        },
+        {
+          "nombre_completo": "A. Petrich",
+          "nombres": "A.",
+          "apellidos": "Petrich"
+        },
+        {
+          "nombre_completo": "S. Magosch",
+          "nombres": "S.",
+          "apellidos": "Magosch"
+        },
+        {
+          "nombre_completo": "P. Chapman",
+          "nombres": "P.",
+          "apellidos": "Chapman"
+        },
+        {
+          "nombre_completo": "T. Bennett",
+          "nombres": "T.",
+          "apellidos": "Bennett"
+        },
+        {
+          "nombre_completo": "C. Gutjahr",
+          "nombres": "C.",
+          "apellidos": "Gutjahr"
+        }
+      ],
+      "pmid": "34758285",
+      "fuente": "Curr. Biol.",
+      "anio": "2022",
+      "volumen": "32",
+      "fpage": "228",
+      "lpage": "236.e223"
+    },
+    {
+      "titulo": "Root hair growth from the pH point of view",
+      "autores": [
+        {
+          "nombre_completo": "A. Stéger",
+          "nombres": "A.",
+          "apellidos": "Stéger"
+        },
+        {
+          "nombre_completo": "M. Palmgren",
+          "nombres": "M.",
+          "apellidos": "Palmgren"
+        }
+      ],
+      "pmid": "35968128",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "949672",
+      "lpage": ""
+    },
+    {
+      "titulo": "Highlighting reactive oxygen species as multitaskers in root development",
+      "autores": [
+        {
+          "nombre_completo": "A. Eljebbawi",
+          "nombres": "A.",
+          "apellidos": "Eljebbawi"
+        },
+        {
+          "nombre_completo": "Y. Guerrero",
+          "nombres": "Y.",
+          "apellidos": "Guerrero"
+        },
+        {
+          "nombre_completo": "C. Dunand",
+          "nombres": "C.",
+          "apellidos": "Dunand"
+        },
+        {
+          "nombre_completo": "J.M. Estevez",
+          "nombres": "J.M.",
+          "apellidos": "Estevez"
+        }
+      ],
+      "pmid": "33490891",
+      "fuente": "iScience",
+      "anio": "2021",
+      "volumen": "24",
+      "fpage": "101978",
+      "lpage": ""
+    },
+    {
+      "titulo": "A gene regulatory network for root hair development",
+      "autores": [
+        {
+          "nombre_completo": "M. Shibata",
+          "nombres": "M.",
+          "apellidos": "Shibata"
+        },
+        {
+          "nombre_completo": "K. Sugimoto",
+          "nombres": "K.",
+          "apellidos": "Sugimoto"
+        }
+      ],
+      "pmid": "30903397",
+      "fuente": "J. Plant Res.",
+      "anio": "2019",
+      "volumen": "132",
+      "fpage": "301",
+      "lpage": "309"
+    },
+    {
+      "titulo": "Random root movements in weightlessness",
+      "autores": [
+        {
+          "nombre_completo": "A. Johnsson",
+          "nombres": "A.",
+          "apellidos": "Johnsson"
+        },
+        {
+          "nombre_completo": "C. Karlsson",
+          "nombres": "C.",
+          "apellidos": "Karlsson"
+        },
+        {
+          "nombre_completo": "T.-H. Iversen",
+          "nombres": "T.-H.",
+          "apellidos": "Iversen"
+        },
+        {
+          "nombre_completo": "D.K. Chapman",
+          "nombres": "D.K.",
+          "apellidos": "Chapman"
+        }
+      ],
+      "pmid": "11541141",
+      "fuente": "Physiol. Plant.",
+      "anio": "1996",
+      "volumen": "96",
+      "fpage": "169",
+      "lpage": "178"
+    },
+    {
+      "titulo": "Cell-wall architecture and lignin composition of wheat developed in a microgravity environment",
+      "autores": [
+        {
+          "nombre_completo": "L.H. Levine",
+          "nombres": "L.H.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "A.G. Heyenga",
+          "nombres": "A.G.",
+          "apellidos": "Heyenga"
+        },
+        {
+          "nombre_completo": "H.G. Levine",
+          "nombres": "H.G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "J.W. Choi",
+          "nombres": "J.W.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "L.B. Davin",
+          "nombres": "L.B.",
+          "apellidos": "Davin"
+        },
+        {
+          "nombre_completo": "A.D. Krikorian",
+          "nombres": "A.D.",
+          "apellidos": "Krikorian"
+        },
+        {
+          "nombre_completo": "N.G. Lewis",
+          "nombres": "N.G.",
+          "apellidos": "Lewis"
+        }
+      ],
+      "pmid": "11423135",
+      "fuente": "Phytochemistry",
+      "anio": "2001",
+      "volumen": "57",
+      "fpage": "835",
+      "lpage": "846"
+    },
+    {
+      "titulo": "Plant responses to real and simulated microgravity",
+      "autores": [
+        {
+          "nombre_completo": "M. Sathasivam",
+          "nombres": "M.",
+          "apellidos": "Sathasivam"
+        },
+        {
+          "nombre_completo": "R. Hosamani",
+          "nombres": "R.",
+          "apellidos": "Hosamani"
+        },
+        {
+          "nombre_completo": "B.K. Swamy",
+          "nombres": "B.K.",
+          "apellidos": "Swamy"
+        },
+        {
+          "nombre_completo": "G.S. Kumaran",
+          "nombres": "G.S.",
+          "apellidos": "Kumaran"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2021",
+      "volumen": "28",
+      "fpage": "74",
+      "lpage": "86"
+    },
+    {
+      "titulo": "Germination and elongation of flax in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "H.G. Levine",
+          "nombres": "H.G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "K. Anderson",
+          "nombres": "K.",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "A. Boody",
+          "nombres": "A.",
+          "apellidos": "Boody"
+        },
+        {
+          "nombre_completo": "D. Cox",
+          "nombres": "D.",
+          "apellidos": "Cox"
+        },
+        {
+          "nombre_completo": "O.A. Kuznetsov",
+          "nombres": "O.A.",
+          "apellidos": "Kuznetsov"
+        },
+        {
+          "nombre_completo": "K.H. Hasenstein",
+          "nombres": "K.H.",
+          "apellidos": "Hasenstein"
+        }
+      ],
+      "pmid": "14686441",
+      "fuente": "Adv. Space Res.",
+      "anio": "2003",
+      "volumen": "31",
+      "fpage": "2261",
+      "lpage": "2268"
+    },
+    {
+      "titulo": "Enhanced root production in Haplopappus gracilis grown under spaceflight conditions",
+      "autores": [
+        {
+          "nombre_completo": "H.G. Levine",
+          "nombres": "H.G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "A.D. Krikorian",
+          "nombres": "A.D.",
+          "apellidos": "Krikorian"
+        }
+      ],
+      "pmid": "11539304",
+      "fuente": "J. Gravit. Physiol.",
+      "anio": "1996",
+      "volumen": "3",
+      "fpage": "17",
+      "lpage": "27"
+    },
+    {
+      "titulo": "Growth patterns for etiolated soybeans germinated under spaceflight conditions",
+      "autores": [
+        {
+          "nombre_completo": "H.G. Levine",
+          "nombres": "H.G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "W.C. Piastuch",
+          "nombres": "W.C.",
+          "apellidos": "Piastuch"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2005",
+      "volumen": "36",
+      "fpage": "1237",
+      "lpage": "1243"
+    },
+    {
+      "titulo": "Expansins: Roles in plant growth and potential applications in crop improvement",
+      "autores": [
+        {
+          "nombre_completo": "P. Marowa",
+          "nombres": "P.",
+          "apellidos": "Marowa"
+        },
+        {
+          "nombre_completo": "A. Ding",
+          "nombres": "A.",
+          "apellidos": "Ding"
+        },
+        {
+          "nombre_completo": "Y. Kong",
+          "nombres": "Y.",
+          "apellidos": "Kong"
+        }
+      ],
+      "pmid": "26888755",
+      "fuente": "Plant Cell Rep.",
+      "anio": "2016",
+      "volumen": "35",
+      "fpage": "949",
+      "lpage": "965"
+    },
+    {
+      "titulo": "A xyloglucan endotransglucosylase/hydrolase involves in growth of primary root and alters the deposition of cellulose in Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "Y.B. Liu",
+          "nombres": "Y.B.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "S.M. Lu",
+          "nombres": "S.M.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "J.F. Zhang",
+          "nombres": "J.F.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S. Liu",
+          "nombres": "S.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y.T. Lu",
+          "nombres": "Y.T.",
+          "apellidos": "Lu"
+        }
+      ],
+      "pmid": "17674032",
+      "fuente": "Planta",
+      "anio": "2007",
+      "volumen": "226",
+      "fpage": "1547",
+      "lpage": "1560"
+    },
+    {
+      "titulo": "Population Structure in the Model Grass Brachypodium distachyon Is Highly Correlated with Flowering Differences across Broad Geographic Areas",
+      "autores": [
+        {
+          "nombre_completo": "L. Tyler",
+          "nombres": "L.",
+          "apellidos": "Tyler"
+        },
+        {
+          "nombre_completo": "S.J. Lee",
+          "nombres": "S.J.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "N.D. Young",
+          "nombres": "N.D.",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "G.A. DeIulio",
+          "nombres": "G.A.",
+          "apellidos": "DeIulio"
+        },
+        {
+          "nombre_completo": "E. Benavente",
+          "nombres": "E.",
+          "apellidos": "Benavente"
+        },
+        {
+          "nombre_completo": "M. Reagon",
+          "nombres": "M.",
+          "apellidos": "Reagon"
+        },
+        {
+          "nombre_completo": "J. Sysopha",
+          "nombres": "J.",
+          "apellidos": "Sysopha"
+        },
+        {
+          "nombre_completo": "R.M. Baldini",
+          "nombres": "R.M.",
+          "apellidos": "Baldini"
+        },
+        {
+          "nombre_completo": "A. Troìa",
+          "nombres": "A.",
+          "apellidos": "Troìa"
+        },
+        {
+          "nombre_completo": "S.P. Hazen",
+          "nombres": "S.P.",
+          "apellidos": "Hazen"
+        }
+      ],
+      "pmid": "27898828",
+      "fuente": "Plant Genome",
+      "anio": "2016",
+      "volumen": "9",
+      "fpage": "74",
+      "lpage": ""
+    },
+    {
+      "titulo": "A hypergravity environment increases chloroplast size, photosynthesis, and plant growth in the moss Physcomitrella patens",
+      "autores": [
+        {
+          "nombre_completo": "K. Takemura",
+          "nombres": "K.",
+          "apellidos": "Takemura"
+        },
+        {
+          "nombre_completo": "H. Kamachi",
+          "nombres": "H.",
+          "apellidos": "Kamachi"
+        },
+        {
+          "nombre_completo": "A. Kume",
+          "nombres": "A.",
+          "apellidos": "Kume"
+        },
+        {
+          "nombre_completo": "T. Fujita",
+          "nombres": "T.",
+          "apellidos": "Fujita"
+        },
+        {
+          "nombre_completo": "I. Karahara",
+          "nombres": "I.",
+          "apellidos": "Karahara"
+        },
+        {
+          "nombre_completo": "Y.T. Hanba",
+          "nombres": "Y.T.",
+          "apellidos": "Hanba"
+        }
+      ],
+      "pmid": "27896464",
+      "fuente": "J. Plant Res.",
+      "anio": "2017",
+      "volumen": "130",
+      "fpage": "181",
+      "lpage": "192"
+    },
+    {
+      "titulo": "Light modulates the gravitropic responses through organ-specific PIFs and HY5 regulation of LAZY4 expression in Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "P. Yang",
+          "nombres": "P.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Q. Wen",
+          "nombres": "Q.",
+          "apellidos": "Wen"
+        },
+        {
+          "nombre_completo": "R. Yu",
+          "nombres": "R.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "X. Han",
+          "nombres": "X.",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "X. Wang Deng",
+          "nombres": "X.",
+          "apellidos": "Wang Deng"
+        },
+        {
+          "nombre_completo": "H. Chen",
+          "nombres": "H.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "32690706",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2020",
+      "volumen": "117",
+      "fpage": "18840",
+      "lpage": "18848"
+    }
+  ]
+}

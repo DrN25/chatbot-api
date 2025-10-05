@@ -1,0 +1,2384 @@
+{
+  "TITLE": [
+    "Validation of Methods to Assess the Immunoglobulin Gene Repertoire in Tissues Obtained from Mice on the International Space Station"
+  ],
+  "ABSTRACT": [
+    "Spaceflight is known to affect immune cell populations. In particular, splenic B cell numbers decrease during spaceflight and in ground-based physiological models. Although antibody isotype changes have been assessed during and after space flight, an extensive characterization of the impact of spaceflight on antibody composition has not been conducted in mice. Next Generation Sequencing and bioinformatic tools are now available to assess antibody repertoires. We can now identify immunoglobulin gene- segment usage, junctional regions, and modifications that contribute to specificity and diversity. Due to limitations on the International Space Station, alternate sample collection and storage methods must be employed. Our group compared Illumina MiSeq sequencing data from multiple sample preparation methods in normal C57Bl/6J mice to validate that sample preparation and storage would not bias the outcome of antibody repertoire characterization. In this report, we also compared sequencing techniques and a bioinformatic workflow on the data output when we assessed the IgH and Igκ variable gene usage. This included assessments of our bioinformatic workflow on Illumina HiSeq and MiSeq datasets and is specifically designed to reduce bias, capture the most information from Ig sequences, and produce a data set that provides other data mining options. We validated our workflow by comparing our normal mouse MiSeq data to existing murine antibody repertoire studies validating it for future antibody repertoire studies."
+  ],
+  "INTRO": [
+    "INTRODUCTION",
+    "For B cell development and specificity, there are a large number of heavy chain (IgH) and kappa light chain (Igκ) gene segments that are used to produce the Ig (antibody) receptor population repertoire. This antibody repertoire is quite large and the possible specificities can theoretically exceed the number of actual antibody molecules in the host. In antibodies, the antigen binding region is formed by six complementarity determining regions (CDRs) that loop out from the V region backbone formed by two beta-pleated sheets. The germline V gene segment repertoire is necessary for host responses to pathogens and CDR1 and CDR2 are completely encoded for by variable (V region) gene segments. Therefore, knowing which V gene segments are utilized is fundamental to understanding B-cell specificity and the development of effective immune responses. The CDR3 of both the heavy and light chains are highly variable due to their unique generation. During the creation of each Ig sequence, partially random splicing between V, D (heavy chain), and J gene segments occurs and random base insertions occur, called “n-nucleotide” additions. One hypothesis is that V gene segments have been maintained in the genome because of their importance in binding specific pathogens and provide essential host defense functions. However, CDR3 may be important because it is highly variable. Its role as a highly diverse and variable region is what provides the essential key to determining antigen specificity.",
+    "The spaceflight environment can impact many parameters critical to the host immune response. In multiple species spaceflight affects the total body, thymus and spleen mass, circulating corticosterone, mitogen-induced proliferation, cytokine production and reactivity, and lymphocyte subpopulation distributions.",
+    "B cells are among the immune components that are affected by spaceflight. The number of B cells in the spleen was reduced in mice flown on the space shuttle flight, STS-35. The percentage of B cells in the bone marrow and spleen also is reduced in mice subjected to hindlimb unloading. When rats were injected with sheep red blood cells 8 days prior to an 18.5-day COSMOS flight there were lower IgG concentrations compared to both immunized and non-immunized ground controls after landing. IgM production was virtually eliminated in lymphocytes stimulated in vitro with pokeweed mitogen (PWM) on the International Space Station (ISS) when compared to similarly activated ground controls. Furthermore, when cells were activated on Earth, frozen down, and then put back into suspension in space to assess IgM secretion, Fitzgerald et al. found that IgM secretion was significantly slower than similarly treated ground-based controls.",
+    "Our group is interested in the impact of spaceflight on B-cell immunoglobulin gene usage. Next Generation Sequencing (NGS) now allows us to analyze the repertoire of Ig gene segments that are used in the assembly of immunoglobulins that are transcribed by B cells and that are present in the host. NGS allows the determination of V, D and J gene usage, CDR3 assembly and the assessment of mutations that occur in response to immune challenge. In microgravity, there exist certain limitations associated with tissue collection and storage methods traditionally used on the ground. In preparation for sending mice to the ISS our group needed to validate our procedures and our ability to obtain high-quality RNA that could be used for NGS for the assessment of Ig gene usage. Our group also sought to validate the usage of RNA extracted from whole tissue collected and stored with these limitations in mind. It was also necessary to develop a workflow that would facilitate the analysis of large amounts of data that would be generated during this project. In this manuscript, we describe the development of our workflow and validation of mouse NGS data for use with space flight experiments."
+  ],
+  "METHODS": [
+    "MATERIALS AND METHODS",
+    "Sample Preparation and RNA Extraction",
+    "Spleens were removed from four 11-week-old, specific pathogen-free, female C57BL/6J mice housed in the Division of Biology vivarium at Kansas State University. One-half of each spleen was homogenized with a 70 µM sieve to generate a single-cell suspension designated, “cells”. Spleen cells were pelleted at 350 × g and were resuspended in 5 mL of ice-cold ACK lysing buffer (155mM NH4Cl, 10mM KHC03, 0.1mM EDTA) to lyse red blood cells. After five minutes, 10 mL of ice-cold isotonic medium was added to the suspension and cells were again pelleted at 350 × g and the supernatant was removed. The pellet was resuspended in Trizol LS (Ambion, Carlsbad, CA, USA) for RNA extraction. The remaining spleen half was immediately placed into Trizol LS for RNA extraction, and designated “tissue”. RNA extraction was performed according to the manufacturer’s instructions. RNAsin (40 units) was added to each RNA aliquot and stored in −80°C. RNA quality was assessed on a 2100 Bioanalyzer (Agilent Technologies, Santa Clara, CA, USA).",
+    "MiSeq Sequencing",
+    "One microgram of high-quality total RNA was used for RNA sequencing (RNA-seq) library construction using the TruSeq RNA Sample Preparation kit v2 (Illumina, San Diego, CA) with the following modification: one minute fragmentation time was applied to allow for longer RNA fragments. The obtained RNA-seq libraries were analyzed with the 2100 Bioanalyzer. The tissue sample described previously was then subjected to size selection and designated “size selected”. Selection of sequences 375–900 nucleotides (nt) in length (275–800 nt sequences plus 50 nt sequencing adaptors on each end of the cDNA) was performed using the Pippin Prep system (Sage Science, Beverly, MA, USA). All libraries were then quantified with qPCR according to Illumina recommendations. The sequencing was performed at the Kansas State University Integrated Genomics Facility on the MiSeq personal sequencing system (Illumina) using the 600 cycles MiSeq reagent v3 kit (Illumina) according to Illumina instructions, resulting in 2 × 300 nt reads.",
+    "MiSeq Reference Mapping",
+    "The bioinformatics workflow used in our study is outlined in Figure 1. FASTQ sequencing files were imported into CLC Genomics Workbench v9.5.1 (CLC bio, Aaarhus, Denmark) (https://www.qiagenbioinformatics.com/). Data were cleaned in the CLC program to remove low quality and short sequences. Due to Illumina sequencing artifacts, the first 12 nt were removed from each sequence. Sequences were quality cleaned by retaining the longest region of the sequences with at least 97% of the sequence with Phred scores over 20. Sequences with fewer than 40 nt were removed. Reads remained with paired-end sequences, designated “paired”, and, in cases of overlapping sequence pairs, reads were merged, designated as “merged” (Figure 1a, light blue line). Sequences were merged using a match score of +1, mismatch cost of −2, a gap cost of −3, and a minimum score of 10. Cleaned paired (Figure 1a, purple lines) and merged (Figure 1a, red lines) sequences were mapped to specific C57BL/6 V gene sequences obtained from NCBI for the immunoglobulin heavy (IgH) and light (Igκ) chains. The paired and merged sequences were mapped using a match score of +1 and a mismatch score of −2. Additional putative antibody sequences were obtained by mapping sequences to the IgH and Igκ loci and the whole genome using the same scores. Mapped MiSeq sequences were combined and submitted to ImMunoGeneTics’s (IMGT) High-V Quest (Figure 1a, green lines). Functionally productive heavy chain sequences were imported into CLC and constant regions were determined using a motif search for the first 20 nt in each constant region that are provided in Table 1 (dashed line). Motifs were reassociated with their original sequences in Microsoft Excel for complete antibody (V[D]JC) identification. While two IgG subclass motifs were used to identify IgGs, they share partial sequence homology, therefore all IgG subclasses were combined resulting in an overarching IgG isotype. Kappa chain sequences were processed directly (Figure 1a, dotted line).",
+    "To collect a higher number of putative Ig sequences, our data handling workflow used multiple mapping processes which could result in the same sequence being submitted to IMGT multiple times. Failure to remove these duplicated sequences would lead to incorrect frequency assessments. Figure 2 outlines the procedure for duplicate sequencing read removal. Sequences were identified by their original MiSeq identification numbers for sorting. To retain the sequence with the most information and most accurate mapping, sequences were assessed based on functionality, constant region identification, V region score, and strand. Only one sequence per MiSeq identification number was retained and used for subsequent data compilation. Data from the remaining productive and unknown functionality antibody sequences were compiled for V, D (IgH only), and J gene segment usage, CDR3 length, and CDR3 amino acid (AA) composition.",
+    "HiSeq Reference Mapping",
+    "The MiSeq workflow described above was modified to analyze mouse liver transcriptomic data from the Rodent Research 1 (RR1) NASA validation flight provided by the NASA GeneLab program (https://genelab-data.ndc.nasa.gov/genelab/, Accession Numbers: GLDS-47, GLDS-48). These data include sequences from the livers of ground control and flight mice from two separate cohorts, CASIS (GLDS-47) and NASA (GLDS-48), that were generated using Illumina HiSeq (1 × 50 nt reads). Raw sequencing reads were imported into CLC and quality cleaned as described with the exception of short read removal as quality cleaned reads were below the threshold utilized in the original workflow (Figure 1b). Reads were then mapped to the Vκ references identified above. Total Vκ mapping counts were collected and analyzed in Excel.",
+    "MiSeq and HiSeq Genome Mapping",
+    "FASTQ files were imported into CLC and quality cleaned as described previously (Figure 1c). MiSeq reads were merged as described previously (Figure 1c, blue arrow). Paired and merged MiSeq and unpaired HiSeq reads (Figure 1c, purple arrow) were mapped using the RNA-Seq tool in CLC to the current mouse reference genome (GRCm38). A match score of +1, a mismatch score of −2, and insertion and deletion scores of −3 were used to map reads to the genome. Due to the short read lengths of the HiSeq data, V gene segment usage was compiled directly after the RNA-Seq analysis (Figure 1c, green arrow). For MiSeq data, reads were collected, submitted to IMGT, duplicates removed and usage statistics compiled as described above (Figure 1c, dashed box).",
+    "NASA RNA Preparation and Sequencing",
+    "Tissues from two sets of mice were analyzed. The first set of spleens and livers were removed from five 35-week-old female C57BL/6Tac mice aboard the ISS 21–22 days after launch (CASIS Flight, SpaceX-4). Five 35-week old female mice housed in the ISS Environmental Simulator were processed similarly with a four-day delay (CASIS Ground Controls). Spleens and livers were placed in RNALater (LifeTechnologies, Carlsbad, CA) for at least 24 hours at 4°C and then stored at −80°C while aboard the ISS, during transport, and upon return to Earth. The second set of tissues were isolated from seven 21-week-old female C57BL/6J were euthanized aboard the ISS 37 days post launch (NASA Flight, SpaceX-4). Carcasses were immediately frozen (−80°C) and after arriving at Earth, were dissected. Livers were preserved in RNALater for at least 24 hours at 4°C and then frozen at −80°C. RNA was extracted from the tissues using Trizol (LifeTechnologies, Carlsbad, CA) according to the manufacturer’s instructions. The resultant RNA was then processed through an RNeasey mini column (QIAGEN, Hilden, Germany) as per manufacturer’s instructions. RNA quality was assessed on a 2100 Bioanalyzer (Agilent Technologies, Santa Clara, CA) and stored at −80°C. RNA was sequenced on Illumina HiSeq with single reads of 50nt (1× 50nt)."
+  ],
+  "RESULTS": [
+    "RESULTS",
+    "Size Selection Yields Highest Number of Antibody Sequences",
+    "Most studies of Ig gene-segment use frequency have used single-cell suspensions or sorted to isolate specific cell populations. The advantage of these preparations is the exclusion of extraneous tissues and cells, which can enhance recovery of Ig sequences.",
+    "Our goal was to assess Ig gene segment usage in mice housed on the ISS. Due to limitations of animal and tissue handling on the ISS, only whole tissues would be available for analysis. To determine if we could obtain a sufficient number of Ig sequences from alternative sample preparations, we examined the total Ig sequence results from three different RNA preparation and sequencing treatment groups. The first two treatment groups comprised of RNA prepared from cells or whole tissue. A third treatment group was the same RNA from the tissue, which was subsequently size selected at 275–800 nt and sequenced independently. We selected this range of lengths because the IgH VDJ recombination sequences are generally require 350–450 nt to gather information on V/D/J/C usage. Size selection also allows us to eliminate the inherent Illumina bias for short reads, while maintaining total transcriptome integrity for later data mining purposes.",
+    "Total sequence numbers generated were similar among the treatment groups with the cells treatment group resulting in 23.9 million reads, tissue treatment group with 25.9 million, and size selected treatment group with 21.5 million reads, as shown in Table 2. After cleaning, 18.7 million reads remained in the cells treatment group, 20.3 million in the tissue treatment group, and 12 million in the size selected group (Table 2). Mapping was performed as described in the materials and methods for both the IgH and Igκ loci and VH- and Vκ-gene segments. Locus mapping returned higher levels of probable Ig sequences than V-gene segment specific mapping. V-gene segment IgH- and Igκ-mapped sequences were lowest in the cells treatment group (1.56% IgH and 1.38% Igκ) and highest in the size selected treatment group (3.1% IgH and 1.99% IGκ).",
+    "After submission to IMGT and cleaning, antibody sequences were identified as potentially functional or of unknown functionality by IMGT. Unknown functionality sequences were comprised of partial sequences lacking CDR3 information to determine functionality. The total number of antibody sequences obtained for the IgH and Igκ was lowest in the cells treatment group and highest in the size selected treatment group, (Table 2) mirroring the V-gene segment mapping results. Both productive and unknown IgH and Igκ antibody sequence counts were also lowest in the cells treatment group and highest in the size selected treatment group. This trend also described Igκ sequences, with more unknown than productive sequences being identified. The size selected treatment group produced both the highest number of productive antibody sequences and the highest total number of identified Ig sequences among treatment groups.",
+    "Comparison of Immunoglobulin Gene Segment Usage Among Treatment Groups",
+    "We compared IgH and Igκ gene segment frequency using multiple metrics across all three treatment groups; the first of which is V gene segment usage. To assess the frequency of each VH- and Vκ- gene segment in normal mouse spleen, the total frequency of each V-gene segment was tabulated in Figures 3 and 4 as a percentage of the total repertoire for our cells, tissue, and size selected treatment groups. VH-gene segment usage was similar among all three treatment groups (Figure 3A). V-gene segment V1–80 was detected most frequently, followed by V1–18, and V1–26 gene segments. The gene segment V1–80 was ranked either first or third as a percentage of the total repertoire in all three treatment groups (Figure 3B). The gene segment V1–18 ranged between the first and third most frequently used gene segment. V1–26 was the second to fifth most frequently used VH-gene segment. While gene frequency detection rankings among cells, tissue and size selected treatment groups were not identical, there was high similarity in overall VH-gene segment detection and in repertoire usage. Correlations between treatment groups produced an R2 of at least 0.7562 (p<0.0001, data not shown) between the cells and size selected treatment groups. The R2 between cells and tissue treatment group was higher (R2=0.8149, p<0.0001, data not shown). Tissue and size selected treatment groups had the highest correlation (R2= 0.9645, p<0.0001 data not shown).",
+    "Kappa chain V-gene segment usage was also compared among the different treatment groups. Figure 4 shows the percent of repertoire for the top ten most abundant Vκ gene-segments of each treatment group. There was significant overlap in the top Vκ of each treatment group when assessed as either percent of repertoire detected (Figure 4A) or when ranked from highest to lowest frequency (Figure 4B). Greater similarities in Vκ existed between tissue and tissue size selected treatments. Correlations between Vκ in treatment groups produced an R2 of at least 0.7813 (p<0.0001, data not shown), with tissue and size selected treatment groups having the highest correlation (R2=0.8335, p<0.0001, data not shown).",
+    "The frequency of D- and JH-gene segment use in normal mice was also assessed. Figure 5 shows that the cells, tissue and size selected D- and JH-gene-segment usage frequency was similar. D1-1 was the most frequently discovered D-gene segment in all three treatment groups, comprising almost 30% of the repertoire (Figure 5A). Due to the short length of the D gene, it was often difficult to properly determine which D gene was used in an antibody. When a D gene was identified, but was attributed to a non-strain-specific D gene, they were labeled “undetermined”. These D-gene segments were also very common, occurring between 26%-28% of the time, in all three treatment groups. Gene segments D2–4, D4-1, D-5, D2–3, and “no” D-gene (labeled NONE) were the next most frequent assignments, ranging from about six percent to eight percent of D-gene frequency.",
+    "We found that JH-gene segment usage was the same for the cells, tissue and size selected treatment groups (Figure 5B). JH2 was the most frequently used J-gene segment followed by JH1, JH4, and JH3, respectively. Gene segment usage in kappa chains was also similar in all three treatment groups, with Jκ1 as the most frequently used, followed by Jκ5, Jκ2 and Jκ4 respectively (Figure 5C). When less than six nucleotides from the J gene segment were identified, they were marked as <6 nt.",
+    "Five heavy chains, IgA, IgD, IgE, IgG (all subfamilies), and IgM are part of the normal mouse Ig repertoire. Almost 80% of the repertoire used the IgM constant region (Figure 5D). IgD, IgA, and IgG were detected at frequencies between three percent and twelve percent of the total repertoire and were evenly distributed among cells, tissue and size selected treatment groups. IgE was not detected in any of the treatment groups.",
+    "CDR3 AA Sequence Determination",
+    "CDR3 is highly variable and it may be critical in determining antigen specificity. Therefore, we assessed individual CDR3 frequency from each treatment group. The top five most common CDR3s from each treatment group for the heavy chain were compiled and shown in Figure 6A, resulting in a total of ten unique CDR3s among treatment groups. The tissue and size selected treatment groups contained all of the most common CDR3s, however, the cells treatment group lacked the CARGIYYGSYFDYW sequence, which ranked as the second most common in the tissue data set (Figure 6B). We detected one hundred sixty-four CDR3 AA sequences in all three data sets at least once (Figure 6C). The tissue and size selected treatment data sets shared 607 CDR3 sequences. Thirty-eight and 82 CDR3 AA sequences were shared between cells and tissue and cells and size selected treatment groups, respectively. Each treatment group data set also contained a large number of unique CDR3 reads.",
+    "We found overlap among the top five kappa chain CDR3 of each treatment group (Figure 6D). One CDR3 sequence was not found in all three datasets, CALWYSNHWF, however, all other top CDR3 sequences appeared in at least the top 42 CDR3 sequences of the other treatment groups (Figure 6E). Figure 6F shows the diversity of kappa chain CDR3 sequences. The total number of CDR3 amino acid sequences that were unique to each treatment groups was 957, 1454, and 2838 in cells, tissue, and tissue size selected treatment groups, respectively. Three-hundred and eighty-seven unique kappa chain CDR3 sequences are shared among all three treatment groups.",
+    "Application of MiSeq Workflow to RR1 HiSeq Data",
+    "The MiSeq workflow was adapted to process the liver Illumina HiSeq data from the RR1 validation flight. Due to short read length (38 nt), only V-gene segment usage was assessed. Due to low IgH read numbers, only Vκ information is presented. The Vκ percent of repertoire from each HiSeq RR1 mouse cohort (CASIS Ground, CASIS Flight, NASA Ground, and NASA Flight) was compared to the Vκ percent abundance of the cell, tissue, and size selected HiSeq datasets. Table 3 shows poor correlation between reference mapped RR1 HiSeq cohorts and the MiSeq datasets described in the previous section. As all mice represented in this comparison are C57BL/6 mice, though ages and experimental conditions varied, we were concerned that the lack of concurrence in Vκ gene-segment usage of the RR1 mice and those used in the workflow discussed above may reflect the bioinformatic treatment of the data. To test this hypothesis, we modified the workflow to map sequencing reads to the entire Mus musculus genome rather than mapping reads to Vκ reference sequences, as genome mapping is commonly employed in transcriptomics analysis. This bioinformatic treatment yielded a higher correlation with the MiSeq datasets. Table 3 shows that the distribution of Vκ percent abundance was dependent on the mapping technique used for the HiSeq datasets.",
+    "Reference/IgH Locus Mapping is Comparable to Whole Genome RNA-Seq Methods",
+    "Because the data obtained from the HiSeq data set using reference mapping techniques were less correlative to Vκ gene use to our previously obtained MiSeq data for normal mice we were concerned that our initial bioinformatics techniques for MiSeq data may not be appropriate. To validate the accuracy of our bioinformatic treatments of the sequencing data that were submitted to IMGT, two different mapping methods were compared. The reference mapping approach, used previously, mapped sequences to both the IgH V-gene segments (251 segments) and the entire IgH locus (2.8Mb) obtained from NCBI (NC_000078.6, 113258768 to 116009954) or Igκ V-gene segments (164 segments) and the entire Igκ locus (3.2Mb) obtained from NCBI (NC_000072.6, 67555636 to 70726754). Therefore, we used the whole genome mapping outlined above to compare to our reference mapping. Results were obtained by using the RNA-Seq analysis tool in CLC to map reads to the entire genome with the IgH and Igκ loci selected for submission to IMGT. The IMGT output was processed similarly for both (genome vs. reference) mapping strategies. The median frequency of all VH- and Vκ-gene segments was compared if it was detected in at least one of the three treatment groups (cells, tissue or size-selected), and the data were compiled for both reference- and genome-mapping options. V-gene segments not detected in a treatment group were assigned a “zero” frequency. Assessment of the median frequencies of the two methods by linear regression in Figure 7 revealed that the frequency data for VH-gene segment usage was very similar regardless of the mapping technique (R2 = 0.9973, p = <0.0001) (Figure 7A). There was also a strong correlation of Vκ usage between the two methods (R2=0.9923, p<0.0001) (Figure 7B). Comparisons of D-gene segment, J-gene segment, constant region frequency and CDR3 lengths were also highly correlated using both techniques (data not shown). Therefore, we are confident that our reference mapping bioinformatics strategy is providing an accurate picture of V-gene usage."
+  ],
+  "DISCUSS": [
+    "DISCUSSION",
+    "Spaceflight presents unique difficulties in the collection, preparation and preservation of cells and tissues. Normal preparation methods such as the creation of single-cell suspensions are difficult and normal tissue preservations methods such as the use of liquid nitrogen are unavailable. In an effort to determine the acceptability of whole tissue preparations compared to more traditional single cell suspensions, we examined the differences in Ig sequences obtained from both treatment groups. We were concerned that tissue isolation methods may introduce artifacts into the data since many studies specifically focus on single cell suspensions; often sorted, to isolate B cells specifically. Our data indicate that comparable results were obtained from both the tissue and the cells treatment groups. There were strong correlations in V-gene usage and the CDR3 sequences identities were very similar.",
+    "In an effort to reduce Illumina bias towards short reads seen in the cells and tissue treatment groups, ten months later, we sequenced the same tissue total RNA using size selection. This extended storage time after initial sequencing and additional freeze/thaw cycles are likely the cause of reduced numbers of post-cleaning reads due to RNA degradation. Nevertheless, the size-selected data set still provided the highest number of productive and unknown antibodies. Subsequent preparations have verified that size selection is helpful in providing the highest number of antibody sequences (data not shown). Therefore, we have chosen to include size selection in our protocol for NGS assessment of Ig V-gene usage.",
+    "The antibody repertoires from numerous species have been analyzed using a variety of amplification, sequencing, and analysis techniques. We chose to assess Ig gene usage without using amplification. Although many studies use amplification in order to obtain a higher number of reads, this may lead to bias into the repertoire. Bias may be introduced due to primers or to errors created during the PCR reaction. The large number of primers needed to amplify all the V genes in mice also presents some obstacles. Some have used 5’ RACE with primers based on the constant region. However, in order to amplify the entire repertoire, multiple 5’ RACE primers are required, which still increases the chances for primer bias and increases costs significantly. Our goal was to examine the breadth of the antibody repertoire by gathering information about V, D, J, constant region usage and CDR3 composition. The detected V-gene and CDR3 sequences appear to parallel the repertoires reported using more focused amplification methods. Therefore, we have a methodology for future studies that will examine the immune response to vaccination.",
+    "During the course of our studies, we had the opportunity to work with both HiSeq and MiSeq data. While Illumina sequencing (HiSeq and MiSeq) produces a higher volume of sequence reads, they are shorter and more prone to errors than sequencing with 454 or Sanger methods. However, Illumina sequencing has improved over time and is arguably now the NGS of choice. Our sequencing with Illumina MiSeq allowed us to obtain reads of up to 560 nt when forward and reverse sequencing ends were paired. This provides enough sequencing length to capture information from the V-gene segment to the constant region of both the heavy and light chains. We also found that as the sequences became longer, there was a drop off in sequencing quality, which has been previously reported.",
+    "Our workflow for Ig sequence isolation selected for sequences with the most information. This required the merging of overlapping read pairs to provide sequences long enough to identify the V, D, J, and constant regions. In order to collect the highest number of possible Ig sequences, we used multiple mapping techniques to both the V-gene segment and the locus in an effort to collect every possible Ig sequence. Preliminary workflow attempts found that each mapping technique isolated some unique sequences and that locus mapping resulted in a high number of “false positive” sequences. Subsequent sequence removal in Excel selected for antibodies containing the most data retaining productive antibodies with constant regions and high V-gene scores, a measure of the length and accuracy of match to the germline V gene segment. By utilizing multiple mapping methods and subsequent selection for the sequence with the most information, we are able to obtain a relatively large number of antibody sequences without introducing primer bias or PCR-induced sequencing errors.",
+    "To the best of our knowledge, this is the first data set of tissue based, non-amplified MiSeq analysis of the antibody repertoire. While our results are not a direct technique match to other published data sets, our normal mouse V-gene usage is consistent with other’s findings. For example, Collins used 5’ RACE from the constant region followed by sequencing using 454 on a splenic cell suspension. Of the top ten VH-gene segments identified by Collins, we identified five of the same VH genes within our top ten most frequently detected. All except the V1–59 gene segment were among the highest contributors to our repertoire. In addition, JH-gene segment frequencies were also relatively uniform with the J2 gene segment as the most frequently used. Yang performed sequencing on cell sorted B cells isolated from the spleen followed by amplification with primers specific for many, but not all, of the V heavy chains of mice and constant region primers to amplify V, D, J and part of the constant region. Their PCR products were then sequenced on the Illumina platform and aligned to known VH-gene segments. They identified V1–26 as their most common V-gene segment, which ranked between the second and fifth most common V gene in our data sets. V-gene segments V1–82, V1–-64, and V1–55 were also identified as common V-gene segments in their analysis, all of which were frequently detected in our data. Kaplinski also examined sorted spleen cells, amplified with PCR and sequenced on MiSeq with 2 × 150 nt reads. Sequencing results were analyzed through idAB for identification. In contrast to our data analysis, Kaplinski examined only V gene segments found in productive antibodies, where we compiled all V gene segments identified in productive and unknown functionality sequences. Of the most common VH-gene segments provided, four, V1–80, V1–26, V1–53, and V1–82 were identified in our top ten grouping. Our data sets also isolated D1-1 as the most common D-gene segment. Kramer et al. examined sorted splenic follicular B cells, using IgM restricted PCR and sequenced using the Sanger method. As we discovered, Kramer et al.’s most common VH family was V1, followed by V2 and V5 at relatively equal levels. In contrast, we found that the V6 gene-segment family was detected at a higher level than found in the Kramer analysis. The J4 gene segment was also used more than detected in our data set. We both identified D1 and D2 as the most common D gene-segment families.",
+    "We also compared our data to Igκ gene family usage. Aoki-Ota assessed skewed Vκ gene segment usage and V-J gene segment usage in unimmunized C57BL/6 mice using primer amplified total RNA of B cells from spleen, bone marrow and lymph node using 454 pyrosequencing. Their sequencing data was analyzed using the NCBI basic local alignment tool with reference sequences for Vκ and Jκ obtained from the IMGT data base. The top seven V gene segments identified in their study were also found to be among the most abundant Vκ gene segments in all of our treatment groups. Additionally, V-J pairing of their top gene segments paralleled our data. Lu examined the effects of primer bias and mouse to mouse variation in Vκ- and Jκ-gene segments and CDR3 regions using primer amplified total RNA isolates of Balb/c splenic B cells on the 454 pyrosequencing platform. As with our study, sequencing reads were submitted to the IMGT HighV-quest tool, however, only functionally productive immunoglobulins were used in their analysis. In spite of the strain differences between our studies, of the Vκ-gene segments representing over one-percent of the antibody repertoire reported by Lu et al., at least 80% of those gene segments appearing at a frequency 0.5% or higher in our analyses.",
+    "Although there was not 100% agreement among our study and the others, there was a high degree of consistency. Variations in data may result from sequencing and tissue isolation techniques and natural variation among animals, including mouse strain. In addition, since we did not amplify for IgV gene segments, we likely may have missed rarer B cell clones. Primer biases in other studies may have also contributed to some of the differences. Nevertheless, it is clear that our approach provided an unbiased, representative sample of actively transcribing B cells.",
+    "Our group utilized liver Rodent Research One sequencing data sequenced on the Illumina HiSeq platform (1 × 50 nt) that was available from the NASA Genelab project. The sequencing length was the largest limitation of these data. Our MiSeq data were sequenced in both directions at a length of 300 nt. Some paired-end reads also contained overlaps, allowing us to merge these sequences and provide reads up to around 560 nt. HiSeq sequencing reads were not of sufficient length to obtain CDR3 composition from the IMGT HighV-Quest tool, limiting the analyses that could be used to assess the antibody repertoire. Therefore, the applicability of publically available datasets to independent research questions is dependent upon the sequencing method used to acquire the data. For Ig gene repertoire studies, we recommend the use of sequencing methods that result in longer reads, though short reads may be useful for other research questions.",
+    "Initial comparisons to assess similarity of the different mouse cohorts showed a lack of correlation between the HiSeq RR1 data to the normal mouse MiSeq Vκ usage. We thought that part of the discrepancy may be from problems with the short HiSeq sequences, specifically when forced to align to V-gene segments when multiple matches are excluded. Mapping short HiSeq reads to the entire mouse genome remedied the inconsistencies observed between RR1 and normal mouse MiSeq data, likely due to the limitations of the RNA-Seq analysis employed. This demonstrates that the bioinformatic treatment of the data can impact results. We found that mapping longer MiSeq sequencing reads from RNA isolated from mice within the CASIS ground RR1 cohort to both the whole mouse genome and Vκ reference sequences yielded a strong correlation. This validates the applicability of the MiSeq workflow described in this work on additional MiSeq datasets and reinforces that sequence read length must be taken into account when selecting bioinformatics methods.",
+    "In conclusion, our goals for this project were to examine the breadth of the antibody repertoire gathering information about V, D, J, and constant region usage and CDR3 composition and to lay the foundation for future studies that will examine the immune response to vaccination during space flight. We have determined that whole tissue preparations as will be available from the ISS will yield similar results when examining the antibody repertoire. We also determined that performing a size selection to isolate likely antibody sequences provided the highest number of Ig reads. A novel workflow using multiple mapping methods to characterize NGS data for Ig repertoire data was developed and genome and reference mapping methods were validated through the use of publically available datasets. This novel workflow can be used for future studies on the antibody repertoire regardless of whether they are ISS- or ground-based."
+  ],
+  "REF": [
+    "IMGT((R)) tools for the nucleotide analysis of immunoglobulin (IG) and T cell receptor (TR) V-(D)-J repertoires, polymorphisms, and IG mutations: IMGT/V-QUEST and IMGT/HighV-QUEST for NGS",
+    "Effects of spaceflight on rat erythroid parameters",
+    "Effects of spaceflight on the number of rat peripheral blood leukocytes and lymphocyte subsets",
+    "Skewed primary Igkappa repertoire and V-J joining in C57BL/6 mice: implications for recombination accessibility and receptor editing",
+    "Rep-Seq: uncovering the immunological repertoire through next-generation sequencing",
+    "Summary of medical experience in the Apollo 7 through 11 manned spaceflights",
+    "Altered skeletal pattern of gene expression in response to spaceflight and hindlimb elevation",
+    "Counteraction of spaceflight-induced changes in the rat central serotonergic system by adrenalectomy and corticosteroid replacement",
+    "Effects of space flight and PEG-IL-2 on rat physiological and immunological responses",
+    "Effect of microgravity on lymphocyte activation",
+    "The mouse antibody heavy chain repertoire is germline-focused and highly variable between inbred strains",
+    "Lymphatic tissue changes in rats flown on Spacelab Life Sciences-2",
+    "VH gene segments in the mouse and human genomes",
+    "Effect of a 22-day space flight on the lymphoid organs of rats",
+    "Immune suppression of human lymphoid tissues and cells in rotating suspension culture and onboard the International Space Station",
+    "Countermeasures for ameliorating in-flight immune dysfunction",
+    "Three Weeks of Murine Hindlimb Unloading Induces Shifts from B to T and from Th to Tc Splenic Lymphocytes in Absence of Stress and Differentially Reduces Cell-Specific Mitogenic Responses",
+    "The promise and challenge of high-throughput sequencing of the antibody repertoire",
+    "Inhibited interferon-g but normal interleukin-3 production from rats flown on the space shuttle",
+    "Quantitative assessment of the robustness of next-generation sequencing of antibody variable gene repertoires from immunized mice",
+    "Spaceflight effects on T lymphocyte distribution, function and gene expression",
+    "Main medical results of extended flights on Space Station Mir in 1986–1990",
+    "COSMOS 1887 mission overview: effects of microgravity on rat body and adrenal weights and plasma constituents",
+    "The effect of a 10-day space flight on the function, phenotype, and adhesion molecule expression of splenocytes and lymph node lymphocytes",
+    "Backbone flexibility of CDR3 and immune recognition of antigens",
+    "Altered cell function in microgravity",
+    "Effects of spaceflight on rat peripheral blood leukocytes and bone marrow progenitor cells",
+    "Rodent Growth, Behavior, and Physiology Resulting from Flight on the Space Life Sciences-1 Mission",
+    "Antibody repertoire deep sequencing reveals antigen-independent selection in maturing B cells",
+    "Study of reactivity of blood lymphoid cells in crew members of the Soyuz-6, Soyuz-7 and Soyuz-8 spaceships before and after flight",
+    "Analysis of IgM antibody production and repertoire in a mouse model of Sjogren's syndrome",
+    "Hind limb unloading, a model of spaceflight conditions, leads to decreased B lymphopoiesis similar to aging",
+    "Effect of SLS-2 spaceflight on immunologic parameters of rats",
+    "Immune changes in test animals during spaceflight",
+    "IgG variable region and VH CDR3 diversity in unimmunized mice analyzed by massively parallel sequencing",
+    "Effect of space flight on cell-mediated immunity",
+    "The role of psychoneuroendocrine factors on spaceflight-induced immunological alterations",
+    "Alteration in human mononuclear leucocytes following space flight",
+    "Analyses of plasma for metabolic and hormonal changes in rats flown aboard COSMOS 2044",
+    "Influence of spaceflight on the production of interleukin-3 and interleukin-6 by rat spleen and thymus cells",
+    "Evaluation of genomic high-throughput sequencing data generated on Illumina HiSeq and genome analyzer systems",
+    "Effect of spaceflight on lymphocyte proliferation and interleukin-2 production",
+    "Variable lymphocyte responses in rats after space flight",
+    "Spaceflight induces changes in splenocyte subpopulations: effectiveness of ground-based models",
+    "Crystal structure of human immunoglobulin fragment Fab New refined at 2.0 A resolution",
+    "Weightlessness effects on resistance and reactivity of animals",
+    "Spaceflight and development of immune responses",
+    "Spaceflight alters immune cell function and distribution",
+    "Effects of spaceflight on levels and activity of immune cells",
+    "Excretion of IL-6 by astronauts during spaceflight",
+    "Immune responses and latent herpesvirus reactivation in spaceflight",
+    "Elevated stress hormone levels relate to Epstein-Barr virus reactivation in astronauts",
+    "Leukocyte subsets and neutrophil function after short-term spaceflight",
+    "Human cellular immune responsiveness following space flight",
+    "Immunological analyses of U.S. Space Shuttle crewmembers",
+    "Blood volume and erythropoiesis in the rat during spaceflight",
+    "Degenerated primer design to amplify the heavy chain variable region from immunoglobulin cDNA",
+    "Lack of effect of spaceflight on bone mass and bone formation in group-housed rats",
+    "Diversity in the CDR3 region of V(H) is sufficient for most antibody specificities",
+    "Distinct mechanisms define murine B cell lineage immunoglobulin heavy chain (IgH) repertoires"
+  ],
+  "FIG": [
+    "Bioinformatic analysis workflows",
+    "(A) Workflow for MiSeq reference mapping strategy using CLC Genomics Workbench software, the ImMunoGeneTics (IMGT) data base and Excel. (B) Workflow for HiSeq reference mapping strategy. (C) Workflow for MiSeq and HiSeq referenced mapping strategy.",
+    "Decision-making matrix to remove duplicate sequence reads after IMGT processing",
+    "Mapped sequences that were identified using Illumina sequence identification tags and sequences identified multiple times were removed as outlined.",
+    "Top ten VH gene segments used among treatment groups",
+    "(A) The top ten VH gene segments for each treatment group are presented as a percent of repertoire with corresponding percent of repertoire in other treatment groups listed. (B) Top ten VH gene segments are listed by rank order (most frequent to least frequent). Dark red indicates higher rank moving to white, of lower rank. VH-gene segments with identical ranks are displayed as ties.",
+    "Top ten Vк used among treatment groups",
+    "(A) The top ten Vк gene segments for each treatment group are presented as a percent of repertoire with corresponding percent of repertoire in other treatment groups listed. (B) The top ten Vк gene segments are listed by rank order (most frequent to least frequent). Dark red indicates higher rank moving to white, lower rank. VH-gene segments with identical ranks are displayed as ties.",
+    "D, J, and heavy chain constant usage among treatment groups",
+    "(A) DH gene segment usage by percent of repertoire. (B) JH gene segment usage by percent of repertoire. (C) Jк gene segment usage by percent of repertoire. (D) Heavy chain constant region usage by percent of repertoire.",
+    "CDR3 AA sequence usage among treatment groups",
+    "(A) Top five most common heavy chain CDR3 AA sequence usage is presented as percent of repertoire. (B) Top five most common heavy chain CDR3 AA sequence usage is presented by rank. Dark red indicates higher rank moving to white, of lower rank. An x denotes that the AA sequence was not found. (C) Unique heavy chain CDR3 AA sequences identified within and among treatment groups. (D) Top five most common kappa chain CDR3 AA sequence usage is presented as percent of repertoire. (E) Top five most common heavy chain CDR3 AA sequence usage is presented by rank. (F) Unique heavy chain CDR3 AA sequences identified within and among treatment groups.",
+    "Correlation of V gene segments between genome and reference mapping",
+    "(A) Linear regression of median VH gene segment usage from genome and reference mappings. R2=0.9973, p<0.0001. (B) Linear Regression of median Vκ gene segment usage from genome and reference mapping. R2=0.9923, p<0.0001."
+  ],
+  "TABLE": [
+    "Sequences used for heavy chain identification",
+    "Motifs used to determine the constant region of heavy chain Ig sequences.",
+    "Constant Region\tMotif Sequence\t \tIgA\tGAGTCTGCGAGAAATCCCAC\t \tIgD\tGTAATGAAAAGGGACCTGAC\t \tIgE\tTCTATCAGGAACCCTCAGCT\t \tIgG1/2b/2c\tGCCAAAACAACAGCCCCATC\t \tIgG3\tAACAACAGCCCCATCGGTCT\t \tIgM\tTCAGTCCTTCCCAAATGTCT",
+    "Sequencing and mapping results from the cells, tissue, and size selected treatment groups",
+    "Cells\tTissue\tSize Selected\t \tTotal Reads\t23.9 M\t25.9 M\t21.5 M\t \tPost Cleaning\t18.7 M\t20.3 M\t12M\t \tIgH Mapped\t278318\t313194\t327015\t \tVH Mapped\t12851\t26559\t42375\t \tIgκ Mapped\t261037\t273562\t264938\t \tVκ Mapped\t20776\t35719\t57493\t \tHeavy Chain Productive\t2036\t4991\t8939\t \tHeavy Chain Unknown\t6139\t11374\t14047\t \tLight Chain Productive\t3439\t6799\t24812\t \tLight Chain Unknown\t6894\t10462\t45530",
+    "Comparison of mapping techniques in HiSeq datasets",
+    "Reference2\tGenome3\tCompared4\t \t\t \tCohort\tN\tR2 (p-value)\tR2 (p-value)\tR2 (p-value)\t \tCASIS G\t3\t0.026 (.086)\t0.195 (<.0001)\t0.011 (.027)\t \tCASIS F\t3\t0.001 (.776)\t0.282 (<.0001)\t0.042 (.074)\t \tNASA G\t7\t0.021 (.780)\t0.440 (<.0001)\t0.013 (.262)\t \tNASA F\t7\t0.006 (.419)\t0.375 (<.0001)\t0.006 (.476)",
+    "Mapping techniques were compared by assessing the correlation of Vκ usage between multiple HiSeq and Miseq datasets. HiSeq datasets included sequencing data from CASIS and NASA ground (G) or flight (F) RR1 mice. The comparison groups are as follows:",
+    "Vκ gene segment usage from reference-mapped HiSeq data versus Vκ gene segment usage of MiSeq sample preparation datasets.",
+    "Vκ gene segment usage from genome-mapped HiSeq data versus Vκ gene segment usage of MiSeq sample preparation datasets.",
+    "Vκ gene segment usage from reference-mapped HiSeq Data versus Vκ gene segment usage of genome-mapped HiSeq data."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "IMGT((R)) tools for the nucleotide analysis of immunoglobulin (IG) and T cell receptor (TR) V-(D)-J repertoires, polymorphisms, and IG mutations: IMGT/V-QUEST and IMGT/HighV-QUEST for NGS",
+      "autores": [
+        {
+          "nombre_completo": "E Alamyar",
+          "nombres": "E",
+          "apellidos": "Alamyar"
+        },
+        {
+          "nombre_completo": "P Duroux",
+          "nombres": "P",
+          "apellidos": "Duroux"
+        },
+        {
+          "nombre_completo": "MP Lefranc",
+          "nombres": "MP",
+          "apellidos": "Lefranc"
+        },
+        {
+          "nombre_completo": "V Giudicelli",
+          "nombres": "V",
+          "apellidos": "Giudicelli"
+        }
+      ],
+      "pmid": "22665256",
+      "fuente": "Methods Mol Biol",
+      "anio": "2012",
+      "volumen": "882",
+      "fpage": "569",
+      "lpage": "604"
+    },
+    {
+      "titulo": "Effects of spaceflight on rat erythroid parameters",
+      "autores": [
+        {
+          "nombre_completo": "Z Allebban",
+          "nombres": "Z",
+          "apellidos": "Allebban"
+        },
+        {
+          "nombre_completo": "LA Gibson",
+          "nombres": "LA",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "RD Lange",
+          "nombres": "RD",
+          "apellidos": "Lange"
+        },
+        {
+          "nombre_completo": "TL Jago",
+          "nombres": "TL",
+          "apellidos": "Jago"
+        },
+        {
+          "nombre_completo": "KM Strickland",
+          "nombres": "KM",
+          "apellidos": "Strickland"
+        },
+        {
+          "nombre_completo": "DL Johnson",
+          "nombres": "DL",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "AT Ichiki",
+          "nombres": "AT",
+          "apellidos": "Ichiki"
+        }
+      ],
+      "pmid": "8828653",
+      "fuente": "J Appl Physiol",
+      "anio": "1996",
+      "volumen": "81",
+      "fpage": "117",
+      "lpage": "122"
+    },
+    {
+      "titulo": "Effects of spaceflight on the number of rat peripheral blood leukocytes and lymphocyte subsets",
+      "autores": [
+        {
+          "nombre_completo": "Z Allebban",
+          "nombres": "Z",
+          "apellidos": "Allebban"
+        },
+        {
+          "nombre_completo": "AT Ichiki",
+          "nombres": "AT",
+          "apellidos": "Ichiki"
+        },
+        {
+          "nombre_completo": "LA Gibson",
+          "nombres": "LA",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "JB Jones",
+          "nombres": "JB",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "CC Congdon",
+          "nombres": "CC",
+          "apellidos": "Congdon"
+        },
+        {
+          "nombre_completo": "RD Lange",
+          "nombres": "RD",
+          "apellidos": "Lange"
+        }
+      ],
+      "pmid": "8301218",
+      "fuente": "J Leukoc Biol",
+      "anio": "1994",
+      "volumen": "55",
+      "fpage": "209",
+      "lpage": "213"
+    },
+    {
+      "titulo": "Skewed primary Igkappa repertoire and V-J joining in C57BL/6 mice: implications for recombination accessibility and receptor editing",
+      "autores": [
+        {
+          "nombre_completo": "M Aoki-Ota",
+          "nombres": "M",
+          "apellidos": "Aoki-Ota"
+        },
+        {
+          "nombre_completo": "A Torkamani",
+          "nombres": "A",
+          "apellidos": "Torkamani"
+        },
+        {
+          "nombre_completo": "T Ota",
+          "nombres": "T",
+          "apellidos": "Ota"
+        },
+        {
+          "nombre_completo": "N Schork",
+          "nombres": "N",
+          "apellidos": "Schork"
+        },
+        {
+          "nombre_completo": "D Nemazee",
+          "nombres": "D",
+          "apellidos": "Nemazee"
+        }
+      ],
+      "pmid": "22287713",
+      "fuente": "J Immunol",
+      "anio": "2012",
+      "volumen": "188",
+      "fpage": "2305",
+      "lpage": "2315"
+    },
+    {
+      "titulo": "Rep-Seq: uncovering the immunological repertoire through next-generation sequencing",
+      "autores": [
+        {
+          "nombre_completo": "J Benichou",
+          "nombres": "J",
+          "apellidos": "Benichou"
+        },
+        {
+          "nombre_completo": "R Ben-Hamo",
+          "nombres": "R",
+          "apellidos": "Ben-Hamo"
+        },
+        {
+          "nombre_completo": "Y Louzoun",
+          "nombres": "Y",
+          "apellidos": "Louzoun"
+        },
+        {
+          "nombre_completo": "S Efroni",
+          "nombres": "S",
+          "apellidos": "Efroni"
+        }
+      ],
+      "pmid": "22043864",
+      "fuente": "Immunology",
+      "anio": "2012",
+      "volumen": "135",
+      "fpage": "183",
+      "lpage": "191"
+    },
+    {
+      "titulo": "Summary of medical experience in the Apollo 7 through 11 manned spaceflights",
+      "autores": [
+        {
+          "nombre_completo": "CA Berry",
+          "nombres": "CA",
+          "apellidos": "Berry"
+        }
+      ],
+      "pmid": "4393427",
+      "fuente": "Aerosp Med",
+      "anio": "1970",
+      "volumen": "41",
+      "fpage": "500",
+      "lpage": "519"
+    },
+    {
+      "titulo": "Altered skeletal pattern of gene expression in response to spaceflight and hindlimb elevation",
+      "autores": [
+        {
+          "nombre_completo": "DD Bikle",
+          "nombres": "DD",
+          "apellidos": "Bikle"
+        },
+        {
+          "nombre_completo": "J Harris",
+          "nombres": "J",
+          "apellidos": "Harris"
+        },
+        {
+          "nombre_completo": "BP Halloran",
+          "nombres": "BP",
+          "apellidos": "Halloran"
+        },
+        {
+          "nombre_completo": "ER Morey-Holton",
+          "nombres": "ER",
+          "apellidos": "Morey-Holton"
+        }
+      ],
+      "pmid": "7810622",
+      "fuente": "Am J Physiol",
+      "anio": "1994",
+      "volumen": "267",
+      "fpage": "E822",
+      "lpage": "E827"
+    },
+    {
+      "titulo": "Counteraction of spaceflight-induced changes in the rat central serotonergic system by adrenalectomy and corticosteroid replacement",
+      "autores": [
+        {
+          "nombre_completo": "S Blanc",
+          "nombres": "S",
+          "apellidos": "Blanc"
+        },
+        {
+          "nombre_completo": "L Somody",
+          "nombres": "L",
+          "apellidos": "Somody"
+        },
+        {
+          "nombre_completo": "A Gharib",
+          "nombres": "A",
+          "apellidos": "Gharib"
+        },
+        {
+          "nombre_completo": "G Gauquelin",
+          "nombres": "G",
+          "apellidos": "Gauquelin"
+        },
+        {
+          "nombre_completo": "C Gharib",
+          "nombres": "C",
+          "apellidos": "Gharib"
+        },
+        {
+          "nombre_completo": "N Sarda",
+          "nombres": "N",
+          "apellidos": "Sarda"
+        }
+      ],
+      "pmid": "9840229",
+      "fuente": "Neurochem Int",
+      "anio": "1998",
+      "volumen": "33",
+      "fpage": "375",
+      "lpage": "382"
+    },
+    {
+      "titulo": "Effects of space flight and PEG-IL-2 on rat physiological and immunological responses",
+      "autores": [
+        {
+          "nombre_completo": "SK Chapes",
+          "nombres": "SK",
+          "apellidos": "Chapes"
+        },
+        {
+          "nombre_completo": "SJ Simske",
+          "nombres": "SJ",
+          "apellidos": "Simske"
+        },
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "ES Miller",
+          "nombres": "ES",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "RJ Zimmerman",
+          "nombres": "RJ",
+          "apellidos": "Zimmerman"
+        }
+      ],
+      "pmid": "10368375",
+      "fuente": "J Appl Physiol",
+      "anio": "1999",
+      "volumen": "86",
+      "fpage": "2065",
+      "lpage": "2076"
+    },
+    {
+      "titulo": "Effect of microgravity on lymphocyte activation",
+      "autores": [
+        {
+          "nombre_completo": "A Cogoli",
+          "nombres": "A",
+          "apellidos": "Cogoli"
+        },
+        {
+          "nombre_completo": "B Bechler",
+          "nombres": "B",
+          "apellidos": "Bechler"
+        },
+        {
+          "nombre_completo": "O Mueller",
+          "nombres": "O",
+          "apellidos": "Mueller"
+        },
+        {
+          "nombre_completo": "E Hunzinger",
+          "nombres": "E",
+          "apellidos": "Hunzinger"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BioRack on Spacelab D1",
+      "anio": "1990",
+      "volumen": "",
+      "fpage": "89",
+      "lpage": "100"
+    },
+    {
+      "titulo": "The mouse antibody heavy chain repertoire is germline-focused and highly variable between inbred strains",
+      "autores": [
+        {
+          "nombre_completo": "AM Collins",
+          "nombres": "AM",
+          "apellidos": "Collins"
+        },
+        {
+          "nombre_completo": "Y Wang",
+          "nombres": "Y",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "KM Roskin",
+          "nombres": "KM",
+          "apellidos": "Roskin"
+        },
+        {
+          "nombre_completo": "CP Marquis",
+          "nombres": "CP",
+          "apellidos": "Marquis"
+        },
+        {
+          "nombre_completo": "KJ Jackson",
+          "nombres": "KJ",
+          "apellidos": "Jackson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Philos Trans R Soc Lond B Biol Sci",
+      "anio": "2015",
+      "volumen": "370",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Lymphatic tissue changes in rats flown on Spacelab Life Sciences-2",
+      "autores": [
+        {
+          "nombre_completo": "CC Congdon",
+          "nombres": "CC",
+          "apellidos": "Congdon"
+        },
+        {
+          "nombre_completo": "Z Allebban",
+          "nombres": "Z",
+          "apellidos": "Allebban"
+        },
+        {
+          "nombre_completo": "LA Gibson",
+          "nombres": "LA",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "A Kaplansky",
+          "nombres": "A",
+          "apellidos": "Kaplansky"
+        },
+        {
+          "nombre_completo": "KM Strickland",
+          "nombres": "KM",
+          "apellidos": "Strickland"
+        },
+        {
+          "nombre_completo": "TL Jago",
+          "nombres": "TL",
+          "apellidos": "Jago"
+        },
+        {
+          "nombre_completo": "DL Johnson",
+          "nombres": "DL",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "RD Lange",
+          "nombres": "RD",
+          "apellidos": "Lange"
+        },
+        {
+          "nombre_completo": "AT Ichiki",
+          "nombres": "AT",
+          "apellidos": "Ichiki"
+        }
+      ],
+      "pmid": "8828660",
+      "fuente": "J Appl Physiol",
+      "anio": "1996",
+      "volumen": "81",
+      "fpage": "172",
+      "lpage": "177"
+    },
+    {
+      "titulo": "VH gene segments in the mouse and human genomes",
+      "autores": [
+        {
+          "nombre_completo": "B de Bono",
+          "nombres": "B",
+          "apellidos": "de Bono"
+        },
+        {
+          "nombre_completo": "M Madera",
+          "nombres": "M",
+          "apellidos": "Madera"
+        },
+        {
+          "nombre_completo": "C Chothia",
+          "nombres": "C",
+          "apellidos": "Chothia"
+        }
+      ],
+      "pmid": "15313612",
+      "fuente": "J Mol Biol",
+      "anio": "2004",
+      "volumen": "342",
+      "fpage": "131",
+      "lpage": "143"
+    },
+    {
+      "titulo": "Effect of a 22-day space flight on the lymphoid organs of rats",
+      "autores": [
+        {
+          "nombre_completo": "GN Durnova",
+          "nombres": "GN",
+          "apellidos": "Durnova"
+        },
+        {
+          "nombre_completo": "AS Kaplansky",
+          "nombres": "AS",
+          "apellidos": "Kaplansky"
+        },
+        {
+          "nombre_completo": "VV Portugalov",
+          "nombres": "VV",
+          "apellidos": "Portugalov"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Aviation, Space, and Environmental Med",
+      "anio": "1976",
+      "volumen": "47",
+      "fpage": "588",
+      "lpage": "591"
+    },
+    {
+      "titulo": "Immune suppression of human lymphoid tissues and cells in rotating suspension culture and onboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "W Fitzgerald",
+          "nombres": "W",
+          "apellidos": "Fitzgerald"
+        },
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "C Walz",
+          "nombres": "C",
+          "apellidos": "Walz"
+        },
+        {
+          "nombre_completo": "J Zimmerberg",
+          "nombres": "J",
+          "apellidos": "Zimmerberg"
+        },
+        {
+          "nombre_completo": "L Margolis",
+          "nombres": "L",
+          "apellidos": "Margolis"
+        },
+        {
+          "nombre_completo": "JC Grivel",
+          "nombres": "JC",
+          "apellidos": "Grivel"
+        }
+      ],
+      "pmid": "",
+      "fuente": "In Vitro Cell Dev Biol Anim",
+      "anio": "2009",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Countermeasures for ameliorating in-flight immune dysfunction",
+      "autores": [
+        {
+          "nombre_completo": "BB Fuchs",
+          "nombres": "BB",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "AE Medvedev",
+          "nombres": "AE",
+          "apellidos": "Medvedev"
+        }
+      ],
+      "pmid": "8371054",
+      "fuente": "J Leukoc Biol",
+      "anio": "1993",
+      "volumen": "54",
+      "fpage": "245",
+      "lpage": "252"
+    },
+    {
+      "titulo": "Three Weeks of Murine Hindlimb Unloading Induces Shifts from B to T and from Th to Tc Splenic Lymphocytes in Absence of Stress and Differentially Reduces Cell-Specific Mitogenic Responses",
+      "autores": [
+        {
+          "nombre_completo": "F Gaignier",
+          "nombres": "F",
+          "apellidos": "Gaignier"
+        },
+        {
+          "nombre_completo": "V Schenten",
+          "nombres": "V",
+          "apellidos": "Schenten"
+        },
+        {
+          "nombre_completo": "M De Carvalho Bittencourt",
+          "nombres": "M",
+          "apellidos": "De Carvalho Bittencourt"
+        },
+        {
+          "nombre_completo": "G Gauquelin-Koch",
+          "nombres": "G",
+          "apellidos": "Gauquelin-Koch"
+        },
+        {
+          "nombre_completo": "J-P Frippiat",
+          "nombres": "J-P",
+          "apellidos": "Frippiat"
+        },
+        {
+          "nombre_completo": "C Legrand-Frossi",
+          "nombres": "C",
+          "apellidos": "Legrand-Frossi"
+        }
+      ],
+      "pmid": "24664102",
+      "fuente": "PLoS ONE",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e92664",
+      "lpage": ""
+    },
+    {
+      "titulo": "The promise and challenge of high-throughput sequencing of the antibody repertoire",
+      "autores": [
+        {
+          "nombre_completo": "G Georgiou",
+          "nombres": "G",
+          "apellidos": "Georgiou"
+        },
+        {
+          "nombre_completo": "GC Ippolito",
+          "nombres": "GC",
+          "apellidos": "Ippolito"
+        },
+        {
+          "nombre_completo": "J Beausang",
+          "nombres": "J",
+          "apellidos": "Beausang"
+        },
+        {
+          "nombre_completo": "CE Busse",
+          "nombres": "CE",
+          "apellidos": "Busse"
+        },
+        {
+          "nombre_completo": "H Wardemann",
+          "nombres": "H",
+          "apellidos": "Wardemann"
+        },
+        {
+          "nombre_completo": "SR Quake",
+          "nombres": "SR",
+          "apellidos": "Quake"
+        }
+      ],
+      "pmid": "24441474",
+      "fuente": "Nat Biotechnol",
+      "anio": "2014",
+      "volumen": "32",
+      "fpage": "158",
+      "lpage": "168"
+    },
+    {
+      "titulo": "Inhibited interferon-g but normal interleukin-3 production from rats flown on the space shuttle",
+      "autores": [
+        {
+          "nombre_completo": "CL Gould",
+          "nombres": "CL",
+          "apellidos": "Gould"
+        },
+        {
+          "nombre_completo": "M Lyte",
+          "nombres": "M",
+          "apellidos": "Lyte"
+        },
+        {
+          "nombre_completo": "J Williams",
+          "nombres": "J",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "AD Mandel",
+          "nombres": "AD",
+          "apellidos": "Mandel"
+        },
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Aviation, Space, and Environmental Med",
+      "anio": "1987",
+      "volumen": "58",
+      "fpage": "983",
+      "lpage": "986"
+    },
+    {
+      "titulo": "Quantitative assessment of the robustness of next-generation sequencing of antibody variable gene repertoires from immunized mice",
+      "autores": [
+        {
+          "nombre_completo": "V Greiff",
+          "nombres": "V",
+          "apellidos": "Greiff"
+        },
+        {
+          "nombre_completo": "U Menzel",
+          "nombres": "U",
+          "apellidos": "Menzel"
+        },
+        {
+          "nombre_completo": "U Haessler",
+          "nombres": "U",
+          "apellidos": "Haessler"
+        },
+        {
+          "nombre_completo": "SC Cook",
+          "nombres": "SC",
+          "apellidos": "Cook"
+        },
+        {
+          "nombre_completo": "S Friedensohn",
+          "nombres": "S",
+          "apellidos": "Friedensohn"
+        },
+        {
+          "nombre_completo": "TA Khan",
+          "nombres": "TA",
+          "apellidos": "Khan"
+        },
+        {
+          "nombre_completo": "M Pogson",
+          "nombres": "M",
+          "apellidos": "Pogson"
+        },
+        {
+          "nombre_completo": "I Hellmann",
+          "nombres": "I",
+          "apellidos": "Hellmann"
+        },
+        {
+          "nombre_completo": "ST Reddy",
+          "nombres": "ST",
+          "apellidos": "Reddy"
+        }
+      ],
+      "pmid": "25318652",
+      "fuente": "BMC Immunol",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "40",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight effects on T lymphocyte distribution, function and gene expression",
+      "autores": [
+        {
+          "nombre_completo": "DS Gridley",
+          "nombres": "DS",
+          "apellidos": "Gridley"
+        },
+        {
+          "nombre_completo": "JM Slater",
+          "nombres": "JM",
+          "apellidos": "Slater"
+        },
+        {
+          "nombre_completo": "X Luo-Owen",
+          "nombres": "X",
+          "apellidos": "Luo-Owen"
+        },
+        {
+          "nombre_completo": "A Rizvi",
+          "nombres": "A",
+          "apellidos": "Rizvi"
+        },
+        {
+          "nombre_completo": "SK Chapes",
+          "nombres": "SK",
+          "apellidos": "Chapes"
+        },
+        {
+          "nombre_completo": "LS Stodieck",
+          "nombres": "LS",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "VL Ferguson",
+          "nombres": "VL",
+          "apellidos": "Ferguson"
+        },
+        {
+          "nombre_completo": "MJ Pecaut",
+          "nombres": "MJ",
+          "apellidos": "Pecaut"
+        }
+      ],
+      "pmid": "18988762",
+      "fuente": "J Appl Physiol",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "194",
+      "lpage": "202"
+    },
+    {
+      "titulo": "Main medical results of extended flights on Space Station Mir in 1986–1990",
+      "autores": [
+        {
+          "nombre_completo": "AI Grigoriev",
+          "nombres": "AI",
+          "apellidos": "Grigoriev"
+        },
+        {
+          "nombre_completo": "SA Bugrov",
+          "nombres": "SA",
+          "apellidos": "Bugrov"
+        },
+        {
+          "nombre_completo": "VV Bogomolov",
+          "nombres": "VV",
+          "apellidos": "Bogomolov"
+        },
+        {
+          "nombre_completo": "AD Egorov",
+          "nombres": "AD",
+          "apellidos": "Egorov"
+        },
+        {
+          "nombre_completo": "VV Polyakov",
+          "nombres": "VV",
+          "apellidos": "Polyakov"
+        },
+        {
+          "nombre_completo": "IK Tarasov",
+          "nombres": "IK",
+          "apellidos": "Tarasov"
+        },
+        {
+          "nombre_completo": "EB Shulzhenko",
+          "nombres": "EB",
+          "apellidos": "Shulzhenko"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Acta Astronautica",
+      "anio": "1993",
+      "volumen": "29",
+      "fpage": "581",
+      "lpage": "585"
+    },
+    {
+      "titulo": "COSMOS 1887 mission overview: effects of microgravity on rat body and adrenal weights and plasma constituents",
+      "autores": [
+        {
+          "nombre_completo": "RE Grindeland",
+          "nombres": "RE",
+          "apellidos": "Grindeland"
+        },
+        {
+          "nombre_completo": "IA Popova",
+          "nombres": "IA",
+          "apellidos": "Popova"
+        },
+        {
+          "nombre_completo": "M Vasques",
+          "nombres": "M",
+          "apellidos": "Vasques"
+        },
+        {
+          "nombre_completo": "SB Arnaud",
+          "nombres": "SB",
+          "apellidos": "Arnaud"
+        }
+      ],
+      "pmid": "2295371",
+      "fuente": "FASEB J",
+      "anio": "1990",
+      "volumen": "4",
+      "fpage": "105",
+      "lpage": "109"
+    },
+    {
+      "titulo": "The effect of a 10-day space flight on the function, phenotype, and adhesion molecule expression of splenocytes and lymph node lymphocytes",
+      "autores": [
+        {
+          "nombre_completo": "DS Grove",
+          "nombres": "DS",
+          "apellidos": "Grove"
+        },
+        {
+          "nombre_completo": "SA Pishak",
+          "nombres": "SA",
+          "apellidos": "Pishak"
+        },
+        {
+          "nombre_completo": "AM Mastro",
+          "nombres": "AM",
+          "apellidos": "Mastro"
+        }
+      ],
+      "pmid": "7543050",
+      "fuente": "Exp Cell Res",
+      "anio": "1995",
+      "volumen": "219",
+      "fpage": "102",
+      "lpage": "109"
+    },
+    {
+      "titulo": "Backbone flexibility of CDR3 and immune recognition of antigens",
+      "autores": [
+        {
+          "nombre_completo": "JN Haidar",
+          "nombres": "JN",
+          "apellidos": "Haidar"
+        },
+        {
+          "nombre_completo": "W Zhu",
+          "nombres": "W",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "J Lypowy",
+          "nombres": "J",
+          "apellidos": "Lypowy"
+        },
+        {
+          "nombre_completo": "BG Pierce",
+          "nombres": "BG",
+          "apellidos": "Pierce"
+        },
+        {
+          "nombre_completo": "A Bari",
+          "nombres": "A",
+          "apellidos": "Bari"
+        },
+        {
+          "nombre_completo": "K Persaud",
+          "nombres": "K",
+          "apellidos": "Persaud"
+        },
+        {
+          "nombre_completo": "X Luna",
+          "nombres": "X",
+          "apellidos": "Luna"
+        },
+        {
+          "nombre_completo": "M Snavely",
+          "nombres": "M",
+          "apellidos": "Snavely"
+        },
+        {
+          "nombre_completo": "D Ludwig",
+          "nombres": "D",
+          "apellidos": "Ludwig"
+        },
+        {
+          "nombre_completo": "Z Weng",
+          "nombres": "Z",
+          "apellidos": "Weng"
+        }
+      ],
+      "pmid": "24380763",
+      "fuente": "J Mol Biol",
+      "anio": "2014",
+      "volumen": "426",
+      "fpage": "1583",
+      "lpage": "1599"
+    },
+    {
+      "titulo": "Altered cell function in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "M Hughes-Fulford",
+          "nombres": "M",
+          "apellidos": "Hughes-Fulford"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Exp Gerontology",
+      "anio": "1991",
+      "volumen": "26",
+      "fpage": "247",
+      "lpage": "256"
+    },
+    {
+      "titulo": "Effects of spaceflight on rat peripheral blood leukocytes and bone marrow progenitor cells",
+      "autores": [
+        {
+          "nombre_completo": "AT Ichiki",
+          "nombres": "AT",
+          "apellidos": "Ichiki"
+        },
+        {
+          "nombre_completo": "LA Gibson",
+          "nombres": "LA",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "TL Jago",
+          "nombres": "TL",
+          "apellidos": "Jago"
+        },
+        {
+          "nombre_completo": "KM Strickland",
+          "nombres": "KM",
+          "apellidos": "Strickland"
+        },
+        {
+          "nombre_completo": "DL Johnson",
+          "nombres": "DL",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "RD Lange",
+          "nombres": "RD",
+          "apellidos": "Lange"
+        },
+        {
+          "nombre_completo": "Z Allebban",
+          "nombres": "Z",
+          "apellidos": "Allebban"
+        }
+      ],
+      "pmid": "8699121",
+      "fuente": "J Leukoc Biol",
+      "anio": "1996",
+      "volumen": "60",
+      "fpage": "37",
+      "lpage": "43"
+    },
+    {
+      "titulo": "Rodent Growth, Behavior, and Physiology Resulting from Flight on the Space Life Sciences-1 Mission",
+      "autores": [
+        {
+          "nombre_completo": "G Jahns",
+          "nombres": "G",
+          "apellidos": "Jahns"
+        },
+        {
+          "nombre_completo": "J Meylor",
+          "nombres": "J",
+          "apellidos": "Meylor"
+        },
+        {
+          "nombre_completo": "T Fast",
+          "nombres": "T",
+          "apellidos": "Fast"
+        },
+        {
+          "nombre_completo": "N Hawes",
+          "nombres": "N",
+          "apellidos": "Hawes"
+        },
+        {
+          "nombre_completo": "G Zarow",
+          "nombres": "G",
+          "apellidos": "Zarow"
+        }
+      ],
+      "pmid": "",
+      "fuente": "43rd Congress the Int Astronautical Federation",
+      "anio": "1992",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "Antibody repertoire deep sequencing reveals antigen-independent selection in maturing B cells",
+      "autores": [
+        {
+          "nombre_completo": "J Kaplinsky",
+          "nombres": "J",
+          "apellidos": "Kaplinsky"
+        },
+        {
+          "nombre_completo": "A Li",
+          "nombres": "A",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "A Sun",
+          "nombres": "A",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "M Coffre",
+          "nombres": "M",
+          "apellidos": "Coffre"
+        },
+        {
+          "nombre_completo": "SB Koralov",
+          "nombres": "SB",
+          "apellidos": "Koralov"
+        },
+        {
+          "nombre_completo": "R Arnaout",
+          "nombres": "R",
+          "apellidos": "Arnaout"
+        }
+      ],
+      "pmid": "24927543",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2014",
+      "volumen": "111",
+      "fpage": "E2622",
+      "lpage": "2629"
+    },
+    {
+      "titulo": "Study of reactivity of blood lymphoid cells in crew members of the Soyuz-6, Soyuz-7 and Soyuz-8 spaceships before and after flight",
+      "autores": [
+        {
+          "nombre_completo": "IV Konstantinova",
+          "nombres": "IV",
+          "apellidos": "Konstantinova"
+        },
+        {
+          "nombre_completo": "YN Antropova",
+          "nombres": "YN",
+          "apellidos": "Antropova"
+        },
+        {
+          "nombre_completo": "VI Legen'kov",
+          "nombres": "VI",
+          "apellidos": "Legen'kov"
+        },
+        {
+          "nombre_completo": "VD Zazhirey",
+          "nombres": "VD",
+          "apellidos": "Zazhirey"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Space Biol and Aerospace Med",
+      "anio": "1973",
+      "volumen": "7",
+      "fpage": "48",
+      "lpage": "55"
+    },
+    {
+      "titulo": "Analysis of IgM antibody production and repertoire in a mouse model of Sjogren's syndrome",
+      "autores": [
+        {
+          "nombre_completo": "JM Kramer",
+          "nombres": "JM",
+          "apellidos": "Kramer"
+        },
+        {
+          "nombre_completo": "NE Holodick",
+          "nombres": "NE",
+          "apellidos": "Holodick"
+        },
+        {
+          "nombre_completo": "TC Vizconde",
+          "nombres": "TC",
+          "apellidos": "Vizconde"
+        },
+        {
+          "nombre_completo": "I Raman",
+          "nombres": "I",
+          "apellidos": "Raman"
+        },
+        {
+          "nombre_completo": "M Yan",
+          "nombres": "M",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "QZ Li",
+          "nombres": "QZ",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "DP Gaile",
+          "nombres": "DP",
+          "apellidos": "Gaile"
+        },
+        {
+          "nombre_completo": "TL Rothstein",
+          "nombres": "TL",
+          "apellidos": "Rothstein"
+        }
+      ],
+      "pmid": "26382297",
+      "fuente": "J Leukoc Biol",
+      "anio": "2016",
+      "volumen": "99",
+      "fpage": "321",
+      "lpage": "331"
+    },
+    {
+      "titulo": "Hind limb unloading, a model of spaceflight conditions, leads to decreased B lymphopoiesis similar to aging",
+      "autores": [
+        {
+          "nombre_completo": "C Lescale",
+          "nombres": "C",
+          "apellidos": "Lescale"
+        },
+        {
+          "nombre_completo": "V Schenten",
+          "nombres": "V",
+          "apellidos": "Schenten"
+        },
+        {
+          "nombre_completo": "JP Frippiat",
+          "nombres": "JP",
+          "apellidos": "Frippiat"
+        },
+        {
+          "nombre_completo": "M Goodhardt",
+          "nombres": "M",
+          "apellidos": "Goodhardt"
+        },
+        {
+          "nombre_completo": "D Djeghloul",
+          "nombres": "D",
+          "apellidos": "Djeghloul"
+        },
+        {
+          "nombre_completo": "M Bennabi",
+          "nombres": "M",
+          "apellidos": "Bennabi"
+        },
+        {
+          "nombre_completo": "F Gaignier",
+          "nombres": "F",
+          "apellidos": "Gaignier"
+        },
+        {
+          "nombre_completo": "K Vandamme",
+          "nombres": "K",
+          "apellidos": "Vandamme"
+        },
+        {
+          "nombre_completo": "C Strazielle",
+          "nombres": "C",
+          "apellidos": "Strazielle"
+        },
+        {
+          "nombre_completo": "I Kuzniak",
+          "nombres": "I",
+          "apellidos": "Kuzniak"
+        },
+        {
+          "nombre_completo": "H Petite",
+          "nombres": "H",
+          "apellidos": "Petite"
+        },
+        {
+          "nombre_completo": "C Dosquet",
+          "nombres": "C",
+          "apellidos": "Dosquet"
+        }
+      ],
+      "pmid": "25376832",
+      "fuente": "Faseb j",
+      "anio": "2015",
+      "volumen": "29",
+      "fpage": "455",
+      "lpage": "463"
+    },
+    {
+      "titulo": "Effect of SLS-2 spaceflight on immunologic parameters of rats",
+      "autores": [
+        {
+          "nombre_completo": "A Lesnyak",
+          "nombres": "A",
+          "apellidos": "Lesnyak"
+        },
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "L Avery",
+          "nombres": "L",
+          "apellidos": "Avery"
+        },
+        {
+          "nombre_completo": "I Konstantinova",
+          "nombres": "I",
+          "apellidos": "Konstantinova"
+        },
+        {
+          "nombre_completo": "M Rykova",
+          "nombres": "M",
+          "apellidos": "Rykova"
+        },
+        {
+          "nombre_completo": "D Meshkov",
+          "nombres": "D",
+          "apellidos": "Meshkov"
+        },
+        {
+          "nombre_completo": "T Orlova",
+          "nombres": "T",
+          "apellidos": "Orlova"
+        }
+      ],
+      "pmid": "8828661",
+      "fuente": "J Appl Physiol",
+      "anio": "1996",
+      "volumen": "81",
+      "fpage": "178",
+      "lpage": "182"
+    },
+    {
+      "titulo": "Immune changes in test animals during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "AT Lesnyak",
+          "nombres": "AT",
+          "apellidos": "Lesnyak"
+        },
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "MP Rykova",
+          "nombres": "MP",
+          "apellidos": "Rykova"
+        },
+        {
+          "nombre_completo": "DO Meshkov",
+          "nombres": "DO",
+          "apellidos": "Meshkov"
+        },
+        {
+          "nombre_completo": "A Mastro",
+          "nombres": "A",
+          "apellidos": "Mastro"
+        },
+        {
+          "nombre_completo": "I Konstantinova",
+          "nombres": "I",
+          "apellidos": "Konstantinova"
+        }
+      ],
+      "pmid": "8371051",
+      "fuente": "J Leukoc Biol",
+      "anio": "1993",
+      "volumen": "54",
+      "fpage": "214",
+      "lpage": "226"
+    },
+    {
+      "titulo": "IgG variable region and VH CDR3 diversity in unimmunized mice analyzed by massively parallel sequencing",
+      "autores": [
+        {
+          "nombre_completo": "J Lu",
+          "nombres": "J",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "T Panavas",
+          "nombres": "T",
+          "apellidos": "Panavas"
+        },
+        {
+          "nombre_completo": "K Thys",
+          "nombres": "K",
+          "apellidos": "Thys"
+        },
+        {
+          "nombre_completo": "J Aerssens",
+          "nombres": "J",
+          "apellidos": "Aerssens"
+        },
+        {
+          "nombre_completo": "M Naso",
+          "nombres": "M",
+          "apellidos": "Naso"
+        },
+        {
+          "nombre_completo": "J Fisher",
+          "nombres": "J",
+          "apellidos": "Fisher"
+        },
+        {
+          "nombre_completo": "M Rycyzyn",
+          "nombres": "M",
+          "apellidos": "Rycyzyn"
+        },
+        {
+          "nombre_completo": "RW Sweet",
+          "nombres": "RW",
+          "apellidos": "Sweet"
+        }
+      ],
+      "pmid": "24211535",
+      "fuente": "Mol Immunol",
+      "anio": "2014",
+      "volumen": "57",
+      "fpage": "274",
+      "lpage": "283"
+    },
+    {
+      "titulo": "Effect of space flight on cell-mediated immunity",
+      "autores": [
+        {
+          "nombre_completo": "AD Mandel",
+          "nombres": "AD",
+          "apellidos": "Mandel"
+        },
+        {
+          "nombre_completo": "E Balish",
+          "nombres": "E",
+          "apellidos": "Balish"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Aviation, Space, and Environmental Med",
+      "anio": "1977",
+      "volumen": "48",
+      "fpage": "1051",
+      "lpage": "1057"
+    },
+    {
+      "titulo": "The role of psychoneuroendocrine factors on spaceflight-induced immunological alterations",
+      "autores": [
+        {
+          "nombre_completo": "R Meehan",
+          "nombres": "R",
+          "apellidos": "Meehan"
+        },
+        {
+          "nombre_completo": "P Whitson",
+          "nombres": "P",
+          "apellidos": "Whitson"
+        },
+        {
+          "nombre_completo": "C Sams",
+          "nombres": "C",
+          "apellidos": "Sams"
+        }
+      ],
+      "pmid": "8371053",
+      "fuente": "J Leukoc Biol",
+      "anio": "1993",
+      "volumen": "54",
+      "fpage": "236",
+      "lpage": "244"
+    },
+    {
+      "titulo": "Alteration in human mononuclear leucocytes following space flight",
+      "autores": [
+        {
+          "nombre_completo": "RT Meehan",
+          "nombres": "RT",
+          "apellidos": "Meehan"
+        },
+        {
+          "nombre_completo": "LS Neale",
+          "nombres": "LS",
+          "apellidos": "Neale"
+        },
+        {
+          "nombre_completo": "ET Kraus",
+          "nombres": "ET",
+          "apellidos": "Kraus"
+        },
+        {
+          "nombre_completo": "CA Stuart",
+          "nombres": "CA",
+          "apellidos": "Stuart"
+        },
+        {
+          "nombre_completo": "ML Smith",
+          "nombres": "ML",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "NM Cintron",
+          "nombres": "NM",
+          "apellidos": "Cintron"
+        },
+        {
+          "nombre_completo": "CF Sams",
+          "nombres": "CF",
+          "apellidos": "Sams"
+        }
+      ],
+      "pmid": "1326479",
+      "fuente": "Immunology",
+      "anio": "1992",
+      "volumen": "76",
+      "fpage": "491",
+      "lpage": "497"
+    },
+    {
+      "titulo": "Analyses of plasma for metabolic and hormonal changes in rats flown aboard COSMOS 2044",
+      "autores": [
+        {
+          "nombre_completo": "AH Merrill",
+          "nombres": "AH",
+          "apellidos": "Merrill"
+        },
+        {
+          "nombre_completo": "E Wang",
+          "nombres": "E",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "RE Mullins",
+          "nombres": "RE",
+          "apellidos": "Mullins"
+        },
+        {
+          "nombre_completo": "RE Grindeland",
+          "nombres": "RE",
+          "apellidos": "Grindeland"
+        },
+        {
+          "nombre_completo": "IA Popova",
+          "nombres": "IA",
+          "apellidos": "Popova"
+        }
+      ],
+      "pmid": "1526939",
+      "fuente": "J Appl Physiol",
+      "anio": "1992",
+      "volumen": "73",
+      "fpage": "132S",
+      "lpage": "135S"
+    },
+    {
+      "titulo": "Influence of spaceflight on the production of interleukin-3 and interleukin-6 by rat spleen and thymus cells",
+      "autores": [
+        {
+          "nombre_completo": "ES Miller",
+          "nombres": "ES",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "DA Koebel",
+          "nombres": "DA",
+          "apellidos": "Koebel"
+        },
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        }
+      ],
+      "pmid": "7775323",
+      "fuente": "J Appl Physiol",
+      "anio": "1995",
+      "volumen": "78",
+      "fpage": "810",
+      "lpage": "813"
+    },
+    {
+      "titulo": "Evaluation of genomic high-throughput sequencing data generated on Illumina HiSeq and genome analyzer systems",
+      "autores": [
+        {
+          "nombre_completo": "AE Minoche",
+          "nombres": "AE",
+          "apellidos": "Minoche"
+        },
+        {
+          "nombre_completo": "JC Dohm",
+          "nombres": "JC",
+          "apellidos": "Dohm"
+        },
+        {
+          "nombre_completo": "H Himmelbauer",
+          "nombres": "H",
+          "apellidos": "Himmelbauer"
+        }
+      ],
+      "pmid": "22067484",
+      "fuente": "Genome Biol",
+      "anio": "2011",
+      "volumen": "12",
+      "fpage": "R112",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effect of spaceflight on lymphocyte proliferation and interleukin-2 production",
+      "autores": [
+        {
+          "nombre_completo": "PV Nash",
+          "nombres": "PV",
+          "apellidos": "Nash"
+        },
+        {
+          "nombre_completo": "IV Konstantinova",
+          "nombres": "IV",
+          "apellidos": "Konstantinova"
+        },
+        {
+          "nombre_completo": "BB Fuchs",
+          "nombres": "BB",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "AL Rakhmilevich",
+          "nombres": "AL",
+          "apellidos": "Rakhmilevich"
+        },
+        {
+          "nombre_completo": "AT Lesnyak",
+          "nombres": "AT",
+          "apellidos": "Lesnyak"
+        },
+        {
+          "nombre_completo": "AM Mastro",
+          "nombres": "AM",
+          "apellidos": "Mastro"
+        }
+      ],
+      "pmid": "1526949",
+      "fuente": "J Appl Physiol",
+      "anio": "1992",
+      "volumen": "73",
+      "fpage": "186S",
+      "lpage": "190S"
+    },
+    {
+      "titulo": "Variable lymphocyte responses in rats after space flight",
+      "autores": [
+        {
+          "nombre_completo": "PV Nash",
+          "nombres": "PV",
+          "apellidos": "Nash"
+        },
+        {
+          "nombre_completo": "AM Mastro",
+          "nombres": "AM",
+          "apellidos": "Mastro"
+        }
+      ],
+      "pmid": "1511727",
+      "fuente": "Exp Cell Res",
+      "anio": "1992",
+      "volumen": "202",
+      "fpage": "125",
+      "lpage": "131"
+    },
+    {
+      "titulo": "Spaceflight induces changes in splenocyte subpopulations: effectiveness of ground-based models",
+      "autores": [
+        {
+          "nombre_completo": "MJ Pecaut",
+          "nombres": "MJ",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "SJ Simske",
+          "nombres": "SJ",
+          "apellidos": "Simske"
+        },
+        {
+          "nombre_completo": "M Fleshner",
+          "nombres": "M",
+          "apellidos": "Fleshner"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Am J Physiol Regulatory Integrative Comp Physiol",
+      "anio": "2000",
+      "volumen": "279",
+      "fpage": "R2072",
+      "lpage": "R2078"
+    },
+    {
+      "titulo": "Crystal structure of human immunoglobulin fragment Fab New refined at 2.0 A resolution",
+      "autores": [
+        {
+          "nombre_completo": "FA Saul",
+          "nombres": "FA",
+          "apellidos": "Saul"
+        },
+        {
+          "nombre_completo": "RJ Poljak",
+          "nombres": "RJ",
+          "apellidos": "Poljak"
+        }
+      ],
+      "pmid": "1438175",
+      "fuente": "Proteins",
+      "anio": "1992",
+      "volumen": "14",
+      "fpage": "363",
+      "lpage": "371"
+    },
+    {
+      "titulo": "Weightlessness effects on resistance and reactivity of animals",
+      "autores": [
+        {
+          "nombre_completo": "LV Serova",
+          "nombres": "LV",
+          "apellidos": "Serova"
+        }
+      ],
+      "pmid": "7243930",
+      "fuente": "Physiologist",
+      "anio": "1980",
+      "volumen": "23",
+      "fpage": "S22",
+      "lpage": "S26"
+    },
+    {
+      "titulo": "Spaceflight and development of immune responses",
+      "autores": [
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "M Foster",
+          "nombres": "M",
+          "apellidos": "Foster"
+        },
+        {
+          "nombre_completo": "D Morton",
+          "nombres": "D",
+          "apellidos": "Morton"
+        },
+        {
+          "nombre_completo": "F Bailliard",
+          "nombres": "F",
+          "apellidos": "Bailliard"
+        },
+        {
+          "nombre_completo": "NA Fowler",
+          "nombres": "NA",
+          "apellidos": "Fowler"
+        },
+        {
+          "nombre_completo": "AM Hakenewerth",
+          "nombres": "AM",
+          "apellidos": "Hakenewerth"
+        },
+        {
+          "nombre_completo": "R Bates",
+          "nombres": "R",
+          "apellidos": "Bates"
+        },
+        {
+          "nombre_completo": "ES;suffix:Jr Miller",
+          "nombres": "ES;suffix:Jr",
+          "apellidos": "Miller"
+        }
+      ],
+      "pmid": "9760337",
+      "fuente": "J Appl Physiol",
+      "anio": "1998",
+      "volumen": "85",
+      "fpage": "1429",
+      "lpage": "1433"
+    },
+    {
+      "titulo": "Spaceflight alters immune cell function and distribution",
+      "autores": [
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "AD Mandel",
+          "nombres": "AD",
+          "apellidos": "Mandel"
+        },
+        {
+          "nombre_completo": "IV Konstantinova",
+          "nombres": "IV",
+          "apellidos": "Konstantinova"
+        },
+        {
+          "nombre_completo": "WD Berry",
+          "nombres": "WD",
+          "apellidos": "Berry"
+        },
+        {
+          "nombre_completo": "GR Taylor",
+          "nombres": "GR",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "AT Lesnyak",
+          "nombres": "AT",
+          "apellidos": "Lesnyak"
+        },
+        {
+          "nombre_completo": "BB Fuchs",
+          "nombres": "BB",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "AL Rakhmilevich",
+          "nombres": "AL",
+          "apellidos": "Rakhmilevich"
+        }
+      ],
+      "pmid": "1526951",
+      "fuente": "J Appl Physiol",
+      "anio": "1992",
+      "volumen": "73",
+      "fpage": "191S",
+      "lpage": "195S"
+    },
+    {
+      "titulo": "Effects of spaceflight on levels and activity of immune cells",
+      "autores": [
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "AD Mandel",
+          "nombres": "AD",
+          "apellidos": "Mandel"
+        },
+        {
+          "nombre_completo": "IV Konstantinova",
+          "nombres": "IV",
+          "apellidos": "Konstantinova"
+        },
+        {
+          "nombre_completo": "GR Tylor",
+          "nombres": "GR",
+          "apellidos": "Tylor"
+        },
+        {
+          "nombre_completo": "WD Berry",
+          "nombres": "WD",
+          "apellidos": "Berry"
+        },
+        {
+          "nombre_completo": "SR Wellhausen",
+          "nombres": "SR",
+          "apellidos": "Wellhausen"
+        },
+        {
+          "nombre_completo": "AT Lesnyak",
+          "nombres": "AT",
+          "apellidos": "Lesnyak"
+        },
+        {
+          "nombre_completo": "BB Fuchs",
+          "nombres": "BB",
+          "apellidos": "Fuchs"
+        }
+      ],
+      "pmid": "2386452",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "1990",
+      "volumen": "61",
+      "fpage": "648",
+      "lpage": "653"
+    },
+    {
+      "titulo": "Excretion of IL-6 by astronauts during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "TP Stein",
+          "nombres": "TP",
+          "apellidos": "Stein"
+        },
+        {
+          "nombre_completo": "MD Schluter",
+          "nombres": "MD",
+          "apellidos": "Schluter"
+        }
+      ],
+      "pmid": "8166266",
+      "fuente": "Am J Physiol",
+      "anio": "1994",
+      "volumen": "266",
+      "fpage": "E448",
+      "lpage": "452"
+    },
+    {
+      "titulo": "Immune responses and latent herpesvirus reactivation in spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "RP Stowe",
+          "nombres": "RP",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "SK Mehta",
+          "nombres": "SK",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "AA Ferrando",
+          "nombres": "AA",
+          "apellidos": "Ferrando"
+        },
+        {
+          "nombre_completo": "DL Feeback",
+          "nombres": "DL",
+          "apellidos": "Feeback"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        }
+      ],
+      "pmid": "11601551",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "2001a",
+      "volumen": "72",
+      "fpage": "884",
+      "lpage": "891"
+    },
+    {
+      "titulo": "Elevated stress hormone levels relate to Epstein-Barr virus reactivation in astronauts",
+      "autores": [
+        {
+          "nombre_completo": "RP Stowe",
+          "nombres": "RP",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "AD Barrett",
+          "nombres": "AD",
+          "apellidos": "Barrett"
+        }
+      ],
+      "pmid": "11719627",
+      "fuente": "Psychosom Med",
+      "anio": "2001b",
+      "volumen": "63",
+      "fpage": "891",
+      "lpage": "895"
+    },
+    {
+      "titulo": "Leukocyte subsets and neutrophil function after short-term spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "RP Stowe",
+          "nombres": "RP",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "CF Sams",
+          "nombres": "CF",
+          "apellidos": "Sams"
+        },
+        {
+          "nombre_completo": "SK Mehta",
+          "nombres": "SK",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "I Kaur",
+          "nombres": "I",
+          "apellidos": "Kaur"
+        },
+        {
+          "nombre_completo": "ML Jones",
+          "nombres": "ML",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "DL Feeback",
+          "nombres": "DL",
+          "apellidos": "Feeback"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        }
+      ],
+      "pmid": "10088600",
+      "fuente": "J Leukoc Biol",
+      "anio": "1999",
+      "volumen": "65",
+      "fpage": "179",
+      "lpage": "186"
+    },
+    {
+      "titulo": "Human cellular immune responsiveness following space flight",
+      "autores": [
+        {
+          "nombre_completo": "GR Taylor",
+          "nombres": "GR",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "JR Dardano",
+          "nombres": "JR",
+          "apellidos": "Dardano"
+        }
+      ],
+      "pmid": "6661135",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "1983",
+      "volumen": "54",
+      "fpage": "S55",
+      "lpage": "59"
+    },
+    {
+      "titulo": "Immunological analyses of U.S. Space Shuttle crewmembers",
+      "autores": [
+        {
+          "nombre_completo": "GR Taylor",
+          "nombres": "GR",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "LS Neale",
+          "nombres": "LS",
+          "apellidos": "Neale"
+        },
+        {
+          "nombre_completo": "JR Dardano",
+          "nombres": "JR",
+          "apellidos": "Dardano"
+        }
+      ],
+      "pmid": "3485967",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "1986",
+      "volumen": "57",
+      "fpage": "213",
+      "lpage": "217"
+    },
+    {
+      "titulo": "Blood volume and erythropoiesis in the rat during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "MM Udden",
+          "nombres": "MM",
+          "apellidos": "Udden"
+        },
+        {
+          "nombre_completo": "TB Driscoll",
+          "nombres": "TB",
+          "apellidos": "Driscoll"
+        },
+        {
+          "nombre_completo": "CP Alfrey",
+          "nombres": "CP",
+          "apellidos": "Alfrey"
+        },
+        {
+          "nombre_completo": "LA Gibson",
+          "nombres": "LA",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "CS Patton",
+          "nombres": "CS",
+          "apellidos": "Patton"
+        },
+        {
+          "nombre_completo": "MH Pickett",
+          "nombres": "MH",
+          "apellidos": "Pickett"
+        },
+        {
+          "nombre_completo": "JB Jones",
+          "nombres": "JB",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "R Nachtman",
+          "nombres": "R",
+          "apellidos": "Nachtman"
+        },
+        {
+          "nombre_completo": "Z Allebban",
+          "nombres": "Z",
+          "apellidos": "Allebban"
+        },
+        {
+          "nombre_completo": "AT Ichiki",
+          "nombres": "AT",
+          "apellidos": "Ichiki"
+        },
+        {
+          "nombre_completo": "RD Lange",
+          "nombres": "RD",
+          "apellidos": "Lange"
+        }
+      ],
+      "pmid": "7646406",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "1995",
+      "volumen": "66",
+      "fpage": "557",
+      "lpage": "561"
+    },
+    {
+      "titulo": "Degenerated primer design to amplify the heavy chain variable region from immunoglobulin cDNA",
+      "autores": [
+        {
+          "nombre_completo": "Y Wang",
+          "nombres": "Y",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "W Chen",
+          "nombres": "W",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "X Li",
+          "nombres": "X",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "B Cheng",
+          "nombres": "B",
+          "apellidos": "Cheng"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2006",
+      "volumen": "7",
+      "fpage": "S9",
+      "lpage": ""
+    },
+    {
+      "titulo": "Lack of effect of spaceflight on bone mass and bone formation in group-housed rats",
+      "autores": [
+        {
+          "nombre_completo": "TJ Wronski",
+          "nombres": "TJ",
+          "apellidos": "Wronski"
+        },
+        {
+          "nombre_completo": "M Li",
+          "nombres": "M",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y Shen",
+          "nombres": "Y",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "SC Miller",
+          "nombres": "SC",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "BM Bowman",
+          "nombres": "BM",
+          "apellidos": "Bowman"
+        },
+        {
+          "nombre_completo": "P Kostenuik",
+          "nombres": "P",
+          "apellidos": "Kostenuik"
+        },
+        {
+          "nombre_completo": "BP Halloran",
+          "nombres": "BP",
+          "apellidos": "Halloran"
+        }
+      ],
+      "pmid": "9655787",
+      "fuente": "J Appl Physiol",
+      "anio": "1998",
+      "volumen": "85",
+      "fpage": "279",
+      "lpage": "285"
+    },
+    {
+      "titulo": "Diversity in the CDR3 region of V(H) is sufficient for most antibody specificities",
+      "autores": [
+        {
+          "nombre_completo": "JL Xu",
+          "nombres": "JL",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "MM Davis",
+          "nombres": "MM",
+          "apellidos": "Davis"
+        }
+      ],
+      "pmid": "10933393",
+      "fuente": "Immunity",
+      "anio": "2000",
+      "volumen": "13",
+      "fpage": "37",
+      "lpage": "45"
+    },
+    {
+      "titulo": "Distinct mechanisms define murine B cell lineage immunoglobulin heavy chain (IgH) repertoires",
+      "autores": [
+        {
+          "nombre_completo": "Y Yang",
+          "nombres": "Y",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "C Wang",
+          "nombres": "C",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Q Yang",
+          "nombres": "Q",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "AB Kantor",
+          "nombres": "AB",
+          "apellidos": "Kantor"
+        },
+        {
+          "nombre_completo": "H Chu",
+          "nombres": "H",
+          "apellidos": "Chu"
+        },
+        {
+          "nombre_completo": "EE Ghosn",
+          "nombres": "EE",
+          "apellidos": "Ghosn"
+        },
+        {
+          "nombre_completo": "G Qin",
+          "nombres": "G",
+          "apellidos": "Qin"
+        },
+        {
+          "nombre_completo": "SK Mazmanian",
+          "nombres": "SK",
+          "apellidos": "Mazmanian"
+        },
+        {
+          "nombre_completo": "J Han",
+          "nombres": "J",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "LA Herzenberg",
+          "nombres": "LA",
+          "apellidos": "Herzenberg"
+        }
+      ],
+      "pmid": "26422511",
+      "fuente": "Elife",
+      "anio": "2015",
+      "volumen": "4",
+      "fpage": "e09083",
+      "lpage": ""
+    }
+  ]
+}

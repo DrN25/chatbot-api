@@ -1,0 +1,2162 @@
+{
+  "TITLE": [
+    "Assessing the Risk of Transfer of Microorganisms at the International Space Station Due to Cargo Delivery by Commercial Resupply Vehicles"
+  ],
+  "ABSTRACT": [
+    "Background",
+    "With increasing numbers of interplanetary missions, there is a need to establish robust protocols to ensure the protection of extraterrestrial planets being visited from contamination by terrestrial life forms. The current study is the first report comparing the commercial resupply vehicle (CRV) microbiome with the International Space Station (ISS) microbiome to understand the risks of contamination, thus serving as a model system for future planetary missions.",
+    "Results",
+    "Samples obtained from the internal surfaces and ground support equipment of three CRV missions were subjected to various molecular techniques for microbial diversity analysis. In total, 25 samples were collected with eight defined locations from each CRV mission prior to launch. In general, the internal surfaces of vehicles were clean, with an order of magnitude fewer microbes compared to ground support equipment. The first CRV mission had a larger microbial population than subsequent CRV missions, which were clean as compared to the initial CRV locations sampled. Cultivation assays showed the presence of Actinobacteria, Proteobacteria, Firmicutes, and Bacteroidetes and members of Ascomycota and Basidiomycota. As expected, shotgun metagenome analyses revealed the presence of more microbial taxa compared to cultivation-based assays. The internal locations of the CRV microbiome reportedly showed the presence of microorganisms capable of tolerating ultraviolet radiation (e.g., Bacillus firmus) and clustered separately from the ISS microbiome.",
+    "Conclusions",
+    "The metagenome sequence comparison of the CRV microbiome with the ISS microbiome revealed significant differences showing that CRV microbiomes were a negligible part of the ISS environmental microbiome. These findings suggest that the maintenance protocols in cleaning CRV surfaces are highly effective in controlling the contaminating microbial population during cargo transfer to the ISS via the CRV route."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Spacefaring nations carrying out interplanetary missions are subject to rules and regulations that were designed and instigated by the Committee on Space Research (COSPAR) in 1967. Protocols for cleaning and sterilization are of the highest priority and are regularly practiced and meticulously followed during spacecraft assembly for various missions. Cleanrooms are where various spacecraft subsystems, including commercial resupply vehicles (CRV) transporting cargo to the International Space Station (ISS), are assembled. These cleanrooms undergo daily cleaning procedures, including vacuuming and mopping of floors with 70% Isopropanol, high efficiency particulate arrestance (HEPA) air filtration, regular replacement of sticky mats at the entrance, and strict gowning procedures. Utmost care is taken by personal entering these facilities, as they are required to put on face masks, gloves, bodysuits, shoe covers, cleanroom boots, and cover hair and beards with nets. These precautionary measures are a part of routine exercises, because humans are the primary source of microbial contamination. On average, humans shed 1.5 million skin cells an hour which carry approximately 15 million bacterial cells, thus becoming a significant source of the indoor microbiome. Many reports showed transfer of microorganisms via direct contact to indoor surfaces like keyboards, restrooms, offices, kitchens, airplanes, and hospitals. Because of the human presence in these cleanrooms, their surfaces are not expected to be free of microbial burden.",
+    "The ISS and CRV assembly cleanrooms, including spacecraft assembly facility (SAF) environments, are strictly controlled and monitored for airflow, water circulation, temperature, and humidity; however, individual differences do exist between the two systems. The ISS is a closed system where the air is recirculated after purification, while cleanrooms get a constant supply of fresh air from the outside environment. Additionally, astronauts live and work on the ISS as humans do in a typical household on Earth, while SAF cleanrooms have strict requirements that avoid activities like eating or sleeping. At a given point in time, the ISS harbors around six astronauts with a maximum of around 13 crew, while approximately 50 people can work in a cleanroom every day in a highly regulated manner. Despite high human traffic in SAF, the microbial burden was minimal and ranged between 102 and 104 cells per m2. It has also been shown that the cleaning procedures followed at SAF significantly decreased the number of microorganisms, but these procedures led to the selection of hardy, robust microorganisms capable of surviving extreme oligotrophic conditions. Cargos such as food and equipment for scientific experiments are assembled in clean conditions and delivered to the ISS via CRV. All spacefaring nations impose cleanroom requirements when packaging their cargos that are resupplying the ISS.",
+    "The objective of this study is to decipher the role of CRV systems in potentially transporting microorganisms to the ISS to understand if CRV could be a source of microbial contamination of the ISS. Sampling of various surfaces of CRV systems (CRV1, CRV2, and CRV3) was carried out prior to launch (∼1 month) and corresponding in-flight sampling of the ISS (Flight 1, Flight 2, and Flight 3) was designed to be within 25–51 days after docking of the respective CRV systems (see Figure 1 for a timeline). This sampling scheme was implemented to help understand whether CRV1 had any influence on the microbial population of ISS Flight 1, whether CRV2 had any influence on the microbial population of ISS Flight 2, or whether CRV3 had any influence on the microbial population of ISS Flight 3. Microbial burden associated with CRV environmental surface samples were estimated using traditional techniques (e.g., colony counts), and molecular techniques like adenosine triphosphate (ATP) assay and 16S rRNA gene (bacteria) and internal transcribed spacer (ITS) region (fungi) quantification using quantitative polymerase chain reaction (qPCR) assays. In addition to characterizing cultivable microbial diversity using the Sanger sequencing method, the CRV samples were more thoroughly analyzed using a shotgun metagenome sequencing approach. Subsequently, the microbial diversity of the CRV samples was compared with the ISS environmental microbiome to understand the potential transfer of biological materials from Earth to the ISS."
+  ],
+  "FIG": [
+    "(A) Sampling time line for the CRV and the ISS samples. Blue labels mark sampling events conducted on CRV prior to launch, and red labels mark sampling events on board the ISS. (B) Representative sampling locations of internal CRV surfaces. Pictures: NASA/ESA Credit.",
+    "Relative abundance of species based on shotgun metagenomic reads generated from PMA treated samples collected from three sampling events on the ISS and the internal (I) and ground support equipment (G) surfaces of CRV1 and CRV2.",
+    "Relative abundance of metagenomic reads associated with (A) microbial metabolism and (B) virulence. Metagenomic reads were generated from PMA treated samples collected from three sampling events on the ISS and the internal (I) and ground support equipment (G) surfaces of CRV1 and CRV2.",
+    "Distribution of the antibiotic resistance genes detected in metagenomes generated from PMA treated samples collected from the internal (I) and ground support equipment (G) surfaces of CRV1 and CRV2 and three sampling events on the ISS.",
+    "Relative abundance of potential opportunistic pathogenic microorganisms detected in metagenomes generated from PMA treated samples collected from the internal (I) and ground support equipment (G) surfaces of CRV1 and CRV2 and three sampling events on the ISS.",
+    "Chao1 (A), Shannon (B), Simpson (C), and NMDS (D) plots representing the differences in the microbial diversity detected from metagenomes generated from PMA treated samples collected from the internal (I) and ground support equipment (GSE) surfaces of CRV1, CRV2 and the locations from three sampling events of the ISS."
+  ],
+  "METHODS": [
+    "Materials and Methods",
+    "In this study, internal surfaces and external ground support equipment (GSE) of three CRV destined to the ISS were sampled (N = 22 and 3 controls; Table 1). Samples collected aboard the ISS were done during the berthing period of their respective vehicles, except for CRV1 (see Figure 1 for a timeline). Eight samples were collected in 2014 for CRV1, nine in 2015 for CRV2, and eight in 2016 for CRV3. Since CRV3 vehicle surfaces were extremely clean and all analyses, including traditional microbiology assays, were below detection limits, data pertaining to CRV3 vehicle locations are not presented in this study. Since CRV were not reused during this study, we could not sample from the same capsule multiple times. Efforts were taken to collect samples as close together as possible in subsequent CRV, but due to differences in configuration of each vehicle, it was not always possible to collect samples from the same locations. All CRV sampled were manufactured by the same vendor.",
+    "Sampling kits were assembled as detailed in our previous ISS studies to facilitate comparisons between these datasets. Briefly, each polyester wipe (9″ × 9″; ITW Texwipe, Mahwah, NJ, United States) was soaked in 15 mL of sterile molecular grade water (Sigma-Aldrich, St. Louis, MO, United States) for 30 min followed by transfer to a sterile zip lock bag. Several locations were sampled on CRV surfaces using polyester wipes, and descriptions of the locations are summarized in Table 1. A single wipe was used for each location by donning sterile gloves (KIMTEC Pure G3 White; Nitrile Clean-room Certified; Cat. HC61190; Fisher Scientific, Waltham, MA, United States) to collect a sample of one-meter square area. The samples were stored at 4°C and shipped to Jet Propulsion Laboratory (JPL, Pasadena, CA, United States) for processing. Microbiological analyses were carried out within 48 h of sampling at JPL. A control wipe (environmental control) was taken out from the zip lock bag, unfolded, waved for 30 s, and packed back inside a new sterile zip lock. One control wipe was included for each CRV sampling session. Similarly, an unused wipe that was flown to the sampling location and brought back to JPL along with the samples served as a negative control for sterility testing. If field controls (wipes that were exposed to the CRV environment but not used in active sampling) showed any signs of microbial growth, then negative controls would be assayed for cultivable counts to check sterility of the wipes used for sampling. However, none of the field controls showed any colony forming units (CFU) for all CRV sampling events.",
+    "Sample Collection and Processing",
+    "Samples from CRV were processed in the same way as ISS samples from our previous studies. Briefly, each wipe was transferred to an individual 500 mL bottle containing 200 mL of sterile phosphate-buffered saline (PBS; Sigma-Aldrich, St. Louis, MO, United States) and vigorously hand shaken for 2 min. The resulting suspension was then concentrated to 4 mL using a CP-150 concentration pipette (Innova Prep, Drexel, MO, United States). Both negative and field controls used in this study were processed the same way as other samples for comparison. The concentrated sample (4 mL) were further aliquoted to four different parts for shotgun metagenome analysis (2 × 1.5 mL; PMA treated and untreated), ATP analysis (900 μL), and for growing microorganisms (100 μL). Due to the measurement of different kinds of microorganisms, that require multiple culture media (3 types) in duplicates, the aliquots kept for growing microorganisms were further diluted (10–1 and 10–2) and used.",
+    "Culture Based Microbial Diversity",
+    "Due to proprietary cleaning regimes, the surfaces of CRV might be oligotrophic. Although most nutrient and carbon sources necessary for microbial growth are presumably lacking or at very-low concentrations, these surfaces may still harbor microorganisms that are either dormant or slowly metabolizing. Furthermore, microorganisms adapted to more stringent conditions may not necessarily grow on normal nutrient media. Therefore, to target the slow-growing microbial population, Reasoner’s 2A agar (R2A; Difco, MI, United States) media was used. Similarly, as humans are always near the CRV during the assembly and packaging processes, potential opportunistic pathogenic microorganisms may transfer to the CRV surfaces. As a result, the CRV samples were also plated on blood agar media (BA; Difco, MI, United States) to decipher the potentially pathogenic microbial population. Additionally, the samples were also plated on potato dextrose agar (PDA; Difco, MI, United States) medium, thus targeting the fungal population on CRV.",
+    "To estimate the bacterial and fungal populations, the concentrated sample was diluted to a suitable serial 10-fold dilution in sterile PBS. A volume of 100 μl of suspension from the serially diluted sample was spread onto R2A media plates and PDA plates with chloramphenicol (100 μg/mL; Sigma-Aldrich, St. Louis, MO, United States), incubated at 25°C for 7 days for bacterial and fungal population enumeration, respectively. For enumeration of human commensal microorganisms, 100 μl of serially diluted sample was also spread onto BA and incubated at 35°C for 2 days. Distinct isolated colonies were transferred to fresh media and subsequently archived in semi-solid R2A media (dilution 1:10) and stored at room temperature.",
+    "Strain Identification",
+    "Bacterial isolates were identified by amplifying partial 16S rRNA genes using the primers 9bF (5′- GRGTTTGATCCTGG CTCAG-3′) and 1406uR (5′- ACGGG CGGTGTGTRCAA-3′) and the following cycling conditions: initial denaturation at 95°C for 2 min, 10 cycles of denaturing at 96°C for 30 s, annealing at 60°C for 30 s and elongation at 72°C for 60 s, followed by another 25 cycles of denaturing at 94°C for 30 s, annealing at 60°C for 30 s and elongation at 72°C for 60 s and a final elongation step at 72°C for 10 min. The template was either a small fraction of a picked colony in a colony-PCR assay or 5–20 ng of DNA purified from culture via the peqGOLD Bacterial DNA Kit (peqlab, Germany). The 16S rRNA gene amplicons were Sanger-sequenced (Eurofins, Germany) and the obtained sequences were classified using the EzTaxon identification service.",
+    "Fungal isolates were identified by amplifying their ITS region using the primers ITS1F (5′-CTTGGTCATTTAGAGG AAGTAA-3′) and ITS4 (5′-TCCTCCGCTTATTGATATGC-3′) at the following cycling conditions: initial denaturation at 95°C for 10 min, followed by 35 cycles of denaturing at 94°C for 60 s, annealing at 51°C for 60 s, elongation at 72°C for 60 s, and a final elongation step at 72°C for 8 min. The amplicons were Sanger-sequenced (Eurofins, Germany) and the obtained sequences were classified using the curated databases UNITE version 7.2 and BOLD version 4.",
+    "Molecular Methods for Quantitation of Total and Viable Microorganisms",
+    "ATP Assay",
+    "To determine the total and intracellular ATP from all samples, a bioluminescence assay was performed using the CheckLite HS Kit (Kikkoman, Japan) and the manufacturer’s protocol, as described previously. For total ATP assay (dead and viable microbes), four replicates of 100 μl sample were mixed with 100 μl of benzalkonium chloride, a cell lysing reagent and incubated at room temperature for 1 min. To this mixture, 100 μl of luciferin-luciferase reagent was added, and the resulting bioluminescence was measured immediately using a Lumitester K-210 luminometer (Kikkoman, Japan). For intracellular ATP (viable microorganisms), 500 μl of the serially diluted sample was amended with a 50 μl of an ATP-eliminating reagent (apyrase, adenosine deaminase) and incubated for 30 min at room temperature for eliminating extracellular ATP. Following which, the ATP assay was performed as described previously for the total ATP. It has been reported that one relative luminescent unit (RLU), the unit of measurement of ATP, was considered equivalent to approximately one CFU.",
+    "PMA-Viability Assay",
+    "Before DNA extraction, half of the sample was treated with propidium monoazide (PMA; Biotium, Inc., Hayward, CA, United States) so that the microbiome of intact/viable cells (PMA treatment) could be characterized. The PMA-untreated samples yielded information about the total microbial population (including free DNA, dead cells, cells with a compromised cell membrane, intact cells, and viable cells). PMA binds to DNA, making the DNA unavailable for amplification during PCR steps. Due to its higher molecular weight and/or charge, PMA cannot penetrate cells that have an intact cell membrane (i.e., viable) but can bind to free floating DNA or DNA inside cells with a compromised cell membrane (i.e., dead cells). It is in this way that many studies have utilized PMA to distinguish between intact/viable cells and compromised/dead cells.",
+    "A 3 mL aliquot of the concentrated sample was split into two halves. One 1.5 mL aliquot was treated with PMA (Biotium, Inc., Hayward, CA, United States) to a final concentration of 25 μM, followed by 5 min incubation in the dark at room temperature. The sample was then exposed to photoactivation for 15 min in a PMA-Lite LED Photolysis Device (Biotium, Inc., Hayward, CA, United States). The other aliquot with no PMA treatment was also incubated in dark for 5 min followed by photoactivation for 15 min like the PMA treated aliquot. Both PMA treated and untreated samples were then each split into half again. One half (750 μl) of each sample was then transferred to Lysing Matrix E tube (MP Biomedicals, Santa Ana, CA, United States) and subjected to bead beating for 60 s to allow cell disruption of hardy cells and spores with a limited loss of microbial diversity. The mechanically disrupted sample was then mixed with the unprocessed counterpart and used for DNA extraction via the Maxwell 16 automated system (Promega, Madison, WI, United States), per the manufacturer’s protocol. DNA was extracted in 50 μl volume and stored at −20°C until further processing.",
+    "Quantitative PCR Assay",
+    "Real-time quantitative polymerase chain reaction (qPCR) assays, targeting the 16S rRNA gene (bacteria) and ITS region (fungi), were performed in triplicate with a SmartCycler (Cepheid, CA, United States) to quantify the bacterial and fungal burden. The following primers were used for targeting the 16S rRNA gene: 1369F (5′-CGGTGAATACGTTCYCGG-3′) and modified 1492R (5′-GGWTACCTTGTTACGACTT-3′) were used for this analysis. Primers targeting the ITS region, were NS91 (5′-GTCCCTGCCCTTTGTACACAC-3′) and ITS51 (5′-ACCTTGTTACGACTTTTACTTCCTC-3′). Each 25 μL reaction consisted of 12.5 μL of 2X iQ SYBR Green Supermix (Bio-Rad, Hercules, CA, United States), 1 μL each of forward and reverse oligonucleotide primers (10 μM each), and 1 μL of template DNA. Purified DNA from Model Microbial Consortium served as the positive control and DNase/RNase free molecular-grade distilled water (Promega, Madison, WI, United States) was used as the negative control. These controls were included in all qPCR runs. The reaction conditions were as follows: a 3 min denaturation at 95°C, followed by 40 cycles of denaturation at 95°C for 15 s, and combined annealing and extension at 55°C for 35 s. The number of gene copies were determined from the standard curve. The 16S rRNA gene of Bacillus pumilus SAFR-032 and the ITS region of Aureobasidium pullulans 28v1 were synthesized and used for preparing standard curves as described previously. The qPCR efficiency was ∼98% for each run. Negative controls yielded similar values (∼100 copies) despite using either 1 or 10 μL of DNA templates.",
+    "Metagenome Sequencing",
+    "DNA extracted from all CRV samples was quantified using the Qubit® Quant-iT dsDNA High Sensitivity Kit (Invitrogen, Life Technologies, Grand Island, NY, United States) and samples were selected based on the minimum DNA concentration requirement (∼10 pg/μL) for metagenome sequencing. Only two samples from CRV1 and two samples from CRV2, with and without PMA treatment, satisfied this cutoff, resulting in 8 samples proceeding to metagenomics sequencing (2 CRV × 2 samples × 2 treatments = 8). Sample preparation for metagenome sequencing was carried out using the Illumina Nextera Kit (Illumina, San Diego, CA, United States). Each library was assessed for quality and fragment size using the Bioanalyzer 2100 (Agilent, Santa Clara, CA, United States). Adapters were added and ligated to DNA sequences in each library. All libraries were then normalized to 2 mM, pooled together and subjected to denaturation followed by dilution to 1.8 pM concentration, as per the manufacturer’s protocol. Sequencing was carried out using the HiSeq 2500 platform (Illumina, San Diego, CA, United States) resulting in 100 bp paired end reads.",
+    "Data Processing",
+    "Adapter sequences and low-quality ends were trimmed from the 100 bp paired end reads using Trimmomatic (version 0.32) with a quality cutoff value set at minimum Phred score of 20 along the entire read length. Additionally, reads shorter than 80 bp were removed, followed by data normalization based on guidelines provided by. Using the MEGAN 6 lowest common ancestor (LCA) algorithm, filtered high quality reads were binned to their respective domain and normalized for semi-quantitative comparative analysis.",
+    "Assigning taxonomy and function to the filtered CRV metagenome sequences was performed using the MEGAN 6 tool kit. We used the NCBI taxonomy database and NCBI-NR protein sequence database with entries from GenPept, SwissProt, PIR, PDB, and RefSeq, to assign taxonomic features to sequences using the sequence comparison tool DIAMOND (version 0.8.29). Assignments were based on the weighted LCA assignment algorithm of MEGAN 6. Additionally, filtered DNA sequences were mapped against protein databases like eggnog, KEGG, and SEED for functional analysis.",
+    "Comparison of CRV and ISS Metagenomes",
+    "Metagenome data from a previously reported study of samples collected from the ISS were analyzed in tandem with metagenome data for samples collected from the CRV. These ISS metagenome samples were collected shortly after unberthing of CRV1 from the station or while CRV2 was berthed to the station (see Figure 1 for a timeline). Analyzing ISS and CRV metagenomes together allowed us to focus on microbial dynamics associated with the transfer of materials from CRV to the ISS. Microbial diversity analyses performed on normalized reads were designed to retain a minimum of one unique sequence to avoid the loss of low depth samples or unique sequences. Furthermore, BLAST hits of ≥20 amino acids and ≥90% nucleotide identity were used for taxonomic and functional studies. Normalized read counts for each sample at multiple taxonomic levels (e.g., domain, family, species, etc.) were exported in matrix form from MEGAN 6 and used in downstream statistical analyses.",
+    "Statistical Analyses",
+    "To determine the differences in samples collected from the GSE and internal surfaces of both CRV1 and CRV2 and to compare them with samples collected from the ISS, several statistical analyses were performed. The non-parametric Mann–Whitney–Wilcoxon (MWW) test was used to evaluate differences in microbial diversity detected on internal surfaces of CRV and surfaces of their GSE, across CRV sampling events, and with samples collected from the ISS surfaces. The null hypothesis for the MWW test is that the distributions of microorganisms are equal between two conditions tested (e.g., internal or GSE surface), or alternatively these distributions are not equal. Parametric tests were considered for this purpose, but transformation of these data to satisfy assumptions of these tests was not practical. Samples below detection limit were assumed to have a value of 0.01 for all statistical analyses. These analyses were performed using a custom R script1. To measure the diversity in the microbial communities residing on the internal and GSE surfaces of CRV1 and CRV2, various statistical indices were used, including the Shannon–Weaver index, Simpson’s index, and the Chao1 metric. To visualize differences in relative species abundance among CRV and ISS metagenome samples, non-metric multidimensional scaling (NMDS) using a Bray-Curtis dissimilarity matrix calculated from the normalized read counts was used. Analyses were performed using the vegan R package2 and custom R scripts3 ,4."
+  ],
+  "TABLE": [
+    "Descriptions of sampling locations on commercial resupply vehicles.",
+    "Sample ID\tDescription\tCategory\t \tCRV1-L1\tLadder platform just prior to the vehicle entrance\tGSE\t \tCRV1-L2\tClean room floor near the ladder that leads up to the vehicle entrance\tGSE\t \tCRV1-L3\tUpper shelf in starboard side of the vehicle\tInternal\t \tCRV1-L4\tLower shelf in starboard side of the vehicle\tInternal\t \tCRV1-L5\tFront panels in deck side of the vehicle\tInternal\t \tCRV1-L6\tLower shelf in aft side of the vehicle\tInternal\t \tCRV1-L7\tLadder steps that leads up to the platform near the vehicle entrance\tGSE\t \tCRV1-FC\tControl wipe exposed to the air for 30 s inside the vehicle\tControl\t \tCRV2-L1\tRight leg/side of ladder\tGSE\t \tCRV2-L2\tLeft leg/side of ladder\tGSE\t \tCRV2-L3\tLeft and right rail arms of the ladder above the platform\tGSE\t \tCRV2-L4\tLower shelf in aft side of the vehicle\tInternal\t \tCRV2-L5\tUpper shelf in starboard side of the vehicle\tInternal\t \tCRV2-L6\tUpper shelf in aft side of the vehicle\tInternal\t \tCRV2-L7\tLocker panels in deck side of the vehicle\tInternal\t \tCRV2-L8\tLocker panels in deck side of the vehicle near the aft side\tInternal\t \tCRV2-FC\tControl wipe exposed to the air for 30 s inside the vehicle\tControl\t \tCRV3-L1\tLadder platform just prior to the vehicle entrance\tGSE\t \tCRV3-L2\tLeft rail arm of the ladder above the platform\tGSE\t \tCRV3-L3\tRight rail arm of the ladder above the platform\tGSE\t \tCRV3-L4\tUpper shelf in starboard side of the vehicle near the aft side\tInternal\t \tCRV3-L5\tLower shelf in aft side of the vehicle\tInternal\t \tCRV3-L6\tLower shelf in forward side of the vehicle\tInternal\t \tCRV3-L7\tUpper shelf in forward side of the vehicle\tInternal\t \tCRV3-FC\tControl wipe exposed to the air for 30 s inside the vehicle\tControl",
+    "Total, viable, and cultivable microbiological characteristics of CRV system surface samples.",
+    "Cultivable bacteria\tCultivable fungi\tATP based microbial\tBacterial 16S rRNA\tFungal ITS\t \t\t(CFU/m2)\t(CFU/m2)\tpopulation (RLU/m2)\t(copies/m2)\t(copies/m2)\t \tSample ID\tR2A\tBA\tPDA\tTotal\tIntracellular\tUntreated\tPMA-Treated\tUntreated\tPMA-Treated\t \tCRV1-L1\t1.3 × 105\t5.1 × 102\t3.8 × 104\t4.9 × 105\t6.6 × 105\t8.6 × 105\t4.3 × 105\t7.0 × 105\tBDL\t \tCRV1-L2\t2.8 × 106\t1.0 × 106\t2.9 × 105\t9.9 × 106\t1.2 × 107\t1.0 × 1010\t5.6 × 108\t1.3 × 106\t2.6 × 106\t \tCRV1-L3\tBDL\tBDL\tBDL\t2.8 × 101\t4.0 × 100\t3.7 × 105\t2.3 × 105\tBDL\tBDL\t \tCRV1-L4\t1.8 × 104\tBDL\t2.0 × 104\t1.9 × 105\t3.1 × 105\t7.2 × 105\t3.2 × 105\t7.2 × 104\t6.6 × 104\t \tCRV1-L5\tBDL\tBDL\tBDL\t3.1 × 101\t5.0 × 100\t5.0 × 105\t2.3 × 105\tBDL\tBDL\t \tCRV1-L6\tBDL\tBDL\tBDL\t3.1 × 101\t9.0 × 100\t3.1 × 105\t3.3 × 105\tBDL\tBDL\t \tCRV1-L7\t4.0 × 105\t1.0 × 106\t1.7 × 105\t2.3 × 106\t2.6 × 106\t1.4 × 108\t6.0 × 107\t7.6 × 105\t7.7 × 105\t \tCRV1-FC\tBDL\tBDL\tBDL\t1.9 × 101\t6.0 × 100\t4.3 × 103\t2.7 × 103\tBDL\t6.3 × 102\t \tCRV2-L1\t3.7 × 104\t5.0 × 102\t1.5 × 103\t1.3 × 105\t9.0 × 104\t4.5 × 105\t2.8 × 105\t6.1 × 105\tBDL\t \tCRV2-L2\tBDL\tBDL\tBDL\t6.0 × 101\t1.5 × 101\t1.9 × 105\t7.9 × 104\t2.6 × 105\t1.8 × 105\t \tCRV2-L3\tBDL\tBDL\tBDL\t1.8 × 105\t1.9 × 101\t2.8 × 105\t1.0 × 105\t1.3 × 105\tBDL\t \tCRV2-L4\tBDL\tBDL\tBDL\t2.8 × 101\t3.0 × 100\t3.8 × 104\t6.1 × 104\tBDL\tBDL\t \tCRV2-L5\tBDL\tBDL\tBDL\t4.1 × 101\t2.0 × 100\t7.3 × 104\t3.6 × 104\tBDL\tBDL\t \tCRV2-L6\tBDL\tBDL\tBDL\t2.2 × 101\t8.0 × 100\t5.3 × 104\t5.4 × 104\t8.1 × 104\tBDL\t \tCRV2-L7\t3.3 × 103\t1.5 × 103\t1.5 × 103\t8.5 × 101\t1.3 × 101\t2.8 × 105\t9.5 × 104\t9.3 × 104\tBDL\t \tCRV2-L8\t9.5 × 102\tBDL\tBDL\t9.2 × 101\t2.4 × 101\t2.3 × 105\t6.6 × 104\tBDL\tBDL\t \tCRV2-FC\tBDL\tBDL\tBDL\tBDL\tBDL\tBDL\tBDL\tBDL\tBDL"
+  ],
+  "RESULTS": [
+    "Results",
+    "Microbial Burden",
+    "Microbial burden assays were aimed at using both cultivation-dependent and independent methods to assess the broad diversity of microorganisms on various locations sampled from CRV1 and CRV2 (see Table 1 for a description of each sample). Since CRV3 did not show any cultivable counts, such information was not obtained.",
+    "Microbial colonies were isolated from all three locations on the GSE surfaces of CRV1 (locations 1, 2, and 7), and only one internal surface (location 4) as shown in Table 2. Using the R2A media, bacteria isolated from three GSE surfaces of CRV1 ranged between 1.3 × 105 to 2.8 × 106 CFU per m2 while 1.8 × 104 CFU per m2 colonies were isolated from the internal location CRV1-L4, an order of magnitude lower than samples from GSE surfaces. The MWW test of colony counts on R2A media show that the three GSE surfaces of CRV1 harbor a significantly different number of cultivable bacteria than the internal locations (W = 12, p-value = 0.0436). No colonies were isolated from internal locations of CRV1 on BA media while GSE surfaces (location 2 and 7) showed 1 × 106 CFU per m2 and location 1 showed 5.1 × 102 CFU per m2 colonies. Fungal colonies isolated on PDA media from GSE of CRV1 ranged between 3.8 × 104 to 2.9 × 105 CFU per m2 while 2 × 104 CFU per m2 were isolated from the internal location CRV1-L4. The MWW test of colony counts on PDA media show that the three GSE surfaces of CRV1 harbor a significantly different amount of cultivable fungi than the internal surfaces (W = 12, p-value = 0.0436).",
+    "CRV2 was clean as compared to CRV1 and microbial colonies were isolated from only three samples (location 1; GSE and locations 7 and 8; internal) as shown in Table 2. The microbial colonies isolated from the CRV2-L1 GSE location were 3.7 × 104 and internal locations of CRV2-L7 and CRV2-L8 were 3.3 × 103 and 9.5 × 102 CFU per m2, respectively on R2A media. The MWW test of colony counts on R2A media failed to show a significant difference between bacterial counts among the internal and GSE surfaces of CRV2 (W = 8, p-value = 1.0). About 5.0 × 102 (GSE location 1) and 1.5 × 103 (internal location 7) CFU per m2 were isolated on the BA media. The MWW test of colony counts on BA media failed to show a significant difference between bacterial counts among the internal and GSE surfaces of CRV2 (W = 8, p-value = 1.0). About 1.5 × 103 CFU per m2 of fungi were isolated from both GSE location CRV2-L1 and internal location CRV2-L7 on the PDA media. The MWW test of colony counts on PDA media failed to show a significant difference between fungal counts between the internal and GSE surfaces of CRV2 (W = 8.5, p-value = 0.8437). The microbial colony counts for the CRV2 were lower by almost an order of magnitude as compared to CRV1. However, the MWW test failed to show a significant difference in colony counts between CRV1 and CRV2 on R2A media (W = 38.5, p-value = 0.2094), BA media (W = 35, p-value = 0.3698), or PDA media (W = 41, p-value = 0.1023). Strikingly, no samples from GSE or internal surfaces of the CRV3 vehicle showed any trace of a microbial population.",
+    "Identification of cultured microbes revealed the presence of four bacterial phyla (Actinobacteria, Proteobacteria, Firmicutes, and Bacteroidetes; Supplementary Table S1) and two fungal phyla (Ascomycota and Basidiomycota; Supplementary Table S1). Almost all the bacterial isolates, besides Pseudarthrobacter, Compostimonas, and Mycobacterium, have also been detected by the metagenome derived diversity analysis, at least at the genus level, whereas half of the fungal isolates (Bullera/Papiliotrema, Cryptococcus/Hannaella/Naganishia, Cladosporium, Dioszegia, Rhodotorula, Periconia, Phialemoniopsis, and Phlebia) were not detected.",
+    "Cultivation-independent methods used to estimate the microbial burden included ATP and qPCR assays. The intracellular ATP assay quantified the content of live cells, and total ATP quantified both dead and live cells to provide an estimate of the viable microbial population in a given sample. In the case of CRV1, the total ATP content for the GSE surfaces ranged between 105 to 106 RLUs per m2, while all internal surface locations had ATP content lower by four orders of magnitude, except for the CRV1-L4 location which had 1.9 × 105 RLUs per m2 (Table 2 and Supplementary Figure S1). The intracellular ATP content for all GSE surfaces and one internal surface (CRV1-L4) were similar to their respective total ATP content, thus indicating that almost 100% of the microorganisms were viable at these locations. However, the intracellular ATP content was considerably lower for other internal locations of CRV1 and indicated that only 15–30% of the total microorganisms were viable. Incidentally, cultivable populations were isolated only from the CRV1-L4 sample. In the case of the CRV2, all GSE surfaces showed total ATP content of 105 RLUs per m2, except for CRV2-L2 which had only 101 RLUs per m2 (Table 2 and Supplementary Figure S1). The total ATP RLU values for all internal locations of CRV2 were similar to CRV1 with only 101 RLUs per m2. The MWW test failed to show a significant difference in total or intracellular ATP content between CRV1 and CRV2 (W = 45.5, p-value = 0.3859 or W = 49, p-value = 0.2359). The intracellular ATP content for all internal locations of CRV2 was lower than the respective total ATP content thus indicating that 5–36% of the total microorganisms were viable.",
+    "The qPCR-based DNA quantification using the 16S rRNA gene and the ITS region provided an estimate of the bacterial and fungal burden of the CRV1 and CRV2. In the case of CRV1, the PMA treated samples (viable microbes) from the GSE sample locations had very high bacterial density for locations 2 and 7, ranging between 107–108 16S rRNA gene copies per m2 (Table 2 and Supplementary Figure S2A). However, location 1 (GSE) and all internal locations of CRV1 showed 105 viable bacterial population per m2. In general, the PMA treated CRV1 samples showed 16S rRNA gene copy numbers lower by one to two orders of magnitude for the intact cells from GSE locations samples, while there was an only minute difference in the intact cell population for all internal CRV surface samples. The percentage of the intact cells for both internal and GSE locations of CRV1 ranged between 40 and 64%, except for the location 2 and 6, which had 5 and 100% of the intact cells, respectively.",
+    "Similarly, the fungal density estimated using quantification of the ITS region showed that the ITS gene copies in PMA untreated samples in CRV1 samples were less by three to four orders of magnitude as compared to their bacterial counterpart. The ITS copies for the PMA untreated samples ranged between 105 and 106 for the GSE locations and 104 ITS copies per m2 for internal locations (Table 2 and Supplementary Figure S2B). The PMA treated samples for both internal and GSE CRV1 locations showed similar ITS copy numbers to the PMA untreated samples, thus making the percentage of intact fungal cells 90–100% for CRV1-L4 and CRV1-L7. However, the GSE location CRV1-L2 showed only 20% of the intact fungal population.",
+    "In the case of CRV2, the 16S rRNA gene copy numbers of PMA untreated samples for the GSE and internal locations were 105 and 104 copies per m2, respectively. The percentage of the intact bacterial cell numbers determined from the PMA treated samples for both GSE and internal locations were in the range of 36–62% and 34–100%, respectively. The fungal density for the CRV2 samples for both GSE and internal locations for the PMA untreated samples was in the range of 105 and 104, respectively. Additionally, these fungal cell numbers were higher by an order of magnitude as compared to their bacterial counterpart.",
+    "The MWW test of 16S rRNA gene copy numbers of PMA treated samples showed a significant difference in bacterial abundance between CRV1 and CRV2 (W = 62, p-value = 0.01408). The MWW test of ITS copy numbers of PMA treated samples, however, failed to demonstrated a significant difference in fungal abundance between CRV1 and CRV2 (W = 50, p-value = 0.107). When comparing 16S rRNA or ITS copy numbers from GSE and internal samples, the MWW test failed to find any significant difference (M = 43, p-value = 0.0675 or M = 39, p-value = 0.08197, respectively).",
+    "Metagenome Derived Microbial Diversity",
+    "Samples were collected from three CRV vehicles (25 samples in total; Table 1) and each wipe was either treated with PMA or left untreated, resulting in an analysis of 50 samples, including 6 controls. Among the 50 samples subjected for shotgun library preparation, only 8 samples (4 non-PMA and corresponding 4 PMA treated) yielded shotgun metagenome libraries (none from the controls) and all other 42 samples were below the detection limit (0.01 ng DNA/μL). Subsequently, these low DNA concentration samples (42 samples) did not produce any shotgun metagenome sequences. High quality metagenome reads were obtained for four samples; one each from GSE (CRV1-L2; CRV2-L1) and internal (CRV1-L4; CRV2-L7) locations. Interestingly, the microbial burden (both cultivable and qPCR assays) of these four sites were high when compared to other locations (Table 2).",
+    "At the domain level, bacteria dominated the microbial diversity detected in the metagenomes sampled from internal and GSE surfaces of CRV1 and CRV2. In the case of CRV1, bacteria at both internal (CRV1-L4) and GSE (CRV1-L2) locations constituted 99 and 88% of the total reads from PMA treated samples, respectively (Supplementary Figure S3). PMA treated samples from CRV2 were very similar to CRV1 samples when compared at the domain level, both GSE (CRV2-L1) and internal (CRV2-L7) locations were dominated by bacteria (90 and 94%, respectively). Most of the remaining reads belonged to Eukaryota, constituting <1–12% of the total reads from CRV1 and CRV2 internal and GSE locations. The viral and archaeal reads constituted a very minute fraction of the total reads in PMA treated samples from internal and GSE locations of CRV1 and CRV2.",
+    "At the phylum level (Supplementary Figure S4), the PMA treated samples showed significant differences between internal and GSE locations of both CRV1 and CRV2. The CRV1 GSE was dominated by Proteobacteria (95%) while the internal locations majorly constituted of Proteobacteria (32%), Firmicutes (29%), Actinobacteria (21%), followed by Ascomycota (8%). The CRV2 GSE also showed dominance of Proteobacteria reads (53%) followed by Actinobacteria (11%), Firmicutes (10%), and Ascomycota (7%). The CRV2 internal location had a different composition as compared to the GSE at the phylum level, which was dominated by Firmicutes (40%), closely followed by Proteobacteria (32%), and Actinobacteria (16%) reads. Also, the internal locations of CRV1 and CRV2 showed relatively similar abundance at the phylum level except for Actinobacteria, Firmicutes, and Ascomycota, as mentioned earlier.",
+    "At the class level (Supplementary Figure S5), the PMA treated GSE samples of CRV1 were dominated by Betaproteobacteria (73%) followed by Alphaproteobacteria (11%), while the internal location was dominated in descending order by Bacilli (28%), Actinobacteria (21%), Gammaproteobacteria (18%), Alphaproteobacteria (8%), Dothideomycetes (6%), and Betaproteobacteria (4%). In the case of CRV2 PMA treated samples, the GSE showed a high abundance of Gammaproteobacteria (21%), followed by Betaproteobacteria (17%), Actinobacteria (11%), Alphaproteobacteria (10%), and Bacilli (10%). On the other hand, Bacilli (39%) dominated the internal location of CRV2 PMA treated samples, followed by Betaproteobacteria (18%), Actinobacteria (15%), and Alphaproteobacteria (8%). Additionally, significant differences were observed at the class level for the internal locations of both CRV1 and CRV2.",
+    "At the order level (Supplementary Figure S6), Burkholderiales constituted more than 71% of the reads for the PMA treated samples from the GSE of CRV1, which was distantly followed by Caulobacterales (7%), and Sphingomonadales (3%). The internal location of CRV1 presented a completely different picture, with only 4% of the reads belonging to Burkholderiales, while the most dominant order was Bacillales (27%), followed by Pseudomonadales (16%), and Propionibacteriales (10%). Furthermore, reads for Caulobacterales and Sphingomonadales were detected at very low levels (<1%) from the internal location of CRV1. The PMA treated samples for CRV2 internal and GSE surfaces showed a similar trend with respect to the order level. Burkholderiales, Bacillales, Pseudomonadales, and Propionibacteriales were the dominant orders detected on both internal and GSE surfaces. However, the only difference between GSE and internal CRV2 samples was that the reads belonging to Bacillales were dominant at the internal location (36%) and Pseudomonadales was dominant for GSE (18%).",
+    "At the family level (Supplementary Figure S7), large differences were observed on the internal and GSE surfaces of CRV1 for the PMA treated samples. Reads for Oxalobacteraceae (33%), Comamonadaceae (22%), and Caulobacteraceae (6%) dominated the GSE surface of CRV1, followed by Sphingomonadaceae (3%) and Burkholderiaceae (1%). The internal location for CRV1 showed the complete opposite trend with only 4% of the reads belonging to Oxalobacteraceae family, while Comamonadaceae, Caulobacteraceae, Sphingomonadaceae, and Burkholderiaceae were detected at very low levels (<1%). Instead, the CRV1 internal location was dominated by Pseudomonadaceae (15%), Bacillaceae (10%), Propionibacteriaceae (10%), and Aureobasidiaceae (5%) families. The CRV2 PMA treated samples for both internal and GSE surfaces were relatively similar at the family level, mainly belonging to Oxalobacteraceae, Bacillaceae, Pseudomonadaceae, and Propionibacteriaceae. However, Bacillaceae was dominant on the internal surface (13%) while Oxalobacteraceae and Pseudomonadaceae were dominant on the GSE surface (12 and 11%, respectively) for the PMA treated CRV2 samples. Additionally, reads belonging to a fungal family Pleosporaceae was present in abundance at only the GSE surface (3%) of CRV2.",
+    "At the genera level (Supplementary Figure S8), as observed previously for other taxon levels, the PMA treated samples of CRV1 showed large differences between the GSE and internal surfaces. Human commensal Massilia (25%), Acidovorax (15%), and Caulobacter (6%) were the most dominant genus detected at the GSE surface of CRV1. However, reads for the genus Acidovorax, and Caulobacter were only detected at low levels (<1%) from the internal location of CRV1 and Massilia constituted only 3% of the total reads. The internal location of CRV1 was instead dominated by the bacterial genera Pseudomonas (15%) and Bacillus (9%), and the fungal genus Aureobasidium (5%). On the other hand, both the GSE and internal surfaces of CRV2 presented a relatively similar pattern of genera, including Massilia, Acidovorax, Pseudomonas, Bacillus, and Caulobacter. Abundances of these genera were different between the GSE and internal surfaces, with Pseudomonas (11%) and Massilia (8%) being dominant on the GSE surface, while the internal surface showed an abundance of Bacillus (12%), Massilia (7%), and Acidovorax (2%).",
+    "At the species level (Figure 2), PMA treated samples for the internal and GSE surfaces of both CRV1 and CRV2 presented a clear distinction in terms of species abundance. Caulobacter vibrioides is the only microbial species detected in abundance (3%) on the GSE surface of CRV1. The internal location, however, showed a completely different trend with Pseudomonas aeruginosa being the most abundant member, comprising 5% of total microbial abundance, followed by Bacillus firmus (4%), Massilia timonae (2%), Lentzea waywayandensis (1%), and the fungus Aureobasidium melanogenum (1%). The CRV2 PMA treated samples for the internal location showed the presence of Bacillus firmus (5%), Cutibacterium acnes (1%), and Lentzea waywayandensis (1%). In the sample collected from the GSE surface of CRV2, Pseudomonas stutzeri (2%), Bacillus firmus (1%), Cutibacterium acnes (1%), and Lentzea waywayandensis (1%) were present at the outside location of CRV2 samples.",
+    "Statistical Significance",
+    "To determine the differences at various taxon levels between the PMA treated and untreated samples from the GSE and internal surfaces of both CRV1 and CRV2, several statistical analyses were performed. Based on the Mann–Whitney–Wilcoxon statistics (Supplementary Table S2), no significant differences (p > 0.05) were observed at the domain and phylum levels between the GSE and internal surfaces of PMA treated samples of CRV1. The class, family, order, genus, and species levels showed significant differences (p < 0.05) between the GSE and internal surfaces of PMA treated samples for CRV1. In the case of CRV2, no significant differences (p > 0.05) were observed at the domain, phylum, and class levels between the GSE and internal surfaces of PMA treated samples although, family, order, genus, and species levels were significantly different (p < 0.05). Similar results were also seen for the PMA untreated samples, except for the CRV2 samples where phylum and class also showed significant difference (p = 0.0077 and p = 0.0004, respectively) between the internal and GSE surfaces. On comparing the PMA treated samples at internal locations between the CRV1 and CRV2, the Mann–Whitney–Wilcoxon statistics failed to detect any differences at the domain, class, and species level (p > 0.05), with phylum, order, family, and genera level being significantly different (p < 0.05). On the other hand, the untreated samples were significantly different (p < 0.05) between CRV1 and CRV2 at the internal locations except for the domain and species level (p = 0.1353 and p = 0.0918, respectively). The PMA treated as well as untreated samples for the GSE surfaces were significantly different (p < 0.05) for all taxon levels at the CRV1 and CRV2, except for the domain and phylum level (p = 0.0647 and p = 0.2069, respectively).",
+    "Subsequently, to measure the diversity in the microbial communities residing on the internal and GSE surfaces of CRV1 and CRV2, various statistical indices were used (Figures 3A–C). The Shannon–Weaver index H values for the PMA treated samples were consistently lower than the PMA untreated samples on the internal and GSE surfaces of both CRV1 and CRV2. The H values can thus be interpreted as an increase in the species richness and evenness of the untreated samples as compared to the PMA treated samples. In the case of CRV1, the internal surface showed higher H values compared to the GSE surface (both PMA treated and untreated) thus indicating high species richness at the internal location. However, a completely opposite trend was observed for CRV2 where the GSE surface showed higher species richness and evenness as compared to the internal surface. A similar comparison made between the H values of the internal and GSE surfaces of CRV1 and CRV2 PMA treated samples showed that the CRV2 had higher species richness as compared to CRV1. Diversity analysis carried out using the Simpson index further confirmed the Shannon–Weaver index findings. Another diversity index, the c index, showed that the species diversity increased for the PMA untreated samples as compared to that of the PMA treated samples on the internal and GSE surfaces of both CRV1 and CRV2. Similarly, in the case of CRV2, the untreated samples showed more species diversity compared to PMA treated on both internal and GSE surfaces. Additionally, the comparison of PMA treated samples at internal locations of CRV2 and CRV1 showed that the CRV2 had more species diversity as compared to the CRV1.",
+    "Functional Genes",
+    "Reads associated with metabolic functions like amino acid derivatives, carbohydrates, cofactors and vitamin metabolism, and protein metabolism were most abundant and relatively equally distributed for all the PMA treated samples on the internal and GSE surfaces of CRV1 and CRV2 as shown in the (Figure 3A). However, genes corresponding to other important functions like membrane transport, DNA and RNA metabolism, nucleotide metabolism, cell wall synthesis, and metabolism of aromatic compounds showed major differences between the internal and GSE surfaces of CRV1 and CRV2, and were statistically significant (Supplementary Table S2, p < 0.05). Furthermore, the MWW analysis (Supplementary Table S2) showed significant differences (p < 0.05) between the internal locations of CRV1 and CRV2 as well as the GSE surfaces of CRV1 and CRV2.",
+    "Virulence Genes",
+    "The metagenome reads for internal and GSE surfaces of both CRV1 and CRV2 were also subjected to virulence gene analyses using the virulence factors from the SEED database as reference. A major fraction of the virulence genes belonged to multiple drug resistance (MDR) efflux pump, Legionella pneumophila potential resistome, and Cobalt-Zinc-Cadmium resistance genes as shown in Figure 3B. Furthermore, these genes showed relatively equal distribution on both internal and GSE surfaces of CRV1 and CRV2. The relative abundance of the reads associated with virulence factors were vastly different on the internal location as compared to the GSE surfaces for both CRV1 and CRV2, and were statistically significant (Supplementary Table S2, p < 0.05). The MWW method (Supplementary Table S2) additionally showed statistically significant differences (p < 0.05) between the internal locations of CRV1 and CRV2 as well as the GSE surfaces of CRV1 and CRV2 (p = 0.05).",
+    "Antimicrobial Resistance",
+    "Metagenomic reads of PMA treated samples of internal and GSE surfaces of CRV1 and CRV2 were screened for antimicrobial resistance (AMR) genes. Based on the percent abundance, the AMR genes were sorted into different categories as shown in (Figure 4). Beta-lactam resistance, Cationic antimicrobial peptide (CAMP) resistance, and Vancomycin resistance together comprised a major fraction of the reads belonging to AMR genes and were also relatively equally distributed across internal and GSE surfaces of both CRV1 and CRV2. The remaining half of the AMR genes were mainly comprised of penicillin binding protein, multidrug efflux pump, and serine protease genes. Importantly, except for the MDR efflux pump there was no overlap between the virulence and AMR genes. Therefore, an independent analysis was performed for AMR and virulence genes.",
+    "Comparative Analyses of ISS and CRV Microbial Diversity",
+    "Two bacterial species and one fungal species that were isolated during this study of CRV surfaces (Supplementary Table S1) were also isolated from the ISS surfaces by. Strains of the common skin commensal bacterium and opportunistic pathogen, Staphylococcus epidermidis, were isolated from CRV (N = 3) and ISS (N = 6) surfaces. Strains of Micrococcus yunnanensis, a bacterium previously detected within plant roots, were isolated from CRV (N = 5) and ISS (N = 1) surfaces. Strains of Rhodotorula mucilaginosa, a common environmental saprophytic yeast and opportunistic pathogen, were also isolated from CRV (N = 1) and ISS (N = 33) surfaces. The other 45 bacterial species and 19 fungal species isolated from CRV surfaces were not isolated from ISS surfaces.",
+    "Eight bacterial species and one fungal species were detected in both ISS and CRV microbiome samples, including human commensal and environmental microbes. Cutibacterium acnes, a common skin commensal, could be detected at low levels in ISS samples (<2%) and CRV samples (<1%). Klebsiella pneumoniae, a common nosocomial pathogen, could be detected at varying levels in ISS samples (0–7%) but at very low levels in CRV samples (≤0.1%). Similarly, Staphylococcus aureus, a common commensal bacterium also known to be an opportunistic pathogen, was detected at varying levels in ISS samples (0–3%) but at very low levels in CRV samples (≤0.1%, Figure 5). Streptococcus pneumoniae, another common commensal bacterium that is also an opportunistic pathogen, was detected at low abundance in ISS and CRV microbiome samples (<1% and <0.2%, respectively). Methylobacterium sp. ME121, an environmental bacterium, could be detected at low levels in ISS samples (<1%) and very low levels in CRV samples (<0.1%). Sphingobium yanoikuyae, an environmental bacterium known to degrade polycyclic aromatic hydrocarbons, was detected at very low abundance in ISS samples (<0.1%) and low abundance in CRV samples (<0.2%). Environmental bacteria Sphingomonas sp. Ag1 and Sphingomonas sp. OV641 were also detected at very low abundance in ISS (<0.2%) and CRV (<0.3%) microbiome samples. Rhodotorula sp. JG-1b, a psychrophilic fungus, was detected at varying levels in the ISS microbiome samples (0–40%), but at very-low levels in CRV samples (<0.01%).",
+    "Although there was some overlap in species detected among ISS and CRV samples, the vast number of species detected did not overlap (309 and 111 species, respectively). Microbial species indices as calculated by Chao1 (Figure 6A), Shannon (Figure 6B), and Simpson (Figure 6C) also supported that microbial diversity was different between CRV and ISS environmental surface samples. When the overall abundance of species detected in each sample is visualized in an NMDS ordination (Figure 6D), this relationship becomes apparent. The microbiomes sampled in the ISS (red, blue, and green glyphs) cluster separately in the ordination from the microbiomes sampled in CRV1 (purple glyphs) and CRV2 (orange glyphs). The MWW test showed a significant difference in species abundance between CRV and ISS samples (W = 246120, p-value = 0.000162). Significant differences between ISS and CRV microbiomes could also be detected in genes associated with virulence (W = 4308.5, p-value = 1.443e-07) and AMR (W = 30626, p-value < 2.2e-16). However, no significant difference could be detected in genes associated with metabolism between the ISS and CRV (W = 1210, p-value = 0.4271)."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "The current study aims at understanding the source of contamination of the ISS by characterizing the microbial diversity of the CRV just before launching. The ISS’s robotic Canadarm appendage captures CRV carrying payloads for the ISS crew, after the CRV reaches the orbit of the ISS. As a result, in the current study, we compare the microbial diversity of the CRV with that of the previously reported ISS microbiome.",
+    "Most of the CRV cultivable isolates were already reported from samples collected from SAF cleanroom environments, with the exception of Compostimonas. Most of these CRV isolates have been identified as species normally associated with soils, whereas cultivable microorganisms from the ISS were primarily associated with humans (Staphylococcaceae and Enterobacteriaceae) with the exception of Bacillus that was common in both CRV and ISS. When culturable fungi were compared, most of the CRV fungal members were also present in the ISS. However, strain specific similarities of these fungal isolates will need to be carried out via a sophisticated strain-tracking molecular method in the future. The CRV isolates that pose a potential health risk for astronauts that may be immunocompromised are Staphylococcus pasteuri (e.g., bacteraemia), Exophiala xenobiotica (e.g., phaeohyphomycosis), and Phialemonium dimorphosporum (e.g., fungemia). The cultivable strains also included members of the genera Bacillus and Paenibacillus, which are often encountered in SAF environments and can withstand harsh conditions (e.g., desiccation, low nutrients, and radiation) because of their spore formation ability. In addition, Bacillus and Sphingomonas are also known to form biofilms, which may increase various resistance capabilities of these microorganisms, and therefore also lead to an increased contamination risk.",
+    "The metagenome sequence analysis of the GSE and internal surfaces of CRV1 and CRV2 grouped separately when compared with the eight locations from the ISS environment sampled during three flights from a previously reported study by (Figure 6). Furthermore, the microbiome profiles of the internal CRV were different from GSE of the CRV. The PMA treated samples collected from the GSE surface of the CRV1 were dominated by reads belonging to genera Acidovorax, Caulobacter, and Massilia (reclassified as Naxibacter), while the CRV2 GSE surface showed Pseudomonas and Bacillus. These bacteria are known to survive extreme oligotrophic conditions for extended time periods. Additionally, the members of the aforementioned genera are known to tolerate alkaline and oxidative stress conditions, and survive high levels of ultraviolet radiation. Similarly, routine maintenance and cleaning procedures could presumably have removed most of the bacterial taxa associated with the SAF cleanrooms, however, spore-forming bacteria and members of Actinobacteria and Massilia persist in these environments.",
+    "The PMA treated samples collected from the internal locations of CRV1 and CRV2 were dominated by Bacillaceae, Pseudomonadaceae, Propionibacteriaceae, and Oxalobacteraceae, and were different from the ISS microbiome which was dominated by Enterobacteriaceae, Methylobacteriaceae, Staphylococcaceae, Aspergillaceae, and Sporidiobolaceae. Furthermore, the CRV microbiomes showed similarities with the SAF microbiome. The species level comparison between the ISS and CRV microbiomes (cut off value of minimum 10 reads) showed that only nine microorganisms were common between the two ecosystems. Except for Methylobacterium, all other microbes were common skin commensals (e.g., Cutibacterium acnes, Enterobacter cloacae, Malassezia globosa, Propionibacterium humerusii, Staphylococcus aureus, and Streptococcus pneumoniae). Additionally, the CRV also showed the presence of the members of genera belonging to different ecosystems (indoor to aquatic environments), like Pseudomonas, Mycobacterium, Massilia, Leifsonia, Corynebacterium, Caulobacter, Bacillus, Acidovorax, and Aureobasidium. It is also interesting to note that some of the microorganisms that were cultured were not detected in a shotgun metagenome sequencing approach. This might be due to the fact that ITS-based identification of fungi was not always ideal in determining the species accurately. Further research on the WGS of cultured microorganisms would reveal the authentic identification.",
+    "In general, most of the species observed in the CRV microbiome could not be observed in the ISS microbiome, potentially because the ISS has a consistent human presence. On the other hand, although the CRV assembly facility has constant human traffic, the cleanrooms are continuously undergoing cleaning and maintenance procedures. It is also important to note that cleaning aboard the ISS occurs sporadically and mainly during the weekend. Whereas daily stringent cleaning regiment occurs inside the CRV assembly facility to maintain a low biomass. Additionally, chemical used to clean inside the CRV are based on wipes with 3% hydrogen peroxide, whereas aboard the ISS the crew use wipes with 0.1% dimethyl ammonium chloride derivatives. Difference seen between the CRV sampled could be also due to differences in the time of the year the samples were collected. Furthermore, it is important to note that cleaning within the CRV1 was done 24 h prior to sampling. Whereas for CRV2 and CRV3, it was done the day of the sampling event and for the latter just prior to our arrival. Another potential reason for the absence of CRV microbiome in the ISS microbiome would be the limitations of the sequencing procedures. Being dominated by the human microbiome, sequences of rare or extremely low abundance microorganisms may not be detected in the ISS microbiome. Therefore, even though a certain low number of microorganisms are carried via CRV to the ISS, most of them will be outcompeted by the existing ISS microbiome, potentially rendering them undetectable in both traditional microbiology assays and state-of-the-art metagenome sequencing. The limitations of this study are related to the extremely low biomass of the CRV samples collected. When examining metagenome positive samples, it is apparent that they harbor more cultivable bacteria and fungi which might require appropriate cultivation conditions.",
+    "In conclusion, this is the first report that demonstrates, using both traditional microbiological methods and molecular techniques, that there is a very little risk of transferring microorganisms to the ISS owing to CRV transport. Significant differences were shown between the ISS and the CRV microbiomes using statistical methods. The cleaning protocols for CRV surfaces appear to be highly effective, and continued observance of these protocols is recommended to limit forward contamination of the ISS."
+  ],
+  "SUPPL": [
+    "Data Availability Statement",
+    "The datasets generated for this study can be found in online repositories. The names of the repository/repositories and accession number(s) can be found below: https://www.ncbi.nlm.nih.gov/, PRJNA448453 and https://genelab.nasa.gov/, GLDS-286.",
+    "Supplementary Material",
+    "The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fmicb.2020.566412/full#supplementary-material"
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "SM, JW, and KV wrote the manuscript. JW generated all figures in the manuscript. NS processed the shotgun metagenome sequencing data. JW performed all statistical analyses. KV and AS were involved in study design, helped interpret and write the manuscript, processed the samples, and performed culture and qPCR analysis. MM, SD, and CM-E prepared Sanger sequencing data and performed culturable diversity analyses. JW performed a comparative analysis of the ISS surface and CRV microbiomes. FK was instrumental in science payload, metadata generation, and coordinated with CRV institution in sample collection. KV was involved in early organization, study design and planning of the research project, and providing direct feedback to all authors throughout the project and during write-up of the manuscript. All authors read and approved the final manuscript.",
+    "Disclaimer",
+    "This manuscript was prepared as an account of work sponsored by NASA, an agency of the United States Government. The United States Government, NASA, California Institute of Technology, Jet Propulsion Laboratory, and their employees make no warranty, expressed or implied, or assume any liability or responsibility for the accuracy, completeness, or usefulness of information, apparatus, product, or process disclosed in this manuscript, or represents that its use would not infringe upon privately held rights. The use of, and references to any commercial product, process, or service does not necessarily constitute or imply endorsement, recommendation, or favoring by the United States Government, NASA, California Institute of Technology, or Jet Propulsion Laboratory. Views and opinions presented herein by the authors of this manuscript do not necessarily reflect those of the United States Government, NASA, California Institute of Technology, or Jet Propulsion Laboratory, and shall not be used for advertisements or product endorsements."
+  ],
+  "COMP_INT": [
+    "Conflict of Interest",
+    "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. The reviewer AR declared a shared affiliation with several of the authors SM, JW, AS, NS, and KV.",
+    "Funding. The research described in this manuscript was funded by a 2012 Space Biology NNH12ZTT001N grant no. 19-12829-26 under Task Order NNN13D111T award to KV, which also funded post-doctoral fellowship for AS, SM, NS, and JW. FK was supported through the KBRwyle/FILMSS subcontract with the Department of Pharmaceutical Chemistry at the University of California, San Francisco, # NNA14AB82C, at NASA Ames Research Center.",
+    "https://github.com/sandain/R/blob/master/mw.R",
+    "https://cran.r-project.org/web/packages/vegan/",
+    "https://github.com/sandain/R/blob/master/diversity.R",
+    "https://github.com/sandain/R/blob/master/mds.R"
+  ],
+  "REF": [
+    "References",
+    "Subcutaneous Phaeohyphomycosis caused by Exophiala xenobiotica in a non-Hodgkin lymphoma patient.",
+    "Crewmember Microbiome may influence microbial composition of ISS habitable surfaces.",
+    "Implementing planetary protection on the atlas V fairing and ground systems used to launch the mars science laboratory.",
+    "Trimmomatic: a flexible trimmer for illumina sequence data.",
+    "Nonparametric estimation of the number of classes in a population.",
+    "Microbiomes of the dust particles collected from the international space station and spacecraft assembly facilities.",
+    "Characterization of the total and viable bacterial and fungal communities associated with the international space station surfaces.",
+    "Forensic identification using skin bacterial communities.",
+    "Diversity, distribution and sources of bacteria in residential kitchens.",
+    "Microbial biogeography of public restroom surfaces.",
+    "Paradoxical DNA repair and peroxide resistance gene conservation in Bacillus pumilus SAFR-032.",
+    "Extreme slow growth as alternative strategy to survive deep starvation in bacteria.",
+    "Phialemonium fungemia: two documented nosocomial cases.",
+    "Comprehensive measurement of microbial burden in nutrient-deprived cleanrooms",
+    "Office space bacterial abundance and diversity in three metropolitan areas.",
+    "A new phylum of archaea represented by a nanosized hyperthermophilic symbiont.",
+    "MEGAN analysis of metagenomic data.",
+    "MEGAN community edition - interactive exploration and analysis of large-scale microbiome sequencing data.",
+    "Residential indoor airborne microbial populations in the United Arab Emirates.",
+    "Live-dead discrimination analysis, qPCR assessment for opportunistic pathogens, and population analysis at ozone wastewater treatment plants.",
+    "KEGG: kyoto encyclopedia of genes and genomes.",
+    "Architectural design influences the diversity and structure of the built environment microbiome.",
+    "Towards a unified paradigm for sequence-based identification of fungi.",
+    "Bacterial communities in commercial aircraft high-efficiency particulate air (HEPA) filters assessed by PhyloChip analysis.",
+    "Evaluation of procedures for the collection, processing, and analysis of biomolecules from low-biomass surfaces.",
+    "Microbial monitoring of spacecraft and associated environments.",
+    "Pseudomonas aeruginosa OspR is an oxidative stress sensing regulator that affects pigment production, antibiotic resistance and dissemination during infection.",
+    "16S/23S rRNA sequencing",
+    "Bacterial colonization and succession in a newly opened hospital.",
+    "Longitudinal analysis of microbial interaction between humans and the indoor environment.",
+    "Comparison and characterization of microbial communities in sulfide-rich wastewater with and without propidium monoazide treatment.",
+    "Cleanroom maintenance significantly reduces abundance but not diversity of indoor microbiomes.",
+    "Use of the ITS primers, ITS1F and ITS4, to characterize fungal abundance and diversity in mixed-template samples by qPCR and length heterogeneity analysis.",
+    "Molecular survey of aeroplane bacterial contamination.",
+    "Quo Vadis? microbial profiling revealed strong effects of cleanroom maintenance and routes of contamination in indoor environments.",
+    "Lessons learned from the microbial analysis of the herschel spacecraft during assembly, integration, and test operations.",
+    "Toward accurate and quantitative comparative metagenomics.",
+    "Comparison of propidium monoazide with ethidium monoazide for differentiation of live vs. dead bacteria by selective removal of dna from dead cells.",
+    "Use of propidium monoazide for live/dead distinction in microbial ecology.",
+    "Survival of rock-colonizing organisms after 1.5 years in outer space.",
+    "The subsystems approach to genome annotation and its use in the project to annotate 1000 genomes.",
+    "eggNOG v3.0: orthologous groups covering 1133 organisms at 41 different taxonomic ranges.",
+    "A DNA-based registry for all animal species: the barcode index number (BIN) system.",
+    "A new medium for the enumeration and subculture of bacteria from potable water.",
+    "Epidemiology, pathogenicity and emerging resistances in Staphylococcus pasteuri: from mammals and lampreys, to man.",
+    "Database resources of the national center for biotechnology information.",
+    "Measurement of diversity.",
+    "Succession and persistence of microbial communities and antimicrobial resistance genes associated with international space station environmental surfaces.",
+    "Quantitative analysis of small-subunit rRNA genes in mixed microbial populations via 5’-nuclease assays.",
+    "New perspectives on viable microbial communities in low-biomass cleanroom environments.",
+    "Survival of Bacillus pumilus spores for a prolonged period of time in real space conditions.",
+    "ATP as a biomarker of viable microorganisms in clean-room facilities.",
+    "Following the terrestrial tracks of Caulobacter - redefining the ecology of a reputed aquatic oligotroph.",
+    "Naxibacter Alkalitolerans gen. nov., sp. nov., a novel member of the family ‘Oxalobacteraceae’ isolated from china.",
+    "Introducing EzBioCloud: a taxonomically united database of 16S rRNA Gene sequences and whole-genome assemblies.",
+    "Pseudomonas alcaliphila sp. nov., a novel facultatively psychrophilic alkaliphile isolated from seawater.",
+    "Micrococcus Yunnanensis sp. nov., a novel actinobacterium isolated from surface-sterilized Polyspora axillaris roots."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Subcutaneous Phaeohyphomycosis caused by Exophiala xenobiotica in a non-Hodgkin lymphoma patient.",
+      "autores": [
+        {
+          "nombre_completo": "Y. Aoyama",
+          "nombres": "Y.",
+          "apellidos": "Aoyama"
+        },
+        {
+          "nombre_completo": "M. Nomura",
+          "nombres": "M.",
+          "apellidos": "Nomura"
+        },
+        {
+          "nombre_completo": "S. Yamanaka",
+          "nombres": "S.",
+          "apellidos": "Yamanaka"
+        },
+        {
+          "nombre_completo": "Y. Ogawa",
+          "nombres": "Y.",
+          "apellidos": "Ogawa"
+        },
+        {
+          "nombre_completo": "Y. Kitajima",
+          "nombres": "Y.",
+          "apellidos": "Kitajima"
+        }
+      ],
+      "pmid": "19107636",
+      "fuente": "Med. Mycol.",
+      "anio": "2009",
+      "volumen": "47",
+      "fpage": "95",
+      "lpage": "99"
+    },
+    {
+      "titulo": "Crewmember Microbiome may influence microbial composition of ISS habitable surfaces.",
+      "autores": [
+        {
+          "nombre_completo": "A. Avila-Herrera",
+          "nombres": "A.",
+          "apellidos": "Avila-Herrera"
+        },
+        {
+          "nombre_completo": "J. Thissen",
+          "nombres": "J.",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "N. A. Be",
+          "nombres": "N. A.",
+          "apellidos": "Be"
+        },
+        {
+          "nombre_completo": "D. J. Smith",
+          "nombres": "D. J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        }
+      ],
+      "pmid": "32348348",
+      "fuente": "PLoS One",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Implementing planetary protection on the atlas V fairing and ground systems used to launch the mars science laboratory.",
+      "autores": [
+        {
+          "nombre_completo": "J. N. Benardini",
+          "nombres": "J. N.",
+          "apellidos": "Benardini"
+        },
+        {
+          "nombre_completo": "M. T. La Duc",
+          "nombres": "M. T.",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "D. Ballou",
+          "nombres": "D.",
+          "apellidos": "Ballou"
+        },
+        {
+          "nombre_completo": "R. Koukol",
+          "nombres": "R.",
+          "apellidos": "Koukol"
+        }
+      ],
+      "pmid": "24432777",
+      "fuente": "Astrobiology",
+      "anio": "2014",
+      "volumen": "14",
+      "fpage": "33",
+      "lpage": "41"
+    },
+    {
+      "titulo": "Trimmomatic: a flexible trimmer for illumina sequence data.",
+      "autores": [
+        {
+          "nombre_completo": "A. M. Bolger",
+          "nombres": "A. M.",
+          "apellidos": "Bolger"
+        },
+        {
+          "nombre_completo": "M. Lohse",
+          "nombres": "M.",
+          "apellidos": "Lohse"
+        },
+        {
+          "nombre_completo": "B. Usadel",
+          "nombres": "B.",
+          "apellidos": "Usadel"
+        }
+      ],
+      "pmid": "24695404",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "2114",
+      "lpage": "2120"
+    },
+    {
+      "titulo": "Nonparametric estimation of the number of classes in a population.",
+      "autores": [
+        {
+          "nombre_completo": "A. Chao",
+          "nombres": "A.",
+          "apellidos": "Chao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Scand. J. Statist.",
+      "anio": "1984",
+      "volumen": "11",
+      "fpage": "265",
+      "lpage": "270"
+    },
+    {
+      "titulo": "Microbiomes of the dust particles collected from the international space station and spacecraft assembly facilities.",
+      "autores": [
+        {
+          "nombre_completo": "A. Checinska",
+          "nombres": "A.",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "A. J. Probst",
+          "nombres": "A. J.",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "P. Vaishampayan",
+          "nombres": "P.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J. R. White",
+          "nombres": "J. R.",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "D. Kumar",
+          "nombres": "D.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "V. G. Stepanov",
+          "nombres": "V. G.",
+          "apellidos": "Stepanov"
+        }
+      ],
+      "pmid": "26502721",
+      "fuente": "Microbiome",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the international space station surfaces.",
+      "autores": [
+        {
+          "nombre_completo": "A. Checinska Sielaff",
+          "nombres": "A.",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "G. B. M. Mohan",
+          "nombres": "G. B. M.",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "V. G. Stepanov",
+          "nombres": "V. G.",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q. Tran",
+          "nombres": "Q.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Forensic identification using skin bacterial communities.",
+      "autores": [
+        {
+          "nombre_completo": "N. Fierer",
+          "nombres": "N.",
+          "apellidos": "Fierer"
+        },
+        {
+          "nombre_completo": "C. L. Lauber",
+          "nombres": "C. L.",
+          "apellidos": "Lauber"
+        },
+        {
+          "nombre_completo": "N. Zhou",
+          "nombres": "N.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "D. McDonald",
+          "nombres": "D.",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "E. K. Costello",
+          "nombres": "E. K.",
+          "apellidos": "Costello"
+        },
+        {
+          "nombre_completo": "R. Knight",
+          "nombres": "R.",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "20231444",
+      "fuente": "Proc. Natl. Acad. Sci. U.S.A.",
+      "anio": "2010",
+      "volumen": "107",
+      "fpage": "6477",
+      "lpage": "6481"
+    },
+    {
+      "titulo": "Diversity, distribution and sources of bacteria in residential kitchens.",
+      "autores": [
+        {
+          "nombre_completo": "G. E. Flores",
+          "nombres": "G. E.",
+          "apellidos": "Flores"
+        },
+        {
+          "nombre_completo": "S. T. Bates",
+          "nombres": "S. T.",
+          "apellidos": "Bates"
+        },
+        {
+          "nombre_completo": "J. G. Caporaso",
+          "nombres": "J. G.",
+          "apellidos": "Caporaso"
+        },
+        {
+          "nombre_completo": "C. L. Lauber",
+          "nombres": "C. L.",
+          "apellidos": "Lauber"
+        },
+        {
+          "nombre_completo": "J. W. Leff",
+          "nombres": "J. W.",
+          "apellidos": "Leff"
+        },
+        {
+          "nombre_completo": "R. Knight",
+          "nombres": "R.",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "23171378",
+      "fuente": "Environ. Microbiol.",
+      "anio": "2013",
+      "volumen": "15",
+      "fpage": "588",
+      "lpage": "596"
+    },
+    {
+      "titulo": "Microbial biogeography of public restroom surfaces.",
+      "autores": [
+        {
+          "nombre_completo": "G. E. Flores",
+          "nombres": "G. E.",
+          "apellidos": "Flores"
+        },
+        {
+          "nombre_completo": "S. T. Bates",
+          "nombres": "S. T.",
+          "apellidos": "Bates"
+        },
+        {
+          "nombre_completo": "D. Knights",
+          "nombres": "D.",
+          "apellidos": "Knights"
+        },
+        {
+          "nombre_completo": "C. L. Lauber",
+          "nombres": "C. L.",
+          "apellidos": "Lauber"
+        },
+        {
+          "nombre_completo": "J. Stombaugh",
+          "nombres": "J.",
+          "apellidos": "Stombaugh"
+        },
+        {
+          "nombre_completo": "R. Knight",
+          "nombres": "R.",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "22132229",
+      "fuente": "PLoS One",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Paradoxical DNA repair and peroxide resistance gene conservation in Bacillus pumilus SAFR-032.",
+      "autores": [
+        {
+          "nombre_completo": "J. Gioia",
+          "nombres": "J.",
+          "apellidos": "Gioia"
+        },
+        {
+          "nombre_completo": "S. Yerrapragada",
+          "nombres": "S.",
+          "apellidos": "Yerrapragada"
+        },
+        {
+          "nombre_completo": "X. Qin",
+          "nombres": "X.",
+          "apellidos": "Qin"
+        },
+        {
+          "nombre_completo": "H. Jiang",
+          "nombres": "H.",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "O. C. Igboeli",
+          "nombres": "O. C.",
+          "apellidos": "Igboeli"
+        },
+        {
+          "nombre_completo": "D. Muzny",
+          "nombres": "D.",
+          "apellidos": "Muzny"
+        }
+      ],
+      "pmid": "17895969",
+      "fuente": "PLoS One",
+      "anio": "2007",
+      "volumen": "2",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Extreme slow growth as alternative strategy to survive deep starvation in bacteria.",
+      "autores": [
+        {
+          "nombre_completo": "D. A. Gray",
+          "nombres": "D. A.",
+          "apellidos": "Gray"
+        },
+        {
+          "nombre_completo": "G. Dugar",
+          "nombres": "G.",
+          "apellidos": "Dugar"
+        },
+        {
+          "nombre_completo": "P. Gamba",
+          "nombres": "P.",
+          "apellidos": "Gamba"
+        },
+        {
+          "nombre_completo": "H. Strahl",
+          "nombres": "H.",
+          "apellidos": "Strahl"
+        },
+        {
+          "nombre_completo": "M. J. Jonker",
+          "nombres": "M. J.",
+          "apellidos": "Jonker"
+        },
+        {
+          "nombre_completo": "L. W. Hamoen",
+          "nombres": "L. W.",
+          "apellidos": "Hamoen"
+        }
+      ],
+      "pmid": "30792386",
+      "fuente": "Nat. Commun.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Phialemonium fungemia: two documented nosocomial cases.",
+      "autores": [
+        {
+          "nombre_completo": "J. Guarro",
+          "nombres": "J.",
+          "apellidos": "Guarro"
+        },
+        {
+          "nombre_completo": "M. Nucci",
+          "nombres": "M.",
+          "apellidos": "Nucci"
+        },
+        {
+          "nombre_completo": "T. Akiti",
+          "nombres": "T.",
+          "apellidos": "Akiti"
+        },
+        {
+          "nombre_completo": "J. Gené",
+          "nombres": "J.",
+          "apellidos": "Gené"
+        },
+        {
+          "nombre_completo": "J. Cano",
+          "nombres": "J.",
+          "apellidos": "Cano"
+        },
+        {
+          "nombre_completo": "M. D. G. C. Barreiro",
+          "nombres": "M. D. G. C.",
+          "apellidos": "Barreiro"
+        }
+      ],
+      "pmid": "10405391",
+      "fuente": "J. Clin. Microbiol.",
+      "anio": "1999",
+      "volumen": "37",
+      "fpage": "2493",
+      "lpage": "2497"
+    },
+    {
+      "titulo": "Comprehensive measurement of microbial burden in nutrient-deprived cleanrooms",
+      "autores": [
+        {
+          "nombre_completo": "R. Hendrickson",
+          "nombres": "R.",
+          "apellidos": "Hendrickson"
+        },
+        {
+          "nombre_completo": "P. Lundgren",
+          "nombres": "P.",
+          "apellidos": "Lundgren"
+        },
+        {
+          "nombre_completo": "G. B. Malli Mohan",
+          "nombres": "G. B.",
+          "apellidos": "Malli Mohan"
+        },
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "J. N. Benardini",
+          "nombres": "J. N.",
+          "apellidos": "Benardini"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the 47th International Conference on Environmental Systems. International Conference on Environmental Systems",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Office space bacterial abundance and diversity in three metropolitan areas.",
+      "autores": [
+        {
+          "nombre_completo": "K. M. Hewitt",
+          "nombres": "K. M.",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "C. P. Gerba",
+          "nombres": "C. P.",
+          "apellidos": "Gerba"
+        },
+        {
+          "nombre_completo": "S. L. Maxwell",
+          "nombres": "S. L.",
+          "apellidos": "Maxwell"
+        },
+        {
+          "nombre_completo": "S. T. Kelley",
+          "nombres": "S. T.",
+          "apellidos": "Kelley"
+        }
+      ],
+      "pmid": "22666400",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A new phylum of archaea represented by a nanosized hyperthermophilic symbiont.",
+      "autores": [
+        {
+          "nombre_completo": "H. Huber",
+          "nombres": "H.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "M. J. Hohn",
+          "nombres": "M. J.",
+          "apellidos": "Hohn"
+        },
+        {
+          "nombre_completo": "R. Rachel",
+          "nombres": "R.",
+          "apellidos": "Rachel"
+        },
+        {
+          "nombre_completo": "T. Fuchs",
+          "nombres": "T.",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "V. C. Wimmer",
+          "nombres": "V. C.",
+          "apellidos": "Wimmer"
+        },
+        {
+          "nombre_completo": "K. O. Stetter",
+          "nombres": "K. O.",
+          "apellidos": "Stetter"
+        }
+      ],
+      "pmid": "11986665",
+      "fuente": "Nature",
+      "anio": "2002",
+      "volumen": "417",
+      "fpage": "63",
+      "lpage": "67"
+    },
+    {
+      "titulo": "MEGAN analysis of metagenomic data.",
+      "autores": [
+        {
+          "nombre_completo": "D. H. Huson",
+          "nombres": "D. H.",
+          "apellidos": "Huson"
+        },
+        {
+          "nombre_completo": "A. F. Auch",
+          "nombres": "A. F.",
+          "apellidos": "Auch"
+        },
+        {
+          "nombre_completo": "J. Qi",
+          "nombres": "J.",
+          "apellidos": "Qi"
+        },
+        {
+          "nombre_completo": "S. C. Schuster",
+          "nombres": "S. C.",
+          "apellidos": "Schuster"
+        }
+      ],
+      "pmid": "17255551",
+      "fuente": "Genome Res.",
+      "anio": "2007",
+      "volumen": "17",
+      "fpage": "377",
+      "lpage": "386"
+    },
+    {
+      "titulo": "MEGAN community edition - interactive exploration and analysis of large-scale microbiome sequencing data.",
+      "autores": [
+        {
+          "nombre_completo": "D. H. Huson",
+          "nombres": "D. H.",
+          "apellidos": "Huson"
+        },
+        {
+          "nombre_completo": "S. Beier",
+          "nombres": "S.",
+          "apellidos": "Beier"
+        },
+        {
+          "nombre_completo": "I. Flade",
+          "nombres": "I.",
+          "apellidos": "Flade"
+        },
+        {
+          "nombre_completo": "A. Górska",
+          "nombres": "A.",
+          "apellidos": "Górska"
+        },
+        {
+          "nombre_completo": "M. El-Hadidi",
+          "nombres": "M.",
+          "apellidos": "El-Hadidi"
+        },
+        {
+          "nombre_completo": "S. Mitra",
+          "nombres": "S.",
+          "apellidos": "Mitra"
+        }
+      ],
+      "pmid": "27327495",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2016",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Residential indoor airborne microbial populations in the United Arab Emirates.",
+      "autores": [
+        {
+          "nombre_completo": "A. A. Jaffal",
+          "nombres": "A. A.",
+          "apellidos": "Jaffal"
+        },
+        {
+          "nombre_completo": "I. M. Banat",
+          "nombres": "I. M.",
+          "apellidos": "Banat"
+        },
+        {
+          "nombre_completo": "A. A. El Mogheth",
+          "nombres": "A. A.",
+          "apellidos": "El Mogheth"
+        },
+        {
+          "nombre_completo": "H. Nsanze",
+          "nombres": "H.",
+          "apellidos": "Nsanze"
+        },
+        {
+          "nombre_completo": "A. Bener",
+          "nombres": "A.",
+          "apellidos": "Bener"
+        },
+        {
+          "nombre_completo": "A. S. Ameen",
+          "nombres": "A. S.",
+          "apellidos": "Ameen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Environ. Intern.",
+      "anio": "1997",
+      "volumen": "23",
+      "fpage": "529",
+      "lpage": "533"
+    },
+    {
+      "titulo": "Live-dead discrimination analysis, qPCR assessment for opportunistic pathogens, and population analysis at ozone wastewater treatment plants.",
+      "autores": [
+        {
+          "nombre_completo": "T. Jäger",
+          "nombres": "T.",
+          "apellidos": "Jäger"
+        },
+        {
+          "nombre_completo": "J. Alexander",
+          "nombres": "J.",
+          "apellidos": "Alexander"
+        },
+        {
+          "nombre_completo": "S. Kirchen",
+          "nombres": "S.",
+          "apellidos": "Kirchen"
+        },
+        {
+          "nombre_completo": "A. Dötsch",
+          "nombres": "A.",
+          "apellidos": "Dötsch"
+        },
+        {
+          "nombre_completo": "A. Wieland",
+          "nombres": "A.",
+          "apellidos": "Wieland"
+        },
+        {
+          "nombre_completo": "C. Hiller",
+          "nombres": "C.",
+          "apellidos": "Hiller"
+        }
+      ],
+      "pmid": "29032906",
+      "fuente": "Environ. Pollut.",
+      "anio": "2018",
+      "volumen": "232",
+      "fpage": "571",
+      "lpage": "579"
+    },
+    {
+      "titulo": "KEGG: kyoto encyclopedia of genes and genomes.",
+      "autores": [
+        {
+          "nombre_completo": "M. Kanehisa",
+          "nombres": "M.",
+          "apellidos": "Kanehisa"
+        },
+        {
+          "nombre_completo": "S. Goto",
+          "nombres": "S.",
+          "apellidos": "Goto"
+        }
+      ],
+      "pmid": "10592173",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2000",
+      "volumen": "28",
+      "fpage": "27",
+      "lpage": "30"
+    },
+    {
+      "titulo": "Architectural design influences the diversity and structure of the built environment microbiome.",
+      "autores": [
+        {
+          "nombre_completo": "S. W. Kembel",
+          "nombres": "S. W.",
+          "apellidos": "Kembel"
+        },
+        {
+          "nombre_completo": "E. Jones",
+          "nombres": "E.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "J. Kline",
+          "nombres": "J.",
+          "apellidos": "Kline"
+        },
+        {
+          "nombre_completo": "D. Northcutt",
+          "nombres": "D.",
+          "apellidos": "Northcutt"
+        },
+        {
+          "nombre_completo": "J. Stenson",
+          "nombres": "J.",
+          "apellidos": "Stenson"
+        },
+        {
+          "nombre_completo": "A. M. Womack",
+          "nombres": "A. M.",
+          "apellidos": "Womack"
+        }
+      ],
+      "pmid": "22278670",
+      "fuente": "ISME J.",
+      "anio": "2012",
+      "volumen": "6",
+      "fpage": "1469",
+      "lpage": "1479"
+    },
+    {
+      "titulo": "Towards a unified paradigm for sequence-based identification of fungi.",
+      "autores": [
+        {
+          "nombre_completo": "U. Kõljalg",
+          "nombres": "U.",
+          "apellidos": "Kõljalg"
+        },
+        {
+          "nombre_completo": "R. H. Nilsson",
+          "nombres": "R. H.",
+          "apellidos": "Nilsson"
+        },
+        {
+          "nombre_completo": "K. Abarenkov",
+          "nombres": "K.",
+          "apellidos": "Abarenkov"
+        },
+        {
+          "nombre_completo": "L. Tedersoo",
+          "nombres": "L.",
+          "apellidos": "Tedersoo"
+        },
+        {
+          "nombre_completo": "A. F. S. Taylor",
+          "nombres": "A. F. S.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "M. Bahram",
+          "nombres": "M.",
+          "apellidos": "Bahram"
+        }
+      ],
+      "pmid": "24112409",
+      "fuente": "Mol. Ecol.",
+      "anio": "2013",
+      "volumen": "22",
+      "fpage": "5271",
+      "lpage": "5277"
+    },
+    {
+      "titulo": "Bacterial communities in commercial aircraft high-efficiency particulate air (HEPA) filters assessed by PhyloChip analysis.",
+      "autores": [
+        {
+          "nombre_completo": "T. M. Korves",
+          "nombres": "T. M.",
+          "apellidos": "Korves"
+        },
+        {
+          "nombre_completo": "Y. M. Piceno",
+          "nombres": "Y. M.",
+          "apellidos": "Piceno"
+        },
+        {
+          "nombre_completo": "L. M. Tom",
+          "nombres": "L. M.",
+          "apellidos": "Tom"
+        },
+        {
+          "nombre_completo": "T. Z. DeSantis",
+          "nombres": "T. Z.",
+          "apellidos": "DeSantis"
+        },
+        {
+          "nombre_completo": "B. W. Jones",
+          "nombres": "B. W.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "G. L. Andersen",
+          "nombres": "G. L.",
+          "apellidos": "Andersen"
+        }
+      ],
+      "pmid": "22563927",
+      "fuente": "Indoor Air",
+      "anio": "2013",
+      "volumen": "23",
+      "fpage": "50",
+      "lpage": "61"
+    },
+    {
+      "titulo": "Evaluation of procedures for the collection, processing, and analysis of biomolecules from low-biomass surfaces.",
+      "autores": [
+        {
+          "nombre_completo": "K. Kwan",
+          "nombres": "K.",
+          "apellidos": "Kwan"
+        },
+        {
+          "nombre_completo": "M. Cooper",
+          "nombres": "M.",
+          "apellidos": "Cooper"
+        },
+        {
+          "nombre_completo": "M. T. La Duc",
+          "nombres": "M. T.",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "P. Vaishampayan",
+          "nombres": "P.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "C. Stam",
+          "nombres": "C.",
+          "apellidos": "Stam"
+        },
+        {
+          "nombre_completo": "J. N. Benardini",
+          "nombres": "J. N.",
+          "apellidos": "Benardini"
+        }
+      ],
+      "pmid": "21398492",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2011",
+      "volumen": "77",
+      "fpage": "2943",
+      "lpage": "2953"
+    },
+    {
+      "titulo": "Microbial monitoring of spacecraft and associated environments.",
+      "autores": [
+        {
+          "nombre_completo": "M. T. La Duc",
+          "nombres": "M. T.",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "R. Kern",
+          "nombres": "R.",
+          "apellidos": "Kern"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "14749906",
+      "fuente": "Microb. Ecol.",
+      "anio": "2004",
+      "volumen": "47",
+      "fpage": "150",
+      "lpage": "158"
+    },
+    {
+      "titulo": "Pseudomonas aeruginosa OspR is an oxidative stress sensing regulator that affects pigment production, antibiotic resistance and dissemination during infection.",
+      "autores": [
+        {
+          "nombre_completo": "L. Lan",
+          "nombres": "L.",
+          "apellidos": "Lan"
+        },
+        {
+          "nombre_completo": "T. S. Murray",
+          "nombres": "T. S.",
+          "apellidos": "Murray"
+        },
+        {
+          "nombre_completo": "B. I. Kazmierczak",
+          "nombres": "B. I.",
+          "apellidos": "Kazmierczak"
+        },
+        {
+          "nombre_completo": "C. He",
+          "nombres": "C.",
+          "apellidos": "He"
+        }
+      ],
+      "pmid": "19943895",
+      "fuente": "Mol. Microbiol.",
+      "anio": "2010",
+      "volumen": "75",
+      "fpage": "76",
+      "lpage": "91"
+    },
+    {
+      "titulo": "16S/23S rRNA sequencing",
+      "autores": [
+        {
+          "nombre_completo": "D. J. Lane",
+          "nombres": "D. J.",
+          "apellidos": "Lane"
+        },
+        {
+          "nombre_completo": "E. Stackebrandt",
+          "nombres": "E.",
+          "apellidos": "Stackebrandt"
+        },
+        {
+          "nombre_completo": "M. Goodfellow",
+          "nombres": "M.",
+          "apellidos": "Goodfellow"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucleic Acid Techniques in Bacterial Systematics",
+      "anio": "1991",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacterial colonization and succession in a newly opened hospital.",
+      "autores": [
+        {
+          "nombre_completo": "S. Lax",
+          "nombres": "S.",
+          "apellidos": "Lax"
+        },
+        {
+          "nombre_completo": "N. Sangwan",
+          "nombres": "N.",
+          "apellidos": "Sangwan"
+        },
+        {
+          "nombre_completo": "D. Smith",
+          "nombres": "D.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "P. Larsen",
+          "nombres": "P.",
+          "apellidos": "Larsen"
+        },
+        {
+          "nombre_completo": "K. M. Handley",
+          "nombres": "K. M.",
+          "apellidos": "Handley"
+        },
+        {
+          "nombre_completo": "M. Richardson",
+          "nombres": "M.",
+          "apellidos": "Richardson"
+        }
+      ],
+      "pmid": "28539477",
+      "fuente": "Sci. Transl. Med.",
+      "anio": "2017",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Longitudinal analysis of microbial interaction between humans and the indoor environment.",
+      "autores": [
+        {
+          "nombre_completo": "S. Lax",
+          "nombres": "S.",
+          "apellidos": "Lax"
+        },
+        {
+          "nombre_completo": "D. P. Smith",
+          "nombres": "D. P.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "J. Hampton-Marcell",
+          "nombres": "J.",
+          "apellidos": "Hampton-Marcell"
+        },
+        {
+          "nombre_completo": "S. M. Owens",
+          "nombres": "S. M.",
+          "apellidos": "Owens"
+        },
+        {
+          "nombre_completo": "K. M. Handley",
+          "nombres": "K. M.",
+          "apellidos": "Handley"
+        },
+        {
+          "nombre_completo": "N. M. Scott",
+          "nombres": "N. M.",
+          "apellidos": "Scott"
+        }
+      ],
+      "pmid": "25170151",
+      "fuente": "Science",
+      "anio": "2014",
+      "volumen": "345",
+      "fpage": "1048",
+      "lpage": "1052"
+    },
+    {
+      "titulo": "Comparison and characterization of microbial communities in sulfide-rich wastewater with and without propidium monoazide treatment.",
+      "autores": [
+        {
+          "nombre_completo": "W.-T. Lin",
+          "nombres": "W.-T.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "J.-F. Luo",
+          "nombres": "J.-F.",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "Y. Guo",
+          "nombres": "Y.",
+          "apellidos": "Guo"
+        }
+      ],
+      "pmid": "20680282",
+      "fuente": "Curr. Microbiol.",
+      "anio": "2011",
+      "volumen": "62",
+      "fpage": "374",
+      "lpage": "381"
+    },
+    {
+      "titulo": "Cleanroom maintenance significantly reduces abundance but not diversity of indoor microbiomes.",
+      "autores": [
+        {
+          "nombre_completo": "A. Mahnert",
+          "nombres": "A.",
+          "apellidos": "Mahnert"
+        },
+        {
+          "nombre_completo": "P. Vaishampayan",
+          "nombres": "P.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "A. J. Probst",
+          "nombres": "A. J.",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "A. Auerbach",
+          "nombres": "A.",
+          "apellidos": "Auerbach"
+        },
+        {
+          "nombre_completo": "C. Moissl-Eichinger",
+          "nombres": "C.",
+          "apellidos": "Moissl-Eichinger"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "26273838",
+      "fuente": "PLoS One",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Use of the ITS primers, ITS1F and ITS4, to characterize fungal abundance and diversity in mixed-template samples by qPCR and length heterogeneity analysis.",
+      "autores": [
+        {
+          "nombre_completo": "D. K. Manter",
+          "nombres": "D. K.",
+          "apellidos": "Manter"
+        },
+        {
+          "nombre_completo": "J. M. Vivanco",
+          "nombres": "J. M.",
+          "apellidos": "Vivanco"
+        }
+      ],
+      "pmid": "17683818",
+      "fuente": "J. Microbiol. Methods",
+      "anio": "2007",
+      "volumen": "71",
+      "fpage": "7",
+      "lpage": "14"
+    },
+    {
+      "titulo": "Molecular survey of aeroplane bacterial contamination.",
+      "autores": [
+        {
+          "nombre_completo": "C. J. McManus",
+          "nombres": "C. J.",
+          "apellidos": "McManus"
+        },
+        {
+          "nombre_completo": "S. T. Kelley",
+          "nombres": "S. T.",
+          "apellidos": "Kelley"
+        }
+      ],
+      "pmid": "16108791",
+      "fuente": "J. Appl. Microbiol.",
+      "anio": "2005",
+      "volumen": "99",
+      "fpage": "502",
+      "lpage": "508"
+    },
+    {
+      "titulo": "Quo Vadis? microbial profiling revealed strong effects of cleanroom maintenance and routes of contamination in indoor environments.",
+      "autores": [
+        {
+          "nombre_completo": "C. Moissl-Eichinger",
+          "nombres": "C.",
+          "apellidos": "Moissl-Eichinger"
+        },
+        {
+          "nombre_completo": "A. K. Auerbach",
+          "nombres": "A. K.",
+          "apellidos": "Auerbach"
+        },
+        {
+          "nombre_completo": "A. J. Probst",
+          "nombres": "A. J.",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "A. Mahnert",
+          "nombres": "A.",
+          "apellidos": "Mahnert"
+        },
+        {
+          "nombre_completo": "L. Tom",
+          "nombres": "L.",
+          "apellidos": "Tom"
+        },
+        {
+          "nombre_completo": "Y. Piceno",
+          "nombres": "Y.",
+          "apellidos": "Piceno"
+        }
+      ],
+      "pmid": "25778463",
+      "fuente": "Sci. Rep.",
+      "anio": "2015",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Lessons learned from the microbial analysis of the herschel spacecraft during assembly, integration, and test operations.",
+      "autores": [
+        {
+          "nombre_completo": "C. Moissl-Eichinger",
+          "nombres": "C.",
+          "apellidos": "Moissl-Eichinger"
+        },
+        {
+          "nombre_completo": "R. Pukall",
+          "nombres": "R.",
+          "apellidos": "Pukall"
+        },
+        {
+          "nombre_completo": "A. J. Probst",
+          "nombres": "A. J.",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "M. Stieglmeier",
+          "nombres": "M.",
+          "apellidos": "Stieglmeier"
+        },
+        {
+          "nombre_completo": "P. Schwendner",
+          "nombres": "P.",
+          "apellidos": "Schwendner"
+        },
+        {
+          "nombre_completo": "M. Mora",
+          "nombres": "M.",
+          "apellidos": "Mora"
+        }
+      ],
+      "pmid": "24313230",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1125",
+      "lpage": "1139"
+    },
+    {
+      "titulo": "Toward accurate and quantitative comparative metagenomics.",
+      "autores": [
+        {
+          "nombre_completo": "S. Nayfach",
+          "nombres": "S.",
+          "apellidos": "Nayfach"
+        },
+        {
+          "nombre_completo": "K. S. Pollard",
+          "nombres": "K. S.",
+          "apellidos": "Pollard"
+        }
+      ],
+      "pmid": "27565341",
+      "fuente": "Cell",
+      "anio": "2016",
+      "volumen": "166",
+      "fpage": "1103",
+      "lpage": "1116"
+    },
+    {
+      "titulo": "Comparison of propidium monoazide with ethidium monoazide for differentiation of live vs. dead bacteria by selective removal of dna from dead cells.",
+      "autores": [
+        {
+          "nombre_completo": "A. Nocker",
+          "nombres": "A.",
+          "apellidos": "Nocker"
+        },
+        {
+          "nombre_completo": "C.-Y. Cheung",
+          "nombres": "C.-Y.",
+          "apellidos": "Cheung"
+        },
+        {
+          "nombre_completo": "A. K. Camper",
+          "nombres": "A. K.",
+          "apellidos": "Camper"
+        }
+      ],
+      "pmid": "16753236",
+      "fuente": "J. Microbiol. Methods",
+      "anio": "2006",
+      "volumen": "67",
+      "fpage": "310",
+      "lpage": "320"
+    },
+    {
+      "titulo": "Use of propidium monoazide for live/dead distinction in microbial ecology.",
+      "autores": [
+        {
+          "nombre_completo": "A. Nocker",
+          "nombres": "A.",
+          "apellidos": "Nocker"
+        },
+        {
+          "nombre_completo": "P. Sossa-Fernandez",
+          "nombres": "P.",
+          "apellidos": "Sossa-Fernandez"
+        },
+        {
+          "nombre_completo": "M. D. Burr",
+          "nombres": "M. D.",
+          "apellidos": "Burr"
+        },
+        {
+          "nombre_completo": "A. K. Camper",
+          "nombres": "A. K.",
+          "apellidos": "Camper"
+        }
+      ],
+      "pmid": "17586667",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2007",
+      "volumen": "73",
+      "fpage": "5111",
+      "lpage": "5117"
+    },
+    {
+      "titulo": "Survival of rock-colonizing organisms after 1.5 years in outer space.",
+      "autores": [
+        {
+          "nombre_completo": "S. Onofri",
+          "nombres": "S.",
+          "apellidos": "Onofri"
+        },
+        {
+          "nombre_completo": "R. de la Torre",
+          "nombres": "R.",
+          "apellidos": "de la Torre"
+        },
+        {
+          "nombre_completo": "J.-P. de Vera",
+          "nombres": "J.-P.",
+          "apellidos": "de Vera"
+        },
+        {
+          "nombre_completo": "S. Ott",
+          "nombres": "S.",
+          "apellidos": "Ott"
+        },
+        {
+          "nombre_completo": "L. Zucconi",
+          "nombres": "L.",
+          "apellidos": "Zucconi"
+        },
+        {
+          "nombre_completo": "L. Selbmann",
+          "nombres": "L.",
+          "apellidos": "Selbmann"
+        }
+      ],
+      "pmid": "22680696",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "508",
+      "lpage": "516"
+    },
+    {
+      "titulo": "The subsystems approach to genome annotation and its use in the project to annotate 1000 genomes.",
+      "autores": [
+        {
+          "nombre_completo": "R. Overbeek",
+          "nombres": "R.",
+          "apellidos": "Overbeek"
+        },
+        {
+          "nombre_completo": "T. Begley",
+          "nombres": "T.",
+          "apellidos": "Begley"
+        },
+        {
+          "nombre_completo": "R. M. Butler",
+          "nombres": "R. M.",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "J. V. Choudhuri",
+          "nombres": "J. V.",
+          "apellidos": "Choudhuri"
+        },
+        {
+          "nombre_completo": "H.-Y. Chuang",
+          "nombres": "H.-Y.",
+          "apellidos": "Chuang"
+        },
+        {
+          "nombre_completo": "M. Cohoon",
+          "nombres": "M.",
+          "apellidos": "Cohoon"
+        }
+      ],
+      "pmid": "16214803",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2005",
+      "volumen": "33",
+      "fpage": "5691",
+      "lpage": "5702"
+    },
+    {
+      "titulo": "eggNOG v3.0: orthologous groups covering 1133 organisms at 41 different taxonomic ranges.",
+      "autores": [
+        {
+          "nombre_completo": "S. Powell",
+          "nombres": "S.",
+          "apellidos": "Powell"
+        },
+        {
+          "nombre_completo": "D. Szklarczyk",
+          "nombres": "D.",
+          "apellidos": "Szklarczyk"
+        },
+        {
+          "nombre_completo": "K. Trachana",
+          "nombres": "K.",
+          "apellidos": "Trachana"
+        },
+        {
+          "nombre_completo": "A. Roth",
+          "nombres": "A.",
+          "apellidos": "Roth"
+        },
+        {
+          "nombre_completo": "M. Kuhn",
+          "nombres": "M.",
+          "apellidos": "Kuhn"
+        },
+        {
+          "nombre_completo": "J. Muller",
+          "nombres": "J.",
+          "apellidos": "Muller"
+        }
+      ],
+      "pmid": "22096231",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2011",
+      "volumen": "40",
+      "fpage": "D284",
+      "lpage": "D289"
+    },
+    {
+      "titulo": "A DNA-based registry for all animal species: the barcode index number (BIN) system.",
+      "autores": [
+        {
+          "nombre_completo": "S. Ratnasingham",
+          "nombres": "S.",
+          "apellidos": "Ratnasingham"
+        },
+        {
+          "nombre_completo": "P. D. N. Hebert",
+          "nombres": "P. D. N.",
+          "apellidos": "Hebert"
+        }
+      ],
+      "pmid": "23861743",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A new medium for the enumeration and subculture of bacteria from potable water.",
+      "autores": [
+        {
+          "nombre_completo": "D. J. Reasoner",
+          "nombres": "D. J.",
+          "apellidos": "Reasoner"
+        },
+        {
+          "nombre_completo": "E. E. Geldreich",
+          "nombres": "E. E.",
+          "apellidos": "Geldreich"
+        }
+      ],
+      "pmid": "3883894",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "1985",
+      "volumen": "49",
+      "fpage": "1",
+      "lpage": "7"
+    },
+    {
+      "titulo": "Epidemiology, pathogenicity and emerging resistances in Staphylococcus pasteuri: from mammals and lampreys, to man.",
+      "autores": [
+        {
+          "nombre_completo": "V. Savini",
+          "nombres": "V.",
+          "apellidos": "Savini"
+        },
+        {
+          "nombre_completo": "C. Catavitello",
+          "nombres": "C.",
+          "apellidos": "Catavitello"
+        },
+        {
+          "nombre_completo": "A. Bianco",
+          "nombres": "A.",
+          "apellidos": "Bianco"
+        },
+        {
+          "nombre_completo": "A. Balbinot",
+          "nombres": "A.",
+          "apellidos": "Balbinot"
+        },
+        {
+          "nombre_completo": "D. D’Antonio",
+          "nombres": "D.",
+          "apellidos": "D’Antonio"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Recent Pat. Anti Infect. Drug Discov.",
+      "anio": "2009",
+      "volumen": "4",
+      "fpage": "123",
+      "lpage": "129"
+    },
+    {
+      "titulo": "Database resources of the national center for biotechnology information.",
+      "autores": [
+        {
+          "nombre_completo": "E. W. Sayers",
+          "nombres": "E. W.",
+          "apellidos": "Sayers"
+        },
+        {
+          "nombre_completo": "T. Barrett",
+          "nombres": "T.",
+          "apellidos": "Barrett"
+        },
+        {
+          "nombre_completo": "D. A. Benson",
+          "nombres": "D. A.",
+          "apellidos": "Benson"
+        },
+        {
+          "nombre_completo": "S. H. Bryant",
+          "nombres": "S. H.",
+          "apellidos": "Bryant"
+        },
+        {
+          "nombre_completo": "K. Canese",
+          "nombres": "K.",
+          "apellidos": "Canese"
+        },
+        {
+          "nombre_completo": "V. Chetvernin",
+          "nombres": "V.",
+          "apellidos": "Chetvernin"
+        }
+      ],
+      "pmid": "18940862",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2008",
+      "volumen": "37",
+      "fpage": "D5",
+      "lpage": "D15"
+    },
+    {
+      "titulo": "Measurement of diversity.",
+      "autores": [
+        {
+          "nombre_completo": "E. H. Simpson",
+          "nombres": "E. H.",
+          "apellidos": "Simpson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nature",
+      "anio": "1949",
+      "volumen": "163",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with international space station environmental surfaces.",
+      "autores": [
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30514368",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Quantitative analysis of small-subunit rRNA genes in mixed microbial populations via 5’-nuclease assays.",
+      "autores": [
+        {
+          "nombre_completo": "M. T. Suzuki",
+          "nombres": "M. T.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "L. T. Taylor",
+          "nombres": "L. T.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "E. F. DeLong",
+          "nombres": "E. F.",
+          "apellidos": "DeLong"
+        }
+      ],
+      "pmid": "11055900",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2000",
+      "volumen": "66",
+      "fpage": "4605",
+      "lpage": "4614"
+    },
+    {
+      "titulo": "New perspectives on viable microbial communities in low-biomass cleanroom environments.",
+      "autores": [
+        {
+          "nombre_completo": "P. A. Vaishampayan",
+          "nombres": "P. A.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "A. J. Probst",
+          "nombres": "A. J.",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "M. T. La Duc",
+          "nombres": "M. T.",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "E. Bargoma",
+          "nombres": "E.",
+          "apellidos": "Bargoma"
+        },
+        {
+          "nombre_completo": "J. N. Benardini",
+          "nombres": "J. N.",
+          "apellidos": "Benardini"
+        },
+        {
+          "nombre_completo": "G. L. Andersen",
+          "nombres": "G. L.",
+          "apellidos": "Andersen"
+        }
+      ],
+      "pmid": "23051695",
+      "fuente": "ISME J.",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "312",
+      "lpage": "324"
+    },
+    {
+      "titulo": "Survival of Bacillus pumilus spores for a prolonged period of time in real space conditions.",
+      "autores": [
+        {
+          "nombre_completo": "P. A. Vaishampayan",
+          "nombres": "P. A.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "E. Rabbow",
+          "nombres": "E.",
+          "apellidos": "Rabbow"
+        },
+        {
+          "nombre_completo": "G. Horneck",
+          "nombres": "G.",
+          "apellidos": "Horneck"
+        },
+        {
+          "nombre_completo": "K. J. Venkateswaran",
+          "nombres": "K. J.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "22680694",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "487",
+      "lpage": "497"
+    },
+    {
+      "titulo": "ATP as a biomarker of viable microorganisms in clean-room facilities.",
+      "autores": [
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "N. Hattori",
+          "nombres": "N.",
+          "apellidos": "Hattori"
+        },
+        {
+          "nombre_completo": "M. T. La Duc",
+          "nombres": "M. T.",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "R. Kern",
+          "nombres": "R.",
+          "apellidos": "Kern"
+        }
+      ],
+      "pmid": "12531506",
+      "fuente": "J. Microbiol. Methods",
+      "anio": "2003",
+      "volumen": "52",
+      "fpage": "367",
+      "lpage": "377"
+    },
+    {
+      "titulo": "Following the terrestrial tracks of Caulobacter - redefining the ecology of a reputed aquatic oligotroph.",
+      "autores": [
+        {
+          "nombre_completo": "R. C. Wilhelm",
+          "nombres": "R. C.",
+          "apellidos": "Wilhelm"
+        }
+      ],
+      "pmid": "30108303",
+      "fuente": "ISME J.",
+      "anio": "2018",
+      "volumen": "12",
+      "fpage": "3025",
+      "lpage": "3037"
+    },
+    {
+      "titulo": "Naxibacter Alkalitolerans gen. nov., sp. nov., a novel member of the family ‘Oxalobacteraceae’ isolated from china.",
+      "autores": [
+        {
+          "nombre_completo": "P. Xu",
+          "nombres": "P.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "W.-J. Li",
+          "nombres": "W.-J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "S.-K. Tang",
+          "nombres": "S.-K.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "Y.-Q. Zhang",
+          "nombres": "Y.-Q.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G.-Z. Chen",
+          "nombres": "G.-Z.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "H.-H. Chen",
+          "nombres": "H.-H.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "15879247",
+      "fuente": "Intern. J. Syst. Evol. Microbiol.",
+      "anio": "2005",
+      "volumen": "55",
+      "fpage": "1149",
+      "lpage": "1153"
+    },
+    {
+      "titulo": "Introducing EzBioCloud: a taxonomically united database of 16S rRNA Gene sequences and whole-genome assemblies.",
+      "autores": [
+        {
+          "nombre_completo": "S.-H. Yoon",
+          "nombres": "S.-H.",
+          "apellidos": "Yoon"
+        },
+        {
+          "nombre_completo": "S.-M. Ha",
+          "nombres": "S.-M.",
+          "apellidos": "Ha"
+        },
+        {
+          "nombre_completo": "S. Kwon",
+          "nombres": "S.",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J. Lim",
+          "nombres": "J.",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "Y. Kim",
+          "nombres": "Y.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "H. Seo",
+          "nombres": "H.",
+          "apellidos": "Seo"
+        }
+      ],
+      "pmid": "28005526",
+      "fuente": "Intern. J. Syst. Evol. Microbiol.",
+      "anio": "2017",
+      "volumen": "67",
+      "fpage": "1613",
+      "lpage": "1617"
+    },
+    {
+      "titulo": "Pseudomonas alcaliphila sp. nov., a novel facultatively psychrophilic alkaliphile isolated from seawater.",
+      "autores": [
+        {
+          "nombre_completo": "I. Yumoto",
+          "nombres": "I.",
+          "apellidos": "Yumoto"
+        },
+        {
+          "nombre_completo": "K. Yamazaki",
+          "nombres": "K.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "M. Hishinuma",
+          "nombres": "M.",
+          "apellidos": "Hishinuma"
+        },
+        {
+          "nombre_completo": "Y. Nodasaka",
+          "nombres": "Y.",
+          "apellidos": "Nodasaka"
+        },
+        {
+          "nombre_completo": "A. Suemori",
+          "nombres": "A.",
+          "apellidos": "Suemori"
+        },
+        {
+          "nombre_completo": "K. Nakajima",
+          "nombres": "K.",
+          "apellidos": "Nakajima"
+        }
+      ],
+      "pmid": "11321079",
+      "fuente": "Intern. J. Syst. Evol. Microbiol.",
+      "anio": "2001",
+      "volumen": "51",
+      "fpage": "349",
+      "lpage": "355"
+    },
+    {
+      "titulo": "Micrococcus Yunnanensis sp. nov., a novel actinobacterium isolated from surface-sterilized Polyspora axillaris roots.",
+      "autores": [
+        {
+          "nombre_completo": "G.-Z. Zhao",
+          "nombres": "G.-Z.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "J. Li",
+          "nombres": "J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "S. Qin",
+          "nombres": "S.",
+          "apellidos": "Qin"
+        },
+        {
+          "nombre_completo": "Y.-Q. Zhang",
+          "nombres": "Y.-Q.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "W.-Y. Zhu",
+          "nombres": "W.-Y.",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "C.-L. Jiang",
+          "nombres": "C.-L.",
+          "apellidos": "Jiang"
+        }
+      ],
+      "pmid": "19620366",
+      "fuente": "Intern. J. Syst. Evol. Microbiol.",
+      "anio": "2009",
+      "volumen": "59",
+      "fpage": "2383",
+      "lpage": "2387"
+    }
+  ]
+}

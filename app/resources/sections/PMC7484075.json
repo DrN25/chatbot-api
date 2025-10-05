@@ -1,0 +1,605 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Enterobacteriales Strains Isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "The whole-genome sequences of 26 strains isolated from the International Space Station were generated, and the strains were identified as being members of the order Enterobacteriales. Characterization of these whole-genome sequences might enable the identification of potential pathogenic bacteria that have been adapting to the space environment.",
+    "ABSTRACT",
+    "The whole-genome sequences of 26 strains isolated from the International Space Station were generated, and the strains were identified as being members of the order Enterobacteriales. Characterization of these whole-genome sequences might enable the identification of potential pathogenic bacteria that have been adapting to the space environment."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "Members of the order Enterobacteriales have been found to exhibit human pathogenicity and therefore pose a health risk for people on Earth and for astronauts aboard the International Space Station (ISS). The latter is of concern for long-duration missions, as astronauts have been shown to be immunocompromised. Importantly, these bacteria are able to adapt to extreme conditions such as microgravity and radiation and thus persist, necessitating the development of appropriate countermeasures to control them. Members of the order Enterobacteriales that were found on ISS surfaces were Pantoea brenneri, Pantoea agglomerans, Kalamiella piersonii, and Enterobacter bugandensis. On Earth, P. agglomerans and P. brenneri were reported to have been isolated from human infections. K. piersonii is a member of a novel genus in the family Erwiniaceae that has exhibited resistance to multiple clinical drugs, such as penicillin and vancomycin, allowing it to be an emerging pathogen. E. bugandensis was documented from blood as a causative agent of septicemia in various geological locations. Analyses of draft genome assemblies for these species might pave the way to identify the genetic processes responsible for potential pathogenicity, as previously reported for some of these strains.",
+    "The strains used for whole-genome sequencing (WGS) were isolated from four different locations in the ISS across three flights and are detailed in Table 1. The ISS surface samples collected and brought back to Earth were aseptically handled, suitable aliquots of the sample concentrate (100 μl) were plated onto Reasoner’s 2A (R2A) medium and incubated at 25°C for 7 days, and a single well-isolated colony was archived at −80°C until DNA extraction. DNA was extracted from cultures grown in R2A medium using the ZymoBIOMICS DNA MagBead kit according to the manufacturer’s instructions.",
+    "WGS of 26 bacterial isolates from the ISS was performed using the Illumina Nextera Flex protocol for library preparation, as used in similar studies. The NovaSeq 6000 system with an S4 flow cell (paired-end 2 × 150-bp reads) was used to execute paired-end sequencing. FastQC (v0.11.7) was used to validate the quality of the raw sequencing data. Adapter trimming and quality filtering were carried out using the software fastp (v0.20.0) to perform quality control. The cleaned sequences were assembled using SPAdes (v3.11.1). The N50 values, numbers of contigs, and total genome lengths were generated using QUAST (v5.0.2) and used to assess the quality of the final assembly. The average nucleotide identity (ANI) values were calculated by comparing all strains to their respective type strains, and their taxonomic affiliations and genome statistics are given in Table 1. The NCBI Prokaryotic Genome Annotation Pipeline (PGAP) (v.4.11 and v.4.12) was used for genome annotation. Default parameters were used for all software.",
+    "Data availability.",
+    "This WGS project was deposited in DDBJ/ENA/GenBank (accession numbers are given in Table 1 [BioProject accession no. PRJNA635942]) and also deposited in the NASA GeneLab database (accession no. GLDS-302 and GLDS-311). The versions described in this paper are the first versions."
+  ],
+  "TABLE": [
+    "Metadata and genome statistics for Enterobacter, Kalamiella, and Pantoea strains isolated from various ISS environmental surfaces during the Microbial Tracking 1 flight project",
+    "Sample name\tNearest species identitya\tGenBank accession no.\tRaw sequence accession no.\tFlight(s) or facilityb\tSampling locationc\tNo. of contigsd\tGenome size (bp)\tN50 (bp)\tMedian coverage (×)\tNo. of quality-controlled reads\tNo. of raw reads (×106)\tG+C content (%)\t \tIF2SW-B4\tE. bugandensis\tJABWOY000000000\tSRR11885007\tF1-2\tWHC\t36\t4,892,220\t511,556\t657.59\t34,787,506\t17.5\t55.9\t \tIFACSW-B2\tE. bugandensis\tJABWOX000000000\tSRR11885006\tF1\tFC\t40\t4,892,163\t481,191\t662.95\t35,107,666\t17.6\t55.9\t \tIFACSW-B4\tE. bugandensis\tJABWOW000000000\tSRR11885005\tF1\tFC\t35\t4,892,584\t808,304\t606.70\t31,965,988\t16.0\t55.9\t \tIFACSW-B5\tE. bugandensis\tJABWOV000000000\tSRR11885004\tF1\tFC\t37\t4,891,741\t481,191\t672.32\t35,130,172\t17.7\t55.9\t \tIFACSW-P1\tE. bugandensis\tJABWOU000000000\tSRR11885003\tF1\tFC\t36\t4,891,763\t808,252\t640.18\t35,538,578\t17.9\t55.9\t \tIF2SW-F2\tE. bugandensis\tJACBPD000000000\tSRR12071883\tF1-2\tWHC\t25\t4,892,159\t511,419\t547.77\t29,062,046\t14.5\t55.9\t \tIF2SW-F3\tE. bugandensis\tJACBPE000000000\tSRR12071879\tF1-2\tWHC\t22\t4,892,298\t808,302\t518.30\t27,421,928\t13.7\t55.9\t \tF3-6B(4)\tK. piersonii\tJACBPM000000000\tSRR12071882\tF3-6\tPMM\t39\t4,850,268\t503,530\t313.39\t17,045,882\t8.5\t57.1\t \tF3-6B(5)\tK. piersonii\tJACBPN000000000\tSRR12071881\tF3-6\tPMM\t50\t4,850,704\t310,993\t411.16\t24,040,576\t12.0\t57.1\t \tIIIF_BACT_A\tK. piersonii\tJACBPO000000000\tSRR12071880\tF3-6\tPMM\t42\t4,849,373\t503,411\t441.96\t22,790,000\t11.4\t57.1\t \tFJII-L5-SW-P2\tP. agglomerans\tJACBPL000000000\tSRR12071872\tJPL SAF II\tCleanroom floor\t26\t4,861,660\t445,707\t413.84\t23,353,202\t11.7\t55.1\t \tIF5SW-B1\tP. brenneri\tJABWPM000000000\tSRR11885013\tF1-5\tN1-O4\t108\t5,022,545\t216,403\t487.50\t27,782,700\t14.0\t55.9\t \tIF5SW-B2\tP. brenneri\tJABWPL000000000\tSRR11885012\tF1-5\tN1-O4\t107\t5,023,215\t216,403\t372.32\t20,371,906\t10.2\t55.9\t \tIFACSW-B3\tP. brenneri\tJABWPK000000000\tSRR11885002\tF1\tFC\t108\t5,023,154\t216,403\t549.11\t31,932,976\t16.0\t55.9\t \tIF5SW-P1\tP. brenneri\tJABWPJ000000000\tSRR11885001\tF1-5\tN1-O4\t106\t5,023,034\t216,403\t534.38\t32,864,806\t16.5\t55.9\t \tIF5SW-P2\tP. brenneri\tJABWPI000000000\tSRR11885000\tF1-5\tN1-O4\t106\t5,023,268\t216,131\t586.61\t37,186,174\t18.7\t55.9\t \tIFACSW-P2\tP. brenneri\tJABWPH000000000\tSRR11884999\tF1\tFC\t108\t5,023,383\t216,403\t553.13\t34,845,798\t17.5\t55.9\t \tIIF5SW-B1\tP. brenneri\tJABWPG000000000\tSRR11884998\tF1-5\tN1-O4\t106\t5,022,674\t216,137\t436.61\t26,223,526\t13.2\t55.9\t \tIIF5SW-B2\tP. brenneri\tJABWPF000000000\tSRR11884997\tF1-5\tN1-O4\t106\t5,023,080\t216,403\t460.71\t27,740,334\t13.9\t55.9\t \tIIF5SW-B5\tP. brenneri\tJABWPE000000000\tSRR11884996\tF1-5\tN1-O4\t111\t5,021,866\t176,626\t366.96\t22,097,600\t11.1\t55.9\t \tIIF5SW-P1\tP. brenneri\tJACBPF000000000\tSRR12071878\tF2-5\tN1-O4\t75\t5,020,903\t176,626\t444.64\t26,701,110\t13.4\t55.9\t \tIIF5SW-P2\tP. brenneri\tJACBPG000000000\tSRR12071877\tF2-5\tN1-O4\t75\t5,022,945\t216,403\t451.34\t26,675,346\t13.4\t55.9\t \tIIF5SW-P3\tP. brenneri\tJACBPH000000000\tSRR12071876\tF2-5\tN1-O4\t75\t5,021,950\t216,403\t459.38\t26,806,520\t13.5\t55.9\t \tIIF5SW-P4\tP. brenneri\tJACBPI000000000\tSRR12071875\tF2-5\tN1-O4\t75\t5,023,133\t216,403\t586.61\t35,389,420\t17.8\t55.9\t \tIIF5SW-P5\tP. brenneri\tJACBPJ000000000\tSRR12071874\tF2-5\tN1-O4\t75\t5,023,087\t216,131\t510.27\t29,693,196\t14.9\t55.9\t \tIIFCSG-B1\tP. brenneri\tJACBPK000000000\tSRR12071873\tCRV2\tCRV-FC\t74\t5,022,524\t216,403\t345.54\t20,467,790\t10.3\t55.9",
+    "The 16S rRNA gene sequences were retrieved from the whole-genome sequence of the queried genome and analyzed with BLAST against type strains for all 16S rRNA sequences in the NCBI database. The bacterial species identity was determined when the queried sequence showed >97.5% similarity to the 16S rRNA gene sequence of the type strain (E. bugandensis DSM 29888T, K. piersonii DSM 108198T, P. agglomerans DSM 3493T, or P. brenneri DSM 24232T). The whole-genome sequence of the nearest neighbor was further selected for ANI evaluation. The ANI value for all strain comparisons was 99%.",
+    "Hyphenated designations indicate the flight number followed by the location; for example, F1-2 indicates flight 1 and location 2. JPL, Jet Propulsion Laboratory; SAF, Spacecraft Assembly Facility; CRV, commercial resupply vehicle.",
+    "WHC, waste and hygiene compartment; PMM, permanent multipurpose module; FC, field control (a sampling wipe was exposed to the air for 120 s at the center of node 2); N1-O4, node 1 overhead 4.",
+    "Contigs that were less than 200 nucleotides long were not analyzed."
+  ],
+  "REF": [
+    "REFERENCES",
+    "One year cross-sectional study in adult and neonatal intensive care units reveals the bacterial and antimicrobial resistance genes profiles in patients and hospital surfaces",
+    "Impact of space flight on bacterial virulence and antibiotic susceptibility",
+    "Pantoea agglomerans, a plant pathogen causing human disease",
+    "Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "Enterobacter bugandensis sp. nov., isolated from neonatal blood",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "FastQC: a quality control tool for high throughput sequence data",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "QUAST: quality assessment tool for genome assemblies",
+    "A large-scale evaluation of algorithms to calculate average nucleotide identity"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "One year cross-sectional study in adult and neonatal intensive care units reveals the bacterial and antimicrobial resistance genes profiles in patients and hospital surfaces",
+      "autores": [
+        {
+          "nombre_completo": "AP Christoff",
+          "nombres": "AP",
+          "apellidos": "Christoff"
+        },
+        {
+          "nombre_completo": "AFR Sereia",
+          "nombres": "AFR",
+          "apellidos": "Sereia"
+        },
+        {
+          "nombre_completo": "BS Braga",
+          "nombres": "BS",
+          "apellidos": "Braga"
+        },
+        {
+          "nombre_completo": "TPL Raduan",
+          "nombres": "TPL",
+          "apellidos": "Raduan"
+        },
+        {
+          "nombre_completo": "MDV Martino",
+          "nombres": "MDV",
+          "apellidos": "Martino"
+        },
+        {
+          "nombre_completo": "FG Menezes",
+          "nombres": "FG",
+          "apellidos": "Menezes"
+        },
+        {
+          "nombre_completo": "LFV Oliveira",
+          "nombres": "LFV",
+          "apellidos": "Oliveira"
+        },
+        {
+          "nombre_completo": "GNF Cruz",
+          "nombres": "GNF",
+          "apellidos": "Cruz"
+        },
+        {
+          "nombre_completo": "DC Bastiani",
+          "nombres": "DC",
+          "apellidos": "Bastiani"
+        },
+        {
+          "nombre_completo": "VL Silva",
+          "nombres": "VL",
+          "apellidos": "Silva"
+        },
+        {
+          "nombre_completo": "C Hernandes",
+          "nombres": "C",
+          "apellidos": "Hernandes"
+        },
+        {
+          "nombre_completo": "APM Nascente",
+          "nombres": "APM",
+          "apellidos": "Nascente"
+        },
+        {
+          "nombre_completo": "AA Reis",
+          "nombres": "AA",
+          "apellidos": "Reis"
+        },
+        {
+          "nombre_completo": "RG Viessi",
+          "nombres": "RG",
+          "apellidos": "Viessi"
+        },
+        {
+          "nombre_completo": "ASP Marques",
+          "nombres": "ASP",
+          "apellidos": "Marques"
+        }
+      ],
+      "pmid": "32492060",
+      "fuente": "PLoS One",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Impact of space flight on bacterial virulence and antibiotic susceptibility",
+      "autores": [
+        {
+          "nombre_completo": "PW Taylor",
+          "nombres": "PW",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "26251622",
+      "fuente": "Infect Drug Resist",
+      "anio": "2015",
+      "volumen": "8",
+      "fpage": "249",
+      "lpage": "262"
+    },
+    {
+      "titulo": "Pantoea agglomerans, a plant pathogen causing human disease",
+      "autores": [
+        {
+          "nombre_completo": "AT Cruz",
+          "nombres": "AT",
+          "apellidos": "Cruz"
+        },
+        {
+          "nombre_completo": "AC Cazacu",
+          "nombres": "AC",
+          "apellidos": "Cazacu"
+        },
+        {
+          "nombre_completo": "CH Allen",
+          "nombres": "CH",
+          "apellidos": "Allen"
+        }
+      ],
+      "pmid": "17442803",
+      "fuente": "J Clin Microbiol",
+      "anio": "2007",
+      "volumen": "45",
+      "fpage": "1989",
+      "lpage": "1992"
+    },
+    {
+      "titulo": "Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "SS Mhatre",
+          "nombres": "SS",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "31011775",
+      "fuente": "Appl Microbiol Biotechnol",
+      "anio": "2019",
+      "volumen": "103",
+      "fpage": "4483",
+      "lpage": "4497"
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "K Wheeler",
+          "nombres": "K",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enterobacter bugandensis sp. nov., isolated from neonatal blood",
+      "autores": [
+        {
+          "nombre_completo": "S Doijad",
+          "nombres": "S",
+          "apellidos": "Doijad"
+        },
+        {
+          "nombre_completo": "C Imirzalioglu",
+          "nombres": "C",
+          "apellidos": "Imirzalioglu"
+        },
+        {
+          "nombre_completo": "SE Mshana",
+          "nombres": "SE",
+          "apellidos": "Mshana"
+        },
+        {
+          "nombre_completo": "T Chakraborty",
+          "nombres": "T",
+          "apellidos": "Chakraborty"
+        },
+        {
+          "nombre_completo": "Y Yao",
+          "nombres": "Y",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "NB Pati",
+          "nombres": "NB",
+          "apellidos": "Pati"
+        },
+        {
+          "nombre_completo": "L Falgenhauer",
+          "nombres": "L",
+          "apellidos": "Falgenhauer"
+        },
+        {
+          "nombre_completo": "T Hain",
+          "nombres": "T",
+          "apellidos": "Hain"
+        },
+        {
+          "nombre_completo": "BU Foesel",
+          "nombres": "BU",
+          "apellidos": "Foesel"
+        },
+        {
+          "nombre_completo": "B Abt",
+          "nombres": "B",
+          "apellidos": "Abt"
+        },
+        {
+          "nombre_completo": "J Overmann",
+          "nombres": "J",
+          "apellidos": "Overmann"
+        },
+        {
+          "nombre_completo": "MM Mirambo",
+          "nombres": "MM",
+          "apellidos": "Mirambo"
+        }
+      ],
+      "pmid": "26637818",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "2016",
+      "volumen": "66",
+      "fpage": "968",
+      "lpage": "974"
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "J Minich",
+          "nombres": "J",
+          "apellidos": "Minich"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "FastQC: a quality control tool for high throughput sequence data",
+      "autores": [
+        {
+          "nombre_completo": "S Andrews",
+          "nombres": "S",
+          "apellidos": "Andrews"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2010",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V Saveliev",
+          "nombres": "V",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "A large-scale evaluation of algorithms to calculate average nucleotide identity",
+      "autores": [
+        {
+          "nombre_completo": "S-H Yoon",
+          "nombres": "S-H",
+          "apellidos": "Yoon"
+        },
+        {
+          "nombre_completo": "S Ha",
+          "nombres": "S",
+          "apellidos": "Ha"
+        },
+        {
+          "nombre_completo": "J Lim",
+          "nombres": "J",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "S Kwon",
+          "nombres": "S",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J Chun",
+          "nombres": "J",
+          "apellidos": "Chun"
+        }
+      ],
+      "pmid": "28204908",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2017",
+      "volumen": "110",
+      "fpage": "1281",
+      "lpage": "1286"
+    }
+  ]
+}

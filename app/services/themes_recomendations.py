@@ -1,13 +1,14 @@
 from app.services.llm_consult import Consult
+from app.cluster_recommender import recommend_cluster_by_keywords
 from typing import List, Dict
 import json
 import os
 
 class ThemesRecommender:
     """
-    Recomendador de temas relacionados usando vocabulario restringido (961 términos).
-    Recomienda keywords DIFERENTES a las del input, pero del mismo vocabulario.
-    Solo devuelve keywords que existan en keywords.json
+    Recomendador de clusters relacionados usando keywords extraídas del input.
+    Extrae keywords del input y encuentra el cluster más relevante.
+    Retorna información del cluster con mejor match.
     """
     def __init__(self, api_key: str):
         self.llm_consult = Consult(api_key)
@@ -25,38 +26,59 @@ class ThemesRecommender:
 
     async def recommend(self, text: str) -> Dict[str, any]:
         """
-        Recomienda máximo 5 keywords relacionadas (diferentes al input)
-        Retorna: {"action": "recommendations", "data": [...]}
+        Extrae keywords del input y recomienda los clusters más relacionados.
+        
+        Retorna: {
+            "action": "recommendations", 
+            "data": {
+                "input_keywords": ["keyword1", "keyword2", ...],
+                "recommended_clusters": [
+                    {
+                        "cluster_id": "23",
+                        "relevance_score": 0.85,
+                        "matched_keywords": [...],
+                        "total_keywords_in_cluster": 45
+                    },
+                    ...
+                ]
+            }
+        }
         """
-        # Usar TODO el vocabulario (961 keywords) en el prompt
+        # Paso 1: Extraer keywords del input usando LLM
         vocab_str = ", ".join(sorted(self.vocabulary))
         
-        system_prompt = f"""Recommend RELATED scientific keywords based on user input using ONLY this vocabulary:
+        system_prompt = f"""Extract scientific keywords from user input using ONLY this vocabulary:
 {vocab_str}
 
 TASK:
-1. Identify the main concepts in the user's input (translate to English if needed)
-2. Find RELATED/SIMILAR keywords from vocabulary (NOT the same as input)
-3. Return comma-separated keywords (max 5)
+1. Identify ALL scientific concepts in the input (translate to English if needed)
+2. Match each concept to vocabulary (exact match, case-insensitive)
+3. If there are no matches, try to find related terms in the vocabulary, but if the input is too vague, return empty
+4. Return comma-separated keywords (max 5)
 
 RULES:
-- Recommended keywords must be DIFFERENT from input keywords
-- Find semantically related terms (e.g., if input is "spaceflight" → recommend "microgravity, astronauts, weightless")
+- Extract ALL relevant concepts, don't skip any
 - Return format: word1, word2, word3 (NO brackets, quotes, or JSON)
 - If no matches: return empty
 
 EXAMPLES:
-Input: "spaceflight" → Output: microgravity, astronauts, weightless, radiation
-Input: "coronavirus" → Output: immunogenicity, pathogens, immunity, toxicity
-Input: "osteocytes" → Output: bone deterioration, osteogenesis, metabolism, microgravity"""
+Input: "spaceflight y metabolismo" → Output: spaceflight, metabolism
+Input: "coronavirus, immunogenicity y cardiomyocytes" → Output: coronavirus, immunogenicity, cardiomyocytes
+Input: "hello" → Output: (empty)"""
 
         response = await self.llm_consult.consult(system_prompt, text)
         content = response['choices'][0]['message']['content'].strip()
         
         if not content:
-            return []
+            return {
+                "action": "recommendations",
+                "data": {
+                    "input_keywords": [],
+                    "recommended_clusters": []
+                }
+            }
         
-        # Parsear respuesta (manejar CSV o JSON)
+        # Parsear respuesta
         if content.startswith('[') and content.endswith(']'):
             try:
                 raw_keywords = [k.strip().lower() for k in json.loads(content)]
@@ -65,7 +87,7 @@ Input: "osteocytes" → Output: bone deterioration, osteogenesis, metabolism, mi
         else:
             raw_keywords = [k.strip().lower() for k in content.split(',')]
         
-        # Validar contra vocabulario y eliminar duplicados
+        # Validar contra vocabulario
         validated = []
         seen = set()
         
@@ -84,7 +106,20 @@ Input: "osteocytes" → Output: bone deterioration, osteogenesis, metabolism, mi
                     validated.append(matches[0])
                     seen.add(matches[0])
         
+        input_keywords = validated[:5]
+        
+        # Paso 2: Buscar TOP 5 clusters más relevantes usando las keywords extraídas
+        recommended_clusters = []
+        
+        if input_keywords:
+            clusters = recommend_cluster_by_keywords(input_keywords, limit=5)
+            recommended_clusters = clusters  # Ya viene como lista ordenada
+        
         return {
             "action": "recommendations",
-            "data": validated[:5]
+            "data": {
+                "input_keywords": input_keywords,
+                "recommended_clusters": recommended_clusters
+            }
         }
+

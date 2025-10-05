@@ -1,0 +1,2395 @@
+{
+  "TITLE": [
+    "Reviewing the state of biosensors and lab-on-a- chip technologies: opportunities for extreme environments and space exploration"
+  ],
+  "ABSTRACT": [
+    "The space race is entering a new era of exploration, in which the number of robotic and human missions to various places in our solar system is rapidly increasing. Despite the recent advances in propulsion and life support technologies, there is a growing need to perform analytical measurements and laboratory experiments across diverse domains of science, while keeping low payload requirements. In this context, lab-on-a-chip nanobiosensors appear to be an emerging technology capable of revolutionizing space exploration, given their low footprint, high accuracy, and low payload requirements. To date, only some approaches for monitoring astronaut health in spacecraft environments have been reported. Although non-invasive molecular diagnostics, like lab-on-a-chip technology, are expected to improve the quality of long-term space missions, their application to monitor microbiological and environmental variables is rarely reported, even for analogous extreme environments on Earth. The possibility of evaluating the occurrence of unknown or unexpected species, identifying redox gradients relevant to microbial metabolism, or testing for specific possible biosignatures, will play a key role in the future of space microbiology. In this review, we will examine the current and potential roles of lab-on-a-chip technology in space exploration and in extreme environment investigation, reporting what has been tested so far, and clarifying the direction toward which the newly developed technologies of portable lab-on-a-chip sensors are heading for exploration in extreme environments and in space."
+  ],
+  "INTRO": [
+    "Introduction",
+    "From an anthropocentric perspective, all terrestrial habitats characterized by harsh environmental conditions are identified as extreme environments. Under these conditions, including extremely high or low pressure, temperature, pH, salinity, and radiation, the lives of humans are severely challenged and their survival is generally restricted to a very limited number of circumstances. Despite this, extreme environments cover a wide portion of Earth’s surface and are also thought to be abundant in our solar system and beyond. Harsh environmental conditions, which are not only related to natural habitats and hostile remote areas, are also often reported in manufacturing, processing and production sectors of diverse industrial branches, such as automotive, aerospace, nuclear, geothermal and oil and natural gas industries. In this regard, an industrial harsh environment can affect machinery life cycles, equipment reliability, efficiency, and productivity of the industry itself, and not least the safety of operators.",
+    "On Earth’s surface, there are numerous natural sites whose environmental conditions are easily assimilable to those of celestial bodies in our solar system. Sea ice and permafrost in Polar regions, cold seeps, hydrothermal vents, hot springs, fumaroles, mud volcanoes, hyperacidic or saline lakes, deserts, and arid environments, or nuclear contaminated sites, mimicking conditions that could be found on early Earth, strongly resemble the surface of rocky planets, the large icy moons of Saturn and Jupiter, hydrocarbon-rich environments like Titan, etc. [1]. In situ observations, in addition to the analysis of water, soil, and biofilm samples collected from these environments, can give fundamental clues about the environmental parameter limits, like pH, temperature, pressure, or salinity, in which life can be found on Earth, and thus presumably elsewhere. These environments are perfect scenarios for testing methods, protocols, models, technologies, and hardware useful for studying geosphere-biosphere coevolution. In this way, it is possible to detect the biosignatures and biomarkers useful for space exploration. Finding specific types of molecules in these environments could provide clues about the nature of markers to look for in the cosmos. All these aspects make Earth’s extreme environments perfect natural laboratories where to explore the origin and the limits of life, as well as excellent testing grounds for technologies with broader applications in various industrial sectors, and that can be used both during the exploration of our planet and beyond.",
+    "Space exploration and space biology are entering a new golden age, with the number of ongoing and planned missions, both manned and unmanned, rapidly increasing as reported by NASA.1 Our ability to accurately perform in situ analytical measurements under harsh environmental conditions on Earth and, in the future, on other planetary bodies will play a key role in enabling deep-space missions. Current practices for the detection and identification of chemical and biological compounds are essentially based on the use of classical analytical instrumental methods, such as high-performance liquid chromatography (HPLC), inductively coupled plasma atomic emission spectroscopy (ICP-AES), mass spectrometry (MS), atomic absorption spectrometry (AAS), and so on. These techniques represent the gold standard in analytical chemistry, but require instruments of large size and weight, long time, and effort for sample preparation and analysis, and often involve the use of advanced equipment and modern clean rooms. For all these aspects, these techniques are unsuitable for in situ real-time analytical detection, especially in remote locations and in space, where reduced footprint and payload are key requirements.",
+    "In extreme environments such as space, human health surveillance is still an unmet goal, and the development of suitable and reliable biosensors is for this purpose a high-priority need. A major breakthrough in the field of analytical chemistry, applied to extreme environments and to space exploration, is the miniaturization and automation of analytical systems that operate on the lab-on-a-chip (LoC) platform. The development of these technologies has been enabled by recent advances in the fields of smart materials, microfluidics, and electronics. Furthermore, an increased and more aware use of point-of-care (PoC) diagnostics and has accelerated the process of digitalizing routine monitoring procedures. In fact, LoC-based PoC testing systems are portable, efficient and easy-to-use tools for rapid in situ detection, diagnosis, and monitoring of disease, which only require droplets of samples, such as blood, urine, or other body fluids such as saliva, sweat, and tears. These characteristics make LoC nanobiosensors ideal for applications in all major sectors related to space and remote environments exploration, from astronauts’ health monitoring to environmental analysis for in situ resource utilization and biosignature exploration.",
+    "The study of extremophiles and extremely hostile locations can answer many questions from the field of evolutionary biology to molecular biology and industrial biology for space exploration. This is in part due to the several significant challenges that can be encountered in studying biological life within extreme environments, such as the need to travel to remote destinations, work in hostile conditions, and face specific dangers associated with studying them. From this perspective, the development of sensors that can be applied to harsh conditions could provide a system for monitoring life in extreme environments and supporting space exploration by humans.",
+    "In this Review, we will focus our attention on lab-on-a-chip (LoC) nanobiosensors in the context of extreme environments and space exploration, reporting the state-of-the-art of current applications, and highlighting the possible directions for novel device development aimed at space missions and planetary research.",
+    "Lab-on-a-chip key features",
+    "Technologies for exploring space and extreme environments, both in land and underwater, share a number of common features and key requirements, including the robustness of the detection technology, low-cost sensors, small form factor, and real-time capabilities. LoC technology has the advantage of combining all of these properties, representing the top-of-the-line system for the development of innovative sensors suitable for space exploration and extreme environment analysis.",
+    "Robustness of detection technologies",
+    "Establishing alternative, stable, and selective system design options is a way to reduce the risks of exploring extreme environments. The development of sensors and electronics set up for harsh conditions has recently gained increasing importance in different industrial settings, including automotive, aircraft, process engineering, and deep-sea research. Unlike sensors used in most common applications, the manufacture of those suitable for use in harsh environmental circumstances frequently relies on unique technologies, distinct materials, and highly specialized designs, enabling them to withstand the most challenging conditions. However, the sensitivity, stability, and selectivity of detection techniques still need to be improved. Indeed, most of the currently used systems require very long detection times as well as specialized technicians and peculiar processing equipment, which limit their applications. Colorimetric and electrochemical biosensors are currently the best developed and preferred approaches for the detection and monitoring of analytes under extreme environmental conditions, due to their low detection limits, high selectivity and sensitivity, fast response times, and local detection.",
+    "Production and utilization costs",
+    "There is a need for the development of efficient on-demand technologies based on low production and consumption costs. Microfluidic technology has gained particular interest in the field of LoC systems development, mostly due to its low manufacturing costs. Furthermore, microfluidic devices (μFDs) provide a straightforward assay method widely used for efficient analyte detection. Combining μFDs with colorimetric and electrochemical systems will result in a cost-effective solution that could be widely used in the near future. For many years, researchers have explored the possibility of using microfluidic systems in planetary science. Some of these experiments have shown that the optimization process can become even more intensive. As part of the ExoMars mission from NASA and the European Space Agency (ESA), developed a miniaturized antibody microarray system using optical fibers and microfluidics to detect life. The size and weight of the fluid management system were reduced by replacing multiple pneumatically operated on–off valves with a single integrated selector valve. announced the development of a fully integrated microfluidic system that could perform analysis of amino acids by microchip capillary electrophoresis (μCE) with integrated laser-induced fluorescence detection.",
+    "Real-time capabilities",
+    "Real-time information technology is required in extreme environmental conditions and hazardous circumstances to improve the protection and survival of the involved personnel. Additionally, real-time information is needed to implement autonomous decision-making in the field, enabling the use of artificial intelligence to guide unmanned exploration and support human presence in space. As an example, have recently developed a next-generation model of an optical, fingertip-sized mid-IR LoC device, suitable for sensitive and selective in situ real-time analysis of chemical reactions in liquids. In particular, they demonstrated the capability of the device to monitor temperature-induced changes in the secondary structure of proteins in real-time. This technology may find wide use in biomedical applications for the investigation of chemical reactions, such as drug production.",
+    "Small form factor",
+    "In the exploration of remote places on our planet as well as in space, the size and weight of analytical devices are fundamental features for the selection of the instruments to backpack during a mission. Minimizing size and weight not only allows the production of compact detection systems, but also cuts launch costs and power requirements. In this sense, LoC devices have the smallest footprint of any analytical alternative (Figure 1). In particular, paper-based microfluidic systems and biosensors have weights several orders of magnitude lower than traditional analytical devices (Figures 1, 2). Moreover, micro-processing provides processing conditions that are easily adaptable to the use of artificial intelligence technologies and, taking place in enclosed chambers with no headspace, allows vacuum operation. Ultimately, LoC nanobiosensors represent excellent candidates for space missions, both as probe-installed instruments and as wearable technologies for astronauts. They found wide use in different areas of space biology, from life detection to spacecraft bioburden or astronaut health monitoring. Even though astonishing advances have been made in the LoC sector in the last decade, their application in extreme environments exploration is still poorly investigated.",
+    "Nanobiosensors for extreme environments and space microbiology",
+    "The interaction between humans and microbes on Earth is not the same as that in the confined environment of space. Since astronauts are required to spend extended periods of time in an orbiting spacecraft during a mission in space, the investigation of microbial pathogenesis and infection processes in space could help preserve astronaut health. Based on the results of decadal studies conducted by NASA, a series of microbial tracking experiments have been launched aiming to understand the dynamics of microbial persistence on spacecraft and related microbial processes, including biofilm formation, pathogenicity, and virulence. Conducting experiments in space and transporting samples back to Earth for further studies require a significant investment of time, money, and human effort. Therefore, microbiological risk must be regularly assessed and controlled. These applications require sensors that operate under extreme conditions with long-term accuracy and precision. In this context, nanomaterials are promising candidates for the manufacture of single-molecule nano-biosensors with high-throughput biosensor arrays, with improved electrochemical, mechanical, magnetic, and optical properties. The combination of nanostructures with electrochemical processes has led to an increase in the effectiveness, sensitivity, response time, and degradability of the sensors, thus enabling efficient and cost-effective assays for a wide range of analytes. For the same reason, the use of nanobiosensors is rapidly spreading in diagnostics and in the biochip industry.",
+    "In space biology and in astrobiology, one of the main goals is to explore and visit different celestial bodies in our solar system. This approach ultimately serves to determine their potential habitability and the presence/absence of life. Several strategies have been attempted to achieve this: analyzing the biogeochemical properties of meteorites, mimicking planetary atmospheric conditions in lab-scale experiments, or using extreme environments on Earth as natural laboratories and planetary analogs. According to CAREX (; Coordination Action for Research on Study of Life in Extreme Environment), planetary analogs can be described in four main domains: the contribution of life to biogeochemical cycles and the response to environmental variability in extreme environments; the response, adaptation, and evolution of life forms in environments extremely-rich in biotic and abiotic stresses; bioenergetics and biodiversity in extreme environments, and the relationship between life and habitability.2 Following these guidelines, the exploitation of extreme environments as planetary analogs could help explain the relationship between life, environments, and humans, in order to better design technical strategies for deep space exploration. An experimental approach of particular interest in space microbiology is rock biomining and/or bioleaching, namely the processes of extracting metals from low-grade ores and wastes through microbial activity. A heterogeneous and complex microflora, composed of both heterotrophic and autotrophic acidophilic microorganisms, is generally used in most industrial biomining processes. Due to the extreme environmental conditions in which these microorganisms live and perform metal extraction and solubilization, such as high temperatures and very low pH, the development of suitable analytic systems is urgently needed for biomining and bioleaching process monitoring, but more generally for setting up planetary simulation facilities aimed at the study of rocky planets and moons.",
+    "Depending on the type of parameter or analyte to be monitored or detected and the environmental conditions under which this needs to occur, analytical systems based on LoC technology have been designed, suitable for the most varied applications (Figure 2). Below are some examples that have been reported, i.e., the electrochemical detection of copper ions at a printed strip.",
+    "Sensors for extreme temperature conditions",
+    "Sensor performance requirements vary depending on whether they are used in high- or low-temperature conditions. Temperature is probably the environmental parameter that mostly affects the operation of most analytical devices. For example, with standard thermocouples and pyrometers, it is difficult to obtain accurate measurements of the thermal pulse to which nanoparticles and microparticles are exposed under harsh conditions, such as explosions, furnaces, and combustion. Under these conditions, with rapid heating rates and high maximum temperatures, the formation of opaque gasses and liquid streams containing nanoparticles and microparticles limits the precision of these methods. To avoid such issues, have developed an in situ approach to monitoring the partial pressure of water vapor in oxidizing atmospheres and at elevated temperatures. They employed a new basic amperometric sensor design for electrolytes based on ZrO2 and CaZrO3. The electrolyte membranes allow the conductivity of oxygen anions and protons to be established, leading to the complete decomposition of water as a result of the applied potential by an external circuit. The proper performance of the proposed sensor is demonstrated by varying the partial pressure of water vapor (0.003–0.110 atm) in air and temperature (675–750°C). Sensor measurement confirmed test success by proving to be steady, repeatable, and consistent with theoretical predictions and practical applications.",
+    "Sensors for volcanics",
+    "The temperature and composition of volcanic gasses fluctuate as a result of geochemical reactions and seismic activity. Volcanic acoustic signals contain important information about shallow magnetic and hydrothermal processes. In certain circumstances, the detection of acoustic waves is the sole unequivocal proof of the presence of volcanic eruptions. Using a microelectromechanical differential pressure transducer, detected and analyzed volcanic sonic waves. It has a wide frequency range, a wide dynamic range, low noise level, and comparatively low power. Despite its ease of installation, it is designed for use in extreme environments. The instrumental response of each infrasound sensor is precisely measured from 1 mHz to >100 Hz, providing sinusoidal pressure changes. It is relatively easy to handle and install due to sensor size (26x45x80 mm) and weight 100 g. The discovery of volcanoes may therefore aid in the prediction of phreatic eruptions and other types of eruptions in the near future.",
+    "Sensors for environmental microbes",
+    "Microorganisms not only thrive in a wide variety of environments on Earth but can also withstand the harsh conditions of space, including high radiation, vacuum pressure, drastic temperature changes, and microgravity. Real-time monitoring of pollutants, contaminants, and pathogens on multiple geographic scales is essential to adequately assess environmental risks, manage impacts, and understand the processes that determine their extent and spread. demonstrated that contemporary isothermal microcalorimeters (IMCs) can detect the metabolic heat of bacteria with enough precision to detect even minute bacterial contamination in water, food, and medical samples. Compared to the culture technique, the IMC technique was reported to be much faster in detecting high bacterial concentrations in turbid solutions without even shaking the sample.",
+    "Sensor for underwater applications",
+    "Due to the extreme environmental conditions found in particular aquatic environments, such as deep oceans, LoC systems used in these areas have special requirements. Compared to land-based equipment, the electrical systems utilized in LoC systems must be able to operate in a water-filled environment and tolerate exceptionally high hydrostatic pressures. LoC analyzers should be used in the presence of severely corrosive salt water and strong hydrostatic pressure. However, the materials, analytical techniques, or operational principles that can be used have some limitations. High levels of automation are also required to enable autonomous operations in remote or extreme environment areas. In recent decades, advances in LoC technology have made underwater analysis and in situ detection possible. Colorimetric approaches are often used to assess marine variables such as micro and macronutrient content, such as nitrates, phosphates, and silicates. For example, to perform in situ ammonia detection, a device integrating a gas diffusion cell and electrodes was developed for conductivity measurements. The gas diffusion cell is simple in design, with a thin Teflon tape between the polysulfone blocks, which have a serpentine microchannel design.",
+    "Sensors for H+ ions for extreme pH measurement",
+    "Oceans absorb approximately a quarter of anthropogenic CO2 emissions from the atmosphere, thus resulting in a decrease of surface ocean pH, with an average rate of 0.0017 pH units per year, as reported by the Copernicus Marine Environment Monitoring Service (CMEMS).3 This ocean acidification phenomenon also affects total dissolved inorganic carbon (DIC) speciation, reducing the amount of carbonate ions in seawater ions available for calcifying organisms to build and maintain their shells, skeletons, and other calcium carbonate structures. To predict changes in marine carbonate chemistry on high spatial and temporal scales from surface waters to the deep ocean, a novel LoC microfluidic sensor for in situ pH high-precision measurements was developed. Thanks to LoC technology, this sensor showed 10 times the depth capability of the state-of-the-art autonomous spectrophotometric sensor. Furthermore, the LoC pH sensor demonstrated high-level performance on fixed and moving platforms under varying environmental salinity, temperature, and pressure conditions.",
+    "Nanobiosensors for astronaut health and life support systems",
+    "Space is an unnatural and harsh environment that affects the human body in many ways. From the first spaceflight in the early 1960s to current space missions, several microgravity-related alterations in astronauts’ physiology have been reported. These complex physiological changes, depending on the duration of the spaceflight, range from a change in body fluids, muscle atrophy, bone demineralization, and immune dysregulation to increased radiation exposure and potential exposure to pathogens and microbes due to increased bioburden on the spacecraft (Figure 3). Furthermore, the functioning of astronauts’ psychology is also affected (Figure 3). Taken together, all these factors can negatively influence human health and productivity on the space station. In order to preserve astronauts’ health during missions, it should be possible to perform in situ diagnosis, management, and treatment of pathologies related to spaceflight. Today, balanced healthcare systems are based on the 4P medical model, which is preventive, predictive, personalized, and participatory medicine, which forms the basis for advanced patient surveillance technology. All four requirements of the 4P model for medical and analytical devices that provide clinically relevant information without requiring a core clinical laboratory, are achieved by PoC technology. Recent research has focused on adapting PoC sensing techniques to “resource-constrained environments,” with the automation field considered to be the most important market for PoC electronics in the near future.",
+    "Electrochemical and optical technologies combined with miniature readout subsystems are by far the most widely used for PoC sensing. They can be used as wearable, implanted, and in situ detection systems. PoC devices can also measure physiological parameters such as heart function rate, oxygen saturation, plasma protein composition level, and patterns of various biomarkers and their concentrations. In addition to reducing detection time, these technologies would also allow testing in locations where laboratory experiments are not feasible, such as in space. In the future, these sensors will be used by humans in space and could pave the way for more sustainable space exploration.",
+    "Astronaut physiology monitoring during space flight",
+    "Monitoring health in space is a tough task to accomplish, due to several issues of different nature. Clear examples are unconventional space environmental conditions, in addition to the lack on the space station of medical devices, such as electrocardiographs, blood pressure machines, fingertip oxygen saturation monitors, and ankle bracelet activity sensors, which are often too heavy, bulky, invasive, disruptive, and expensive. The remarkable advances in biosensors offer the possibility of developing novel diagnostic methodologies based on LoC technology for monitoring the health status of astronauts, which could feasibly allow for the acquisition of personalized therapeutic approaches. As an example, the opportunity to perform in situ analysis of blood components or specific biomarkers, such as exosome-like small extracellular vesicles (sEVs), and circulating cell-free nucleic acids (cf-NAs), would be useful to identify physiological effects or immune system responses related to microgravity, radiation exposure, or other peculiar spaceflight stress conditions. Several biosensor formats have been proposed as in-flight diagnostic tools, despite their many disadvantages: clinical diagnostic biosensors, biosensors for water and environmental quality, and biosensors for investigating the effects of and countermeasures to radiation exposure.",
+    "Recently, an ultrasensitive electrochemical-digital cortisol sensor chip was developed as a digital stress analyzer for preventive in situ monitoring of steroid hormone present in human saliva. Cortisol is a well-known stress biomarker, and its levels in saliva samples were determined using electrochemical impedance spectroscopy (EIS) after the sensor was interfaced and reconfigured using a high-precision impedance converter device. Another example is the use of antibody-based biosensors, the most advanced and most commonly used, such as IMMUNOLAB, a bioanalytical device based on immunological analyzes that allows chemical clinical analyzes to be performed on blood, urine, or saliva samples onboard the ISS and performs both sample preparations and target detection.",
+    "More generally, new-generation biosensor technologies will exploit nanomaterials to improve the mechanical, electrochemical, optical, and magnetic properties of biosensors offering a large range of medical and economic benefits, ranging from disease prevention, improved clinical results, and improved quality of life, reducing the burden of medical care, and providing the necessary analytical performance for space medicine.",
+    "Monitoring exposure to radiation",
+    "Humans are exposed to radiation from various natural and artificial sources. Ionizing radiation contains enough energy to interact with living cell atoms and cause genetic damage, thus causing long-term human health consequences, such as heart disease and cancer. Spaceflights and long-term space missions expose astronauts to high doses of radiation. Similar conditions can occur on Earth at high altitudes or in specific work environments. To ensure safety under extremely high radiation conditions, a practical and easy-to-access monitoring system is needed. described the use of sophisticated image sensors in today’s ubiquitous mobile phones that can detect both ionizing radiation and visible light. Smartphone cameras use a sensor called a CMOS (complementary metal oxide semiconductor) to capture images. If the radiation hits the sensor, it generates a signal that can be separated from the visible-light signal and enables the smartphone to be used as a radiation detector. The Roland-Dieter Klein radioactivity counter is available for download in the Apple App Store. The smartphone CMOS sensor is very sensitive to radiation exposure as low as 10 μGy/h. Similar CMOS sensors might be adapted for in-flight applications that offer relatively simple, inexpensive, and rapid deployment in space. However, it does not guarantee the same performance as its ground-based counterpart. To this end, an example is the TimePIX chip, an innovative and cutting-edge device, emerging as a pivotal instrument in the realm of radiation detection and imaging, particularly in the realm of space exploration. Its remarkable capabilities make it an indispensable tool for the meticulous examination and profound understanding of the intricate radiation environment encountered by intrepid astronauts, ensuring not only their well-being but also the preservation of vital equipment. With its exceptional sensitivity to various radiation particles, the TimePIX chip assumes a pivotal role in meticulous monitoring and meticulous analysis of radiation levels that permeate the vast expanse of space. It provides invaluable insights into discriminating crucial aspects such as particle taxonomy, energy magnitude, and intensity, thereby furnishing scientists with essential parameters and aimed at safeguarding astronauts against formidable potent radiation exposure.",
+    "Alternative radiation detection technologies include a polyacrylamide hydrogel doped with modified boron nitride nanosheets (BNNS-TA) and Fe3+ ions. The aBNNS-TA/Fe3+/PAAm hydrogel exhibits exceptional mechanical properties, pressure sensitivity and γ-ray resistance. The excellent compressive strength, performance recovery, and high sensitivity make it suitable for use as a pressure sensor in a control circuit or as an attachment to the body for accurate detection of human activity, suggesting its use for nuclear safety monitoring, accident management, and extravehicular activities."
+  ],
+  "FIG": [
+    "Examples of different lab-on-a-chip nano-biosensors and their technologies: (A) Paper-based, (B) Dermal, (C) Wearable, and (D) Micro-fluidic.",
+    "Examples of lab-on-a-chip sensors used in extreme environments. (A) Close-up of the paper-based sensor and the reading unit; (B) the sensor in the field during recent fieldwork in the Puna plateau (arid desert with altitude above 4,000 meters); and (C) example of data collected in the field relatively to the measurement of copper (II) ions directly onto the screen-printed strips using a PalmSens Sensit as a portable readers powered by a smartphone.",
+    "Physical-Biological factors that affect human space exploration and their associated stress: blue circle–distance, red circle–radiation, green circle–gravity field, yellow circle–hostile environment, and pink circle–confinement. Adapted by."
+  ],
+  "CONCL": [
+    "Conclusion",
+    "One of the main goals of space research is to extend the human experience to the farthest reaches of space to discover, explore, and exploit uncharted regions of space. However, life in space continues to bring new insights into human physiology and psychology that may lead to the failure of current detection systems. Radiation, plasma, atomic oxygen, outgassing, and contamination can drastically limit the life of a space flight and seriously affect the success of a project. Accurate, precise, efficient, and cost-effective health monitoring is consistently important. Biosensor systems are reported to be good analyzers for chemical substance measurements. However, the combination of many harsh conditions creates significant difficulties for the development of suitable instruments. Lightness, compressibility, self-healing, radiation, micrometeoroids, and orbital debris resistance would be all desirable features in sensors design. In this perspective, LoC-based sensors represent the best choice among the finest detection systems able to detect and respond to harsh situations. They can be optical fibers, nanosensors, or vibration sensors in combination with artificial intelligence and telemetry. Microfluidic technology is a good example and the best way to accelerate processes in science and industry today, and it will soon transform the entire industry.",
+    "In this review, currently used systems for detection of analytes in extreme environments and space exploration were discussed, suggesting PoC and LoC approaches represent the best choice. They ensure accurate and continuous monitoring of the analytes, without sacrificing selectivity or sensitivity. However, new advances in the fields of engineering, nanomaterials and electronics can improve durability, reversibility, sensitivity, and selectivity of the analytical devices, supporting the development of next-generation systems suitable for harsh environment investigation and space exploration."
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "SC and DG conceived the review. All authors contributed to the article and approved the submitted version."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This work is partially funded by the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No. 948972) to DG."
+  ],
+  "COMP_INT": [
+    "Conflict of interest",
+    "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.",
+    "Publisher’s note",
+    "All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher.",
+    "1(https://nssdc.gsfc.nasa.gov/planetary/upcoming.html).",
+    "2 cordis.europa.eu/project/",
+    "3https://doi.org/10.48670/moi-00224, Accessed on 26 April 2023."
+  ],
+  "REF": [
+    "References",
+    "Chemically bonded thermal impulse sensors for use in extreme environments",
+    "The molecular basis for life in extreme environments",
+    "Rad-bio-app: a discovery environment for biologists to explore spaceflight-related radiation exposures",
+    "Cell-free DNA (cfDNA) and exosome profiling from a year-long human spaceflight reveals circulating biomarkers",
+    "Advances in space microbiology",
+    "Sensors for extreme environments",
+    "Prebiotic synthesis of carboxylic acids, amino acids and nucleic acid bases from formamide under photochemical conditions⋆",
+    "Novel paper-based electroanalytical tools for food surveillance",
+    "Preparation of paper-based devices for reagentless electrochemical (bio)sensor strips",
+    "Engineering electronic systems for extreme environments",
+    "Efficiency of the oxygenic photosynthesis on earth-like planets in the habitable zone",
+    "Smart Nanotextiles: materials and their application",
+    "Advanced techniques for manufacturing paper-based microfluidic analytical devices",
+    "Sensors and smart electronics in harsh environment applications",
+    "Novel approaches for colorimetric measurements in analytical chemistry–a review",
+    "P4 medicine: how systems medicine will transform the healthcare sector and society",
+    "Precision in harsh environments",
+    "Rapid calorimetric detection of bacterial contamination: influence of the cultivation technique",
+    "(Bio)sensors applied to coral reefs’ health monitoring: a critical overview",
+    "A robust, low-cost and well-calibrated infrasound sensor for volcano monitoring",
+    "Ai’s role in deep space",
+    "Electrode materials in modern organic electrochemistry",
+    "The resource gateway: microfluidics and requirements engineering for sustainable space systems",
+    "Continuous-flow extraction of adjacent metals–a disruptive economic window for in situ resource utilization of asteroids?",
+    "Small solar system bodies as granular media",
+    "A mid-infrared lab-on-a-chip for dynamic reaction monitoring",
+    "Biotechnological recovery of heavy metals from secondary sources-an overview",
+    "Flexible, high sensitive and radiation-resistant pressure-sensing hydrogel",
+    "The suitability of smartphone camera sensors for detecting radiation",
+    "The changing automotive environment: high-temperature electronics",
+    "A high-temperature electrochemical sensor based on CaZr0.95Sc0.05O3–δ for humidity analysis in oxidation atmospheres",
+    "Concepts for the in-flight handling of safety critical liquids in biological experiments",
+    "Electrochemical sensors in space missions",
+    "Space applications for ionic polymer-metal composite sensors, actuators, and artificial muscles",
+    "A semiconductor radiation imaging pixel detector for space radiation dosimetry",
+    "Acclimation during space flight: effects on human emotion",
+    "Hazards of human spaceflight",
+    "A laboratory of extremophiles: iceland coordination action for research activities on life in extreme environments (CAREX) field campaign",
+    "Recent approaches for optical smartphone sensing in resource-limited settings: a brief review",
+    "Biosensors and their applications–a review",
+    "Living at the extremes: extremophiles and the limits of life in a planetary context",
+    "Toward total automation of microfluidics for extraterrestial in situ analysis",
+    "Living and working in space: an overview of physiological adaptation, performance, and health risks",
+    "Experimental methods for studying microbial survival in extraterrestrial environments",
+    "Point-of-care biosensors in medicine: a brief overview of our achievements in this field based on the conducted research in EMRI (endocrinology and metabolism research Institute of Tehran University of medical sciences) over the past fourteen years",
+    "Paper-based analytical biosensor Chip designed from graphene-Nanoplatelet-amphiphilic-diblock-co-polymer composite for cortisol detection in human saliva",
+    "Tutorial: design and fabrication of nanoparticle-based lateral-flow immunoassays",
+    "Electrochemical Immunosensing of saliva cortisol",
+    "Microbial extremophiles at the limits of life",
+    "NH4-Digiscan: an in situ and laboratory ammonium analyzer for estuarine, coastal, and shelf waters",
+    "Advances in microfluidic PCR for point-of-care infectious disease diagnostics",
+    "Planetary habitability: lessons learned from terrestrial analogues",
+    "Advanced biosensors for monitoring astronauts’ health during long-duration space missions",
+    "Life in extreme environments",
+    "The smallest space miners: principles of space biomining",
+    "Point-of-Care for Evaluating Antimicrobial Resistance through the adoption of functional materials",
+    "Tailored point-of-care biosensors for liquid biopsy in the field of oncology",
+    "Review–an overview on recent Progress in screen-printed electroanalytical (bio)sensors",
+    "Bio-fabrication of thermozyme-based nano-biosensors: their components and present scenario",
+    "Radiological and nuclear terrorism: their science, effects, prevention, and recovery",
+    "Communication by extracellular vesicles: where we are and where we need to go",
+    "Timepix3: temperature influence on X-ray measurements in counting mode with Si sensor",
+    "Thermal vacuum testing of Timepix3 detector",
+    "Timepix3: temperature influence on radiation energy measurement with Si sensor",
+    "Study of the impact of long-duration space missions at the international Space Station on the astronaut microbiome",
+    "Acclimation during space flight: effects on human physiology",
+    "Flow injection analysis as a tool for enhancing oceanographic nutrient measurements-a review",
+    "Electrochemistry",
+    "Biodiversity and biotechnological applications of Extremophilic microbiomes",
+    "A novel lab-on-Chip spectrophotometric pH sensor for autonomous in situ seawater measurements to 6000 m depth on stationary and moving observing platforms",
+    "Detecting marine hazardous substances and organisms: sensors for pollutants, toxins, and pathogens"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Chemically bonded thermal impulse sensors for use in extreme environments",
+      "autores": [
+        {
+          "nombre_completo": "B. R. Anderson",
+          "nombres": "B. R.",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "R. Gunawidjaja",
+          "nombres": "R.",
+          "apellidos": "Gunawidjaja"
+        },
+        {
+          "nombre_completo": "H. Eilers",
+          "nombres": "H.",
+          "apellidos": "Eilers"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Appl. Phys.",
+      "anio": "2020",
+      "volumen": "127",
+      "fpage": "055102",
+      "lpage": ""
+    },
+    {
+      "titulo": "The molecular basis for life in extreme environments",
+      "autores": [
+        {
+          "nombre_completo": "N. Ando",
+          "nombres": "N.",
+          "apellidos": "Ando"
+        },
+        {
+          "nombre_completo": "B. Barquera",
+          "nombres": "B.",
+          "apellidos": "Barquera"
+        },
+        {
+          "nombre_completo": "D. H. Bartlett",
+          "nombres": "D. H.",
+          "apellidos": "Bartlett"
+        },
+        {
+          "nombre_completo": "E. Boyd",
+          "nombres": "E.",
+          "apellidos": "Boyd"
+        },
+        {
+          "nombre_completo": "A. A. Burnim",
+          "nombres": "A. A.",
+          "apellidos": "Burnim"
+        },
+        {
+          "nombre_completo": "A. S. Byer",
+          "nombres": "A. S.",
+          "apellidos": "Byer"
+        }
+      ],
+      "pmid": "33637008",
+      "fuente": "Annu. Rev. Biophys.",
+      "anio": "2021",
+      "volumen": "50",
+      "fpage": "343",
+      "lpage": "372"
+    },
+    {
+      "titulo": "Rad-bio-app: a discovery environment for biologists to explore spaceflight-related radiation exposures",
+      "autores": [
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S. V. Costes",
+          "nombres": "S. V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "J. Miller",
+          "nombres": "J.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "S. G. Gebre",
+          "nombres": "S. G.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "J. Lombardino",
+          "nombres": "J.",
+          "apellidos": "Lombardino"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "33976230",
+      "fuente": "NPJ Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "15",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cell-free DNA (cfDNA) and exosome profiling from a year-long human spaceflight reveals circulating biomarkers",
+      "autores": [
+        {
+          "nombre_completo": "D. Bezdan",
+          "nombres": "D.",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "K. Grigorev",
+          "nombres": "K.",
+          "apellidos": "Grigorev"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "F. A. Pelissier Vatter",
+          "nombres": "F. A.",
+          "apellidos": "Pelissier Vatter"
+        },
+        {
+          "nombre_completo": "M. Cioffi",
+          "nombres": "M.",
+          "apellidos": "Cioffi"
+        },
+        {
+          "nombre_completo": "V. Rao",
+          "nombres": "V.",
+          "apellidos": "Rao"
+        }
+      ],
+      "pmid": "33376973",
+      "fuente": "iScience",
+      "anio": "2020",
+      "volumen": "23",
+      "fpage": "101844",
+      "lpage": ""
+    },
+    {
+      "titulo": "Advances in space microbiology",
+      "autores": [
+        {
+          "nombre_completo": "S. Bijlani",
+          "nombres": "S.",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "E. Stephens",
+          "nombres": "E.",
+          "apellidos": "Stephens"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "C. C. C. Wang",
+          "nombres": "C. C. C.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "33997680",
+      "fuente": "iScience",
+      "anio": "2021",
+      "volumen": "24",
+      "fpage": "102395",
+      "lpage": ""
+    },
+    {
+      "titulo": "Sensors for extreme environments",
+      "autores": [
+        {
+          "nombre_completo": "R. Bogue",
+          "nombres": "R.",
+          "apellidos": "Bogue"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sens. Rev.",
+      "anio": "2012",
+      "volumen": "32",
+      "fpage": "267",
+      "lpage": "272"
+    },
+    {
+      "titulo": "Prebiotic synthesis of carboxylic acids, amino acids and nucleic acid bases from formamide under photochemical conditions⋆",
+      "autores": [
+        {
+          "nombre_completo": "L. Botta",
+          "nombres": "L.",
+          "apellidos": "Botta"
+        },
+        {
+          "nombre_completo": "B. Mattia Bizzarri",
+          "nombres": "B.",
+          "apellidos": "Mattia Bizzarri"
+        },
+        {
+          "nombre_completo": "D. Piccinino",
+          "nombres": "D.",
+          "apellidos": "Piccinino"
+        },
+        {
+          "nombre_completo": "T. Fornaro",
+          "nombres": "T.",
+          "apellidos": "Fornaro"
+        },
+        {
+          "nombre_completo": "J. Robert Brucato",
+          "nombres": "J.",
+          "apellidos": "Robert Brucato"
+        },
+        {
+          "nombre_completo": "R. Saladino",
+          "nombres": "R.",
+          "apellidos": "Saladino"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Eur. Phys. J. Plus",
+      "anio": "2017",
+      "volumen": "132",
+      "fpage": "5",
+      "lpage": ""
+    },
+    {
+      "titulo": "Novel paper-based electroanalytical tools for food surveillance",
+      "autores": [
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        }
+      ],
+      "pmid": "30790021",
+      "fuente": "Anal. Bioanal. Chem.",
+      "anio": "2019",
+      "volumen": "411",
+      "fpage": "4303",
+      "lpage": "4311"
+    },
+    {
+      "titulo": "Preparation of paper-based devices for reagentless electrochemical (bio)sensor strips",
+      "autores": [
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        },
+        {
+          "nombre_completo": "D. Moscone",
+          "nombres": "D.",
+          "apellidos": "Moscone"
+        },
+        {
+          "nombre_completo": "F. Arduini",
+          "nombres": "F.",
+          "apellidos": "Arduini"
+        }
+      ],
+      "pmid": "31270508",
+      "fuente": "Nat. Protoc.",
+      "anio": "2019",
+      "volumen": "14",
+      "fpage": "2437",
+      "lpage": "2451"
+    },
+    {
+      "titulo": "Engineering electronic systems for extreme environments",
+      "autores": [
+        {
+          "nombre_completo": "G. V. Clatterbaugh",
+          "nombres": "G. V.",
+          "apellidos": "Clatterbaugh"
+        },
+        {
+          "nombre_completo": "B. R. Trethewey",
+          "nombres": "B. R.",
+          "apellidos": "Trethewey"
+        },
+        {
+          "nombre_completo": "S. X. Ling",
+          "nombres": "S. X.",
+          "apellidos": "Ling"
+        },
+        {
+          "nombre_completo": "M. M. Dehghani",
+          "nombres": "M. M.",
+          "apellidos": "Dehghani"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Insight",
+      "anio": "2010",
+      "volumen": "13",
+      "fpage": "14",
+      "lpage": "17"
+    },
+    {
+      "titulo": "Efficiency of the oxygenic photosynthesis on earth-like planets in the habitable zone",
+      "autores": [
+        {
+          "nombre_completo": "G. Covone",
+          "nombres": "G.",
+          "apellidos": "Covone"
+        },
+        {
+          "nombre_completo": "R. M. Ienco",
+          "nombres": "R. M.",
+          "apellidos": "Ienco"
+        },
+        {
+          "nombre_completo": "L. Cacciapuoti",
+          "nombres": "L.",
+          "apellidos": "Cacciapuoti"
+        },
+        {
+          "nombre_completo": "L. Inno",
+          "nombres": "L.",
+          "apellidos": "Inno"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mon. Not. R. Astron. Soc.",
+      "anio": "2021",
+      "volumen": "505",
+      "fpage": "3329",
+      "lpage": "3335"
+    },
+    {
+      "titulo": "Smart Nanotextiles: materials and their application",
+      "autores": [
+        {
+          "nombre_completo": "S. Coyle",
+          "nombres": "S.",
+          "apellidos": "Coyle"
+        },
+        {
+          "nombre_completo": "D. Diamond",
+          "nombres": "D.",
+          "apellidos": "Diamond"
+        },
+        {
+          "nombre_completo": "L. V. Lieve",
+          "nombres": "L. V.",
+          "apellidos": "Lieve"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Reference module in materials science and materials engineering",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Advanced techniques for manufacturing paper-based microfluidic analytical devices",
+      "autores": [
+        {
+          "nombre_completo": "A. Faheem",
+          "nombres": "A.",
+          "apellidos": "Faheem"
+        },
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        },
+        {
+          "nombre_completo": "C. M. Wing",
+          "nombres": "C. M.",
+          "apellidos": "Wing"
+        },
+        {
+          "nombre_completo": "H. P. H. Aaron",
+          "nombres": "H. P. H.",
+          "apellidos": "Aaron"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microfluidic Biosensors",
+      "anio": "2023",
+      "volumen": "",
+      "fpage": "159",
+      "lpage": "170"
+    },
+    {
+      "titulo": "Sensors and smart electronics in harsh environment applications",
+      "autores": [
+        {
+          "nombre_completo": "W. R. Fahrner",
+          "nombres": "W. R.",
+          "apellidos": "Fahrner"
+        },
+        {
+          "nombre_completo": "R. Job",
+          "nombres": "R.",
+          "apellidos": "Job"
+        },
+        {
+          "nombre_completo": "M. Werner",
+          "nombres": "M.",
+          "apellidos": "Werner"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microsyst. Technol.",
+      "anio": "2001",
+      "volumen": "7",
+      "fpage": "138",
+      "lpage": "144"
+    },
+    {
+      "titulo": "Novel approaches for colorimetric measurements in analytical chemistry–a review",
+      "autores": [
+        {
+          "nombre_completo": "G. M. Fernandes",
+          "nombres": "G. M.",
+          "apellidos": "Fernandes"
+        },
+        {
+          "nombre_completo": "W. R. Silva",
+          "nombres": "W. R.",
+          "apellidos": "Silva"
+        },
+        {
+          "nombre_completo": "D. N. Barreto",
+          "nombres": "D. N.",
+          "apellidos": "Barreto"
+        },
+        {
+          "nombre_completo": "R. S. Lamarca",
+          "nombres": "R. S.",
+          "apellidos": "Lamarca"
+        },
+        {
+          "nombre_completo": "P. C. F. Lima Gomes",
+          "nombres": "P. C. F.",
+          "apellidos": "Lima Gomes"
+        },
+        {
+          "nombre_completo": "J. Flávio da S Petruci",
+          "nombres": "J.",
+          "apellidos": "Flávio da S Petruci"
+        }
+      ],
+      "pmid": "33070854",
+      "fuente": "Anal. Chim. Acta",
+      "anio": "2020",
+      "volumen": "1135",
+      "fpage": "187",
+      "lpage": "203"
+    },
+    {
+      "titulo": "P4 medicine: how systems medicine will transform the healthcare sector and society",
+      "autores": [
+        {
+          "nombre_completo": "M. Flores",
+          "nombres": "M.",
+          "apellidos": "Flores"
+        },
+        {
+          "nombre_completo": "G. Glusman",
+          "nombres": "G.",
+          "apellidos": "Glusman"
+        },
+        {
+          "nombre_completo": "K. Brogaard",
+          "nombres": "K.",
+          "apellidos": "Brogaard"
+        },
+        {
+          "nombre_completo": "N. D. Price",
+          "nombres": "N. D.",
+          "apellidos": "Price"
+        },
+        {
+          "nombre_completo": "L. Hood",
+          "nombres": "L.",
+          "apellidos": "Hood"
+        }
+      ],
+      "pmid": "25342952",
+      "fuente": "Per. Med.",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "565",
+      "lpage": "576"
+    },
+    {
+      "titulo": "Precision in harsh environments",
+      "autores": [
+        {
+          "nombre_completo": "P. French",
+          "nombres": "P.",
+          "apellidos": "French"
+        },
+        {
+          "nombre_completo": "G. Krijnen",
+          "nombres": "G.",
+          "apellidos": "Krijnen"
+        },
+        {
+          "nombre_completo": "F. Roozeboom",
+          "nombres": "F.",
+          "apellidos": "Roozeboom"
+        }
+      ],
+      "pmid": "31057836",
+      "fuente": "Microsyst. Nanoeng.",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "16048",
+      "lpage": ""
+    },
+    {
+      "titulo": "Rapid calorimetric detection of bacterial contamination: influence of the cultivation technique",
+      "autores": [
+        {
+          "nombre_completo": "C. Fricke",
+          "nombres": "C.",
+          "apellidos": "Fricke"
+        },
+        {
+          "nombre_completo": "H. Harms",
+          "nombres": "H.",
+          "apellidos": "Harms"
+        },
+        {
+          "nombre_completo": "T. Maskow",
+          "nombres": "T.",
+          "apellidos": "Maskow"
+        }
+      ],
+      "pmid": "31736935",
+      "fuente": "Front. Microbiol.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "2530",
+      "lpage": ""
+    },
+    {
+      "titulo": "(Bio)sensors applied to coral reefs’ health monitoring: a critical overview",
+      "autores": [
+        {
+          "nombre_completo": "L. Gastoldi",
+          "nombres": "L.",
+          "apellidos": "Gastoldi"
+        },
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Green Anal. Chem.",
+      "anio": "2023",
+      "volumen": "4",
+      "fpage": "100049",
+      "lpage": ""
+    },
+    {
+      "titulo": "A robust, low-cost and well-calibrated infrasound sensor for volcano monitoring",
+      "autores": [
+        {
+          "nombre_completo": "J. Grangeon",
+          "nombres": "J.",
+          "apellidos": "Grangeon"
+        },
+        {
+          "nombre_completo": "P. Lesage",
+          "nombres": "P.",
+          "apellidos": "Lesage"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Volcanol. Geotherm. Res.",
+      "anio": "2019",
+      "volumen": "387",
+      "fpage": "106668",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ai’s role in deep space",
+      "autores": [
+        {
+          "nombre_completo": "N. M. Haney",
+          "nombres": "N. M.",
+          "apellidos": "Haney"
+        },
+        {
+          "nombre_completo": "A. Urman",
+          "nombres": "A.",
+          "apellidos": "Urman"
+        },
+        {
+          "nombre_completo": "T. Waseem",
+          "nombres": "T.",
+          "apellidos": "Waseem"
+        },
+        {
+          "nombre_completo": "Y. Cagle",
+          "nombres": "Y.",
+          "apellidos": "Cagle"
+        },
+        {
+          "nombre_completo": "J. M. Morey",
+          "nombres": "J. M.",
+          "apellidos": "Morey"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Med. Artif. Intell.",
+      "anio": "2020",
+      "volumen": "3",
+      "fpage": "15",
+      "lpage": ""
+    },
+    {
+      "titulo": "Electrode materials in modern organic electrochemistry",
+      "autores": [
+        {
+          "nombre_completo": "D. M. Heard",
+          "nombres": "D. M.",
+          "apellidos": "Heard"
+        },
+        {
+          "nombre_completo": "A. J. J. Lennox",
+          "nombres": "A. J. J.",
+          "apellidos": "Lennox"
+        }
+      ],
+      "pmid": "32633073",
+      "fuente": "Angew. Chem. Int. Ed.",
+      "anio": "2020",
+      "volumen": "59",
+      "fpage": "18866",
+      "lpage": "18884"
+    },
+    {
+      "titulo": "The resource gateway: microfluidics and requirements engineering for sustainable space systems",
+      "autores": [
+        {
+          "nombre_completo": "V. Hessel",
+          "nombres": "V.",
+          "apellidos": "Hessel"
+        },
+        {
+          "nombre_completo": "M. M. Sarafraz",
+          "nombres": "M. M.",
+          "apellidos": "Sarafraz"
+        },
+        {
+          "nombre_completo": "N. N. Tran",
+          "nombres": "N. N.",
+          "apellidos": "Tran"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Chem. Eng. Sci.",
+      "anio": "2020",
+      "volumen": "225",
+      "fpage": "115774",
+      "lpage": ""
+    },
+    {
+      "titulo": "Continuous-flow extraction of adjacent metals–a disruptive economic window for in situ resource utilization of asteroids?",
+      "autores": [
+        {
+          "nombre_completo": "V. Hessel",
+          "nombres": "V.",
+          "apellidos": "Hessel"
+        },
+        {
+          "nombre_completo": "N. N. Tran",
+          "nombres": "N. N.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "S. Orandi",
+          "nombres": "S.",
+          "apellidos": "Orandi"
+        },
+        {
+          "nombre_completo": "M. R. Asrami",
+          "nombres": "M. R.",
+          "apellidos": "Asrami"
+        },
+        {
+          "nombre_completo": "M. Goodsite",
+          "nombres": "M.",
+          "apellidos": "Goodsite"
+        },
+        {
+          "nombre_completo": "H. Nguyen",
+          "nombres": "H.",
+          "apellidos": "Nguyen"
+        }
+      ],
+      "pmid": "31950574",
+      "fuente": "Angew. Chem. Int. Ed.",
+      "anio": "2021",
+      "volumen": "60",
+      "fpage": "3368",
+      "lpage": "3388"
+    },
+    {
+      "titulo": "Small solar system bodies as granular media",
+      "autores": [
+        {
+          "nombre_completo": "D. Hestroffer",
+          "nombres": "D.",
+          "apellidos": "Hestroffer"
+        },
+        {
+          "nombre_completo": "P. Sánchez",
+          "nombres": "P.",
+          "apellidos": "Sánchez"
+        },
+        {
+          "nombre_completo": "L. Staron",
+          "nombres": "L.",
+          "apellidos": "Staron"
+        },
+        {
+          "nombre_completo": "A. C. Bagatin",
+          "nombres": "A. C.",
+          "apellidos": "Bagatin"
+        },
+        {
+          "nombre_completo": "S. Eggl",
+          "nombres": "S.",
+          "apellidos": "Eggl"
+        },
+        {
+          "nombre_completo": "W. Losert",
+          "nombres": "W.",
+          "apellidos": "Losert"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Astron. Astrophys. Rev.",
+      "anio": "2019",
+      "volumen": "27",
+      "fpage": "117",
+      "lpage": ""
+    },
+    {
+      "titulo": "A mid-infrared lab-on-a-chip for dynamic reaction monitoring",
+      "autores": [
+        {
+          "nombre_completo": "B. Hinkov",
+          "nombres": "B.",
+          "apellidos": "Hinkov"
+        },
+        {
+          "nombre_completo": "F. Pilat",
+          "nombres": "F.",
+          "apellidos": "Pilat"
+        },
+        {
+          "nombre_completo": "L. Lux",
+          "nombres": "L.",
+          "apellidos": "Lux"
+        },
+        {
+          "nombre_completo": "P. L. Souza",
+          "nombres": "P. L.",
+          "apellidos": "Souza"
+        },
+        {
+          "nombre_completo": "M. David",
+          "nombres": "M.",
+          "apellidos": "David"
+        },
+        {
+          "nombre_completo": "A. Schwaighofer",
+          "nombres": "A.",
+          "apellidos": "Schwaighofer"
+        }
+      ],
+      "pmid": "35963870",
+      "fuente": "Nat. Commun.",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "4753",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biotechnological recovery of heavy metals from secondary sources-an overview",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Hoque",
+          "nombres": "M. E.",
+          "apellidos": "Hoque"
+        },
+        {
+          "nombre_completo": "O. J. Philip",
+          "nombres": "O. J.",
+          "apellidos": "Philip"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mater. Sci. Eng. C",
+      "anio": "2011",
+      "volumen": "31",
+      "fpage": "57",
+      "lpage": "66"
+    },
+    {
+      "titulo": "Flexible, high sensitive and radiation-resistant pressure-sensing hydrogel",
+      "autores": [
+        {
+          "nombre_completo": "Z. Jiang",
+          "nombres": "Z.",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "G. Xu",
+          "nombres": "G.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "Z. Ge",
+          "nombres": "Z.",
+          "apellidos": "Ge"
+        },
+        {
+          "nombre_completo": "M. Wang",
+          "nombres": "M.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Chin. Chem. Lett.",
+      "anio": "2022",
+      "volumen": "33",
+      "fpage": "1011",
+      "lpage": "1016"
+    },
+    {
+      "titulo": "The suitability of smartphone camera sensors for detecting radiation",
+      "autores": [
+        {
+          "nombre_completo": "Y. H. Johary",
+          "nombres": "Y. H.",
+          "apellidos": "Johary"
+        },
+        {
+          "nombre_completo": "J. Trapp",
+          "nombres": "J.",
+          "apellidos": "Trapp"
+        },
+        {
+          "nombre_completo": "A. Aamry",
+          "nombres": "A.",
+          "apellidos": "Aamry"
+        },
+        {
+          "nombre_completo": "H. Aamri",
+          "nombres": "H.",
+          "apellidos": "Aamri"
+        },
+        {
+          "nombre_completo": "N. Tamam",
+          "nombres": "N.",
+          "apellidos": "Tamam"
+        },
+        {
+          "nombre_completo": "A. Sulieman",
+          "nombres": "A.",
+          "apellidos": "Sulieman"
+        }
+      ],
+      "pmid": "34135425",
+      "fuente": "Sci. Rep.",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "12653",
+      "lpage": ""
+    },
+    {
+      "titulo": "The changing automotive environment: high-temperature electronics",
+      "autores": [
+        {
+          "nombre_completo": "R. W. Johnson",
+          "nombres": "R. W.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "J. L. Evans",
+          "nombres": "J. L.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "P. Jacobsen",
+          "nombres": "P.",
+          "apellidos": "Jacobsen"
+        },
+        {
+          "nombre_completo": "J. R. Thompson",
+          "nombres": "J. R.",
+          "apellidos": "Thompson"
+        },
+        {
+          "nombre_completo": "M. Christopher",
+          "nombres": "M.",
+          "apellidos": "Christopher"
+        }
+      ],
+      "pmid": "",
+      "fuente": "IEEE Trans. Electron. Packag. Manuf.",
+      "anio": "2004",
+      "volumen": "27",
+      "fpage": "164",
+      "lpage": "176"
+    },
+    {
+      "titulo": "A high-temperature electrochemical sensor based on CaZr0.95Sc0.05O3–δ for humidity analysis in oxidation atmospheres",
+      "autores": [
+        {
+          "nombre_completo": "A. S. Kalyakin",
+          "nombres": "A. S.",
+          "apellidos": "Kalyakin"
+        },
+        {
+          "nombre_completo": "J. G. Lyagaeva",
+          "nombres": "J. G.",
+          "apellidos": "Lyagaeva"
+        },
+        {
+          "nombre_completo": "A. Y. Chuikin",
+          "nombres": "A. Y.",
+          "apellidos": "Chuikin"
+        },
+        {
+          "nombre_completo": "A. N. Volkov",
+          "nombres": "A. N.",
+          "apellidos": "Volkov"
+        },
+        {
+          "nombre_completo": "D. A. Medvedev",
+          "nombres": "D. A.",
+          "apellidos": "Medvedev"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Solid State Electrochem.",
+      "anio": "2019",
+      "volumen": "23",
+      "fpage": "73",
+      "lpage": "79"
+    },
+    {
+      "titulo": "Concepts for the in-flight handling of safety critical liquids in biological experiments",
+      "autores": [
+        {
+          "nombre_completo": "P. Kern",
+          "nombres": "P.",
+          "apellidos": "Kern"
+        },
+        {
+          "nombre_completo": "T. Eisenberg",
+          "nombres": "T.",
+          "apellidos": "Eisenberg"
+        },
+        {
+          "nombre_completo": "T. Sgobba",
+          "nombres": "T.",
+          "apellidos": "Sgobba"
+        },
+        {
+          "nombre_completo": "I. Rongier",
+          "nombres": "I.",
+          "apellidos": "Rongier"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Space safety is no accident",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Electrochemical sensors in space missions",
+      "autores": [
+        {
+          "nombre_completo": "J. E. Koehne",
+          "nombres": "J. E.",
+          "apellidos": "Koehne"
+        },
+        {
+          "nombre_completo": "M. Cor Deiro",
+          "nombres": "M.",
+          "apellidos": "Cor Deiro"
+        },
+        {
+          "nombre_completo": "S. D. Thomson",
+          "nombres": "S. D.",
+          "apellidos": "Thomson"
+        },
+        {
+          "nombre_completo": "M. Meyyappan",
+          "nombres": "M.",
+          "apellidos": "Meyyappan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Electrochem. Soc. Interface",
+      "anio": "2020",
+      "volumen": "29",
+      "fpage": "53",
+      "lpage": "57"
+    },
+    {
+      "titulo": "Space applications for ionic polymer-metal composite sensors, actuators, and artificial muscles",
+      "autores": [
+        {
+          "nombre_completo": "K. Krishen",
+          "nombres": "K.",
+          "apellidos": "Krishen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Acta Astronaut.",
+      "anio": "2009",
+      "volumen": "64",
+      "fpage": "1160",
+      "lpage": "1166"
+    },
+    {
+      "titulo": "A semiconductor radiation imaging pixel detector for space radiation dosimetry",
+      "autores": [
+        {
+          "nombre_completo": "M. Kroupa",
+          "nombres": "M.",
+          "apellidos": "Kroupa"
+        },
+        {
+          "nombre_completo": "A. Bahadori",
+          "nombres": "A.",
+          "apellidos": "Bahadori"
+        },
+        {
+          "nombre_completo": "T. Campbell-Ricketts",
+          "nombres": "T.",
+          "apellidos": "Campbell-Ricketts"
+        },
+        {
+          "nombre_completo": "A. Empl",
+          "nombres": "A.",
+          "apellidos": "Empl"
+        },
+        {
+          "nombre_completo": "S. M. Hoang",
+          "nombres": "S. M.",
+          "apellidos": "Hoang"
+        },
+        {
+          "nombre_completo": "J. Idarraga-Munoz",
+          "nombres": "J.",
+          "apellidos": "Idarraga-Munoz"
+        }
+      ],
+      "pmid": "26256630",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2015",
+      "volumen": "6",
+      "fpage": "69",
+      "lpage": "78"
+    },
+    {
+      "titulo": "Acclimation during space flight: effects on human emotion",
+      "autores": [
+        {
+          "nombre_completo": "Q. Liu",
+          "nombres": "Q.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "R. L. Zhou",
+          "nombres": "R. L.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "X. Zhao",
+          "nombres": "X.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "X. P. Chen",
+          "nombres": "X. P.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "S. G. Chen",
+          "nombres": "S. G.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "27134755",
+      "fuente": "Mil. Med. Res.",
+      "anio": "2016",
+      "volumen": "3",
+      "fpage": "15",
+      "lpage": ""
+    },
+    {
+      "titulo": "Hazards of human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "M. Löbrich",
+          "nombres": "M.",
+          "apellidos": "Löbrich"
+        },
+        {
+          "nombre_completo": "P. A. Jeggo",
+          "nombres": "P. A.",
+          "apellidos": "Jeggo"
+        }
+      ],
+      "pmid": "30975876",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "127",
+      "lpage": "128"
+    },
+    {
+      "titulo": "A laboratory of extremophiles: iceland coordination action for research activities on life in extreme environments (CAREX) field campaign",
+      "autores": [
+        {
+          "nombre_completo": "V. Marteinsson",
+          "nombres": "V.",
+          "apellidos": "Marteinsson"
+        },
+        {
+          "nombre_completo": "P. Vaishampayan",
+          "nombres": "P.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J. Kviderova",
+          "nombres": "J.",
+          "apellidos": "Kviderova"
+        },
+        {
+          "nombre_completo": "F. Mapelli",
+          "nombres": "F.",
+          "apellidos": "Mapelli"
+        },
+        {
+          "nombre_completo": "M. Medori",
+          "nombres": "M.",
+          "apellidos": "Medori"
+        },
+        {
+          "nombre_completo": "C. Calfapietra",
+          "nombres": "C.",
+          "apellidos": "Calfapietra"
+        }
+      ],
+      "pmid": "25371340",
+      "fuente": "Life",
+      "anio": "2013",
+      "volumen": "3",
+      "fpage": "211",
+      "lpage": "233"
+    },
+    {
+      "titulo": "Recent approaches for optical smartphone sensing in resource-limited settings: a brief review",
+      "autores": [
+        {
+          "nombre_completo": "K. E. McCracken",
+          "nombres": "K. E.",
+          "apellidos": "McCracken"
+        },
+        {
+          "nombre_completo": "J. Y. Yoon",
+          "nombres": "J. Y.",
+          "apellidos": "Yoon"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Anal. Methods",
+      "anio": "2016",
+      "volumen": "8",
+      "fpage": "6591",
+      "lpage": "6601"
+    },
+    {
+      "titulo": "Biosensors and their applications–a review",
+      "autores": [
+        {
+          "nombre_completo": "P. Mehrotra",
+          "nombres": "P.",
+          "apellidos": "Mehrotra"
+        }
+      ],
+      "pmid": "27195214",
+      "fuente": "J. Oral Biol. Craniofac. Res.",
+      "anio": "2016",
+      "volumen": "6",
+      "fpage": "153",
+      "lpage": "159"
+    },
+    {
+      "titulo": "Living at the extremes: extremophiles and the limits of life in a planetary context",
+      "autores": [
+        {
+          "nombre_completo": "N. Merino",
+          "nombres": "N.",
+          "apellidos": "Merino"
+        },
+        {
+          "nombre_completo": "H. S. Aronson",
+          "nombres": "H. S.",
+          "apellidos": "Aronson"
+        },
+        {
+          "nombre_completo": "D. P. Bojanova",
+          "nombres": "D. P.",
+          "apellidos": "Bojanova"
+        },
+        {
+          "nombre_completo": "J. Feyhl-Buska",
+          "nombres": "J.",
+          "apellidos": "Feyhl-Buska"
+        },
+        {
+          "nombre_completo": "M. L. Wong",
+          "nombres": "M. L.",
+          "apellidos": "Wong"
+        },
+        {
+          "nombre_completo": "S. Zhang",
+          "nombres": "S.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "31037068",
+      "fuente": "Front. Microbiol.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "780",
+      "lpage": ""
+    },
+    {
+      "titulo": "Toward total automation of microfluidics for extraterrestial in situ analysis",
+      "autores": [
+        {
+          "nombre_completo": "M. F. Mora",
+          "nombres": "M. F.",
+          "apellidos": "Mora"
+        },
+        {
+          "nombre_completo": "F. Greer",
+          "nombres": "F.",
+          "apellidos": "Greer"
+        },
+        {
+          "nombre_completo": "A. M. Stockton",
+          "nombres": "A. M.",
+          "apellidos": "Stockton"
+        },
+        {
+          "nombre_completo": "S. Bryant",
+          "nombres": "S.",
+          "apellidos": "Bryant"
+        },
+        {
+          "nombre_completo": "P. A. Willis",
+          "nombres": "P. A.",
+          "apellidos": "Willis"
+        }
+      ],
+      "pmid": "21972965",
+      "fuente": "Anal. Chem.",
+      "anio": "2011",
+      "volumen": "83",
+      "fpage": "8636",
+      "lpage": "8641"
+    },
+    {
+      "titulo": "Living and working in space: an overview of physiological adaptation, performance, and health risks",
+      "autores": [
+        {
+          "nombre_completo": "A. E. Nicogossian",
+          "nombres": "A. E.",
+          "apellidos": "Nicogossian"
+        },
+        {
+          "nombre_completo": "R. S. Williams",
+          "nombres": "R. S.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "C. L. Huntoon",
+          "nombres": "C. L.",
+          "apellidos": "Huntoon"
+        },
+        {
+          "nombre_completo": "C. R. Doarn",
+          "nombres": "C. R.",
+          "apellidos": "Doarn"
+        },
+        {
+          "nombre_completo": "J. D. Polk",
+          "nombres": "J. D.",
+          "apellidos": "Polk"
+        },
+        {
+          "nombre_completo": "V. S. Schneider",
+          "nombres": "V. S.",
+          "apellidos": "Schneider"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Space physiology and medicine: From evidence to practice",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Experimental methods for studying microbial survival in extraterrestrial environments",
+      "autores": [
+        {
+          "nombre_completo": "K. Olsson-Francis",
+          "nombres": "K.",
+          "apellidos": "Olsson-Francis"
+        },
+        {
+          "nombre_completo": "C. S. Cockell",
+          "nombres": "C. S.",
+          "apellidos": "Cockell"
+        }
+      ],
+      "pmid": "19854226",
+      "fuente": "J. Microbiol. Methods",
+      "anio": "2010",
+      "volumen": "80",
+      "fpage": "1",
+      "lpage": "13"
+    },
+    {
+      "titulo": "Point-of-care biosensors in medicine: a brief overview of our achievements in this field based on the conducted research in EMRI (endocrinology and metabolism research Institute of Tehran University of medical sciences) over the past fourteen years",
+      "autores": [
+        {
+          "nombre_completo": "K. Omidfar",
+          "nombres": "K.",
+          "apellidos": "Omidfar"
+        },
+        {
+          "nombre_completo": "A. Ahmadi",
+          "nombres": "A.",
+          "apellidos": "Ahmadi"
+        },
+        {
+          "nombre_completo": "L. Syedmoradi",
+          "nombres": "L.",
+          "apellidos": "Syedmoradi"
+        },
+        {
+          "nombre_completo": "S. M. Khoshfetrat",
+          "nombres": "S. M.",
+          "apellidos": "Khoshfetrat"
+        },
+        {
+          "nombre_completo": "B. Larijani",
+          "nombres": "B.",
+          "apellidos": "Larijani"
+        }
+      ],
+      "pmid": "33140004",
+      "fuente": "J. Diabetes Metab. Disord.",
+      "anio": "2020",
+      "volumen": "2020",
+      "fpage": "1",
+      "lpage": "5"
+    },
+    {
+      "titulo": "Paper-based analytical biosensor Chip designed from graphene-Nanoplatelet-amphiphilic-diblock-co-polymer composite for cortisol detection in human saliva",
+      "autores": [
+        {
+          "nombre_completo": "D. Pan",
+          "nombres": "D.",
+          "apellidos": "Pan"
+        },
+        {
+          "nombre_completo": "M. S. Khan",
+          "nombres": "M. S.",
+          "apellidos": "Khan"
+        },
+        {
+          "nombre_completo": "S. K. Misra",
+          "nombres": "S. K.",
+          "apellidos": "Misra"
+        },
+        {
+          "nombre_completo": "Z. Wang",
+          "nombres": "Z.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "E. Daza",
+          "nombres": "E.",
+          "apellidos": "Daza"
+        },
+        {
+          "nombre_completo": "A. S. Schwartz-Duval",
+          "nombres": "A. S.",
+          "apellidos": "Schwartz-Duval"
+        }
+      ],
+      "pmid": "28050904",
+      "fuente": "Anal. Chem.",
+      "anio": "2017",
+      "volumen": "89",
+      "fpage": "2107",
+      "lpage": "2115"
+    },
+    {
+      "titulo": "Tutorial: design and fabrication of nanoparticle-based lateral-flow immunoassays",
+      "autores": [
+        {
+          "nombre_completo": "C. Parolo",
+          "nombres": "C.",
+          "apellidos": "Parolo"
+        },
+        {
+          "nombre_completo": "A. Sena-Torralba",
+          "nombres": "A.",
+          "apellidos": "Sena-Torralba"
+        },
+        {
+          "nombre_completo": "J. F. Bergua",
+          "nombres": "J. F.",
+          "apellidos": "Bergua"
+        },
+        {
+          "nombre_completo": "E. Calucho",
+          "nombres": "E.",
+          "apellidos": "Calucho"
+        },
+        {
+          "nombre_completo": "C. Fuentes-Chust",
+          "nombres": "C.",
+          "apellidos": "Fuentes-Chust"
+        },
+        {
+          "nombre_completo": "L. Hu",
+          "nombres": "L.",
+          "apellidos": "Hu"
+        }
+      ],
+      "pmid": "33097926",
+      "fuente": "Nat. Protoc.",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "3788",
+      "lpage": "3816"
+    },
+    {
+      "titulo": "Electrochemical Immunosensing of saliva cortisol",
+      "autores": [
+        {
+          "nombre_completo": "S. K. Pasha",
+          "nombres": "S. K.",
+          "apellidos": "Pasha"
+        },
+        {
+          "nombre_completo": "A. Kaushik",
+          "nombres": "A.",
+          "apellidos": "Kaushik"
+        },
+        {
+          "nombre_completo": "A. Vasudev",
+          "nombres": "A.",
+          "apellidos": "Vasudev"
+        },
+        {
+          "nombre_completo": "S. A. Snipes",
+          "nombres": "S. A.",
+          "apellidos": "Snipes"
+        },
+        {
+          "nombre_completo": "S. Bhansali",
+          "nombres": "S.",
+          "apellidos": "Bhansali"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Electrochem. Soc.",
+      "anio": "2014",
+      "volumen": "161",
+      "fpage": "B3077",
+      "lpage": "B3082"
+    },
+    {
+      "titulo": "Microbial extremophiles at the limits of life",
+      "autores": [
+        {
+          "nombre_completo": "E. V. Pikuta",
+          "nombres": "E. V.",
+          "apellidos": "Pikuta"
+        },
+        {
+          "nombre_completo": "R. B. Hoover",
+          "nombres": "R. B.",
+          "apellidos": "Hoover"
+        },
+        {
+          "nombre_completo": "J. Tang",
+          "nombres": "J.",
+          "apellidos": "Tang"
+        }
+      ],
+      "pmid": "17653987",
+      "fuente": "Crit. Rev. Microbiol.",
+      "anio": "2007",
+      "volumen": "33",
+      "fpage": "183",
+      "lpage": "209"
+    },
+    {
+      "titulo": "NH4-Digiscan: an in situ and laboratory ammonium analyzer for estuarine, coastal, and shelf waters",
+      "autores": [
+        {
+          "nombre_completo": "J. N. Plant",
+          "nombres": "J. N.",
+          "apellidos": "Plant"
+        },
+        {
+          "nombre_completo": "K. S. Johnson",
+          "nombres": "K. S.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "J. A. Needoba",
+          "nombres": "J. A.",
+          "apellidos": "Needoba"
+        },
+        {
+          "nombre_completo": "L. J. Coletti",
+          "nombres": "L. J.",
+          "apellidos": "Coletti"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Limnol. Oceanogr. Methods",
+      "anio": "2009",
+      "volumen": "7",
+      "fpage": "144",
+      "lpage": "156"
+    },
+    {
+      "titulo": "Advances in microfluidic PCR for point-of-care infectious disease diagnostics",
+      "autores": [
+        {
+          "nombre_completo": "S. Park",
+          "nombres": "S.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S. Lin",
+          "nombres": "S.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "T. H. Wang",
+          "nombres": "T. H.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. Yang",
+          "nombres": "S.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "21741465",
+      "fuente": "Biotechnology advances",
+      "anio": "2011",
+      "volumen": "29",
+      "fpage": "830",
+      "lpage": "839"
+    },
+    {
+      "titulo": "Planetary habitability: lessons learned from terrestrial analogues",
+      "autores": [
+        {
+          "nombre_completo": "L. J. Preston",
+          "nombres": "L. J.",
+          "apellidos": "Preston"
+        },
+        {
+          "nombre_completo": "L. R. Dartnell",
+          "nombres": "L. R.",
+          "apellidos": "Dartnell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Astrobiol.",
+      "anio": "2014",
+      "volumen": "13",
+      "fpage": "81",
+      "lpage": "98"
+    },
+    {
+      "titulo": "Advanced biosensors for monitoring astronauts’ health during long-duration space missions",
+      "autores": [
+        {
+          "nombre_completo": "A. Roda",
+          "nombres": "A.",
+          "apellidos": "Roda"
+        },
+        {
+          "nombre_completo": "M. Mirasoli",
+          "nombres": "M.",
+          "apellidos": "Mirasoli"
+        },
+        {
+          "nombre_completo": "M. Guardigli",
+          "nombres": "M.",
+          "apellidos": "Guardigli"
+        },
+        {
+          "nombre_completo": "M. Zangheri",
+          "nombres": "M.",
+          "apellidos": "Zangheri"
+        },
+        {
+          "nombre_completo": "C. Caliceti",
+          "nombres": "C.",
+          "apellidos": "Caliceti"
+        },
+        {
+          "nombre_completo": "D. Calabria",
+          "nombres": "D.",
+          "apellidos": "Calabria"
+        }
+      ],
+      "pmid": "29631159",
+      "fuente": "Biosens. Bioelectron.",
+      "anio": "2018",
+      "volumen": "111",
+      "fpage": "18",
+      "lpage": "26"
+    },
+    {
+      "titulo": "Life in extreme environments",
+      "autores": [
+        {
+          "nombre_completo": "L. J. Rothschild",
+          "nombres": "L. J.",
+          "apellidos": "Rothschild"
+        },
+        {
+          "nombre_completo": "R. L. Mancinelli",
+          "nombres": "R. L.",
+          "apellidos": "Mancinelli"
+        }
+      ],
+      "pmid": "11234023",
+      "fuente": "Nature",
+      "anio": "2001",
+      "volumen": "409",
+      "fpage": "1092",
+      "lpage": "1101"
+    },
+    {
+      "titulo": "The smallest space miners: principles of space biomining",
+      "autores": [
+        {
+          "nombre_completo": "R. Santomartino",
+          "nombres": "R.",
+          "apellidos": "Santomartino"
+        },
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "C. S. Cockell",
+          "nombres": "C. S.",
+          "apellidos": "Cockell"
+        }
+      ],
+      "pmid": "34993644",
+      "fuente": "Extremophiles",
+      "anio": "2022",
+      "volumen": "26",
+      "fpage": "7",
+      "lpage": ""
+    },
+    {
+      "titulo": "Point-of-Care for Evaluating Antimicrobial Resistance through the adoption of functional materials",
+      "autores": [
+        {
+          "nombre_completo": "S. Singh",
+          "nombres": "S.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "A. Numan",
+          "nombres": "A.",
+          "apellidos": "Numan"
+        },
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        }
+      ],
+      "pmid": "34802244",
+      "fuente": "Anal. Chem.",
+      "anio": "2021",
+      "volumen": "94",
+      "fpage": "26",
+      "lpage": "40"
+    },
+    {
+      "titulo": "Tailored point-of-care biosensors for liquid biopsy in the field of oncology",
+      "autores": [
+        {
+          "nombre_completo": "S. Singh",
+          "nombres": "S.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "P. S. Podder",
+          "nombres": "P. S.",
+          "apellidos": "Podder"
+        },
+        {
+          "nombre_completo": "M. Russo",
+          "nombres": "M.",
+          "apellidos": "Russo"
+        },
+        {
+          "nombre_completo": "C. Henry",
+          "nombres": "C.",
+          "apellidos": "Henry"
+        },
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        }
+      ],
+      "pmid": "36321747",
+      "fuente": "Lab Chip",
+      "anio": "2022a",
+      "volumen": "23",
+      "fpage": "44",
+      "lpage": "61"
+    },
+    {
+      "titulo": "Review–an overview on recent Progress in screen-printed electroanalytical (bio)sensors",
+      "autores": [
+        {
+          "nombre_completo": "S. Singh",
+          "nombres": "S.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. Cinti",
+          "nombres": "S.",
+          "apellidos": "Cinti"
+        }
+      ],
+      "pmid": "",
+      "fuente": "ECS Sensors Plus",
+      "anio": "2022b",
+      "volumen": "1",
+      "fpage": "e2",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bio-fabrication of thermozyme-based nano-biosensors: their components and present scenario",
+      "autores": [
+        {
+          "nombre_completo": "S. Soy",
+          "nombres": "S.",
+          "apellidos": "Soy"
+        },
+        {
+          "nombre_completo": "S. R. Sharma",
+          "nombres": "S. R.",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "V. K. Nigam",
+          "nombres": "V. K.",
+          "apellidos": "Nigam"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Mater. Sci. Mater. Electron.",
+      "anio": "2022",
+      "volumen": "33",
+      "fpage": "5523",
+      "lpage": "5533"
+    },
+    {
+      "titulo": "Radiological and nuclear terrorism: their science, effects, prevention, and recovery",
+      "autores": [
+        {
+          "nombre_completo": "M. G. Stabin",
+          "nombres": "M. G.",
+          "apellidos": "Stabin"
+        }
+      ],
+      "pmid": "35244617",
+      "fuente": "Health Phys.",
+      "anio": "2022",
+      "volumen": "122",
+      "fpage": "513",
+      "lpage": "514"
+    },
+    {
+      "titulo": "Communication by extracellular vesicles: where we are and where we need to go",
+      "autores": [
+        {
+          "nombre_completo": "M. Tkach",
+          "nombres": "M.",
+          "apellidos": "Tkach"
+        },
+        {
+          "nombre_completo": "C. Théry",
+          "nombres": "C.",
+          "apellidos": "Théry"
+        }
+      ],
+      "pmid": "26967288",
+      "fuente": "Cells",
+      "anio": "2016",
+      "volumen": "164",
+      "fpage": "1226",
+      "lpage": "1232"
+    },
+    {
+      "titulo": "Timepix3: temperature influence on X-ray measurements in counting mode with Si sensor",
+      "autores": [
+        {
+          "nombre_completo": "M. Urban",
+          "nombres": "M.",
+          "apellidos": "Urban"
+        },
+        {
+          "nombre_completo": "D. Doubravová",
+          "nombres": "D.",
+          "apellidos": "Doubravová"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Radiat. Meas.",
+      "anio": "2021",
+      "volumen": "141",
+      "fpage": "106535",
+      "lpage": ""
+    },
+    {
+      "titulo": "Thermal vacuum testing of Timepix3 detector",
+      "autores": [
+        {
+          "nombre_completo": "M. Urban",
+          "nombres": "M.",
+          "apellidos": "Urban"
+        },
+        {
+          "nombre_completo": "D. Doubravova",
+          "nombres": "D.",
+          "apellidos": "Doubravova"
+        },
+        {
+          "nombre_completo": "O. Nentvich",
+          "nombres": "O.",
+          "apellidos": "Nentvich"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Instrum.",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "3040",
+      "lpage": ""
+    },
+    {
+      "titulo": "Timepix3: temperature influence on radiation energy measurement with Si sensor",
+      "autores": [
+        {
+          "nombre_completo": "M. Urban",
+          "nombres": "M.",
+          "apellidos": "Urban"
+        },
+        {
+          "nombre_completo": "O. Nentvich",
+          "nombres": "O.",
+          "apellidos": "Nentvich"
+        },
+        {
+          "nombre_completo": "L. Marek",
+          "nombres": "L.",
+          "apellidos": "Marek"
+        },
+        {
+          "nombre_completo": "R. Hudec",
+          "nombres": "R.",
+          "apellidos": "Hudec"
+        },
+        {
+          "nombre_completo": "L. Sieger",
+          "nombres": "L.",
+          "apellidos": "Sieger"
+        }
+      ],
+      "pmid": "36850799",
+      "fuente": "Sensors",
+      "anio": "2023",
+      "volumen": "23",
+      "fpage": "2201",
+      "lpage": ""
+    },
+    {
+      "titulo": "Study of the impact of long-duration space missions at the international Space Station on the astronaut microbiome",
+      "autores": [
+        {
+          "nombre_completo": "A. A. Voorhies",
+          "nombres": "A. A.",
+          "apellidos": "Voorhies"
+        },
+        {
+          "nombre_completo": "C. Mark Ott",
+          "nombres": "C.",
+          "apellidos": "Mark Ott"
+        },
+        {
+          "nombre_completo": "S. Mehta",
+          "nombres": "S.",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "D. L. Pierson",
+          "nombres": "D. L.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "B. E. Crucian",
+          "nombres": "B. E.",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "A. Feiveson",
+          "nombres": "A.",
+          "apellidos": "Feiveson"
+        }
+      ],
+      "pmid": "31289321",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "9911",
+      "lpage": ""
+    },
+    {
+      "titulo": "Acclimation during space flight: effects on human physiology",
+      "autores": [
+        {
+          "nombre_completo": "D. Williams",
+          "nombres": "D.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "A. Kuipers",
+          "nombres": "A.",
+          "apellidos": "Kuipers"
+        },
+        {
+          "nombre_completo": "C. Mukai",
+          "nombres": "C.",
+          "apellidos": "Mukai"
+        },
+        {
+          "nombre_completo": "R. Thirsk",
+          "nombres": "R.",
+          "apellidos": "Thirsk"
+        }
+      ],
+      "pmid": "19509005",
+      "fuente": "CMAJ",
+      "anio": "2009",
+      "volumen": "180",
+      "fpage": "1317",
+      "lpage": "1323"
+    },
+    {
+      "titulo": "Flow injection analysis as a tool for enhancing oceanographic nutrient measurements-a review",
+      "autores": [
+        {
+          "nombre_completo": "P. J. Worsfold",
+          "nombres": "P. J.",
+          "apellidos": "Worsfold"
+        },
+        {
+          "nombre_completo": "R. Clough",
+          "nombres": "R.",
+          "apellidos": "Clough"
+        },
+        {
+          "nombre_completo": "M. C. Lohan",
+          "nombres": "M. C.",
+          "apellidos": "Lohan"
+        },
+        {
+          "nombre_completo": "P. Monbet",
+          "nombres": "P.",
+          "apellidos": "Monbet"
+        },
+        {
+          "nombre_completo": "P. S. Ellis",
+          "nombres": "P. S.",
+          "apellidos": "Ellis"
+        },
+        {
+          "nombre_completo": "C. R. Quétel",
+          "nombres": "C. R.",
+          "apellidos": "Quétel"
+        }
+      ],
+      "pmid": "24216194",
+      "fuente": "Anal. Chim. Acta",
+      "anio": "2013",
+      "volumen": "803",
+      "fpage": "15",
+      "lpage": "40"
+    },
+    {
+      "titulo": "Electrochemistry",
+      "autores": [
+        {
+          "nombre_completo": "Z. Xue",
+          "nombres": "Z.",
+          "apellidos": "Xue"
+        },
+        {
+          "nombre_completo": "W. Zhao",
+          "nombres": "W.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "T. Mu",
+          "nombres": "T.",
+          "apellidos": "Mu"
+        },
+        {
+          "nombre_completo": "D. J. Ramón",
+          "nombres": "D. J.",
+          "apellidos": "Ramón"
+        },
+        {
+          "nombre_completo": "G. Guillena",
+          "nombres": "G.",
+          "apellidos": "Guillena"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Deep eutectic solvents: Synthesis, properties, and applications",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biodiversity and biotechnological applications of Extremophilic microbiomes",
+      "autores": [
+        {
+          "nombre_completo": "A. N. Yadav",
+          "nombres": "A. N.",
+          "apellidos": "Yadav"
+        },
+        {
+          "nombre_completo": "T. Kaur",
+          "nombres": "T.",
+          "apellidos": "Kaur"
+        },
+        {
+          "nombre_completo": "R. Devi",
+          "nombres": "R.",
+          "apellidos": "Devi"
+        },
+        {
+          "nombre_completo": "D. Kour",
+          "nombres": "D.",
+          "apellidos": "Kour"
+        },
+        {
+          "nombre_completo": "N. Yadav",
+          "nombres": "N.",
+          "apellidos": "Yadav"
+        },
+        {
+          "nombre_completo": "A. A. Rastegari",
+          "nombres": "A. A.",
+          "apellidos": "Rastegari"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microbiomes of extreme environments",
+      "anio": "2021",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A novel lab-on-Chip spectrophotometric pH sensor for autonomous in situ seawater measurements to 6000 m depth on stationary and moving observing platforms",
+      "autores": [
+        {
+          "nombre_completo": "T. Yin",
+          "nombres": "T.",
+          "apellidos": "Yin"
+        },
+        {
+          "nombre_completo": "S. Papadimitriou",
+          "nombres": "S.",
+          "apellidos": "Papadimitriou"
+        },
+        {
+          "nombre_completo": "V. M. C. Rérolle",
+          "nombres": "V. M. C.",
+          "apellidos": "Rérolle"
+        },
+        {
+          "nombre_completo": "M. Arundell",
+          "nombres": "M.",
+          "apellidos": "Arundell"
+        },
+        {
+          "nombre_completo": "C. L. Cardwell",
+          "nombres": "C. L.",
+          "apellidos": "Cardwell"
+        },
+        {
+          "nombre_completo": "J. Walk",
+          "nombres": "J.",
+          "apellidos": "Walk"
+        }
+      ],
+      "pmid": "34644501",
+      "fuente": "Environ. Sci. Technol.",
+      "anio": "2021",
+      "volumen": "55",
+      "fpage": "14968",
+      "lpage": "14978"
+    },
+    {
+      "titulo": "Detecting marine hazardous substances and organisms: sensors for pollutants, toxins, and pathogens",
+      "autores": [
+        {
+          "nombre_completo": "O. Zielinski",
+          "nombres": "O.",
+          "apellidos": "Zielinski"
+        },
+        {
+          "nombre_completo": "J. A. Busch",
+          "nombres": "J. A.",
+          "apellidos": "Busch"
+        },
+        {
+          "nombre_completo": "A. D. Cembella",
+          "nombres": "A. D.",
+          "apellidos": "Cembella"
+        },
+        {
+          "nombre_completo": "K. L. Daly",
+          "nombres": "K. L.",
+          "apellidos": "Daly"
+        },
+        {
+          "nombre_completo": "J. Engelbrektsson",
+          "nombres": "J.",
+          "apellidos": "Engelbrektsson"
+        },
+        {
+          "nombre_completo": "A. K. Hannides",
+          "nombres": "A. K.",
+          "apellidos": "Hannides"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Ocean Sci.",
+      "anio": "2009",
+      "volumen": "5",
+      "fpage": "329",
+      "lpage": "349"
+    }
+  ]
+}

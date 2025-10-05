@@ -1,0 +1,2973 @@
+{
+  "TITLE": [
+    "Comparative genomic analysis of Cohnella hashimotonis sp. nov. isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "A single strain from the family Paenibacillaceae was isolated from the wall behind the Waste Hygiene Compartment aboard the International Space Station (ISS) in April 2018, as part of the Microbial Tracking mission series. This strain was identified as a gram-positive, rod-shaped, oxidase-positive, catalase-negative motile bacterium in the genus Cohnella, designated as F6_2S_P_1T. The 16S sequence of the F6_2S_P_1T strain places it in a clade with C. rhizosphaerae and C. ginsengisoli, which were originally isolated from plant tissue or rhizosphere environments. The closest 16S and gyrB matches to strain F6_2S_P_1T are to C. rhizosphaerae with 98.84 and 93.99% sequence similarity, while a core single-copy gene phylogeny from all publicly available Cohnella genomes places it as more closely related to C. ginsengisoli. Average nucleotide identity (ANI) and digital DNA–DNA hybridization (dDDH) values to any described Cohnella species are <89 and <22%, respectively. The major fatty acids for strain F6_2S_P_1T are anteiso-C15:0 (51.7%), iso-C16:0 (23.1%), and iso-C15:0 (10.5%), and it is able to metabolize a wide range of carbon compounds. Given the results of the ANI and dDDH analyses, this ISS strain is a novel species within the genus Cohnella for which we propose the name Cohnella hashimotonis, with the type strain F6_2S_P_1T (=NRRL B-65657T and DSMZ 115098T). Because no closely related Cohnella genomes were available, this study generated the whole-genome sequences (WGSs) of the type strains for C. rhizosphaerae and C. ginsengisoli. Phylogenetic and pangenomic analysis reveals that F6_2S_P_1T, C. rhizosphaerae, and C. ginsengisoli, along with two uncharacterized Cohnella strains, possess a shared set of 332 gene clusters which are not shared with any other WGS of Cohnella species, and form a distinct clade branching off from C. nanjingensis. Functional traits were predicted for the genomes of strain F6_2S_P_1T and other members of this clade."
+  ],
+  "INTRO": [
+    "Introduction",
+    "The International Space Station (ISS) is an orbital space habitat which has been continuously inhabited by astronauts for 22 years (Robinson et al.,) and is therefore the only current model for how the microbiome of a space habitat evolves over time. Because the ISS is hermetically sealed against the vacuum of space, sources of its microbiome must necessarily be the human commensals from the astronauts, new equipment and supplies, or experiments conducted on board (Checinska Sielaff et al.,; Urbaniak et al.,). With a number of both governmental and commercial closed-habitat space facilities planned for both earth and lunar orbit in the near future, studying the microbiome of this unique habitat is vital to understanding both how astronaut health is affected by the presence of bacteria and fungi exposed to the space environment, and how those microbes can be utilized for biotechnological applications. Part of this effort should include the whole-genome sequencing (WGS) and taxonomic classification of microbes isolated from the ISS, to track their sources, spread, interactions, and potential applications. Until the mid-2010s, monitoring of bacteria and fungi aboard the ISS was mainly done via traditional culturing and identification using Sanger sequencing methods, to ensure crew health and food and water safety (La Duc et al.,; Checinska et al.,). More recently, a series of NASA Space Biology-funded missions known as Microbial Tracking 1 and 2 investigated the metagenomes of ISS surfaces and performed WGS on all isolated bacteria and fungi (Checinska Sielaff et al.,; Venkateswaran et al.,; Urbaniak et al.,; Bijlani et al.,; Daudu et al.,; Solomon et al.,; Blachowicz et al.,; Simpson et al.,), in order to fully characterize the ISS microbiome and how it changes over time (Singh et al.,; Checinska Sielaff et al.,; Urbaniak et al.,). In the ongoing Microbial Tracking investigation of the ISS, spore-forming bacteria have been isolated multiple times from the genera Bacillus and Paenibacillus; however, this is the first instance that a bacterium from the genus Cohnella has been isolated from an ISS surface. As part of the Microbial Tracking 2 mission series, during April of 2018, astronauts sampled various surfaces aboard the ISS (Urbaniak et al.,) with pre-packaged, pre-sterilized wipes, including the panel behind the Waste Hygiene Compartment (WHC). Upon return to Earth, the strain F6_2S_P_1T was isolated from the WHC sample wipe, on blood agar incubated at 37°C. Preliminary 16S rRNA sequence analysis placed strain F6_2S_P_1T in the genus Cohnella.",
+    "The genus Cohnella (family Paenibacillaceae, order Bacillales, phylum Firmicutes/Bacillota) was first proposed by Kampfer et al. as distinct from the genus Paenibacillus, with the description of Cohnella thermotolerans (type species, isolated during hygiene checks at a starch production company in Sweden) and the reclassification of Paenibacillus hongkongensis as Cohnella hongkongensis (Teng et al.,). Cohnella species are differentiated from Paenibacillus due to high iso-C16:0 content in their fatty acid profiles (Kampfer et al.,). Members of Cohnella are rod-shaped, usually endospore-forming, and gram-positive.",
+    "Cohnella species have been first isolated from a wide variety of environmental samples, most usually in soil (Kampfer et al.,), but also in plant tissue (Garcia-Fraile et al.,; Flores-Felix et al.,) and compost heaps (He et al.,). Species from this genus are used in industrial applications including fermentation, biofuel production, and wastewater treatment bioreactors (Lin et al.,; Hero et al.,; Chen et al.,; Mohammadi et al.,). As with the genus Paenibacillus, many members of the genus Cohnella are strongly associated with the plant rhizosphere environment, particularly that of legume species (Niang et al.,). Multiple novel Cohnella species have been discovered in the root nodules of leguminous plants, although only two species are known to fix nitrogen (Garcia-Fraile et al.,; Wang et al.,; Flores-Felix et al.,; Takada et al.,). Cohnella species are also thought to play an important role in recycling plant biomass within soil, with multiple members of the genus possessing genes for degradation of hemicellulose, cellulose, and xylan (Khianngam et al.,; Hameed et al.,; Hero et al.,; Johnson et al.,). Overall, while Cohnella species have been occasionally detected in the blood and oral cavities of immune-compromised or otherwise unhealthy individuals (Teng et al.,; Abou Abdallah et al.,; Kim et al.,), they do not appear to be common human commensals.",
+    "In this study, we completed the characterization study of strain F6_2S_P_1T and describe it here with three main objectives. The first objective was to establish Cohnella sp. F6_2S_P_1T as a novel species, for which chemotaxonomic, phenotypic, phylogenetic (using taxonomic marker genes), and comparative genomic analyses were carried out. In addition, initial taxonomic analysis for strain F6_2S_P_1T showed that it was most closely related to four Cohnella species without publicly available genomes, two of which are officially recognized species (Kim et al.,; Kampfer et al.,). Thus, the strains Cohnella ginsengisoli DSM 18997T and Cohnella rhizosphaerae DSM 28161T were acquired from the Deutsche Sammlung von Mikroorganismen und Zellkulturen (DSMZ) and whole-genome-sequenced, and assembled draft genomes were generated for these species.",
+    "The second objective was to discover the phylogenetic placement of strain F6_2S_P_1T within the genus Cohnella, for which we performed multiple phylogenetic analyses as well as a pangenome, and a genome-based tree containing all shared single-copy core genes from the genus Cohnella. The third objective was to explore the functional traits predicted by the genome of strain F6_2S_P_1T. Because strain F6_2S_P_1T is part of a branch of the genus Cohnella which is only distantly related to the rest of the genus, the functional traits predicted for the entire closely related clade of which strain F6_2S_P_1T is a member were characterized."
+  ],
+  "METHODS": [
+    "Materials and methods",
+    "Sample collection and isolation",
+    "Methods for preparing sampling kits and processing samples were similar to those used in the Microbial Tracking 1 mission (Singh et al.,; Checinska Sielaff et al.,). For each of five flight missions for Microbial Tracking 2, Sterile TexTra™ 10 TX3224 Dry Cleanroom Wipers were moistened with 15 ml of sterile phosphate-buffered saline (PBS), folded into quarters and placed in sterile Ziploc baggies, which were later used to assemble sampling kits at NASA Ames. Sampling kits were transported to the ISS, where astronauts collected surface particulates from a square meter area of eight surfaces: (1) the cupola, (2) the WHC, (3) the advanced resistive exercise device, (4) dining table, (5) Zero-Gravity Stowage Rack overhead 4, (6) permanent multipurpose module Port 1, (7) laboratory overhead 3, and (8) crew quarters bump-out exterior wall (see Singh et al., for detailed surface descriptions). For each surface, the astronaut tasked with sampling donned a new pair of sterile gloves, removed and unfolded a sterile wipe from its bag, and wiped a square meter area of the surface three times, folding the wipe in half for the second pass and into quarters for the third pass; each time, the surface was sampled in a different direction (horizontally, vertically, and diagonally) using the new previously unexposed surface of the wipe. Additionally, a wipe was removed from its bag and briefly exposed to the air, as an environmental control. A total of nine (eight locations and one control) samples were produced for each flight and stored at 4°C aboard the ISS and during transport to earth.",
+    "Upon delivery to Jet Propulsion Laboratory, ISS wipes and unopened control wipes were processed for the isolation of environmental microbes within a 12-h period. Each wipe was placed in a sterile 500-ml bottle with 200-ml sterile PBS and shaken vigorously for 2 min. PBS was then concentrated using an Innovaprep CP-150 (Innovaprep LLC, Drexel, Missouri, United States) with a 0.2 μm polysulfone hollow fiber concentrating pipette tip (Innovaprep LLC, SKU CC08022-10). Using additional sterile PBS, dilutions of 10−1 through 10−6 were prepared and plated onto Reasoner's 2 agar (R2A, BD Diagnostics Cat # 218263), potato dextrose agar (BD Diagnostics Cat #213400) with 0.05 g/L chloramphenicol, and blood agar (Hardy Diagnostics, #A10) media. Five colonies from each sample on each media type were selected and stored in one-tenth strength tryptic soy agar (TSA) stabs. Strain F6_2S_P_1T was isolated from blood agar inoculated with the PBS concentrate from Location 2 (wall behind WHC), collected during Flight 6 (third flight in the Microbial Tracking 2 mission series).",
+    "DNA extraction and whole-genome sequencing",
+    "The ZymoBIOMICS DNA MagBead kit was used to extract genomic DNA from strain F6_2S_P_1T according to the manufacturer's instructions. An Illumina Nextera DNA Flex library preparation kit was used to prepare the library for WGS as in Simpson et al.. The library was sequenced as part of a run on a NovaSeq 6000 S4 flow cell paired-end 2 × 150-bp platform. FastQC v0.11.7 (Bioinformatics,) was used to quality filter and trim reads, and fastp v0.20 (Chen et al.,) was used to remove adapter sequences. A draft genome was assembled to the scaffold level using SPAdes v3.11.1 (Bankevich et al.,). Assembly quality, including number of contigs, genome size, and N50 value, was assessed using QUAST v5.0.2 (Gurevich et al.,). Default settings were used for all steps except for fastp, which included 512 adapters screening.",
+    "A secondary round of sequencing for strain F6_2S_P_1T, as well as C. ginsengisoli DSM 18997T and C. rhizosphaerae DSM 28161T, was conducted using Oxford Nanopore sequencing. C. ginsengisoli DSM 18997T and C. rhizosphaerae DSM 28161T were ordered from the DSMZ and cryostocks prepared for long term storage. To produce a more resolved genome for Cohnella sp. F6_2S_P_1T and to provide WGS, all strains were re-streaked from cryostock on TSA and genomic DNA was extracted using a Zymo QuikSpin DNA extraction kit. Nanopore sequencing libraries were prepared using an SQK-LSK110 Ligation Sequencing kit (Oxford Nanopore) and sequenced on an R9.4.1 flow cell, with base calling via MinKNOW/Guppy. Porechop (Wick et al.,) and Nanofilt (De Coster et al.,) were used to remove adapter sequences and filter reads using the settings “-q 10 -l 200.” A hybrid genome assembly for Cohnella sp. F6_2S_P_1T was generated via Unicycler (Wick et al.,) using Nanopore reads to polish the Illumina assembly. Flye (Kolmogorov et al.,) followed by polishing with Medaka (Oxford Nanopore Technologies) was used to assemble draft genomes for type strains of C. ginsengisoli and C. rhizosphaerae from Nanopore reads, and assembly quality was assessed using QUAST v5.0.2 (Gurevich et al.,).",
+    "Phylogenetic analysis",
+    "Phylogenetic analysis using 16S rRNA gene sequences was carried out by extracting the 16S rDNA sequence from the WGS of strain F6_2S_P_1T and aligning it to the NCBI nucleotide database via blast search. The top 30 matching 16S rRNA sequences were retrieved. In addition, all publicly available genomes from the genus Cohnella were downloaded, and their 16S rDNA sequences were extracted using a blast wrapper script. 16S rRNA genes from the species Paenibacillus barengoltzii, Paenibacillus terrae, Thermoflavimicrobial dichotomicus, and Thermoactinomyces vulgaris were used to root the tree. Similarly, gyrB sequences from strain F6_2S_P_1T and from all publicly available Cohnella genomes, and the outgroups T. dichotomicus and T. vulgaris were extracted with the same wrapper script. For both gyrB and 16S trees, alignment was performed in R using the DECIPHER package (Wright,). Trimming and tree-building using maximum likelihood and the substitution model GTR + G + I were performed using the phangorn package, including model selection using AIC values and 1,000 bootstrap replicates (Schliep,). Phylogenetic trees based on 16S rRNA and gyrB genes were visualized using ggtree (Yu et al.,).",
+    "A genome-based phylogenetic tree was also generated using genes detected from the pangenomic analysis, which contained all publicly available Cohnella genomes, plus those of strain F6_2S_P_1T, C. ginsengisoli, and C. rhizosphaerae generated during this study (see below section for methods for pangenomic tree generation). Aligned, single-copy core genes which were shared by all species and had a geometric homogeneity of 1, but a functional homogeneity below 0.9, were extracted from the Cohnella genus pangenome into a concatenated FASTA file. A maximum likelihood genome-based tree was generated using raxml v8.2.12 (Stamatakis,; Kozlov et al.,) with a GTR-GAMMA substitution model and the option “autoMRE” to automatically choose the optimal number of bootstrap replicates. The tree was visualized using the online platform Interactive Tree of Life (iTOL) (Letunic and Bork,).",
+    "Additionally, average nucleotide identity (ANI) and digital DNA–DNA hybridization (dDDH) were calculated for strain F6_2S_P_1T against all sequenced and described Cohnella species using fastANI v1.33 (Jain et al.,) and DSMZ's online Genome-to-Genome Distance Calculator v3.0 (Meier-Kolthoff et al.,).",
+    "Light microscopy and SEM",
+    "A liquid culture of strain F6_2S_P_1T was incubated at 80°C for 10 min, then plated on R2A and grown at 30°C for 5 days to induce endospore formation. Endospore staining with malachite green and safranin was performed using the Schaeffer–Fulton method (Schaeffer and Fulton,). Light microscopy and phase contrast images were taken on an Olympus BX53 microscope with an Olympus DP25 camera using Olympus cellSens software.",
+    "To prepare a colony of strain F6_2S_P_1T for SEM, the strain was streaked out on TSA and allowed to grow at 30°C for 48 h. A pure colony was then suspended in chilled 2.5% glutaraldehyde (Ted Pella Inc., Redding, CA, United States) in 0.1M sodium cacodylate (NaCaco) (Sigma Aldrich) solution for 1 h. The sample was then filtered through a 0.2 μm Isopore filter membrane (MilliporeSigma, Burlington, MA, United States) and moved into a 1.5 ml centrifuge tube. The sample was then incubated in 0.1 M NaCaco solution at 4°C for 10 min and then replaced with fresh 0.1 M NaCaco solution; this replacement was repeated three times. The sample was then dehydrated in a series of increasing IPA solutions mixed with water for 10 min each. The series was 50, 70, 80, 90, 95, and 100%, with the final 100% IPA rinsing occurring three times. The specimen was stored at 4°C in 100% IPA until it was critical point dried in a Tousimis Automegasamdri 915B critical point dryer (Rockville, MD, United States). Samples were adhered with carbon tape to SEM stubs (Ted Pella Inc.) and then underwent ~12 nm thick carbon coating with a Leica EM ACE600 Carbon Evaporator (Deerfield, IL, United States). SEM micrographs were captured on a FEI Quanta 200F microscope (Thermo Fisher, Waltham, MA, United States) located at the California Institute of Technologies Kavli Nanoscience Institute.",
+    "Pangenomic analysis and other genome characterization",
+    "Pangenomic analysis was carried out using anvi'o v7.1 (Eren et al.,) similar to methods described in Singh et al.. Open reading frames were annotated with COG, KEGG, and KOfam database pathways/functions, and ANI between all genomes was additionally calculated. Two pangenomes were generated: one including all publicly available Cohnella genomes including unnamed species and one containing only named species. The function anvi-compute-functional-enrichment-in-pan was used to calculate functional enrichment in the C. ginsengisoli clade compared to the rest of the genus Cohnella.",
+    "The genome of the strain F6_2S_P_1T was also uploaded and annotated using the online Rapid Annotation using Subsystems Technology (RAST platform) (Aziz et al.,). The presence of biosynthetic gene clusters (BGCs) which might produce secondary metabolites was predicted in the strain F6_2S_P_1T genome using the antiSMASH pipeline (Blin et al.,). The presence of antimicrobial resistance or virulence genes was predicted by the ABRicate pipeline (Seemann,).",
+    "To evaluate the diversity of carbohydrate-degrading and other carbohydrate-cycling enzymes (Carbohydrate-Active Enzymes, i.e., CAZymes) (Drula et al.,), the dbcan3 stand-alone tool (Zhang et al.,) was run against all publicly available genomes in the genera Cohnella and Paenibacillus as well as the genomes of strain F6_2S_P_1T, C. ginsengisoli, and C. rhizosphaerae. The results were parsed to generate a count matrix for the number of each CAZyme family/subfamily predicted in the genome of each species. All statistics and plots from analysis of this data were generated in R [v 4.2.2, “Innocent and Trusting,” R Core Team ] utilizing the Tidyverse package (Wickham et al.,). An NMDS ordination (stress = 12.9, k = 3) was generated via vegan (Oksanen et al.,) using Bray–Curtis distance after standardization of each CAZyme category to between 0 and 1, and individual Kruskal–Wallis tests were performed for each CAZyme testing mean abundance between members of the C. ginsengisoli clade and other species of Cohnella and Paenibacillus with Bonferroni correction for multiple testing. Additionally, a heatmap of abundance for each category was generated using the pheatmap package (Kolde and Kolde,) after standardization of the data using robust centered log ratios.",
+    "Phenotypic characterization",
+    "Growth temperature was determined by inoculating both solid (R2A plates) and liquid (trypticase soy broth (TSB), BD Diagnostics Cat # 257107) media in 15 ml loose-capped centrifuge tubes with strain F6_2S_P_1T and growing at 4, 15, 25, 30, 37, and 45°C. Plates and tubes were checked for growth daily for 7 days and incubation was halted if growth was observed. Samples grown at 4 and 15°C were incubated for additional time before final growth assessment: 2 weeks total for growth at 15°C and 4 weeks total at 4°C. Salt tolerance was determined by inoculating strain F6_2S_P_1T onto R2A with 0, 1, 2, 3, 4, and 5% added NaCl, as well as agar containing only peptone plus 0 or 1% NaCl, and examining growth after 7 days of incubation at 30°C. Oxidase activity was determined by testing solid culture with OxiDrops™ liquid oxidase reagent (Hardy Diagnostics). Catalase activity was determined by mixing colonies of strain F6_2S_P_1T with hydrogen peroxide on a sterile glass slide and monitoring for the presence of effervescence. pH tolerance (4–10) was tested by adjusting the pH of TSB broth with biological buffers as in Xu et al..",
+    "Mapping of metagenomic reads to genome",
+    "Metagenomic reads from ISS surfaces from Microbial Tracking 1 (Checinska Sielaff et al.,) and Microbial Tracking 2 (Urbaniak et al.,) were mapped to the genome of Cohnella sp. F6_2S_P_1T using Bowtie2 (Langmead and Salzberg,), using the flags “—no-mixed” (no unpaired alignments) and “—no-discordant” (only matches where both forward and reverse reads map to the same area are considered). The number of matches where both a forward and reverse read mapped to the Cohnella sp. F6_2S_P_1T genome were reported as a percentage of total reads.",
+    "Chemotaxonomic analysis",
+    "Cells grown in TSB medium were harvested when growth of the cultures reached approximately 70% of the maximal optical density (exponential growth phase) and used for analysis of cellular fatty acids, polar lipids, and quinones, which was done as described previously (Ramaprasad et al.,). In brief, for cellular fatty acids analysis, 40 mg of bacterial cells were subjected to a series of four different reagents followed by saponification and methylation of fatty acids, thus enabling their cleavage from lipids. The fatty acid methyl esters thus obtained were analyzed by gas chromatography. The peaks obtained were then labeled and the equivalent chain length values were computed as published elsewhere (MIDI,).",
+    "The polar lipid profile was analyzed by extracting polar lipids with methanol/chloroform/saline (2:1:0.8, by vol.) from 1 g freeze-dried bacterial cells. Separation of lipids was done by two-dimensional chromatography on a silica gel TLC plate (Kieselgel 60 F254; Merck) using chloroform–methanol–water (75:32:4 by vol.) in the first dimension and chloroform–methanol–acetic acid–water (86:16:15:4 by vol.) in the second dimension. Total polar lipid profiles were detected by spraying with 6% ethanolic molybdophosphoric acid. The respiratory isoprenoid quinone was extracted with chloroform/methanol mixture (2:1, v/v), evaporated under a vacuum, re-extracted with acetone, and analyzed using high-performance lipid chromatography according to previously reported methods (Ramaprasad et al.,). Polyamines were analyzed as described by Busse and Auling and Busse et al.. The peptidoglycan of cells of strain F6_2S_P_1T was isolated following disruption of the cells by shaking with glass beads and subsequent trypsin digestion, according to the method of Schleifer. Cell wall was hydrolyzed for amino acid analyses as described by Schleifer and Kandler. Amino acids in cell-wall hydrolysates were analyzed by high performance liquid chromatography (HPLC) (Mckerrow et al.,; Ramaprasad et al.,). Carbon substrate utilization profile analysis was carried out as per the BioLog protocol provided by the manufacturer for Firmicutes using the GEN III MicroPlate test assay with a Biolog system (Hayward, CA, USA)."
+  ],
+  "RESULTS": [
+    "Results and discussion",
+    "Cohnella sp. F6_2S_P_1T isolated from the ISS was subjected to polyphasic taxonomic characterization to determine its phylogenetic affiliation. In addition, WGSs of C. ginsengisoli and C. rhizosphaerae were generated and compared with the genome of Cohnella sp. F6_2S_P_1T to identify the variable, conserved, and distinctive genomic traits.",
+    "Genome characteristics and relatedness indices",
+    "Assembly statistics for Cohnella sp. F6_2S_P_1, C. ginsengisoli, and C. rhizosphaerae are summarized in Table 1. Genome sizes are 9.06 Mb for strain F6_2S_P_1, 7.22 Mb for C. ginsengisoli, and 8.5 Mb for C. rhizosphaerae. GC content ranged from 58.37% for Cohnella sp. F6_2S_P_1T to 59.49% for C. rhizosphaerae. In general, among 39 sequenced Cohnella genomes, genome size varied from 4.0 to 9.4 Mb. This genome variation should be investigated for any functional genes acquired or shed over time.",
+    "ANI values between Cohnella sp. F6_2S_P_1T and C. ginsengisoli, and C. rhizosphaerae were 88.4 and 88.0%, respectively (Table 2). ANI between Cohnella sp. F6_2S_P_1T and all other named Cohnella species for which a genome was publicly available was <79.4% (Table 2). We also tested ANI between Cohnella sp. F6_2S_P_1T and available genomes for unnamed Cohnella species and found that Cohnella sp. OV330 and Cohnella sp. GbtcB17 were also closely related, with ANIs of 88.9 and 88.0%, respectively. This was also the trend for C. ginsengisoli and C. rhizosphaerae, which showed ANI to each other and to Cohnella sp. OV330 and Cohnella sp. GbtcB17 ranging from 88 to 92%, and which was otherwise most closely related to C. nanjingensis with an ANI value of ~79%. The dDDH results showed a similar pattern, as values were 35 and 34.5% between Cohnella sp. F6_2S_P_1T and C. ginsengisoli, and C. rhizosphaerae, respectively, and were otherwise below 22% (Table 2).",
+    "Phylogeny of strain F6_2S_P_1T",
+    "A 16S rDNA-based phylogenetic tree of all Cohnella species, plus the species P. barengoltzii, P. terrae, T. dichotomicus, and T. vulgaris as outgroups, shows that strain F6_2S_P_1T is placed within a clade containing the officially named species C. rhizosphaerae and C. ginsengisoli, as well as yet-to-be described species “C. plantaginis” and “C. capsici” (Figure 1). The 16S rDNA sequence similarities of strain F6_2S_P_1T with the members of this clade ranged from 98.84 to 97.37%. “C. plantaginis” and “C. capsici” form their own well-supported branch within this clade, while C. rhizosphaerae is basal to strain F6_2S_P_1T and C. ginsengisoli is the most basal species of the clade (Figure 1). However, branch support for the divergence of strain F6_2S_P_1T from C. rhizosphaerae was low (50) and not shown in Figure 1. A gyrB-based phylogeny was also generated using all publicly available Cohnella genomes plus the outgroups T. dichotomicus and T. vulgaris (Figure 2). The gyrB sequence similarities of strain F6_2S_P_1T with the members of this clade ranged from 93.99 to 93.55%. The gyrB tree supports the position of strain F6_2S_P_1T as non-basal to C. rhizosphaerae and C. ginsengisoli, with C. ginsengisoli as the most basal species in this branch of the genus Cohnella. Since WGSs of “C. plantaginis” and “C. capsici” are not available, they were not included in the gyrB phylogeny.",
+    "The genome-based tree (Figure 3) for all sequenced and fully described Cohnella species was based on a concatenated alignment of 14 gene clusters containing a total of 294 single-copy core genes common to all species in the genus. This tree supports the position of C. rhizosphaerae as basal to C. ginsengisoli, in contrast to the 16S and gyrB trees. Nevertheless, the position of strain F6_2S_P_1T remains the same. A second genome-based tree was generated using a second pangenome analysis including genomes of all Cohnella species along with yet-to-be described species (Supplementary Figure S1), which showed that Cohnella sp. OV330 and Cohnella sp. GbtcB17 are also part of this clade, with Cohnella sp. GbtcB17 as the most basal species and Cohnella sp. OV330 as basal to C. ginsengisoli and strain F6_2S_P_1T.",
+    "Phenotypic and chemotaxonomic characterization",
+    "Light microscopy and staining with safranin and malachite green show that cells are rod-shaped and vary extensively in length and that strain F6_2S_P_1T forms ellipsoidal/oval endospores which quickly convert back to vegetative cells (Figure 4). SEM imaging reveals the presence of peritrichous flagella attached to F6_2S_P_1T cells (Figure 5A) and confirms the presence of elongated cells (Figure 5B).",
+    "Differentiating biochemical characteristics of Cohnella sp. F6_2S_P_1T with other Cohnella species are depicted in Table 3. Cohnella sp. F6_2S_P_1T grew at temperatures between 15 and 37°C, between pHs 6 and 8, and from 0 to 3% NaCl. Colonies were weakly oxidase-positive and catalase-negative. Catalase positive in C. ginsengisoli, C. plantaginis, and C. capsici; absence of growth at 3% NaCl and production of oxidase in C. ginsengisoli; absence of endospore formation in C. rhizosphaerae; nitrate reduction not seen in C. plantaginis and C. capsica were some of the phenotypic characteristics that could differentiate Cohnella sp. F6_2S_P_1T from other Cohnella species.",
+    "Major fatty acids (more than 5% of the total) are C16:0, iso-C15:0, iso-C16:0, and anteiso-C15:0 (Table 4). Differences in fatty acid profile of strain F6_2S_P_1T with regard to C. rhizosphaerae CSE-5610T, Cohnella ginsengisoli DSM 18997T, C. plantaginis YN-83T, and C. capsici YN-59T are shown in Table 4. C. rhizosphaerae showed >25% of C16:0 saturated fatty acid, whereas other Cohnella species exhibited <10% production. Absence of branched fatty acid such as iso-C14:0 in Cohnella sp. F6_2S_P_1T and in C rhizosphaerae could be used to differentiate the novel species described in this study. However, production of iso-C16:0 and anteiso-C15:0 was very high in Cohnella sp. F6_2S_P_1T when compared to other described Cohnella species.",
+    "The polar lipid profile was composed of diphosphatidylglycerol, phosphatidylglycerol, phosphatidylethanolamine, three aminophospholipids, a phospholipid, and minor amounts of unidentified polar lipid (Supplementary Figure S2). This profile is in agreement with other described members of the C. ginsengisoli clade (Kim et al.,; Kampfer et al.,; Wang et al.,).",
+    "The quinone system contained menaquinones MK-7 (98%) and MK-8 (2%). The cell-wall peptidoglycan of strain F6_2S_P_1T contained meso-diaminopimelic acid as the diamino acid, which is the case for other described members of the C. ginsengisoli clade where that data are reported. All other described members of the C. ginsengisoli clade also contain MK-7 as the dominant menaquinone (Kim et al.,; Kampfer et al.,; Wang et al.,). Descriptions of C. capsici and C. plantaginis do not report low abundance menaquinones, but the quinone system of F6_2S_P_1T is similar to that of C. rhizosphaerae (99.8% MK-7, 0.2% MK-8), while C. ginsengisoli has 93% MK-7 and 7% MK-6.",
+    "Comparative genomic analysis of C. hashimotonis and the C. ginsengisoli clade",
+    "The genome of strain F6_2S_P_1T contained 309 genes not aligned with other species of Cohnella, named or undescribed (Figure 6). Of these genes, 121 of them received an annotation from at least one predictive database. Annotated genes specific to strain F6_2S_P_1T were dominated by the COG pathways of carbohydrate and/or amino acid transport and metabolism (27 genes), transcription (10 genes), cell wall/membrane/envelope biogenesis (11 genes), and signal transduction mechanisms (+ transcription) (18 genes). The large number of carbon-cycling metabolic genes found in the genome of strain F6_2S_P_1T within Cohnella is unsurprising, given the diverse nature of the carbon substrates which strain F6_2S_P_1T, C. capsici, and C. plantaginis can metabolize compared to the fairly limited substrates utilized by C. rhizosphaerae and C. ginsengisoli (Table 3).",
+    "Because C. capsici and C. plantaginis are both characterized as fixing N2, the annotations for the genome of strain F6_2S_P_1T were searched extensively for genes having to do with nitrogen fixation, as well as blastn and blastx searches for key genes involved in N2 fixation. However, despite the presence of the gene nifU in most species of the genus Cohnella, there was no indication that strain F6_2S_P_1T encodes for N2 fixation.",
+    "Other genes of interest predicted by annotation on the RAST platform include multiple genes for endospore formation and for the plant growth hormone auxin, genes which are likely shared by many members of the genus Cohnella, which belongs to the order Bacillales (including many known spore formers) and which are common plant endophytes. BGCs which might produce secondary metabolites were predicted in the genome of strain F6_2S_P_1T via the antiSMASH pipeline, including two lassopeptides, two non-ribosomal peptide synthetase clusters, one agrD-like cyclic lactone autoinducer peptide, one protein cluster, and one heterocyst glycolipid synthase-like polyketide synthase. All are uncharacterized except the two lassopeptides; these are moderate matches to the lasso peptide paeninodin which was characterized from the species Paenibacillus dendritiformis (Zhu et al.,). Paeninodin and BGCs showing similarity to it have been predicted in multiple Bacillus and Paenibacillus endophyte species and are suspected to have biocontrol properties that combat plant pathogens (Muñoz et al.,; Semenzato et al.,). The genomes of C. ginsengisoli, C. rhizosphaerae, and strain F6_2S_P_1T all contained 2–3 predicted BGCs for paeninodin, with C. ginsengisoli containing one that is a 100% match, while C. nanjingensis (the most closely related species outside the C. ginsengisoli clade) contained a single paeninodin match. The only other match in any of these species to a known BGC is a predicted cluster in the C. rhizosphaerae which is a moderate match to ectoine. Other differences include multiple cyclic lactone autoinducer peptide BGCs predicted in the genome of C. nanjingensis (vs. a single one in all other tested genomes), and a siderophore predicted in the genome of C. rhizosphaerae. Strain F6_2S_P_1T was the only genome in the genus Cohnella which a heterocyst glycolipid synthase-like polyketide synthase was detected; these BGCs are used by cyanobacteria to compartmentalize N2 fixation and are activated in low-nitrogen conditions (Campbell et al.,), but as strain F6_2S_P_1T does not contain a full suite of genes for N2 fixation and the cluster is not a strong match, it is likely a producer of some kind of potentially uncharacterized lipid compound. No genes for antimicrobial resistance or virulence were predicted by the ABRicate pipeline.",
+    "The entire closely related branch of which strain F6_2S_P_1T is a member, which we term the C. ginsengisoli clade (due to its basal position and status as the first officially described species within the clade), contained 322 gene clusters not found in any other publicly available Cohnella genome. All members of this clade in addition to strain F6_2S_P_1T were originally isolated from plant tissue or the rhizosphere environment, including C. ginsengisoli (isolated from soil in which ginseng was grown, Kim et al.,), C. rhizosphaerae (isolated from healthy maize seed tissue, Kampfer et al.,), C. capsici (isolated from Capsicum rhizosphere, Wang et al.,), C. plantaginis (isolated from plantain rhizosphere, Wang et al.,), Cohnella sp. OV330 (isolated from poplar rhizosphere, JGI,), and Cohnella sp. GbtcB17 (isolated from Ginko biloba root tissue, Zou et al.,). It is speculated that strain F6_2S_P_1T might have originated from the plants grown in ISS. Since shotgun metagenomics of plants associated samples (tissue, water, and soil) were not available, the source of this novel strain isolated from the WHC location could not be confirmed. Cohnella was one of the top 30 genera recently detected via 16S amplicon sequencing of plant tissue of chili peppers grown in the Advanced Plant Habitat from sterilized seeds aboard the ISS, though it was not a top genus detected in artificial soil medium (Khodadad et al.,). Cohnella was also not a dominant member of the microbiome of Outredgeous lettuce grown aboard the ISS (Khodadad et al.,). However, since in these ISS studies, a 250-bp 16S rRNA gene amplicon was used for the microbial diversity analyses, Cohnella species might have not been identified appropriately.",
+    "Functional enrichment analysis for the C. ginsengisoli clade compared to other Cohnella species using the COG20 and KOfam databases revealed hundreds of statistically significantly enriched predicted functions (p < 0.05 with FDR adjustment) annotating one or more gene clusters, including 11 functions which were detected in all C. ginsengisoli clade members (Supplementary Table S1) but in none of the rest of the genus. Most notably, C. ginsengisoli clade species were enriched in genes for heme oxygenase and for a bacteriophytochrome (annotated on NCBI as diguanylate cyclase), which were detected using both COG20 and KOfam database annotation. Consensus protein sequences for genes related to these functions, when aligned to the NCBI database, most closely match to the genome of Paenibacillus chitinolyticus (after matches to members of the C. ginsengisoli clade); heme oxygenase and diguanylate cyclase are located one after the other in the assembled chromosome of this species (NZ_CP026520.1). Heme oxygenase (HO-1) breaks down heme and releases iron and is a regulator of intracellular iron availability in plants and animals (Singh and Bhatla,). Enhanced HO-1 expression in plants and animals is also associated with stress response as the resulting biliverdin and bilirubin scavenge ROS species (Singh and Bhatla,); the bacterial species Paenibacillus polymyxa applied as a probiotic induces increased intestinal HO-1 expression as part of its anti-oxidant effects on gut health in animals (Wu et al.,). In bacteria, expression and production of heme oxygenase are associated with iron scavenging within a host, and heme oxygenase expression can have either beneficial anti-oxidant or enhanced pathogenic effects on plant or animal hosts (Richard et al.,). In non-photosynthetic bacteria, heme oxygenase also produces biliverdin which is used as the chromatophore in bacteriophytochromes (Takemoto et al.,). It is also possible that this HO-1/diguanylate cyclase complex acts as an oxygen sensor (Martínková et al.,). Other functions significantly enriched in this clade include stress response genes such as heat shock protein DnaJ. KEGG pathway analysis predicted two functional pathways in all C. ginsengisoli clade species which were not present in any other Cohnella species: a pathway for carbon fixation (incomplete reductive citrate cycle) and a pathway for plant terpenoid biosynthesis (specifically beta-carotene biosynthesis).",
+    "Predictive analysis of the presence of CAZymes (carbohydrate-active enzymes, Drula et al.,) was followed by ordination (Figure 7; Supplementary Figure S3) and heatmap generation (Supplementary Figure S4). Both heatmaps and ordinations show that strain F6_2S_P1T and its closest relatives cluster tightly together, along with C. fermenti (isolated from a fermented vegetable, Lin et al.,), C. phaseoli (isolated from the root nodule of a legume species, Garcia-Fraile et al.,), C. zeiphila (isolated from corn tissue, Johnson et al.,), and several undescribed strains; members of the C. ginsengisoli clade, therefore, appear to be both taxonomically similar and have similar profiles of carbohydrate-cycling genes. PERMANOVA analysis confirmed that the centroid of the C. ginsengisoli clade was significantly different from that of other Cohnella and Paenibacillus species (p < 0.001). One axis out of three in the NMDS ordination clearly differentiates the C. ginsengisoli clade and the other Cohnella species mentioned above from the majority of Cohnella and Paenibacillus species (NMDS2, shown in Figure 7; Supplementary Figure S3); therefore, scores correlating CAZyme ordination vectors to this axis using the envfit function were assessed for significance, plotted, and ranked against the axis in question.",
+    "Most strongly associated with this axis and the C. ginsengisoli clade are the CAZyme families CBM67 and GH78, which were both identified as part of the enzyme α-L-rhamnosidase which alters flavonoids and other rhamnose-containing glycosides such as pectins in plant cell walls (Yadav et al.,). Flavonoids are phenolic compounds produced by plants that often have medicinal or flavorful properties. α-L-rhamnosidase cleaves terminal α-rhamnose residues and in doing so helps concentrate and improve the action of flavonoids; α-L-rhamnosidase from different bacterial species is used for many industrial applications such as improving wine aroma, sweetening fruit juice, and increasing concentration and efficacy of antibiotic and anti-cancer compounds (Xie et al., ). The C. ginsengisoli clade and other Cohnella species enriched in α-L-rhamnosidase enzyme modules are all confirmed or likely plant symbionts or feed on plant tissue; however, since the majority of Cohnella and Paenibacillus species appear to have at least some association with plant tissue or rhizosphere, there may be additional promising applications for these particular species in processing plant medicinal or other plant phenolic compounds.",
+    "CAZymes negatively associated with the C. ginsengisoli clade (and associated mainly with Paenibacillus species) include chitosanases (GH46 and CBM12), endo-β-N-acetylglucosaminidase (GH85), and β-1,4-mannosyl-glycoprotein β-1,4-N-acetylglucosaminyltransferase (GT17). Four CAZyme families associated with the C. ginsengisoli clade compared to other Cohnella and Paenibacillus species had an effect size of 0.5 or greater (Kruskal–Wallis); these were maltooligosaccharide-producing α-amylases (CG13_5), chondroitin AC lyase (PL8_3), and alginate lyases (PL34 and PL14_3).",
+    "Presence of Cohnella sp. F6_2S_P_1T in ISS metagenomes",
+    "Metagenomic reads from ISS surfaces, crew capsule, and ISS HEPA filter particulates (Venkateswaran et al.,; Checinska Sielaff et al.,; Urbaniak et al.,) were mapped to the genome of strain F6_2S_P_1T. Most metagenomes had <0.05% of reads that mapped to strain F6_2S_P_1T, with a maximum of 0.22% of reads mapping to strain F6_2S_P_1T for a low-read-number sample collected from the cupola of the ISS during Flight 4 of the Microbial Tracking 2 mission series. But upon examination of regions to which the metagenomic reads mapped to strain F6_2S_P_1T, 98+% of reads mapped to regions of 16S or 23S rRNA genes and were only considered significant by bowtie2 because of the conserved nature of the 16S and 23S rRNA genes. We therefore concluded that strain F6_2S_P_1T is not dominant in the ISS environmental surfaces or air particulates collected during the Microbial Tracking 1 and 2 mission series. However, molecular microbial diversity-based examination of plant and its associated materials using culturing and metagenomics would allow NASA to trace the source of this strain, since Cohnella species were reported to produce hormones that might promote growth of plants. For example, as mentioned above, Cohnella was an abundant genus in the microbiome of healthy plant tissue of chili plants grown aboard the ISS (Khodadad et al.,)."
+  ],
+  "TABLE": [
+    "Assembly statistics for hybrid Illumina and Nanopore assembly of Cohnella sp. F6_2S_P_1T.",
+    "Species/strain\tNCBI accession no.\tIsolation location\tNo. of scaffolds/ contigs\tGenome size (bp)\tN50 (bp)\tAverage coverage\tG + C content (%)\tFiltered reads used for assembly\tCoding sequences\t \tCohnella hashimotonis F6_2S_P_1T\tJAGRPV000000000\tWaste hygiene compartment, ISS\t8\t9,059,145\t8,667,868\t368\t58.37\t34,984,402 (Illumina), 312,000 (Nanopore)\t7,569\t \tCohnella ginsengisoli DSM 18997T\tJAPDHZ000000000\tGinseng soil (Kim et al.,)\t8\t7,220,644\t2,121,708\t57\t59.06\t184,000 (Nanopore)\t6,543\t \tCohnella rhizosphaerae DSM 28161T\tJAPDIA000000000\tMaize rhizosphere (Kampfer et al.,)\t9\t8,497,463\t2,277,727\t55\t59.48\t160,000 (Nanopore)\t7,541",
+    "Average nucleotide identity and digital DNA hybridization values between strain F6_2S_P_1T and other named members of the genus Cohnella.",
+    "Cohnella hashimotonisF6_2S_P_1T\t \tSpecies (NCBI accession no.)\tANI value (%)\tdDDH (%) (formula 2)\t \tCohnella ginsengisoli DSM 18997T\t88.4\t35\t \tCohnella rhizosphaerae DSM 28161T\t88.0\t34.2\t \tCohnella nanjingensis DSM 28246T (GCA_014212125.1)\t79.3\t21.5\t \tCohnella xylanilytica DSM 25239T (GCA_014212175.1)\t78.6\t20.3\t \tCohnella thailandensis DSM 25241T (GCA_014212135.1)\t78.3\t20.2\t \t“Cohnella zeiphila” CBP-2801 (GCA_014212055.1)\t78.2\t19.9\t \tCohnella lubricantis DSM 103658T (GCA_014212015.1)\t78.2\t20.3\t \t“Cohnella candidum” 18JY8-7 (GCA_003713065.1)\t78.0\t20.1\t \tCohnella thermotolerans DSM 17683T (GCA_000429825.1)\t78.0\t19.9\t \tCohnella algarum Pch-40T (GCA_016937515.1)\t77.7\t20.5\t \tCohnella laeviribosi DSM 21336T (GCA_000378425.1)\t77.5\t19.5\t \tCohnella panacarvi Gsoil 349T (GCA_000515335.1)\t77.5\t19.7\t \t“Cohnella abietis” HS21 (GCA_004295585.1)\t<77\t22.6\t \tCohnella boryungensis DSM 26489T (GCA_016908615.1)\t<77\t19\t \tCohnella endophytica M2MS4P-1T (GCA_003628305.1)\t<77\t19.7\t \tCohnella faecalis K2E09-144T (GCA_003570905.1)\t<77\t20.4\t \tCohnella kolymensis VKM B-2846T (GCA_000829465.1)\t<77\t18.9\t \tCohnella luojiensis CCTCC AB 208254T (GCA_004564235.1)\t<77\t18.5\t \tCohnella lupini CECT 8236T (GCA_003386205.1)\t<77\t19.4\t \tCohnella phaseoli CECT 7287T (GCA_003386235.1)\t<77\t20.6\t \t“Cohnella pontilimi” CAU 1483 (GCA_005049045.1)\t<77\t19.4",
+    "Phenotypic characteristics of strain F6_2S_P_1T and closely related species of genus Cohnella.",
+    "Characteristic\t1\t2\t3\t4\t5\t \tGrowth temperature (°C)\t15–37\t15–45\t10–40\t10–45\t4–45\t \tGrowth pH\t6.0–8.0\t5.5–9.5\t5.0–9.0\t5.0–8.0\t5.0–8.0\t \tGrowth in the presence of 3% NaCl\t+\t+\t–\t+\t+\t \tEndospore formation\t+\t–\t+\t+\t+\t \tMotility\t+\t–\t+\t+\t+\t \tCatalase\t–\t–\t+\t+\t+\t \tNitrate reduction\t+\t+\t+\t–\t–\t \tOxidase\tw\tw\t+\t–\t–\t \tDextrin\t+\tN.D.\tN.D.\t+\t+\t \tAssimilation of:\t \tAlanine\t+\t–\t–\t+\tN.D.\t \tHistidine\t+\t–\t–\t+\tN.D.\t \tSerine\t+\t–\t–\t+\tN.D.\t \tSucrose\t+\tw\t–\t+\t+\t \tL-Arabinose\t+\tw\t+\t–\tN.D.\t \tMelibiose\t+\tw\t+\t—\tN.D.\t \tD-Fructose\t+\tw\tN.D.\t+\t+\t \tInositol\t+\t+\t—\tN.D.\t+\t \tLactose\t+\t–\tN.D.\t+\t+\t \tAcid production from:\t \tMaltose\t+\t–\tN.D.\t+\t–\t \tSucrose\t+\t–\tN.D.\t+\t+\t \tD-fructose\t+\t+\tN.D.\t+\t+\t \tD-ribose\t+\t+\tN.D.\t+\t+\t \tN-acetyl glucosamine\t+\t+\tN.D.\t+\t+\t \tLactose\t+\t–\tN.D.\t+\t+\t \tTrisodium citrate\t–\t+\tN.D.\t+\t–",
+    "Strains: 1, F6_2S_P_1T (Cohnella hashimotonis sp. nov.); 2, Cohnella rhizosphaerae CSE-5610T (Kampfer et al.,); 3, Cohnella ginsengisoli DSM 18997T (Kim et al.,); 4, Cohnella plantaginis YN-83T (Wang et al.,); and 5, Cohnella capsici YN-59T (Wang et al.,). w, weakly positive; +, positive; –, negative; N.D., not determined.",
+    "Percentage of total cellular fatty acids for strain F6_2S_P_1T and closely related species of genus Cohnella.",
+    "Fatty acids\t1\t2\t3\t4\t5\t \tSaturated\t \tC12:0\t–\t3.3\t–\t–\t–\t \tC14:0\t2.0\t5.6\t3.1\t1.6\t1.6\t \tC16:0\t4.9\t25.6\t6.7\t8.9\t7.7\t \tBranched\t \tiso-C14:0\t\t–\t8.2\t4.0\t4.1\t \tiso-C15:0\t10.5\t10.2\t12.2\t9.7\t11.3\t \tiso-C16:0\t23.1\t12.2\t15.0\t19.2\t18.6\t \tiso-C17:0\t1.1\t–\t–\tTr\t1.2\t \tanteiso-C15:0\t51.7\t36.5\t48.9\t45.3\t44.3\t \tanteiso-C17:0\t2.2\t6.7\t1.8\t3.5\t3.1\t \tUnsaturated\t \tC18:1-ω9c\t1.1\t–\t–\t1.5\t1.4",
+    "Strains: 1, F6_2S_P_1T (Cohnella hashimotonis sp. nov.); 2, Cohnella rhizosphaerae CSE-5610T (Kampfer et al.,); 3, Cohnella ginsengisoli DSM 18997T (Kim et al.,); 4, Cohnella plantaginis YN-83T (Wang et al.,); and 5, Cohnella capsici YN-59T (Wang et al.,). –, Not detected, Tr, trace amount (<1%)."
+  ],
+  "FIG": [
+    "Maximum likelihood phylogenetic tree based on 16S rRNA gene sequences, showing the inclusion of Cohnella sp. F6_2S_P_1T in a branch of the genus including species isolated from plant tissue or rhizosphere soil.",
+    "Maximum likelihood phylogenetic tree based on gyrB sequences of the genus Cohnella.",
+    "Phylogenetic tree based on 294 single-copy core genes shared by all available Cohnella species genomes.",
+    "Light microscopy images of strain F6_2S_P_1T. (A) Bright field images at 1000X magnification with staining with safranin and malachite green for endospore visualization; (B) close-up of A featuring multiple endospores which are beginning to transition back to vegetative cells, as well as an endospore within a vegetative cell; (C) phase-contrast microscopy (1000X) of strain F6_2S_P_1T showing the presence of endospores; (D) phase-contrast microscopy (1000X) of strain F6_2S_P_1T showing the presence of elongated Spaghetti-like cells.",
+    "SEM image of Cohnella sp. F6_2S_P_1T, (A) with the visible presence of flagella and (B) showing long “spaghetti-like” cells.",
+    "Pangenomic analysis of the genus Cohnella, including C. hashimotonis sp. nov. (pink) as well as its previously unsequenced closest relatives C. rhizosphaerae (blue) and C. ginsengisoli (green).",
+    "First two axes of NMDS ordination (standardization = “range,” distance = “Bray-Curtis,” maxit = 500, k = 3, stress = 0.129, R2 = 0.98) for counts of different predicted CAZymes in the genomes of Cohnella and Paenibacillus species. Also present in the figure are CAZyme vector correlations with axes 1 and 2 (not original coordinates) via envfit/Pearson's correlation with fdr correction + p < 0.01. Species belonging to the C. ginsengisoli clade and the top 4 CAZyme families/subfamilies positively correlated with axis 2 are labeled."
+  ],
+  "CONCL": [
+    "Conclusion",
+    "We used multiple means of characterization, including phenotypic, chemotaxonomic, phylogenetic, and functional genome-prediction methods to characterize Cohnella sp. F6_2S_P_1T and place it within the established taxonomy of the genus Cohnella. Based on these data, we propose that this novel species be named C. hashimotonis. We also characterized the branch of Cohnella within which C. hashimotonis is placed and predicted functional characteristics of C. hashimotonis and the C. ginsengisoli clade as a whole. All species of Cohnella closely related to C. hashimotonis are from the plant/rhizosphere environment and likely have mutualistic associations with plant roots or other tissue. It is likely, therefore, that C. hashimotonis was introduced to the ISS not as a human commensal but as a plant commensal during one of the many plant growth experiments conducted on board. Nevertheless, C. hashimotonis can clearly survive in the extreme conditions of the ISS built environment, including radiation exposure, desiccation, low nutrient availability, and microgravity, and is closely related to a number of rhizosphere bacteria; it is therefore a promising candidate for testing as a member of plant-growth-promoting consortia for future plant experiments in outer space.",
+    "Description of Cohnella hashimotonis sp. nov.",
+    "Cohnella hashimotonis (ha.shi.mo.to.nis. masc. n. hashimotonis named in honor of Professor Hideo Hashimoto, a food microbiologist from Hiroshima Univ., Japan). Cells are endospore-forming, aerobic, and gram-positive rods, 0.5–0.6 μm in width and 0.8–100+ μm in length. In addition to normal cells, elongated, spaghetti-like cells (Figures 4D, 5B) are observed in light microscopy and SEM images. Colonies are translucent cream-colored, acquiring a pinkish tinge after multiple days of growth, and grow well on R2A but poorly on TSA. Growth occurs at between 15 and 37°C, between pHs 6 and 8, and from 0 to 3% NaCl. Colonies are weakly oxidase-positive and catalase-negative. This species reduces nitrate to nitrite, produces dextrin from starch, and utilizes the following carbon substrates: alanine, histidine, serine, sucrose, L-arabinose, melibiose, D-fructose, inositol, and lactose. The following substances are utilized for acid production: maltose, sucrose, D-fructose, D-ribose, N-acetyl, glucosamine, lactose, and trisodium citrate. Major fatty acids composing C. hashimotonis are anteiso-C15:0 (51.7%), iso-C16:0 (23.1%), and iso-C15:0 (10.5%). The polar lipids are diphosphatidylglycerol, phosphatidylglycerol, phosphatidylethanolamine, three aminophospholipids, and a phospholipid. The major quinone system is menaquinones MK-7. The cell-wall peptidoglycan of strain contained meso-diaminopimelic acid as the diamino acid.",
+    "C. hashimotonis is closely related to C. rhizosphaerae and C. ginsengisoli based on 16 rRNA gene sequence similarity (<99%). However, the phylogenetic position of the strain F6_2S_P_1T was resolved as a novel species due to gyrB sequence similarity (<94%), ANI (<89%), and dDDH (<35%) analyses with any other sequenced Cohnella species. GC content is 58.37%. The type strain F6_2S_P_1T was isolated from the wall behind the Waste Hygiene Compartment, i.e., the space toilet, aboard the ISS, in 2018; its genome is available on NCBI, accession number JAGRPV000000000. The type strain F6_2S_P_1T is submitted to two culture collections (=NRRL B-65657T and DSMZ 115098T)."
+  ],
+  "SUPPL": [
+    "Data availability statement",
+    "The datasets presented in this study can be found in online repositories. The names of the repository/repositories and accession number(s) can be found in the article/Supplementary material.",
+    "Supplementary material",
+    "The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fmicb.2023.1166013/full#supplementary-material"
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "NS and KV managed the ISS strain collection and the ISS strain genome sequencing project. AS, VE, and KV conceived and designed the study. VE and AS performed the microbiological experiments and carried out the phenotypic assays. VE performed BioLog based biochemical characterization and chemotaxonomy. FK managed to coordinate in sample collection from ISS and developed sample collection protocols. CM and ND generated shotgun metagenome sequences using ONT platform. NS performed the original taxonomic analysis and de novo assembly. AS performed genomic, pangenomic, and metagenomic characterization, long-read assemblies, and light microscopy assays and wrote the manuscript. KV edited the manuscript. CP performed SEM on F6_2S_P_1T. All authors read and approved the final manuscript."
+  ],
+  "COMP_INT": [
+    "Conflict of interest",
+    "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.",
+    "Publisher's note",
+    "All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher."
+  ],
+  "REF": [
+    "References",
+    "Draft genome and description of Cohnella massiliensis sp. nov., a new bacterial species isolated from the blood culture of a hemodialysis patient",
+    "The RAST Server: rapid annotations using subsystems technology",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "Draft genome sequences of Sphingomonas species associated with the International Space Station",
+    "Draft genome sequences of Aspergillus and Penicillium species isolated from the international space station and crew resupply vehicle capsule",
+    "antiSMASH 6.0: improving cluster detection and comparison capabilities",
+    "Discrimination of members of the family Pasteurellaceae based on polyamine patterns",
+    "Polyamine pattern as a chemotaxonomic marker within the Proteobacteria",
+    "A polyketide-synthase-like gene is involved in the synthesis of heterocyst glycolipids in Nostoc punctiforme strain ATCC 29133",
+    "Draft genome sequences of biosafety level 2 opportunistic pathogens isolated from the environmental surfaces of the International Space Station",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "Microbiomes of the dust particles collected from the International Space Station and Spacecraft Assembly Facilities",
+    "Isolation and application of a mixotrophic sulfide-oxidizing Cohnella thermotolerans LYH-2 strain to sewage sludge composting for hydrogen sulfide odor control",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "Draft genome sequences of Rhodotorula mucilaginosa Strains isolated from the International Space Station",
+    "NanoPack: visualizing and processing long-read sequencing data",
+    "The carbohydrate-active enzyme database: functions and literature",
+    "Anvi'o: an advanced analysis and visualization platform for ‘omics data",
+    "Cohnella lupini sp. nov., an endophytic bacterium isolated from root nodules of Lupinus albus",
+    "QUAST: quality assessment tool for genome assemblies",
+    "Cohnellaformosensis sp. nov., a xylanolytic bacterium isolated from the rhizosphere of Medicago sativa L",
+    "Evolution of microbial community diversity and enzymatic activity during composting",
+    "Endo-xylanases from Cohnella sp. AR92 aimed at xylan and arabinoxylan conversion into value-added products",
+    "High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries",
+    "Description of Cohnella zeiphila sp. nov., a bacterium isolated from maize callus cultures",
+    "Cohnella rhizosphaerae sp. nov., isolated from the rhizosphere environment of Zea mays",
+    "Cohnella thermotolerans gen. nov., sp. nov., and classification of ‘Paenibacillus hongkongensis' as Cohnella hongkongensis sp. nov",
+    "Cohnella xylanilytica sp. nov. and Cohnella terrae sp. nov., xylanolytic bacteria from soil",
+    "Microbiological and nutritional analysis of lettuce crops grown on the international space station",
+    "Cohnella cholangitidis sp. nov., a novel species of the genus Cohnella isolated from a clinical specimen in Korea",
+    "Cohnella yongneupensis sp. nov. and Cohnella ginsengisoli sp. nov., isolated from two different soils",
+    "Assembly of long, error-prone reads using repeat graphs",
+    "RAxML-NG: a fast, scalable and user-friendly tool for maximum likelihood phylogenetic inference",
+    "Evidence of pathogenic microbes in the International Space Station drinking water: reason for concern?",
+    "Fast gapped-read alignment with Bowtie 2",
+    "Interactive Tree Of Life (iTOL): an online tool for phylogenetic tree display and annotation",
+    "Cohnella fermenti sp. nov., isolated from a fermentation process",
+    "Heme-based globin-coupled oxygen sensors: linking oxygen binding to functional regulation of diguanylate cyclase, histidine kinase, and methyl-accepting chemotaxis",
+    "A simple HPLC method for analysing diaminopimelic acid diastereomers in cell walls of Gram-positive bacteria",
+    "TYGS and LPSN: a database tandem for fast and reliable genome-based classification and nomenclature of prokaryotes",
+    "Expression, characterization, and activity optimization of a novel cellulase from the thermophilic bacteria Cohnella sp. A01",
+    "Biocontrol properties from phyllospheric bacteria isolated from Solanum lycopersicum and Lactuca sativa and genome mining of antimicrobial gene clusters",
+    "Genetic diversity of rhizobia and plant growth promoting rhizobacteria of soil under the influence of Piliostigma reticulatum (DC.) Hochst and their impact on shrub growth",
+    "“R: a language and environment for statistical computing,”",
+    "Rhodococcus electrodiphilus sp. nov., a marine electro active actinobacterium isolated from coral reef",
+    "Flectobacillus rhizosphaerae sp. nov., isolated from the rhizosphere soil of Oryza sativa (L.), and emended description of the genus Flectobacillus",
+    "Heme uptake and utilization by gram-negative bacterial pathogens",
+    "A simplified method of staining endospores",
+    "“Analysis of the chemical composition and primary structure of murein,”",
+    "Peptidoglycan types of bacterial cell walls and their taxonomic implications",
+    "phangorn: phylogenetic analysis in R",
+    "Genomic analysis of endophytic bacillus-related strains isolated from the medicinal plant Origanum vulgare L. Revealed the presence of metabolic pathways involved in the biosynthesis of bioactive compounds",
+    "Draft genome sequences of fungi isolated from the international Space Station during the microbial tracking-2 experiment",
+    "Draft genome sequences of various bacterial phyla isolated from the International Space Station",
+    "Heme oxygenase-nitric oxide crosstalk-mediated iron homeostasis in plants under oxidative stress",
+    "Comparative genomics of novel agrobacterium G3 strains isolated from the International Space Station and description of Agrobacterium tomkonis sp. nov",
+    "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+    "Draft genome sequences of Klebsiella species isolated from the International Space Station",
+    "RAxML version 8: a tool for phylogenetic analysis and post-analysis of large phylogenies",
+    "Isolation of nitrogen-fixing bacteria from water yam (Dioscorea alata L.)",
+    "Heme-derived bilins",
+    "Pseudobacteraemia in a patient with neutropenic fever caused by a novel paenibacillus species: Paenibacillus hongkongensis sp. nov",
+    "Draft genome sequences of two Fusarium oxysporum isolates cultured from infected Zinnia hybrida plants grown on the International Space Station",
+    "Microbial tracking-2, a metagenomics analysis of bacteria and fungi onboard the International Space Station",
+    "Draft genome sequences from a novel clade of Bacillus cereus sensu lato strains, isolated from the International Space Station",
+    "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+    "Cohnella plantaginis sp. nov., a novel nitrogen-fixing species isolated from plantain rhizosphere soil",
+    "Cohnella capsici sp. nov., a novel nitrogen-fixing species isolated from Capsicum annuum rhizosphere soil, and emended description of Cohnella plantaginis",
+    "Completing bacterial genome assemblies with multiplex MinION sequencing",
+    "Unicycler: resolving bacterial genome assemblies from short and long sequencing reads",
+    "Welcome to the Tidyverse",
+    "Using DECIPHER v2.0 to analyze big biological sequence data in R",
+    "Effects of probiotics Lactobacillus plantarum 16 and Paenibacillus polymyxa 10 on intestinal barrier function, antioxidative capacity, apoptosis, immune response, and biochemical parameters in broilers",
+    "Efficient production of isoquercitin, icariin and icariside II by a novel thermostable α-l-rhamnosidase PodoRha from Paenibacillus odorifer with high α-1, 6-/α-1, 2-glycoside specificity",
+    "Naxibacter alkalitolerans gen. nov., sp. nov., a novel member of the family ‘Oxalobacteraceae' isolated from China",
+    "α-L-Rhamnosidase: a review",
+    "ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data",
+    "dbCAN2: a meta server for automated carbohydrate-active enzyme annotation",
+    "Insights into the unique phosphorylation of the lasso peptide paeninodin",
+    "Root endophytes and Ginkgo biloba are likely to share and compensate secondary metabolic processes, and potentially exchange genetic information by LTR-RTs"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome and description of Cohnella massiliensis sp. nov., a new bacterial species isolated from the blood culture of a hemodialysis patient",
+      "autores": [
+        {
+          "nombre_completo": "R. Abou Abdallah",
+          "nombres": "R.",
+          "apellidos": "Abou Abdallah"
+        },
+        {
+          "nombre_completo": "J. Bou Khalil",
+          "nombres": "J.",
+          "apellidos": "Bou Khalil"
+        },
+        {
+          "nombre_completo": "C. Andrieu",
+          "nombres": "C.",
+          "apellidos": "Andrieu"
+        },
+        {
+          "nombre_completo": "E. Tomei",
+          "nombres": "E.",
+          "apellidos": "Tomei"
+        },
+        {
+          "nombre_completo": "N. Armstrong",
+          "nombres": "N.",
+          "apellidos": "Armstrong"
+        },
+        {
+          "nombre_completo": "P. E. Fournier",
+          "nombres": "P. E.",
+          "apellidos": "Fournier"
+        }
+      ],
+      "pmid": "30604014",
+      "fuente": "Arch. Microbiol.",
+      "anio": "2019",
+      "volumen": "201",
+      "fpage": "305",
+      "lpage": "312"
+    },
+    {
+      "titulo": "The RAST Server: rapid annotations using subsystems technology",
+      "autores": [
+        {
+          "nombre_completo": "R. K. Aziz",
+          "nombres": "R. K.",
+          "apellidos": "Aziz"
+        },
+        {
+          "nombre_completo": "D. Bartels",
+          "nombres": "D.",
+          "apellidos": "Bartels"
+        },
+        {
+          "nombre_completo": "A. A. Best",
+          "nombres": "A. A.",
+          "apellidos": "Best"
+        },
+        {
+          "nombre_completo": "M. Dejongh",
+          "nombres": "M.",
+          "apellidos": "Dejongh"
+        },
+        {
+          "nombre_completo": "T. Disz",
+          "nombres": "T.",
+          "apellidos": "Disz"
+        },
+        {
+          "nombre_completo": "R. A. Edwards",
+          "nombres": "R. A.",
+          "apellidos": "Edwards"
+        }
+      ],
+      "pmid": "18261238",
+      "fuente": "BMC Genom.",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "1",
+      "lpage": "15"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A. Bankevich",
+          "nombres": "A.",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S. Nurk",
+          "nombres": "S.",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "D. Antipov",
+          "nombres": "D.",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "A. A. Gurevich",
+          "nombres": "A. A.",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M. Dvorkin",
+          "nombres": "M.",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "A. S. Kulikov",
+          "nombres": "A. S.",
+          "apellidos": "Kulikov"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J. Comp. Biol.",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "Draft genome sequences of Sphingomonas species associated with the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S. Bijlani",
+          "nombres": "S.",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "C. E. Mason",
+          "nombres": "C. E.",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "C. C. Wang",
+          "nombres": "C. C.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "32554796",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00578",
+      "lpage": "e00520"
+    },
+    {
+      "titulo": "Draft genome sequences of Aspergillus and Penicillium species isolated from the international space station and crew resupply vehicle capsule",
+      "autores": [
+        {
+          "nombre_completo": "A. Blachowicz",
+          "nombres": "A.",
+          "apellidos": "Blachowicz"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M. Debieu",
+          "nombres": "M.",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "N. B. O'hara",
+          "nombres": "N. B.",
+          "apellidos": "O'hara"
+        },
+        {
+          "nombre_completo": "C. E. Mason",
+          "nombres": "C. E.",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "33795349",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "e01398",
+      "lpage": "e01320"
+    },
+    {
+      "titulo": "antiSMASH 6.0: improving cluster detection and comparison capabilities",
+      "autores": [
+        {
+          "nombre_completo": "K. Blin",
+          "nombres": "K.",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "S. Shaw",
+          "nombres": "S.",
+          "apellidos": "Shaw"
+        },
+        {
+          "nombre_completo": "A. M. Kloosterman",
+          "nombres": "A. M.",
+          "apellidos": "Kloosterman"
+        },
+        {
+          "nombre_completo": "Z. Charlop-Powers",
+          "nombres": "Z.",
+          "apellidos": "Charlop-Powers"
+        },
+        {
+          "nombre_completo": "G. P. Van Wezel",
+          "nombres": "G. P.",
+          "apellidos": "Van Wezel"
+        },
+        {
+          "nombre_completo": "M. H. Medema",
+          "nombres": "M. H.",
+          "apellidos": "Medema"
+        }
+      ],
+      "pmid": "33978755",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2021",
+      "volumen": "49",
+      "fpage": "W29",
+      "lpage": "W35"
+    },
+    {
+      "titulo": "Discrimination of members of the family Pasteurellaceae based on polyamine patterns",
+      "autores": [
+        {
+          "nombre_completo": "H.-J. Busse",
+          "nombres": "H.-J.",
+          "apellidos": "Busse"
+        },
+        {
+          "nombre_completo": "S. Bunka",
+          "nombres": "S.",
+          "apellidos": "Bunka"
+        },
+        {
+          "nombre_completo": "A. Hensel",
+          "nombres": "A.",
+          "apellidos": "Hensel"
+        },
+        {
+          "nombre_completo": "W. Lubitz",
+          "nombres": "W.",
+          "apellidos": "Lubitz"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "1997",
+      "volumen": "47",
+      "fpage": "698",
+      "lpage": "708"
+    },
+    {
+      "titulo": "Polyamine pattern as a chemotaxonomic marker within the Proteobacteria",
+      "autores": [
+        {
+          "nombre_completo": "J. Busse",
+          "nombres": "J.",
+          "apellidos": "Busse"
+        },
+        {
+          "nombre_completo": "G. Auling",
+          "nombres": "G.",
+          "apellidos": "Auling"
+        }
+      ],
+      "pmid": "12501353",
+      "fuente": "Syst. Appl. Microbiol.",
+      "anio": "1988",
+      "volumen": "11",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "A polyketide-synthase-like gene is involved in the synthesis of heterocyst glycolipids in Nostoc punctiforme strain ATCC 29133",
+      "autores": [
+        {
+          "nombre_completo": "E. L. Campbell",
+          "nombres": "E. L.",
+          "apellidos": "Campbell"
+        },
+        {
+          "nombre_completo": "M. F. Cohen",
+          "nombres": "M. F.",
+          "apellidos": "Cohen"
+        },
+        {
+          "nombre_completo": "J. C. Meeks",
+          "nombres": "J. C.",
+          "apellidos": "Meeks"
+        }
+      ],
+      "pmid": "9075624",
+      "fuente": "Arch. Microbiol.",
+      "anio": "1997",
+      "volumen": "167",
+      "fpage": "251",
+      "lpage": "258"
+    },
+    {
+      "titulo": "Draft genome sequences of biosafety level 2 opportunistic pathogens isolated from the environmental surfaces of the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A. Checinska Sielaff",
+          "nombres": "A.",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. E. Allen",
+          "nombres": "J. E.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "J. Thissen",
+          "nombres": "J.",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "C. Jaing",
+          "nombres": "C.",
+          "apellidos": "Jaing"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "28034853",
+      "fuente": "Genome Announc.",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "1",
+      "lpage": "21"
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A. Checinska Sielaff",
+          "nombres": "A.",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "G. B. M. Mohan",
+          "nombres": "G. B. M.",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "V. G. Stepanov",
+          "nombres": "V. G.",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q. Tran",
+          "nombres": "Q.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbiomes of the dust particles collected from the International Space Station and Spacecraft Assembly Facilities",
+      "autores": [
+        {
+          "nombre_completo": "A. Checinska",
+          "nombres": "A.",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "A. J. Probst",
+          "nombres": "A. J.",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "P. Vaishampayan",
+          "nombres": "P.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J. R. White",
+          "nombres": "J. R.",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "D. Kumar",
+          "nombres": "D.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "V. G. Stepanov",
+          "nombres": "V. G.",
+          "apellidos": "Stepanov"
+        }
+      ],
+      "pmid": "26502721",
+      "fuente": "Microbiome",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Isolation and application of a mixotrophic sulfide-oxidizing Cohnella thermotolerans LYH-2 strain to sewage sludge composting for hydrogen sulfide odor control",
+      "autores": [
+        {
+          "nombre_completo": "L. Chen",
+          "nombres": "L.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "W. Li",
+          "nombres": "W.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y. Zhao",
+          "nombres": "Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Y. Zhou",
+          "nombres": "Y.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "S. Zhang",
+          "nombres": "S.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "L. Meng",
+          "nombres": "L.",
+          "apellidos": "Meng"
+        }
+      ],
+      "pmid": "34906701",
+      "fuente": "Bioresour. Technol.",
+      "anio": "2022",
+      "volumen": "345",
+      "fpage": "126557",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S. Chen",
+          "nombres": "S.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y. Zhou",
+          "nombres": "Y.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y. Chen",
+          "nombres": "Y.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J. Gu",
+          "nombres": "J.",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "Draft genome sequences of Rhodotorula mucilaginosa Strains isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "R. Daudu",
+          "nombres": "R.",
+          "apellidos": "Daudu"
+        },
+        {
+          "nombre_completo": "C. W. Parker",
+          "nombres": "C. W.",
+          "apellidos": "Parker"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M. Debieu",
+          "nombres": "M.",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "N. B. O'hara",
+          "nombres": "N. B.",
+          "apellidos": "O'hara"
+        }
+      ],
+      "pmid": "32732232",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "00570",
+      "lpage": ""
+    },
+    {
+      "titulo": "NanoPack: visualizing and processing long-read sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "W. De Coster",
+          "nombres": "W.",
+          "apellidos": "De Coster"
+        },
+        {
+          "nombre_completo": "S. D'hert",
+          "nombres": "S.",
+          "apellidos": "D'hert"
+        },
+        {
+          "nombre_completo": "D. T. Schultz",
+          "nombres": "D. T.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "M. Cruts",
+          "nombres": "M.",
+          "apellidos": "Cruts"
+        },
+        {
+          "nombre_completo": "C. Van Broeckhoven",
+          "nombres": "C.",
+          "apellidos": "Van Broeckhoven"
+        }
+      ],
+      "pmid": "29547981",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "2666",
+      "lpage": "2669"
+    },
+    {
+      "titulo": "The carbohydrate-active enzyme database: functions and literature",
+      "autores": [
+        {
+          "nombre_completo": "E. Drula",
+          "nombres": "E.",
+          "apellidos": "Drula"
+        },
+        {
+          "nombre_completo": "M.-L. Garron",
+          "nombres": "M.-L.",
+          "apellidos": "Garron"
+        },
+        {
+          "nombre_completo": "S. Dogan",
+          "nombres": "S.",
+          "apellidos": "Dogan"
+        },
+        {
+          "nombre_completo": "V. Lombard",
+          "nombres": "V.",
+          "apellidos": "Lombard"
+        },
+        {
+          "nombre_completo": "B. Henrissat",
+          "nombres": "B.",
+          "apellidos": "Henrissat"
+        },
+        {
+          "nombre_completo": "N. Terrapon",
+          "nombres": "N.",
+          "apellidos": "Terrapon"
+        }
+      ],
+      "pmid": "34850161",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2022",
+      "volumen": "50",
+      "fpage": "D571",
+      "lpage": "D577"
+    },
+    {
+      "titulo": "Anvi'o: an advanced analysis and visualization platform for ‘omics data",
+      "autores": [
+        {
+          "nombre_completo": "A. M. Eren",
+          "nombres": "A. M.",
+          "apellidos": "Eren"
+        },
+        {
+          "nombre_completo": "Ö. C. Esen",
+          "nombres": "Ö. C.",
+          "apellidos": "Esen"
+        },
+        {
+          "nombre_completo": "C. Quince",
+          "nombres": "C.",
+          "apellidos": "Quince"
+        },
+        {
+          "nombre_completo": "J. H. Vineis",
+          "nombres": "J. H.",
+          "apellidos": "Vineis"
+        },
+        {
+          "nombre_completo": "H. G. Morrison",
+          "nombres": "H. G.",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "M. L. Sogin",
+          "nombres": "M. L.",
+          "apellidos": "Sogin"
+        }
+      ],
+      "pmid": "26500826",
+      "fuente": "PeerJ",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "e1319",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cohnella lupini sp. nov., an endophytic bacterium isolated from root nodules of Lupinus albus",
+      "autores": [
+        {
+          "nombre_completo": "J. D. Flores-Felix",
+          "nombres": "J. D.",
+          "apellidos": "Flores-Felix"
+        },
+        {
+          "nombre_completo": "L. Carro",
+          "nombres": "L.",
+          "apellidos": "Carro"
+        },
+        {
+          "nombre_completo": "M. H. Ramirez-Bahena",
+          "nombres": "M. H.",
+          "apellidos": "Ramirez-Bahena"
+        },
+        {
+          "nombre_completo": "C. Tejedor",
+          "nombres": "C.",
+          "apellidos": "Tejedor"
+        },
+        {
+          "nombre_completo": "J. M. Igual",
+          "nombres": "J. M.",
+          "apellidos": "Igual"
+        },
+        {
+          "nombre_completo": "A. Peix",
+          "nombres": "A.",
+          "apellidos": "Peix"
+        }
+      ],
+      "pmid": "24021729",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2014",
+      "volumen": "64",
+      "fpage": "83",
+      "lpage": "87"
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A. Gurevich",
+          "nombres": "A.",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V. Saveliev",
+          "nombres": "V.",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N. Vyahhi",
+          "nombres": "N.",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G. Tesler",
+          "nombres": "G.",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "Cohnellaformosensis sp. nov., a xylanolytic bacterium isolated from the rhizosphere of Medicago sativa L",
+      "autores": [
+        {
+          "nombre_completo": "A. Hameed",
+          "nombres": "A.",
+          "apellidos": "Hameed"
+        },
+        {
+          "nombre_completo": "M.-H. Hung",
+          "nombres": "M.-H.",
+          "apellidos": "Hung"
+        },
+        {
+          "nombre_completo": "S.-Y. Lin",
+          "nombres": "S.-Y.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Y.-H. Hsu",
+          "nombres": "Y.-H.",
+          "apellidos": "Hsu"
+        },
+        {
+          "nombre_completo": "Y.-C. Liu",
+          "nombres": "Y.-C.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "M. Shahina",
+          "nombres": "M.",
+          "apellidos": "Shahina"
+        }
+      ],
+      "pmid": "23315409",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2013",
+      "volumen": "63",
+      "fpage": "2806",
+      "lpage": "2812"
+    },
+    {
+      "titulo": "Evolution of microbial community diversity and enzymatic activity during composting",
+      "autores": [
+        {
+          "nombre_completo": "Y. He",
+          "nombres": "Y.",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "K. Xie",
+          "nombres": "K.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "P. Xu",
+          "nombres": "P.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "X. Huang",
+          "nombres": "X.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "W. Gu",
+          "nombres": "W.",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "F. Zhang",
+          "nombres": "F.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "23178379",
+      "fuente": "Res. Microbiol.",
+      "anio": "2013",
+      "volumen": "164",
+      "fpage": "189",
+      "lpage": "198"
+    },
+    {
+      "titulo": "Endo-xylanases from Cohnella sp. AR92 aimed at xylan and arabinoxylan conversion into value-added products",
+      "autores": [
+        {
+          "nombre_completo": "J. S. Hero",
+          "nombres": "J. S.",
+          "apellidos": "Hero"
+        },
+        {
+          "nombre_completo": "J. H. Pisa",
+          "nombres": "J. H.",
+          "apellidos": "Pisa"
+        },
+        {
+          "nombre_completo": "C. M. Romero",
+          "nombres": "C. M.",
+          "apellidos": "Romero"
+        },
+        {
+          "nombre_completo": "E. Nordberg Karlsson",
+          "nombres": "E.",
+          "apellidos": "Nordberg Karlsson"
+        },
+        {
+          "nombre_completo": "J. A. Linares-Pasten",
+          "nombres": "J. A.",
+          "apellidos": "Linares-Pasten"
+        },
+        {
+          "nombre_completo": "M. A. Martinez",
+          "nombres": "M. A.",
+          "apellidos": "Martinez"
+        }
+      ],
+      "pmid": "34458936",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2021",
+      "volumen": "105",
+      "fpage": "6759",
+      "lpage": "6778"
+    },
+    {
+      "titulo": "High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries",
+      "autores": [
+        {
+          "nombre_completo": "C. Jain",
+          "nombres": "C.",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "R. L. Rodriguez",
+          "nombres": "R. L.",
+          "apellidos": "Rodriguez"
+        },
+        {
+          "nombre_completo": "A. M. Phillippy",
+          "nombres": "A. M.",
+          "apellidos": "Phillippy"
+        },
+        {
+          "nombre_completo": "K. T. Konstantinidis",
+          "nombres": "K. T.",
+          "apellidos": "Konstantinidis"
+        },
+        {
+          "nombre_completo": "S. Aluru",
+          "nombres": "S.",
+          "apellidos": "Aluru"
+        }
+      ],
+      "pmid": "30504855",
+      "fuente": "Nat. Commun.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "5114",
+      "lpage": ""
+    },
+    {
+      "titulo": "Description of Cohnella zeiphila sp. nov., a bacterium isolated from maize callus cultures",
+      "autores": [
+        {
+          "nombre_completo": "E. T. Johnson",
+          "nombres": "E. T.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "P. F. Dowd",
+          "nombres": "P. F.",
+          "apellidos": "Dowd"
+        },
+        {
+          "nombre_completo": "C. D. Skory",
+          "nombres": "C. D.",
+          "apellidos": "Skory"
+        },
+        {
+          "nombre_completo": "C. A. Dunlap",
+          "nombres": "C. A.",
+          "apellidos": "Dunlap"
+        }
+      ],
+      "pmid": "33392934",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2021",
+      "volumen": "114",
+      "fpage": "37",
+      "lpage": "44"
+    },
+    {
+      "titulo": "Cohnella rhizosphaerae sp. nov., isolated from the rhizosphere environment of Zea mays",
+      "autores": [
+        {
+          "nombre_completo": "P. Kampfer",
+          "nombres": "P.",
+          "apellidos": "Kampfer"
+        },
+        {
+          "nombre_completo": "S. P. Glaeser",
+          "nombres": "S. P.",
+          "apellidos": "Glaeser"
+        },
+        {
+          "nombre_completo": "J. A. Mcinroy",
+          "nombres": "J. A.",
+          "apellidos": "Mcinroy"
+        },
+        {
+          "nombre_completo": "H. J. Busse",
+          "nombres": "H. J.",
+          "apellidos": "Busse"
+        }
+      ],
+      "pmid": "24556632",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "2014",
+      "volumen": "64",
+      "fpage": "1811",
+      "lpage": "1816"
+    },
+    {
+      "titulo": "Cohnella thermotolerans gen. nov., sp. nov., and classification of ‘Paenibacillus hongkongensis' as Cohnella hongkongensis sp. nov",
+      "autores": [
+        {
+          "nombre_completo": "P. Kampfer",
+          "nombres": "P.",
+          "apellidos": "Kampfer"
+        },
+        {
+          "nombre_completo": "R. Rossello-Mora",
+          "nombres": "R.",
+          "apellidos": "Rossello-Mora"
+        },
+        {
+          "nombre_completo": "E. Falsen",
+          "nombres": "E.",
+          "apellidos": "Falsen"
+        },
+        {
+          "nombre_completo": "H. J. Busse",
+          "nombres": "H. J.",
+          "apellidos": "Busse"
+        },
+        {
+          "nombre_completo": "B. J. Tindall",
+          "nombres": "B. J.",
+          "apellidos": "Tindall"
+        }
+      ],
+      "pmid": "16585694",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2006",
+      "volumen": "56",
+      "fpage": "781",
+      "lpage": "786"
+    },
+    {
+      "titulo": "Cohnella xylanilytica sp. nov. and Cohnella terrae sp. nov., xylanolytic bacteria from soil",
+      "autores": [
+        {
+          "nombre_completo": "S. Khianngam",
+          "nombres": "S.",
+          "apellidos": "Khianngam"
+        },
+        {
+          "nombre_completo": "S. Tanasupawat",
+          "nombres": "S.",
+          "apellidos": "Tanasupawat"
+        },
+        {
+          "nombre_completo": "A. Akaracharanya",
+          "nombres": "A.",
+          "apellidos": "Akaracharanya"
+        },
+        {
+          "nombre_completo": "K. K. Kim",
+          "nombres": "K. K.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "K. C. Lee",
+          "nombres": "K. C.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J. S. Lee",
+          "nombres": "J. S.",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "20097800",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2010",
+      "volumen": "60",
+      "fpage": "2913",
+      "lpage": "2917"
+    },
+    {
+      "titulo": "Microbiological and nutritional analysis of lettuce crops grown on the international space station",
+      "autores": [
+        {
+          "nombre_completo": "C. L. Khodadad",
+          "nombres": "C. L.",
+          "apellidos": "Khodadad"
+        },
+        {
+          "nombre_completo": "M. E. Hummerick",
+          "nombres": "M. E.",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "L. E. Spencer",
+          "nombres": "L. E.",
+          "apellidos": "Spencer"
+        },
+        {
+          "nombre_completo": "A. R. Dixit",
+          "nombres": "A. R.",
+          "apellidos": "Dixit"
+        },
+        {
+          "nombre_completo": "J. T. Richards",
+          "nombres": "J. T.",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "M. W. Romeyn",
+          "nombres": "M. W.",
+          "apellidos": "Romeyn"
+        }
+      ],
+      "pmid": "32210992",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2020",
+      "volumen": "199",
+      "fpage": "199",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cohnella cholangitidis sp. nov., a novel species of the genus Cohnella isolated from a clinical specimen in Korea",
+      "autores": [
+        {
+          "nombre_completo": "J. K. Kim",
+          "nombres": "J. K.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "C.-H. Choi",
+          "nombres": "C.-H.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "D.-W. Kim",
+          "nombres": "D.-W.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S. Y. Kim",
+          "nombres": "S. Y.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "K. J. Hwang",
+          "nombres": "K. J.",
+          "apellidos": "Hwang"
+        },
+        {
+          "nombre_completo": "W.-K. Lee",
+          "nombres": "W.-K.",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "34562146",
+      "fuente": "Archi. Microbiol.",
+      "anio": "2021",
+      "volumen": "203",
+      "fpage": "6053",
+      "lpage": "6060"
+    },
+    {
+      "titulo": "Cohnella yongneupensis sp. nov. and Cohnella ginsengisoli sp. nov., isolated from two different soils",
+      "autores": [
+        {
+          "nombre_completo": "S. J. Kim",
+          "nombres": "S. J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "H. Y. Weon",
+          "nombres": "H. Y.",
+          "apellidos": "Weon"
+        },
+        {
+          "nombre_completo": "Y. S. Kim",
+          "nombres": "Y. S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "R. Anandham",
+          "nombres": "R.",
+          "apellidos": "Anandham"
+        },
+        {
+          "nombre_completo": "Y. A. Jeon",
+          "nombres": "Y. A.",
+          "apellidos": "Jeon"
+        },
+        {
+          "nombre_completo": "S. B. Hong",
+          "nombres": "S. B.",
+          "apellidos": "Hong"
+        }
+      ],
+      "pmid": "19654349",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2010",
+      "volumen": "60",
+      "fpage": "526",
+      "lpage": "530"
+    },
+    {
+      "titulo": "Assembly of long, error-prone reads using repeat graphs",
+      "autores": [
+        {
+          "nombre_completo": "M. Kolmogorov",
+          "nombres": "M.",
+          "apellidos": "Kolmogorov"
+        },
+        {
+          "nombre_completo": "J. Yuan",
+          "nombres": "J.",
+          "apellidos": "Yuan"
+        },
+        {
+          "nombre_completo": "Y. Lin",
+          "nombres": "Y.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "P. A. Pevzner",
+          "nombres": "P. A.",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "30936562",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2019",
+      "volumen": "37",
+      "fpage": "540",
+      "lpage": "546"
+    },
+    {
+      "titulo": "RAxML-NG: a fast, scalable and user-friendly tool for maximum likelihood phylogenetic inference",
+      "autores": [
+        {
+          "nombre_completo": "A. M. Kozlov",
+          "nombres": "A. M.",
+          "apellidos": "Kozlov"
+        },
+        {
+          "nombre_completo": "D. Darriba",
+          "nombres": "D.",
+          "apellidos": "Darriba"
+        },
+        {
+          "nombre_completo": "T. Flouri",
+          "nombres": "T.",
+          "apellidos": "Flouri"
+        },
+        {
+          "nombre_completo": "B. Morel",
+          "nombres": "B.",
+          "apellidos": "Morel"
+        },
+        {
+          "nombre_completo": "A. Stamatakis",
+          "nombres": "A.",
+          "apellidos": "Stamatakis"
+        }
+      ],
+      "pmid": "31070718",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "4453",
+      "lpage": "4455"
+    },
+    {
+      "titulo": "Evidence of pathogenic microbes in the International Space Station drinking water: reason for concern?",
+      "autores": [
+        {
+          "nombre_completo": "M. T. La Duc",
+          "nombres": "M. T.",
+          "apellidos": "La Duc"
+        },
+        {
+          "nombre_completo": "R. Sumner",
+          "nombres": "R.",
+          "apellidos": "Sumner"
+        },
+        {
+          "nombre_completo": "D. Pierson",
+          "nombres": "D.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "P. Venkat",
+          "nombres": "P.",
+          "apellidos": "Venkat"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "15880908",
+      "fuente": "Habitation",
+      "anio": "2004",
+      "volumen": "10",
+      "fpage": "39",
+      "lpage": "48"
+    },
+    {
+      "titulo": "Fast gapped-read alignment with Bowtie 2",
+      "autores": [
+        {
+          "nombre_completo": "B. Langmead",
+          "nombres": "B.",
+          "apellidos": "Langmead"
+        },
+        {
+          "nombre_completo": "S. L. Salzberg",
+          "nombres": "S. L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "22388286",
+      "fuente": "Nat. Methods",
+      "anio": "2012",
+      "volumen": "9",
+      "fpage": "357",
+      "lpage": "359"
+    },
+    {
+      "titulo": "Interactive Tree Of Life (iTOL): an online tool for phylogenetic tree display and annotation",
+      "autores": [
+        {
+          "nombre_completo": "I. Letunic",
+          "nombres": "I.",
+          "apellidos": "Letunic"
+        },
+        {
+          "nombre_completo": "P. Bork",
+          "nombres": "P.",
+          "apellidos": "Bork"
+        }
+      ],
+      "pmid": "17050570",
+      "fuente": "Bioinformatics",
+      "anio": "2007",
+      "volumen": "23",
+      "fpage": "127",
+      "lpage": "128"
+    },
+    {
+      "titulo": "Cohnella fermenti sp. nov., isolated from a fermentation process",
+      "autores": [
+        {
+          "nombre_completo": "S. Y. Lin",
+          "nombres": "S. Y.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "W. M. Chen",
+          "nombres": "W. M.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "A. Hameed",
+          "nombres": "A.",
+          "apellidos": "Hameed"
+        },
+        {
+          "nombre_completo": "G. H. Huang",
+          "nombres": "G. H.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "M. H. Hung",
+          "nombres": "M. H.",
+          "apellidos": "Hung"
+        },
+        {
+          "nombre_completo": "C. C. Young",
+          "nombres": "C. C.",
+          "apellidos": "Young"
+        }
+      ],
+      "pmid": "32160142",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2020",
+      "volumen": "70",
+      "fpage": "2602",
+      "lpage": "2610"
+    },
+    {
+      "titulo": "Heme-based globin-coupled oxygen sensors: linking oxygen binding to functional regulation of diguanylate cyclase, histidine kinase, and methyl-accepting chemotaxis",
+      "autores": [
+        {
+          "nombre_completo": "M. Martínková",
+          "nombres": "M.",
+          "apellidos": "Martínková"
+        },
+        {
+          "nombre_completo": "K. Kitanishi",
+          "nombres": "K.",
+          "apellidos": "Kitanishi"
+        },
+        {
+          "nombre_completo": "T. Shimizu",
+          "nombres": "T.",
+          "apellidos": "Shimizu"
+        }
+      ],
+      "pmid": "23928310",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2013",
+      "volumen": "288",
+      "fpage": "27702",
+      "lpage": "27711"
+    },
+    {
+      "titulo": "A simple HPLC method for analysing diaminopimelic acid diastereomers in cell walls of Gram-positive bacteria",
+      "autores": [
+        {
+          "nombre_completo": "J. Mckerrow",
+          "nombres": "J.",
+          "apellidos": "Mckerrow"
+        },
+        {
+          "nombre_completo": "S. Vagg",
+          "nombres": "S.",
+          "apellidos": "Vagg"
+        },
+        {
+          "nombre_completo": "T. Mckinney",
+          "nombres": "T.",
+          "apellidos": "Mckinney"
+        },
+        {
+          "nombre_completo": "E. Seviour",
+          "nombres": "E.",
+          "apellidos": "Seviour"
+        },
+        {
+          "nombre_completo": "A. Maszenan",
+          "nombres": "A.",
+          "apellidos": "Maszenan"
+        },
+        {
+          "nombre_completo": "P. Brooks",
+          "nombres": "P.",
+          "apellidos": "Brooks"
+        }
+      ],
+      "pmid": "10747246",
+      "fuente": "Lett. Appl. Microbiol.",
+      "anio": "2000",
+      "volumen": "30",
+      "fpage": "178",
+      "lpage": "182"
+    },
+    {
+      "titulo": "TYGS and LPSN: a database tandem for fast and reliable genome-based classification and nomenclature of prokaryotes",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Meier-Kolthoff",
+          "nombres": "J. P.",
+          "apellidos": "Meier-Kolthoff"
+        },
+        {
+          "nombre_completo": "J. S. Carbasse",
+          "nombres": "J. S.",
+          "apellidos": "Carbasse"
+        },
+        {
+          "nombre_completo": "R. L. Peinado-Olarte",
+          "nombres": "R. L.",
+          "apellidos": "Peinado-Olarte"
+        },
+        {
+          "nombre_completo": "M. Göker",
+          "nombres": "M.",
+          "apellidos": "Göker"
+        }
+      ],
+      "pmid": "34634793",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2022",
+      "volumen": "50",
+      "fpage": "D801",
+      "lpage": "D807"
+    },
+    {
+      "titulo": "Expression, characterization, and activity optimization of a novel cellulase from the thermophilic bacteria Cohnella sp. A01",
+      "autores": [
+        {
+          "nombre_completo": "S. Mohammadi",
+          "nombres": "S.",
+          "apellidos": "Mohammadi"
+        },
+        {
+          "nombre_completo": "H. Tarrahimofrad",
+          "nombres": "H.",
+          "apellidos": "Tarrahimofrad"
+        },
+        {
+          "nombre_completo": "S. Arjmand",
+          "nombres": "S.",
+          "apellidos": "Arjmand"
+        },
+        {
+          "nombre_completo": "J. Zamani",
+          "nombres": "J.",
+          "apellidos": "Zamani"
+        },
+        {
+          "nombre_completo": "K. Haghbeen",
+          "nombres": "K.",
+          "apellidos": "Haghbeen"
+        },
+        {
+          "nombre_completo": "S. Aminzadeh",
+          "nombres": "S.",
+          "apellidos": "Aminzadeh"
+        }
+      ],
+      "pmid": "35717508",
+      "fuente": "Sci. Rep.",
+      "anio": "2022",
+      "volumen": "12",
+      "fpage": "10301",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biocontrol properties from phyllospheric bacteria isolated from Solanum lycopersicum and Lactuca sativa and genome mining of antimicrobial gene clusters",
+      "autores": [
+        {
+          "nombre_completo": "C. Y. Muñoz",
+          "nombres": "C. Y.",
+          "apellidos": "Muñoz"
+        },
+        {
+          "nombre_completo": "L. Zhou",
+          "nombres": "L.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y. Yi",
+          "nombres": "Y.",
+          "apellidos": "Yi"
+        },
+        {
+          "nombre_completo": "O. P. Kuipers",
+          "nombres": "O. P.",
+          "apellidos": "Kuipers"
+        }
+      ],
+      "pmid": "35189837",
+      "fuente": "BMC Genom.",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Genetic diversity of rhizobia and plant growth promoting rhizobacteria of soil under the influence of Piliostigma reticulatum (DC.) Hochst and their impact on shrub growth",
+      "autores": [
+        {
+          "nombre_completo": "N. Niang",
+          "nombres": "N.",
+          "apellidos": "Niang"
+        },
+        {
+          "nombre_completo": "D. Sandrine",
+          "nombres": "D.",
+          "apellidos": "Sandrine"
+        },
+        {
+          "nombre_completo": "N. Ibrahima",
+          "nombres": "N.",
+          "apellidos": "Ibrahima"
+        },
+        {
+          "nombre_completo": "N. Elisabeth",
+          "nombres": "N.",
+          "apellidos": "Elisabeth"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Afr. J. Agri. Res.",
+      "anio": "2018",
+      "volumen": "13",
+      "fpage": "2668",
+      "lpage": "2679"
+    },
+    {
+      "titulo": "“R: a language and environment for statistical computing,”",
+      "autores": [],
+      "pmid": "",
+      "fuente": "R.F.F.S. Computing",
+      "anio": "2022",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Rhodococcus electrodiphilus sp. nov., a marine electro active actinobacterium isolated from coral reef",
+      "autores": [
+        {
+          "nombre_completo": "E. Ramaprasad",
+          "nombres": "E.",
+          "apellidos": "Ramaprasad"
+        },
+        {
+          "nombre_completo": "G. Mahidhara",
+          "nombres": "G.",
+          "apellidos": "Mahidhara"
+        },
+        {
+          "nombre_completo": "C. Sasikala",
+          "nombres": "C.",
+          "apellidos": "Sasikala"
+        },
+        {
+          "nombre_completo": "C. V. Ramana",
+          "nombres": "C. V.",
+          "apellidos": "Ramana"
+        }
+      ],
+      "pmid": "29957174",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2018",
+      "volumen": "68",
+      "fpage": "2644",
+      "lpage": "2649"
+    },
+    {
+      "titulo": "Flectobacillus rhizosphaerae sp. nov., isolated from the rhizosphere soil of Oryza sativa (L.), and emended description of the genus Flectobacillus",
+      "autores": [
+        {
+          "nombre_completo": "E. Ramaprasad",
+          "nombres": "E.",
+          "apellidos": "Ramaprasad"
+        },
+        {
+          "nombre_completo": "C. Sasikala",
+          "nombres": "C.",
+          "apellidos": "Sasikala"
+        },
+        {
+          "nombre_completo": "C. V. Ramana",
+          "nombres": "C. V.",
+          "apellidos": "Ramana"
+        }
+      ],
+      "pmid": "26297007",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2015",
+      "volumen": "65",
+      "fpage": "3451",
+      "lpage": "3456"
+    },
+    {
+      "titulo": "Heme uptake and utilization by gram-negative bacterial pathogens",
+      "autores": [
+        {
+          "nombre_completo": "K. L. Richard",
+          "nombres": "K. L.",
+          "apellidos": "Richard"
+        },
+        {
+          "nombre_completo": "B. R. Kelley",
+          "nombres": "B. R.",
+          "apellidos": "Kelley"
+        },
+        {
+          "nombre_completo": "J. G. Johnson",
+          "nombres": "J. G.",
+          "apellidos": "Johnson"
+        }
+      ],
+      "pmid": "30984629",
+      "fuente": "Front. Cell. Infect. Microbiol.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "81",
+      "lpage": ""
+    },
+    {
+      "titulo": "A simplified method of staining endospores",
+      "autores": [
+        {
+          "nombre_completo": "A. B. Schaeffer",
+          "nombres": "A. B.",
+          "apellidos": "Schaeffer"
+        },
+        {
+          "nombre_completo": "M. D. Fulton",
+          "nombres": "M. D.",
+          "apellidos": "Fulton"
+        }
+      ],
+      "pmid": "17741261",
+      "fuente": "Science",
+      "anio": "1933",
+      "volumen": "77",
+      "fpage": "194",
+      "lpage": "194"
+    },
+    {
+      "titulo": "“Analysis of the chemical composition and primary structure of murein,”",
+      "autores": [
+        {
+          "nombre_completo": "K. H. Schleifer",
+          "nombres": "K. H.",
+          "apellidos": "Schleifer"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Methods in Microbiology",
+      "anio": "1985",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "376"
+    },
+    {
+      "titulo": "Peptidoglycan types of bacterial cell walls and their taxonomic implications",
+      "autores": [
+        {
+          "nombre_completo": "K. H. Schleifer",
+          "nombres": "K. H.",
+          "apellidos": "Schleifer"
+        },
+        {
+          "nombre_completo": "O. Kandler",
+          "nombres": "O.",
+          "apellidos": "Kandler"
+        }
+      ],
+      "pmid": "4568761",
+      "fuente": "Bacteriol. Rev.",
+      "anio": "1972",
+      "volumen": "36",
+      "fpage": "407",
+      "lpage": "477"
+    },
+    {
+      "titulo": "phangorn: phylogenetic analysis in R",
+      "autores": [
+        {
+          "nombre_completo": "K. P. Schliep",
+          "nombres": "K. P.",
+          "apellidos": "Schliep"
+        }
+      ],
+      "pmid": "21169378",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "592",
+      "lpage": "593"
+    },
+    {
+      "titulo": "Genomic analysis of endophytic bacillus-related strains isolated from the medicinal plant Origanum vulgare L. Revealed the presence of metabolic pathways involved in the biosynthesis of bioactive compounds",
+      "autores": [
+        {
+          "nombre_completo": "G. Semenzato",
+          "nombres": "G.",
+          "apellidos": "Semenzato"
+        },
+        {
+          "nombre_completo": "T. Alonso-Vásquez",
+          "nombres": "T.",
+          "apellidos": "Alonso-Vásquez"
+        },
+        {
+          "nombre_completo": "S. Del Duca",
+          "nombres": "S.",
+          "apellidos": "Del Duca"
+        },
+        {
+          "nombre_completo": "A. Vassallo",
+          "nombres": "A.",
+          "apellidos": "Vassallo"
+        },
+        {
+          "nombre_completo": "C. Riccardi",
+          "nombres": "C.",
+          "apellidos": "Riccardi"
+        },
+        {
+          "nombre_completo": "M. Zaccaroni",
+          "nombres": "M.",
+          "apellidos": "Zaccaroni"
+        }
+      ],
+      "pmid": "35630363",
+      "fuente": "Microorganisms",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "919",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of fungi isolated from the international Space Station during the microbial tracking-2 experiment",
+      "autores": [
+        {
+          "nombre_completo": "A. C. Simpson",
+          "nombres": "A. C.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "J. R. Bateh",
+          "nombres": "J. R.",
+          "apellidos": "Bateh"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M. Debieu",
+          "nombres": "M.",
+          "apellidos": "Debieu"
+        }
+      ],
+      "pmid": "34528817",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2021a",
+      "volumen": "10",
+      "fpage": "e00751",
+      "lpage": "e00721"
+    },
+    {
+      "titulo": "Draft genome sequences of various bacterial phyla isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A. C. Simpson",
+          "nombres": "A. C.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M. Debieu",
+          "nombres": "M.",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "N. B. O'hara",
+          "nombres": "N. B.",
+          "apellidos": "O'hara"
+        }
+      ],
+      "pmid": "33927037",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2021b",
+      "volumen": "10",
+      "fpage": "e00214",
+      "lpage": "00221"
+    },
+    {
+      "titulo": "Heme oxygenase-nitric oxide crosstalk-mediated iron homeostasis in plants under oxidative stress",
+      "autores": [
+        {
+          "nombre_completo": "N. Singh",
+          "nombres": "N.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "S. C. Bhatla",
+          "nombres": "S. C.",
+          "apellidos": "Bhatla"
+        }
+      ],
+      "pmid": "35247570",
+      "fuente": "Free Radic. Biol. Med.",
+      "anio": "2022",
+      "volumen": "182",
+      "fpage": "192",
+      "lpage": "205"
+    },
+    {
+      "titulo": "Comparative genomics of novel agrobacterium G3 strains isolated from the International Space Station and description of Agrobacterium tomkonis sp. nov",
+      "autores": [
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "C. Lavire",
+          "nombres": "C.",
+          "apellidos": "Lavire"
+        },
+        {
+          "nombre_completo": "J. Nesme",
+          "nombres": "J.",
+          "apellidos": "Nesme"
+        },
+        {
+          "nombre_completo": "L. Vial",
+          "nombres": "L.",
+          "apellidos": "Vial"
+        },
+        {
+          "nombre_completo": "X. Nesme",
+          "nombres": "X.",
+          "apellidos": "Nesme"
+        },
+        {
+          "nombre_completo": "C. E. Mason",
+          "nombres": "C. E.",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "34938279",
+      "fuente": "Front. Microbiol.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "765943",
+      "lpage": ""
+    },
+    {
+      "titulo": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30424821",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "204",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Klebsiella species isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S. A. Solomon",
+          "nombres": "S. A.",
+          "apellidos": "Solomon"
+        },
+        {
+          "nombre_completo": "A. R. Bharadwaj",
+          "nombres": "A. R.",
+          "apellidos": "Bharadwaj"
+        },
+        {
+          "nombre_completo": "N. K. Singh",
+          "nombres": "N. K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J. M. Wood",
+          "nombres": "J. M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "M. Debieu",
+          "nombres": "M.",
+          "apellidos": "Debieu"
+        },
+        {
+          "nombre_completo": "N. B. O'hara",
+          "nombres": "N. B.",
+          "apellidos": "O'hara"
+        }
+      ],
+      "pmid": "33060271",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "00923",
+      "lpage": ""
+    },
+    {
+      "titulo": "RAxML version 8: a tool for phylogenetic analysis and post-analysis of large phylogenies",
+      "autores": [
+        {
+          "nombre_completo": "A. Stamatakis",
+          "nombres": "A.",
+          "apellidos": "Stamatakis"
+        }
+      ],
+      "pmid": "24451623",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "1312",
+      "lpage": "1313"
+    },
+    {
+      "titulo": "Isolation of nitrogen-fixing bacteria from water yam (Dioscorea alata L.)",
+      "autores": [
+        {
+          "nombre_completo": "K. Takada",
+          "nombres": "K.",
+          "apellidos": "Takada"
+        },
+        {
+          "nombre_completo": "N. Tanaka",
+          "nombres": "N.",
+          "apellidos": "Tanaka"
+        },
+        {
+          "nombre_completo": "H. Kikuno",
+          "nombres": "H.",
+          "apellidos": "Kikuno"
+        },
+        {
+          "nombre_completo": "P. Babil",
+          "nombres": "P.",
+          "apellidos": "Babil"
+        },
+        {
+          "nombre_completo": "M. Onjo",
+          "nombres": "M.",
+          "apellidos": "Onjo"
+        },
+        {
+          "nombre_completo": "B.-J. Park",
+          "nombres": "B.-J.",
+          "apellidos": "Park"
+        }
+      ],
+      "pmid": "36814567",
+      "fuente": "Trop. Agric. Dev.",
+      "anio": "2019",
+      "volumen": "63",
+      "fpage": "198",
+      "lpage": "203"
+    },
+    {
+      "titulo": "Heme-derived bilins",
+      "autores": [
+        {
+          "nombre_completo": "J. Y. Takemoto",
+          "nombres": "J. Y.",
+          "apellidos": "Takemoto"
+        },
+        {
+          "nombre_completo": "C. W. T. Chang",
+          "nombres": "C. W. T.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "D. Chen",
+          "nombres": "D.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "G. Hinton",
+          "nombres": "G.",
+          "apellidos": "Hinton"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Isr. J. Chem.",
+      "anio": "2019",
+      "volumen": "59",
+      "fpage": "378",
+      "lpage": "386"
+    },
+    {
+      "titulo": "Pseudobacteraemia in a patient with neutropenic fever caused by a novel paenibacillus species: Paenibacillus hongkongensis sp. nov",
+      "autores": [
+        {
+          "nombre_completo": "J. Teng",
+          "nombres": "J.",
+          "apellidos": "Teng"
+        },
+        {
+          "nombre_completo": "P. Woo",
+          "nombres": "P.",
+          "apellidos": "Woo"
+        },
+        {
+          "nombre_completo": "K. Leung",
+          "nombres": "K.",
+          "apellidos": "Leung"
+        },
+        {
+          "nombre_completo": "S. Lau",
+          "nombres": "S.",
+          "apellidos": "Lau"
+        },
+        {
+          "nombre_completo": "M. Wong",
+          "nombres": "M.",
+          "apellidos": "Wong"
+        },
+        {
+          "nombre_completo": "K. Yuen",
+          "nombres": "K.",
+          "apellidos": "Yuen"
+        }
+      ],
+      "pmid": "12560460",
+      "fuente": "Mol. Pathol.",
+      "anio": "2003",
+      "volumen": "56",
+      "fpage": "29",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of two Fusarium oxysporum isolates cultured from infected Zinnia hybrida plants grown on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "G. Massa",
+          "nombres": "G.",
+          "apellidos": "Massa"
+        },
+        {
+          "nombre_completo": "M. Hummerick",
+          "nombres": "M.",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "C. Khodadad",
+          "nombres": "C.",
+          "apellidos": "Khodadad"
+        },
+        {
+          "nombre_completo": "A. Schuerger",
+          "nombres": "A.",
+          "apellidos": "Schuerger"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "29773617",
+      "fuente": "Genome Announc.",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "e00326",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbial tracking-2, a metagenomics analysis of bacteria and fungi onboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "C. Urbaniak",
+          "nombres": "C.",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "M. D. Morrison",
+          "nombres": "M. D.",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "J. B. Thissen",
+          "nombres": "J. B.",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "D. J. Smith",
+          "nombres": "D. J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S. Mehta",
+          "nombres": "S.",
+          "apellidos": "Mehta"
+        }
+      ],
+      "pmid": "34980280",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "1",
+      "lpage": "19"
+    },
+    {
+      "titulo": "Draft genome sequences from a novel clade of Bacillus cereus sensu lato strains, isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "A. Checinska Sielaff",
+          "nombres": "A.",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "S. Ratnayake",
+          "nombres": "S.",
+          "apellidos": "Ratnayake"
+        },
+        {
+          "nombre_completo": "R. K. Pope",
+          "nombres": "R. K.",
+          "apellidos": "Pope"
+        },
+        {
+          "nombre_completo": "T. E. Blank",
+          "nombres": "T. E.",
+          "apellidos": "Blank"
+        },
+        {
+          "nombre_completo": "V. G. Stepanov",
+          "nombres": "V. G.",
+          "apellidos": "Stepanov"
+        }
+      ],
+      "pmid": "28798168",
+      "fuente": "Genome Announc.",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "e00680",
+      "lpage": "e00617"
+    },
+    {
+      "titulo": "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+      "autores": [
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "P. Vaishampayan",
+          "nombres": "P.",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J. Cisneros",
+          "nombres": "J.",
+          "apellidos": "Cisneros"
+        },
+        {
+          "nombre_completo": "D. L. Pierson",
+          "nombres": "D. L.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "S. O. Rogers",
+          "nombres": "S. O.",
+          "apellidos": "Rogers"
+        },
+        {
+          "nombre_completo": "J. Perry",
+          "nombres": "J.",
+          "apellidos": "Perry"
+        }
+      ],
+      "pmid": "24695826",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2014",
+      "volumen": "98",
+      "fpage": "6453",
+      "lpage": "6466"
+    },
+    {
+      "titulo": "Cohnella plantaginis sp. nov., a novel nitrogen-fixing species isolated from plantain rhizosphere soil",
+      "autores": [
+        {
+          "nombre_completo": "L. Y. Wang",
+          "nombres": "L. Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. F. Chen",
+          "nombres": "S. F.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L. Wang",
+          "nombres": "L.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. G. Zhou",
+          "nombres": "Y. G.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "H. C. Liu",
+          "nombres": "H. C.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "22543748",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2012",
+      "volumen": "102",
+      "fpage": "83",
+      "lpage": "89"
+    },
+    {
+      "titulo": "Cohnella capsici sp. nov., a novel nitrogen-fixing species isolated from Capsicum annuum rhizosphere soil, and emended description of Cohnella plantaginis",
+      "autores": [
+        {
+          "nombre_completo": "L. Y. Wang",
+          "nombres": "L. Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "T. S. Wang",
+          "nombres": "T. S.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. F. Chen",
+          "nombres": "S. F.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "25367338",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2015",
+      "volumen": "107",
+      "fpage": "133",
+      "lpage": "139"
+    },
+    {
+      "titulo": "Completing bacterial genome assemblies with multiplex MinION sequencing",
+      "autores": [
+        {
+          "nombre_completo": "R. R. Wick",
+          "nombres": "R. R.",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "L. M. Judd",
+          "nombres": "L. M.",
+          "apellidos": "Judd"
+        },
+        {
+          "nombre_completo": "C. L. Gorrie",
+          "nombres": "C. L.",
+          "apellidos": "Gorrie"
+        },
+        {
+          "nombre_completo": "K. E. Holt",
+          "nombres": "K. E.",
+          "apellidos": "Holt"
+        }
+      ],
+      "pmid": "29177090",
+      "fuente": "Microbial Genom.",
+      "anio": "2017a",
+      "volumen": "3",
+      "fpage": "e1005595",
+      "lpage": ""
+    },
+    {
+      "titulo": "Unicycler: resolving bacterial genome assemblies from short and long sequencing reads",
+      "autores": [
+        {
+          "nombre_completo": "R. R. Wick",
+          "nombres": "R. R.",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "L. M. Judd",
+          "nombres": "L. M.",
+          "apellidos": "Judd"
+        },
+        {
+          "nombre_completo": "C. L. Gorrie",
+          "nombres": "C. L.",
+          "apellidos": "Gorrie"
+        },
+        {
+          "nombre_completo": "K. E. Holt",
+          "nombres": "K. E.",
+          "apellidos": "Holt"
+        }
+      ],
+      "pmid": "28594827",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2017b",
+      "volumen": "13",
+      "fpage": "e1005595",
+      "lpage": ""
+    },
+    {
+      "titulo": "Welcome to the Tidyverse",
+      "autores": [
+        {
+          "nombre_completo": "H. Wickham",
+          "nombres": "H.",
+          "apellidos": "Wickham"
+        },
+        {
+          "nombre_completo": "M. Averick",
+          "nombres": "M.",
+          "apellidos": "Averick"
+        },
+        {
+          "nombre_completo": "J. Bryan",
+          "nombres": "J.",
+          "apellidos": "Bryan"
+        },
+        {
+          "nombre_completo": "W. Chang",
+          "nombres": "W.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "L. D. A. Mcgowan",
+          "nombres": "L. D. A.",
+          "apellidos": "Mcgowan"
+        },
+        {
+          "nombre_completo": "R. François",
+          "nombres": "R.",
+          "apellidos": "François"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Open Source Softw.",
+      "anio": "2019",
+      "volumen": "4",
+      "fpage": "1686",
+      "lpage": ""
+    },
+    {
+      "titulo": "Using DECIPHER v2.0 to analyze big biological sequence data in R",
+      "autores": [
+        {
+          "nombre_completo": "E. Wright",
+          "nombres": "E.",
+          "apellidos": "Wright"
+        }
+      ],
+      "pmid": "",
+      "fuente": "R J.",
+      "anio": "2016",
+      "volumen": "8",
+      "fpage": "352",
+      "lpage": "359"
+    },
+    {
+      "titulo": "Effects of probiotics Lactobacillus plantarum 16 and Paenibacillus polymyxa 10 on intestinal barrier function, antioxidative capacity, apoptosis, immune response, and biochemical parameters in broilers",
+      "autores": [
+        {
+          "nombre_completo": "Y. Wu",
+          "nombres": "Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "B. Wang",
+          "nombres": "B.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z. Zeng",
+          "nombres": "Z.",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "R. Liu",
+          "nombres": "R.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "L. Tang",
+          "nombres": "L.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "L. Gong",
+          "nombres": "L.",
+          "apellidos": "Gong"
+        }
+      ],
+      "pmid": "31064013",
+      "fuente": "Poult. Sci.",
+      "anio": "2019",
+      "volumen": "98",
+      "fpage": "5028",
+      "lpage": "5039"
+    },
+    {
+      "titulo": "Efficient production of isoquercitin, icariin and icariside II by a novel thermostable α-l-rhamnosidase PodoRha from Paenibacillus odorifer with high α-1, 6-/α-1, 2-glycoside specificity",
+      "autores": [
+        {
+          "nombre_completo": "J. Xie",
+          "nombres": "J.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "J. Zhao",
+          "nombres": "J.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "N. Zhang",
+          "nombres": "N.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H. Xu",
+          "nombres": "H.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "J. Yang",
+          "nombres": "J.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "J. Ye",
+          "nombres": "J.",
+          "apellidos": "Ye"
+        }
+      ],
+      "pmid": "35472682",
+      "fuente": "Enzyme Microb. Technol.",
+      "anio": "2022",
+      "volumen": "158",
+      "fpage": "110039",
+      "lpage": ""
+    },
+    {
+      "titulo": "Naxibacter alkalitolerans gen. nov., sp. nov., a novel member of the family ‘Oxalobacteraceae' isolated from China",
+      "autores": [
+        {
+          "nombre_completo": "P. Xu",
+          "nombres": "P.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "W.-J. Li",
+          "nombres": "W.-J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "S.-K. Tang",
+          "nombres": "S.-K.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "Y.-Q. Zhang",
+          "nombres": "Y.-Q.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G.-Z. Chen",
+          "nombres": "G.-Z.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "H.-H. Chen",
+          "nombres": "H.-H.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "15879247",
+      "fuente": "Int. J. Syst. Evol. Microbiol.",
+      "anio": "2005",
+      "volumen": "55",
+      "fpage": "1149",
+      "lpage": "1153"
+    },
+    {
+      "titulo": "α-L-Rhamnosidase: a review",
+      "autores": [
+        {
+          "nombre_completo": "V. Yadav",
+          "nombres": "V.",
+          "apellidos": "Yadav"
+        },
+        {
+          "nombre_completo": "P. K. Yadav",
+          "nombres": "P. K.",
+          "apellidos": "Yadav"
+        },
+        {
+          "nombre_completo": "S. Yadav",
+          "nombres": "S.",
+          "apellidos": "Yadav"
+        },
+        {
+          "nombre_completo": "K. Yadav",
+          "nombres": "K.",
+          "apellidos": "Yadav"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Process Biochem.",
+      "anio": "2010",
+      "volumen": "45",
+      "fpage": "1226",
+      "lpage": "1235"
+    },
+    {
+      "titulo": "ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data",
+      "autores": [
+        {
+          "nombre_completo": "G. Yu",
+          "nombres": "G.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "D. K. Smith",
+          "nombres": "D. K.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "H. Zhu",
+          "nombres": "H.",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "Y. Guan",
+          "nombres": "Y.",
+          "apellidos": "Guan"
+        },
+        {
+          "nombre_completo": "T. T. Y. Lam",
+          "nombres": "T. T. Y.",
+          "apellidos": "Lam"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Methods Ecol. Evol.",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "28",
+      "lpage": "36"
+    },
+    {
+      "titulo": "dbCAN2: a meta server for automated carbohydrate-active enzyme annotation",
+      "autores": [
+        {
+          "nombre_completo": "H. Zhang",
+          "nombres": "H.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "T. Yohe",
+          "nombres": "T.",
+          "apellidos": "Yohe"
+        },
+        {
+          "nombre_completo": "L. Huang",
+          "nombres": "L.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "S. Entwistle",
+          "nombres": "S.",
+          "apellidos": "Entwistle"
+        },
+        {
+          "nombre_completo": "P. Wu",
+          "nombres": "P.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "Z. Yang",
+          "nombres": "Z.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "29771380",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "W95",
+      "lpage": "W101"
+    },
+    {
+      "titulo": "Insights into the unique phosphorylation of the lasso peptide paeninodin",
+      "autores": [
+        {
+          "nombre_completo": "S. Zhu",
+          "nombres": "S.",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "J. D. Hegemann",
+          "nombres": "J. D.",
+          "apellidos": "Hegemann"
+        },
+        {
+          "nombre_completo": "C. D. Fage",
+          "nombres": "C. D.",
+          "apellidos": "Fage"
+        },
+        {
+          "nombre_completo": "M. Zimmermann",
+          "nombres": "M.",
+          "apellidos": "Zimmermann"
+        },
+        {
+          "nombre_completo": "X. Xie",
+          "nombres": "X.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "U. Linne",
+          "nombres": "U.",
+          "apellidos": "Linne"
+        }
+      ],
+      "pmid": "27151214",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2016",
+      "volumen": "291",
+      "fpage": "13662",
+      "lpage": "13678"
+    },
+    {
+      "titulo": "Root endophytes and Ginkgo biloba are likely to share and compensate secondary metabolic processes, and potentially exchange genetic information by LTR-RTs",
+      "autores": [
+        {
+          "nombre_completo": "K. Zou",
+          "nombres": "K.",
+          "apellidos": "Zou"
+        },
+        {
+          "nombre_completo": "X. Liu",
+          "nombres": "X.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Q. Hu",
+          "nombres": "Q.",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "D. Zhang",
+          "nombres": "D.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S. Fu",
+          "nombres": "S.",
+          "apellidos": "Fu"
+        },
+        {
+          "nombre_completo": "S. Zhang",
+          "nombres": "S.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "34305992",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "704985",
+      "lpage": ""
+    }
+  ]
+}

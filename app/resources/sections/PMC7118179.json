@@ -1,0 +1,699 @@
+{
+  "TITLE": [
+    "Identification of Metagenome-Assembled Genomes Containing Antimicrobial Resistance Genes, Isolated from an Advanced Water Treatment Facility"
+  ],
+  "ABSTRACT": [
+    "Here, we present 95 metagenome-assembled genomes (MAGs) that harbor antimicrobial resistance genes, isolated from samples obtained in a large advanced wastewater reclamation facility prior to microfiltration. The MAGs were not in abundance after filtration at the facility and represent a useful resource to the water treatment community at large.",
+    "ABSTRACT",
+    "Here, we present 95 metagenome-assembled genomes (MAGs) that harbor antimicrobial resistance genes, isolated from samples obtained in a large advanced wastewater reclamation facility prior to microfiltration. The MAGs were not in abundance after filtration at the facility and represent a useful resource to the water treatment community at large."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "Human society faces an acceleration of water scarcity due to increasing population, pollution, and land use. Such water scarcity also brings a decrease in water quality, as demonstrated by increased eutrophication, among other concerns. Treatment and reuse of water are critical tools in combating water stress globally. Reuse of wastewater carries the potential risk of transmission of small-molecule metabolites and antibiotic resistance genes (ARGs), while its use relieves stress on natural sources of water. Previously, biofilms were sampled from the Orange County Water District (OCWD) Advanced Water Purification Facility (AWPF) in Southern California, which showed differences in the microbial communities in both influent and biofilms on microfiltration and reverse osmosis membranes. In a recent study that more fully characterized both biofilms and large volumes of water throughout the treatment process, we described both microbial diversity and load decreasing across this well-engineered system. Here, we have expanded and enhanced this previous work by identifying metagenome-assembled genomes (MAGs) that contain ARGs to expand our knowledge of all microbial lineages harboring ARGs that are present within an ultrapurified water facility.",
+    "Water and biofilm were sampled at the OCWD AWPF as previously described. Briefly, all water samples were filtered using a large-volume concentrator (LVC) dialysis filter cartridge system (Innova Prep LLC, Drexel, MO). Approximately 60 to 100 liters of water were filtered per sample, prior to concentration onto replicate 25-mm (diameter), 0.22-μm (pore size) nitrocellulose filters. Filters were placed in BashingBead lysis tubes (Zymo, Inc., Irvine, CA) containing 750 μl of DNA/RNA Shield (Zymo, Inc.) to preserve samples onsite. Biofilm samples were similarly placed in lysis tubes with DNA/RNA Shield. DNA was extracted using the Zymo Microbiomics DNA/RNA coextraction kit (Zymo, Inc.). Libraries were prepared as previously described in full using the Nextera XT library prep kit (Illumina, San Diego, CA), modified to use 13 cycles of PCR. All samples were sequenced on an Illumina HiSeq 3000 instrument using PE150 chemistry. Two biofilm samples from filtration units at the AWPF obtained from Leddy et al. were processed as described previously and sequenced using SE100 chemistry. Sequence reads were error corrected using BayesHammer v3.12.0 and assembled using MEGAHIT v1.1.3 to produce a single coassembly. Reads were mapped to the assembly with Bowtie 2 v2.3.4.1 and binned into MAGs using Anvi’o v v5 and CONCOCT. MAG completion and redundancy estimates were also computed within Anvi’o. MAGs were queried for ARGs using DeepARG and identified phylogenetically by GTDB-Tk v0.3.0. Default parameters were used for all software unless otherwise noted.",
+    "A total of 95 MAGs were selected after manual curation within Anvi’o and by DeepARG that contained 185 open reading frames putatively identified as antimicrobial resistance genes. Of note, two MAGs were identified by GTDB-Tk as belonging to the “Candidatus Gracilibacteria” and “Candidatus Patescibacteria” lineages. Others identified included an unclassified Dongiaceae MAG that was previously associated with a wastewater treatment facility. A more detailed list of assembly statistics and taxonomy of all MAGs can be found in Table 1. As reported previously, no metagenomic sequence and therefore no MAGs were identified after barrier filtration within the system due to a lack of sufficient extractable or amplifiable DNA. Future work will further describe the ARGs and will identify non-ARG-containing MAGs and determine how they impact the operation of the OCWD AWPF.",
+    "Data availability.",
+    "Raw sequence reads are available under BioProject accession number PRJNA428383. Whole-genome sequences are available under the sequential BioSample accession numbers SAMN10026417 to SAMN10026511, which include annotations produced with the Prokaryotic Gene Annotation Pipeline (PGAP). Table 1 contains individual Web links to each bin assembly and annotation."
+  ],
+  "TABLE": [
+    "Detailed taxonomy, accession information, and assembly statistics of MAGs",
+    "Bin name\tTaxonomya\tGenBank assembly accession no.\tTotal length (bp)\tN50 (bp)\tGC content (%)\tCompleteness (%)\tRedundancy (%)\t \tBin_1_1\tMycobacterium sp. AWPF1\tSSGB00000000\t2,707,225\t10,968\t68.44\t38.85\t0.72\t \tBin_1_3\tMycobacterium sp. AWPF2\tSSGA00000000\t4,217,119\t13,813\t68.81\t60.43\t3.6\t \tBin_1_5\tUnclassified Actinobacteria family UBA10799 bacterium AWPF1\tSSET00000000\t3,552,223\t35,771\t69.31\t84.17\t8.63\t \tBin_1_8\tUnclassified Actinobacteria family UBA10799 bacterium AWPF2\tSSES00000000\t1,125,909\t10,906\t67.03\t22.3\t9.35\t \tBin_10_1\tPolynucleobacter sp.\tSSFP00000000\t1,928,064\t15,906\t42.88\t78.42\t7.19\t \tBin_11_1\tTolumonas sp.\tSSEX00000000\t1,832,732\t10,968\t47.81\t53.24\t2.88\t \tBin_11_4\tUnclassified Cyclobacteriaceae bacterium\tSSEN00000000\t2,496,402\t8,305\t45.51\t36.69\t9.35\t \tBin_11_5\tCyclobacteriaceae ELB16-189 sp.\tVIGN00000000\t1,066,491\t8,282\t43.86\t36.69\t12.23\t \tBin_12_3\tUnclassified Hyphomicrobiaceae bacterium\tSSEH00000000\t2,999,406\t8,617\t55.82\t7.19\t12.23\t \tBin_14_1\tNovosphingobium sp.\tSSFU00000000\t1,517,683\t8,392\t64.2\t29.5\t0.72\t \tBin_14_3\tUnclassified Gammaproteobacteria bacterium AWPF1\tSSEJ00000000\t2,472,121\t8,119\t63.57\t51.08\t14.39\t \tBin_14_4\tPseudoxanthomonas sp.\tSSFJ00000000\t1,848,156\t8,064\t67.96\t34.53\t0\t \tBin_14_5\tUnclassified Gammaproteobacteria bacterium AWPF2\tSSEI00000000\t1,859,286\t10,791\t62.7\t43.17\t41.73\t \tBin_15_1\tNitrosomonas sp. AWPF2\tSSFW00000000\t2,557,120\t18,443\t43.85\t83.45\t1.44\t \tBin_15_2\tBurkholderiaceae UBA7693 sp.\tSSGW00000000\t2,650,165\t9,223\t49.03\t22.3\t0.72\t \tBin_15_3\tMoranbacterales UBA1568 sp.\tSSGE00000000\t580,840\t8,401\t50.03\t48.2\t2.88\t \tBin_15_5\tUnclassified Moranbacterales UBA1568 sp. AWPF1\tSSEE00000000\t880,789\t8,806\t45.6\t66.91\t19.42\t \tBin_15_6\tUnclassified Moranbacterales UBA1568 sp. AWPF2\tSSED00000000\t1,461,468\t7,107\t48.36\t52.52\t15.83\t \tBin_17_3\tUnclassified Rhodocyclaceae bacterium AWPF3\tSSDZ00000000\t3,614,409\t8,707\t60.2\t60.43\t10.79\t \tBin_19_1\tOttowia sp. AWPF1\tSSFT00000000\t2,464,482\t7,364\t68.69\t17.27\t2.16\t \tBin_19_2\tOttowia sp. AWPF2\tSSFS00000000\t2,330,319\t8,499\t69.66\t42.45\t6.47\t \tBin_19_5\tThermomonas sp.\tSSFC00000000\t1,187,954\t11,860\t67.14\t38.13\t0.72\t \tBin_2_1\tUnclassified Thermomicrobiales family UBA6265 bacterium\tSSDT00000000\t2,680,321\t10,114\t60.7\t49.64\t7.91\t \tBin_20_1\tNiabella sp.\tSSFZ00000000\t1,214,478\t6,588\t38.77\t33.81\t7.91\t \tBin_21_1\tZoogloea sp.\tSSDR00000000\t2,929,105\t10,734\t64.98\t55.4\t1.44\t \tBin_21_3\tLimnohabitans sp. AWPF1\tSSGJ00000000\t1,670,846\t9,983\t63.22\t19.42\t0.72\t \tBin_23_2\tFlavobacterium GCA_002422095.1\tSSGM00000000\t1,906,623\t10,479\t32.59\t66.19\t9.35\t \tBin_23_3\tFlavobacterium sp.\tSSGL00000000\t2,075,117\t12,249\t32.14\t33.09\t2.88\t \tBin_24_1\tRhodoferax sp.\tSSFF00000000\t3,654,053\t136,395\t62.3\t99.28\t7.19\t \tBin_24_2\tLimnohabitans sp. AWPF2\tSSGI00000000\t2,967,058\t22,882\t63.25\t73.38\t5.04\t \tBin_24_4\tPseudorhodobacter sp.\tSSFK00000000\t3,302,298\t8,369\t63.29\t49.64\t10.79\t \tBin_25_1\tUnclassified Rhodocyclaceae bacterium AWPF1\tSSDY00000000\t2,178,082\t10,805\t64.25\t62.59\t2.16\t \tBin_25_2\tFlavobacteriales PHOS-HE28 sp.\tSSGN00000000\t4,081,487\t21,145\t62.07\t76.98\t7.91\t \tBin_25_4\tDechloromonas sp.\tSSGP00000000\t3,029,215\t19,114\t62.22\t58.99\t5.76\t \tBin_26_1\tUnclassified Sphingomonadales bacterium\tSSDV00000000\t3,053,326\t60,967\t64.22\t99.28\t0.72\t \tBin_26_2\tMycobacterium mageritense\tSSGC00000000\t7,650,754\t60,194\t66.88\t79.14\t5.76\t \tBin_26_3\tUnclassified Dongiaceae bacterium\tSSEL00000000\t5,719,975\t142,361\t61.3\t99.28\t5.04\t \tBin_27_1\tThauera aminoaromatica\tSSFD00000000\t5,236,562\t14,873\t67.89\t73.38\t8.63\t \tBin_27_2\tUnclassified Burkholderiaceae bacterium\tSSER00000000\t3,032,333\t8,502\t67.32\t22.3\t0.72\t \tBin_29_1\tUnclassified Mycobacterium bacterium\tSSEC00000000\t6,629,733\t18,228\t66.91\t85.61\t7.91\t \tBin_29_2\tMycobacterium arupense\tSSGD00000000\t5,009,268\t45,297\t66.94\t99.28\t7.19\t \tBin_3_3\tChryseobacterium cucumeris\tSSGV00000000\t2,503,246\t11,245\t36.61\t22.3\t0\t \tBin_3_4\tUnclassified Chitinophagaceae bacterium\tSSEO00000000\t1,501,328\t17,275\t33.51\t50.36\t0.72\t \tBin_3_8\tUnclassified Bacteroidia bacterium\tSSEU00000000\t2,309,706\t6,910\t35.54\t57.55\t19.42\t \tBin_30\tUnclassified Burkholderiaceae bacterium AWPF1\tSSEQ00000000\t6,171,595\t8,294\t70.29\t47.48\t4.32\t \tBin_31_2\tAeromicrobium sp.\tSSHC00000000\t1,861,791\t18,902\t58.23\t82.73\t1.44\t \tBin_34\tUnclassified Desulfurella bacterium\tSSEM00000000\t6,288,683\t10,284\t58.83\t3.6\t5.04\t \tBin_35_1\tPseudomonas monteilii\tSSFN00000000\t5,048,709\t26,274\t63.26\t51.8\t2.16\t \tBin_35_2\tThiobacillus GCA_002343685.1\tSSFB00000000\t3,564,805\t105,954\t62.36\t86.33\t5.76\t \tBin_35_3\tUnclassified Nevskiaceae bacterium AWPF1\tSSEB00000000\t3,246,569\t241,139\t65.99\t86.33\t2.16\t \tBin_36_2\tCrocinitomicaceae UBA5422 sp. AWPF1\tSSGS00000000\t1,134,521\t8,082\t36.56\t17.27\t0\t \tBin_38_1\tNitrosomonas sp. AWPF1\tSSFV00000000\t2,613,687\t22,274\t44.56\t57.55\t0\t \tBin_39_1\tPelomonas sp.\tSSFQ00000000\t3,131,775\t9,407\t69.9\t30.22\t2.16\t \tBin_4_1\tCupriavidus sp.\tSSGQ00000000\t3,464,703\t7,277\t64.08\t16.55\t2.88\t \tBin_4_3\tRhizobium sp. AWPF1\tSSFH00000000\t4,147,977\t10,631\t61.05\t18.71\t1.44\t \tBin_42_2\tMethylophilus methylotrophus\tSSGG00000000\t1,188,656\t14,601\t49.11\t28.06\t2.88\t \tBin_43_1\tChryseobacterium sp.\tSSGU00000000\t2,092,908\t10,855\t38.01\t44.6\t7.91\t \tBin_43_5\tCrocinitomicaceae UBA5422 sp. AWPF2\tSSGR00000000\t641,979\t9,434\t42.11\t35.25\t17.27\t \tBin_44_1\tBetaproteobacteriales UBA11063 sp. AWPF1\tSSGY00000000\t2,803,113\t14,546\t36.96\t86.33\t2.16\t \tBin_45_1\tBetaproteobacteriales UBA11063 sp. AWPF2\tSSGX00000000\t2,467,391\t70,519\t35.22\t79.14\t1.44\t \tBin_45_4\t“Candidatus Gracilibacteria” UBA5532 sp.\tSSGK00000000\t668,037\t10,255\t37.87\t58.27\t0.72\t \tBin_48_1\tAfipia sp.\tSSHB00000000\t3,379,245\t12,763\t61.87\t54.68\t2.88\t \tBin_48_2\tRhizobium sp. AWPF2\tSSFG00000000\t2,353,640\t12,778\t60.82\t38.13\t0.72\t \tBin_5_1\tLysobacter sp.\tSSGH00000000\t4,387,597\t162,300\t65.61\t94.24\t5.76\t \tBin_5_5\tUnclassified Xanthomonadaceae bacterium\tSSEV00000000\t3,535,438\t16,226\t63.31\t47.48\t0.72\t \tBin_5_7\tUnclassified Rhodocyclaceae bacterium AWPF2\tSSDX00000000\t1,708,980\t12,103\t65.16\t33.09\t0.72\t \tBin_51_4\tUnclassified Saccharimonadales UBA4665\tSSDW00000000\t818,540\t13,215\t50.23\t61.87\t8.63\t \tBin_52_1\tPseudomonas alcaligenes\tSSFO00000000\t3,682,067\t12,539\t64.72\t71.22\t3.6\t \tBin_52_2\tPseudomonas sp. AWPF1\tSSFM00000000\t1,540,019\t11,651\t61.81\t17.27\t4.32\t \tBin_54_1\tNitrosomonas oligotropha\tSSFX00000000\t2,754,397\t36,184\t49.22\t67.63\t0.72\t \tBin_54_3\tNitrosomonas GCA_002083595.1\tSSFY00000000\t2,292,023\t8,445\t48.32\t29.5\t6.47\t \tBin_55_1\t46-32 GCA 001898405.1\tSSHF00000000\t5,043,020\t214,644\t44.27\t94.96\t0\t \tBin_55_2\tMethylophilus sp.\tSSGF00000000\t2,747,675\t94,685\t50.49\t66.91\t2.16\t \tBin_56_1\tThiothrix sp.\tSSFA00000000\t4,155,808\t145,664\t44.77\t69.78\t3.6\t \tBin_56_2\tPedobacter sp.\tSSFR00000000\t2,341,987\t206,071\t38.94\t98.56\t0.72\t \tBin_57_1\tRheinheimera sp.\tSSFI00000000\t3,863,184\t45,966\t52.26\t63.31\t2.88\t \tBin_57_2\tUBA7239 sp.\tSSEW00000000\t1,251,491\t7,537\t52.91\t38.13\t9.35\t \tBin_59_2\tUnclassified Nevskiaceae bacterium AWPF2\tSSEA00000000\t2,177,696\t27,134\t59.28\t27.34\t5.04\t \tBin_63_2\tUnclassified WS6 bacterium\tSSDS00000000\t1,242,531\t11,680\t44.02\t34.53\t9.35\t \tBin_64_3\tRomboutsia sp.\tSSFE00000000\t381,413\t7,806\t27.61\t45.32\t0\t \tBin_65\tCrocinitomicaceae 40-80 sp.\tSSGT00000000\t2,395,197\t12,217\t40.24\t70.5\t2.16\t \tBin_67\tUnclassified Spirochaetes class UBA12135 bacterium\tSSDU00000000\t1,932,890\t10,511\t31.46\t5.04\t0\t \tBin_68_2\tUnclassified Moranbacterales class UBA1568 bacterium\tSSEF00000000\t1,023,203\t34,589\t53.99\t79.14\t5.76\t \tBin_7_2\tUnclassified Burkholderiaceae bacterium AWPF2\tSSEP00000000\t2,384,147\t7,064\t63.49\t12.95\t0.72\t \tBin_7_3\tAlicycliphilus sp.\tSSHA00000000\t3,015,590\t10,496\t66.2\t43.17\t5.76\t \tBin_7_4\tAquabacterium sp. AWPF1\tSSGZ00000000\t1,352,035\t7,819\t65.11\t21.58\t0\t \tBin_7_5\tPseudomonas sp. AWPF2\tSSFL00000000\t1,978,447\t9,650\t63.83\t51.08\t10.79\t \tBin_7_6\tAquabacterium sp. AWPF2\tVKOJ00000000\t2,228,505\t10,843\t63.58\t33.81\t2.16\t \tBin_71\tUnclassified Leptospira bacterium\tSSEG00000000\t1,795,065\t38,625\t54.29\t6.17\t0\t \tBin_8_1\tAcinetobacter sp. AWPF1\tSSHE00000000\t2,045,996\t23,569\t41.75\t75.54\t2.16\t \tBin_8_2\tThiothrix sp. AWPF1\tSSEZ00000000\t1,300,697\t7,394\t44.99\t30.22\t1.44\t \tBin_8_3\tThiothrix sp. AWPF2\tSSEY00000000\t2,137,450\t7,937\t45.31\t47.48\t16.55\t \tBin_8_5\tAcinetobacter sp. AWPF2\tSSHD00000000\t1,422,583\t9,315\t42.74\t74.1\t7.19\t \tBin_9_3\tUnclassified Elusimicrobia order F11 bacterium\tSSEK00000000\t2,256,510\t6,750\t63.91\t51.8\t10.79\t \tBin_9_4\tDokdonella sp.\tSSGO00000000\t1,632,646\t10,049\t62.2\t31.65\t2.16",
+    "Taxonomy given was identified using GTDB-tk and is the taxonomy reported within the NCBI accession record."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Allied attack: climate change and eutrophication",
+    "Metagenomic characterization of antibiotic resistance genes in full-scale reclaimed water distribution systems and corresponding potable systems",
+    "Characterization of microbial signatures from advanced treated wastewater biofilms",
+    "Characterization of the microbiome at the world’s largest potable water reuse facility",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph",
+    "Fast gapped-read alignment with Bowtie 2",
+    "Binning metagenomic contigs by coverage and composition",
+    "Anvi’o: an advanced analysis and visualization platform for ‘omics data",
+    "DeepARG: a deep learning approach for predicting antibiotic resistance genes from metagenomic data",
+    "A standardized bacterial taxonomy based on genome phylogeny substantially revises the tree of life",
+    "Insights into the phylogeny and coding potential of microbial dark matter",
+    "Dongia mobilis gen. nov., sp. nov., a new member of the family Rhodospirillaceae isolated from a sequencing batch reactor for treatment of malachite green effluent"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Allied attack: climate change and eutrophication",
+      "autores": [
+        {
+          "nombre_completo": "B Moss",
+          "nombres": "B",
+          "apellidos": "Moss"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Inland Waters",
+      "anio": "2011",
+      "volumen": "1",
+      "fpage": "101",
+      "lpage": "105"
+    },
+    {
+      "titulo": "Metagenomic characterization of antibiotic resistance genes in full-scale reclaimed water distribution systems and corresponding potable systems",
+      "autores": [
+        {
+          "nombre_completo": "E Garner",
+          "nombres": "E",
+          "apellidos": "Garner"
+        },
+        {
+          "nombre_completo": "C Chen",
+          "nombres": "C",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "K Xia",
+          "nombres": "K",
+          "apellidos": "Xia"
+        },
+        {
+          "nombre_completo": "J Bowers",
+          "nombres": "J",
+          "apellidos": "Bowers"
+        },
+        {
+          "nombre_completo": "DM Engelthaler",
+          "nombres": "DM",
+          "apellidos": "Engelthaler"
+        },
+        {
+          "nombre_completo": "J McLain",
+          "nombres": "J",
+          "apellidos": "McLain"
+        },
+        {
+          "nombre_completo": "MA Edwards",
+          "nombres": "MA",
+          "apellidos": "Edwards"
+        },
+        {
+          "nombre_completo": "A Pruden",
+          "nombres": "A",
+          "apellidos": "Pruden"
+        }
+      ],
+      "pmid": "29741366",
+      "fuente": "Environ Sci Technol",
+      "anio": "2018",
+      "volumen": "52",
+      "fpage": "6113",
+      "lpage": "6125"
+    },
+    {
+      "titulo": "Characterization of microbial signatures from advanced treated wastewater biofilms",
+      "autores": [
+        {
+          "nombre_completo": "MB Leddy",
+          "nombres": "MB",
+          "apellidos": "Leddy"
+        },
+        {
+          "nombre_completo": "NA Hasan",
+          "nombres": "NA",
+          "apellidos": "Hasan"
+        },
+        {
+          "nombre_completo": "P Subramanian",
+          "nombres": "P",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "C Heberling",
+          "nombres": "C",
+          "apellidos": "Heberling"
+        },
+        {
+          "nombre_completo": "J Cotruvo",
+          "nombres": "J",
+          "apellidos": "Cotruvo"
+        },
+        {
+          "nombre_completo": "RR Colwell",
+          "nombres": "RR",
+          "apellidos": "Colwell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Am Water Works Assoc",
+      "anio": "2017",
+      "volumen": "109",
+      "fpage": "E503",
+      "lpage": "E512"
+    },
+    {
+      "titulo": "Characterization of the microbiome at the world’s largest potable water reuse facility",
+      "autores": [
+        {
+          "nombre_completo": "BW Stamps",
+          "nombres": "BW",
+          "apellidos": "Stamps"
+        },
+        {
+          "nombre_completo": "MB Leddy",
+          "nombres": "MB",
+          "apellidos": "Leddy"
+        },
+        {
+          "nombre_completo": "MH Plumlee",
+          "nombres": "MH",
+          "apellidos": "Plumlee"
+        },
+        {
+          "nombre_completo": "NA Hasan",
+          "nombres": "NA",
+          "apellidos": "Hasan"
+        },
+        {
+          "nombre_completo": "RR Colwell",
+          "nombres": "RR",
+          "apellidos": "Colwell"
+        },
+        {
+          "nombre_completo": "JR Spear",
+          "nombres": "JR",
+          "apellidos": "Spear"
+        }
+      ],
+      "pmid": "30416489",
+      "fuente": "Front Microbiol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "2435",
+      "lpage": ""
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph",
+      "autores": [
+        {
+          "nombre_completo": "D Li",
+          "nombres": "D",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "CM Liu",
+          "nombres": "CM",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "R Luo",
+          "nombres": "R",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "K Sadakane",
+          "nombres": "K",
+          "apellidos": "Sadakane"
+        },
+        {
+          "nombre_completo": "TW Lam",
+          "nombres": "TW",
+          "apellidos": "Lam"
+        }
+      ],
+      "pmid": "25609793",
+      "fuente": "Bioinformatics",
+      "anio": "2015",
+      "volumen": "31",
+      "fpage": "1674",
+      "lpage": "1676"
+    },
+    {
+      "titulo": "Fast gapped-read alignment with Bowtie 2",
+      "autores": [
+        {
+          "nombre_completo": "B Langmead",
+          "nombres": "B",
+          "apellidos": "Langmead"
+        },
+        {
+          "nombre_completo": "SL Salzberg",
+          "nombres": "SL",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "22388286",
+      "fuente": "Nat Methods",
+      "anio": "2012",
+      "volumen": "9",
+      "fpage": "357",
+      "lpage": "359"
+    },
+    {
+      "titulo": "Binning metagenomic contigs by coverage and composition",
+      "autores": [
+        {
+          "nombre_completo": "J Alneberg",
+          "nombres": "J",
+          "apellidos": "Alneberg"
+        },
+        {
+          "nombre_completo": "BS Bjarnason",
+          "nombres": "BS",
+          "apellidos": "Bjarnason"
+        },
+        {
+          "nombre_completo": "I de Bruijn",
+          "nombres": "I",
+          "apellidos": "de Bruijn"
+        },
+        {
+          "nombre_completo": "M Schirmer",
+          "nombres": "M",
+          "apellidos": "Schirmer"
+        },
+        {
+          "nombre_completo": "J Quick",
+          "nombres": "J",
+          "apellidos": "Quick"
+        },
+        {
+          "nombre_completo": "UZ Ijaz",
+          "nombres": "UZ",
+          "apellidos": "Ijaz"
+        },
+        {
+          "nombre_completo": "L Lahti",
+          "nombres": "L",
+          "apellidos": "Lahti"
+        },
+        {
+          "nombre_completo": "NJ Loman",
+          "nombres": "NJ",
+          "apellidos": "Loman"
+        },
+        {
+          "nombre_completo": "AF Andersson",
+          "nombres": "AF",
+          "apellidos": "Andersson"
+        },
+        {
+          "nombre_completo": "C Quince",
+          "nombres": "C",
+          "apellidos": "Quince"
+        }
+      ],
+      "pmid": "25218180",
+      "fuente": "Nat Methods",
+      "anio": "2014",
+      "volumen": "11",
+      "fpage": "1144",
+      "lpage": "1146"
+    },
+    {
+      "titulo": "Anvi’o: an advanced analysis and visualization platform for ‘omics data",
+      "autores": [
+        {
+          "nombre_completo": "AM Eren",
+          "nombres": "AM",
+          "apellidos": "Eren"
+        },
+        {
+          "nombre_completo": "ÖC Esen",
+          "nombres": "ÖC",
+          "apellidos": "Esen"
+        },
+        {
+          "nombre_completo": "C Quince",
+          "nombres": "C",
+          "apellidos": "Quince"
+        },
+        {
+          "nombre_completo": "JH Vineis",
+          "nombres": "JH",
+          "apellidos": "Vineis"
+        },
+        {
+          "nombre_completo": "HG Morrison",
+          "nombres": "HG",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "ML Sogin",
+          "nombres": "ML",
+          "apellidos": "Sogin"
+        },
+        {
+          "nombre_completo": "TO Delmont",
+          "nombres": "TO",
+          "apellidos": "Delmont"
+        }
+      ],
+      "pmid": "26500826",
+      "fuente": "PeerJ",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "DeepARG: a deep learning approach for predicting antibiotic resistance genes from metagenomic data",
+      "autores": [
+        {
+          "nombre_completo": "G Arango-Argoty",
+          "nombres": "G",
+          "apellidos": "Arango-Argoty"
+        },
+        {
+          "nombre_completo": "E Garner",
+          "nombres": "E",
+          "apellidos": "Garner"
+        },
+        {
+          "nombre_completo": "A Pruden",
+          "nombres": "A",
+          "apellidos": "Pruden"
+        },
+        {
+          "nombre_completo": "LS Heath",
+          "nombres": "LS",
+          "apellidos": "Heath"
+        },
+        {
+          "nombre_completo": "P Vikesland",
+          "nombres": "P",
+          "apellidos": "Vikesland"
+        },
+        {
+          "nombre_completo": "L Zhang",
+          "nombres": "L",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "29391044",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "23",
+      "lpage": ""
+    },
+    {
+      "titulo": "A standardized bacterial taxonomy based on genome phylogeny substantially revises the tree of life",
+      "autores": [
+        {
+          "nombre_completo": "DH Parks",
+          "nombres": "DH",
+          "apellidos": "Parks"
+        },
+        {
+          "nombre_completo": "M Chuvochina",
+          "nombres": "M",
+          "apellidos": "Chuvochina"
+        },
+        {
+          "nombre_completo": "DW Waite",
+          "nombres": "DW",
+          "apellidos": "Waite"
+        },
+        {
+          "nombre_completo": "C Rinke",
+          "nombres": "C",
+          "apellidos": "Rinke"
+        },
+        {
+          "nombre_completo": "A Skarshewski",
+          "nombres": "A",
+          "apellidos": "Skarshewski"
+        },
+        {
+          "nombre_completo": "P-A Chaumeil",
+          "nombres": "P-A",
+          "apellidos": "Chaumeil"
+        },
+        {
+          "nombre_completo": "P Hugenholtz",
+          "nombres": "P",
+          "apellidos": "Hugenholtz"
+        }
+      ],
+      "pmid": "30148503",
+      "fuente": "Nat Biotechnol",
+      "anio": "2018",
+      "volumen": "36",
+      "fpage": "996",
+      "lpage": "1004"
+    },
+    {
+      "titulo": "Insights into the phylogeny and coding potential of microbial dark matter",
+      "autores": [
+        {
+          "nombre_completo": "C Rinke",
+          "nombres": "C",
+          "apellidos": "Rinke"
+        },
+        {
+          "nombre_completo": "P Schwientek",
+          "nombres": "P",
+          "apellidos": "Schwientek"
+        },
+        {
+          "nombre_completo": "JA Dodsworth",
+          "nombres": "JA",
+          "apellidos": "Dodsworth"
+        },
+        {
+          "nombre_completo": "BP Hedlund",
+          "nombres": "BP",
+          "apellidos": "Hedlund"
+        },
+        {
+          "nombre_completo": "G Tsiamis",
+          "nombres": "G",
+          "apellidos": "Tsiamis"
+        },
+        {
+          "nombre_completo": "SM Sievert",
+          "nombres": "SM",
+          "apellidos": "Sievert"
+        },
+        {
+          "nombre_completo": "W-T Liu",
+          "nombres": "W-T",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "JA Eisen",
+          "nombres": "JA",
+          "apellidos": "Eisen"
+        },
+        {
+          "nombre_completo": "SJ Hallam",
+          "nombres": "SJ",
+          "apellidos": "Hallam"
+        },
+        {
+          "nombre_completo": "NC Kyrpides",
+          "nombres": "NC",
+          "apellidos": "Kyrpides"
+        },
+        {
+          "nombre_completo": "R Stepanauskas",
+          "nombres": "R",
+          "apellidos": "Stepanauskas"
+        },
+        {
+          "nombre_completo": "EM Rubin",
+          "nombres": "EM",
+          "apellidos": "Rubin"
+        },
+        {
+          "nombre_completo": "A Sczyrba",
+          "nombres": "A",
+          "apellidos": "Sczyrba"
+        },
+        {
+          "nombre_completo": "P Hugenholtz",
+          "nombres": "P",
+          "apellidos": "Hugenholtz"
+        },
+        {
+          "nombre_completo": "T Woyke",
+          "nombres": "T",
+          "apellidos": "Woyke"
+        },
+        {
+          "nombre_completo": "NN Ivanova",
+          "nombres": "NN",
+          "apellidos": "Ivanova"
+        },
+        {
+          "nombre_completo": "IJ Anderson",
+          "nombres": "IJ",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "J-F Cheng",
+          "nombres": "J-F",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "A Darling",
+          "nombres": "A",
+          "apellidos": "Darling"
+        },
+        {
+          "nombre_completo": "S Malfatti",
+          "nombres": "S",
+          "apellidos": "Malfatti"
+        },
+        {
+          "nombre_completo": "BK Swan",
+          "nombres": "BK",
+          "apellidos": "Swan"
+        },
+        {
+          "nombre_completo": "EA Gies",
+          "nombres": "EA",
+          "apellidos": "Gies"
+        }
+      ],
+      "pmid": "23851394",
+      "fuente": "Nature",
+      "anio": "2013",
+      "volumen": "499",
+      "fpage": "431",
+      "lpage": "437"
+    },
+    {
+      "titulo": "Dongia mobilis gen. nov., sp. nov., a new member of the family Rhodospirillaceae isolated from a sequencing batch reactor for treatment of malachite green effluent",
+      "autores": [
+        {
+          "nombre_completo": "Y Liu",
+          "nombres": "Y",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "JH Jin",
+          "nombres": "JH",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "YH Liu",
+          "nombres": "YH",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "YG Zhou",
+          "nombres": "YG",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "ZP Liu",
+          "nombres": "ZP",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "20061488",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "2010",
+      "volumen": "60",
+      "fpage": "2780",
+      "lpage": "2785"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "TITLE": [
+    "Draft genome sequence of Sphingomonas paucimobilis strain Sph5, isolated from tap water filtration membrane"
+  ],
+  "ABSTRACT": [
+    "ABSTRACT",
+    "Sphingomonadaceae are common membrane colonizers and biofilm formers. As part of our studies on long-term genetic changes in drinking water biofilm species, we report the draft genome sequence of Sphingomonas strain Sph5, isolated from a tap water filtration membrane. The isolate was determined as Sphingomonas paucimobilis through whole genome sequencing and de novo assembly."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "Widely used for drinking water, membrane filtration systems face biofouling due to microbe accumulation and biofilm formation. Studies reveal Sphingomonadaceae as common initial colonizers, persisting dominantly during biofilm growth (  ). Here, we report the genome sequence of a prevalent isolate.",
+    "Sphingomonas spp. Sph5 was isolated from a biofilm on a Nadir MP005 microfiltration membrane used for drinking water biofouling studies. Sph5 was previously reported to be phylogenetically closest to Sphingomonas sanguinis strains BAB-7166 (99%) and NBRC 13937 (99%) based on 16S rRNA sequencing and cultivation methods. However, the whole genome sequence (WGS) was not reported. WGS analysis is critical to uncover strain-specific traits associated with membrane biofouling. Here, we report the WGS of Sphingomonas spp. Sph5 using Illumina short-read sequencing and de novo assembly methods.",
+    "We received the Sphingomonas spp. Sph5 water isolate from Wetsus, Netherlands. Single isolated colonies were obtained on Reasoner’s 2A agar (R2A, Teknova R0005; Difco 214530) and cultured in R2A broth at room temperature. Genomic DNA was extracted using DNeasy UltraClean microbial kit (Qiagen 12224) following the company-provided protocol.",
+    "Sequencing libraries were generated using Kapa’s Hyperplus kit (KK8514) and IDT adapters (#00989130v2). Quality was verified using an Agilent Tapestation and qPCR (NEBNext Library Quant Kit, E7630L) on Thermo Fisher’s Quantstudio5.",
+    "Nineteen million 2 × 150 bp reads were obtained on a NovaSeq (Illumina) at Anschutz Medical Campus Genomics and Microarray Core, with an average Phred score of 33–36 calculated by FastQC [v0.11.9 ].",
+    "Assembly was performed with SPADES, default isolate settings [v3.15.2 ]. Contigs were aligned to NCBI databases with DIAMOND [v2.0.13 ]. Completeness was estimated using BUSCO [v5.2.2 ] proteobacteria marker genes. Of the 219 genes, there were 214 (97.7%) complete and single copy, 2 (0.9%) duplicated, 1 (0.5%) fragmented, and 2 (0.9%) missing.",
+    "For species identification, average nucleotide identity (ANI) was calculated between all complete Sphingomonas genomes and Sph5 with PYANI [v0.2.11 ] and MUMMER [v4.0.0 ]. ANI scores between Sph5 and S. paucimobilis ranged from 99.77%–99.95%, while ANI between Sph5 and S. sanguinis was 87.74%.",
+    "Annotations were predicted with Prokka [v1.14.6 ], given S. sanguinis and S. paucimobilis references (Table 1), and used for orthogroup-based phylogeny construction with Orthofinder [v2.5.4 ], MAFFT [v7.490 ], and FastTree [v.2.1.10 ].",
+    "The WGS phylogeny (Fig. 1) confirms that Sph5 is closest to S. paucimobilis while related to S. sanguinis. As a result, S. paucimobilis reference genomes were used for RagTag [v2.1.0 ] scaffolding of Sph5 contigs. ASM1602843v1 was the best scaffold (93.6% total length in three longest contigs of resulting assembly). Realignment of raw reads to ASM1602843v1-scaffolded Sph5 assembly with BWA [v0.7.17 ], SamTools [v1.12 ], and Picard [v2.25.0 ], evaluated by Mosdepth [v0.3.3 ], supports this (99.48% reads aligned, 1,089× coverage).",
+    "Re-annotation with Prokka predicts 4,321 CDS, 3 rRNAs, 54 tRNAs, 1 tmRNA, and 1 repeat region. Of the CDS, 3,342 could be functionally annotated."
+  ],
+  "TABLE": [
+    "Summary of the draft whole genome sequences of Sphingomonas paucimobilis Sph5 from the tap water filtration membrane",
+    "Variable\tData\t \tGenus and species\tSphingomonas paucimobilis\t \tStrain\tSph5\t \tNCBI accession no.\tJAMRJL000000000\t \tCountry\tThe Netherlands\t \tSource\tBiofilm on Nadir MP005 microfiltration membrane\t \tFeed water source\tTap water from the city of Leeuwarden\t \tGenome size (bp)\t4680620\t \tN50 (bp)\t4016723\t \tScaffold reference\tASM1602843v1\t \tScaffolds ≥50,000 bp\t29, 4\t \tMean coverage\t1,089×\t \tG + C content (%)\t65.30\t \tNo. of annotated CDS\t3,342\t \tNo. of raw reads\t19,032,602\t \tNo. of reads used for assembly\t19,032,602\t \tNo. of coding sequences\t4,321"
+  ],
+  "FIG": [
+    "Orthofinder-generated rooted tree of 50 complete Sphingomonas genomes with the Sph5 strain. Branch lengths represent evolutionary distance. We used the multiple-sequence alignment option with MAFFT and used FastTree to infer the trees. The mathematical parameters used are built in to the OrthoFinder tool, and we did not alter them from the default."
+  ],
+  "SUPPL": [
+    "DATA AVAILABILITY",
+    "The assembly and raw data are deposited at NCBI through the SRA genome submission portal under the accession numbers JAMRJL000000000 and SRR25337554. The version deposited in this paper is the first version."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Isolation and characterization of Sphingomonadaceae from fouled membranes",
+    "Characterization of Sphingomonas isolates from Finnish and Swedish drinking water distribution systems",
+    "Biofilm formation on reverse osmosis membranes is initiated and dominated by Sphingomonas spp",
+    "Chlorine inactivation of Sphingomonas cells attached to goethite particles in drinking water",
+    "In-situ Biofilm characterization in membrane systems using optical coherence tomography: formation, structure, detachment and impact of flux change",
+    "FastQC: a quality control tool for high throughput sequence data",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "Fast and sensitive protein alignment using DIAMOND",
+    "BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs",
+    "Genomics and taxonomy in diagnostics for food security: soft-rotting enterobacterial plant pathogens",
+    "MUMmer4: a fast and versatile genome alignment system",
+    "Prokka: rapid prokaryotic genome annotation",
+    "Orthofinder: phylogenetic orthology inference for comparative genomics",
+    "MAFFT multiple sequence alignment software version 7: improvements in performance and usability",
+    "FastTree: computing large minimum evolution trees with profiles instead of a distance matrix",
+    "RaGOO: fast and accurate reference-guided scaffolding of draft genomes",
+    "Fast and accurate short read alignment with Burrows-Wheeler transform",
+    "Twelve years of SAMtools and BCFtools",
+    "Broad Institute, Github repository",
+    "Mosdepth: quick coverage calculation for genomes and exomes"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Isolation and characterization of Sphingomonadaceae from fouled membranes",
+      "autores": [],
+      "pmid": "30701078",
+      "fuente": "NPJ Biofilms Microbiomes",
+      "anio": "2019",
+      "volumen": "5",
+      "fpage": "6",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of Sphingomonas isolates from Finnish and Swedish drinking water distribution systems",
+      "autores": [],
+      "pmid": "11054174",
+      "fuente": "J Appl Microbiol",
+      "anio": "2000",
+      "volumen": "89",
+      "fpage": "687",
+      "lpage": "696"
+    },
+    {
+      "titulo": "Biofilm formation on reverse osmosis membranes is initiated and dominated by Sphingomonas spp",
+      "autores": [],
+      "pmid": "20190090",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2010",
+      "volumen": "76",
+      "fpage": "2623",
+      "lpage": "2632"
+    },
+    {
+      "titulo": "Chlorine inactivation of Sphingomonas cells attached to goethite particles in drinking water",
+      "autores": [],
+      "pmid": "9872809",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "1999",
+      "volumen": "65",
+      "fpage": "355",
+      "lpage": "357"
+    },
+    {
+      "titulo": "In-situ Biofilm characterization in membrane systems using optical coherence tomography: formation, structure, detachment and impact of flux change",
+      "autores": [],
+      "pmid": "25282092",
+      "fuente": "Water Res",
+      "anio": "2014",
+      "volumen": "67",
+      "fpage": "243",
+      "lpage": "254"
+    },
+    {
+      "titulo": "FastQC: a quality control tool for high throughput sequence data",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2010",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "Fast and sensitive protein alignment using DIAMOND",
+      "autores": [],
+      "pmid": "25402007",
+      "fuente": "Nat Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "59",
+      "lpage": "60"
+    },
+    {
+      "titulo": "BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs",
+      "autores": [],
+      "pmid": "26059717",
+      "fuente": "Bioinformatics",
+      "anio": "2015",
+      "volumen": "31",
+      "fpage": "3210",
+      "lpage": "3212"
+    },
+    {
+      "titulo": "Genomics and taxonomy in diagnostics for food security: soft-rotting enterobacterial plant pathogens",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Anal Methods",
+      "anio": "2016",
+      "volumen": "8",
+      "fpage": "12",
+      "lpage": "24"
+    },
+    {
+      "titulo": "MUMmer4: a fast and versatile genome alignment system",
+      "autores": [],
+      "pmid": "29373581",
+      "fuente": "PLoS Comput Biol",
+      "anio": "2018",
+      "volumen": "14",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Prokka: rapid prokaryotic genome annotation",
+      "autores": [],
+      "pmid": "24642063",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "2068",
+      "lpage": "2069"
+    },
+    {
+      "titulo": "Orthofinder: phylogenetic orthology inference for comparative genomics",
+      "autores": [],
+      "pmid": "31727128",
+      "fuente": "Genome Biol",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "238",
+      "lpage": ""
+    },
+    {
+      "titulo": "MAFFT multiple sequence alignment software version 7: improvements in performance and usability",
+      "autores": [],
+      "pmid": "23329690",
+      "fuente": "Mol Biol Evol",
+      "anio": "2013",
+      "volumen": "30",
+      "fpage": "772",
+      "lpage": "780"
+    },
+    {
+      "titulo": "FastTree: computing large minimum evolution trees with profiles instead of a distance matrix",
+      "autores": [],
+      "pmid": "19377059",
+      "fuente": "Mol Biol Evol",
+      "anio": "2009",
+      "volumen": "26",
+      "fpage": "1641",
+      "lpage": "1650"
+    },
+    {
+      "titulo": "RaGOO: fast and accurate reference-guided scaffolding of draft genomes",
+      "autores": [],
+      "pmid": "31661016",
+      "fuente": "Genome Biol",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "224",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fast and accurate short read alignment with Burrows-Wheeler transform",
+      "autores": [],
+      "pmid": "19451168",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "1754",
+      "lpage": "1760"
+    },
+    {
+      "titulo": "Twelve years of SAMtools and BCFtools",
+      "autores": [],
+      "pmid": "33590861",
+      "fuente": "Gigascience",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Broad Institute, Github repository",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mosdepth: quick coverage calculation for genomes and exomes",
+      "autores": [],
+      "pmid": "29096012",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "867",
+      "lpage": "868"
+    }
+  ]
+}

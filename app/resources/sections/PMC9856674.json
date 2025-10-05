@@ -1,0 +1,2925 @@
+{
+  "TITLE": [
+    "Transcriptomic Signature of the Simulated Microgravity Response in Caenorhabditis elegans and Comparison to Spaceflight Experiments"
+  ],
+  "ABSTRACT": [
+    "Given the growing interest in human exploration of space, it is crucial to identify the effects of space conditions on biological processes. Here, we analyze the transcriptomic response of Caenorhabditis elegans to simulated microgravity and observe the maintained transcriptomic response after returning to ground conditions for four, eight, and twelve days. We show that 75% of the simulated microgravity-induced changes on gene expression persist after returning to ground conditions for four days while most of these changes are reverted after twelve days. Our results from integrative RNA-seq and mass spectrometry analyses suggest that simulated microgravity affects longevity-regulating insulin/IGF-1 and sphingolipid signaling pathways. Finally, we identified 118 genes that are commonly differentially expressed in simulated microgravity- and space-exposed worms. Overall, this work provides insight into the effect of microgravity on biological systems during and after exposure."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "Significant efforts are being made for the human exploration of space. It is known that space conditions can negatively affect biological processes by causing bone loss, muscle atrophy, and immune system impairment, to name a few examples (reviewed in). However, the underlying molecular mechanisms that contribute to these adverse effects is largely unknown.",
+    "Microgravity is one of the major stress factors causing detrimental health effects on humans (reviewed in). Simulation of microgravity is a cost-effective way to study the impact of microgravity on biological systems. For this purpose, various platforms including drop towers, parabolic flights and space flights are available. Because of their advantages to enable long term simulations in an effective and economical manner, clinostats are widely preferred to study gravitational response in biological systems, mainly plants, for decades. Clinostats rotate a sample around a horizontal axis, thereby exposing the sample to a rotating gravitational vector. This can reduce and even possibly remove gravitational bias in the development of an organism.",
+    "C. elegans is an exceptional model organism for space biology studies with its completely documented cell lineage, high reproduction rate, short lifespan, and high similarity to the human genome (reviewed in). The usage of this organism in previous space missions (such as International C. elegans Experiment in Space (ICE-First), C. elegans RNAi space experiment (CERISE), Shenzhou-8, and Commercial Generic Bioprocessing Apparatus Science Insert-01 (CSI-01)) have provided valuable insights into the biological response of C. elegans to space conditions. However, these studies generally have utilized different strains and liquid cultures instead of commonly used OP50-seeded agar plates to reduce the impact of surface tension. We previously have shown that the usage of different liquid cultures and strains cause highly distinct intergenerational transcriptomic and phenotypical responses. Similarly, a recent study reported dramatical intergenerational changes in the physiology of liquid-grown worms. Thus, complementary to the spaceflight studies, separate investigations can provide insight into the impact of individual space conditions on biological processes.",
+    "This study investigates the effect of simulated microgravity and the sustained impacts after return to ground conditions on C. elegans transcriptome. Through the RNA-sequencing (RNA-seq) and mass spectrometry analyses, we reveal the downregulation of the sphingolipid signaling pathway under simulated microgravity. In addition, we identify a putative microgravity-responsive transcriptomic signature by comparing our results with previous studies."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. C. elegans Strain and Growth Conditions",
+    "Wild-type N2 strain was obtained from the Caenorhabditis Genetics Center (CGC). The worms were grown at 21 °C. Stocks of C. elegans were acclimated to CeHR medium for three weeks prior to microgravity experiments. The ground control animals were maintained in CeHR medium in 20 mL scintillation vials as described. Approximately 100,000 live worms (P0 generation) were cleaned by sucrose floatation, their embryos (F1 generation) were harvested by bleaching and placed in ~40 mL of CeHR culture in sterile VueLife culture bags (“AC” Series 32-C, Saint-Gobain). Supplementary Videos S1 and S2 show some of the worms in the VueLife culture bags. Culture bags were mounted in the clinostat and rotated at 1 rad/s (~10 RPM) for four days, which is the measured time to reach L4/adulthood. The “F2” and subsequent generations were approximated by using four-day intervals. Prior to RNA extraction, only live worms are retrieved using the sucrose floatation method. We note that “F2” generation and beyond will not maintain synchronicity, and all will contain a mixture of generations, but recovering only the live animals enriches the RNA pool for the expected (majority) generation as each adult will produce ~30 offspring. The reason for the usage of mixed stage worms were the difficulties experienced (e.g., contamination of the liquid medium) during the synchronizing of the animals.",
+    "2.2. RNA Isolation, Illumina Sequencing",
+    "Wild-type N2 strain was obtained from the Caenorhabditis Genetics Center (University of Minnesota, Twin Cities, MN, USA). The worms were grown at 21 °C. Stocks of C. elegans were acclimated to CeHR medium for three weeks prior to microgravity experiments. Approximately 100,000 live worms (P0 generation) were cleaned by sucrose floatation, their embryos (F1 generation) were harvested by bleaching and placed in ~40 mL of CeHR medium in sterile VueLife culture bags (“AC” Series 32-C, Saint-Gobain, La Défense Cedex, France). Four culture bags were mounted in a lab-built clinostat inside a laminar flow biosafety hood, and one was kept aside as a ground control. The clinostat rotated the culture bags at 1 rad/s (~10 RPM) for four days, which is the measured time to reach L4/adulthood at 21 °C in CeHR medium. Worms from one bag were immediately harvested to represent simulated microgravity conditions. The remaining three culture bags were processed in four-day intervals to represent the return to ground conditions. We note that F2 generation and beyond will not maintain synchronicity, and all will contain a mixture of generations, but recovering only the live animals enriches the RNA pool for the expected (majority) generation as each adult will produce ~30 offspring in CeHR culture. The experimental scheme is limited to using mixed stage worms because of the technical difficulties associated with manually picking the desired age (swimming) worms from liquid cultures. Live worms were selected for harvesting by sucrose floatation and total RNA was isolated with TRIzol treatment and recovered by alcohol precipitation. Total RNA was further purified by PureLink ™ RNA Mini Kit (Life Technologies, Carlsbad, CA, USA). Two micrograms of total RNA were used for library preparations using the TruSeq Stranded mRNA LT Sample Prep Kit (Illumina). Libraries were sequenced on an Illumina HiSeq 2500 instrument set to the rapid run mode using single-end, 1 × 51 cycle sequencing reads as per manufacturer’s instructions. RNA-seq was performed for each condition with three replicates.",
+    "2.3. Gene Expression Analysis",
+    "Quality control on the RNA-seq data was done with FASTQC (version 0.11.2). All the reads were in the “very good” quality range. The DEGs were identified by using two separate approaches. First, the Tuxedo pipeline were used with default parameters. Second, the DESeq2 software (version 1.16.1) was utilized after quantifying the expression of transcripts with Salmon (version 0.8.2). The reference genome (WBCel235) along with the annotation file were retrieved from Ensembl. We considered genes as differentially expressed if FDR adjusted p-values < 0.05, and log2 fold change > 2 unless otherwise stated. The results from the Tuxedo pipeline were used throughout the paper as explained in the results and the results from DESeq2 were reported in the supplementary data (Supplementary Figure S4; Supplementary Table S5). We discarded miRNA, piRNA, and rRNA molecules from the analysis. The ncRNA molecules (WS250) and unconfirmed genes were obtained from WormBase. Dendrogram was generated with Ward’s clustering criterion by using R software (version 3.5.1).",
+    "2.4. Functional Analysis of the Genes",
+    "Gene ontology (GO) enrichment for biological processes and protein domains were assessed with Database for Annotation, Visualization and Integrated Discovery (DAVID) (v6.8). The GO network for the common DEGs between our simulated microgravity experiment and four-day CERISE was created in Cytoscape (version 3.4.0) by using the BINGO plugin. Pathway analysis was done using KEGG Mapper ( (accessed on 1 January 2019)). Tissue enrichment analysis was performed by using WormBase Gene Set Enrichment Analysis tool, and FDR adj. p-value  <  0.05 considered significant and top ten tissues were reported.",
+    "2.5. Comparison of DEGs to the CERISE Four Days",
+    "NASA’s GeneLab ( (accessed on 1 January 2019)) platform was used to acquire the Gene Expression Omnibus (GEO) accession number for the previous studies on microgravity related gene expressions in C. elegans. We identified four such studies with the following GEO accession numbers: GSE71771 (Expression Data from International C. elegans Experiment 1st), GSE71770 (four-day CERISE), GSE27338 (eight-day CERISE), and GSE32949 by UKM (PRJNA146465) from the query made on 30 June 2016 with “C. elegans” and “microgravity” terms on GeneLab. We used data from only four-day CERISE as the duration of the study is the same with ours. We analyzed the publicly available microarray datasets with GEO2R ( (accessed on 1 January 2019)) for gene expression under microgravity at the ISS versus 1G control in four day CERISE. The genes with logFC > 2 and Benjamini and Hochberg corrected p-value < 0.05 were considered as differentially expressed.",
+    "STRING database (version 10.5) was used to determine whether the common DEGs from our simulated microgravity experiment and four-day CERISE show enrichment for protein–protein interactions (PPI). We only considered the interactions only from experiments, gene-fusion, databases, and co-expression and selected “high-confidence (0.7)” results. We excluded the interactions based on text-mining, fusion, neighborhood, and co-occurrence as we were only interested in PPI with higher experimental and/or computational confidence. PPI enrichment showed significance at p-value < 1.0 × 10−16 with 58 interacting nodes and 155 edges. The PPI network was visualized with Cytoscape (version 3.4.0). Edge width was determined based on the “combined score” for the interactions obtained from the STRING database. We identified the human orthologs of the common DEGs in our experiment and four-day CERISE with OrthoList 2 with default settings.",
+    "2.6. Mass Spectrometry for Ceramides",
+    "The worms were chopped manually with razor blades on ice-cold glass. Three replicates from mixed stage worms grown in ground control and simulated microgravity conditions were used simultaneously. Each sample was sent to Avanti Polar Lipids Analytical Services as a frozen extract in glass tubes for liquid chromatography with tandem mass spectrometry (LC/MS/MS) experiment for detection of Ceramide levels. Each sample was extracted by modified Bligh and Dyer extraction. The samples were dried and resuspended in 50:50 Chloroform:Methanol and diluted prior to analysis. The resolved sample was used for analyses and stored at −20 °C until assayed. Samples were diluted as needed for analysis with internal standards for Ceramides for quantization by injection on LC/MS/MS. The individual molecular species for each sphingolipid group were measured by reversed phase liquid chromatography tandem mass spectrometry methods which separate the compounds by multiple reaction monitoring m/z to fragments and retention time. Quantification was performed by ratio of analyte to internal standard response multiplied by ISTD concentration and m/z response correction factor. The results are expressed as ng/rnl. The consistency among the replicates were examined with Pearson correlation. All but one replicates in both the experiments showed high correlation (R2 > 0.9). The ground control replicate which did not show a strong correlation (around 60%) with the other replicates was excluded from the analysis. The data were analyzed with t-test (two-tailed), and p-value < 0.05 was considered significant. Equal variances were confirmed with Levene’s test at α = 0.05 for all the ceramides tested.",
+    "2.7. Microgravity Simulation with Clinorotation",
+    "We used a laboratory-built clinostat with an integrated microscope to observe the motion of small objects including microspheres, yeast cells, and C. elegans embryos during clinorotation. The trajectory of a spherical particle in a rotating vessel has been described previously in literature. Dedolph and Dipert (1971) separated the motion of a spherical particle into two parts: a circular motion under the influence of gravity, the radius of which is inversely proportional to the angular velocity (ω, rad/s), and a radial motion due to centrifugal forces, the velocity of which is proportional to ω2. The equation of motion that describes the orbital trajectories is given by:",
+    "In the above equation, λ is the viscous drag coefficient, m is the mass of the object, mw is the mass of the displaced water, t is time, g is the acceleration due to gravity, and q(x,y,z,t) is the rotating reference frame defined as:",
+    "As a test of the performance of the clinostat we recorded the motion of fluorescent melamine-formaldehyde microspheres (5.6 µm diameter, 1.51 g/cm3 density; Corpuscular Inc., Cold Harbor, NY, USA) suspended in a 3% bovine serum albumin (BSA) solution (Supplementary Video S3). This solution was injected into an 8 mm diameter, 100-µm deep, coverglass topped chamber mounted on the clinostat microscope. Some of the melamine microspheres adhere to coverglass of the chamber, conveniently providing fiducial markers which we were able to use to compensate for the mechanical noise introduced into the micrographs by the rotation of the clinostat. We measured the terminal velocity of the suspended microspheres to be 3.2 ± 0.2 µm/s (mean ± SEM, n = 8). Figure S6 shows a plot of the measured radius of circular motion of suspended microspheres as a function of inverse angular velocity (black dots), and the calculated radius using the measured mean terminal velocity (blue line). The shaded area encompasses calculated radii for terminal velocities within one standard deviation of the mean."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "To dissect the biological processes affected under simulated microgravity and sustained after the exposure, we first cultured C. elegans in CeHR for three weeks on ground control condition and allowed the worms to acclimate to the liquid culture. Then, we exposed the worms to clinostat-simulated microgravity for four days (Figure 1a; Supplementary Video S1) and observed the maintained impacts at four, eight, and twelve days after placing the worms back to ground conditions (Figure 1b). RNA-seq was performed for each condition with three replicates (Supplementary Table S1). Because RNA-seq can detect low abundance transcripts and achieve less noise in the data, unlike previous space biology studies on C. elegans, we preferred RNA-seq over microarray.",
+    "We generated a dendrogram for the transcriptomic profile in each condition tested and found significant differences during and after exposure to simulate microgravity compared to the ground control conditions (Figure 1c). Thus, this result suggests that exposure to simulated gravity induces highly distinct gene expression patterns which are maintained even after 12 days return to ground conditions (approximately three generations of C. elegans in axenic medium).",
+    "3.1. Simulated Microgravity Triggers Differential Expression of Hundreds of Genes",
+    "To identify the genes with the most distinctive expression levels after the exposure, we determined the differentially expressed genes (DEGs) in the simulated microgravity-exposed and returned worms against the ground control. The genes with over two-fold log2 expression difference with the FDR-adjusted p-value ≤ 0.05 were considered as DEGs. Hundreds of genes demonstrated differential expression during exposure to simulated microgravity and up to eight days after return to ground conditions (Figure 1d). Twelve days after the return, the gene expression levels started to resemble the ones in the ground control with only 91 upregulated and 13 downregulated genes.",
+    "The spatial expression of the DEGs is of great importance to identify the potentially affected tissues. Thus, we performed tissue enrichment analysis for the DEGs in simulated microgravity (Figure 2a). The downregulated genes were overrepresented in neuronal and epithelial tissues, and intestine while the upregulated genes were enriched in the reproductive system-related tissues.",
+    "Next, we conducted pathway enrichment analysis for the DEGs in simulated microgravity and return to ground conditions to identify the altered pathways and whether they remained altered after return to ground conditions (Figure 2b). Our results suggested an upregulation of dorso–ventral axis formation and downregulation of lysosome during the exposure, and these expression patterns were maintained for four and eight days after the return, respectively.",
+    "3.2. Simulated Microgravity-Induced Gene Expression Differences Are Highly Maintained for Eight Days after Return to Ground Conditions",
+    "We identified the number of simulated microgravity-induced DEGs that preserved their expression patterns after the return to ground control (Figure 2c). The majority of the DEGs (approximately 75%) from the exposed animals maintained their expression patterns after the return for four days. The shared number of DEGs decreased drastically at 12 days after the return to ground conditions: 16% for commonly upregulated and <1% downregulated genes with the exposed animals.",
+    "To elucidate the genes showing altered expression under simulated microgravity and maintaining these expression patterns after return to ground conditions for short (four days) and long-term (12 days), we categorized the DEGs in Venn diagrams (Figure 2d,e; Supplementary Table S2). The genes solely upregulated in the simulated microgravity exposed animals did not exhibit enrichment for any gene ontology (GO) term. The genes upregulated during the exposure and four days after the return, however, showed an overrepresentation for reproduction-related processes (Figure 2d). Chitin metabolic process-related genes were induced at four days after return to ground conditions, and the expression profiles were conserved for eight days after the return.",
+    "We found that the downregulated genes were enriched for the biological processes which are affected in space conditions. In particular, genes functioning in body morphology, collagen and cuticulin-based cuticle development, defense response, and locomotion were downregulated under simulated microgravity and up to eight days after return to ground conditions (Figure 2e). In simulated microgravity and spaceflight studies, both small movement defects and no difference in locomotory behavior have been noted. The reason behind these discrepancies is unclear, but our results indicated differences in the expression of the locomotion genes in close to weightless environment. Similarly, neuropeptide signaling pathway genes (flp-22, flp-8, flp-26, nlp-10, nlp-12, nlp-17, nlp-20, nlp-24, nlp-25, nlp-26, nlp-39, nlp-33, nlp-28, nlp-29, nlp-30, and flp-24) were downregulated during the exposure, and this expression profile was lost after return to ground conditions (Figure 2e). These neuropeptide signaling pathway genes also exhibit enrichment for movement variant phenotypes (Supplementary Figure S1) indicating altered locomotion in response to simulated microgravity.",
+    "During spaceflight, the neuromuscular system and collagen are negatively affected. In agreement with these findings, collagen genes were downregulated in our experiment during the exposure, and the downregulation was sustained for eight days after return to ground conditions. Previously, Higashibata et al. (2006) reported decreased expression for the myogenic transcription factors and myosin heavy chains in space-flown worms. We did not observe differential expression for these muscle-related genes. Since their reported flight to ground gene expression ratio for the downregulated genes was less than one, and we only consider the genes with the log2 ratio greater than two as DEG, we did not expect to observe those genes in our group of DEGs. To test whether other muscle-related genes are differentially expressed under simulated microgravity, we compared our DEGs to 287 genes reported in WormBase for involvement in muscle system morphology variant or any of its transitive descendant terms via RNAi or variation. Only T14A8.2, col-103, and sqt-3 among the 287 genes showed downregulation under simulated microgravity (hypergeometric test, p-value = 0.99). Thus, our results did not suggest a significant change in the expression of the genes known to function in muscle morphology.",
+    "In our previous work, we revealed that the expression of many ncRNA molecules is triggered in response to environmental changes. To identify whether a similar pattern occurs under simulated microgravity, we determined the expressed ncRNA molecules in ground control, simulated microgravity, and return. Since the housekeeping gene pmp-3 presents consistent expression patterns both in our study and previous studies, we considered its minimum expression level (FPKM = 24.7) in our experiment as the cutoff for the expression of ncRNA molecules. The number of expressed ncRNA molecules slightly decreased in response to simulated microgravity (Supplementary Figure S2A). Interestingly, this number increased on the eighth day of return. We found that the expression of 126 ncRNA molecules is induced during simulated microgravity exposure and for 12 days after the return (Supplementary Figure S2B) while the expression of 16 ncRNA molecules is lost during and after simulated microgravity (Supplementary Figure S2C). Among the classified ncRNA molecules, mostly small nucleolar RNA (snoRNA) and long noncoding RNA (lincRNA) molecules were induced while other sets of snoRNA and antisense RNA (asRNA) molecules lost expression in simulated microgravity. For instance, asRNA molecules anr-33, K12G11.14, and ZK822.8 are induced whereas anr-2, anr-9, and Y49A3A.6 are silenced during and 12 days after the exposure.",
+    "We next sought to identify the putative transcriptional regulators (i.e., transcription factors) of the simulated microgravity-induced genes and whether these regulators maintain their impact after return to ground conditions. That is, we determined the putative transcription factor (TF) genes that are upregulated under simulated microgravity and after the return to ground conditions. Our results have revealed that 20 TF genes are upregulated during the exposure and 90%, 75%, and 15% of these genes maintained their upregulation after the return for four, eight, and twelve days, respectively (Supplementary Figure S3). These TFs play a role in a variety of mechanisms such as double strain break repair or sex determination. For example, tbx-43 is upregulated during the exposure and for at least 12 days after the return to ground. The best human BLASTP-match of tbx-43 in WormBase, TBR, functions in developmental processes and is required for normal brain development (E-value = 3 × 10−33; identity = 68.5%). However, many of the upregulated TFs do not have a known function. Hence, our list of simulated microgravity-induced TF gene expressions can be a rich source for the discovery of the microgravity-related transcriptional regulators.",
+    "3.3. Longevity Regulating Pathways Are Affected under Simulated Microgravity",
+    "Spaceflight affects the mechanisms involved in delayed aging in worms. For instance, Honda et al., found that age-dependent increase in 35-glutamine repeat aggregation is suppressed and seven longevity-controlling genes are differentially expressed in spaceflight. To examine whether simulated microgravity induces such changes, we mapped the DEGs (simulated microgravity versus ground control) to longevity regulating pathways in the Kyoto Encyclopedia of Genes and Genomes (KEGG). We used a less stringent criterion for differential expression by including the genes with log2(FPKM) > 1.5 in this analysis. We determined 11 DEGs in the longevity regulating pathway genes most of which are involved in the insulin/insulin-like growth factor signaling pathway (insulin/IGF-1) (Figure 3). Interestingly, the transcription factor DAF-16 gene did not exhibit differential expression unlike its targets sod-3, lips-17, and ctl-1. Because the translocation of DAF-16 into the nucleus activates or represses target genes functioning in longevity, metabolism, and stress response, this finding was unexpected. The nuclear localization of DAF-16 is antagonized by transcription factor PQM-1, and thus an upregulation in pqm-1 may indicate inhibition of DAF-16 translocation. Our data, however, did not present a differential expression for pqm-1 and thus it does not suggest inhibition of the DAF-16 translocation. It is possible that the DAF-16 targets are differentially expressed due to the translocation state of DAF-16 or involvement of other factors (e.g., other transcriptional regulators).",
+    "The upregulation of the longevity regulating pathway transcriptional targets generally contributes to increased lifespan. Since many of these targets were downregulated under simulated microgravity, we sought to identify the potential impact of their downregulation by acquiring their RNAi phenotype from WormBase. Lifespan variants (WBRNAi00063155 and WBRNAi00063156) for hsp-12.6 and extended lifespan (WBRNAi00064044) for sod-3 have been reported. Follow-up experiments are needed to fully understand the role of these genes in the longevity regulation under simulated microgravity.",
+    "To further investigate the involvement of the longevity genes in simulated microgravity, we compared the DEGs to the DAF-16-responsive genes. We found 144 DAF-16-induced genes were downregulated and this overlap was statistically significant (hypergeometric test, p-value < 0.0001). The number of shared genes between the simulated microgravity-induced genes and the genes induced or repressed by DAF-16 are 11 and 35, respectively (hypergeometric test, p-value > 0.05 for both). Similarly, the number of downregulated DAF-16-repressed genes were insignificant with a total of 57 shared genes (hypergeometric test, p-value > 0.05) (Supplementary Table S3). Together, our results suggest that the longevity regulation genes are affected under simulated microgravity and that along with the DAF-16-regulation, other mechanisms have an important function in this process.",
+    "3.4. Sphingolipid Signaling Pathway Is Suppressed in Response to Simulated Microgravity",
+    "Previous studies have suggested that the sphingolipid signaling pathway plays a role in the expression of DAF-16/FOXO-regulated genes. In line with this, our results showed that the sphingolipid signaling pathway is downregulated under simulated microgravity. That is, putative glucosylceramidase 4 gene (gba-4) and putative sphingomyelin phosphodiesterase asm-3 are downregulated and these downregulation patterns were sustained for eight days after return to ground conditions (Figure 4a). This downregulation pattern indicates an attenuation in the ceramide levels through a potential decrease in the degradation of sphingomyelin and glucosylceramide to ceramide. Along with the other biological functions such as autophagy, senescence, and apoptosis, the sphingolipid signaling pathway has critical functions in aging and longevity regulation. The inhibition of this conserved pathway results in an extension of lifespan in animals from worms to humans. For example, the inactivation of asm-3 in C. elegans causes translocation of DAF-16 into the nucleus, promotion of DAF-16 target gene expression, and extension of lifespan by 14–19%.",
+    "To validate that the ceramide and sphingosine levels are indeed decreased in response to the aforementioned gene downregulation, we performed mass spectrometry analysis in ground control and simulated microgravity-exposed worms concurrently (Supplementary Table S4; Figure 4b,c). Our results revealed that total ceramide, total hexosylceramide (HexCer), and d18:1 sphingosine are lower (1.5-, 3.6-, and 1.4-fold, respectively) under simulated microgravity (t-test, p-value < 0.05). Similarly, sphingoid base (SB) levels decreased 1.9-fold under simulated microgravity, but this decrease was not significant (t-test, p-value = 0.055) (Figure 4b). Interestingly, the levels of total lactosylceramide (LacCer) increased 27-fold (t-test, p-value < 0.05). Increase in the LacCer and HexCer levels have been determined as biomarkers of aging in humans and murine while LacCer C18:1 was unaffected during aging in C. elegans. It is unclear why LacCer levels are elevated when the HexCer levels are decreased, but the overall pattern indicates a downregulation in the sphingolipid signaling pathway under simulated microgravity.",
+    "The levels of long acyl-chain ceramides (≥C24) are elevated with advancing age and in age-related diseases such as diabetes and cardiovascular disease while C20 and C26 ceramides are unaffected with aging or developmental stage in C. elegans. To further decipher the potential effect of simulated microgravity on aging-related mechanisms, we quantified the levels of different acyl-chain ceramides (Supplementary Table S4; Figure 4c). We observed a decrease in d18:1-C24, and d18:1-C24:1 ceramides (1.2-, and 3.2-fold, respectively) under simulated microgravity (t-test, p-value < 0.05). It has been found that the inhibition of C24–C26 ceramide-inducing ceramide synthase HYL-1 causes improvements in neuromuscular function and age-dependent hypoxia and stress response. Hence, the lower levels of C24 and C24:1 ceramides in the simulated microgravity-exposed worms may indicate their positive impact on the stress response and aging of the worms.",
+    "Along with their roles in aging and longevity, different acyl-chain ceramides have other distinctive functions. For example, C16-ceramide induces germ cell apoptosis and C20–C22 ceramide functions in resistance to hypoxia. We determined that ceramides with different acyl-chain showed altered levels in response to simulated microgravity. While d18:1-C16 and d18:1-C18 exhibited a decrease (2.8- and 1.6-fold, respectively), d18:1-C20 and d18:1-C22 ceramides exhibited an increase (3.7- and 1.5-fold, respectively) under simulated microgravity (t-test, p-value < 0.05). Collectively, our findings suggest that sphingolipid and insulin/IGF-1 pathways play a role in simulated microgravity response.",
+    "3.5. Identification of the Common Microgravity-Responsive Genes between Four-Day CERISE and Simulated Microgravity",
+    "To investigate the microgravity-responsive genes, we compared the results from our simulated microgravity experiment to those from four-day CERISE spaceflight experiment on C. elegans reported in NASA’s GeneLab database ( (accessed on 1 January 2019)). For this analysis, we used GEO2R to determine the microarray DEGs (|log2 fold change (logFC)| > 2 and FDR < 0.05). We reasoned that the genes that are commonly differentially expressed in all the studies should be the core genes responding to microgravity.",
+    "We analyzed our RNA-seq data both with the Tuxedo pipeline and DEseq2 to confirm that the results are not dependent upon the analysis method. The results from both the methods were clustered together indicating their similarity (Figure 5b). The highest number of DEG overlap was between our experiment and four-day CERISE, and the overlap was significant for both the methods (hypergeometric test, p-value < 0.05) (Figure 5c). Since the overlap between the four-day CERISE and our results from the Tuxedo pipeline is higher, we decided to use the results from this pipeline throughout the manuscript. The results from DEseq2 are reported in the supplementary data (Supplementary Figure S4; Supplementary Table S5).",
+    "We determined a total of 134 common DEGs between our experiment and four-day CERISE and categorized these 134 genes as the putative microgravity-responsive genes (Figure 5a,c; Supplementary Table S6). We discarded 16 DEGs showing conflicting patterns between the experiments (i.e., upregulated in one experiment and downregulated in the other) for further analyses. We reasoned that if the remaining genes are collaboratively involved in a biologically relevant process, they might have protein–protein interactions (PPIs) with each other. To test this hypothesis, we examined the enrichment for PPI of these genes by using the STRING database. Among 118 DEGs, 58 had known PPIs with each other (FDR < 1.0 × 10−16) indicating their collaborative involvement in a biological process (Figure 5d). The GO analysis revealed that the microgravity-responsive genes play a functional role in locomotion, body morphogenesis, and collagen and cuticulin-based cuticle development (Figure 5e). Similarly, the products of microgravity-responsive genes exhibit enrichment for nematode cuticle collagen N-terminal and collagen triple helix repeat domains (Figure 5f). Together, our findings suggest that mainly the collagen genes are affected under microgravity and this effect is reproducible between the studies.",
+    "Next, we asked whether the human orthologs of the microgravity-responsive genes have relevant functions which might be affected in astronauts. We identified 64 human orthologs to 44 microgravity-responsive genes in worms (Supplementary Table S7). The human orthologs exhibited overrepresentation for protein domains including calpain large subunit domain III and calpain family cysteine protease (Supplementary Figure S5). Given the reported upregulation of calpain under microgravity and its function in muscle atrophy, these results provide an additional support for the conserved microgravity-responsive genes in worms and humans.",
+    "Our analyses revealed that 20 putative TF genes are upregulated under simulated microgravity conditions and compared these to the four-day CERISE mission. Among the 20 upregulated putative TF genes, Y56A3A.28 and T24C4.2 showed upregulation during the four-day CERISE, indicating a potential transcriptional regulation role for these two in response to microgravity. Our results additionally suggested that the upregulation pattern of these TFs is maintained for eight and twelve days after the return, respectively. We could not find a human ortholog for T24C4.2 while the WormBase-suggested human ortholog of Y56A3A.28 is PRDM16. PRDM16 regulates the switch between skeletal muscle and brown fat cells by inhibiting the skeletal muscle development and gene expression and stimulating brown adipogenesis. Therefore, Y56A3A.28 can be a strong candidate as a negative regulator of muscle development under microgravity conditions."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "In this study, we examined the simulated microgravity responsive gene expression patterns and their maintained levels for four, eight, and twelve days after return to ground conditions. Longevity regulating pathways such as insulin/IGF-1 and sphingolipid signaling were affected under simulated microgravity. We identified the putative microgravity-responsive genes by determining the common microgravity responsive transcriptomic signatures by incorporating our study to a previous one with the same exposure time. Moreover, we revealed that the microgravity-responsive genes are potentially conserved between worms and humans by performing function analysis for the human orthologs of the worm microgravity-responsive genes and identifying some of their potential transcriptional regulators.",
+    "Sphingolipid signaling pathway plays crucial biological roles such as lifespan regulation, apoptosis, and oxidative-stress response. Our results revealed an overall downregulation of the sphingolipid pathway which is generally related to an increase in longevity. A recent study identified decreased ASM-1 and ASM-2 levels in the ISS-housed worms indicating a similar downregulation in response to microgravity. Mutant strains or RNAi knockdown of acid sphingomyelinase ASM-1, ASM-2, and ASM-3 genes increase the lifespan, ASM-3 being the most prominent one. Overall, both simulated and the ISS-introduced microgravity seem to contribute to a potential increase in longevity through the downregulation of the sphingolipid signaling pathway. Follow-up experiments are needed to delimitate the contribution of sphingolipids on longevity under microgravity.",
+    "In the Twins Study of NASA, Scott Kelly was sent to the ISS for 340 days while his identical twin Mark Kelly remained on Earth. The results from this investigation showed that Scott Kelly’s telomere length significantly increased (14.5%) during the mission. In addition, the sphingolipid signaling pathway was differentially expressed in Scott Kelly. The telomere length of Mark Kelly, however, remained relatively stable. Telomere length and lifespan have a strong relationship. That is, longer telomeres are linked to longer lifespan and increased resistance to environmental stress while shorter telomeres are linked to accelerated aging and reduced longevity. Ceramide functions in the regulation of telomere length. Considering our findings on decreased ceramide levels and the observations on increased telomere in the ISS, investigation of the ceramide and telomere length relationship might prove important to uncover the mechanisms affecting longevity in space.",
+    "Most of the space flight-triggered physiological changes are reverted after return to Earth. Similarly, we observed that the majority of the simulated microgravity-induced DEGs (over 84%) are reverted 12 days after return to ground conditions. Our results have revealed that while some biological processes are only affected during the exposure, others can be affected for at least eight days (approximately two generations) after the return. For example, neuropeptide signaling pathway genes were differentially expressed only during the exposure whereas defense response genes remain downregulated for eight days after the return. Approximately 50% of the astronauts from Apollo mission experienced minor bacterial or viral infections at the first week of their return. Later studies reported that space flight-induced reactivation of latent herpes viruses which lasted for a week after the return to Earth (reviewed in). These consistent observations indicate that the detrimental effects of space conditions (i.e., microgravity) on the immune system carry over even after the return. Given the longevity differences in worms and humans, future investigations could provide insight into whether the duration of the exposure has an impact on the duration of the lasting effects.",
+    "The limitation of our study is the inclusion of mixed stage worms and the collection of samples from whole animals. This limitation is common among the worm experiments conducted in the ISS. Considering the significantly different gene expression patterns among developmental stages and across cell types, it is possible to retrieve biased results from the averaged gene expression levels. It is essential to address these issues in future studies.",
+    "The comparison of spaceflight responsive genes in C. elegans and Drosophila melanogaster demonstrated only six common genes from the European Soyuz flights to the ISS. Similarly, the overlap between our results and four-day CERISE were relatively small. One of the reasons for these discrepancies can be the batch effects introduced due to the differences in the experimental designs. For instance, different exposure times to the space conditions or the usage of different food source or strain may induce distinct responses in the worms. It is crucial to examine the effects of individual factors (e.g., diet and gravitational force) along with the combinatory ones. Towards that end, we previously reported the impact of liquid cultivation of two C. elegans strains on gene expression and phenotype and here, studied the impact of simulated microgravity."
+  ],
+  "CONCL": [
+    "5. Conclusions",
+    "Given the elevated interest in the human exploration of space, it is crucial to determine the detrimental effects of the space conditions on biological systems. We believe that our results will be a valuable reference for the studies on transcriptomic response to microgravity by controlling for the renowned batch effects from space conditions, allowing the worms to acclimate to liquid cultivation before the experiment, presenting the sustained transcriptomic responses after return to ground along with their putative regulators, integrating the results from a previous study conducted at the ISS, and providing the response of different ceramide profiles to simulated microgravity.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following supporting information can be downloaded at: .",
+    "Data Availability Statement",
+    "All the sequencing data generated for this study have been submitted to the NCBI Gene Expression Omnibus (GEO; ) under accession number GSE122125."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "İ.Ç. and C.R.S. designed the study. İ.Ç. and J.H.D. conducted the experiments. İ.Ç. performed the analyses and interpreted the results. A.J. developed the clinostat. İ.Ç., A.J. and C.R.S. wrote the manuscript. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest. The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results."
+  ],
+  "REF": [
+    "References",
+    "Weight, Muscle and Bone Loss during Space Flight: Another Perspective",
+    "Immune System Dysregulation during Spaceflight: Potential Countermeasures for Deep Space Exploration Missions",
+    "The Impact of Microgravity on Bone in Humans",
+    "The Internal Dynamics of Slowly Rotating Biological Systems",
+    "Causal Basis of Gravity Stimulus Nullification by Clinostat Rotation",
+    "Vector-Averaged Gravity Alters Myocyte and Neuron Properties in Cell Culture",
+    "Fluid Dynamics Appearing during Simulated Microgravity Using Random Positioning Machines",
+    "How Well Does the Clinostat Mimic the Effect of Microgravity on Plant Cells and Organs?",
+    "Limitation on the Use of the Horizontal Clinostat as a Gravity Compensator",
+    "Some Qualitative and Quantitative Aspects of the Fast-Rotating Clinostat as a Research Tool",
+    "Graviorientation in Protists and Plants",
+    "Worms in Space? A Model Biological Dosimeter",
+    "Using C. elegans for Aging Research",
+    "Genomic Response of the Nematode Caenorhabditis elegans to Spaceflight",
+    "Review of the Results from the International C. elegans First Experiment (ICE-FIRST)",
+    "Decreased Expression of Myogenic Transcription Factors and Myosin Heavy Chains in Caenorhabditis elegans Muscles Developed during Spaceflight",
+    "Reproductive and Locomotory Capacities of Caenorhabditis elegans Were Not Affected by Simulated Variable Gravities and Spaceflight during the Shenzhou-8 Mission",
+    "Genes Down-Regulated in Spaceflight Are Involved in the Control of Longevity in Caenorhabditis elegans",
+    "Microgravity Elicits Reproducible Alterations in Cytoskeletal and Metabolic Gene and Protein Expression in Space-Flown Caenorhabditis elegans",
+    "Effects of Microgravity on DNA Damage Response in Caenorhabditis elegans during Shenzhou-8 Spaceflight",
+    "Multi-Generational Culture of C. elegans on a Long-Term Space Flight Revealed Changes in Expression of Genes Involved in Longevity, DNA Repair, and Locomotion",
+    "Spaceflight and Ageing: Reflecting on Caenorhabditis elegans in Space",
+    "Space Experiments Using C. elegans as a Model Organism",
+    "Effects of Liquid Cultivation on Gene Expression and Phenotype of C. elegans",
+    "Inter-Generational Consequences for Growing Caenorhabditis elegans in Liquid",
+    "ChIP and Chips: Introducing the WormPharm for Correlative Studies Employing Pharmacology and Genome-Wide Analyses in C. elegans",
+    "FastQC: A Quality Control Tool for High Throughput Sequence Data",
+    "Differential Gene and Transcript Expression Analysis of RNA-Seq Experiments with TopHat and Cufflinks",
+    "Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with DESeq2",
+    "Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression",
+    "Ensembl 2015",
+    "WormBase 2014: New Views of Curated Biology",
+    "Systematic and Integrative Analysis of Large Gene Lists Using DAVID Bioinformatics Resources",
+    "Cytoscape: A Software Environment for Integrated Models of Biomolecular Interaction Networks",
+    "BiNGO: A Cytoscape Plugin to Assess Overrepresentation of Gene Ontology Categories in Biological Networks",
+    "Tissue Enrichment Analysis for C. elegans Genomics",
+    "The STRING Database in 2017: Quality-Controlled Protein-Protein Association Networks, Made Broadly Accessible",
+    "OrthoList 2: A New Comparative Genomic Analysis of Human and Caenorhabditis elegans Genes",
+    "A Rapid Method of Total Lipid Extraction and Purification",
+    "The Physical Basis of Gravity Stimulus Nullification by Clinostat Rotation",
+    "The Dynamics of a Discrete Geotropic Sensor Subject to Rotation-Induced Gravity Compensation",
+    "Comparison of RNA-Seq and Microarray in Transcriptome Profiling of Activated T Cells",
+    "Effects of Simulated Microgravity on Gene Expression and Biological Phenotypes of a Single Generation Caenorhabditis elegans Cultured on 2 Different Media",
+    "Transcriptional Regulation of Gene Expression in C. elegans",
+    "Regulation of the Caenorhabditis elegans Longevity Protein DAF-16 by Insulin/IGF-1 and Germline Signaling",
+    "Identification of Direct DAF-16 Targets Controlling Longevity, Metabolism and Diapause by Chromatin Immunoprecipitation",
+    "Genes That Act Downstream of DAF-16 to Influence the Lifespan of Caenorhabditis elegans",
+    "DAF-16 Target Genes That Control C. elegans Life-Span and Metabolism",
+    "PQM-1 Complements DAF-16 as a Key Transcriptional Regulator of DAF-2-Mediated Development and Longevity",
+    "Starvation-Induced Stress Response Is Critically Impacted by Ceramide Levels in Caenorhabditis elegans",
+    "ASM-3 Acid Sphingomyelinase Functions as a Positive Regulator of the DAF-2/AGE-1 Signaling Pathway and Serves as a Novel Anti-Aging Target",
+    "Sphingolipid Metabolism Regulates Development and Lifespan in Caenorhabditis elegans",
+    "Sphingolipids and Lifespan Regulation",
+    "Accumulation of Long-Chain Glycosphingolipids during Aging Is Prevented by Caloric Restriction",
+    "The Role of Skeletal Muscle Sphingolipids in the Development of Insulin Resistance",
+    "Ceramide: A Common Pathway for Atherosclerosis?",
+    "Loss of Sphingosine Kinase Alters Life History Traits and Locomotor Function in Caenorhabditis elegans",
+    "Protection of C. elegans from Anoxia by HYL-2 Ceramide Synthase",
+    "Ceramide Biogenesis Is Required for Radiation-Induced Apoptosis in the Germ Line of C. elegans",
+    "Muscle Atrophy Induced by Mechanical Unloading: Mechanisms and Potential Countermeasures",
+    "Inhibition of Calpain Prevents Muscle Weakness and Disruption of Sarcomere Structure during Hindlimb Suspension",
+    "PRDM16 Controls a Brown Fat/Skeletal Muscle Switch",
+    "Evidence That Accumulation of Ceramides and Cholesterol Esters Mediates Oxidative Stress—Induced Death of Motor Neurons in Amyotrophic Lateral Sclerosis",
+    "Levels of Acid Sphingomyelinase (ASM) in Caenorhabditis elegans in Microgravity",
+    "The NASA Twins Study: A Multidimensional Analysis of a Year-Long Human Spaceflight",
+    "Linking Functional Decline of Telomeres, Mitochondria and Stem Cells during Ageing",
+    "Long Lifespan in Worms with Long Telomeric DNA",
+    "Telomeres and Life Histories: The Long and the Short of It",
+    "Telomere Length in Early Life Predicts Lifespan",
+    "Roles of Bioactive Sphingolipids in Cancer Biology and Therapeutics",
+    "Impact of Space Flight on Bacterial Virulence and Antibiotic Susceptibility",
+    "Description of International Caenorhabditis elegans Experiment First Flight (ICE-FIRST)",
+    "C. elegans RNAi Space Experiment (CERISE) in Japanese Experiment Module KIBO",
+    "A Spatial and Temporal Map of C. elegans Gene Expression",
+    "Genetic Adaptation of C. elegans to Environment Changes I: Multigenerational Analysis of the Transcriptome"
+  ],
+  "FIG": [
+    "Transcriptomic response of C. elegans to simulated microgravity and return to ground conditions. (a) Clinostat used for simulating microgravity. (b) Experimental design for the effect of simulated microgravity on gene expressions during the exposure and after the return. (c) Dendrogram of the gene expression profiles for ground condition (GC), simulated microgravity (MG), four days after return to ground conditions (R1_GC), eight days after return to ground conditions (R2_GC), and twelve days after return to ground conditions (R3_GC). (d) Log2 fold change of the gene expressions (FPKM) between the conditions.",
+    "Differentially expressed gene profiles under simulated microgravity and after return to ground conditions. (a) Tissue enrichment of the upregulated (green) and downregulated (red) genes under simulated microgravity. (b) Pathway enrichment of the upregulated (green) and downregulated (red) genes during the exposure to simulated microgravity (MG), and four and eight days after return to ground conditions (R1 GC and R2 GC, respectively). (c) The number of differentially expressed genes under simulated microgravity and the transmission of the differential expression after return to ground conditions. (d) Categorization of the upregulated genes in comparison to the ground control animals, and the enriched gene ontology terms assigned to them. (e) Categorization of the downregulated genes in comparison to the ground control animals, and the enriched gene ontology terms assigned to them.",
+    "Longevity regulating pathway genes are differentially expressed under simulated microgravity. Adopted from the KEGG longevity regulating pathway—worm (cel04212).",
+    "Sphingolipid signaling pathway is downregulated under simulated microgravity. (a) The sphingolipid signaling pathway genes asah-1, asm-3, and gba-4 are downregulated under simulated microgravity. The downregulation pattern of asm-3 and gba-4 is maintained for eight days after return to ground conditions. (b) The levels of d18:1 sphingosine, total ceramide, hexosylceramide, and sphingoid base reduced while total lactosylceramide level increased under simulated microgravity. (c) The levels of different acyl-chain ceramides show alterations under simulated microgravity. The error bars represent the standard error of the mean (* p < 0.05, ** p < 0.01, *** p < 0.001).",
+    "Microgravity-responsive genes are consistently differentially expressed in the ISS and under simulated microgravity. (a) Shared DEGs among the space-flown worms and our simulated microgravity experiment. The highest number of common DEGs are between our experiment and four-day CERISE. These genes are named as the “microgravity-responsive genes”. (b) The hierarchical clustering of the overall gene expressions among the space-flown worms and our simulated microgravity experiment. Our results analyzed with two different data analysis pipelines (*,**) demonstrated highly similar patterns. (c) The number of common DEGs were high for our results analyzed with two different pipelines (*,**). Both of the pipelines showed that the common number of DEGs are higher than the values expected by chance (hypergeometric text, p < 0.05). (d) Protein–protein interaction of the microgravity-responsive genes from STRING database. (e) Gene ontology enrichment of the microgravity-responsive genes. (f) Protein domain enrichment of the microgravity-responsive genes."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Weight, Muscle and Bone Loss during Space Flight: Another Perspective",
+      "autores": [
+        {
+          "nombre_completo": "T.P. Stein",
+          "nombres": "T.P.",
+          "apellidos": "Stein"
+        }
+      ],
+      "pmid": "23192310",
+      "fuente": "Eur. J. Appl. Physiol.",
+      "anio": "2013",
+      "volumen": "113",
+      "fpage": "2171",
+      "lpage": "2181"
+    },
+    {
+      "titulo": "Immune System Dysregulation during Spaceflight: Potential Countermeasures for Deep Space Exploration Missions",
+      "autores": [
+        {
+          "nombre_completo": "B.E. Crucian",
+          "nombres": "B.E.",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "A. Choukèr",
+          "nombres": "A.",
+          "apellidos": "Choukèr"
+        },
+        {
+          "nombre_completo": "R.J. Simpson",
+          "nombres": "R.J.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "S. Mehta",
+          "nombres": "S.",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "G. Marshall",
+          "nombres": "G.",
+          "apellidos": "Marshall"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "M. Heer",
+          "nombres": "M.",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "S. Ponomarev",
+          "nombres": "S.",
+          "apellidos": "Ponomarev"
+        },
+        {
+          "nombre_completo": "A. Whitmire",
+          "nombres": "A.",
+          "apellidos": "Whitmire"
+        }
+      ],
+      "pmid": "30018614",
+      "fuente": "Front. Immunol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1437",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Impact of Microgravity on Bone in Humans",
+      "autores": [
+        {
+          "nombre_completo": "D. Grimm",
+          "nombres": "D.",
+          "apellidos": "Grimm"
+        },
+        {
+          "nombre_completo": "J. Grosse",
+          "nombres": "J.",
+          "apellidos": "Grosse"
+        },
+        {
+          "nombre_completo": "M. Wehland",
+          "nombres": "M.",
+          "apellidos": "Wehland"
+        },
+        {
+          "nombre_completo": "V. Mann",
+          "nombres": "V.",
+          "apellidos": "Mann"
+        },
+        {
+          "nombre_completo": "J.E. Reseland",
+          "nombres": "J.E.",
+          "apellidos": "Reseland"
+        },
+        {
+          "nombre_completo": "A. Sundaresan",
+          "nombres": "A.",
+          "apellidos": "Sundaresan"
+        },
+        {
+          "nombre_completo": "T.J. Corydon",
+          "nombres": "T.J.",
+          "apellidos": "Corydon"
+        }
+      ],
+      "pmid": "27032715",
+      "fuente": "Bone",
+      "anio": "2016",
+      "volumen": "87",
+      "fpage": "44",
+      "lpage": "56"
+    },
+    {
+      "titulo": "The Internal Dynamics of Slowly Rotating Biological Systems",
+      "autores": [
+        {
+          "nombre_completo": "J. Kessler",
+          "nombres": "J.",
+          "apellidos": "Kessler"
+        }
+      ],
+      "pmid": "11537637",
+      "fuente": "ASGSB Bull.",
+      "anio": "1992",
+      "volumen": "5",
+      "fpage": "11",
+      "lpage": "21"
+    },
+    {
+      "titulo": "Causal Basis of Gravity Stimulus Nullification by Clinostat Rotation",
+      "autores": [
+        {
+          "nombre_completo": "R.R. Dedolph",
+          "nombres": "R.R.",
+          "apellidos": "Dedolph"
+        },
+        {
+          "nombre_completo": "D.A. Oemick",
+          "nombres": "D.A.",
+          "apellidos": "Oemick"
+        },
+        {
+          "nombre_completo": "B.R. Wilson",
+          "nombres": "B.R.",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "G.R. Smith",
+          "nombres": "G.R.",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "16656665",
+      "fuente": "Plant Physiol.",
+      "anio": "1967",
+      "volumen": "42",
+      "fpage": "1373",
+      "lpage": "1383"
+    },
+    {
+      "titulo": "Vector-Averaged Gravity Alters Myocyte and Neuron Properties in Cell Culture",
+      "autores": [
+        {
+          "nombre_completo": "R. Gruener",
+          "nombres": "R.",
+          "apellidos": "Gruener"
+        },
+        {
+          "nombre_completo": "G. Hoeger",
+          "nombres": "G.",
+          "apellidos": "Hoeger"
+        }
+      ],
+      "pmid": "1755797",
+      "fuente": "Aviat. Space. Environ. Med.",
+      "anio": "1991",
+      "volumen": "62",
+      "fpage": "1159",
+      "lpage": "1165"
+    },
+    {
+      "titulo": "Fluid Dynamics Appearing during Simulated Microgravity Using Random Positioning Machines",
+      "autores": [
+        {
+          "nombre_completo": "S.L. Wuest",
+          "nombres": "S.L.",
+          "apellidos": "Wuest"
+        },
+        {
+          "nombre_completo": "P. Stern",
+          "nombres": "P.",
+          "apellidos": "Stern"
+        },
+        {
+          "nombre_completo": "E. Casartelli",
+          "nombres": "E.",
+          "apellidos": "Casartelli"
+        },
+        {
+          "nombre_completo": "M. Egli",
+          "nombres": "M.",
+          "apellidos": "Egli"
+        }
+      ],
+      "pmid": "28135286",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "How Well Does the Clinostat Mimic the Effect of Microgravity on Plant Cells and Organs?",
+      "autores": [
+        {
+          "nombre_completo": "A. Sievers",
+          "nombres": "A.",
+          "apellidos": "Sievers"
+        },
+        {
+          "nombre_completo": "Z. Hejnowicz",
+          "nombres": "Z.",
+          "apellidos": "Hejnowicz"
+        }
+      ],
+      "pmid": "11537643",
+      "fuente": "ASGSB Bull.",
+      "anio": "1992",
+      "volumen": "5",
+      "fpage": "69",
+      "lpage": "75"
+    },
+    {
+      "titulo": "Limitation on the Use of the Horizontal Clinostat as a Gravity Compensator",
+      "autores": [
+        {
+          "nombre_completo": "A.H. Brown",
+          "nombres": "A.H.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "A.O. Dahl",
+          "nombres": "A.O.",
+          "apellidos": "Dahl"
+        },
+        {
+          "nombre_completo": "D.K. Chapman",
+          "nombres": "D.K.",
+          "apellidos": "Chapman"
+        }
+      ],
+      "pmid": "16659631",
+      "fuente": "PLANT Physiol.",
+      "anio": "1976",
+      "volumen": "58",
+      "fpage": "127",
+      "lpage": "130"
+    },
+    {
+      "titulo": "Some Qualitative and Quantitative Aspects of the Fast-Rotating Clinostat as a Research Tool",
+      "autores": [
+        {
+          "nombre_completo": "W. Briegleb",
+          "nombres": "W.",
+          "apellidos": "Briegleb"
+        }
+      ],
+      "pmid": "11537638",
+      "fuente": "ASGSB Bull.",
+      "anio": "1992",
+      "volumen": "5",
+      "fpage": "23",
+      "lpage": "30"
+    },
+    {
+      "titulo": "Graviorientation in Protists and Plants",
+      "autores": [
+        {
+          "nombre_completo": "R. Hemmersbach",
+          "nombres": "R.",
+          "apellidos": "Hemmersbach"
+        },
+        {
+          "nombre_completo": "D. Volkmann",
+          "nombres": "D.",
+          "apellidos": "Volkmann"
+        },
+        {
+          "nombre_completo": "D.-P. Häder",
+          "nombres": "D.-P.",
+          "apellidos": "Häder"
+        }
+      ],
+      "pmid": "11542656",
+      "fuente": "J. Plant Physiol.",
+      "anio": "1999",
+      "volumen": "154",
+      "fpage": "1",
+      "lpage": "15"
+    },
+    {
+      "titulo": "Worms in Space? A Model Biological Dosimeter",
+      "autores": [
+        {
+          "nombre_completo": "Y. Zhao",
+          "nombres": "Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "R. Johnsen",
+          "nombres": "R.",
+          "apellidos": "Johnsen"
+        },
+        {
+          "nombre_completo": "D. Baillie",
+          "nombres": "D.",
+          "apellidos": "Baillie"
+        },
+        {
+          "nombre_completo": "A. Rose",
+          "nombres": "A.",
+          "apellidos": "Rose"
+        }
+      ],
+      "pmid": "16038089",
+      "fuente": "Gravit. Space Biol. Bull",
+      "anio": "2005",
+      "volumen": "18",
+      "fpage": "11",
+      "lpage": "16"
+    },
+    {
+      "titulo": "Using C. elegans for Aging Research",
+      "autores": [
+        {
+          "nombre_completo": "H.A. Tissenbaum",
+          "nombres": "H.A.",
+          "apellidos": "Tissenbaum"
+        }
+      ],
+      "pmid": "26136622",
+      "fuente": "Invertebr. Reprod. Dev.",
+      "anio": "2015",
+      "volumen": "59",
+      "fpage": "59",
+      "lpage": "63"
+    },
+    {
+      "titulo": "Genomic Response of the Nematode Caenorhabditis elegans to Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F. Selch",
+          "nombres": "F.",
+          "apellidos": "Selch"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "M. Imamizo-Sato",
+          "nombres": "M.",
+          "apellidos": "Imamizo-Sato"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "18392117",
+      "fuente": "Adv. Space Res.",
+      "anio": "2008",
+      "volumen": "41",
+      "fpage": "807",
+      "lpage": "815"
+    },
+    {
+      "titulo": "Review of the Results from the International C. elegans First Experiment (ICE-FIRST)",
+      "autores": [
+        {
+          "nombre_completo": "A.A. Adenle",
+          "nombres": "A.A.",
+          "apellidos": "Adenle"
+        },
+        {
+          "nombre_completo": "B. Johnsen",
+          "nombres": "B.",
+          "apellidos": "Johnsen"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "20161164",
+      "fuente": "Adv. Sp. Res.",
+      "anio": "2009",
+      "volumen": "44",
+      "fpage": "210",
+      "lpage": "216"
+    },
+    {
+      "titulo": "Decreased Expression of Myogenic Transcription Factors and Myosin Heavy Chains in Caenorhabditis elegans Muscles Developed during Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        },
+        {
+          "nombre_completo": "M. Imamizo-Sato",
+          "nombres": "M.",
+          "apellidos": "Imamizo-Sato"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "16888068",
+      "fuente": "J. Exp. Biol.",
+      "anio": "2006",
+      "volumen": "209",
+      "fpage": "3209",
+      "lpage": "3218"
+    },
+    {
+      "titulo": "Reproductive and Locomotory Capacities of Caenorhabditis elegans Were Not Affected by Simulated Variable Gravities and Spaceflight during the Shenzhou-8 Mission",
+      "autores": [
+        {
+          "nombre_completo": "L. Qiao",
+          "nombres": "L.",
+          "apellidos": "Qiao"
+        },
+        {
+          "nombre_completo": "S. Luo",
+          "nombres": "S.",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "X. Li",
+          "nombres": "X.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "G. Wang",
+          "nombres": "G.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z. Huang",
+          "nombres": "Z.",
+          "apellidos": "Huang"
+        }
+      ],
+      "pmid": "23837604",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "617",
+      "lpage": "625"
+    },
+    {
+      "titulo": "Genes Down-Regulated in Spaceflight Are Involved in the Control of Longevity in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "Y. Matsunaga",
+          "nombres": "Y.",
+          "apellidos": "Matsunaga"
+        },
+        {
+          "nombre_completo": "Y. Yonezawa",
+          "nombres": "Y.",
+          "apellidos": "Yonezawa"
+        },
+        {
+          "nombre_completo": "T. Kawano",
+          "nombres": "T.",
+          "apellidos": "Kawano"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "K. Kuriyama",
+          "nombres": "K.",
+          "apellidos": "Kuriyama"
+        },
+        {
+          "nombre_completo": "T. Shimazu",
+          "nombres": "T.",
+          "apellidos": "Shimazu"
+        },
+        {
+          "nombre_completo": "M. Tanaka",
+          "nombres": "M.",
+          "apellidos": "Tanaka"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "22639723",
+      "fuente": "Sci. Rep.",
+      "anio": "2012",
+      "volumen": "2",
+      "fpage": "413",
+      "lpage": "429"
+    },
+    {
+      "titulo": "Microgravity Elicits Reproducible Alterations in Cytoskeletal and Metabolic Gene and Protein Expression in Space-Flown Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "S. Harada",
+          "nombres": "S.",
+          "apellidos": "Harada"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S.A. Baba",
+          "nombres": "S.A.",
+          "apellidos": "Baba"
+        }
+      ],
+      "pmid": "28725720",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15022",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of Microgravity on DNA Damage Response in Caenorhabditis elegans during Shenzhou-8 Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "D. Xu",
+          "nombres": "D.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "M. Zhang",
+          "nombres": "M.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "25965668",
+      "fuente": "Int. J. Radiat. Biol.",
+      "anio": "2015",
+      "volumen": "91",
+      "fpage": "531",
+      "lpage": "539"
+    },
+    {
+      "titulo": "Multi-Generational Culture of C. elegans on a Long-Term Space Flight Revealed Changes in Expression of Genes Involved in Longevity, DNA Repair, and Locomotion",
+      "autores": [
+        {
+          "nombre_completo": "S.M. Then",
+          "nombres": "S.M.",
+          "apellidos": "Then"
+        },
+        {
+          "nombre_completo": "N.F. Jusoh",
+          "nombres": "N.F.",
+          "apellidos": "Jusoh"
+        },
+        {
+          "nombre_completo": "R. Harun",
+          "nombres": "R.",
+          "apellidos": "Harun"
+        },
+        {
+          "nombre_completo": "S. Nathan",
+          "nombres": "S.",
+          "apellidos": "Nathan"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "R. Jamal",
+          "nombres": "R.",
+          "apellidos": "Jamal"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Asia-Pac. J. Mol. Med.",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "1",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight and Ageing: Reflecting on Caenorhabditis elegans in Space",
+      "autores": [
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "M. Narici",
+          "nombres": "M.",
+          "apellidos": "Narici"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "24217152",
+      "fuente": "Gerontology",
+      "anio": "2014",
+      "volumen": "60",
+      "fpage": "138",
+      "lpage": "142"
+    },
+    {
+      "titulo": "Space Experiments Using C. elegans as a Model Organism",
+      "autores": [
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Handbook of Space Pharmaceuticals",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of Liquid Cultivation on Gene Expression and Phenotype of C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "I.İ. Çelen",
+          "nombres": "I.İ.",
+          "apellidos": "Çelen"
+        },
+        {
+          "nombre_completo": "J.H. Doh",
+          "nombres": "J.H.",
+          "apellidos": "Doh"
+        },
+        {
+          "nombre_completo": "C.R. Sabanayagam",
+          "nombres": "C.R.",
+          "apellidos": "Sabanayagam"
+        }
+      ],
+      "pmid": "30064382",
+      "fuente": "BMC Genomics",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Inter-Generational Consequences for Growing Caenorhabditis elegans in Liquid",
+      "autores": [
+        {
+          "nombre_completo": "I. Lev",
+          "nombres": "I.",
+          "apellidos": "Lev"
+        },
+        {
+          "nombre_completo": "R. Bril",
+          "nombres": "R.",
+          "apellidos": "Bril"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "L.I. Ceré",
+          "nombres": "L.I.",
+          "apellidos": "Ceré"
+        },
+        {
+          "nombre_completo": "O. Rechavi",
+          "nombres": "O.",
+          "apellidos": "Rechavi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Philos. Trans. R. Soc. B Biol. Sci.",
+      "anio": "2019",
+      "volumen": "374",
+      "fpage": "20180125",
+      "lpage": ""
+    },
+    {
+      "titulo": "ChIP and Chips: Introducing the WormPharm for Correlative Studies Employing Pharmacology and Genome-Wide Analyses in C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "J.H. Doh",
+          "nombres": "J.H.",
+          "apellidos": "Doh"
+        },
+        {
+          "nombre_completo": "A.B. Moore",
+          "nombres": "A.B.",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "İ. Çelen",
+          "nombres": "İ.",
+          "apellidos": "Çelen"
+        },
+        {
+          "nombre_completo": "M.T. Moore",
+          "nombres": "M.T.",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "C.R. Sabanayagam",
+          "nombres": "C.R.",
+          "apellidos": "Sabanayagam"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Biol. Methods",
+      "anio": "2016",
+      "volumen": "3",
+      "fpage": "1",
+      "lpage": "11"
+    },
+    {
+      "titulo": "FastQC: A Quality Control Tool for High Throughput Sequence Data",
+      "autores": [
+        {
+          "nombre_completo": "S. Andrews",
+          "nombres": "S.",
+          "apellidos": "Andrews"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Differential Gene and Transcript Expression Analysis of RNA-Seq Experiments with TopHat and Cufflinks",
+      "autores": [
+        {
+          "nombre_completo": "C. Trapnell",
+          "nombres": "C.",
+          "apellidos": "Trapnell"
+        },
+        {
+          "nombre_completo": "A. Roberts",
+          "nombres": "A.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "L. Goff",
+          "nombres": "L.",
+          "apellidos": "Goff"
+        },
+        {
+          "nombre_completo": "G. Pertea",
+          "nombres": "G.",
+          "apellidos": "Pertea"
+        },
+        {
+          "nombre_completo": "D. Kim",
+          "nombres": "D.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "D.R. Kelley",
+          "nombres": "D.R.",
+          "apellidos": "Kelley"
+        },
+        {
+          "nombre_completo": "H. Pimentel",
+          "nombres": "H.",
+          "apellidos": "Pimentel"
+        },
+        {
+          "nombre_completo": "S.L. Salzberg",
+          "nombres": "S.L.",
+          "apellidos": "Salzberg"
+        },
+        {
+          "nombre_completo": "J.L. Rinn",
+          "nombres": "J.L.",
+          "apellidos": "Rinn"
+        },
+        {
+          "nombre_completo": "L. Pachter",
+          "nombres": "L.",
+          "apellidos": "Pachter"
+        }
+      ],
+      "pmid": "22383036",
+      "fuente": "Nat. Protoc.",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "562",
+      "lpage": "578"
+    },
+    {
+      "titulo": "Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with DESeq2",
+      "autores": [
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genome Biol.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression",
+      "autores": [
+        {
+          "nombre_completo": "R. Patro",
+          "nombres": "R.",
+          "apellidos": "Patro"
+        },
+        {
+          "nombre_completo": "G. Duggal",
+          "nombres": "G.",
+          "apellidos": "Duggal"
+        },
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "R.A. Irizarry",
+          "nombres": "R.A.",
+          "apellidos": "Irizarry"
+        },
+        {
+          "nombre_completo": "C. Kingsford",
+          "nombres": "C.",
+          "apellidos": "Kingsford"
+        }
+      ],
+      "pmid": "28263959",
+      "fuente": "Nat. Methods",
+      "anio": "2017",
+      "volumen": "14",
+      "fpage": "417",
+      "lpage": "419"
+    },
+    {
+      "titulo": "Ensembl 2015",
+      "autores": [
+        {
+          "nombre_completo": "F. Cunningham",
+          "nombres": "F.",
+          "apellidos": "Cunningham"
+        },
+        {
+          "nombre_completo": "M.R. Amode",
+          "nombres": "M.R.",
+          "apellidos": "Amode"
+        },
+        {
+          "nombre_completo": "D. Barrell",
+          "nombres": "D.",
+          "apellidos": "Barrell"
+        },
+        {
+          "nombre_completo": "K. Beal",
+          "nombres": "K.",
+          "apellidos": "Beal"
+        },
+        {
+          "nombre_completo": "K. Billis",
+          "nombres": "K.",
+          "apellidos": "Billis"
+        },
+        {
+          "nombre_completo": "S. Brent",
+          "nombres": "S.",
+          "apellidos": "Brent"
+        },
+        {
+          "nombre_completo": "D. Carvalho-Silva",
+          "nombres": "D.",
+          "apellidos": "Carvalho-Silva"
+        },
+        {
+          "nombre_completo": "P. Clapham",
+          "nombres": "P.",
+          "apellidos": "Clapham"
+        },
+        {
+          "nombre_completo": "G. Coates",
+          "nombres": "G.",
+          "apellidos": "Coates"
+        },
+        {
+          "nombre_completo": "S. Fitzgerald",
+          "nombres": "S.",
+          "apellidos": "Fitzgerald"
+        }
+      ],
+      "pmid": "25352552",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2014",
+      "volumen": "43",
+      "fpage": "D662",
+      "lpage": "D669"
+    },
+    {
+      "titulo": "WormBase 2014: New Views of Curated Biology",
+      "autores": [
+        {
+          "nombre_completo": "T.W. Harris",
+          "nombres": "T.W.",
+          "apellidos": "Harris"
+        },
+        {
+          "nombre_completo": "J. Baran",
+          "nombres": "J.",
+          "apellidos": "Baran"
+        },
+        {
+          "nombre_completo": "T. Bieri",
+          "nombres": "T.",
+          "apellidos": "Bieri"
+        },
+        {
+          "nombre_completo": "A. Cabunoc",
+          "nombres": "A.",
+          "apellidos": "Cabunoc"
+        },
+        {
+          "nombre_completo": "J. Chan",
+          "nombres": "J.",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "W.J. Chen",
+          "nombres": "W.J.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "P. Davis",
+          "nombres": "P.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "J. Done",
+          "nombres": "J.",
+          "apellidos": "Done"
+        },
+        {
+          "nombre_completo": "C. Grove",
+          "nombres": "C.",
+          "apellidos": "Grove"
+        },
+        {
+          "nombre_completo": "K. Howe",
+          "nombres": "K.",
+          "apellidos": "Howe"
+        }
+      ],
+      "pmid": "24194605",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2014",
+      "volumen": "42",
+      "fpage": "D789",
+      "lpage": "D793"
+    },
+    {
+      "titulo": "Systematic and Integrative Analysis of Large Gene Lists Using DAVID Bioinformatics Resources",
+      "autores": [
+        {
+          "nombre_completo": "D.W. Huang",
+          "nombres": "D.W.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "B.T. Sherman",
+          "nombres": "B.T.",
+          "apellidos": "Sherman"
+        },
+        {
+          "nombre_completo": "R.A. Lempicki",
+          "nombres": "R.A.",
+          "apellidos": "Lempicki"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nat. Protoc.",
+      "anio": "2008",
+      "volumen": "4",
+      "fpage": "44",
+      "lpage": "57"
+    },
+    {
+      "titulo": "Cytoscape: A Software Environment for Integrated Models of Biomolecular Interaction Networks",
+      "autores": [
+        {
+          "nombre_completo": "P. Shannon",
+          "nombres": "P.",
+          "apellidos": "Shannon"
+        },
+        {
+          "nombre_completo": "A. Markiel",
+          "nombres": "A.",
+          "apellidos": "Markiel"
+        },
+        {
+          "nombre_completo": "O. Ozier",
+          "nombres": "O.",
+          "apellidos": "Ozier"
+        },
+        {
+          "nombre_completo": "N.S. Baliga",
+          "nombres": "N.S.",
+          "apellidos": "Baliga"
+        },
+        {
+          "nombre_completo": "J.T. Wang",
+          "nombres": "J.T.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "D. Ramage",
+          "nombres": "D.",
+          "apellidos": "Ramage"
+        },
+        {
+          "nombre_completo": "N. Amin",
+          "nombres": "N.",
+          "apellidos": "Amin"
+        },
+        {
+          "nombre_completo": "B. Schwikowski",
+          "nombres": "B.",
+          "apellidos": "Schwikowski"
+        },
+        {
+          "nombre_completo": "T. Ideker",
+          "nombres": "T.",
+          "apellidos": "Ideker"
+        }
+      ],
+      "pmid": "14597658",
+      "fuente": "Genome Res.",
+      "anio": "2003",
+      "volumen": "13",
+      "fpage": "2498",
+      "lpage": "2504"
+    },
+    {
+      "titulo": "BiNGO: A Cytoscape Plugin to Assess Overrepresentation of Gene Ontology Categories in Biological Networks",
+      "autores": [
+        {
+          "nombre_completo": "S. Maere",
+          "nombres": "S.",
+          "apellidos": "Maere"
+        },
+        {
+          "nombre_completo": "K. Heymans",
+          "nombres": "K.",
+          "apellidos": "Heymans"
+        },
+        {
+          "nombre_completo": "M. Kuiper",
+          "nombres": "M.",
+          "apellidos": "Kuiper"
+        }
+      ],
+      "pmid": "15972284",
+      "fuente": "Bioinformatics",
+      "anio": "2005",
+      "volumen": "21",
+      "fpage": "3448",
+      "lpage": "3449"
+    },
+    {
+      "titulo": "Tissue Enrichment Analysis for C. elegans Genomics",
+      "autores": [
+        {
+          "nombre_completo": "D. Angeles-Albores",
+          "nombres": "D.",
+          "apellidos": "Angeles-Albores"
+        },
+        {
+          "nombre_completo": "R.Y. Lee",
+          "nombres": "R.Y.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J. Chan",
+          "nombres": "J.",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "P.W. Sternberg",
+          "nombres": "P.W.",
+          "apellidos": "Sternberg"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinform.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The STRING Database in 2017: Quality-Controlled Protein-Protein Association Networks, Made Broadly Accessible",
+      "autores": [
+        {
+          "nombre_completo": "D. Szklarczyk",
+          "nombres": "D.",
+          "apellidos": "Szklarczyk"
+        },
+        {
+          "nombre_completo": "J.H. Morris",
+          "nombres": "J.H.",
+          "apellidos": "Morris"
+        },
+        {
+          "nombre_completo": "H. Cook",
+          "nombres": "H.",
+          "apellidos": "Cook"
+        },
+        {
+          "nombre_completo": "M. Kuhn",
+          "nombres": "M.",
+          "apellidos": "Kuhn"
+        },
+        {
+          "nombre_completo": "S. Wyder",
+          "nombres": "S.",
+          "apellidos": "Wyder"
+        },
+        {
+          "nombre_completo": "M. Simonovic",
+          "nombres": "M.",
+          "apellidos": "Simonovic"
+        },
+        {
+          "nombre_completo": "A. Santos",
+          "nombres": "A.",
+          "apellidos": "Santos"
+        },
+        {
+          "nombre_completo": "N.T. Doncheva",
+          "nombres": "N.T.",
+          "apellidos": "Doncheva"
+        },
+        {
+          "nombre_completo": "A. Roth",
+          "nombres": "A.",
+          "apellidos": "Roth"
+        },
+        {
+          "nombre_completo": "P. Bork",
+          "nombres": "P.",
+          "apellidos": "Bork"
+        }
+      ],
+      "pmid": "27924014",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D362",
+      "lpage": "D368"
+    },
+    {
+      "titulo": "OrthoList 2: A New Comparative Genomic Analysis of Human and Caenorhabditis elegans Genes",
+      "autores": [
+        {
+          "nombre_completo": "W. Kim",
+          "nombres": "W.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "R.S. Underwood",
+          "nombres": "R.S.",
+          "apellidos": "Underwood"
+        },
+        {
+          "nombre_completo": "I. Greenwald",
+          "nombres": "I.",
+          "apellidos": "Greenwald"
+        },
+        {
+          "nombre_completo": "D.D. Shaye",
+          "nombres": "D.D.",
+          "apellidos": "Shaye"
+        }
+      ],
+      "pmid": "30120140",
+      "fuente": "Genetics",
+      "anio": "2018",
+      "volumen": "210",
+      "fpage": "445",
+      "lpage": "461"
+    },
+    {
+      "titulo": "A Rapid Method of Total Lipid Extraction and Purification",
+      "autores": [
+        {
+          "nombre_completo": "E.G. Bligh",
+          "nombres": "E.G.",
+          "apellidos": "Bligh"
+        },
+        {
+          "nombre_completo": "W.J. Dyer",
+          "nombres": "W.J.",
+          "apellidos": "Dyer"
+        }
+      ],
+      "pmid": "13671378",
+      "fuente": "Can. J. Biochem. Physiol.",
+      "anio": "1959",
+      "volumen": "37",
+      "fpage": "911",
+      "lpage": "917"
+    },
+    {
+      "titulo": "The Physical Basis of Gravity Stimulus Nullification by Clinostat Rotation",
+      "autores": [
+        {
+          "nombre_completo": "R.R. Dedolph",
+          "nombres": "R.R.",
+          "apellidos": "Dedolph"
+        },
+        {
+          "nombre_completo": "M.H. Dipert",
+          "nombres": "M.H.",
+          "apellidos": "Dipert"
+        }
+      ],
+      "pmid": "16657700",
+      "fuente": "Plant Physiol.",
+      "anio": "1971",
+      "volumen": "47",
+      "fpage": "756",
+      "lpage": "764"
+    },
+    {
+      "titulo": "The Dynamics of a Discrete Geotropic Sensor Subject to Rotation-Induced Gravity Compensation",
+      "autores": [
+        {
+          "nombre_completo": "I. Lee Silver",
+          "nombres": "I.",
+          "apellidos": "Lee Silver"
+        }
+      ],
+      "pmid": "979303",
+      "fuente": "J. Theor. Biol.",
+      "anio": "1976",
+      "volumen": "61",
+      "fpage": "353",
+      "lpage": "362"
+    },
+    {
+      "titulo": "Comparison of RNA-Seq and Microarray in Transcriptome Profiling of Activated T Cells",
+      "autores": [
+        {
+          "nombre_completo": "S. Zhao",
+          "nombres": "S.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "W.P. Fung-Leung",
+          "nombres": "W.P.",
+          "apellidos": "Fung-Leung"
+        },
+        {
+          "nombre_completo": "A. Bittner",
+          "nombres": "A.",
+          "apellidos": "Bittner"
+        },
+        {
+          "nombre_completo": "K. Ngo",
+          "nombres": "K.",
+          "apellidos": "Ngo"
+        },
+        {
+          "nombre_completo": "X. Liu",
+          "nombres": "X.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PLoS ONE",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of Simulated Microgravity on Gene Expression and Biological Phenotypes of a Single Generation Caenorhabditis elegans Cultured on 2 Different Media",
+      "autores": [
+        {
+          "nombre_completo": "L.F. Tee",
+          "nombres": "L.F.",
+          "apellidos": "Tee"
+        },
+        {
+          "nombre_completo": "H. Neoh",
+          "nombres": "H.",
+          "apellidos": "Neoh"
+        },
+        {
+          "nombre_completo": "S.M. Then",
+          "nombres": "S.M.",
+          "apellidos": "Then"
+        },
+        {
+          "nombre_completo": "N.A. Murad",
+          "nombres": "N.A.",
+          "apellidos": "Murad"
+        },
+        {
+          "nombre_completo": "M.F. Asillam",
+          "nombres": "M.F.",
+          "apellidos": "Asillam"
+        },
+        {
+          "nombre_completo": "M.H. Hashim",
+          "nombres": "M.H.",
+          "apellidos": "Hashim"
+        },
+        {
+          "nombre_completo": "S. Nathan",
+          "nombres": "S.",
+          "apellidos": "Nathan"
+        },
+        {
+          "nombre_completo": "R. Jamal",
+          "nombres": "R.",
+          "apellidos": "Jamal"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2017",
+      "volumen": "15",
+      "fpage": "11",
+      "lpage": "17"
+    },
+    {
+      "titulo": "Transcriptional Regulation of Gene Expression in C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "V. Reinke",
+          "nombres": "V.",
+          "apellidos": "Reinke"
+        },
+        {
+          "nombre_completo": "M. Krause",
+          "nombres": "M.",
+          "apellidos": "Krause"
+        },
+        {
+          "nombre_completo": "P. Okkema",
+          "nombres": "P.",
+          "apellidos": "Okkema"
+        }
+      ],
+      "pmid": "",
+      "fuente": "WormBook",
+      "anio": "2013",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "34"
+    },
+    {
+      "titulo": "Regulation of the Caenorhabditis elegans Longevity Protein DAF-16 by Insulin/IGF-1 and Germline Signaling",
+      "autores": [
+        {
+          "nombre_completo": "K. Lin",
+          "nombres": "K.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "H. Hsin",
+          "nombres": "H.",
+          "apellidos": "Hsin"
+        },
+        {
+          "nombre_completo": "N. Libina",
+          "nombres": "N.",
+          "apellidos": "Libina"
+        },
+        {
+          "nombre_completo": "C. Kenyon",
+          "nombres": "C.",
+          "apellidos": "Kenyon"
+        }
+      ],
+      "pmid": "11381260",
+      "fuente": "Nat. Genet.",
+      "anio": "2001",
+      "volumen": "28",
+      "fpage": "139",
+      "lpage": "145"
+    },
+    {
+      "titulo": "Identification of Direct DAF-16 Targets Controlling Longevity, Metabolism and Diapause by Chromatin Immunoprecipitation",
+      "autores": [
+        {
+          "nombre_completo": "W.O. Seung",
+          "nombres": "W.O.",
+          "apellidos": "Seung"
+        },
+        {
+          "nombre_completo": "A. Mukhopadhyay",
+          "nombres": "A.",
+          "apellidos": "Mukhopadhyay"
+        },
+        {
+          "nombre_completo": "B.L. Dixit",
+          "nombres": "B.L.",
+          "apellidos": "Dixit"
+        },
+        {
+          "nombre_completo": "T. Raha",
+          "nombres": "T.",
+          "apellidos": "Raha"
+        },
+        {
+          "nombre_completo": "M.R. Green",
+          "nombres": "M.R.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "H.A. Tissenbaum",
+          "nombres": "H.A.",
+          "apellidos": "Tissenbaum"
+        }
+      ],
+      "pmid": "16380712",
+      "fuente": "Nat. Genet.",
+      "anio": "2006",
+      "volumen": "38",
+      "fpage": "251",
+      "lpage": "257"
+    },
+    {
+      "titulo": "Genes That Act Downstream of DAF-16 to Influence the Lifespan of Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "C.T. Murphy",
+          "nombres": "C.T.",
+          "apellidos": "Murphy"
+        },
+        {
+          "nombre_completo": "S.A. McCarroll",
+          "nombres": "S.A.",
+          "apellidos": "McCarroll"
+        },
+        {
+          "nombre_completo": "C.I. Bargmann",
+          "nombres": "C.I.",
+          "apellidos": "Bargmann"
+        },
+        {
+          "nombre_completo": "A. Fraser",
+          "nombres": "A.",
+          "apellidos": "Fraser"
+        },
+        {
+          "nombre_completo": "R.S. Kamath",
+          "nombres": "R.S.",
+          "apellidos": "Kamath"
+        },
+        {
+          "nombre_completo": "J. Ahringer",
+          "nombres": "J.",
+          "apellidos": "Ahringer"
+        },
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "C. Kenyon",
+          "nombres": "C.",
+          "apellidos": "Kenyon"
+        }
+      ],
+      "pmid": "12845331",
+      "fuente": "Nature",
+      "anio": "2003",
+      "volumen": "424",
+      "fpage": "277",
+      "lpage": "284"
+    },
+    {
+      "titulo": "DAF-16 Target Genes That Control C. elegans Life-Span and Metabolism",
+      "autores": [
+        {
+          "nombre_completo": "S.S. Lee",
+          "nombres": "S.S.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "S. Kennedy",
+          "nombres": "S.",
+          "apellidos": "Kennedy"
+        },
+        {
+          "nombre_completo": "A.C. Tolonen",
+          "nombres": "A.C.",
+          "apellidos": "Tolonen"
+        },
+        {
+          "nombre_completo": "G. Ruvkun",
+          "nombres": "G.",
+          "apellidos": "Ruvkun"
+        }
+      ],
+      "pmid": "12690206",
+      "fuente": "Science",
+      "anio": "2003",
+      "volumen": "300",
+      "fpage": "644",
+      "lpage": "647"
+    },
+    {
+      "titulo": "PQM-1 Complements DAF-16 as a Key Transcriptional Regulator of DAF-2-Mediated Development and Longevity",
+      "autores": [
+        {
+          "nombre_completo": "R.G. Tepper",
+          "nombres": "R.G.",
+          "apellidos": "Tepper"
+        },
+        {
+          "nombre_completo": "J. Ashraf",
+          "nombres": "J.",
+          "apellidos": "Ashraf"
+        },
+        {
+          "nombre_completo": "R. Kaletsky",
+          "nombres": "R.",
+          "apellidos": "Kaletsky"
+        },
+        {
+          "nombre_completo": "G. Kleemann",
+          "nombres": "G.",
+          "apellidos": "Kleemann"
+        },
+        {
+          "nombre_completo": "C.T. Murphy",
+          "nombres": "C.T.",
+          "apellidos": "Murphy"
+        },
+        {
+          "nombre_completo": "H.J. Bussemaker",
+          "nombres": "H.J.",
+          "apellidos": "Bussemaker"
+        }
+      ],
+      "pmid": "23911329",
+      "fuente": "Cell",
+      "anio": "2013",
+      "volumen": "154",
+      "fpage": "676",
+      "lpage": "690"
+    },
+    {
+      "titulo": "Starvation-Induced Stress Response Is Critically Impacted by Ceramide Levels in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "M. Cui",
+          "nombres": "M.",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. Cavaleri",
+          "nombres": "J.",
+          "apellidos": "Cavaleri"
+        },
+        {
+          "nombre_completo": "T. Kelson",
+          "nombres": "T.",
+          "apellidos": "Kelson"
+        },
+        {
+          "nombre_completo": "Y. Teng",
+          "nombres": "Y.",
+          "apellidos": "Teng"
+        },
+        {
+          "nombre_completo": "M. Han",
+          "nombres": "M.",
+          "apellidos": "Han"
+        }
+      ],
+      "pmid": "27974500",
+      "fuente": "Genetics",
+      "anio": "2017",
+      "volumen": "205",
+      "fpage": "775",
+      "lpage": "785"
+    },
+    {
+      "titulo": "ASM-3 Acid Sphingomyelinase Functions as a Positive Regulator of the DAF-2/AGE-1 Signaling Pathway and Serves as a Novel Anti-Aging Target",
+      "autores": [
+        {
+          "nombre_completo": "Y. Kim",
+          "nombres": "Y.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "H. Sun",
+          "nombres": "H.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "23049887",
+      "fuente": "PLoS ONE",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Sphingolipid Metabolism Regulates Development and Lifespan in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "R.G. Cutler",
+          "nombres": "R.G.",
+          "apellidos": "Cutler"
+        },
+        {
+          "nombre_completo": "K.W. Thompson",
+          "nombres": "K.W.",
+          "apellidos": "Thompson"
+        },
+        {
+          "nombre_completo": "S. Camandola",
+          "nombres": "S.",
+          "apellidos": "Camandola"
+        },
+        {
+          "nombre_completo": "K.T. Mack",
+          "nombres": "K.T.",
+          "apellidos": "Mack"
+        },
+        {
+          "nombre_completo": "M.P. Mattson",
+          "nombres": "M.P.",
+          "apellidos": "Mattson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mech. Ageing Dev.",
+      "anio": "2014",
+      "volumen": "143–144",
+      "fpage": "9",
+      "lpage": "18"
+    },
+    {
+      "titulo": "Sphingolipids and Lifespan Regulation",
+      "autores": [
+        {
+          "nombre_completo": "X. Huang",
+          "nombres": "X.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "B.R. Withers",
+          "nombres": "B.R.",
+          "apellidos": "Withers"
+        },
+        {
+          "nombre_completo": "R.C. Dickson",
+          "nombres": "R.C.",
+          "apellidos": "Dickson"
+        }
+      ],
+      "pmid": "23954556",
+      "fuente": "Biochim. Biophys Acta",
+      "anio": "2014",
+      "volumen": "1841",
+      "fpage": "657",
+      "lpage": "664"
+    },
+    {
+      "titulo": "Accumulation of Long-Chain Glycosphingolipids during Aging Is Prevented by Caloric Restriction",
+      "autores": [
+        {
+          "nombre_completo": "M.J. Hernández-Corbacho",
+          "nombres": "M.J.",
+          "apellidos": "Hernández-Corbacho"
+        },
+        {
+          "nombre_completo": "R.W. Jenkins",
+          "nombres": "R.W.",
+          "apellidos": "Jenkins"
+        },
+        {
+          "nombre_completo": "C.J. Clarke",
+          "nombres": "C.J.",
+          "apellidos": "Clarke"
+        },
+        {
+          "nombre_completo": "Y.A. Hannun",
+          "nombres": "Y.A.",
+          "apellidos": "Hannun"
+        },
+        {
+          "nombre_completo": "L.M. Obeid",
+          "nombres": "L.M.",
+          "apellidos": "Obeid"
+        },
+        {
+          "nombre_completo": "A.J. Snider",
+          "nombres": "A.J.",
+          "apellidos": "Snider"
+        },
+        {
+          "nombre_completo": "L.J. Siskind",
+          "nombres": "L.J.",
+          "apellidos": "Siskind"
+        }
+      ],
+      "pmid": "21687659",
+      "fuente": "PLoS ONE",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "e20411",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Role of Skeletal Muscle Sphingolipids in the Development of Insulin Resistance",
+      "autores": [
+        {
+          "nombre_completo": "M. Straczkowski",
+          "nombres": "M.",
+          "apellidos": "Straczkowski"
+        },
+        {
+          "nombre_completo": "I. Kowalska",
+          "nombres": "I.",
+          "apellidos": "Kowalska"
+        }
+      ],
+      "pmid": "18548166",
+      "fuente": "Rev. Diabet. Stud.",
+      "anio": "2008",
+      "volumen": "5",
+      "fpage": "13",
+      "lpage": "24"
+    },
+    {
+      "titulo": "Ceramide: A Common Pathway for Atherosclerosis?",
+      "autores": [
+        {
+          "nombre_completo": "J. Bismuth",
+          "nombres": "J.",
+          "apellidos": "Bismuth"
+        },
+        {
+          "nombre_completo": "P. Lin",
+          "nombres": "P.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Q. Yao",
+          "nombres": "Q.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "C. Chen",
+          "nombres": "C.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "17963772",
+      "fuente": "Atherosclerosis",
+      "anio": "2008",
+      "volumen": "196",
+      "fpage": "497",
+      "lpage": "504"
+    },
+    {
+      "titulo": "Loss of Sphingosine Kinase Alters Life History Traits and Locomotor Function in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Chan",
+          "nombres": "J.P.",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "J. Brown",
+          "nombres": "J.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "B. Hark",
+          "nombres": "B.",
+          "apellidos": "Hark"
+        },
+        {
+          "nombre_completo": "A. Nolan",
+          "nombres": "A.",
+          "apellidos": "Nolan"
+        },
+        {
+          "nombre_completo": "D. Servello",
+          "nombres": "D.",
+          "apellidos": "Servello"
+        },
+        {
+          "nombre_completo": "H. Hrobuchak",
+          "nombres": "H.",
+          "apellidos": "Hrobuchak"
+        },
+        {
+          "nombre_completo": "T.A. Staab",
+          "nombres": "T.A.",
+          "apellidos": "Staab"
+        }
+      ],
+      "pmid": "28983319",
+      "fuente": "Front. Genet.",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "132",
+      "lpage": ""
+    },
+    {
+      "titulo": "Protection of C. elegans from Anoxia by HYL-2 Ceramide Synthase",
+      "autores": [
+        {
+          "nombre_completo": "V. Menuz",
+          "nombres": "V.",
+          "apellidos": "Menuz"
+        },
+        {
+          "nombre_completo": "K.S. Howell",
+          "nombres": "K.S.",
+          "apellidos": "Howell"
+        },
+        {
+          "nombre_completo": "S. Gentina",
+          "nombres": "S.",
+          "apellidos": "Gentina"
+        },
+        {
+          "nombre_completo": "S. Epstein",
+          "nombres": "S.",
+          "apellidos": "Epstein"
+        },
+        {
+          "nombre_completo": "I. Riezman",
+          "nombres": "I.",
+          "apellidos": "Riezman"
+        },
+        {
+          "nombre_completo": "M. Fornallaz-Mulhauser",
+          "nombres": "M.",
+          "apellidos": "Fornallaz-Mulhauser"
+        },
+        {
+          "nombre_completo": "M.O. Hengartner",
+          "nombres": "M.O.",
+          "apellidos": "Hengartner"
+        },
+        {
+          "nombre_completo": "M. Gomez",
+          "nombres": "M.",
+          "apellidos": "Gomez"
+        },
+        {
+          "nombre_completo": "H. Riezman",
+          "nombres": "H.",
+          "apellidos": "Riezman"
+        },
+        {
+          "nombre_completo": "J.C. Martinou",
+          "nombres": "J.C.",
+          "apellidos": "Martinou"
+        }
+      ],
+      "pmid": "19372430",
+      "fuente": "Science",
+      "anio": "2009",
+      "volumen": "324",
+      "fpage": "381",
+      "lpage": "384"
+    },
+    {
+      "titulo": "Ceramide Biogenesis Is Required for Radiation-Induced Apoptosis in the Germ Line of C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "X. Deng",
+          "nombres": "X.",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "X. Yin",
+          "nombres": "X.",
+          "apellidos": "Yin"
+        },
+        {
+          "nombre_completo": "R. Allan",
+          "nombres": "R.",
+          "apellidos": "Allan"
+        },
+        {
+          "nombre_completo": "D.D. Lu",
+          "nombres": "D.D.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "C.W. Maurer",
+          "nombres": "C.W.",
+          "apellidos": "Maurer"
+        },
+        {
+          "nombre_completo": "A. Haimovitz-Friedman",
+          "nombres": "A.",
+          "apellidos": "Haimovitz-Friedman"
+        },
+        {
+          "nombre_completo": "Z. Fuks",
+          "nombres": "Z.",
+          "apellidos": "Fuks"
+        },
+        {
+          "nombre_completo": "S. Shaham",
+          "nombres": "S.",
+          "apellidos": "Shaham"
+        },
+        {
+          "nombre_completo": "R. Kolesnick",
+          "nombres": "R.",
+          "apellidos": "Kolesnick"
+        }
+      ],
+      "pmid": "18832646",
+      "fuente": "Science",
+      "anio": "2008",
+      "volumen": "322",
+      "fpage": "110",
+      "lpage": "115"
+    },
+    {
+      "titulo": "Muscle Atrophy Induced by Mechanical Unloading: Mechanisms and Potential Countermeasures",
+      "autores": [
+        {
+          "nombre_completo": "Y. Gao",
+          "nombres": "Y.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "Y. Arfat",
+          "nombres": "Y.",
+          "apellidos": "Arfat"
+        },
+        {
+          "nombre_completo": "H. Wang",
+          "nombres": "H.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "N. Goswami",
+          "nombres": "N.",
+          "apellidos": "Goswami"
+        }
+      ],
+      "pmid": "29615929",
+      "fuente": "Front. Physiol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "235",
+      "lpage": ""
+    },
+    {
+      "titulo": "Inhibition of Calpain Prevents Muscle Weakness and Disruption of Sarcomere Structure during Hindlimb Suspension",
+      "autores": [
+        {
+          "nombre_completo": "J.J. Salazar",
+          "nombres": "J.J.",
+          "apellidos": "Salazar"
+        },
+        {
+          "nombre_completo": "D.E. Michele",
+          "nombres": "D.E.",
+          "apellidos": "Michele"
+        },
+        {
+          "nombre_completo": "S.V. Brooks",
+          "nombres": "S.V.",
+          "apellidos": "Brooks"
+        }
+      ],
+      "pmid": "19892928",
+      "fuente": "J. Appl. Physiol.",
+      "anio": "2010",
+      "volumen": "108",
+      "fpage": "120",
+      "lpage": "127"
+    },
+    {
+      "titulo": "PRDM16 Controls a Brown Fat/Skeletal Muscle Switch",
+      "autores": [
+        {
+          "nombre_completo": "P. Seale",
+          "nombres": "P.",
+          "apellidos": "Seale"
+        },
+        {
+          "nombre_completo": "B. Bjork",
+          "nombres": "B.",
+          "apellidos": "Bjork"
+        },
+        {
+          "nombre_completo": "W. Yang",
+          "nombres": "W.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "S. Kajimura",
+          "nombres": "S.",
+          "apellidos": "Kajimura"
+        },
+        {
+          "nombre_completo": "S. Chin",
+          "nombres": "S.",
+          "apellidos": "Chin"
+        },
+        {
+          "nombre_completo": "S. Kuang",
+          "nombres": "S.",
+          "apellidos": "Kuang"
+        },
+        {
+          "nombre_completo": "A. Scimè",
+          "nombres": "A.",
+          "apellidos": "Scimè"
+        },
+        {
+          "nombre_completo": "S. Devarakonda",
+          "nombres": "S.",
+          "apellidos": "Devarakonda"
+        },
+        {
+          "nombre_completo": "H.M. Conroe",
+          "nombres": "H.M.",
+          "apellidos": "Conroe"
+        },
+        {
+          "nombre_completo": "H. Erdjument-Bromage",
+          "nombres": "H.",
+          "apellidos": "Erdjument-Bromage"
+        }
+      ],
+      "pmid": "18719582",
+      "fuente": "Nature",
+      "anio": "2008",
+      "volumen": "454",
+      "fpage": "961",
+      "lpage": "967"
+    },
+    {
+      "titulo": "Evidence That Accumulation of Ceramides and Cholesterol Esters Mediates Oxidative Stress—Induced Death of Motor Neurons in Amyotrophic Lateral Sclerosis",
+      "autores": [
+        {
+          "nombre_completo": "R.G. Cutler",
+          "nombres": "R.G.",
+          "apellidos": "Cutler"
+        },
+        {
+          "nombre_completo": "W.A. Pedersen",
+          "nombres": "W.A.",
+          "apellidos": "Pedersen"
+        },
+        {
+          "nombre_completo": "S. Camandola",
+          "nombres": "S.",
+          "apellidos": "Camandola"
+        },
+        {
+          "nombre_completo": "J.D. Rothstein",
+          "nombres": "J.D.",
+          "apellidos": "Rothstein"
+        },
+        {
+          "nombre_completo": "M.P. Mattson",
+          "nombres": "M.P.",
+          "apellidos": "Mattson"
+        }
+      ],
+      "pmid": "12325074",
+      "fuente": "Ann. Neurol.",
+      "anio": "2002",
+      "volumen": "52",
+      "fpage": "448",
+      "lpage": "457"
+    },
+    {
+      "titulo": "Levels of Acid Sphingomyelinase (ASM) in Caenorhabditis elegans in Microgravity",
+      "autores": [
+        {
+          "nombre_completo": "A. Graveley",
+          "nombres": "A.",
+          "apellidos": "Graveley"
+        },
+        {
+          "nombre_completo": "A. Vlasov",
+          "nombres": "A.",
+          "apellidos": "Vlasov"
+        },
+        {
+          "nombre_completo": "A. Freeman",
+          "nombres": "A.",
+          "apellidos": "Freeman"
+        },
+        {
+          "nombre_completo": "K. Wu",
+          "nombres": "K.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "R. D’Cruz",
+          "nombres": "R.",
+          "apellidos": "D’Cruz"
+        },
+        {
+          "nombre_completo": "J. Batt",
+          "nombres": "J.",
+          "apellidos": "Batt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravit. Space Res.",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "27",
+      "lpage": "36"
+    },
+    {
+      "titulo": "The NASA Twins Study: A Multidimensional Analysis of a Year-Long Human Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F.E. Garrett-Bakelman",
+          "nombres": "F.E.",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M. Darshi",
+          "nombres": "M.",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "S.J. Green",
+          "nombres": "S.J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "R.C. Gur",
+          "nombres": "R.C.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L. Lin",
+          "nombres": "L.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "M.J. McKenna",
+          "nombres": "M.J.",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J. Nasrini",
+          "nombres": "J.",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "Linking Functional Decline of Telomeres, Mitochondria and Stem Cells during Ageing",
+      "autores": [
+        {
+          "nombre_completo": "E. Sahin",
+          "nombres": "E.",
+          "apellidos": "Sahin"
+        },
+        {
+          "nombre_completo": "R.A. Depinho",
+          "nombres": "R.A.",
+          "apellidos": "Depinho"
+        }
+      ],
+      "pmid": "20336134",
+      "fuente": "Nature",
+      "anio": "2010",
+      "volumen": "464",
+      "fpage": "520",
+      "lpage": "528"
+    },
+    {
+      "titulo": "Long Lifespan in Worms with Long Telomeric DNA",
+      "autores": [
+        {
+          "nombre_completo": "K.S. Joeng",
+          "nombres": "K.S.",
+          "apellidos": "Joeng"
+        },
+        {
+          "nombre_completo": "E.J. Song",
+          "nombres": "E.J.",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "K.J. Lee",
+          "nombres": "K.J.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J. Lee",
+          "nombres": "J.",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "15122256",
+      "fuente": "Nat. Genet.",
+      "anio": "2004",
+      "volumen": "36",
+      "fpage": "607",
+      "lpage": "611"
+    },
+    {
+      "titulo": "Telomeres and Life Histories: The Long and the Short of It",
+      "autores": [
+        {
+          "nombre_completo": "P. Monaghan",
+          "nombres": "P.",
+          "apellidos": "Monaghan"
+        }
+      ],
+      "pmid": "20860686",
+      "fuente": "Ann. N. Y. Acad. Sci.",
+      "anio": "2010",
+      "volumen": "1206",
+      "fpage": "130",
+      "lpage": "142"
+    },
+    {
+      "titulo": "Telomere Length in Early Life Predicts Lifespan",
+      "autores": [
+        {
+          "nombre_completo": "B.J. Heidinger",
+          "nombres": "B.J.",
+          "apellidos": "Heidinger"
+        },
+        {
+          "nombre_completo": "J.D. Blount",
+          "nombres": "J.D.",
+          "apellidos": "Blount"
+        },
+        {
+          "nombre_completo": "W. Boner",
+          "nombres": "W.",
+          "apellidos": "Boner"
+        },
+        {
+          "nombre_completo": "K. Griffiths",
+          "nombres": "K.",
+          "apellidos": "Griffiths"
+        },
+        {
+          "nombre_completo": "N.B. Metcalfe",
+          "nombres": "N.B.",
+          "apellidos": "Metcalfe"
+        },
+        {
+          "nombre_completo": "P. Monaghan",
+          "nombres": "P.",
+          "apellidos": "Monaghan"
+        }
+      ],
+      "pmid": "22232671",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2012",
+      "volumen": "109",
+      "fpage": "1743",
+      "lpage": "1748"
+    },
+    {
+      "titulo": "Roles of Bioactive Sphingolipids in Cancer Biology and Therapeutics",
+      "autores": [
+        {
+          "nombre_completo": "S.A. Saddoughi",
+          "nombres": "S.A.",
+          "apellidos": "Saddoughi"
+        },
+        {
+          "nombre_completo": "P. Song",
+          "nombres": "P.",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "B. Ogretmen",
+          "nombres": "B.",
+          "apellidos": "Ogretmen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Lipids in Health and Disease",
+      "anio": "2008",
+      "volumen": "Volume 49",
+      "fpage": "413",
+      "lpage": "440"
+    },
+    {
+      "titulo": "Impact of Space Flight on Bacterial Virulence and Antibiotic Susceptibility",
+      "autores": [
+        {
+          "nombre_completo": "P.W. Taylor",
+          "nombres": "P.W.",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "26251622",
+      "fuente": "Infect. Drug Resist.",
+      "anio": "2015",
+      "volumen": "8",
+      "fpage": "249",
+      "lpage": "262"
+    },
+    {
+      "titulo": "Description of International Caenorhabditis elegans Experiment First Flight (ICE-FIRST)",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "J. Tillman",
+          "nombres": "J.",
+          "apellidos": "Tillman"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        },
+        {
+          "nombre_completo": "L. Granger",
+          "nombres": "L.",
+          "apellidos": "Granger"
+        },
+        {
+          "nombre_completo": "L. Segalat",
+          "nombres": "L.",
+          "apellidos": "Segalat"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "H. Kagawa",
+          "nombres": "H.",
+          "apellidos": "Kagawa"
+        },
+        {
+          "nombre_completo": "R. Adachi",
+          "nombres": "R.",
+          "apellidos": "Adachi"
+        }
+      ],
+      "pmid": "22146801",
+      "fuente": "Adv. Space Res.",
+      "anio": "2008",
+      "volumen": "42",
+      "fpage": "1072",
+      "lpage": "1079"
+    },
+    {
+      "titulo": "C. elegans RNAi Space Experiment (CERISE) in Japanese Experiment Module KIBO",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Takanami",
+          "nombres": "T.",
+          "apellidos": "Takanami"
+        },
+        {
+          "nombre_completo": "H. Suzuki",
+          "nombres": "H.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "K. Fukui",
+          "nombres": "K.",
+          "apellidos": "Fukui"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biol. Sci. Sp.",
+      "anio": "2009",
+      "volumen": "23",
+      "fpage": "183",
+      "lpage": "187"
+    },
+    {
+      "titulo": "A Spatial and Temporal Map of C. elegans Gene Expression",
+      "autores": [
+        {
+          "nombre_completo": "W.C. Spencer",
+          "nombres": "W.C.",
+          "apellidos": "Spencer"
+        },
+        {
+          "nombre_completo": "G. Zeller",
+          "nombres": "G.",
+          "apellidos": "Zeller"
+        },
+        {
+          "nombre_completo": "J.D. Watson",
+          "nombres": "J.D.",
+          "apellidos": "Watson"
+        },
+        {
+          "nombre_completo": "S.R. Henz",
+          "nombres": "S.R.",
+          "apellidos": "Henz"
+        },
+        {
+          "nombre_completo": "K.L. Watkins",
+          "nombres": "K.L.",
+          "apellidos": "Watkins"
+        },
+        {
+          "nombre_completo": "R.D. McWhirter",
+          "nombres": "R.D.",
+          "apellidos": "McWhirter"
+        },
+        {
+          "nombre_completo": "S. Petersen",
+          "nombres": "S.",
+          "apellidos": "Petersen"
+        },
+        {
+          "nombre_completo": "V.T. Sreedharan",
+          "nombres": "V.T.",
+          "apellidos": "Sreedharan"
+        },
+        {
+          "nombre_completo": "C. Widmer",
+          "nombres": "C.",
+          "apellidos": "Widmer"
+        },
+        {
+          "nombre_completo": "J. Jo",
+          "nombres": "J.",
+          "apellidos": "Jo"
+        }
+      ],
+      "pmid": "21177967",
+      "fuente": "Genome Res.",
+      "anio": "2011",
+      "volumen": "21",
+      "fpage": "325",
+      "lpage": "341"
+    },
+    {
+      "titulo": "Genetic Adaptation of C. elegans to Environment Changes I: Multigenerational Analysis of the Transcriptome",
+      "autores": [
+        {
+          "nombre_completo": "İ. Çelen",
+          "nombres": "İ.",
+          "apellidos": "Çelen"
+        },
+        {
+          "nombre_completo": "J.H. Doh",
+          "nombres": "J.H.",
+          "apellidos": "Doh"
+        },
+        {
+          "nombre_completo": "C. Sabanayagam",
+          "nombres": "C.",
+          "apellidos": "Sabanayagam"
+        }
+      ],
+      "pmid": "",
+      "fuente": "bioRxiv",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "194506",
+      "lpage": ""
+    }
+  ]
+}

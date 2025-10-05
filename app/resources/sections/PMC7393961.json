@@ -1,0 +1,616 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Rhodotorula mucilaginosa Strains Isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "The whole-genome sequences (WGS) of 28 isolates from the International Space Station were generated and identified as Rhodotorula mucilaginosa, a pigmented yeast that has been classified as an emerging human pathogen in recent times. These WGS enable the identification of genes responsible for synthesizing compounds with biological implications.",
+    "ABSTRACT",
+    "The whole-genome sequences (WGS) of 28 isolates from the International Space Station were generated and identified as Rhodotorula mucilaginosa, a pigmented yeast that has been classified as an emerging human pathogen in recent times. These WGS enable the identification of genes responsible for synthesizing compounds with biological implications."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "Rhodotorula mucilaginosa of phylum Basidiomycota is found in soil, air, food, stool, and other environments and produces carotenoids, making it easily identifiable by its distinctive pink, yellow, orange, or red colonies. Carotenoids are important for various biological activities, including vitamin A biosynthesis, enhancement of the immune system, reduction of the risk of various diseases, and protection from radiation. For these reasons, R. mucilaginosa carotenoids are used as food additives and hold pharmaceutical potential. R. mucilaginosa, which was previously considered to be nonpathogenic, has now been classified as an emerging pathogen and has been shown to colonize central venous catheters, causing fungemia due to biofilm formation.",
+    "Among the 28 recognized members of the genus Rhodotorula, R. mucilaginosa is the most common species isolated from the environment and the most abundant yeast isolated from surfaces of the International Space Station (ISS). The ability of this yeast to produce biofilms makes it very important to study ISS strains since the harsh conditions of the ISS (microgravity and radiation) were shown to enhance antimicrobial resistance and biofilm formation. Due to their ability to form biofilms and colonize life support systems, such as water tanks and pipes containing clean water, characterization of whole-genome sequences (WGS) of R. mucilaginosa would allow for the development of countermeasures to eradicate this potential threat.",
+    "Samples were collected from ISS surfaces using premoistened polyester wipes. Each sample was aseptically transferred into 200 ml of phosphate-buffered saline, vigorously shaken, and concentrated using an InnovaPrep (Drexel, MO) CP-150 concentrated pipette. A 100-μl aliquot from each sample was plated onto potato dextrose agar (PDA) with 100 μg/ml chloramphenicol (25°C; 7 days). A single colony was obtained and restreaked onto PDA plates (25°C; 7 days), and a single colony was collected for DNA extraction. Genomic DNA was extracted by using a ZymoBIOMICS DNA MagBead kit (Zymo, Irvine, CA).",
+    "To acquire the WGS of these 28 fungal strains, shotgun libraries were prepared using the Illumina Nextera Flex protocol. Paired-end sequencing was performed on a NovaSeq 6000 S4 flowcell paired-end (PE) 2 × 150-bp platform. Quality analysis was performed with FastQC (v0.11.7) to validate the quality of the raw sequencing data. For quality control, adapter trimming and quality filtering were performed using the software fastp (v0.20.0), and then the cleaned sequences were assembled using SPAdes (v3.11.1). Three functions of fastp were used, namely, correction of mismatches in overlapped regions of paired-end reads, trimming of autodetected adapter sequences, and quality trimming at the 5′ and 3′ ends. SPAdes ran using an option to reduce the number of mismatches and short indels in the final contigs, the automatic read coverage cutoff value, and the default values of k-mer sizes. To assess the assembly quality, the number of contigs, N50 values, median coverage, and the genome size were calculated using QUAST (v5.0.2) (Table 1). The G+C content ranged between 60.53% and 60.55%. All other statistics are given in Table 1.",
+    "Data availability.",
+    "This whole-genome shotgun project has been deposited at DDBJ/ENA/GenBank under the accession numbers given in Table 1 (BioProject no. PRJNA625575). The version described in this paper is the first version."
+  ],
+  "TABLE": [
+    "Genome statistics of Rhodotorula mucilaginosa isolated from various ISS environments during microbial trackinga",
+    "Sample name\tGenBank accession no.\tRaw sequence accession no.\tFlight/location\tLocation description\tNo. of contigs\tGenome size (bp)\tN50 (bp)\tMedian coverage (×)\tNo. of passed filter reads\t \tIF1SW-B1\tJABBIR000000000\tSRR11774209\tF1-1\tCupola (node 3)\t177\t20,046,905\t330,870\t129.91\t28,317,184\t \tIF1SW-F2\tJABBIH000000000\tSRR11774205\tF1-1\tCupola (node 3)\t198\t20,124,384\t333,776\t84.36\t19,015,638\t \tIF3SW-F2\tJABBIG000000000\tSRR11774204\tF1-3\tARED (node 3)\t201\t20,117,457\t333,691\t97.77\t21,673,000\t \tIF4SW-B1\tJABBIQ000000000\tSRR11774208\tF1-4\tDining table (node 1)\t187\t20,115,049\t329,462\t140.63\t33,186,328\t \tIF4SW-B2\tJABBIP000000000\tSRR11774197\tF1-4\tDining table (node 1)\t170\t20,047,348\t332,671\t140.63\t30,611,592\t \tIF4SW-F2\tJABBIF000000000\tSRR11774203\tF1-4\tDining table (node 1)\t185\t20,043,495\t330,890\t88.39\t19,426,356\t \tIF5SW-F1\tJABBIE000000000\tSRR11774202\tF1-5\tZero G stowage rack\t192\t20,113,158\t332,417\t139.26\t31,068,638\t \tIF6SW-B2\tJABBYN000000000\tSRR11774188\tF1-6\tPMM port 1\t179\t20,045,004\t359,523\t129.91\t28,411,998\t \tIF6SW-F1\tJABBID000000000\tSRR11774201\tF1-6\tPMM port 1\t180\t20,050,344\t331,252\t136.61\t30,528,434\t \tIF7SW-B3\tJABBIO000000000\tSRR11774187\tF1-7\tLab 3 overhead\t192\t20,045,846\t339,159\t124.55\t26,791,674\t \tIF8SW-B2\tJABBIN000000000\tSRR11774186\tF1-8\tPort crew quarters (node 2)\t188\t20,043,142\t352,443\t140.63\t36,119,534\t \tIF8SW-P2\tJABBIM000000000\tSRR11774185\tF1-8\tPort crew quarters (node 2)\t192\t20,113,185\t319,608\t135.27\t35,567,466\t \tIIF1SW-F1\tJABBIC000000000\tSRR11774200\tF2-1\tCupola (node 3)\t203\t20,113,961\t335,522\t93.75\t20,465,404\t \tIIF2*SW-B1\tJABBII000000000\tSRR11774206\tF2-2\tWHC\t184\t20,052,772\t275,091\t113.84\t27,351,418\t \tIIF2SW-F1\tJABBMW000000000\tSRR11774199\tF2-2\tWHC\t180\t20,050,420\t343,644\t140.63\t30,717,766\t \tIIF2*SW-F1\tJABBIA000000000\tSRR11774194\tF2-2\tWHC\t199\t20,045,739\t311,341\t95.09\t20,483,810\t \tIIF4SW-F1\tJABBMV000000000\tSRR11774198\tF2-4\tDining table (node 1)\t178\t19,988,416\t334,586\t68.30\t14,736,170\t \tIIF5SW-F2\tJABBMU000000000\tSRR11774196\tF2-5\tZero G stowage rack\t173\t19,996,184\t340,304\t152.68\t33,355,092\t \tIIF6SW-B1\tJABBMX000000000\tSRR11774184\tF2-6\tPMM port 1\t201\t20,114,311\t317,098\t123.21\t29,834,278\t \tIIF6SW-B2\tJABBIL000000000\tSRR11774183\tF2-6\tPMM port 1\t193\t20,045,085\t311,342\t132.59\t29,218,554\t \tIIF6SW-F1\tJABBYM000000000\tSRR11774193\tF2-6\tPMM port 1\t188\t20,045,112\t294,049\t95.09\t20,554,260\t \tIIF8SW-B2\tJABBIK000000000\tSRR11774182\tF2-8\tPort crew quarters (node 2)\t172\t20,044,451\t330,156\t95.09\t20,617,330\t \tIIF8SW-B3\tJABBIJ000000000\tSRR11774207\tF2-8\tPort crew quarters (node 2)\t175\t20,050,813\t328,275\t103.13\t22,961,434\t \tIIF8SW-F1\tJABBIB000000000\tSRR11774195\tF2-8\tPort crew quarters (node 2)\t173\t20,047,674\t343,393\t125.89\t27,516,784\t \tIIFCSW-F1\tJABBHZ000000000\tSRR11774192\tF2-FC\tField control wipe\t188\t20,117,057\t331,823\t101.79\t22,300,810\t \tIFCSG-B1\tJABBHY000000000\tSRR11774191\tGround CRV-5\tInside capsule CRV5 (FC)\t177\t20,050,250\t321,788\t112.5\t25,568,744\t \tIF1SG-B1\tJABBHX000000000\tSRR11774190\tGround CRV-5\tOutside capsule CRV5 (L1)\t176\t20,053,156\t335,912\t108.48\t24,942,204\t \tIF3SG-B1\tJABBHW000000000\tSRR11774189\tGround CRV-5\tInside capsule CRV5 (L3)\t185\t20,046,360\t317,139\t156.70\t35,073,840",
+    "Abbreviations: F1 and F2, flight 1 and 2, respectively; ARED, advanced resistive exercise device; WHC, waste and hygiene compartment; PMM, permanent multipurpose module; CRV, crew resupply vehicle; FC, field control."
+  ],
+  "REF": [
+    "REFERENCES",
+    "New and emerging yeast pathogens",
+    "Whole genome sequencing of Rhodotorula mucilaginosa isolated from the chewing stick (Distemonanthus benthamianus): insights into Rhodotorula phylogeny, mitogenome dynamics and carotenoid biosynthesis",
+    "Biotechnological production of carotenoids by yeasts: an overview",
+    "Effects of cellular stress on pigment production in Rhodotorula mucilaginosa/alborubescens AJB01 strain from the Caribbean region of Colombia",
+    "Production and stability analysis of yellowish pink pigments from Rhodotorula rubra MTCC 1446",
+    "Emerging opportunistic yeast infections",
+    "Epidemiology of Rhodotorula: an emerging pathogen",
+    "Rhodotorula fungaemia: a life-threatening complication of indwelling central venous catheters",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "Four-year bacterial monitoring in the International Space Station—Japanese Experiment Module “Kibo” with culture-independent approach",
+    "Multi-resistant biofilm-forming pathogens on the International Space Station",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "FastQC: a quality tool for high throughput sequence data",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "QUAST: quality assessment tool for genome assemblies"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "New and emerging yeast pathogens",
+      "autores": [
+        {
+          "nombre_completo": "KC Hazen",
+          "nombres": "KC",
+          "apellidos": "Hazen"
+        }
+      ],
+      "pmid": "8665465",
+      "fuente": "Clin Microbiol Rev",
+      "anio": "1995",
+      "volumen": "8",
+      "fpage": "462",
+      "lpage": "478"
+    },
+    {
+      "titulo": "Whole genome sequencing of Rhodotorula mucilaginosa isolated from the chewing stick (Distemonanthus benthamianus): insights into Rhodotorula phylogeny, mitogenome dynamics and carotenoid biosynthesis",
+      "autores": [
+        {
+          "nombre_completo": "HM Gan",
+          "nombres": "HM",
+          "apellidos": "Gan"
+        },
+        {
+          "nombre_completo": "BN Thomas",
+          "nombres": "BN",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "NT Cavanaugh",
+          "nombres": "NT",
+          "apellidos": "Cavanaugh"
+        },
+        {
+          "nombre_completo": "GH Morales",
+          "nombres": "GH",
+          "apellidos": "Morales"
+        },
+        {
+          "nombre_completo": "AN Mayers",
+          "nombres": "AN",
+          "apellidos": "Mayers"
+        },
+        {
+          "nombre_completo": "MA Savka",
+          "nombres": "MA",
+          "apellidos": "Savka"
+        },
+        {
+          "nombre_completo": "AO Hudson",
+          "nombres": "AO",
+          "apellidos": "Hudson"
+        }
+      ],
+      "pmid": "29158974",
+      "fuente": "PeerJ",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biotechnological production of carotenoids by yeasts: an overview",
+      "autores": [
+        {
+          "nombre_completo": "LC Mata-Gómez",
+          "nombres": "LC",
+          "apellidos": "Mata-Gómez"
+        },
+        {
+          "nombre_completo": "JC Montañez",
+          "nombres": "JC",
+          "apellidos": "Montañez"
+        },
+        {
+          "nombre_completo": "A Méndez-Zavala",
+          "nombres": "A",
+          "apellidos": "Méndez-Zavala"
+        },
+        {
+          "nombre_completo": "CN Aguilar",
+          "nombres": "CN",
+          "apellidos": "Aguilar"
+        }
+      ],
+      "pmid": "24443802",
+      "fuente": "Microb Cell Fact",
+      "anio": "2014",
+      "volumen": "13",
+      "fpage": "12",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of cellular stress on pigment production in Rhodotorula mucilaginosa/alborubescens AJB01 strain from the Caribbean region of Colombia",
+      "autores": [
+        {
+          "nombre_completo": "AG Cortes",
+          "nombres": "AG",
+          "apellidos": "Cortes"
+        },
+        {
+          "nombre_completo": "JAG Vásquez",
+          "nombres": "JAG",
+          "apellidos": "Vásquez"
+        },
+        {
+          "nombre_completo": "YCA Díaz",
+          "nombres": "YCA",
+          "apellidos": "Díaz"
+        },
+        {
+          "nombre_completo": "MR Castrillón",
+          "nombres": "MR",
+          "apellidos": "Castrillón"
+        }
+      ],
+      "pmid": "",
+      "fuente": "bioRxiv",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Production and stability analysis of yellowish pink pigments from Rhodotorula rubra MTCC 1446",
+      "autores": [
+        {
+          "nombre_completo": "B Kaur",
+          "nombres": "B",
+          "apellidos": "Kaur"
+        },
+        {
+          "nombre_completo": "D Chakraborty",
+          "nombres": "D",
+          "apellidos": "Chakraborty"
+        },
+        {
+          "nombre_completo": "H Kaur",
+          "nombres": "H",
+          "apellidos": "Kaur"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Internet J Micobiol",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "1",
+      "lpage": ""
+    },
+    {
+      "titulo": "Emerging opportunistic yeast infections",
+      "autores": [
+        {
+          "nombre_completo": "MH Miceli",
+          "nombres": "MH",
+          "apellidos": "Miceli"
+        },
+        {
+          "nombre_completo": "JA Díaz",
+          "nombres": "JA",
+          "apellidos": "Díaz"
+        },
+        {
+          "nombre_completo": "SA Lee",
+          "nombres": "SA",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "21272794",
+      "fuente": "Lancet Infect Dis",
+      "anio": "2011",
+      "volumen": "11",
+      "fpage": "142",
+      "lpage": "151"
+    },
+    {
+      "titulo": "Epidemiology of Rhodotorula: an emerging pathogen",
+      "autores": [
+        {
+          "nombre_completo": "F Wirth",
+          "nombres": "F",
+          "apellidos": "Wirth"
+        },
+        {
+          "nombre_completo": "LZ Goldani",
+          "nombres": "LZ",
+          "apellidos": "Goldani"
+        }
+      ],
+      "pmid": "23091485",
+      "fuente": "Interdiscip Perspect Infect Dis",
+      "anio": "2012",
+      "volumen": "2012",
+      "fpage": "465717",
+      "lpage": ""
+    },
+    {
+      "titulo": "Rhodotorula fungaemia: a life-threatening complication of indwelling central venous catheters",
+      "autores": [
+        {
+          "nombre_completo": "DK Braun",
+          "nombres": "DK",
+          "apellidos": "Braun"
+        },
+        {
+          "nombre_completo": "CA Kauffman",
+          "nombres": "CA",
+          "apellidos": "Kauffman"
+        }
+      ],
+      "pmid": "1302803",
+      "fuente": "Mycoses",
+      "anio": "1992",
+      "volumen": "35",
+      "fpage": "305",
+      "lpage": "308"
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "J Minich",
+          "nombres": "J",
+          "apellidos": "Minich"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Four-year bacterial monitoring in the International Space Station—Japanese Experiment Module “Kibo” with culture-independent approach",
+      "autores": [
+        {
+          "nombre_completo": "T Ichijo",
+          "nombres": "T",
+          "apellidos": "Ichijo"
+        },
+        {
+          "nombre_completo": "N Yamaguchi",
+          "nombres": "N",
+          "apellidos": "Yamaguchi"
+        },
+        {
+          "nombre_completo": "F Tanigaki",
+          "nombres": "F",
+          "apellidos": "Tanigaki"
+        },
+        {
+          "nombre_completo": "M Shirakawa",
+          "nombres": "M",
+          "apellidos": "Shirakawa"
+        },
+        {
+          "nombre_completo": "M Nasu",
+          "nombres": "M",
+          "apellidos": "Nasu"
+        }
+      ],
+      "pmid": "28725725",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "16007",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-resistant biofilm-forming pathogens on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A Vaishampayan",
+          "nombres": "A",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "E Grohmann",
+          "nombres": "E",
+          "apellidos": "Grohmann"
+        }
+      ],
+      "pmid": "31719234",
+      "fuente": "J Biosci",
+      "anio": "2019",
+      "volumen": "44",
+      "fpage": "125",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "K Wheeler",
+          "nombres": "K",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "FastQC: a quality tool for high throughput sequence data",
+      "autores": [
+        {
+          "nombre_completo": "S Andrews",
+          "nombres": "S",
+          "apellidos": "Andrews"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2010",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V Saveliev",
+          "nombres": "V",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    }
+  ]
+}

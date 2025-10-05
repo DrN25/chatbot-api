@@ -1,0 +1,2759 @@
+{
+  "TITLE": [
+    "Microbial isolation and characterization from two flex lines from the urine processor assembly onboard the international space station"
+  ],
+  "ABSTRACT": [
+    "Urine, humidity condensate, and other sources of non-potable water are processed onboard the International Space Station (ISS) by the Water Recovery System (WRS) yielding potable water. While some means of microbial control are in place, including a phosphoric acid/hexavalent chromium urine pretreatment solution, many areas within the WRS are not available for routine microbial monitoring. Due to refurbishment needs, two flex lines from the Urine Processor Assembly (UPA) within the WRS were removed and returned to Earth. The water from within these lines, as well as flush water, was microbially evaluated. Culture and culture-independent analysis revealed the presence of Burkholderia, Paraburkholderia, and Leifsonia. Fungal culture also identified Fusarium and Lecythophora. Hybrid de novo genome analysis of the five distinct Burkholderia isolates identified them as B. contaminans, while the two Paraburkholderia isolates were identified as P. fungorum. Chromate-resistance gene clusters were identified through pangenomic analysis that differentiated these genomes from previously studied isolates recovered from the point-of-use potable water dispenser and/or current NCBI references, indicating that unique populations exist within distinct niches in the WRS. Beyond genomic analysis, fixed samples directly from the lines were imaged by environmental scanning electron microscopy, which detailed networks of fungal-bacterial biofilms. This is the first evidence of biofilm formation within flex lines from the UPA onboard the ISS. For all bacteria isolated, biofilm potential was further characterized, with the B. contaminans isolates demonstrating the most considerable biofilm formation. Moreover, the genomes of the B. contaminans revealed secondary metabolite gene clusters associated with quorum sensing, biofilm formation, antifungal compounds, and hemolysins. The potential production of these gene cluster metabolites was phenotypically evaluated through biofilm, bacterial-fungal interaction, and hemolytic assays. Collectively, these data identify the UPA flex lines as a unique ecological niche and novel area of biofilm growth within the WRS. Further investigation of these organisms and their resistance profiles will enable engineering controls directed toward biofilm prevention in future space station water systems."
+  ],
+  "INTRO": [
+    "Introduction",
+    "A clean and reliable source of water is critical for human spaceflight. With increases in the duration of crewed mission onboard the International Space Station (ISS), the practice of manifesting water, implemented during the Shuttle Program, has become insufficient to meet water demands. As a result, the U.S. Water Recovery System (WRS) was launched to the ISS in 2008 with the goal of generating potable water from urine distillate, humidity condensate, and Sabatier product water, as well as the occasional off-loading of ground-supplied water. The WRS consists of the Urine Processor Assembly (UPA) and the Water Processor Assembly (WPA).",
+    "As the UPA processes urine, some batches may sit stagnant for hours to days before moving through the system. Therefore, a pretreatment solution containing phosphoric acid (H3PO4), and hexavalent chromium (Cr6+), an oxidizing agent, is added to the urine as a stabilizer. This pretreatment solution serves in both microbial control and chemical stability. Upon reacting with the organics in the urine, Cr6+ is reduced to Cr3+ and due to the phosphoric acid, the overall pH of the treated urine falls to less than two. Treated urine then enters the Distillation Assembly (DA) of the UPA (Fig. 1). Following processing by the DA, two byproducts remain, distillate and urine brine. The urine distillate undergoes additional processing by the WPA before being considered potable, while the brine is left behind. This brine solution contains approximately 13% of the starting water in the urine as well as low-boiling point organics and inorganics. The DA functions under a vacuum to reduce the heat required to reach boiling point. Following distillation, UPA flex line 115 (UPA115) carries water vapor to the purge pump, where condensation occurs prior to collection for further processing by the WPA (Fig. 1). The urine brine is transferred from the DA by UPA flex line 95 (UPA95) into the recycling tank (Fig. 1). The recycling tank accumulates brine, and current technology demonstrations onboard the ISS are achieving further water recovery by processing the brine. Based on the current system, a maximum of 87% of the water from urine is removed and processed for downstream potable needs.",
+    "Upon departing the UPA, the condensed water enters the WPA wastewater tank, which does not have a validated means of microbial control. As such, approximately a year after being put into operation, the flow of water from this tank decreased due to an obstructing biofilm. Biofouling within the ISS water system presents a significant risk to both vehicle and crew health. Biofilms can block lines and restrict access to clean water. Should pathogens be present, the risk of crew infection dramatically increases. Additionally, the persistence of biofilms can result in corrosion, overall materials degradation, and a failed water system. For these reasons, as a remedy to the biofilm noted downstream of the wastewater tank, additional filtration was added. While this water is examined periodically, the microbial profiles are determined after return of samples to Earth. The time in-between sample collection and analysis, and the lack of preservation, results in a skewed representation of the microbial population. The wastewater tank likely contains a thriving microbial community, but low diversity is noted upon ground evaluation, and no insight is gained toward the presence of possible biofilms. It is critical to enhance our understanding toward the microbial profiles, as well as associated biofilm potential, within the existing ISS WRS to the fullest extent to prepare for the next generation of spaceflight water systems.",
+    "Catalytic oxidation, filtration, and the addition of a biocide during WPA processing serve to substantially reduce microbial contamination in the potable water. This water is held to stringent acceptability limits: 50 colony forming units (CFU)/mL for total bacteria and no detectable coliforms per 100 mL. The presence of coliforms is assessed monthly, while total bacteria are evaluated every quarter. There has never been a true positive coliform detected, and apart from the early checkout process, the levels of culturable bacteria are well below the requirement. However, following assessments of the wastewater tank, solenoid valve crevices, and filter mesh for the U.S. and Russian water systems, increased microbial levels have been noted.",
+    "To survey the unique microbial community that is present in the water from the Potable Water Dispenser (PWD), the crew filters and cultures the bacteria onboard the ISS, then returns them to the Johnson Space Center (JSC) Microbiology Laboratory for identification via partial 16S rRNA gene sequencing. These techniques can determine both the overall bacterial levels (through in-flight colony counting) and the identification of culturable taxa. Typically, the level of bacteria is in the range of a few CFUs per ml. The bacterial genera routinely include common water contaminants such as Burkholderia, Ralstonia, Curvibacter, Cupriavidus, Sphingobium, and, frequently, other Gram-negative organisms that cannot be identified through the laboratory’s standard methods. As mentioned, the present method has important limitations, including the length of time between sample collection on orbit and subsequent analysis and possible degradation during transport from the ISS to the laboratory. Therefore, understanding of the actual microbial profiles within these systems would be enhanced by near real-time monitoring capabilities. Previous work has already demonstrated that sequencing in space is possible and can be performed with identical outcomes to those on the ground. This shift in paradigm from Earth-based to spaceflight-based analysis has implications for a broad range of other molecular applications onboard the ISS, including water monitoring.",
+    "Future NASA Programs such as Gateway, a lunar outpost allowing greater access to the lunar surface and a staging point for Mars missions, is expected to have a water recovery and recycling system. However, current planning anticipates Gateway will be unoccupied for up to 11 months per year, resulting in a dormant wetted, water system. A means of microbial control is paramount to this future system. NASA has initiated a robust anti-biofouling program in which many teams are investigating a diverse means of biofilm prevention and mitigation, but the organisms to use in these varied investigations are extremely limited. This coupled with a lack of insight beyond returned PWD and WPA wastewater tank samples, drove pursuing of the opportunity to microbially characterize UPA95 and UPA115 flex lines during refurbishment. The work described here aims to characterize the microorganisms found in the returned UPA flex lines and potentially identify the hosing positions as novel areas of interest for biofilm growth studies in the system. The current WRS employs numerous hosing connections with materials and sizes defined by the initial architecture plan. Determining potential microbial impacts regarding the WRS hosing will enable further engineering controls directed toward biofilm prevention."
+  ],
+  "FIG": [
+    "Urine Processor Assembly schematic detailing the positions of the two flex line hoses (UPA95 and UPA115) (Fig. S3). Modified from Carter et al, 2011.",
+    "Fig. 1",
+    "Microbial profile of the predominate genera within the UPA95 and UPA11 flex line hoses generated through culture-independent 16S rRNA nanopore sequencing. Alignments were generated with minimap2 (-ax map-ont).",
+    "Fig. 2",
+    "A) Pangenomic analysis of the five B. contaminans isolates sequenced in this study. 3.1, 3.2, 4.2, 4.3 and 4.5, which are noted by pink and purple, with the 78 available assemblies from NCBI, in black, while the red denotes the previous isolates from the ISS potable water dispenser. Orange text represents gene clusters associated with chromate resistance according to function. The light blue text represents gene clusters associated with biofilm formation. The details of all the B. contaminans functional genes and gene clusters can be found in Table S1. B) Pangenomic analysis of the two P. fungorium isolates 3.3 and 4.1 sequenced in this study, which are noted in teal, with 10 available assemblies from NCBI, noted in black. Here, as well as A, the orange text represents gene clusters associated with chromate resistance according to function. The details of the P. fungorium functional genes and gene clusters can be found in Table S2. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)",
+    "Fig. 3",
+    "Environmental scanning electron microscopy images of water from the UPA flex lines. A – F) Samples resulting from flex line UPA95, in which high concentrations of the urine pretreatment solution are encountered. G – L) Samples resulting from flex line UPA115, in which the urine pretreatment solution is diluted as water vapor is carried to the distillation assembly. Red arrows denote potential biofilm biproducts such as EPS, yellow arrows denote bacterial cells, and blue arrows denote fungal hyphae. The increased abundance of the microbial growth displayed from the UPA115 flex lines (A and B low magnification) as compared to that noted from the UPA95 flex lines (G and H low magnification), demonstrates the more favorable and growth promoting conditions and clear fungal-bacterial biofilm formation (as also noted in higher magnification J – L) within the UPA115 flex line. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)",
+    "Fig. 4",
+    "Biofilm formation of bacterial isolates from the UPA flex lines. Crystal violet intensity was evaluated at 540 nm. Isolates 3.1, 3.2, 4.2, 4.3 demonstrated pronounced biofilm formation as compared to the control at 24 h. Isolates 3.1 and 4.2 also demonstrated pronounced biofilm formation as compared to the controls at 72 h (*, P < 0.05). Statistical data can be found in Table S3. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)",
+    "Fig. 5",
+    "Gene clusters associated with known secondary metabolites from genomes from the UPA flex lines isolates identified using antiSMASH. The secondary metabolites of interest pyoverdine, occidiofungin, pyrrolnitrin, pyochelin, and ornibactin are associated with biofilm production, quorum sensing, antifungal properties, and hemolytic activity. The intensity of the color represents the completeness of the gene cluster compared to NCBI reference. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)",
+    "Fig. 6",
+    "A) Bacterial-fungal interaction between UPA flex line bacterial isolates and A. flavus at two temperatures (25 °C and 35 °C) and three growth media (R2A, PDA and SABC). Bar plot denotes the fungal diameter while the dot plot in red displays distance. B) The interaction of A. flavus with UPA flex line bacterial isolates on PDA at 25 °C. All measurements were in triplicate for each isolate. The distance for antagonistic activity was measured between the fungal growth and bacterial deposit (red arrow). The fungal growth diameter was measured triplicate. For irregularly shaped fungal growth, the measurement was taken from three different growth directions, assuming it was a diameter (blue arrow). See Table S3 for statistical data. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)",
+    "Fig. 7"
+  ],
+  "METHODS": [
+    "Materials and methods",
+    "Sample collection and fixation",
+    "The ISS UPA flex lines assessed included the recycled brine line (UPA 95” flex line 96 M 12561- 099 [UPA95]), which was installed in February 2010, and the purge line (UPA 115” flex line 96 M 12561- 100 [UPA115]) installed in May 2015 (Fig. 1). The polytetrafluoroethylene (PTFE) flex lines transport water vapor and brine beyond the Distillation Assembly (DA) as part of the overall UPA. For refurbishment, these two flex lines were sealed with quick disconnects in October 2019 and remained onboard the ISS until their return to Earth on SpaceX-21 in January 2021. At Marshall Space Flight Center (MSFC), stagnant water was collected aseptically from both lines, after which the lines were flushed with 250 mL of sterile water. Visual aggregates were present in the stagnant water from UPA115 (Fig. S1). For both lines, 0.5 mL of liquid from the stagnant collection were immediately fixed for downstream environmental scanning electron microscopy (ESEM) using a solution containing 2% glutaraldehyde (Sigma-Aldrich, St. Louis, MO, USA) and 3% formaldehyde (Sigma-Aldrich) in sterile phosphate buffer solution (PBS, pH 7.4, ThermoFisher Scientific, Waltham, MA, USA). The fixed solutions were covered in aluminum foil and kept at ambient temperature for 30 min. The fixed samples were then stored at 4 °C. These samples, as well as water samples from both flex lines, stagnant and flush, as well as the sterile flush water, were shipped on wet ice to the JSC Microbiology Laboratory for further analysis.",
+    "Chromium analysis",
+    "Chromium concentrations in the water removed from the flex lines were measured using a modified version of Standard Methods for the Examination of Water and Wastewater 3125 (Metals by Inductively Coupled Plasma-Mass Spectrometry) with a PerkinElmer Nexion 300D. Prior to analysis, sample and dilution tubes were soaked in 1% nitric acid for 24 h before a distilled water rinse to eliminate potential contaminants in the 15 mL and 50 mL metal-free tubes. With the expected presence of elevated chromium and the knowledge of the concentration expected from fluids associated with the UPA, the samples removed from the UPA95 and UPA115 flex lines were diluted to fall within the calibration range of the instrument and analyzed with control samples to ensure quality.",
+    "Bacterial and fungal isolation and identification",
+    "Upon arriving at the JSC Microbiology Laboratory, all samples, excluding those for ESEM imaging, were processed and analyzed following the laboratory’s standard operating procedures for bacterial and fungal enumeration and identification. Briefly, the samples were filtered using a Milliflex system with a Reasoner's 2A (R2A) agar cassette and a Sabouraud dextrose with chloramphenicol (SABC) cassette (MilliporeSigma, Burlington, MA, USA) for bacterial and fungal enumeration and isolation, respectively. In addition, serial dilutions of samples were plated on R2A and SABC plates (Hardy Diagnostics, Santa Maria, CA, USA). All cassettes and plates were incubated for two to five days at 35 °C for bacteria and five to seven days at 30 °C for fungi. Following incubation, colonies were enumerated, and each distinct morphological colony was subcultured onto fresh media. Following growth, DNA was extracted from pure colonies representing each morphology using the PrepMan® Ultra Sample Preparation Reagent (ThermoFisher) following the manufacture’s protocol. The DNA was prepared for sequencing according to the MicroSEQ® 500 16S rDNA PCR Kit or Fast MicroSEQ® D2 Fungal rDNA PCR Kit (ThermoFisher) and associated sequencing kits, MicroSEQ® 500 16S rDNA Sequencing Kit or MicroSEQ® D2 rDNA Fungal Sequencing Kit. The prepared libraries were sequenced using Sanger sequencing, Applied BioSystems® 3500 Genetic Analyzer (ThermoFisher), and the sequencing peaks were analyzed using MicroSEQ® ID microbial identification v3.1 (ThermoFisher). For fungal identifications, the isolates were also confirmed morphologically and microscopically. Sanger sequencing data has been deposited in the European Nucleotide Archive (ENA) under accession number PRJEB58840.",
+    "Culture-independent, 16S rRNA nanopore sequencing and analysis",
+    "To potentially identify non-culturable taxa from samples, established laboratory protocols for culture-independent, targeted nanopore sequencing were used. Using a syringe, samples were passed through a 0.22 μm mixed cellulose esters (MCE) filter on a 13 mm filter holder (MilliporeSigma). The filter was then removed and placed into PCR tubes containing QuickExtract™ DNA Extraction Solution (Lucigen Cooperation, Middleton, WI, USA) for DNA extraction. Following extraction within the miniPCR™ thermal cycler (miniPCR bio™, Cambridge, MA, USA), DNA purifications, quality assessments, and library preparation followed the established method described in Stahl-Rommel et al. 2021. The multiplexed libraries were loaded into the flow cell (Oxford Nanopore Technologies (ONT), Oxford, UK) version R9.4.1 and sequenced for 12 h using MinKNOW version 21.02.2 on MinION Mk1C (ONT).",
+    "Data analysis was conducted as previously described. Briefly, basecalling and demultiplexing was completed using GPU-enabled Guppy Basecalling Software 4.3.4 (ONT). Reads of 1350–1650 bp in length were selected using NanoFilt Version 2.6.0 and mapped to the NCBI Reference Sequence Database using Minimap2 version 2.24-r1122 (-ax map-ont) (Li 2018). SAMtools version 1.14, MAPping Quality (MAPQ) threshold of 1 and MarginStats (marginStats.py 0.1) were used for sequencing statistics. Data visualizations were created in R version 4.2.0 using the ggplot package and heatmap. Nanopore sequencing data has been deposited in the European Nucleotide Archive (ENA) under accession number PRJEB58840.",
+    "Genomic DNA extraction",
+    "To acquire genomic DNA for hybrid full genome sequencing analysis, bacterial isolates were subcultured onto fresh R2A plates and incubated at 35 °C for 24–48 h. A 1 μL loop was used to pick a single colony from each isolate for inoculation into 10 mL of Tryptic Soy Broth (TSB) (Hardy Diagnostics). The inoculation was incubated at 35 °C with shaking at 150 revolution per minute (rpm) for ∼17 h. To collect a cell pellet, inoculum of 1 mL was centrifuged at 16,000 relative centrifugal force (rcf) for 2 min at 4 °C (Eppendorf Centrifuge, 5810R, Enfield, CT, USA). The supernatant was discarded, and the cell pellet was rinsed with PBS before resuspending with 40 μL of PBS by vortexing. DNA was extracted using the Circulomics Nanobind CBB Big DNA kit (PacBio, Menlo Park, CA, USA) following the manufacturer’s protocol optimized for high molecular weight DNA for Gram-negative bacteria. Extracted DNA was checked for quality and quantity using the QubitTM dsDNA BR assay kit with a Qubit 4 Fluorometer (ThermoFisher), NanodropTM (Nanodrop One, ThermoFisher), and TapeStation Genomic ScreenTape using 4200 TapeStation System reagents (Agilent, Santa Clara, CA, USA).",
+    "Illumina and nanopore genomic sequencing",
+    "Short-read Illumina and long-read nanopore sequencing was performed to generate hybrid de-novo genomes. For Illumina sequencing, 100–500 ng of extracted genomic DNA was used for library preparation following the Illumina DNA Prep (M) Tagmentation (24 samples) (Illumina, San Diego, CA, USA) and Nextera DNA CD 24 Indexes (Illumina) manufacturer’s protocol. Following library purification, the DNA was assessed for quality, quantity, and size (∼500–600 bp) using Qubit TM 1x dsDNA High Sensitivity Kit (ThermoFisher) and D1000 ScreenTape and reagents (Agilent). Samples were normalized to 4 nM, then pooled and diluted to a final concentration of 10 pM using HT1 buffer (Illumina). PhiX control V3 was prepared at 4 nM and diluted to 20 pM using HT1 buffer (Illumina). The 10 pM pooled library and 20 pM PhiX control v3 (Illumina) were denatured using fresh 0.2 N NaOH for 5 min at room temperature. The 1% PhiX control was added to the pooled DNA libraries. Pooled libraries were heated to 98 °C for 2 min for additional denaturation prior to loading into a MiSeq® Reagent v3 cartridge (600 cycles) (Illumina) and starting the run on the Illumina MiSeq.",
+    "For nanopore sequencing, the genomic DNA was sequenced using the Rapid Barcoding Kit (SQK-RBK004, ONT) following the manufacturer’s protocol. Briefly, up to 12 genomic DNA samples at 400 – 1000 ng were fragmented, barcoded, and pooled before being purified using a 1:1 AMPure XP bead reaction (Beckman Coulter, Indianapolis, IN, USA). The library was quantified using Qubit TM 1X HS Kit (ThermoFisher) then combined with 1 μl of RAP (ONT) and incubated at room temperature for 5 min. The pooled libraries were loaded into a R9.4.1 flow cell (ONT) within the MinION Mk1C running MinKNOW version 21.02.2 (ONT) and sequenced for 72 h.",
+    "Hybrid genome assemblies, annotation, and analysis",
+    "Illumina short reads were demultiplexed and fastq files generated using MiSeq Reporter Software version 2.6.2.3 (Illumina). Fastq files were filtered to remove sequencing adaptors, reads less than 50 bases in length, and the PhiX sequencing control using BBduk (BBTools version 38.54). BBduk also trimmed both ends of the fastq and selected reads with a quality score of 25 of higher.",
+    "Nanopore long reads were basecalled and demultiplexed using the high accuracy configuration of Guppy (version 4.3.4) with a minimum quality score of 7 and minimum barcode score of 40. Sequencing adapters were removed from reads using Porechop version 0.2.4 and the top 80% of reads were subsequently filtered for sequences >2000 bp with Filtlong version 0.2.0. Illumina and nanopore Hybrid de-novo genomes were assembled using Unicycler version 0.4.8. Genome assemblies were checked for quality and completeness using CheckM version 1.0.18. The identities of the assemblies were confirmed with average nucleotide identity (ANI) using fastANI version 1.3 against the NCBI complete genome database.",
+    "Hybrid de-novo genomes were annotated for bacterial chromosomes and plasmids using the command line version of the NCBI Prokaryotic Genome Annotation Pipeline (PGAP) version 6.0. PGAP was run using normal parameters with quality control analysis enabled. This version of PGAP included GeneMarkS-2 and GeneMark.hmm-2 for enhanced gene prediction using protein profile hidden Markov models (HMMs). AntiSMASH was used for recognition of secondary metabolite biosynthesis gene clusters (GC) from the isolates. A search for plasmids in the isolated genomes was conducted using the PlasmidFinder. Figures and tables were constructed in R. Graphs were rendered using the ggplot2 program and dependencies.",
+    "Pangenome analysis",
+    "In total, 86 B. contaminans and 10 P. fungorum genome assemblies were downloaded from the NCBI RefSeq genome database as references. Of the 86 B. contaminans RefSeq assemblies downloaded, six were duplicates and two lacked complete annotations, resulting in 78 NCBI references used this study. The five B. contaminans and two P. fungorum isolates identified in this study and annotated with PGAP were transformed into Anvio contig databases to be comparable with the downloaded NCBI genomes during the anvi’o pangenome analysis. Using anvi’o, (version 7.1) pangenome analysis was run to compare the single copy genes from our isolates to those in the NCBI database using hidden Markov models (HMMs). Differences in gene number and gene clusters between the isolates and NCBI genomes were observed. The anvi’o summary files were rendered and imported into R where the groups and bins were searched using dplyr (1.0.9) to filter rows based on presence and absence of matches.",
+    "Environmental scanning electron microscope imaging",
+    "Approximately 100 μL of fixed sample was loaded onto an Isopore membrane filter (0.8 μm pore size, 13 mm diameter, MilliporeSigma) and gravity filtered to reduce disturbance to any structure present in the sample. The samples were washed twice with 200 μL PBS (ThermoFisher Scientific) then rinsed with 1000 μL of filtered, sterile Milli-Q water. Sample dehydration was performed with serial rinses using freshly prepared ethanol (200 proof, Sigma-Aldrich) in filtered, sterile Milli-Q water. Initial dehydration involved two sequential 30 min rinses with 500 μL of 25% ethanol then 500 μL of 50% ethanol. This process was continued by applying increasing concentrations of ethanol at 60%, 70%, 80%, 90% and 100% for 15 min each. Following dehydration, the filter was removed with the sample side up and flipped onto an aluminum mount flat pin with carbon conductive tab (Electron Microscopy Sciences, EMS, Hatfield, PA, USA). The samples were allowed to dry inside a biosafety cabinet and then placed into the ESEM chamber for additional drying under vacuum. Following drying, the samples were sputter coated with ∼2 nm iridium on a Cressington Sputter Coater 298 HR that uses a Cressington Thickness Controller MTM 20. Imaging was performed with a ThermoFisher Scientific FEI Quanta 250 using the ESEM mode. All images were acquired at 10 kV in back scatter electron mode at a pressure of ∼1.3 Torr.",
+    "Biofilm assay",
+    "Bacterial isolates were cultured on R2A media (Hardy Diagnostics) and incubated for at least 24 h at 35 °C or until visual colonies were observed. A 1 μL loop was used to pick a single colony from each isolate for inoculation into 10 mL of TSB (Hardy Diagnostics). The inoculation was incubated at 35 °C with shaking at 150 rpm for ∼17 h. The liquid culture was diluted 100X, and 200 μL was added to a well of a 96-well plate. Eight replicates of each isolate were prepared. The plates were then incubated at 35 °C without shaking. Beyond the isolates from the flex lines, positive and negative controls were prepared in the same manner with Burkholderia cepacia ATCC 25416 and TSB only, respectively. The plates were incubated for 24, 48 and 72 h. After each incubation period, washing, tapping, and dissociation of the biofilms was performed, and the biofilms were assessed as described previously. A 200 μL of 0.1% crystal violet (Sigma-Aldrich) was added to each well and the washing was repeated after incubation time. The absorbance of the remaining crystal violet was evaluated at 540 nm using a SpectraMax® 190 plate reader (Molecular Devices LLC, San Jose, CA, USA). Three set of plates were processed as described. The results are expressed as an average and standard deviation of four technical replicates and two biological replicates after background subtraction from the negative control. One-way ANOVA were performed using R v. 4.2.0.",
+    "Bacterial-fungal interaction",
+    "Aspergillus flavus, isolated from the ISS in samples returned on Soyuz 51, was used as a model to characterize the bacterial-fungal interactions of the flex line isolates. A. flavus, from a room temperature molecular water stock, was cultured on SABC for five days at 25 °C. To generate an experimental culture, a 1 μL loop was used to transfer spores to fresh SABC, which was then incubated for seven days at 25 °C. Synchronous bacterial isolates were cultured on R2A for 24–48 h at 35 °C. A 1 μL loop was used to pick a single colony from each isolate for inoculation into 10 mL of TSB (Hardy Diagnostics). The inoculation was incubated at 35 °C with shaking at 150 rpm for ∼17 h. Three different types of growth media were assessed by placing three 25 μL drops of the inoculum on R2A, potato dextrose (PDA) (Hardy Diagnostics) or SABC plates in a triangular pattern approximately 2 cm from the edge of the plate. After 24 h of incubation at 25 °C or 35 °C, a plug of 7-day-old A. flavus was introduced to the center of the three triangular bacterial drops. Fungal controls without bacteria were prepared in a similar manner. Two growth temperatures were investigated by placing the plates in either an incubator at 25 °C or 35 °C for five days. Following incubation, the growth diameter of the bacteria and the distance between the bacteria and fungi was measured. This was repeated using biological triplicates. The average and standard deviation of the measurements were calculated.",
+    "Hemolysis activity",
+    "Bacterial cultures of the flex line isolates were prepared as described above. Hemolysis activity was performed by placing three, 25 μL drops of liquid inoculum onto TSA containing 5% sheep’s blood (Hardy Diagnostics). The plates were incubated at 35 °C for 48 h and the zone of hemolysis was recorded."
+  ],
+  "RESULTS": [
+    "Results and discussions",
+    "Identification of microbial isolates from UPA95 and UPA115 flex lines",
+    "Three bacteria and one fungus were recovered from UPA95, while six bacteria and two fungi were recovered from UPA115, as detailed in Table 1. The three bacteria from UPA95 were all found to be Burkholderia species by Sanger sequencing but revealed distinct colony morphologies. Isolate 3.1 Burkholderia sp. colonies were milky white, isolate 3.2 Burkholderia sp. colonies were yellow, while isolate 3.3 B. fungorum colonies were smooth and white in appearance. The fungal isolate F3.1 was identified as a Fusarium sp. From UPA115, isolate 4.1 demonstrated rough, white colonies that were identified as B. fungorum. Additionally, three different Burkholderia morphologies were noted. Isolate 4.2 was white, whereas isolate 4.3 was yellow and isolate 4.5 was wet in appearance. The Burkholderia sp. 4.5 wet morphology was not noted from UPA95 and the two B. fungorum displayed different morphologies. Isolate 4.4 was a Gram-positive bacterium but could not be identified to the genus level. Isolate 5.2 was determined to be Leifsonia lichenia. The two fungal isolates from UPA115 were 4.1 Fusarium sp. and 4.2 Lecythophora mutabilis.",
+    "It is not unexpected that a higher diversity of organisms was recovered from UPA115 as compared to UPA95, as UPA95 experiences a higher concentration and prolonged exposure of the urine pre-treat solution during the recycling of the brine, as noted in Table 2. Bacterial isolate identification corresponds with historical data, as Burkholderia sp. is one of the most dominant bacterial genera recovered from the PWD and wastewater tank onboard the ISS. The high prevalence of Burkholderia sp. is likely due to their resistance capabilities toward a broad range of metals Historically, unidentified Gram-positive organisms and L. lichenia have been noted in samples returned from the ISS, but more common is the isolation of unidentified Gram-negative organisms. It is unclear if these bacteria survived the pre-treat solution or are part of the population downstream of the DA. While attempts are made to launch microbially-clean hardware for use onboard the ISS, hardware is not launched sterile. The recovered fungus, L. mutabilis, has been isolated by the JSC Microbiology Laboratory from returned wastewater (JSC archive, data not shown) and has also been noted from a filter within the WRS. Fusarium sp. have been documented in the ISS environment, and it has associated with plant disease within the VEGGIE plant payload. However, to the best of our knowledge, Fusarium sp. have not previously been isolated from any returned PWD or wastewater samples from the ISS.",
+    "Culture-independent, 16S nanopore-generated microbial profiles",
+    "A culture-independent method that is currently being used onboard the ISS for bacterial surface monitoring was applied to the remaining volume of flush water not consumed by other evaluations. Greater diversity was noted using this method compared to the culture-based data (Fig. 2). Paralleling the culture-based data, Burkholderia and Leifsonia were present, and UPA115 demonstrated overall greater diversity as compared to UPA95 (Fig. 2).",
+    "Full genome analysis of bacterial isolates from UPA95 and UPA115",
+    "To construct their genomes, short read (Illumina) and long read (nanopore) sequencing was conducted for the nine bacterial isolates recovered from the two flex lines. Genome summary metrics are listed in Table 2. Hybrid genome assemblies range from 3.8 to 9.7 million base pairs with 3–20 contigs (Table 3). The total genome size, percent GC content, and total gene clusters were comparable to NCBI references (Table 3). The average nucleotide identity (ANI) of the nine isolates ranged from 80.1 to 99.9 similarity to other genomes within NCBI. Based on these data, isolate identifications have been further defined beyond the Sanger 16S rRNA data. Isolates 3.1, 4.2, and 3.2, 4.3, and 4.5 were identified to B. contaminans, with an ANI 95.6 and 99.9 respectively (Table 3). Isolates 3.3 and 4.1 were identified as Paraburkholderia fungorum, based on updated nomenclature. Isolates 4.4 and 5.2 did not change and will be described as a Gram-positive bacterium, and Leifsonia lichenia, respectively, due to low ANI percentages likely resulting from low representation of these organisms’ genomes.",
+    "Complete plasmids were not observed in any of nine isolates; however, multiple gene clusters associated with plasmids were noted. This corresponds to previous research detailing the loss of plasmids as a result of co-location and evolution among species in the Burkholderia cepacia complex. Additionally, this parallels preceding reports assessing other B. contaminans isolates from the ISS potable water system. Plasmid loss could potentially be a response of these organisms to the environment within the ISS water system where the associated genes do not lend a competitive advantage.",
+    "Expanded evaluation of the bacterial isolates that could be identified was conducted through pangenomic analysis using the genomes of P. fungorum and B. contaminans. The B. contaminans pangenome analysis resulted in 13,598 unique gene clusters across the 78 NCBI reference genomes and the 5 isolates: 3.1, 3.2, 4.2, 4.3, and 4.4 (Fig. 3). Of the unique gene clusters, 3,720 did not have a known function from the NCBI PGAP annotations. There was a high average geometric homogeneity index (GHI) and a functional homogeneity index (FHI) of 0.97. The high GHI of the analysis indicates that the patterns of residues within gene clusters are mostly uniform, and the high FHI in this study indicates that any differences are minimal and likely will not impact the protein products between genomes sharing unique clusters. Chromate and biofilm-related gene functions were searched for across pangenome annotations and marked in orange and yellow, respectively (Fig. 3). Biofilm gene clusters and quorum system sensor gene clusters were observed in all 83 genomes. Multiple chromate resistance and transporter protein gene clusters stood out as features that set the five isolates from this study apart from the NCBI assemblies and from the other previously reported ISS isolates (Fig. 3, Table S1). The presence of these resistance gene clusters is not surprising and provides insight to the organism’s ability to survive the pretreatment solution within the UPA.",
+    "The B. contaminans isolates from this study clustered together into two distinct groups based on amino acid similarity. The isolates 3.2, 4.3 and 4.5 (shown in pink, Fig. 3) are grouped together while other isolates 3.1 and 4.2 (shown in purple, Fig. 3) are grouped. These isolates from this investigation grouped separately from the previous ISS potable water B. contaminans assemblies (shown in red, Fig. 3). The five B. contaminans isolates from this investigation did not share any unique gene clusters that were not observed in the reference genomes. However, isolates 3.2, 4.3 and 4.5 had 42 unique gene clusters with 23 of those having identified functions. Isolates 3.1 and 4.2 had 417 unique gene clusters, with 145 of those having identified functions that were not found in the other isolate groups or genome references. Isolates 3.2, 4.3 and 4.5 had several unique gene clusters of interest related to cadmium, toxin-antitoxin, flavodoxin and hemolysin proteins (Table S1). These gene clusters could potentially be associated to the enhancement of virulence, a broad range of metal resistance, active metabolism, and high hemolytic activity. Moreover, the toxin-antitoxin gene clusters have been previously connected to dormancy scenarios and a persister phenotype. For isolates 3.1 and 4.2, some unique gene clusters of interest are associated with pilin, porin, copper-binding protein, zincin, arsenate and arsenic transporter, type II and IV secretion, and type II toxin-antitoxin. These gene clusters could correspond to cell adhesion ability, molecule transport, heavy metal resistance, and toxin-antitoxin ability. While further evaluation into the expression and protein function is required, the differences in these gene clusters within the genome may provide insight into the morphological differences among the B. contaminans isolates.",
+    "The P. fungorum pangenome analysis had 9,804 unique gene clusters across the 10 NCBI reference genomes and the two isolates: 3.3 and 4.1 (Fig. 3). Of these unique gene clusters, 2,314 did not have a known function from the PGAP annotations. The FHI was 0.97 and the GHI was 0.98. These values indicate that the gene cluster residues are uniform with a low chance of protein functional change inside unique gene clusters. Gene clusters directly associated with biofilms were not observed across these 12 genomes. However, one unique quorum sensing gene cluster and 10 unique chromate-associated gene clusters were observed across all 12 genomes. There were 371 unique gene clusters shared between the 3.3 and 4.1 isolates that were not present in the 10 NCBI references. Notably, a unique gene cluster associated with the chromate resistance protein (ChrB) was observed in both 3.3 and 4.1 but absent from the NCBI references. It is important to note that the significant difference in the number of unique gene clusters could be due to the lower number of available references from the current database for P. fungorum. Beyond chromate, resistance associated gene clusters were also noted for copper, arsenic, cadmium, and zinc (Table S2). Again, while expression and protein products require further investigation, based on the genomic analysis, these organisms are likely to have tailored their genomes to support persistence within the flex line hoses.",
+    "Environmental scanning electron microscopy of UPA95 and UPA115 samples",
+    "While the microbial population within the two flex lines had not previously been investigated or understood, previous biofilm-related issues within the ISS WPA resulted in questions of potential biofilms within other parts of the system. As such, samples of stagnant water within the flex lines were fixed immediately upon opening UPA95 and UPA115. Fungal biofilm networks were distinctly apparent in the samples from both flex lines (Fig. 4A, B, G, and H). However, fungal biofilm growth was more pronounced in UPA115 (Fig. 4G and H), as opposed to UPA95 (Fig. 4A and B). This observation parallels the higher microbial concentration noted from UPA115 as compared to UPA95, which is most likely due to the elevated levels of pre-treat solution in UPA95 preventing some microbial outgrowth (Table 2).",
+    "Upon magnification, present fungal hyphae were noted in various morphologies with smooth, twisted, straight, and rough surfaces revealed. Additionally, presence of bacteria on the fungal hyphae was noted at higher magnification (Fig. 4I). Bacteria and fungi interactively growing in the same environment has been investigated intensively and it is established that bacteria can grow both on and within the fungal hyphae. This, along with other variables such as the presence of chemicals and/or bioproducts such as extracellular polymeric substance (EPS) could explain alterations in the hyphae surface. While it is unknown which organisms produced it, EPS was noted in among the images (Fig. 4C, F, 4K, 4L). Taken together, this is the first evidence of biofilm formation within flex lines from the UPA onboard the ISS.",
+    "Biofilm potential of bacterial UPA95 and UPA115 isolates",
+    "To empirically evaluate biofilm potential of the flex line bacterial isolates, a traditional crystal violet assay was performed following 24, 48, and 72 h of growth. At the earliest 24-h timepoint, significantly enhanced biofilm formation was noted for B. contaminans 3.1, 3.2, and 4.2, as compared to the reference control (Fig. 5). Interestingly, this was not seen at 48 h, which could be attributed to weak cell to cell adhesion or cell communication and a longer required time for quorum sensing to regulate EPS production and stabilize biofilm structure. As expected, at 72 h, more mature biofilms were present for all the isolates including the reference control. However, B. contaminans 3.1 and 4.2 displayed significantly higher biofilm production as compared to the reference (Fig. 5). While it was not surprising to see biofilm formation from Burkholderia, the production by some of the UPA isolates was notable and depicts the biofilm potential of these organisms.",
+    "Probing the genomes for secondary metabolites revealed gene clusters associated with pyoverdin in B. contaminans 3.1 and 4.2, but not other isolates (Fig. 6). Pyoverdin production directly correlates with biofilm formation, as has been documented regarding the pathogenicity of Pseudomonas aeruginosa. With regard to Burkholderia, pyoverdine production has been associated with biofilm formation and pathogenicity in B. thailandensis. However, the association of pyoverdin is unknown in the majority of this genera. Furthermore, the genomic data also reveal gene clusters associated with secondary metabolites involved in quorum sensing activity for all the B. contaminans and P. fungorum isolates, but not for the L. lichenia or unidentified Gram-positive bacterium (Fig. 6). The iron-binding or antifungal functional group such as occidiofungin, pyrrolnitrin, pyochelin and ornibactin are regulated by quorum sensing activity, which is major regulator of biofilm formation. Also, iron-signaling mechanisms contribute to biofilm development, which have been previously investigated with P. aeruginosa biofilms. The crystal violet assay demonstrates the biofilm potential of these isolates, which corresponds with the presence of secondary metabolite gene clusters associated with biofilm production.",
+    "Characterization of bacterial-fungal interactions and hemolytic activity",
+    "Assessing phenotypic traits from monocultures benefits microbial characterization. However, the importance of investigating interactions between organisms can provide greater insight toward community dynamics and is essential to our understanding of an environment’s microbiome. Bacterial-fungal interactions can result in molecular alterations that have the potential to influence pathogenicity, biofilm formation, or morphology of the microorganisms. Likely as a result of predation within their environment, B. contaminans generates protective antifungal compounds that were noted within the genomes. Of interest were biosynthetic gene clusters associated with the secondary metabolites occidiofungin and pyrrolnitrin, which were observed in B. contaminans 3.2 and 4.3 genomes. Organisms within the Burkholderia cepacia complex (BCC) synthesize the antifungal occidiofungin through a non-ribosomal peptide synthetase mechanism. Pyrrolnitrin, also an antifungal, is a product of quorum sensing. Occidiofungin and pyrrolnitrin have shown antifungal activity against Aspergillus flavus. Additionally, both antifungal compounds have also been tightly associated to hemolytic activity. Therefore, the impact of potential secondary metabolite production from all the UPA isolates on A. flavus was evaluated using three types of media under two temperatures. Hemolytic potential was also assessed.",
+    "At 25 °C incubation, B. contaminans isolates 3.2, 4.3, 4.5 from both UPA flex lines generated the highest zone of inhibition on A. flavus as compared to the other isolates, including the reference control B. cepacia (Fig. 7A). Other B. contaminans 3.1, and 4.2, P. fungorum 3.3 and 4.1, and B. cepacia did express the capability of inhibiting the growth of A. flavus but at a much lower intensity (Fig. 7A). This was enhanced by culture on PDA (Fig. 7A and 7B). Not unexpectedly, the growth media impacted the antagonistic effect on A. flavus, as was observed for R2A, while B. contaminans 3.1, and 4.2 and P. fungorum 3.3 and 4.1 did not strongly inhibit A. flavus growth (Fig. 7A). Regarding SABC, a zone of inhibition was not noted for any of the isolates, likely resulting from the interfering chloramphenicol. However, P. fungorum 3.3 and 4.1 showed very weak antagonistic effect, as fungal growth was observed.",
+    "A more optimal growth temperature for bacteria, 35 °C incubation was also investigated. Generally, there was no difference in the trend of antagonistic growth toward A. flavus as compared to 25 °C incubation. The growth diameter of A. falvus did not change between the temperatures for R2A and PDA media, but more growth was noted on SABC at 35 °C (Fig. 7A.). B. contaminans 3.2 and 4.3 expressed the highest antifungal capability at both temperatures and on all media assessed. The antagonistic distance was reduced at 35 °C on PDA media for B. contaminans 3.2, 4.3 and 4.5., which indicated the reduction of antifungal activity. Although there was no change in fungal growth, B. contaminans 4.5 showed much lower antagonistic distance on R2A at 35 °C.",
+    "The unidentified Gram-positive 4.4 and L. lichenia 5.2. did not express observable antifungal activity toward A. flavus on any of the tested media at either temperature (Fig. 7A). The association of L. lichenia with fungi is not well established. L. xyli has exhibited plant growth promoting and low level antifungal properties against certain plant pathogens. In this investigation antifungal behavior was not noted with L. lichenia, nor were known gene clusters associated with fungal inhibition present.",
+    "Pyochelin biosynthesis cluster was observed in the B. contaminans 3.1, 3.2, 4.2, 4.3, and 4.5 genomes and ornibactin gene cluster found in B. contaminans 3.1, 4.2, 4.3, and 4.5 and P. fungorum 3.3 and 4.1 (Fig. 6). These secondary metabolites are siderophores. Although pyochelin and ornibactin are not well-known as antifungal agents secreted by Paraburkholderia and Burkholderia, they have shown their antifungal and antimicrobial activity under iron deficiency. Hemolytic activity was noted for B. contaminans 4.5, which demonstrated α-hemolysis activity, while B. contaminans 3.2 and 4.3. expressed strong β-hemolysis (Table S4 and Fig. S2). All other isolates displayed γ-hemolysis (no hemolytic activity) following 48 h of incubation (Table S4 and Fig. S2)."
+  ],
+  "TABLE": [
+    "Culture-based identifications from UPA95 and UPA115 flex line hoses isolates via Sanger sequencing.",
+    "Table 1",
+    "Recycled brine line (UPA95' Flex line 96 M 12561-099)\tPurge line (UPA115' Flex line 96 M 12561-100)\t \tBacterial Culture\tFungal culture\tBacterial Culture\tFungal culture\t \t3.1. Burkholderia sp._White\tF3.1. Fusarium sp.\t4.1. Burkholderia fungorum\tF4.1. Fusarium sp.\t \t3.2. Burkholderia sp._Yellow\t\t4.2. Burkholderia sp._White\tF4.2. Lecythophora mutabilis\t \t3.3. Burkholderia fungorum\t\t4.3. Burkholderia sp._Yellow\t\t \t\t\t4.4. Unidentified Gram-positive species\t\t \t\t\t4.5. Burkholderia sp._Wet\t\t \t\t\t5.2. Leifsonia lichenia",
+    "Selected chemical components recovered from UPA95 and UPA115 flex line hoses.",
+    "Table 2",
+    "Recycled brine line (UPA95' Flex line 96 M 12561-099)\tPurge line (UPA115' Flex line 96 M 12561-100)\t \tAnalyte\tConcentration (mg/L)\tAnalyte\tConcentration (mg/L)\t \tCalcium\t51.5\tCalcium\t0.14\t \tChromium\t280\tChromium\t1.02\t \tMagnesium\t27.1\tMagnesium\t0.26\t \tPhosphate (as P)\t1190\tPhosphate (as P)\t13.7\t \tPotassium\t624\tPotassium\t3.33\t \tSodium\t483\tSodium\t1.57",
+    "Hybrid genome sequencing summary (additional details available in Table S5).",
+    "Table 3",
+    "Sample Source\tSample\tGenome size (bp)\tContigs\tTotal Genes\tGC %\tBest Match NCBI\tANI\t \tNCBI\tBurkholderia contaminans SK875 10922\t8,596,045\t3\t7,784\t66.1\tBurkholderia contaminans LMG 23361\t100\t \tUPA95\t3.1.\t8,652,817\t20\t8,026\t66.2\tBurkholderia contaminans SK875 10922\t95.6\t \tUPA95\t3.2.\t8,726,360\t3\t7,932\t66.3\tBurkholderia contaminans SK875 10922\t99.9\t \tUPA115\t4.2.\t8,625,377\t6\t7,996\t66.2\tBurkholderia contaminans SK875 10922\t95.6\t \tUPA115\t4.3.\t8,680,200\t5\t7,876\t66.3\tBurkholderia contaminans SK875 10922\t99.9\t \tUPA115\t4.5.\t8,773,879\t7\t7,974\t66.2\tBurkholderia contaminans SK875 10922\t99.9\t \tNCBI\tBurkholderia fungorum ATCC BAA-463\t9,058,983\t3\t8,190\t62\tParaburkholderia fungorum NBRC 102489\t98.6\t \tUPA95\t3.3.\t9,564,261\t5\t8,799\t61.6\tBurkholderia fungorum ATCC BAA-463\t98.6\t \tUPA115\t4.1.\t9,745,290\t6\t8,950\t61.6\tBurkholderia fungorum ATCC BAA-463\t98.6\t \tNCBI\tCellulomonas fimi ATCC 484\t4,266,344\t1\t3,851\t75.0\tCellulomonas fimi ATCC 484\t100\t \tUPA115\t4.4.\t3,862,723\t9\t3,608\t73.2\tCellulomonas fimi ATCC 484\t80.1\t \tNCBI\tLeifsonia sp. PS1209\t4,091,164\t1\t3,916\t69.7\tLeifsonia aquatica ATCC 14665\t84.0\t \tUPA115\t5.2.\t5,084,807\t3\t4,961\t69.5\tLeifsonia sp. PS1209\t81.0"
+  ],
+  "CONCL": [
+    "Conclusions",
+    "The WRS has been providing potable water to astronauts onboard the ISS since 2009. However, our current understanding of the microbial community within the system is limited to the WPA wastewater tank and point-of-use PWD samples. This work represents the first investigation into the unique community that inhabits the UPA. From the UPA115 flex line, a purge line carrying water vapor to the DA, three differing morphologies of B. contaminans, as well as P. fungorum, L. lichenia, and an unidentified Gram-positive bacterium, were isolated; additionally, the fungi Fusarium sp. and L. mutabilis were isolated. Less diversity was noted from samples recovered from the UPA95 flex line, where concentrated levels of chromium are encountered, from which two different morphologies of B. contaminans, P. fungorum, and Fusarium sp. were isolated. For the five B. contaminans isolates, multiple chromate-resistance and transporter protein gene clusters were identified through pangenomic analysis that differentiated these genomes from previously studied isolates recovered from the PWD. Moreover, the UPA P. fungorum isolates contained a gene cluster associated with chromate resistance that was absent in the current NCBI references. The acquisition of these resistance gene clusters by these organisms, as compared to both those from the WPA and terrestrial environments, distinguishes these flex lines as a unique ecological niche. Furthermore, this highlights that the flex lines, as well as other areas within the UPA, are ideal candidate areas to investigate horizontal gene transfer. As a dormant water system is a likely option for future spacecraft, e.g. the Lunar Gateway, where biofouling is a significant concern, biofilm analysis and imaging was performed. ESEM imaging of the water from the flex lines and biofilm potential of the recovered isolates demonstrated that these hoses are novel areas for fungal-bacterial biofilm growth. While NASA has a strong biofilm control campaign, the organisms used in these studies have been limited to those isolated from the WPA. Further analysis of isolates from the UPA, displaying a greater range of genetic and phenotypic properties, as well as the fungal-bacterial interactions at play within these biofilms, should be a high priority to aid in the design of engineering controls directed toward biofilm prevention in next generation water systems."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This work was supported by  Exploration Capabilities and the Johnson Space Center’s Office of the Chief Technologist."
+  ],
+  "AUTH_CONT": [
+    "CRediT authorship contribution statement",
+    "Hang Ngoc Nguyen: General, Methodology, Sequencing, Phenotypic Evaluation, Bioinformatics, Data, Formal analysis, Writing – original draft, preparation, All authors agreed to the published version of this manuscript. G. Marie Sharp: Bioinformatics, Data, Formal analysis, Writing – original draft, preparation, Writing – review & editing, All authors agreed to the published version of this manuscript. Sarah Stahl-Rommel: General, Methodology, Sequencing, Bioinformatics, Data, Formal analysis, Writing – original draft, preparation, Writing – review & editing, Project administration, All authors agreed to the published version of this manuscript. Yo-Ann Velez Justiniano: Conceptualization, Sample Collection and Fixation, Writing – review & editing, All authors agreed to the published version of this manuscript. Christian L. Castro: Bioinformatics, Data, Formal analysis, Writing – review & editing, All authors agreed to the published version of this manuscript. Mayra Nelman-Gonzalez: ESEM Imaging, Writing – review & editing, All authors agreed to the published version of this manuscript. Aubrie O’Rourke: Bioinformatics, Data, Formal analysis, Writing – review & editing. Michael D. Lee: Bioinformatics, Data, Formal analysis, Writing – review & editing. Jill Williamson: Conceptualization, Sample Collection and Fixation, Writing – review & editing, All authors agreed to the published version of this manuscript. Chelsea McCool: Sample Collection and Fixation, Writing – review & editing, All authors agreed to the published version of this manuscript. Brian Crucian: ESEM Imaging, Writing – review & editing. Kenneth W. Clark: ESEM Imaging. Miten Jain: Bioinformatics, Data, Formal analysis, Writing – review & editing, All authors agreed to the published version of this manuscript. Sarah L. Castro-Wallace: Conceptualization, General, Methodology, Writing – original draft, preparation, Writing – review & editing, Supervision, Project administration, Funding acquisition, All authors agreed to the published version of this manuscript."
+  ],
+  "COMP_INT": [
+    "Declaration of competing interest",
+    "The authors declare that there are no known competing finical interests or personal relationships that could influence the data or conclusions reported here. All authors have confirmed and verified."
+  ],
+  "REF": [
+    "References",
+    "Urine treatment on the international space station: current practice and novel approaches",
+    "Microbial monitoring of crewed habitats in space-current status and future perspectives",
+    "Design of a spaceflight biofilm experiment",
+    "Nanopore DNA sequencing and genome assembly on the international space station",
+    "Real-time culture-independent microbial profiling onboard the international space station using nanopore sequencing",
+    "Off Earth identification of bacterial populations using 16S rDNA nanopore sequencing",
+    "Visualizing and processing long-read sequencing data",
+    "The sequence alignment/map format and SAMtools",
+    "Improved data analysis for the MinION nanopore sequencer",
+    "Borsboom, D. Qgraph: network visualizations of relationships in psychometric data",
+    "BBTools software package",
+    "Completing bacterial genome assemblies with multiplex MinION sequencing",
+    "Github",
+    "Unicycler: resolving bacterial genome assemblies from short and long sequencing reads",
+    "CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes",
+    "High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries",
+    "NCBI prokaryotic genome annotation pipeline",
+    "antiSMASH 6.0: improving cluster detection and comparison capabilities",
+    "GenBank",
+    "Community-led, integrated, reproducible multi-omics with anvi'o",
+    "Designing polymeric adhesives for antimicrobial materials: poly(ethylene imine) polymer, graphene, graphene oxide and molybdenum trioxide – a biomimetic approach",
+    "Weir, N., Wilson, M., Yoets, A., Molina, T., Bruce, R., Carter, L. Microbiological characterization of the international space station water processor assembly external filter assembly S/N 01. In Proceedings of 42nd international conference on environmental systems; p. 3595..",
+    "Potential biofilm control strategies for extended spaceflight missions",
+    "Longitudinal characterization of multispecies microbial populations recovered from spaceflight potable water",
+    "Genome-centric evaluation of Burkholderia sp. strain SRS-W-2-2016 resistant to high concentrations of uranium and nickel isolated from the Savannah River Site (SRS), USA",
+    "Potential of cadmium resistant Burkholderia contaminans strain ZCC in promoting growth of soy beans in the presence of cadmium",
+    "Fusarium oxysporum as an opportunistic fungal pathogen on zinnia hybrida plants grown on board the international space station",
+    "Molecular signatures and phylogenomic analysis of the genus Burkholderia: proposal for division of this genus into the emended genus Burkholderia containing pathogenic organisms and a new genus Paraburkholderia gen. nov. harboring environmental species",
+    "Genomics of an endemic cystic fibrosis Burkholderia multivorans strain reveals low within-patient evolution but high between-patient diversity",
+    "Genomic and phenotypic characterization of Burkholderia isolates from the potable water system of the International Space Station",
+    "An operon consisting of a P-type ATPase gene and a transcriptional regulator gene responsible for cadmium resistances in Bacillus vietamensis 151–6 and Bacillus marisflavi 151–25",
+    "Diversity of bacterial type II toxin-antitoxin systems: a comprehensive search and functional analysis of novel families",
+    "Structure and function of an unusual flavodoxin from the domain Archaea",
+    "Characterization of the roles of hemolysin and other toxins in enteropathy caused by alpha-hemolytic Escherichia coli linked to human diarrhea",
+    "Environmental and genetic factors controlling Burkholderia pseudomallei persister phenotypes",
+    "Identification and characterization of VapBC toxin–antitoxin system in Bosea sp. PAMC 26642 isolated from Arctic lichens",
+    "Pili in gram-positive pathogens",
+    "Microbe-host interactions: structure and role of Gram-negative bacterial porins",
+    "Architecture and function of metallopeptidase catalytic domains",
+    "Pathways of arsenic uptake and efflux",
+    "Let’s get physical: bacterial-fungal interactions and their consequences in agriculture and health",
+    "Biofilm characterization of Fusarium solani keratitis isolate: increased resistance to antifungals and UV light",
+    "Interactions of surface exopolysaccharides from bifidobacterium and lactobacillus within the intestinal environment",
+    "Beyond risk: bacterial biofilms and their regulating approaches",
+    "Burkholderia cepacia complex regulation of virulence gene expression: a review",
+    "Comparative response of two Burkholderia fungorum strains grown as planktonic cells versus biofilm to dibenzothiophene and select polycyclic aromatic hydrocarbons",
+    "High-Throughput genetic screen reveals that early attachment and biofilm formation are necessary for full pyoverdine production by Pseudomonas aeruginosa",
+    "PqsA promotes pyoverdine production via biofilm formation",
+    "Global awakening of cryptic biosynthetic gene clusters in Burkholderia thailandensis",
+    "Production of the antifungal compound pyrrolnitrin is quorum sensing-regulated in members of the Burkholderia cepacia complex",
+    "Understanding the pathogenicity of Burkholderia contaminans, an emerging pathogen in cystic fibrosis",
+    "Iron and Pseudomonas aeruginosa biofilm formation",
+    "Bacterial-fungal interactions: hyphens between agricultural, clinical, environmental, and food microbiologists",
+    "Genetic and biochemical map for the biosynthesis of occidiofungin, an antifungal produced by Burkholderia contaminans strain MS14",
+    "A Burkholderia cepacia complex non-ribosomal peptide-synthesized toxin is hemolytic and required for full virulence",
+    "Biosynthesis of fragin is controlled by a novel quorum sensing signal",
+    "Isolation of maize soil and rhizosphere bacteria with antagonistic activity against Aspergillus flavus and Fusarium verticillioides",
+    "Occidiofungin is the key metabolite for antifungal activity of the endophytic bacterium Burkholderia sp. MS455 against Aspergillus flavus",
+    "In vitro and in vivo plant growth promoting activities and DNA fingerprinting of antagonistic endophytic actinomycetes associates with medicinal plants",
+    "Importance of the ornibactin and pyochelin siderophore transport systems in Burkholderia cenocepacia lung infections",
+    "Burkholderia bacteria produce multiple potentially novel molecules that inhibit carbapenem-resistant gram-negative bacterial pathogens",
+    "Specific inactivation of an antifungal bacterial siderophore by a fungal plant pathogen",
+    "Do global regulators hold the key to production of bacterial secondary metabolites?"
+  ],
+  "SUPPL": [
+    "Supplementary data",
+    "The following is the Supplementary data to this article.",
+    "Data availability",
+    "We are sharing all data.",
+    "Supplementary data to this article can be found online at https://doi.org/10.1016/j.bioflm.2023.100108."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Urine treatment on the international space station: current practice and novel approaches",
+      "autores": [
+        {
+          "nombre_completo": "F. Volpin",
+          "nombres": "F.",
+          "apellidos": "Volpin"
+        },
+        {
+          "nombre_completo": "U. Badeti",
+          "nombres": "U.",
+          "apellidos": "Badeti"
+        },
+        {
+          "nombre_completo": "C. Wang",
+          "nombres": "C.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. Jiang",
+          "nombres": "J.",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "J. Vogel",
+          "nombres": "J.",
+          "apellidos": "Vogel"
+        },
+        {
+          "nombre_completo": "S. Freguia",
+          "nombres": "S.",
+          "apellidos": "Freguia"
+        },
+        {
+          "nombre_completo": "D. Fam",
+          "nombres": "D.",
+          "apellidos": "Fam"
+        },
+        {
+          "nombre_completo": "J. Cho",
+          "nombres": "J.",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "S. Phuntsho",
+          "nombres": "S.",
+          "apellidos": "Phuntsho"
+        },
+        {
+          "nombre_completo": "H.K. Shon",
+          "nombres": "H.K.",
+          "apellidos": "Shon"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Membranes",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbial monitoring of crewed habitats in space-current status and future perspectives",
+      "autores": [
+        {
+          "nombre_completo": "N. Yamaguchi",
+          "nombres": "N.",
+          "apellidos": "Yamaguchi"
+        },
+        {
+          "nombre_completo": "M. Roberts",
+          "nombres": "M.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "S. Castro",
+          "nombres": "S.",
+          "apellidos": "Castro"
+        },
+        {
+          "nombre_completo": "C. Oubre",
+          "nombres": "C.",
+          "apellidos": "Oubre"
+        },
+        {
+          "nombre_completo": "K. Makimura",
+          "nombres": "K.",
+          "apellidos": "Makimura"
+        },
+        {
+          "nombre_completo": "N. Leys",
+          "nombres": "N.",
+          "apellidos": "Leys"
+        },
+        {
+          "nombre_completo": "E. Grohmann",
+          "nombres": "E.",
+          "apellidos": "Grohmann"
+        },
+        {
+          "nombre_completo": "T. Sugita",
+          "nombres": "T.",
+          "apellidos": "Sugita"
+        },
+        {
+          "nombre_completo": "T. Ichijo",
+          "nombres": "T.",
+          "apellidos": "Ichijo"
+        },
+        {
+          "nombre_completo": "M. Nasu",
+          "nombres": "M.",
+          "apellidos": "Nasu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microb Environ",
+      "anio": "2014",
+      "volumen": "29",
+      "fpage": "250",
+      "lpage": "260"
+    },
+    {
+      "titulo": "Design of a spaceflight biofilm experiment",
+      "autores": [
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "Z. Nisar",
+          "nombres": "Z.",
+          "apellidos": "Nisar"
+        },
+        {
+          "nombre_completo": "P. Rubin",
+          "nombres": "P.",
+          "apellidos": "Rubin"
+        },
+        {
+          "nombre_completo": "M. Cortesão",
+          "nombres": "M.",
+          "apellidos": "Cortesão"
+        },
+        {
+          "nombre_completo": "J. Luo",
+          "nombres": "J.",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "S.A. McBride",
+          "nombres": "S.A.",
+          "apellidos": "McBride"
+        },
+        {
+          "nombre_completo": "R. Moeller",
+          "nombres": "R.",
+          "apellidos": "Moeller"
+        },
+        {
+          "nombre_completo": "D. Klaus",
+          "nombres": "D.",
+          "apellidos": "Klaus"
+        },
+        {
+          "nombre_completo": "D. Müller",
+          "nombres": "D.",
+          "apellidos": "Müller"
+        },
+        {
+          "nombre_completo": "K.K. Varanasi",
+          "nombres": "K.K.",
+          "apellidos": "Varanasi"
+        }
+      ],
+      "pmid": "30449911",
+      "fuente": "Acta Astronaut",
+      "anio": "2018",
+      "volumen": "148",
+      "fpage": "294",
+      "lpage": "300"
+    },
+    {
+      "titulo": "Nanopore DNA sequencing and genome assembly on the international space station",
+      "autores": [
+        {
+          "nombre_completo": "S.L. Castro-Wallace",
+          "nombres": "S.L.",
+          "apellidos": "Castro-Wallace"
+        },
+        {
+          "nombre_completo": "C.Y. Chiu",
+          "nombres": "C.Y.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "K.K. John",
+          "nombres": "K.K.",
+          "apellidos": "John"
+        },
+        {
+          "nombre_completo": "S.E. Stahl",
+          "nombres": "S.E.",
+          "apellidos": "Stahl"
+        },
+        {
+          "nombre_completo": "K.H. Rubins",
+          "nombres": "K.H.",
+          "apellidos": "Rubins"
+        },
+        {
+          "nombre_completo": "A.B.R. McIntyre",
+          "nombres": "A.B.R.",
+          "apellidos": "McIntyre"
+        },
+        {
+          "nombre_completo": "J.P. Dworkin",
+          "nombres": "J.P.",
+          "apellidos": "Dworkin"
+        },
+        {
+          "nombre_completo": "M.L. Lupisella",
+          "nombres": "M.L.",
+          "apellidos": "Lupisella"
+        },
+        {
+          "nombre_completo": "D.J. Smith",
+          "nombres": "D.J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "D.J. Botkin",
+          "nombres": "D.J.",
+          "apellidos": "Botkin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sci Rep",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Real-time culture-independent microbial profiling onboard the international space station using nanopore sequencing",
+      "autores": [
+        {
+          "nombre_completo": "S. Stahl-Rommel",
+          "nombres": "S.",
+          "apellidos": "Stahl-Rommel"
+        },
+        {
+          "nombre_completo": "M. Jain",
+          "nombres": "M.",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "H.N. Nguyen",
+          "nombres": "H.N.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "R.R. Arnold",
+          "nombres": "R.R.",
+          "apellidos": "Arnold"
+        },
+        {
+          "nombre_completo": "S.M. Aunon-Chancellor",
+          "nombres": "S.M.",
+          "apellidos": "Aunon-Chancellor"
+        },
+        {
+          "nombre_completo": "G.M. Sharp",
+          "nombres": "G.M.",
+          "apellidos": "Sharp"
+        },
+        {
+          "nombre_completo": "C.L. Castro",
+          "nombres": "C.L.",
+          "apellidos": "Castro"
+        },
+        {
+          "nombre_completo": "K.K. John",
+          "nombres": "K.K.",
+          "apellidos": "John"
+        },
+        {
+          "nombre_completo": "S. Juul",
+          "nombres": "S.",
+          "apellidos": "Juul"
+        },
+        {
+          "nombre_completo": "D.J. Turner",
+          "nombres": "D.J.",
+          "apellidos": "Turner"
+        }
+      ],
+      "pmid": "33467183",
+      "fuente": "Genes",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "106",
+      "lpage": ""
+    },
+    {
+      "titulo": "Off Earth identification of bacterial populations using 16S rDNA nanopore sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A.S. Burton",
+          "nombres": "A.S.",
+          "apellidos": "Burton"
+        },
+        {
+          "nombre_completo": "S.E. Stahl",
+          "nombres": "S.E.",
+          "apellidos": "Stahl"
+        },
+        {
+          "nombre_completo": "K.K. John",
+          "nombres": "K.K.",
+          "apellidos": "John"
+        },
+        {
+          "nombre_completo": "M. Jain",
+          "nombres": "M.",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "S. Juul",
+          "nombres": "S.",
+          "apellidos": "Juul"
+        },
+        {
+          "nombre_completo": "D.J. Turner",
+          "nombres": "D.J.",
+          "apellidos": "Turner"
+        },
+        {
+          "nombre_completo": "E.D. Harrington",
+          "nombres": "E.D.",
+          "apellidos": "Harrington"
+        },
+        {
+          "nombre_completo": "D. Stoddart",
+          "nombres": "D.",
+          "apellidos": "Stoddart"
+        },
+        {
+          "nombre_completo": "B. Paten",
+          "nombres": "B.",
+          "apellidos": "Paten"
+        },
+        {
+          "nombre_completo": "M. Akeson",
+          "nombres": "M.",
+          "apellidos": "Akeson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genes",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Visualizing and processing long-read sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "W. De Coster",
+          "nombres": "W.",
+          "apellidos": "De Coster"
+        },
+        {
+          "nombre_completo": "S. D'Hert",
+          "nombres": "S.",
+          "apellidos": "D'Hert"
+        },
+        {
+          "nombre_completo": "D.T. Schultz",
+          "nombres": "D.T.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "M. Cruts",
+          "nombres": "M.",
+          "apellidos": "Cruts"
+        },
+        {
+          "nombre_completo": "surname:Van Broeckhoven",
+          "nombres": "surname:Van Broeckhoven",
+          "apellidos": ""
+        },
+        {
+          "nombre_completo": "C. NanoPack",
+          "nombres": "C.",
+          "apellidos": "NanoPack"
+        }
+      ],
+      "pmid": "29547981",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "2666",
+      "lpage": "2669"
+    },
+    {
+      "titulo": "The sequence alignment/map format and SAMtools",
+      "autores": [
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "B. Handsaker",
+          "nombres": "B.",
+          "apellidos": "Handsaker"
+        },
+        {
+          "nombre_completo": "A. Wysoker",
+          "nombres": "A.",
+          "apellidos": "Wysoker"
+        },
+        {
+          "nombre_completo": "T. Fennell",
+          "nombres": "T.",
+          "apellidos": "Fennell"
+        },
+        {
+          "nombre_completo": "J. Ruan",
+          "nombres": "J.",
+          "apellidos": "Ruan"
+        },
+        {
+          "nombre_completo": "N. Homer",
+          "nombres": "N.",
+          "apellidos": "Homer"
+        },
+        {
+          "nombre_completo": "G. Marth",
+          "nombres": "G.",
+          "apellidos": "Marth"
+        },
+        {
+          "nombre_completo": "G. Abecasis",
+          "nombres": "G.",
+          "apellidos": "Abecasis"
+        },
+        {
+          "nombre_completo": "R. Durbin",
+          "nombres": "R.",
+          "apellidos": "Durbin"
+        },
+        {
+          "nombre_completo": "G.P.D.P. Subgroup",
+          "nombres": "G.P.D.P.",
+          "apellidos": "Subgroup"
+        }
+      ],
+      "pmid": "19505943",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "2078",
+      "lpage": "2079"
+    },
+    {
+      "titulo": "Improved data analysis for the MinION nanopore sequencer",
+      "autores": [
+        {
+          "nombre_completo": "M. Jain",
+          "nombres": "M.",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "I.T. Fiddes",
+          "nombres": "I.T.",
+          "apellidos": "Fiddes"
+        },
+        {
+          "nombre_completo": "K.H. Miga",
+          "nombres": "K.H.",
+          "apellidos": "Miga"
+        },
+        {
+          "nombre_completo": "H.E. Olsen",
+          "nombres": "H.E.",
+          "apellidos": "Olsen"
+        },
+        {
+          "nombre_completo": "B. Paten",
+          "nombres": "B.",
+          "apellidos": "Paten"
+        },
+        {
+          "nombre_completo": "M. Akeson",
+          "nombres": "M.",
+          "apellidos": "Akeson"
+        }
+      ],
+      "pmid": "25686389",
+      "fuente": "Nat Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "351",
+      "lpage": "356"
+    },
+    {
+      "titulo": "Borsboom, D. Qgraph: network visualizations of relationships in psychometric data",
+      "autores": [
+        {
+          "nombre_completo": "S. Epskamp",
+          "nombres": "S.",
+          "apellidos": "Epskamp"
+        },
+        {
+          "nombre_completo": "A.O.J. Cramer",
+          "nombres": "A.O.J.",
+          "apellidos": "Cramer"
+        },
+        {
+          "nombre_completo": "L.J. Waldorp",
+          "nombres": "L.J.",
+          "apellidos": "Waldorp"
+        },
+        {
+          "nombre_completo": "V.D. Schmittmann",
+          "nombres": "V.D.",
+          "apellidos": "Schmittmann"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Stat Software",
+      "anio": "2012",
+      "volumen": "48",
+      "fpage": "1",
+      "lpage": "18"
+    },
+    {
+      "titulo": "BBTools software package",
+      "autores": [
+        {
+          "nombre_completo": "B. Bushnell",
+          "nombres": "B.",
+          "apellidos": "Bushnell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2014",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Completing bacterial genome assemblies with multiplex MinION sequencing",
+      "autores": [
+        {
+          "nombre_completo": "R.R. Wick",
+          "nombres": "R.R.",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "L.M. Judd",
+          "nombres": "L.M.",
+          "apellidos": "Judd"
+        },
+        {
+          "nombre_completo": "C.L. Gorrie",
+          "nombres": "C.L.",
+          "apellidos": "Gorrie"
+        },
+        {
+          "nombre_completo": "K.E. Holt",
+          "nombres": "K.E.",
+          "apellidos": "Holt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microb Genom",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Github",
+      "autores": [
+        {
+          "nombre_completo": "R. Wick",
+          "nombres": "R.",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "P. Filtlong Menzel",
+          "nombres": "P. Filtlong",
+          "apellidos": "Menzel"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Unicycler: resolving bacterial genome assemblies from short and long sequencing reads",
+      "autores": [
+        {
+          "nombre_completo": "R.R. Wick",
+          "nombres": "R.R.",
+          "apellidos": "Wick"
+        },
+        {
+          "nombre_completo": "L.M. Judd",
+          "nombres": "L.M.",
+          "apellidos": "Judd"
+        },
+        {
+          "nombre_completo": "C.L. Gorrie",
+          "nombres": "C.L.",
+          "apellidos": "Gorrie"
+        },
+        {
+          "nombre_completo": "K.E. Holt",
+          "nombres": "K.E.",
+          "apellidos": "Holt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PLoS Comput Biol",
+      "anio": "2017",
+      "volumen": "13",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes",
+      "autores": [
+        {
+          "nombre_completo": "D.H. Parks",
+          "nombres": "D.H.",
+          "apellidos": "Parks"
+        },
+        {
+          "nombre_completo": "M. Imelfort",
+          "nombres": "M.",
+          "apellidos": "Imelfort"
+        },
+        {
+          "nombre_completo": "C.T. Skennerton",
+          "nombres": "C.T.",
+          "apellidos": "Skennerton"
+        },
+        {
+          "nombre_completo": "P. Hugenholtz",
+          "nombres": "P.",
+          "apellidos": "Hugenholtz"
+        },
+        {
+          "nombre_completo": "G.W. Tyson",
+          "nombres": "G.W.",
+          "apellidos": "Tyson"
+        }
+      ],
+      "pmid": "25977477",
+      "fuente": "Genome Res",
+      "anio": "2015",
+      "volumen": "25",
+      "fpage": "1043",
+      "lpage": "1055"
+    },
+    {
+      "titulo": "High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries",
+      "autores": [
+        {
+          "nombre_completo": "C. Jain",
+          "nombres": "C.",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "L.M. Rodriguez-R",
+          "nombres": "L.M.",
+          "apellidos": "Rodriguez-R"
+        },
+        {
+          "nombre_completo": "A.M. Phillippy",
+          "nombres": "A.M.",
+          "apellidos": "Phillippy"
+        },
+        {
+          "nombre_completo": "K.T. Konstantinidis",
+          "nombres": "K.T.",
+          "apellidos": "Konstantinidis"
+        },
+        {
+          "nombre_completo": "S. Aluru",
+          "nombres": "S.",
+          "apellidos": "Aluru"
+        }
+      ],
+      "pmid": "30504855",
+      "fuente": "Nat Commun",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "5114",
+      "lpage": ""
+    },
+    {
+      "titulo": "NCBI prokaryotic genome annotation pipeline",
+      "autores": [
+        {
+          "nombre_completo": "T. Tatusova",
+          "nombres": "T.",
+          "apellidos": "Tatusova"
+        },
+        {
+          "nombre_completo": "M. DiCuccio",
+          "nombres": "M.",
+          "apellidos": "DiCuccio"
+        },
+        {
+          "nombre_completo": "A. Badretdin",
+          "nombres": "A.",
+          "apellidos": "Badretdin"
+        },
+        {
+          "nombre_completo": "V. Chetvernin",
+          "nombres": "V.",
+          "apellidos": "Chetvernin"
+        },
+        {
+          "nombre_completo": "E.P. Nawrocki",
+          "nombres": "E.P.",
+          "apellidos": "Nawrocki"
+        },
+        {
+          "nombre_completo": "L. Zaslavsky",
+          "nombres": "L.",
+          "apellidos": "Zaslavsky"
+        },
+        {
+          "nombre_completo": "A. Lomsadze",
+          "nombres": "A.",
+          "apellidos": "Lomsadze"
+        },
+        {
+          "nombre_completo": "K.D. Pruitt",
+          "nombres": "K.D.",
+          "apellidos": "Pruitt"
+        },
+        {
+          "nombre_completo": "M. Borodovsky",
+          "nombres": "M.",
+          "apellidos": "Borodovsky"
+        },
+        {
+          "nombre_completo": "J. Ostell",
+          "nombres": "J.",
+          "apellidos": "Ostell"
+        }
+      ],
+      "pmid": "27342282",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2016",
+      "volumen": "44",
+      "fpage": "6614",
+      "lpage": "6624"
+    },
+    {
+      "titulo": "antiSMASH 6.0: improving cluster detection and comparison capabilities",
+      "autores": [
+        {
+          "nombre_completo": "K. Blin",
+          "nombres": "K.",
+          "apellidos": "Blin"
+        },
+        {
+          "nombre_completo": "S. Shaw",
+          "nombres": "S.",
+          "apellidos": "Shaw"
+        },
+        {
+          "nombre_completo": "A.M. Kloosterman",
+          "nombres": "A.M.",
+          "apellidos": "Kloosterman"
+        },
+        {
+          "nombre_completo": "Z. Charlop-Powers",
+          "nombres": "Z.",
+          "apellidos": "Charlop-Powers"
+        },
+        {
+          "nombre_completo": "G.P. van Wezel",
+          "nombres": "G.P.",
+          "apellidos": "van Wezel"
+        },
+        {
+          "nombre_completo": "M.H. Medema",
+          "nombres": "M.H.",
+          "apellidos": "Medema"
+        },
+        {
+          "nombre_completo": "T. Weber",
+          "nombres": "T.",
+          "apellidos": "Weber"
+        }
+      ],
+      "pmid": "33978755",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2021",
+      "volumen": "49",
+      "fpage": "W29",
+      "lpage": "W35"
+    },
+    {
+      "titulo": "GenBank",
+      "autores": [
+        {
+          "nombre_completo": "K. Clark",
+          "nombres": "K.",
+          "apellidos": "Clark"
+        },
+        {
+          "nombre_completo": "I. Karsch-Mizrachi",
+          "nombres": "I.",
+          "apellidos": "Karsch-Mizrachi"
+        },
+        {
+          "nombre_completo": "D.J. Lipman",
+          "nombres": "D.J.",
+          "apellidos": "Lipman"
+        },
+        {
+          "nombre_completo": "J. Ostell",
+          "nombres": "J.",
+          "apellidos": "Ostell"
+        },
+        {
+          "nombre_completo": "E.W. Sayers",
+          "nombres": "E.W.",
+          "apellidos": "Sayers"
+        }
+      ],
+      "pmid": "26590407",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2015",
+      "volumen": "44",
+      "fpage": "D67",
+      "lpage": "D72"
+    },
+    {
+      "titulo": "Community-led, integrated, reproducible multi-omics with anvi'o",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Eren",
+          "nombres": "A.M.",
+          "apellidos": "Eren"
+        },
+        {
+          "nombre_completo": "E. Kiefl",
+          "nombres": "E.",
+          "apellidos": "Kiefl"
+        },
+        {
+          "nombre_completo": "A. Shaiber",
+          "nombres": "A.",
+          "apellidos": "Shaiber"
+        },
+        {
+          "nombre_completo": "I. Veseli",
+          "nombres": "I.",
+          "apellidos": "Veseli"
+        },
+        {
+          "nombre_completo": "S.E. Miller",
+          "nombres": "S.E.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "M.S. Schechter",
+          "nombres": "M.S.",
+          "apellidos": "Schechter"
+        },
+        {
+          "nombre_completo": "I. Fink",
+          "nombres": "I.",
+          "apellidos": "Fink"
+        },
+        {
+          "nombre_completo": "J.N. Pan",
+          "nombres": "J.N.",
+          "apellidos": "Pan"
+        },
+        {
+          "nombre_completo": "M. Yousef",
+          "nombres": "M.",
+          "apellidos": "Yousef"
+        },
+        {
+          "nombre_completo": "E.C. Fogarty",
+          "nombres": "E.C.",
+          "apellidos": "Fogarty"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nature microbiology",
+      "anio": "2021",
+      "volumen": "6",
+      "fpage": "3",
+      "lpage": "6"
+    },
+    {
+      "titulo": "Designing polymeric adhesives for antimicrobial materials: poly(ethylene imine) polymer, graphene, graphene oxide and molybdenum trioxide – a biomimetic approach",
+      "autores": [
+        {
+          "nombre_completo": "H.N. Nguyen",
+          "nombres": "H.N.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "E.T. Nadres",
+          "nombres": "E.T.",
+          "apellidos": "Nadres"
+        },
+        {
+          "nombre_completo": "B.G. Alamani",
+          "nombres": "B.G.",
+          "apellidos": "Alamani"
+        },
+        {
+          "nombre_completo": "D.F. Rodrigues",
+          "nombres": "D.F.",
+          "apellidos": "Rodrigues"
+        }
+      ],
+      "pmid": "32264424",
+      "fuente": "J Mater Chem B",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "6616",
+      "lpage": "6628"
+    },
+    {
+      "titulo": "Weir, N., Wilson, M., Yoets, A., Molina, T., Bruce, R., Carter, L. Microbiological characterization of the international space station water processor assembly external filter assembly S/N 01. In Proceedings of 42nd international conference on environmental systems; p. 3595..",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Potential biofilm control strategies for extended spaceflight missions",
+      "autores": [
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "R.J.C. McLean",
+          "nombres": "R.J.C.",
+          "apellidos": "McLean"
+        },
+        {
+          "nombre_completo": "T.A. Rook",
+          "nombres": "T.A.",
+          "apellidos": "Rook"
+        },
+        {
+          "nombre_completo": "G. Angle",
+          "nombres": "G.",
+          "apellidos": "Angle"
+        },
+        {
+          "nombre_completo": "D.L. Carter",
+          "nombres": "D.L.",
+          "apellidos": "Carter"
+        },
+        {
+          "nombre_completo": "A. Delegard",
+          "nombres": "A.",
+          "apellidos": "Delegard"
+        },
+        {
+          "nombre_completo": "A. Denvir",
+          "nombres": "A.",
+          "apellidos": "Denvir"
+        },
+        {
+          "nombre_completo": "R. Gerlach",
+          "nombres": "R.",
+          "apellidos": "Gerlach"
+        },
+        {
+          "nombre_completo": "S. Gorti",
+          "nombres": "S.",
+          "apellidos": "Gorti"
+        },
+        {
+          "nombre_completo": "D. McIlwaine",
+          "nombres": "D.",
+          "apellidos": "McIlwaine"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biofilms",
+      "anio": "2020",
+      "volumen": "2",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Longitudinal characterization of multispecies microbial populations recovered from spaceflight potable water",
+      "autores": [
+        {
+          "nombre_completo": "J. Yang",
+          "nombres": "J.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "J. Barrila",
+          "nombres": "J.",
+          "apellidos": "Barrila"
+        },
+        {
+          "nombre_completo": "C. Mark Ott",
+          "nombres": "C.",
+          "apellidos": "Mark Ott"
+        },
+        {
+          "nombre_completo": "O. King",
+          "nombres": "O.",
+          "apellidos": "King"
+        },
+        {
+          "nombre_completo": "R. Bruce",
+          "nombres": "R.",
+          "apellidos": "Bruce"
+        },
+        {
+          "nombre_completo": "R.J.C. McLean",
+          "nombres": "R.J.C.",
+          "apellidos": "McLean"
+        },
+        {
+          "nombre_completo": "C.A. Nickerson",
+          "nombres": "C.A.",
+          "apellidos": "Nickerson"
+        }
+      ],
+      "pmid": "34489467",
+      "fuente": "npj Biofilms and Microbiomes",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "70",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-centric evaluation of Burkholderia sp. strain SRS-W-2-2016 resistant to high concentrations of uranium and nickel isolated from the Savannah River Site (SRS), USA",
+      "autores": [
+        {
+          "nombre_completo": "A. Pathak",
+          "nombres": "A.",
+          "apellidos": "Pathak"
+        },
+        {
+          "nombre_completo": "A. Chauhan",
+          "nombres": "A.",
+          "apellidos": "Chauhan"
+        },
+        {
+          "nombre_completo": "P. Stothard",
+          "nombres": "P.",
+          "apellidos": "Stothard"
+        },
+        {
+          "nombre_completo": "S. Green",
+          "nombres": "S.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "M. Maienschein-Cline",
+          "nombres": "M.",
+          "apellidos": "Maienschein-Cline"
+        },
+        {
+          "nombre_completo": "R. Jaswal",
+          "nombres": "R.",
+          "apellidos": "Jaswal"
+        },
+        {
+          "nombre_completo": "J. Seaman",
+          "nombres": "J.",
+          "apellidos": "Seaman"
+        }
+      ],
+      "pmid": "28373958",
+      "fuente": "Genomics Data",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "62",
+      "lpage": "68"
+    },
+    {
+      "titulo": "Potential of cadmium resistant Burkholderia contaminans strain ZCC in promoting growth of soy beans in the presence of cadmium",
+      "autores": [
+        {
+          "nombre_completo": "L.-X. You",
+          "nombres": "L.-X.",
+          "apellidos": "You"
+        },
+        {
+          "nombre_completo": "R.-R. Zhang",
+          "nombres": "R.-R.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "J.-X. Dai",
+          "nombres": "J.-X.",
+          "apellidos": "Dai"
+        },
+        {
+          "nombre_completo": "Z.-T. Lin",
+          "nombres": "Z.-T.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Y.-P. Li",
+          "nombres": "Y.-P.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "M. Herzberg",
+          "nombres": "M.",
+          "apellidos": "Herzberg"
+        },
+        {
+          "nombre_completo": "J.-L. Zhang",
+          "nombres": "J.-L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H. Al-Wathnani",
+          "nombres": "H.",
+          "apellidos": "Al-Wathnani"
+        },
+        {
+          "nombre_completo": "C.-K. Zhang",
+          "nombres": "C.-K.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "R.-W. Feng",
+          "nombres": "R.-W.",
+          "apellidos": "Feng"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Ecotoxicol Environ Saf",
+      "anio": "2021",
+      "volumen": "211",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fusarium oxysporum as an opportunistic fungal pathogen on zinnia hybrida plants grown on board the international space station",
+      "autores": [
+        {
+          "nombre_completo": "A.C. Schuerger",
+          "nombres": "A.C.",
+          "apellidos": "Schuerger"
+        },
+        {
+          "nombre_completo": "Bimal S. Amaradasa",
+          "nombres": "Bimal S.",
+          "apellidos": "Amaradasa"
+        },
+        {
+          "nombre_completo": "Nicholas S. Dufault",
+          "nombres": "Nicholas S.",
+          "apellidos": "Dufault"
+        },
+        {
+          "nombre_completo": "M.E. Hummerick",
+          "nombres": "M.E.",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "J.T. Richards",
+          "nombres": "J.T.",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "C.L. Khodadad",
+          "nombres": "C.L.",
+          "apellidos": "Khodadad"
+        },
+        {
+          "nombre_completo": "T.M. Smith",
+          "nombres": "T.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "G.D. Massa",
+          "nombres": "G.D.",
+          "apellidos": "Massa"
+        }
+      ],
+      "pmid": "33926205",
+      "fuente": "Astrobiology",
+      "anio": "2021",
+      "volumen": "21",
+      "fpage": "1029",
+      "lpage": "1048"
+    },
+    {
+      "titulo": "Molecular signatures and phylogenomic analysis of the genus Burkholderia: proposal for division of this genus into the emended genus Burkholderia containing pathogenic organisms and a new genus Paraburkholderia gen. nov. harboring environmental species",
+      "autores": [
+        {
+          "nombre_completo": "A. Sawana",
+          "nombres": "A.",
+          "apellidos": "Sawana"
+        },
+        {
+          "nombre_completo": "M. Adeolu",
+          "nombres": "M.",
+          "apellidos": "Adeolu"
+        },
+        {
+          "nombre_completo": "R.S. Gupta",
+          "nombres": "R.S.",
+          "apellidos": "Gupta"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front Genet",
+      "anio": "2014",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genomics of an endemic cystic fibrosis Burkholderia multivorans strain reveals low within-patient evolution but high between-patient diversity",
+      "autores": [
+        {
+          "nombre_completo": "C. Lood",
+          "nombres": "C.",
+          "apellidos": "Lood"
+        },
+        {
+          "nombre_completo": "C. Peeters",
+          "nombres": "C.",
+          "apellidos": "Peeters"
+        },
+        {
+          "nombre_completo": "Q. Lamy-Besnier",
+          "nombres": "Q.",
+          "apellidos": "Lamy-Besnier"
+        },
+        {
+          "nombre_completo": "J. Wagemans",
+          "nombres": "J.",
+          "apellidos": "Wagemans"
+        },
+        {
+          "nombre_completo": "D. De Vos",
+          "nombres": "D.",
+          "apellidos": "De Vos"
+        },
+        {
+          "nombre_completo": "M. Proesmans",
+          "nombres": "M.",
+          "apellidos": "Proesmans"
+        },
+        {
+          "nombre_completo": "J.-P. Pirnay",
+          "nombres": "J.-P.",
+          "apellidos": "Pirnay"
+        },
+        {
+          "nombre_completo": "F. Echahidi",
+          "nombres": "F.",
+          "apellidos": "Echahidi"
+        },
+        {
+          "nombre_completo": "D. Piérard",
+          "nombres": "D.",
+          "apellidos": "Piérard"
+        },
+        {
+          "nombre_completo": "M. Thimmesch",
+          "nombres": "M.",
+          "apellidos": "Thimmesch"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PLoS Pathog",
+      "anio": "2021",
+      "volumen": "17",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genomic and phenotypic characterization of Burkholderia isolates from the potable water system of the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A. O'Rourke",
+          "nombres": "A.",
+          "apellidos": "O'Rourke"
+        },
+        {
+          "nombre_completo": "M.D. Lee",
+          "nombres": "M.D.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "W.C. Nierman",
+          "nombres": "W.C.",
+          "apellidos": "Nierman"
+        },
+        {
+          "nombre_completo": "R.C. Everroad",
+          "nombres": "R.C.",
+          "apellidos": "Everroad"
+        },
+        {
+          "nombre_completo": "C.L. Dupont",
+          "nombres": "C.L.",
+          "apellidos": "Dupont"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PLoS One",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "An operon consisting of a P-type ATPase gene and a transcriptional regulator gene responsible for cadmium resistances in Bacillus vietamensis 151–6 and Bacillus marisflavi 151–25",
+      "autores": [
+        {
+          "nombre_completo": "X. Yu",
+          "nombres": "X.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "Z. Ding",
+          "nombres": "Z.",
+          "apellidos": "Ding"
+        },
+        {
+          "nombre_completo": "Y. Ji",
+          "nombres": "Y.",
+          "apellidos": "Ji"
+        },
+        {
+          "nombre_completo": "J. Zhao",
+          "nombres": "J.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "X. Liu",
+          "nombres": "X.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "J. Tian",
+          "nombres": "J.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "N. Wu",
+          "nombres": "N.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "Y. Fan",
+          "nombres": "Y.",
+          "apellidos": "Fan"
+        }
+      ],
+      "pmid": "31964334",
+      "fuente": "BMC Microbiol",
+      "anio": "2020",
+      "volumen": "20",
+      "fpage": "18",
+      "lpage": ""
+    },
+    {
+      "titulo": "Diversity of bacterial type II toxin-antitoxin systems: a comprehensive search and functional analysis of novel families",
+      "autores": [
+        {
+          "nombre_completo": "R. Leplae",
+          "nombres": "R.",
+          "apellidos": "Leplae"
+        },
+        {
+          "nombre_completo": "D. Geeraerts",
+          "nombres": "D.",
+          "apellidos": "Geeraerts"
+        },
+        {
+          "nombre_completo": "R. Hallez",
+          "nombres": "R.",
+          "apellidos": "Hallez"
+        },
+        {
+          "nombre_completo": "J. Guglielmini",
+          "nombres": "J.",
+          "apellidos": "Guglielmini"
+        },
+        {
+          "nombre_completo": "P. Drèze",
+          "nombres": "P.",
+          "apellidos": "Drèze"
+        },
+        {
+          "nombre_completo": "L. Van Melderen",
+          "nombres": "L.",
+          "apellidos": "Van Melderen"
+        }
+      ],
+      "pmid": "21422074",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2011",
+      "volumen": "39",
+      "fpage": "5513",
+      "lpage": "5525"
+    },
+    {
+      "titulo": "Structure and function of an unusual flavodoxin from the domain Archaea",
+      "autores": [
+        {
+          "nombre_completo": "D. Prakash",
+          "nombres": "D.",
+          "apellidos": "Prakash"
+        },
+        {
+          "nombre_completo": "P.R. Iyer",
+          "nombres": "P.R.",
+          "apellidos": "Iyer"
+        },
+        {
+          "nombre_completo": "S. Suharti",
+          "nombres": "S.",
+          "apellidos": "Suharti"
+        },
+        {
+          "nombre_completo": "K.A. Walters",
+          "nombres": "K.A.",
+          "apellidos": "Walters"
+        },
+        {
+          "nombre_completo": "M.G. Santiago-Martinez",
+          "nombres": "M.G.",
+          "apellidos": "Santiago-Martinez"
+        },
+        {
+          "nombre_completo": "J.H. Golbeck",
+          "nombres": "J.H.",
+          "apellidos": "Golbeck"
+        },
+        {
+          "nombre_completo": "K.S. Murakami",
+          "nombres": "K.S.",
+          "apellidos": "Murakami"
+        },
+        {
+          "nombre_completo": "J.G. Ferry",
+          "nombres": "J.G.",
+          "apellidos": "Ferry"
+        }
+      ],
+      "pmid": "31801875",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2019",
+      "volumen": "116",
+      "fpage": "25917",
+      "lpage": "25922"
+    },
+    {
+      "titulo": "Characterization of the roles of hemolysin and other toxins in enteropathy caused by alpha-hemolytic Escherichia coli linked to human diarrhea",
+      "autores": [
+        {
+          "nombre_completo": "S.J. Elliott",
+          "nombres": "S.J.",
+          "apellidos": "Elliott"
+        },
+        {
+          "nombre_completo": "S. Srinivas",
+          "nombres": "S.",
+          "apellidos": "Srinivas"
+        },
+        {
+          "nombre_completo": "M.J. Albert",
+          "nombres": "M.J.",
+          "apellidos": "Albert"
+        },
+        {
+          "nombre_completo": "K. Alam",
+          "nombres": "K.",
+          "apellidos": "Alam"
+        },
+        {
+          "nombre_completo": "R.M. Robins-Browne",
+          "nombres": "R.M.",
+          "apellidos": "Robins-Browne"
+        },
+        {
+          "nombre_completo": "S.T. Gunzburg",
+          "nombres": "S.T.",
+          "apellidos": "Gunzburg"
+        },
+        {
+          "nombre_completo": "B.J. Mee",
+          "nombres": "B.J.",
+          "apellidos": "Mee"
+        },
+        {
+          "nombre_completo": "B.J. Chang",
+          "nombres": "B.J.",
+          "apellidos": "Chang"
+        }
+      ],
+      "pmid": "9573087",
+      "fuente": "Infect Immun",
+      "anio": "1998",
+      "volumen": "66",
+      "fpage": "2040",
+      "lpage": "2051"
+    },
+    {
+      "titulo": "Environmental and genetic factors controlling Burkholderia pseudomallei persister phenotypes",
+      "autores": [
+        {
+          "nombre_completo": "A. O'Rourke",
+          "nombres": "A.",
+          "apellidos": "O'Rourke"
+        },
+        {
+          "nombre_completo": "N. Yee",
+          "nombres": "N.",
+          "apellidos": "Yee"
+        },
+        {
+          "nombre_completo": "W.C. Nierman",
+          "nombres": "W.C.",
+          "apellidos": "Nierman"
+        },
+        {
+          "nombre_completo": "S. Beyhan",
+          "nombres": "S.",
+          "apellidos": "Beyhan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Current Tropical Medicine Reports",
+      "anio": "2017",
+      "volumen": "4",
+      "fpage": "111",
+      "lpage": "116"
+    },
+    {
+      "titulo": "Identification and characterization of VapBC toxin–antitoxin system in Bosea sp. PAMC 26642 isolated from Arctic lichens",
+      "autores": [
+        {
+          "nombre_completo": "H. Jeon",
+          "nombres": "H.",
+          "apellidos": "Jeon"
+        },
+        {
+          "nombre_completo": "E. Choi",
+          "nombres": "E.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "J. Hwang",
+          "nombres": "J.",
+          "apellidos": "Hwang"
+        }
+      ],
+      "pmid": "34429367",
+      "fuente": "RNA",
+      "anio": "2021",
+      "volumen": "27",
+      "fpage": "1374",
+      "lpage": "1389"
+    },
+    {
+      "titulo": "Pili in gram-positive pathogens",
+      "autores": [
+        {
+          "nombre_completo": "J.L. Telford",
+          "nombres": "J.L.",
+          "apellidos": "Telford"
+        },
+        {
+          "nombre_completo": "M.A. Barocchi",
+          "nombres": "M.A.",
+          "apellidos": "Barocchi"
+        },
+        {
+          "nombre_completo": "I. Margarit",
+          "nombres": "I.",
+          "apellidos": "Margarit"
+        },
+        {
+          "nombre_completo": "R. Rappuoli",
+          "nombres": "R.",
+          "apellidos": "Rappuoli"
+        },
+        {
+          "nombre_completo": "G. Grandi",
+          "nombres": "G.",
+          "apellidos": "Grandi"
+        }
+      ],
+      "pmid": "16778837",
+      "fuente": "Nat Rev Microbiol",
+      "anio": "2006",
+      "volumen": "4",
+      "fpage": "509",
+      "lpage": "519"
+    },
+    {
+      "titulo": "Microbe-host interactions: structure and role of Gram-negative bacterial porins",
+      "autores": [
+        {
+          "nombre_completo": "S. Galdiero",
+          "nombres": "S.",
+          "apellidos": "Galdiero"
+        },
+        {
+          "nombre_completo": "A. Falanga",
+          "nombres": "A.",
+          "apellidos": "Falanga"
+        },
+        {
+          "nombre_completo": "M. Cantisani",
+          "nombres": "M.",
+          "apellidos": "Cantisani"
+        },
+        {
+          "nombre_completo": "R. Tarallo",
+          "nombres": "R.",
+          "apellidos": "Tarallo"
+        },
+        {
+          "nombre_completo": "M.E. Della Pepa",
+          "nombres": "M.E.",
+          "apellidos": "Della Pepa"
+        },
+        {
+          "nombre_completo": "V. D'Oriano",
+          "nombres": "V.",
+          "apellidos": "D'Oriano"
+        },
+        {
+          "nombre_completo": "M. Galdiero",
+          "nombres": "M.",
+          "apellidos": "Galdiero"
+        }
+      ],
+      "pmid": "23305369",
+      "fuente": "Curr Protein Pept Sci",
+      "anio": "2012",
+      "volumen": "13",
+      "fpage": "843",
+      "lpage": "854"
+    },
+    {
+      "titulo": "Architecture and function of metallopeptidase catalytic domains",
+      "autores": [
+        {
+          "nombre_completo": "N. Cerdà-Costa",
+          "nombres": "N.",
+          "apellidos": "Cerdà-Costa"
+        },
+        {
+          "nombre_completo": "F.X. Gomis-Rüth",
+          "nombres": "F.X.",
+          "apellidos": "Gomis-Rüth"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Protein Sci : Publ Protein Soc",
+      "anio": "2014",
+      "volumen": "23",
+      "fpage": "123",
+      "lpage": "144"
+    },
+    {
+      "titulo": "Pathways of arsenic uptake and efflux",
+      "autores": [
+        {
+          "nombre_completo": "L.D. Garbinski",
+          "nombres": "L.D.",
+          "apellidos": "Garbinski"
+        },
+        {
+          "nombre_completo": "B.P. Rosen",
+          "nombres": "B.P.",
+          "apellidos": "Rosen"
+        },
+        {
+          "nombre_completo": "J. Chen",
+          "nombres": "J.",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "30852446",
+      "fuente": "Environ Int",
+      "anio": "2019",
+      "volumen": "126",
+      "fpage": "585",
+      "lpage": "597"
+    },
+    {
+      "titulo": "Let’s get physical: bacterial-fungal interactions and their consequences in agriculture and health",
+      "autores": [
+        {
+          "nombre_completo": "B.N. Steffan",
+          "nombres": "B.N.",
+          "apellidos": "Steffan"
+        },
+        {
+          "nombre_completo": "N. Venkatesh",
+          "nombres": "N.",
+          "apellidos": "Venkatesh"
+        },
+        {
+          "nombre_completo": "N.P. Keller",
+          "nombres": "N.P.",
+          "apellidos": "Keller"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Fungi",
+      "anio": "2020",
+      "volumen": "6",
+      "fpage": "243",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biofilm characterization of Fusarium solani keratitis isolate: increased resistance to antifungals and UV light",
+      "autores": [
+        {
+          "nombre_completo": "I. Córdova-Alcántara",
+          "nombres": "I.",
+          "apellidos": "Córdova-Alcántara"
+        },
+        {
+          "nombre_completo": "D. Venegas-Cortés",
+          "nombres": "D.",
+          "apellidos": "Venegas-Cortés"
+        },
+        {
+          "nombre_completo": "M. Martínez-Rivera",
+          "nombres": "M.",
+          "apellidos": "Martínez-Rivera"
+        },
+        {
+          "nombre_completo": "N. Perez",
+          "nombres": "N.",
+          "apellidos": "Perez"
+        },
+        {
+          "nombre_completo": "A. Rodríguez-Tovar",
+          "nombres": "A.",
+          "apellidos": "Rodríguez-Tovar"
+        }
+      ],
+      "pmid": "31134579",
+      "fuente": "J Microbiol",
+      "anio": "2019",
+      "volumen": "57",
+      "fpage": "485",
+      "lpage": "497"
+    },
+    {
+      "titulo": "Interactions of surface exopolysaccharides from bifidobacterium and lactobacillus within the intestinal environment",
+      "autores": [
+        {
+          "nombre_completo": "N. Castro-Bravo",
+          "nombres": "N.",
+          "apellidos": "Castro-Bravo"
+        },
+        {
+          "nombre_completo": "J.M. Wells",
+          "nombres": "J.M.",
+          "apellidos": "Wells"
+        },
+        {
+          "nombre_completo": "A. Margolles",
+          "nombres": "A.",
+          "apellidos": "Margolles"
+        },
+        {
+          "nombre_completo": "P. Ruas-Madiedo",
+          "nombres": "P.",
+          "apellidos": "Ruas-Madiedo"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front Microbiol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Beyond risk: bacterial biofilms and their regulating approaches",
+      "autores": [
+        {
+          "nombre_completo": "M.H. Muhammad",
+          "nombres": "M.H.",
+          "apellidos": "Muhammad"
+        },
+        {
+          "nombre_completo": "A.L. Idris",
+          "nombres": "A.L.",
+          "apellidos": "Idris"
+        },
+        {
+          "nombre_completo": "X. Fan",
+          "nombres": "X.",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "Y. Guo",
+          "nombres": "Y.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "Y. Yu",
+          "nombres": "Y.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "X. Jin",
+          "nombres": "X.",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "J. Qiu",
+          "nombres": "J.",
+          "apellidos": "Qiu"
+        },
+        {
+          "nombre_completo": "X. Guan",
+          "nombres": "X.",
+          "apellidos": "Guan"
+        },
+        {
+          "nombre_completo": "T. Huang",
+          "nombres": "T.",
+          "apellidos": "Huang"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front Microbiol",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "11",
+      "lpage": ""
+    },
+    {
+      "titulo": "Burkholderia cepacia complex regulation of virulence gene expression: a review",
+      "autores": [
+        {
+          "nombre_completo": "S.A. Sousa",
+          "nombres": "S.A.",
+          "apellidos": "Sousa"
+        },
+        {
+          "nombre_completo": "J.R. Feliciano",
+          "nombres": "J.R.",
+          "apellidos": "Feliciano"
+        },
+        {
+          "nombre_completo": "T. Pita",
+          "nombres": "T.",
+          "apellidos": "Pita"
+        },
+        {
+          "nombre_completo": "S.I. Guerreiro",
+          "nombres": "S.I.",
+          "apellidos": "Guerreiro"
+        },
+        {
+          "nombre_completo": "J.H. Leitão",
+          "nombres": "J.H.",
+          "apellidos": "Leitão"
+        }
+      ],
+      "pmid": "28106859",
+      "fuente": "Genes",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "43",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparative response of two Burkholderia fungorum strains grown as planktonic cells versus biofilm to dibenzothiophene and select polycyclic aromatic hydrocarbons",
+      "autores": [
+        {
+          "nombre_completo": "N. seyed khoei",
+          "nombres": "N.",
+          "apellidos": "seyed khoei"
+        },
+        {
+          "nombre_completo": "M. Andreolli",
+          "nombres": "M.",
+          "apellidos": "Andreolli"
+        },
+        {
+          "nombre_completo": "S. Lampis",
+          "nombres": "S.",
+          "apellidos": "Lampis"
+        },
+        {
+          "nombre_completo": "G. Vallini",
+          "nombres": "G.",
+          "apellidos": "Vallini"
+        },
+        {
+          "nombre_completo": "R. Turner",
+          "nombres": "R.",
+          "apellidos": "Turner"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Can J Microbiol",
+      "anio": "2016",
+      "volumen": "62",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "High-Throughput genetic screen reveals that early attachment and biofilm formation are necessary for full pyoverdine production by Pseudomonas aeruginosa",
+      "autores": [
+        {
+          "nombre_completo": "D. Kang",
+          "nombres": "D.",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "N.V. Kirienko",
+          "nombres": "N.V.",
+          "apellidos": "Kirienko"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front Microbiol",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "PqsA promotes pyoverdine production via biofilm formation",
+      "autores": [
+        {
+          "nombre_completo": "D. Kang",
+          "nombres": "D.",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "K.E. Turner",
+          "nombres": "K.E.",
+          "apellidos": "Turner"
+        },
+        {
+          "nombre_completo": "N.V. Kirienko",
+          "nombres": "N.V.",
+          "apellidos": "Kirienko"
+        }
+      ],
+      "pmid": "29295589",
+      "fuente": "Pathogens",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "3",
+      "lpage": ""
+    },
+    {
+      "titulo": "Global awakening of cryptic biosynthetic gene clusters in Burkholderia thailandensis",
+      "autores": [
+        {
+          "nombre_completo": "A. Gupta",
+          "nombres": "A.",
+          "apellidos": "Gupta"
+        },
+        {
+          "nombre_completo": "R. Bedre",
+          "nombres": "R.",
+          "apellidos": "Bedre"
+        },
+        {
+          "nombre_completo": "S.S. Thapa",
+          "nombres": "S.S.",
+          "apellidos": "Thapa"
+        },
+        {
+          "nombre_completo": "A. Sabrin",
+          "nombres": "A.",
+          "apellidos": "Sabrin"
+        },
+        {
+          "nombre_completo": "G. Wang",
+          "nombres": "G.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "M. Dassanayake",
+          "nombres": "M.",
+          "apellidos": "Dassanayake"
+        },
+        {
+          "nombre_completo": "A. Grove",
+          "nombres": "A.",
+          "apellidos": "Grove"
+        }
+      ],
+      "pmid": "29087175",
+      "fuente": "ACS Chem Biol",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "3012",
+      "lpage": "3021"
+    },
+    {
+      "titulo": "Production of the antifungal compound pyrrolnitrin is quorum sensing-regulated in members of the Burkholderia cepacia complex",
+      "autores": [
+        {
+          "nombre_completo": "S. Schmidt",
+          "nombres": "S.",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "J.F. Blom",
+          "nombres": "J.F.",
+          "apellidos": "Blom"
+        },
+        {
+          "nombre_completo": "J. Pernthaler",
+          "nombres": "J.",
+          "apellidos": "Pernthaler"
+        },
+        {
+          "nombre_completo": "G. Berg",
+          "nombres": "G.",
+          "apellidos": "Berg"
+        },
+        {
+          "nombre_completo": "A. Baldwin",
+          "nombres": "A.",
+          "apellidos": "Baldwin"
+        },
+        {
+          "nombre_completo": "E. Mahenthiralingam",
+          "nombres": "E.",
+          "apellidos": "Mahenthiralingam"
+        },
+        {
+          "nombre_completo": "L. Eberl",
+          "nombres": "L.",
+          "apellidos": "Eberl"
+        }
+      ],
+      "pmid": "19220396",
+      "fuente": "Environ Microbiol",
+      "anio": "2009",
+      "volumen": "11",
+      "fpage": "1422",
+      "lpage": "1437"
+    },
+    {
+      "titulo": "Understanding the pathogenicity of Burkholderia contaminans, an emerging pathogen in cystic fibrosis",
+      "autores": [
+        {
+          "nombre_completo": "J. Nunvar",
+          "nombres": "J.",
+          "apellidos": "Nunvar"
+        },
+        {
+          "nombre_completo": "L. Kalferstova",
+          "nombres": "L.",
+          "apellidos": "Kalferstova"
+        },
+        {
+          "nombre_completo": "R.A.M. Bloodworth",
+          "nombres": "R.A.M.",
+          "apellidos": "Bloodworth"
+        },
+        {
+          "nombre_completo": "M. Kolar",
+          "nombres": "M.",
+          "apellidos": "Kolar"
+        },
+        {
+          "nombre_completo": "J. Degrossi",
+          "nombres": "J.",
+          "apellidos": "Degrossi"
+        },
+        {
+          "nombre_completo": "S. Lubovich",
+          "nombres": "S.",
+          "apellidos": "Lubovich"
+        },
+        {
+          "nombre_completo": "S.T. Cardona",
+          "nombres": "S.T.",
+          "apellidos": "Cardona"
+        },
+        {
+          "nombre_completo": "P. Drevinek",
+          "nombres": "P.",
+          "apellidos": "Drevinek"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PLoS One",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Iron and Pseudomonas aeruginosa biofilm formation",
+      "autores": [
+        {
+          "nombre_completo": "E. Banin",
+          "nombres": "E.",
+          "apellidos": "Banin"
+        },
+        {
+          "nombre_completo": "M.L. Vasil",
+          "nombres": "M.L.",
+          "apellidos": "Vasil"
+        },
+        {
+          "nombre_completo": "E.P. Greenberg",
+          "nombres": "E.P.",
+          "apellidos": "Greenberg"
+        }
+      ],
+      "pmid": "16043697",
+      "fuente": "Proc Natl Acad Sci USA",
+      "anio": "2005",
+      "volumen": "102",
+      "fpage": "11076",
+      "lpage": "11081"
+    },
+    {
+      "titulo": "Bacterial-fungal interactions: hyphens between agricultural, clinical, environmental, and food microbiologists",
+      "autores": [
+        {
+          "nombre_completo": "P. Frey-Klett",
+          "nombres": "P.",
+          "apellidos": "Frey-Klett"
+        },
+        {
+          "nombre_completo": "P. Burlinson",
+          "nombres": "P.",
+          "apellidos": "Burlinson"
+        },
+        {
+          "nombre_completo": "A. Deveau",
+          "nombres": "A.",
+          "apellidos": "Deveau"
+        },
+        {
+          "nombre_completo": "M. Barret",
+          "nombres": "M.",
+          "apellidos": "Barret"
+        },
+        {
+          "nombre_completo": "M. Tarkka",
+          "nombres": "M.",
+          "apellidos": "Tarkka"
+        },
+        {
+          "nombre_completo": "A. Sarniguet",
+          "nombres": "A.",
+          "apellidos": "Sarniguet"
+        }
+      ],
+      "pmid": "22126995",
+      "fuente": "Microbiol Mol Biol Rev",
+      "anio": "2011",
+      "volumen": "75",
+      "fpage": "583",
+      "lpage": "609"
+    },
+    {
+      "titulo": "Genetic and biochemical map for the biosynthesis of occidiofungin, an antifungal produced by Burkholderia contaminans strain MS14",
+      "autores": [
+        {
+          "nombre_completo": "G. Gu",
+          "nombres": "G.",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "L. Smith",
+          "nombres": "L.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "A. Liu",
+          "nombres": "A.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "S.-E. Lu",
+          "nombres": "S.-E.",
+          "apellidos": "Lu"
+        }
+      ],
+      "pmid": "21742901",
+      "fuente": "Appl Environ Microbiol",
+      "anio": "2011",
+      "volumen": "77",
+      "fpage": "6189",
+      "lpage": "6198"
+    },
+    {
+      "titulo": "A Burkholderia cepacia complex non-ribosomal peptide-synthesized toxin is hemolytic and required for full virulence",
+      "autores": [
+        {
+          "nombre_completo": "E.L.S. Thomson",
+          "nombres": "E.L.S.",
+          "apellidos": "Thomson"
+        },
+        {
+          "nombre_completo": "J.J. Dennis",
+          "nombres": "J.J.",
+          "apellidos": "Dennis"
+        }
+      ],
+      "pmid": "22546908",
+      "fuente": "Virulence",
+      "anio": "2012",
+      "volumen": "3",
+      "fpage": "286",
+      "lpage": "298"
+    },
+    {
+      "titulo": "Biosynthesis of fragin is controlled by a novel quorum sensing signal",
+      "autores": [
+        {
+          "nombre_completo": "C. Jenul",
+          "nombres": "C.",
+          "apellidos": "Jenul"
+        },
+        {
+          "nombre_completo": "S. Sieber",
+          "nombres": "S.",
+          "apellidos": "Sieber"
+        },
+        {
+          "nombre_completo": "C. Daeppen",
+          "nombres": "C.",
+          "apellidos": "Daeppen"
+        },
+        {
+          "nombre_completo": "A. Mathew",
+          "nombres": "A.",
+          "apellidos": "Mathew"
+        },
+        {
+          "nombre_completo": "M. Lardi",
+          "nombres": "M.",
+          "apellidos": "Lardi"
+        },
+        {
+          "nombre_completo": "G. Pessi",
+          "nombres": "G.",
+          "apellidos": "Pessi"
+        },
+        {
+          "nombre_completo": "D. Hoepfner",
+          "nombres": "D.",
+          "apellidos": "Hoepfner"
+        },
+        {
+          "nombre_completo": "M. Neuburger",
+          "nombres": "M.",
+          "apellidos": "Neuburger"
+        },
+        {
+          "nombre_completo": "A. Linden",
+          "nombres": "A.",
+          "apellidos": "Linden"
+        },
+        {
+          "nombre_completo": "K. Gademann",
+          "nombres": "K.",
+          "apellidos": "Gademann"
+        }
+      ],
+      "pmid": "29602945",
+      "fuente": "Nat Commun",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1297",
+      "lpage": ""
+    },
+    {
+      "titulo": "Isolation of maize soil and rhizosphere bacteria with antagonistic activity against Aspergillus flavus and Fusarium verticillioides",
+      "autores": [
+        {
+          "nombre_completo": "J.D. Palumbo",
+          "nombres": "J.D.",
+          "apellidos": "Palumbo"
+        },
+        {
+          "nombre_completo": "T.L. O'Keeffe",
+          "nombres": "T.L.",
+          "apellidos": "O'Keeffe"
+        },
+        {
+          "nombre_completo": "H.K. Abbas",
+          "nombres": "H.K.",
+          "apellidos": "Abbas"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Food Protect",
+      "anio": "2007",
+      "volumen": "70",
+      "fpage": "1615",
+      "lpage": "1621"
+    },
+    {
+      "titulo": "Occidiofungin is the key metabolite for antifungal activity of the endophytic bacterium Burkholderia sp. MS455 against Aspergillus flavus",
+      "autores": [
+        {
+          "nombre_completo": "J. Jia",
+          "nombres": "J.",
+          "apellidos": "Jia"
+        },
+        {
+          "nombre_completo": "E. Ford",
+          "nombres": "E.",
+          "apellidos": "Ford"
+        },
+        {
+          "nombre_completo": "S.M. Hobbs",
+          "nombres": "S.M.",
+          "apellidos": "Hobbs"
+        },
+        {
+          "nombre_completo": "S.M. Baird",
+          "nombres": "S.M.",
+          "apellidos": "Baird"
+        },
+        {
+          "nombre_completo": "S.-E. Lu",
+          "nombres": "S.-E.",
+          "apellidos": "Lu"
+        }
+      ],
+      "pmid": "34433293",
+      "fuente": "Phytopathology®",
+      "anio": "2022",
+      "volumen": "112",
+      "fpage": "481",
+      "lpage": "491"
+    },
+    {
+      "titulo": "In vitro and in vivo plant growth promoting activities and DNA fingerprinting of antagonistic endophytic actinomycetes associates with medicinal plants",
+      "autores": [
+        {
+          "nombre_completo": "A.K. Passari",
+          "nombres": "A.K.",
+          "apellidos": "Passari"
+        },
+        {
+          "nombre_completo": "V.K. Mishra",
+          "nombres": "V.K.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "V.K. Gupta",
+          "nombres": "V.K.",
+          "apellidos": "Gupta"
+        },
+        {
+          "nombre_completo": "M.K. Yadav",
+          "nombres": "M.K.",
+          "apellidos": "Yadav"
+        },
+        {
+          "nombre_completo": "R. Saikia",
+          "nombres": "R.",
+          "apellidos": "Saikia"
+        },
+        {
+          "nombre_completo": "B.P. Singh",
+          "nombres": "B.P.",
+          "apellidos": "Singh"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PLoS One",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Importance of the ornibactin and pyochelin siderophore transport systems in Burkholderia cenocepacia lung infections",
+      "autores": [
+        {
+          "nombre_completo": "M.B. Visser",
+          "nombres": "M.B.",
+          "apellidos": "Visser"
+        },
+        {
+          "nombre_completo": "S. Majumdar",
+          "nombres": "S.",
+          "apellidos": "Majumdar"
+        },
+        {
+          "nombre_completo": "E. Hani",
+          "nombres": "E.",
+          "apellidos": "Hani"
+        },
+        {
+          "nombre_completo": "P.A. Sokol",
+          "nombres": "P.A.",
+          "apellidos": "Sokol"
+        }
+      ],
+      "pmid": "15102796",
+      "fuente": "Infect Immun",
+      "anio": "2004",
+      "volumen": "72",
+      "fpage": "2850",
+      "lpage": "2857"
+    },
+    {
+      "titulo": "Burkholderia bacteria produce multiple potentially novel molecules that inhibit carbapenem-resistant gram-negative bacterial pathogens",
+      "autores": [
+        {
+          "nombre_completo": "E. Depoorter",
+          "nombres": "E.",
+          "apellidos": "Depoorter"
+        },
+        {
+          "nombre_completo": "E. De Canck",
+          "nombres": "E.",
+          "apellidos": "De Canck"
+        },
+        {
+          "nombre_completo": "T. Coenye",
+          "nombres": "T.",
+          "apellidos": "Coenye"
+        },
+        {
+          "nombre_completo": "P. Vandamme",
+          "nombres": "P.",
+          "apellidos": "Vandamme"
+        }
+      ],
+      "pmid": "33540653",
+      "fuente": "Antibiotics",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "147",
+      "lpage": ""
+    },
+    {
+      "titulo": "Specific inactivation of an antifungal bacterial siderophore by a fungal plant pathogen",
+      "autores": [
+        {
+          "nombre_completo": "Y.-N. Ho",
+          "nombres": "Y.-N.",
+          "apellidos": "Ho"
+        },
+        {
+          "nombre_completo": "S.Y. Hoo",
+          "nombres": "S.Y.",
+          "apellidos": "Hoo"
+        },
+        {
+          "nombre_completo": "B.-W. Wang",
+          "nombres": "B.-W.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "C.-T. Hsieh",
+          "nombres": "C.-T.",
+          "apellidos": "Hsieh"
+        },
+        {
+          "nombre_completo": "C.-C. Lin",
+          "nombres": "C.-C.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "C.-H. Sun",
+          "nombres": "C.-H.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "C.-C. Peng",
+          "nombres": "C.-C.",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "C. Lin",
+          "nombres": "C.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Y.-L. Yang",
+          "nombres": "Y.-L.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "33619352",
+      "fuente": "ISME J",
+      "anio": "2021",
+      "volumen": "15",
+      "fpage": "1858",
+      "lpage": "1861"
+    },
+    {
+      "titulo": "Do global regulators hold the key to production of bacterial secondary metabolites?",
+      "autores": [
+        {
+          "nombre_completo": "S.S. Thapa",
+          "nombres": "S.S.",
+          "apellidos": "Thapa"
+        },
+        {
+          "nombre_completo": "A. Grove",
+          "nombres": "A.",
+          "apellidos": "Grove"
+        }
+      ],
+      "pmid": "31547528",
+      "fuente": "Antibiotics",
+      "anio": "2019",
+      "volumen": "8",
+      "fpage": "160",
+      "lpage": ""
+    }
+  ]
+}

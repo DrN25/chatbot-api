@@ -1,0 +1,1780 @@
+{
+  "TITLE": [
+    "RNAseq Analysis of the Response of Arabidopsis thaliana to Fractional Gravity Under Blue-Light Stimulation During Spaceflight"
+  ],
+  "ABSTRACT": [
+    "Introduction: Traveling to nearby extraterrestrial objects having a reduced gravity level (partial gravity) compared to Earth’s gravity is becoming a realistic objective for space agencies. The use of plants as part of life support systems will require a better understanding of the interactions among plant growth responses including tropisms, under partial gravity conditions.",
+    "Materials and Methods: Here, we present results from our latest space experiments on the ISS, in which seeds of Arabidopsis thaliana were germinated, and seedlings grew for six days under different gravity levels, namely micro-g, several intermediate partial-g levels, and 1g, and were subjected to irradiation with blue light for the last 48 h. RNA was extracted from 20 samples for subsequent RNAseq analysis. Transcriptomic analysis was performed using the HISAT2-Stringtie-DESeq pipeline. Differentially expressed genes were further characterized for global responses using the GEDI tool, gene networks and for Gene Ontology (GO) enrichment.",
+    "Results: Differential gene expression analysis revealed only one differentially expressed gene (AT4G21560, VPS28-1 a vacuolar protein) across all gravity conditions using FDR correction (q < 0.05). However, the same 14 genes appeared differentially expressed when comparing either micro-g, low-g level (< 0.1g) or the Moon g-level with 1g control conditions. Apart from these 14-shared genes, the number of differentially expressed genes was similar in microgravity and the Moon g-level and increased in the intermediate g-level (< 0.1g), but it was then progressively reduced as the difference with the Earth gravity became smaller. The GO groups were differentially affected at each g-level: light and photosynthesis GO under microgravity, genes belonged to general stress, chemical and hormone responses under low-g, and a response related to cell wall and membrane structure and function under the Moon g-level.",
+    "Discussion: Transcriptional analyses of plants under blue light stimulation suggests that root blue-light phototropism may be enough to reduce the gravitational stress response caused by the lack of gravitropism in microgravity. Competition among tropisms induces an intense perturbation at the micro-g level, which shows an extensive stress response that is progressively attenuated. Our results show a major effect on cell wall/membrane remodeling (detected at the interval from the Moon to Mars gravity), which can be potentially related to graviresistance mechanisms."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Long-term exploration of the Solar System will require that humans travel within a nearly close life-support systems, reducing to the minimum the amount of water, oxygen, and nutrients to be transported and optimizing the recycling of reusable waste. Such a system is being under development, for example, in the Melissa project from the European Space Agency, but it will require an edible plant to be successfully cultivated in the environmental conditions expected to be achieved during spaceflight and on arrival at nearby objects. Isolation chambers could avoid, at least partially, some of the suboptimal environmental conditions that can greatly compromise organism adaptation to spaceflight, including temperature, radiation, air, and soil composition constrains. However, providing artificial gravity will require large diameter centrifuge or even expensive railroad-based platforms that could be subjected to other biological limitations.",
+    "Gravity influences the direction of plant growth and the pattern of development, from seedlings to adult plants, and even gravitational effects on in vitro plant cell cultures have been reported. Light is the only tropistic response that plays a substantial role in determining overall plant architecture with a contribution similar to gravity. Typically, plants orient their roots towards the gravity vector (positive gravitropic response), and away from blue/white light exposure (negative phototropic response). Shoots show the opposite orientation, growing away from the gravity vector (negative gravitropic response) and towards a blue/white light source (positive phototropic response). Any tropistic response is divided into three stages; perception, transduction and response. During the perception phase, starch-filled statoliths interact with other cellular components in the specialized columella cells. Once the gravity signal is perceived, a differential auxin gradient develops along the root to the root elongation zone (transduction stage), where differential plant growth occurs and leads to reorientation of the root in the direction of the gravity vector (reviewed in).",
+    "Phototropism and gravitropism have been well characterized, but little was known about the interaction among tropisms until recently. Experiments with plants in microgravity have allowed for the study of phototropism in the absence of the influence of gravity. Our previous research showed that light perception by the roots can have an effect on shoot gravitropism in Arabidopsis thaliana. In addition, phototropic curvature of roots in response to unilateral blue light was tied to the magnitude of the gravity vector. This latter study also identified an association between red-light-based phototropism in roots and the magnitude of the gravity vector. Other experiments involving assays of cell growth and cell proliferation have demonstrated that there is an imbalance between these key plant development functions in microgravity in dark-grown plants. Recent spaceflight results also demonstrated that red light can compensate this effect, particularly increasing cell growth (i.e., as assayed by ribosome biosynthesis in the nucleolus) that was depleted without light stimulation.",
+    "Studies on the response of living organisms to altered gravity are greatly facilitated by the development of ground-based facilities for simulation of gravity alterations to perform basic science as well as to design and prepare for space experiments. The biological system (cell proliferation and growth during early plant development) had previously been studied under real microgravity in the ISS. Similar effects to the ones observed during spaceflight (increased cell proliferation rates together with decreased cell growth parameters) also were observed in root meristem cells in simulated microgravity studies and in two partial-g paradigms. The imbalance of the cell proliferation and cell growth rates is also observable at the Moon´s gravity level, while less pronounced effects were observed at Mars g level.",
+    "In terms of spaceflight transcriptional experiments, a number of studies performed in orbit are available in public databases. In these studies, some Gene Ontology categories as responses to biotic or abiotic stress, oxidative stress, cell wall reorganization and secondary metabolism remodeling commonly show the highest variation in gene expression. Transcriptional response in microgravity is different in each experiment, due to both the biological material (developmental stage or organ analyzed) and the technical/environmental constraints of each spaceflight experiment [late or early access to the sample during spaceflight, the hardware used, type of dissection/fixation/preservation see for example ].",
+    "In a previous report, we focused on the effects of microgravity in the transcriptional profile of blue-light photostimulated seedlings. Here, we will describe the plant transcriptional response to several partial gravity levels in young blue-light photostimulated A. thaliana seedlings cultivated into the European Module Cultivation System (EMCS) centrifuge on board the International Space Station (ISS). The results from plants cultivated on the ISS within the SEEDLING GROWTH experiment series illustrate the adaptation strategy of plants at the level of the whole transcriptome to cope with reduced gravity conditions."
+  ],
+  "METHODS": [
+    "Materials and Methods",
+    "Seedling Growth Spaceflight Experiments",
+    "Seeds of A. thaliana ecotype Landsberg erecta (Ler) were flown to the ISS via the SpaceX Dragon. Spaceflight experiments were conducted utilizing the European Modular Cultivation System (EMCS) in the Columbus Module of the ISS. The EMCS facility provides two centrifuges for creation of simulated gravity vectors, as well as atmospheric, temperature and hydration monitoring and control. In addition, the EMCS contains a video camera for image acquisition as well as monitoring of growth. The Seedling Growth series of experiments was conducted in two parts. The first set of seedlings were uploaded on SpaceX CRS-2 (March 2013) followed by return via CRS-3 (May 2014), and the second set of seedlings were carried to the ISS on SpaceX CRS-4 (September 2014) and returned on CRS-5 (February 2015).",
+    "Spaceflight Procedures",
+    "Experimental containers were uploaded to the ISS and loaded into the EMCS as previously described. Experimental conditions were controlled remotely from the Norwegian User Support and Operations Centre (N-USOC; Trondheim, Norway). The experiment was initiated via hydration of the seeds. Plants were grown under 6 nominal gravity conditions produced by different rotational speeds on the EMCS centrifuge, microgravity (stopped EMCS centrifuge), 0.1, 0.3, 0.5, 0.8, and 1.0 g. The angular speed to generate each fractional gravity level was calculated for the cassette in the center of the Experimental Container. In the case of the 1.0 g cassettes, the value was calculated for the fifth cassette in order to prevent values higher than Earth nominal gravity. Seedlings were illuminated under white light (30–40 µmol m−2 s−1) for 96 h, followed by 48 h of unidirectional photostimulation with blue light. Light sources were LEDs. RNA-Seq analysis was only conducted on seedlings exposed to unidirectional blue light. After conclusion of the experiments, seedlings were frozen in dedicated holders by placing them at -80°C in the General Laboratory Active Cryogenic ISS Experiment Refrigerator (GLACIER) freezer of the ISS. Upon return of frozen seedlings to Earth, samples were transported on dry ice and immediately preserved with RNALater for subsequent RNA-Seq analysis.",
+    "RNA Extraction and Sequencing",
+    "RNA was extracted individually for each EC TROPI cassette for most of the samples (i.e. from 24 cassettes, 20 samples were obtained to collect approximately 10–15 seedlings per extraction). A plant specific RNA extraction NucleoSpin kit (MACHEREY-NAGEL, Catalog # 740949.250) including a DNase treatment was used to isolate whole plant mRNA. The quantity and quality of the extracted RNA was determined by Nanodrop 2000 (Thermo Scientific). Extracted RNA was keep frozen at −80 C until shipped on dry ice to the David H. Murdoch Research Institute in Kannapolis; North Carolina, USA. During sequencing, twenty total RNA samples were used to generate twenty sequencing libraries using the Illumina TruSeq RNA Library Preparation Kit (Illumina, USA). Samples were individually indexed. The samples then were combined at equimolar proportions into three pools with 6–7 samples per pool. Each pool was loaded onto a single lane of a flow cell. A 125bp paired end sequencing run was performed on the Illumina HiSeq2500.",
+    "Paired-end 125bp reads were aligned to the Arabidopsis TAIR10 genomes using the HISAT2 pipeline on the Clemson University Palmetto Cluster. Fragments with a Phred score below 33 were filtered using Trimmomatic. HISAT2 (v2.1.0) was used to align sequencing reads. Reads were assembled into transcripts using StringTie (v1.3.4). Annotation was conducted using TAIR10 FASTA sequence the TAIR10 genome GTF annotation file (). This transcriptional dataset has been submitted to the GENELAB database () and it will be released with the reference GLDS-251.",
+    "Differential Gene Expression Analysis",
+    "Statistical analyses of differential gene expression was conducted utilizing DESeq2 (v1.18.1). A multiple-test corrected p-value (q-value) of 0.05 was employed. The 20 samples were organized to reduce the g-level interval within biological replicates so the following groups were established: microgravity (stopped EMCS centrifuge, 4 replicates), low gravity (0.09 ± 0.02g, 3 replicates), Moon gravity (0.18 ± 0.04g, 3 replicates), Mars gravity (0.36 ± 0.02g, 3 replicates), reduced Earth gravity (0.57 ± 0.05g, 4 replicates) and 1g control (0.99 ± 0.06g, 3 replicates). Venn Diagrams comparing the number of differentially expressed genes (DEG) across gravity levels were created using jvenn [ ] with both q-value < 0.05 and p-value < 0.05. Afterwards, gene ontology (GO) analysis of specific groups of DEGs was performed using BinGO with the full list of GO terms (GO_Full) or using PANTHER with the molecular functions, biological process and cellular component GO lists. Subcellular localization of DEGs was analyzed using the abundance tool (MMAP) of the Subcellular Localization Database for Arabidopsis Proteins [SUBA4, ].",
+    "For a global view of the whole genome transcriptional status along g-levels into the SG1 and SG2 experiment (comparisons versus 1g), global expression patterns were calculated using the Gene Expression Dynamics Inspector (GEDI v2.1) program analysis. GEDI profile allows the visualization of the gene expression across the transcriptome generating a mosaic image or dot matrix, consisting of 5 x 9 pixels (average of 5–14 probe sets/tile) using a self-organizing map algorithm and standard setting of the software. Analysis was done using the signal log2 ratio of the selected probe sets through using the 5,571 probes with any significant (p < 0.05) change in expression from more than 21,000 sequences assignated to annotated genes. The same study was repeated adding the false discovery rate correction (FDR, q < 0.05, 861 genes). Each pixel represents a group or cluster of genes that share a similar transcriptional profile in any experimental condition. Each pixel has a color which reflects the average expression of the genes included in the cluster for each experimental condition compared to 1g control in each panel. The GEDI program SOM algorithm determines which genes should be assigned to each cluster, and then places similar clusters in a nearby area of the mosaic, creating an image and allowing global transcriptome analysis as a single entity for display in different gravitational conditions. For certain pixels of interest, the gene list extracted from the clusters was used to find functional links between genes using Genemania App embedded into the Cytoscape v3.6.1 software with default settings."
+  ],
+  "RESULTS": [
+    "Results",
+    "Identification of Differentially Expressed Genes (DEG)",
+    "We performed transcriptomic studies with young seedlings of A. thaliana that were grown on the ISS at different gravity levels depending on the rotational speed of the EMCS centrifuge (nominal g levels) and the distance of each cassette to the rotation center (Figure 1). Seeds were hydrated to initiate our spaceflight experiment as previously described showing a positive blue-light phototropism in the microgravity samples that it is greatly reduced at 0.1g, and effectively negated at 0.3g and higher gravity levels. Root growth was also determined after blue-light stimulation. The results show longer roots in microgravity and 1g samples in comparison with 0.1g seedlings.",
+    "Differential expression analysis was conducted via DESeq2 among all five reduced gravity conditions taking into account the calculated g-level experienced in each EC due to the geometry of the EMCS container (Figure 1B), using Earth’s gravity (1g) as the reference group, extending previous results from the microgravity samples. Initially, a reduced stringency analysis was done to isolate all genes identified as differentially expressed with a p-value of p < 0.05. Comparison between µg and 1g revealed 2067 differentially expressed genes, comparisons between low gravity (lower than 0.1g) and 1g peaked at 2552 genes, comparisons between Moon g-level and 1g reduced to 2088 genes, comparisons between Mars g-level and 1g revealed 978 genes, and lastly, comparisons between reduced Earth g-level (0.57g) and 1g identified only 411 differentially expressed genes (Figure 2A). In addition to an uncorrected p-value of p < 0.05, a stringent FDR q-value <0.05 was used in the identification of differentially expressed genes (Figure 2B). Comparison between µg and 1g revealed 296 differentially expressed genes, while fractional gravity comparisons between low gravity (lower than 0.1g) and 1g revealed 568 genes. Comparisons between Moon g-level and 1g revealed 123 genes and comparisons between Mars g-level and 1g revealed 19 genes. Lastly, comparisons between reduced Earth g-level (0.57g) and 1g identified only 2 differentially expressed genes. Only one DEG appeared in all reduced gravity conditions (AT4G21560, VPS28-1 a vacuolar protein sorting homolog gene), another in all but reduced Earth g level (AT5G45428). There were 12 common DEG in microgravity, low g and Moon g conditions, being most of them related with calcium signaling, redox status and stress response (Supplementary Table 1).",
+    "The ten most significant GO terms (BinGO full GO terms list) of the genes differentially expressed (obtained with the adjusted q-value in Figure 2B) specifically expressed in µg, low-g, or Moon gravity only were identified (Figures 2C–E). Not only the number of significantly affected genes, but also the type of genes affected, were clearly different with the increasing partial g level. In microgravity, we observed an enrichment in GO terms related with light and photosynthesis. In low gravity, there was a quite global stress effect together with chemical and hormone responses. Finally, when plants are grown under the Moon gravity level, the more representative enrichment is related to cell wall and membrane structure and function related genes. In fact, the differential subcellular localization of the DEGs at the Moon g level shows a clear enrichment in plastid related genes and other cell wall/membrane systems, while the general stress response observed at the low g level is characterized by the very large unassigned Subcellular compartment group (Supplementary Figure 1 and Supplementary Table 2).",
+    "Partial Gravity Differential Effect",
+    "Although the effects of partial-g on gene expression (at the levels of the Moon or Mars) appeared limited in the first analysis (Figure 2), we then evaluated how the expression recovers to normal values from microgravity to 1g condition by using a visual tool that creates a mosaic image for each g-level representing the gene expression level of similarly behaving DEG (in at least one of the conditions, n = 5571, p < 0.05 without FDR correction, Figure 3 first row). Except in the case of the low g condition, it is clear that the areas in red (up-regulated gene clusters) and the areas in blue (down-regulated genes clusters) that appear in the microgravity panels became quantitative and qualitatively smaller with increasing g-level. In the case of the low g condition, different clusters and with greater expression changes appears, suggesting an overlapping of two different responses at <0.1g level. The same result is shown if we apply the FDR correction (n = 861, p < 0.05 and q < 0.05 FDR correction, Figure 3 second row).",
+    "Additionally, we took advantage of the GEDI self-organizing maps to select the list of commonly upregulated genes due to reduced gravity from the clusters in the first row of the GEDI panels. When the list of obtained genes (Supplementary Table 3) is used as a query in GeneMANIA, a tool to create networks from gene database content, a putative pathway for gravity response is proposed. Several processes related to mitochondria, plastid, cell wall and cell membrane processes are clearly affected together with 4 proteins (out of 156 annotated in the genome) belonging to the F-box/RMI-like/FDB-like domain family (including members as TIR-1 auxin signaling gene, cell wall remodeling and even cyclins, Figure 4).",
+    "Finally, in an attempt to further dissect the differential response to partial gravity, we analyzed separately the up-regulated and down-regulated DEGs (Figure 5 and Supplementary Table 2). We can observe a general pattern in which the number of DEG fades with increasing g level but with a remarkable exception. In the list of down-regulated DEGs without FDR correction there is an unusually high number of affected genes in both low g and Moon g level (not shown). These DEGs are more clearly confirmed only in low g after FDR correction, in which more than 50% of the non-corrected DEG remains significant after the FDR correction. These genes belong to stress related GO terms, particularly related with the accessibility to plant nutrients (Figure 5)."
+  ],
+  "FIG": [
+    "Setup of SG1/SG2 experiment on board the International Space Station. (A) Image of an experimental container with 5 seedling cassettes inside the European Modular Cultivation System (EMCS) with the direction to the EMCS rotor center included. (B) Calculated g-level in each of the five culture chambers depending on the distance to the EMCS centrifuge rotor (note that only samples in the 3 positions in bold were included in this analysis, cassettes at 174 and 206 mm from EMCS center did not contain wildtype samples) and different EMCS rotational speed (nominal g value). Different background grey tones are used to indicate the samples that were used as replicates for low gravity (0.09 ± 0.02g, 3 replicates), Moon gravity (0.18 ± 0.04g, 3 replicates), Mars gravity (0.36 ± 0.02g, 3 replicates) and reduced Earth gravity (0.57 ± 0.05g, 4 replicates) and 1g control (0.99 ± 0.06g, 3 replicates) in addition to the microgravity samples (stopped centrifuge, 4 replicates). (C) Closer view of 6 day-old seedlings growing within a seed cassette at microgravity (CC116), low g (0.07g, CC136), Moon g (0.21g, CC156) or 1g control (1.05g, CC175) conditions with blue light stimulation (from the left). Hypocotyls show a clear positive phototropism at any g-level but roots only show this tropism at microgravity (arrows). For comparison, seed cassettes at low g (0.07g, CC126) and 1g control (1.05g, CC165) conditions exhibiting root positive phototropism to red light stimulation (from the left) are provided (see for a detailed phototropism discussion).",
+    "Differentially expressed genes (DEGs) across the different gravity levels. (A) Venn diagram classifying DEGs using uncorrected p-value (p < 0.05). (B) Venn diagram classifying DEGs including an adjusted FDR q-value (p and q < 0.05). (C) Ten most significant gene ontology (BinGO GO Full Enrichment) categories from DEG in µg vs. 1g only (FDR q < 0.05). (D) Ten most significant gene ontology (BinGO GO Full Enrichment) categories from DEG in low gravity (circa 0.1g) vs. 1g only (FDR q < 0.05). (E) Ten most significant gene ontology (BinGO GO Full Enrichment) categories from DEG in Moon gravity vs. 1g only (FDR q < 0.05).",
+    "Whole-genome transcriptional status variations along g-levels into the SG1/SG2 experiments (comparisons versus 1g). A 5x9 clustering analysis of the differentially expressed genes (in at least one of the partial g levels, using normal p values (first row, n = 5,571 genes) or adjusted q-values (second row, n = 861 genes) on the transcriptome have been done with the average of each gene expression level within a similarly expressed cluster across the samples. Values are shown according to the log2 ratio scales at the border of the figure (from highly overrepresented in red to highly down-represented in blue). The mean value of −0.3 or −0.7 indicates an overall repression in gene expression under microgravity. The gene density maps are shown in the middle of the figure for each analysis. Calculated g-levels have been obtained by considering replicates the more similar samples across the nominal µg, 0.1g, 0.3g, 0.5g, 0.8g and 1g (precisely, µg (4 replicates), 0.09 ± 0.02g (3 replicates), Moon level (0.18 ± 0.04g, 3 replicates), Mars-level (0.36 ± 0.02g, 3 replicates), 0.57 ± 0.05g (4 replicates) and control 1g (0.99 ± 0.06g, 3 replicates).",
+    "Fifteen up-regulated genes in reduced gravity conditions can be connected in a gravity-response putative pathway. Large circles shown the genes detected in the first row clusters from the previous GEDI analysis (Figure 3) and small circles are candidates to be members of a shared pathway (as detected by Genemania App in Cytoscape v3.6.1). While most of the genes have unknown function, color have been used to highlight shared features among their GO properties. Solid lines shown related features as detected by Genemania app, dotted lines have been added by manual datamining comparisons. Note that four genes expressing F-box/RMI-like proteins (in red) out of 156 genes (related examples are auxin polar transport genes as TIR-1, cell wall remodeling and even cyclins) in the genome may be key in the definition of a microgravity specific pathway characterized by the highly interconnected nodes in this graph.",
+    "Biological processes affected by reduced gravity (Panther Enrichment in biological process GO). Total number of up-regulated and down-regulated DEG (p < 0.05) are shown for the five reduced gravity conditions vs. 1g control. The ten most significant gene ontology (Panther biological process GO Enrichment) categories for the three upregulated and the three downregulated DEGs are shown for the microgravity, low gravity (circa 0.1g) and Moon gravity (0.18g) vs. 1g (*** FDR q < 0.001, **FDR q < 0.01, *FDR q > 0.05)."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Blue Light Phototropism May Be Enough to Reduce the Gravitational Stress Response on Orbit",
+    "Image analysis of seedlings grown during the Seedling Growth suite of experiments previously characterized a novel blue-light phototropic response in roots of A. thaliana grown in conditions of microgravity. This relationship was shown to be linearly related to the magnitude of the gravity vector for plants exposed to red light, but plants exposed to blue light showed rapid attenuation of the response in the presence of increasing gravity levels. To determine the differential response to reduced gravity and attempt to dissect the molecular mechanisms of gravisensing, we performed RNA-seq analysis to characterize changes in gene expression that may be associated with the novel blue phototropic response. Interestingly, the effect of blue-light illumination is clearly observable in the microgravity samples, with a clear enrichment in GO terms related with light perception, photosynthesis and biosynthesis of the photosynthetic complexes as previously reported, but it is barely appearing in the GO enrichment analyses that we performed on partial gravity samples, even bellow 0.1g (low g conditions). Surprisingly, the phototropic response to the blue light seems to be enough to cancel the effects of other genes of interest in gravitational research (as the ones observed at low g or Moon g level) to be not significantly affected in microgravity conditions. This result may be complementing previous reports from the same Seedling Growth spaceflight experiment but with plants exposed to red photostimulation. Fundamental plant functions, as cell proliferation and cell growth activity in root meristems, known to be affected by microgravity in the absence of light are balanced just by providing a red photostimulation phase. In both red and blue photostimulation samples within the Seedling Growth experiment, roots are exhibiting a positive phototropism that can compensate the gravitropism stimuli role that it is required to preserve meristematic competence in orbit, as shown by the longer root growth in microgravity and 1g samples in comparison with 0.1g seedlings.",
+    "Low-g Effect: Competition Between Tropisms or Artifacts of Reduced-Gravity Simulation?",
+    "The large number of DEGs detected in the low-g conditions (<0.1g) is a striking result of this study. The type of transcriptional response observed in this group is similar to stress-related responses reported in other spaceflight or simulated microgravity datasets. In this case, there is a very clear component of “Response to General Stress” with a FDR q value <10−10, without any other GO terms to be similarly affected. In contrast the responses at the microgravity level (FDR q value <10−6), or at the Moon g-level (FDR q value <10−2) are very subtle. We explain these results as being the consequence of the combination of two tropistic responses acting with very low intensity. It is very likely that the subtle blue phototropism and the weak gravitropism signal at approximately 0.09g are competing to take the leading role in providing the fundamental cue for driving seedling growth and plant development. The result is a stress for the plant (blue-LEDS are located laterally while the gravity vector is towards the bottom of the cassette), which needs to adapt its developmental plan to an environment without the usual tropistic cues. The transcriptional adaptation to provide a response to this evolutionary novel and challenging environment requires the modification of more than five hundred genes, while microgravity only requires half of this number.",
+    "An alternative explanation to the low-g effects that cannot be completely excluded could be put in connection with simulated microgravity experiments. Secondary effects of microgravity simulation facilities (shear or inertial forces) and even small variations in the environmental conditions of experimental and control samples may lead to gene expression variations in a similar set of genes as those observed in the low-g subgroup in this work. Similarly, it is important to take into account the existence of hardware effects when growing plants in real microgravity, including lack of convection, reduced CO2 levels, improper temperature, elevated ethylene, spacecraft vibrations, increased radiation exposure, among others.",
+    "However, the tropism conflict interpretation introduced early on this section seems to have a greater contribution than the artifacts of centrifugation in the low-g effects. A hardware side-effect explanation is less conceivable since the present study was conducted utilizing the European Modular Cultivation System, which contains an air scrubbing/filtration system designed for removing excess ethylene from the seedlings during the growth phase. Thus, even with proper ventilation, a reduction in gene expression of photosynthetic genes was observed in the microgravity samples. In the case of the samples exposed to centrifugation, the ventilation effect should be less important, but the centrifugation by itself could lead to additional stress in the samples. However, this centrifugation factor is also present in the 1g control sample, exposed to even higher angular speeds.",
+    "Spaceflight experimentation is required to verify that simulation strategies on Earth analogues are reliable and worthy. The continuous validation of the best simulation strategies will optimize and increase our chances of success in future spaceflight experiments. Additional research in simulated low-g conditions on Earth or even in the Moon surface will help to extend and validate this research work.",
+    "Moon and Mars-g Effects and the Consequences for Manned Spaceflight Missions",
+    "Cultivating plants as part of life support systems in nearby objects of our planet will require us to expose the plants to the partial-g interval within the two values we examined here, namely, Moon g-level (0.18 ± 0.04g) and Mars gravity (0.36 ± 0.02g). Although some of the genes and GO terms observed affected at lower g-levels also appeared in these conditions, the existence of the gravitropic response, in combination with blue light illumination, seems to be enough to restore a nearly normal transcriptional state, particularly at the Mars g-level. These results are consistent with previous data coming from partial gravity simulation paradigms that validated that Arabidopsis developmental plan is still affected at the Moon g-level (even more intensely affected than in similar simulated microgravity samples) but that the “normal” developmental plan is almost completely restored at Mars g-levels.",
+    "The identity of some of the GO terms significantly affected at the Moon g-level suggest some structural stress at the level of the cell wall and membrane systems. This result is consistent with other results in spaceflight experiments. This effect is progressively weaker from Moon-g (almost similar to microgravity) to Mars-g, which shows a less intense response, but it is still visible at g-levels as high as 0.57g, when utilizing the less stringent analysis (Figure 2A). At these g-levels, gravitropism response may be acting and suppressing the recently described blue-light root phototropism, (already at the Moon g-level, see Figure 1C).",
+    "Therefore, we suggest that this transcriptional response could be related with the graviresistance signal that the cells without professional gravisensing organelles (as the statolith in the columella cells of the root) may use to detect g-force. Particularly at the Moon g-level, the very weak gravitropic signal may be still in conflict with a graviresistance tension in the cell wall and membrane systems (also weak), inducing and additional stress that is progressively removed when Mars g-level is reached. In that regard, we have found that some of the genes changing throughout the series of reduced gravity levels can be connected in a pathway in which certain genes may have a central position (Figure 4). The most connected nodes in the pathway would be the genes involved in the cross-talk between the cell-membrane-localized (AT3G44430 and AT2G34840) and the F-box/RMI-like/FDB-like domain proteins (AT5G56370 and AT5G56380) candidate genes. An important caveat to our results is that RNA was obtained from whole seedlings, despite our assumption that the root is the organ that can discriminate better the weak phototropism and gravitropism signals that are proposed here to be responsible of the transcriptional variations we have shown here."
+  ],
+  "CONCL": [
+    "Conclusions",
+    "The results of this study take advantage of the induction of subtle blue-light phototropism in roots in spaceflight to discern the transcriptional responses to different tropisms in orbit. Removal of the influence of gravity on blue-light-illuminated seedlings showed a reduction in gene expression in multiple pathways associated with photosynthesis, suggesting shared molecular pathways between the two tropistic responses, or a functional compensation among them.",
+    "It is important to emphasize that the effects shown at microgravity here are gradually removed by increasing g-load. While the phototropic effect is noted at the microgravity level, a general stress response is detected at <0.1g, probably due to conflicting stimuli, just at the detection threshold of photo- and gravi-sensing mechanisms. Membrane-related gene ontologies became the more significant at the Moon g-level, and they become progressively weaker at higher g-levels, allowing us to discriminate the differential contribution of the classical statolith-based gravitropism from other responses based on cell tensegrity that may require a higher g-threshold to be fully active. Therefore, our results are starting to isolate, at the whole transcriptional level, the global effects that are produced by the gravitropism, phototropism and graviresistance mechanisms, working at different g-level thresholds. Future use of mutant lines will help us to confirm and extend these findings, which suggests an intricate connection between gravity and light perception in A. thaliana. In the long term, these results on the interaction among tropisms will be important for the use of plants in bioregenerative support systems needed for the human exploration of the Solar System."
+  ],
+  "SUPPL": [
+    "Data Availability Statement",
+    "The datasets generated for this study can be found in the GeneLab database .",
+    "Supplementary Material",
+    "The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fpls.2019.01529/full#supplementary-material"
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "RH and JV designed this partial gravity experiment within the Seedling Growth and wrote the manuscript. JV, WP and FF performed the RNA seq including a preliminary processing of the data. RH, AV and AM performed GEDI and GO analysis. JK and FM designed and coordinated the whole Seedling Growth project series of experiments on board ISS and contributed writing the manuscript. All authors reviewed and agree with the manuscript content."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This work was supported by the Spanish “Plan Estatal de Investigación Científica y Técnica e Innovación” of the Ministry of Economy, Industry and Competitiveness (Grant numbers AYA2012–33982 and ESP2015–64323-R to FJM, cofounded by ERDF), by pre-doctoral fellowships to (AM) and (AV) from the Spanish National Program for Young Researchers Training (MINECO, Ref. BES-2013-063933, BES-2016-077976) and the Seedling Growth Project to the ISS LSRA2009-0932/1177 of ESA-ELIPS Program. Funding for the RNA-seq was provided by NASA Grants NNX12A065G and 80NSSC17K0546 to JZK. We acknowledge support of the publication fee by the CSIC Open Access Publication Support Initiative through its Unit of Information Resources for Research (URICI)."
+  ],
+  "COMP_INT": [
+    "Conflict of Interest",
+    "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Differential expression analysis for sequence count data",
+    "Expression of transcription factors after short-term exposure of Arabidopsis thaliana cell cultures to hypergravity and simulated microgravity (2-D/3-D clinorotation, magnetic levitation)",
+    "jvenn: an interactive Venn diagram viewer",
+    "Time-course of changes in amounts of specific proteins upon exposure to hyper-g, 2-D clinorotation, and 3-D random positioning of Arabidopsis cell cultures",
+    "Synergy between stresses: an interaction between spaceflight-associated conditions and the microgravity response",
+    "Controlling the false discovery rate: a practical and powerful approach to multiple testing",
+    "Functional alterations of root meristematic cells of Arabidopsis thaliana induced by a simulated microgravity environment",
+    "Phototropism: some history, some puzzles, and a look ahead",
+    "Experiments with small animals in BIOLAB and EMCS on the International Space Station",
+    "ESA hardware for plant research on the International Space Station",
+    "Gravitropism in higher plants",
+    "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+    "Transcriptome analyses of Arabidopsis thaliana seedlings grown in space: implications for gravity-responsive genes",
+    "Gravisensitivity and automorphogenesis of lentil seedling roots grown on board the International Space Station",
+    "Gene Expression Dynamics Inspector (GEDI): for integrative analysis of expression profiles",
+    "Spaceflight induces specific alterations in the proteomes of Arabidopsis",
+    "The MELISSA pilot plant facility as as integration test-bed for advanced life support systems",
+    "Ground-based facilities for simulation of microgravity, including terminology and organism-specific recommendations for their use",
+    "SUBA4: the interactive data analysis centre for Arabidopsis subcellular protein locations",
+    "Phototropism and gravitropism in transgenic lines of Arabidopsis altered in the phytochrome pathway",
+    "Role of the plant cell wall in gravity resistance",
+    "Signal perception, transduction, and response in gravity resistance. Another graviresponse in plants",
+    "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight",
+    "Simulated microgravity, Mars gravity, and 2g hypergravity affect cell cycle regulation, ribosome biogenesis, and epigenetics in Arabidopsis cell cultures",
+    "HISAT: a fast spliced aligner with low memory requirements",
+    "Changes in operational procedures to improve spaceflight experiments in plant biology in the European Modular Cultivation System",
+    "Conducting plant experiments in space",
+    "Transcriptome and proteome responses in RNAlater preserved tissue of Arabidopsis thaliana",
+    "Phototropic solar tracking in sunflower plants: an integrative perspective",
+    "Transcriptional response of Arabidopsis seedlings during spaceflight reveals peroxidase and cell wall remodeling genes associated with root hair development",
+    "BiNGO: a Cytoscape plugin to assess overrepresentation of gene ontology categories in biological networks",
+    "Novel, Moon and Mars, partial gravity simulation paradigms and their effects on the balance between cell growth and cell proliferation during early plant development",
+    "Plant cell proliferation and growth are altered by microgravity conditions in spaceflight",
+    "Microgravity induces changes in microsome-associated proteins of Arabidopsis seedlings grown on board the international space station",
+    "PANTHER version 14: more genomes, a new PANTHER GO-slim and improvements in enrichment analysis tools",
+    "Spaceflight transcriptomes: unique responses to a novel environment",
+    "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+    "Genetic dissection of the Arabidopsis spaceflight transcriptome: Are some responses dispensable for the physiological adaptation of plants to spaceflight",
+    "Cytoscape: a software environment for integrated models of biomolecular interaction networks",
+    "Transcriptome and proteomic analyses reveal multiple differences associated with chloroplast development in the spaceflight-induced wheat albino mutant mta",
+    "Resistance of plants to gravitational force",
+    "Genome-wide expression analysis of reactive oxygen species gene network in Mizuna plants grown in long-term spaceflight",
+    "The combined effects of real or simulated microgravity and red-light photoactivation on plant root meristematic cells",
+    "The large diameter centrifuge, LDC, for life and physical sciences and technology",
+    "Turning heads: the biology of solar tracking in sunflower",
+    "Space, the final frontier: a critical review of recent experiments performed in microgravity",
+    "Preparation of a apaceflight experiment to study tropisms in Arabidopsis seedlings on the International Space Station",
+    "A novel blue-light phototropic response is revealed in roots of Arabidopsis thaliana in microgravity",
+    "RNAseq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+    "Gravity: one of the driving forces for evolution",
+    "ARG1 functions in the physiological adaptation of undifferentiated plant cells to spaceflight"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Differential expression analysis for sequence count data",
+      "autores": [
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        }
+      ],
+      "pmid": "20979621",
+      "fuente": "Genome Biol.",
+      "anio": "2010",
+      "volumen": "11",
+      "fpage": "R106",
+      "lpage": ""
+    },
+    {
+      "titulo": "Expression of transcription factors after short-term exposure of Arabidopsis thaliana cell cultures to hypergravity and simulated microgravity (2-D/3-D clinorotation, magnetic levitation)",
+      "autores": [
+        {
+          "nombre_completo": "M. Babbick",
+          "nombres": "M.",
+          "apellidos": "Babbick"
+        },
+        {
+          "nombre_completo": "C. Dijkstra",
+          "nombres": "C.",
+          "apellidos": "Dijkstra"
+        },
+        {
+          "nombre_completo": "O. J. Larkin",
+          "nombres": "O. J.",
+          "apellidos": "Larkin"
+        },
+        {
+          "nombre_completo": "P. Anthony",
+          "nombres": "P.",
+          "apellidos": "Anthony"
+        },
+        {
+          "nombre_completo": "M. R. Davey",
+          "nombres": "M. R.",
+          "apellidos": "Davey"
+        },
+        {
+          "nombre_completo": "J. B. Power",
+          "nombres": "J. B.",
+          "apellidos": "Power"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2007",
+      "volumen": "39",
+      "fpage": "1182",
+      "lpage": "1189"
+    },
+    {
+      "titulo": "jvenn: an interactive Venn diagram viewer",
+      "autores": [
+        {
+          "nombre_completo": "P. Bardou",
+          "nombres": "P.",
+          "apellidos": "Bardou"
+        },
+        {
+          "nombre_completo": "J. Mariette",
+          "nombres": "J.",
+          "apellidos": "Mariette"
+        },
+        {
+          "nombre_completo": "F. Escudie",
+          "nombres": "F.",
+          "apellidos": "Escudie"
+        },
+        {
+          "nombre_completo": "C. Djemiel",
+          "nombres": "C.",
+          "apellidos": "Djemiel"
+        },
+        {
+          "nombre_completo": "C. Klopp",
+          "nombres": "C.",
+          "apellidos": "Klopp"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinf.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "293",
+      "lpage": ""
+    },
+    {
+      "titulo": "Time-course of changes in amounts of specific proteins upon exposure to hyper-g, 2-D clinorotation, and 3-D random positioning of Arabidopsis cell cultures",
+      "autores": [
+        {
+          "nombre_completo": "Z. Barjaktarovic",
+          "nombres": "Z.",
+          "apellidos": "Barjaktarovic"
+        },
+        {
+          "nombre_completo": "A. Nordheim",
+          "nombres": "A.",
+          "apellidos": "Nordheim"
+        },
+        {
+          "nombre_completo": "T. Lamkemeyer",
+          "nombres": "T.",
+          "apellidos": "Lamkemeyer"
+        },
+        {
+          "nombre_completo": "C. Fladerer",
+          "nombres": "C.",
+          "apellidos": "Fladerer"
+        },
+        {
+          "nombre_completo": "J. Madlung",
+          "nombres": "J.",
+          "apellidos": "Madlung"
+        },
+        {
+          "nombre_completo": "R. Hampp",
+          "nombres": "R.",
+          "apellidos": "Hampp"
+        }
+      ],
+      "pmid": "18182437",
+      "fuente": "J. Exp. Bot.",
+      "anio": "2007",
+      "volumen": "58",
+      "fpage": "4357",
+      "lpage": "4363"
+    },
+    {
+      "titulo": "Synergy between stresses: an interaction between spaceflight-associated conditions and the microgravity response",
+      "autores": [
+        {
+          "nombre_completo": "K. M. Beckingham",
+          "nombres": "K. M.",
+          "apellidos": "Beckingham"
+        }
+      ],
+      "pmid": "25241407",
+      "fuente": "Mol. Ecol.",
+      "anio": "2010",
+      "volumen": "19",
+      "fpage": "4105",
+      "lpage": "4107"
+    },
+    {
+      "titulo": "Controlling the false discovery rate: a practical and powerful approach to multiple testing",
+      "autores": [
+        {
+          "nombre_completo": "Y. Benjamini",
+          "nombres": "Y.",
+          "apellidos": "Benjamini"
+        },
+        {
+          "nombre_completo": "Y. Hochberg",
+          "nombres": "Y.",
+          "apellidos": "Hochberg"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. R. Stat. Soc B",
+      "anio": "1995",
+      "volumen": "57",
+      "fpage": "289",
+      "lpage": "300"
+    },
+    {
+      "titulo": "Functional alterations of root meristematic cells of Arabidopsis thaliana induced by a simulated microgravity environment",
+      "autores": [
+        {
+          "nombre_completo": "E. Bouchern-Dubuisson",
+          "nombres": "E.",
+          "apellidos": "Bouchern-Dubuisson"
+        },
+        {
+          "nombre_completo": "A. I. Manzano",
+          "nombres": "A. I.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "I. Le Disquet",
+          "nombres": "I.",
+          "apellidos": "Le Disquet"
+        },
+        {
+          "nombre_completo": "I. Matia",
+          "nombres": "I.",
+          "apellidos": "Matia"
+        },
+        {
+          "nombre_completo": "J. Saez-Vasquez",
+          "nombres": "J.",
+          "apellidos": "Saez-Vasquez"
+        },
+        {
+          "nombre_completo": "J. J. W. A. Van Loon",
+          "nombres": "J. J. W. A.",
+          "apellidos": "Van Loon"
+        }
+      ],
+      "pmid": "27792899",
+      "fuente": "J. Plant Physiol.",
+      "anio": "2016",
+      "volumen": "207",
+      "fpage": "30",
+      "lpage": "41"
+    },
+    {
+      "titulo": "Phototropism: some history, some puzzles, and a look ahead",
+      "autores": [
+        {
+          "nombre_completo": "W. R. Briggs",
+          "nombres": "W. R.",
+          "apellidos": "Briggs"
+        }
+      ],
+      "pmid": "24399823",
+      "fuente": "Plant Physiology",
+      "anio": "2014",
+      "volumen": "164",
+      "fpage": "13",
+      "lpage": "23"
+    },
+    {
+      "titulo": "Experiments with small animals in BIOLAB and EMCS on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "E. Brinckmann",
+          "nombres": "E.",
+          "apellidos": "Brinckmann"
+        },
+        {
+          "nombre_completo": "P. Schiller",
+          "nombres": "P.",
+          "apellidos": "Schiller"
+        }
+      ],
+      "pmid": "12530383",
+      "fuente": "Adv. Space Res.",
+      "anio": "2002",
+      "volumen": "30",
+      "fpage": "809",
+      "lpage": "814"
+    },
+    {
+      "titulo": "ESA hardware for plant research on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "E. Brinckmann",
+          "nombres": "E.",
+          "apellidos": "Brinckmann"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2005",
+      "volumen": "36",
+      "fpage": "1162",
+      "lpage": "1166"
+    },
+    {
+      "titulo": "Gravitropism in higher plants",
+      "autores": [
+        {
+          "nombre_completo": "R. Chen",
+          "nombres": "R.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "E. Rosen",
+          "nombres": "E.",
+          "apellidos": "Rosen"
+        },
+        {
+          "nombre_completo": "P. H. Masson",
+          "nombres": "P. H.",
+          "apellidos": "Masson"
+        }
+      ],
+      "pmid": "11541950",
+      "fuente": "Plant Physiol.",
+      "anio": "1999",
+      "volumen": "120",
+      "fpage": "343",
+      "lpage": "350"
+    },
+    {
+      "titulo": "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "W. G. Choi",
+          "nombres": "W. G.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "R. J. Barker",
+          "nombres": "R. J.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S. H. Kim",
+          "nombres": "S. H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S. J. Swanson",
+          "nombres": "S. J.",
+          "apellidos": "Swanson"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "30644539",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "123",
+      "lpage": "136"
+    },
+    {
+      "titulo": "Transcriptome analyses of Arabidopsis thaliana seedlings grown in space: implications for gravity-responsive genes",
+      "autores": [
+        {
+          "nombre_completo": "M. J. Correll",
+          "nombres": "M. J.",
+          "apellidos": "Correll"
+        },
+        {
+          "nombre_completo": "T. P. Pyle",
+          "nombres": "T. P.",
+          "apellidos": "Pyle"
+        },
+        {
+          "nombre_completo": "K. D. Millar",
+          "nombres": "K. D.",
+          "apellidos": "Millar"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J. Yao",
+          "nombres": "J.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "R. E. Edelmann",
+          "nombres": "R. E.",
+          "apellidos": "Edelmann"
+        }
+      ],
+      "pmid": "23771594",
+      "fuente": "Planta",
+      "anio": "2013",
+      "volumen": "238",
+      "fpage": "519",
+      "lpage": "533"
+    },
+    {
+      "titulo": "Gravisensitivity and automorphogenesis of lentil seedling roots grown on board the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "D. Driss-Ecole",
+          "nombres": "D.",
+          "apellidos": "Driss-Ecole"
+        },
+        {
+          "nombre_completo": "V. Legue",
+          "nombres": "V.",
+          "apellidos": "Legue"
+        },
+        {
+          "nombre_completo": "E. Carnero-Diaz",
+          "nombres": "E.",
+          "apellidos": "Carnero-Diaz"
+        },
+        {
+          "nombre_completo": "G. Perbal",
+          "nombres": "G.",
+          "apellidos": "Perbal"
+        }
+      ],
+      "pmid": "18429941",
+      "fuente": "Physiol. Plant",
+      "anio": "2008",
+      "volumen": "134",
+      "fpage": "191",
+      "lpage": "201"
+    },
+    {
+      "titulo": "Gene Expression Dynamics Inspector (GEDI): for integrative analysis of expression profiles",
+      "autores": [
+        {
+          "nombre_completo": "G. S. Eichler",
+          "nombres": "G. S.",
+          "apellidos": "Eichler"
+        },
+        {
+          "nombre_completo": "S. Huang",
+          "nombres": "S.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "D. E. Ingber",
+          "nombres": "D. E.",
+          "apellidos": "Ingber"
+        }
+      ],
+      "pmid": "14630665",
+      "fuente": "Bioinformatics",
+      "anio": "2003",
+      "volumen": "19",
+      "fpage": "2321",
+      "lpage": "2322"
+    },
+    {
+      "titulo": "Spaceflight induces specific alterations in the proteomes of Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "J. Koh",
+          "nombres": "J.",
+          "apellidos": "Koh"
+        },
+        {
+          "nombre_completo": "F. Denison",
+          "nombres": "F.",
+          "apellidos": "Denison"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "25517942",
+      "fuente": "Astrobiology",
+      "anio": "2015",
+      "volumen": "15",
+      "fpage": "32",
+      "lpage": "56"
+    },
+    {
+      "titulo": "The MELISSA pilot plant facility as as integration test-bed for advanced life support systems",
+      "autores": [
+        {
+          "nombre_completo": "F. Godia",
+          "nombres": "F.",
+          "apellidos": "Godia"
+        },
+        {
+          "nombre_completo": "J. Albiol",
+          "nombres": "J.",
+          "apellidos": "Albiol"
+        },
+        {
+          "nombre_completo": "J. Perez",
+          "nombres": "J.",
+          "apellidos": "Perez"
+        },
+        {
+          "nombre_completo": "N. Creus",
+          "nombres": "N.",
+          "apellidos": "Creus"
+        },
+        {
+          "nombre_completo": "F. Cabello",
+          "nombres": "F.",
+          "apellidos": "Cabello"
+        },
+        {
+          "nombre_completo": "A. Montras",
+          "nombres": "A.",
+          "apellidos": "Montras"
+        }
+      ],
+      "pmid": "15846877",
+      "fuente": "Adv. Space Res.",
+      "anio": "2004",
+      "volumen": "34",
+      "fpage": "1483",
+      "lpage": "1493"
+    },
+    {
+      "titulo": "Ground-based facilities for simulation of microgravity, including terminology and organism-specific recommendations for their use",
+      "autores": [
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "R. Anken",
+          "nombres": "R.",
+          "apellidos": "Anken"
+        },
+        {
+          "nombre_completo": "J. Boonstra",
+          "nombres": "J.",
+          "apellidos": "Boonstra"
+        },
+        {
+          "nombre_completo": "M. Braun",
+          "nombres": "M.",
+          "apellidos": "Braun"
+        },
+        {
+          "nombre_completo": "P. C. M. Christianen",
+          "nombres": "P. C. M.",
+          "apellidos": "Christianen"
+        },
+        {
+          "nombre_completo": "M. D. Geest",
+          "nombres": "M. D.",
+          "apellidos": "Geest"
+        }
+      ],
+      "pmid": "23252378",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1",
+      "lpage": "17"
+    },
+    {
+      "titulo": "SUBA4: the interactive data analysis centre for Arabidopsis subcellular protein locations",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Hooper",
+          "nombres": "C. M.",
+          "apellidos": "Hooper"
+        },
+        {
+          "nombre_completo": "I. R. Castleden",
+          "nombres": "I. R.",
+          "apellidos": "Castleden"
+        },
+        {
+          "nombre_completo": "S. K. Tanz",
+          "nombres": "S. K.",
+          "apellidos": "Tanz"
+        },
+        {
+          "nombre_completo": "N. Aryamanesh",
+          "nombres": "N.",
+          "apellidos": "Aryamanesh"
+        },
+        {
+          "nombre_completo": "A. H. Millar",
+          "nombres": "A. H.",
+          "apellidos": "Millar"
+        }
+      ],
+      "pmid": "27899614",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D1064",
+      "lpage": "D1074"
+    },
+    {
+      "titulo": "Phototropism and gravitropism in transgenic lines of Arabidopsis altered in the phytochrome pathway",
+      "autores": [
+        {
+          "nombre_completo": "J. A. Hopkins",
+          "nombres": "J. A.",
+          "apellidos": "Hopkins"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "22380624",
+      "fuente": "Physiol. Plant.",
+      "anio": "2012",
+      "volumen": "145",
+      "fpage": "461",
+      "lpage": "473"
+    },
+    {
+      "titulo": "Role of the plant cell wall in gravity resistance",
+      "autores": [
+        {
+          "nombre_completo": "T. Hoson",
+          "nombres": "T.",
+          "apellidos": "Hoson"
+        },
+        {
+          "nombre_completo": "K. Wakabayashi",
+          "nombres": "K.",
+          "apellidos": "Wakabayashi"
+        }
+      ],
+      "pmid": "25236694",
+      "fuente": "Phytochemistry",
+      "anio": "2015",
+      "volumen": "112",
+      "fpage": "84",
+      "lpage": "90"
+    },
+    {
+      "titulo": "Signal perception, transduction, and response in gravity resistance. Another graviresponse in plants",
+      "autores": [
+        {
+          "nombre_completo": "T. Hoson",
+          "nombres": "T.",
+          "apellidos": "Hoson"
+        },
+        {
+          "nombre_completo": "Y. Saito",
+          "nombres": "Y.",
+          "apellidos": "Saito"
+        },
+        {
+          "nombre_completo": "K. Soga",
+          "nombres": "K.",
+          "apellidos": "Soga"
+        },
+        {
+          "nombre_completo": "K. Wakabayashi",
+          "nombres": "K.",
+          "apellidos": "Wakabayashi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2005",
+      "volumen": "36",
+      "fpage": "1196",
+      "lpage": "1202"
+    },
+    {
+      "titulo": "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Johnson",
+          "nombres": "C. M.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "S. Pattathil",
+          "nombres": "S.",
+          "apellidos": "Pattathil"
+        },
+        {
+          "nombre_completo": "M. J. Correll",
+          "nombres": "M. J.",
+          "apellidos": "Correll"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "28827451",
+      "fuente": "Am. J. Bot.",
+      "anio": "2017",
+      "volumen": "104",
+      "fpage": "1219",
+      "lpage": "1231"
+    },
+    {
+      "titulo": "Simulated microgravity, Mars gravity, and 2g hypergravity affect cell cycle regulation, ribosome biogenesis, and epigenetics in Arabidopsis cell cultures",
+      "autores": [
+        {
+          "nombre_completo": "K. Y. Kamal",
+          "nombres": "K. Y.",
+          "apellidos": "Kamal"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "J. J. W. A. Van Loon",
+          "nombres": "J. J. W. A.",
+          "apellidos": "Van Loon"
+        },
+        {
+          "nombre_completo": "F. J. Medina",
+          "nombres": "F. J.",
+          "apellidos": "Medina"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant Cell Environ.",
+      "anio": "2018",
+      "volumen": "2019",
+      "fpage": "480",
+      "lpage": "494"
+    },
+    {
+      "titulo": "HISAT: a fast spliced aligner with low memory requirements",
+      "autores": [
+        {
+          "nombre_completo": "D. Kim",
+          "nombres": "D.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "B. Langmead",
+          "nombres": "B.",
+          "apellidos": "Langmead"
+        },
+        {
+          "nombre_completo": "S. L. Salzberg",
+          "nombres": "S. L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "25751142",
+      "fuente": "Nat. Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "357",
+      "lpage": "360"
+    },
+    {
+      "titulo": "Changes in operational procedures to improve spaceflight experiments in plant biology in the European Modular Cultivation System",
+      "autores": [
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "G. Aanes",
+          "nombres": "G.",
+          "apellidos": "Aanes"
+        },
+        {
+          "nombre_completo": "M. Schiefloe",
+          "nombres": "M.",
+          "apellidos": "Schiefloe"
+        },
+        {
+          "nombre_completo": "L. H. Coelho",
+          "nombres": "L. H.",
+          "apellidos": "Coelho"
+        },
+        {
+          "nombre_completo": "K. D. Millar",
+          "nombres": "K. D.",
+          "apellidos": "Millar"
+        },
+        {
+          "nombre_completo": "R. E. Edelmann",
+          "nombres": "R. E.",
+          "apellidos": "Edelmann"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2014",
+      "volumen": "53",
+      "fpage": "818",
+      "lpage": "827"
+    },
+    {
+      "titulo": "Conducting plant experiments in space",
+      "autores": [
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "25981781",
+      "fuente": "Methods In Mol. Biol.",
+      "anio": "2015",
+      "volumen": "1309",
+      "fpage": "255",
+      "lpage": "283"
+    },
+    {
+      "titulo": "Transcriptome and proteome responses in RNAlater preserved tissue of Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "C. P. S. Kruse",
+          "nombres": "C. P. S.",
+          "apellidos": "Kruse"
+        },
+        {
+          "nombre_completo": "P. Basu",
+          "nombres": "P.",
+          "apellidos": "Basu"
+        },
+        {
+          "nombre_completo": "D. R. Luesse",
+          "nombres": "D. R.",
+          "apellidos": "Luesse"
+        },
+        {
+          "nombre_completo": "S. E. Wyatt",
+          "nombres": "S. E.",
+          "apellidos": "Wyatt"
+        }
+      ],
+      "pmid": "28423006",
+      "fuente": "PloS One",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Phototropic solar tracking in sunflower plants: an integrative perspective",
+      "autores": [
+        {
+          "nombre_completo": "U. Kutschera",
+          "nombres": "U.",
+          "apellidos": "Kutschera"
+        },
+        {
+          "nombre_completo": "W. R. Briggs",
+          "nombres": "W. R.",
+          "apellidos": "Briggs"
+        }
+      ],
+      "pmid": "26420201",
+      "fuente": "Annals of Botany",
+      "anio": "2016",
+      "volumen": "117",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "Transcriptional response of Arabidopsis seedlings during spaceflight reveals peroxidase and cell wall remodeling genes associated with root hair development",
+      "autores": [
+        {
+          "nombre_completo": "T. Kwon",
+          "nombres": "T.",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J. A. Sparks",
+          "nombres": "J. A.",
+          "apellidos": "Sparks"
+        },
+        {
+          "nombre_completo": "J. Nakashima",
+          "nombres": "J.",
+          "apellidos": "Nakashima"
+        },
+        {
+          "nombre_completo": "S. N. Allen",
+          "nombres": "S. N.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "Y. Tang",
+          "nombres": "Y.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "E. B. Blancaflor",
+          "nombres": "E. B.",
+          "apellidos": "Blancaflor"
+        }
+      ],
+      "pmid": "25587145",
+      "fuente": "Am. J. Bot.",
+      "anio": "2015",
+      "volumen": "102",
+      "fpage": "21",
+      "lpage": "35"
+    },
+    {
+      "titulo": "BiNGO: a Cytoscape plugin to assess overrepresentation of gene ontology categories in biological networks",
+      "autores": [
+        {
+          "nombre_completo": "S. Maere",
+          "nombres": "S.",
+          "apellidos": "Maere"
+        },
+        {
+          "nombre_completo": "K. Heymans",
+          "nombres": "K.",
+          "apellidos": "Heymans"
+        },
+        {
+          "nombre_completo": "M. Kuiper",
+          "nombres": "M.",
+          "apellidos": "Kuiper"
+        }
+      ],
+      "pmid": "15972284",
+      "fuente": "Bioinformatics",
+      "anio": "2005",
+      "volumen": "21",
+      "fpage": "3448",
+      "lpage": "3449"
+    },
+    {
+      "titulo": "Novel, Moon and Mars, partial gravity simulation paradigms and their effects on the balance between cell growth and cell proliferation during early plant development",
+      "autores": [
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "L. A. Toom",
+          "nombres": "L. A.",
+          "apellidos": "Toom"
+        },
+        {
+          "nombre_completo": "S. T. Slaa",
+          "nombres": "S. T.",
+          "apellidos": "Slaa"
+        },
+        {
+          "nombre_completo": "G. Borst",
+          "nombres": "G.",
+          "apellidos": "Borst"
+        },
+        {
+          "nombre_completo": "M. Visser",
+          "nombres": "M.",
+          "apellidos": "Visser"
+        }
+      ],
+      "pmid": "29644337",
+      "fuente": "NPJ Microgravity",
+      "anio": "2018",
+      "volumen": "4",
+      "fpage": "9",
+      "lpage": ""
+    },
+    {
+      "titulo": "Plant cell proliferation and growth are altered by microgravity conditions in spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "I. Matía",
+          "nombres": "I.",
+          "apellidos": "Matía"
+        },
+        {
+          "nombre_completo": "F. Gonzalez-Camacho",
+          "nombres": "F.",
+          "apellidos": "Gonzalez-Camacho"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "G. Gasset",
+          "nombres": "G.",
+          "apellidos": "Gasset"
+        },
+        {
+          "nombre_completo": "J. J. W. A. Van Loon",
+          "nombres": "J. J. W. A.",
+          "apellidos": "Van Loon"
+        }
+      ],
+      "pmid": "19864040",
+      "fuente": "J. Plant Physiol.",
+      "anio": "2010",
+      "volumen": "167",
+      "fpage": "184",
+      "lpage": "193"
+    },
+    {
+      "titulo": "Microgravity induces changes in microsome-associated proteins of Arabidopsis seedlings grown on board the international space station",
+      "autores": [
+        {
+          "nombre_completo": "C. Mazars",
+          "nombres": "C.",
+          "apellidos": "Mazars"
+        },
+        {
+          "nombre_completo": "C. Briere",
+          "nombres": "C.",
+          "apellidos": "Briere"
+        },
+        {
+          "nombre_completo": "S. Grat",
+          "nombres": "S.",
+          "apellidos": "Grat"
+        },
+        {
+          "nombre_completo": "C. Pichereaux",
+          "nombres": "C.",
+          "apellidos": "Pichereaux"
+        },
+        {
+          "nombre_completo": "M. Rossignol",
+          "nombres": "M.",
+          "apellidos": "Rossignol"
+        },
+        {
+          "nombre_completo": "V. Pereda-Loth",
+          "nombres": "V.",
+          "apellidos": "Pereda-Loth"
+        }
+      ],
+      "pmid": "24618597",
+      "fuente": "PloS One",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "PANTHER version 14: more genomes, a new PANTHER GO-slim and improvements in enrichment analysis tools",
+      "autores": [
+        {
+          "nombre_completo": "H. Mi",
+          "nombres": "H.",
+          "apellidos": "Mi"
+        },
+        {
+          "nombre_completo": "A. Muruganujan",
+          "nombres": "A.",
+          "apellidos": "Muruganujan"
+        },
+        {
+          "nombre_completo": "D. Ebert",
+          "nombres": "D.",
+          "apellidos": "Ebert"
+        },
+        {
+          "nombre_completo": "X. Huang",
+          "nombres": "X.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "P. D. Thomas",
+          "nombres": "P. D.",
+          "apellidos": "Thomas"
+        }
+      ],
+      "pmid": "30407594",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D419",
+      "lpage": "D426"
+    },
+    {
+      "titulo": "Spaceflight transcriptomes: unique responses to a novel environment",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "D. T. Ostrow",
+          "nombres": "D. T.",
+          "apellidos": "Ostrow"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J. L. Li",
+          "nombres": "J. L.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "22221117",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "40",
+      "lpage": "56"
+    },
+    {
+      "titulo": "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "E. R. Schultz",
+          "nombres": "E. R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "23919896",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "112",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genetic dissection of the Arabidopsis spaceflight transcriptome: Are some responses dispensable for the physiological adaptation of plants to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "N. J. Sng",
+          "nombres": "N. J.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "A. Krishnamurthy",
+          "nombres": "A.",
+          "apellidos": "Krishnamurthy"
+        },
+        {
+          "nombre_completo": "E. R. Schultz",
+          "nombres": "E. R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "28662188",
+      "fuente": "PloS One",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cytoscape: a software environment for integrated models of biomolecular interaction networks",
+      "autores": [
+        {
+          "nombre_completo": "P. Shannon",
+          "nombres": "P.",
+          "apellidos": "Shannon"
+        },
+        {
+          "nombre_completo": "A. Markiel",
+          "nombres": "A.",
+          "apellidos": "Markiel"
+        },
+        {
+          "nombre_completo": "O. Ozier",
+          "nombres": "O.",
+          "apellidos": "Ozier"
+        },
+        {
+          "nombre_completo": "N. S. Baliga",
+          "nombres": "N. S.",
+          "apellidos": "Baliga"
+        },
+        {
+          "nombre_completo": "J. T. Wang",
+          "nombres": "J. T.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "D. Ramage",
+          "nombres": "D.",
+          "apellidos": "Ramage"
+        }
+      ],
+      "pmid": "14597658",
+      "fuente": "Genome Res.",
+      "anio": "2003",
+      "volumen": "13",
+      "fpage": "2498",
+      "lpage": "2504"
+    },
+    {
+      "titulo": "Transcriptome and proteomic analyses reveal multiple differences associated with chloroplast development in the spaceflight-induced wheat albino mutant mta",
+      "autores": [
+        {
+          "nombre_completo": "K. Shi",
+          "nombres": "K.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "J. Gu",
+          "nombres": "J.",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "H. Guo",
+          "nombres": "H.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "L. Zhao",
+          "nombres": "L.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Y. Xie",
+          "nombres": "Y.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "H. Xiong",
+          "nombres": "H.",
+          "apellidos": "Xiong"
+        }
+      ],
+      "pmid": "28542341",
+      "fuente": "PloS One",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Resistance of plants to gravitational force",
+      "autores": [
+        {
+          "nombre_completo": "K. Soga",
+          "nombres": "K.",
+          "apellidos": "Soga"
+        }
+      ],
+      "pmid": "23732635",
+      "fuente": "J. Plant Res.",
+      "anio": "2013",
+      "volumen": "126",
+      "fpage": "589",
+      "lpage": "596"
+    },
+    {
+      "titulo": "Genome-wide expression analysis of reactive oxygen species gene network in Mizuna plants grown in long-term spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "M. Sugimoto",
+          "nombres": "M.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "Y. Oono",
+          "nombres": "Y.",
+          "apellidos": "Oono"
+        },
+        {
+          "nombre_completo": "O. Gusev",
+          "nombres": "O.",
+          "apellidos": "Gusev"
+        },
+        {
+          "nombre_completo": "T. Matsumoto",
+          "nombres": "T.",
+          "apellidos": "Matsumoto"
+        },
+        {
+          "nombre_completo": "T. Yazawa",
+          "nombres": "T.",
+          "apellidos": "Yazawa"
+        },
+        {
+          "nombre_completo": "M. A. Levinskikh",
+          "nombres": "M. A.",
+          "apellidos": "Levinskikh"
+        }
+      ],
+      "pmid": "24393219",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2014",
+      "volumen": "14",
+      "fpage": "4",
+      "lpage": ""
+    },
+    {
+      "titulo": "The combined effects of real or simulated microgravity and red-light photoactivation on plant root meristematic cells",
+      "autores": [
+        {
+          "nombre_completo": "M. A. Valbuena",
+          "nombres": "M. A.",
+          "apellidos": "Valbuena"
+        },
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "V. Pereda-Loth",
+          "nombres": "V.",
+          "apellidos": "Pereda-Loth"
+        },
+        {
+          "nombre_completo": "E. Carnero-Diaz",
+          "nombres": "E.",
+          "apellidos": "Carnero-Diaz"
+        },
+        {
+          "nombre_completo": "R. E. Edelmann",
+          "nombres": "R. E.",
+          "apellidos": "Edelmann"
+        }
+      ],
+      "pmid": "29948124",
+      "fuente": "Planta",
+      "anio": "2018",
+      "volumen": "248",
+      "fpage": "691",
+      "lpage": "704"
+    },
+    {
+      "titulo": "The large diameter centrifuge, LDC, for life and physical sciences and technology",
+      "autores": [
+        {
+          "nombre_completo": "J. J. W. A. Van Loon",
+          "nombres": "J. J. W. A.",
+          "apellidos": "Van Loon"
+        },
+        {
+          "nombre_completo": "J. Krause",
+          "nombres": "J.",
+          "apellidos": "Krause"
+        },
+        {
+          "nombre_completo": "H. Cunha",
+          "nombres": "H.",
+          "apellidos": "Cunha"
+        },
+        {
+          "nombre_completo": "J. Goncalves",
+          "nombres": "J.",
+          "apellidos": "Goncalves"
+        },
+        {
+          "nombre_completo": "H. Almeida",
+          "nombres": "H.",
+          "apellidos": "Almeida"
+        },
+        {
+          "nombre_completo": "P. Schiller",
+          "nombres": "P.",
+          "apellidos": "Schiller"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proc. of the ‘Life in Space for Life on Earth Symposium’, Angers, France",
+      "anio": "2008",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Turning heads: the biology of solar tracking in sunflower",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "E. A. Brown",
+          "nombres": "E. A.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "S. L. Harmer",
+          "nombres": "S. L.",
+          "apellidos": "Harmer"
+        },
+        {
+          "nombre_completo": "B. K. Blackman",
+          "nombres": "B. K.",
+          "apellidos": "Blackman"
+        }
+      ],
+      "pmid": "24908502",
+      "fuente": "Plant Science",
+      "anio": "2014",
+      "volumen": "224",
+      "fpage": "20",
+      "lpage": "26"
+    },
+    {
+      "titulo": "Space, the final frontier: a critical review of recent experiments performed in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "26795156",
+      "fuente": "Plant Sci.",
+      "anio": "2016",
+      "volumen": "243",
+      "fpage": "115",
+      "lpage": "119"
+    },
+    {
+      "titulo": "Preparation of a apaceflight experiment to study tropisms in Arabidopsis seedlings on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "30694478",
+      "fuente": "Methods Mol. Biol.",
+      "anio": "2019",
+      "volumen": "1924",
+      "fpage": "207",
+      "lpage": "214"
+    },
+    {
+      "titulo": "A novel blue-light phototropic response is revealed in roots of Arabidopsis thaliana in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "F. J. Medina",
+          "nombres": "F. J.",
+          "apellidos": "Medina"
+        },
+        {
+          "nombre_completo": "R. E. Edelmann",
+          "nombres": "R. E.",
+          "apellidos": "Edelmann"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "27507239",
+      "fuente": "Planta",
+      "anio": "2016",
+      "volumen": "244",
+      "fpage": "1201",
+      "lpage": "1215"
+    },
+    {
+      "titulo": "RNAseq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "W. Poehlman",
+          "nombres": "W.",
+          "apellidos": "Poehlman"
+        },
+        {
+          "nombre_completo": "F. A. Feltus",
+          "nombres": "F. A.",
+          "apellidos": "Feltus"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "M. Ciska",
+          "nombres": "M.",
+          "apellidos": "Ciska"
+        }
+      ],
+      "pmid": "31709515",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "1466",
+      "lpage": "1476"
+    },
+    {
+      "titulo": "Gravity: one of the driving forces for evolution",
+      "autores": [
+        {
+          "nombre_completo": "D. Volkmann",
+          "nombres": "D.",
+          "apellidos": "Volkmann"
+        },
+        {
+          "nombre_completo": "F. Baluska",
+          "nombres": "F.",
+          "apellidos": "Baluska"
+        }
+      ],
+      "pmid": "17180495",
+      "fuente": "Protoplasma",
+      "anio": "2006",
+      "volumen": "229",
+      "fpage": "143",
+      "lpage": "148"
+    },
+    {
+      "titulo": "ARG1 functions in the physiological adaptation of undifferentiated plant cells to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "E. R. Schultz",
+          "nombres": "E. R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "J. Yao",
+          "nombres": "J.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "N. J. Sng",
+          "nombres": "N. J.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "M. Zhou",
+          "nombres": "M.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "J. B. Callaham",
+          "nombres": "J. B.",
+          "apellidos": "Callaham"
+        }
+      ],
+      "pmid": "29088549",
+      "fuente": "Astrobiology",
+      "anio": "2017",
+      "volumen": "17",
+      "fpage": "1077",
+      "lpage": "1111"
+    }
+  ]
+}

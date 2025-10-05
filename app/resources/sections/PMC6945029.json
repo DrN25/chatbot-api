@@ -1,0 +1,2996 @@
+{
+  "TITLE": [
+    "Immune Suppressive Extracellular Vesicle Proteins of Leptopilina heterotoma Are Encoded in the Wasp Genome"
+  ],
+  "ABSTRACT": [
+    "Leptopilina heterotoma are obligate parasitoid wasps that develop in the body of their Drosophila hosts. During oviposition, female wasps introduce venom into the larval hosts’ body cavity. The venom contains discrete, 300 nm-wide, mixed-strategy extracellular vesicles (MSEVs), until recently referred to as virus-like particles. While the crucial immune suppressive functions of L. heterotoma MSEVs have remained undisputed, their biotic nature and origin still remain controversial. In recent proteomics analyses of L. heterotoma MSEVs, we identified 161 proteins in three classes: conserved eukaryotic proteins, infection and immunity related proteins, and proteins without clear annotation. Here we report 246 additional proteins from the L. heterotoma MSEV proteome. An enrichment analysis of the entire proteome supports vesicular nature of these structures. Sequences for more than 90% of these proteins are present in the whole-body transcriptome. Sequencing and de novo assembly of the 460 Mb-sized L. heterotoma genome revealed 90% of MSEV proteins have coding regions within the genomic scaffolds. Altogether, these results explain the stable association of MSEVs with their wasps, and like other wasp structures, their vertical inheritance. While our results do not rule out a viral origin of MSEVs, they suggest that a similar strategy for co-opting cellular machinery for immune suppression may be shared by other wasps to gain advantage over their hosts. These results are relevant to our understanding of the evolution of figitid and related wasp species."
+  ],
+  "INTRO": [
+    "Parasitic wasps are among the most abundant insects; they are vital to biodiversity and contribute to biological control of agricultural pests. A common strategy for reproductive success of parasitic wasps is suppression of immunity in their larval hosts. Parasitic wasps produce viruses or virus-like particles in tissues associated with the ovary. Wasps of the Ichneumonoidea superfamily produce symbiotic polydnaviruses (PDVs), which package circular dsDNA. PDV (Bracovirus (BV) in braconid wasps; Ichnovirus (IV) in ichneumonid wasps) genomes are integrated within the wasp genome as islands of viral genes. Upon oviposition, PDVs suppress host immunity. BVs and IVs derive from nudivirus and large DNA cytoplasmic viruses, respectively (reviewed in, and references therein).",
+    "Immune-suppressive virus-like particles (VLPs) (e.g., VcVLPs in the ichneumonid Venturia canescens and FaENVs in the braconid Fopius arisanus) lack proviral DNA segments, but are of viral origin and transfer virulence proteins into host cells. Viral genes encoding VLP proteins are either dispersed in the wasp genome (as in VcVLP) or present in discrete genomic areas (as in FaENV). Thus, various independent viral endogenization events have been important for successful parasitism by these wasps.",
+    "Here, we focus on immune-suppressive particles of figitid wasps in the genus Leptopilina, that infect Drosophila spp. and are gaining importance as models for natural host-parasite interactions. Leptopilina heterotoma (Lh), L. victoriae (Lv), and L. boulardi (Lb) produce VLPs in their venom glands. The VLPs of Leptopilina spp. and their proteins have been linked to parasite success. Evidence for DNA in Leptopilina VLPs is lacking, and because of the absence of a published wasp genome, the chromosomal vs. extrachromosomal location of MSEV protein genes is not known. Our goals here are (a) to describe additional proteins in the MSEV proteome and examine their relationship with PDV and other viral proteins, and (b) determine whether MSEV genes are encoded in the wasp genome.",
+    "We recently described 161 proteins in the VLPs from two Lh strains in three classes: conserved eukaryotic with cellular function (Class 1), infection- and immunity-related (Class 2), and unannotated (novel) without similarity to known proteins (Class 3). Class 1 proteins include several vesicular transport and endomembrane system proteins. Class 2 proteins include predicted modulators of immune response, e.g., metalloendopeptidases, RhoGAPs, a knottin-like protein, and a new family of prokaryotic-like GTPases whose genes lack introns. A striking example of Class 3 proteins is p40, with three-dimensional structural similarity to Type 3 secretion system (T3SS) needle-tip proteins, IpaD/SipD/BipD from Gram-negative bacteria, Salmonella, Shigella and Burkholderia. Earlier results have indicated that the p40 gene (unlike the GTPase genes) is expected to have introns. These results suggested that Lh VLPs have novel properties with elements of the prokaryotic and eukaryotic secretion systems and possess a functionally diverse array of immune-suppressive proteins. We therefore renamed VLPs as Mixed Strategy Extracellular Vesicles (MSEVs). Their variable morphologies distinguish them from ordered PDV morphologies. Additionally, genes encoding abundant MSEV proteins p40 and GTPase are present even in antibiotic-treated wasps. These results favored a non-microbial nature for MSEVs.",
+    "Here, we present an analysis of an additional 246 proteins from the Lh 14 MSEV proteome to obtain a more comprehensive description. A combined analysis of these and previous results reinforce the idea that the MSEV proteome is enriched in exosomal proteins and that Class 3 proteins are not shared with either Lb or an unrelated Ganaspis spp. Whole-body transcriptome of adult Lh wasps validated the expression of the MSEV genes. De novo genomic assembly and analyses revealed 90% of conserved Insecta Benchmarking Universal Single-Copy Orthologs (BUSCOs), as well as a majority (375/407; ∼90%) of the MSEV proteins are encoded in the wasp genome. While we cannot rule out a viral origin of MSEVs, in aggregate, our results provide a clearer understanding of the current nature of these complex structures and strengthen the idea that specialized extracellular vesicles transfer wasp virulence factors and other parasite proteins into Drosophila host cells."
+  ],
+  "METHODS": [
+    "Materials and Methods",
+    "Insects",
+    "Isogenized Lh strains New York (NY) and Lh 14, were raised on the y w strain of D. melanogaster that were reared on standard cornmeal, yeast, and agar fly food at 25° as described by. Adult wasps were collected from parasitized hosts, 25 days after infection at 25°. Male and female wasps were stored on fly food with 70% honey on “buzz” plugs.",
+    "Analysis of MSEV super-set ORFs",
+    "Previously undescribed open reading frames (ORFs) from the Lh 14 MSEV proteome and sequenced as part of (PXD005632) are analyzed in the context of the published female abdominal and whole body (this study) Lh 14 transcriptomes. We have not observed any difference in venom activities of Lh 14 and Lh NY, or in wasp success under laboratory conditions. The Lh 14 ORFs were aligned against transcripts from BioProject: PRJNA202370, Accession number GAJC0000000 as previously described in. Proteins with an ORF and a transcript were run through the BLAST2GO (v 5.2; downloaded June 2018) annotation pipeline with an E-value threshold of 1x10−7. Results were organized and classified based on Gene Ontology (GO) terms from UniProt and InterPro. Proteins were considered “virulence-related” based on GO terms indicating involvement with infection, host evasion, inflammation, and immune response. ORFs that did not return results via BLAST or InterProScan (Class 3 proteins) were run through Conserved Domain Search (CDD) on NCBI (version 3.16). The E-value cut off for CDD search was 1x10−2. Proteins were considered to have a signal peptide if one was predicted using Phobeus and Signal P. Transmembrane domains were considered to be present if they were predicted using Phobeus and TMHMM.",
+    "The GhostKOALA algorithm was used to assign KEGG ortholog (KO) numbers for the MSEV superset protein sequences. If a primary KO number failed to be assigned by GhostKOALA, a secondary number assignment with a score >= 50 was used. Redundant KO numbers were excluded.",
+    "MSEV proteins were included in the enrichment analyses only if a human ortholog exists; the gene identifiers for human orthologs were obtained from the MSEV KO and the UniProt mapping utility. (Human orthologs were chosen because a robust proportion of Vesiclepedia’s data are derived from human vesicle proteomes.) The orthologs of human genes were analyzed for enrichment with the FunRich algorithm against the Vesiclepedia database.",
+    "Finally, the MSEV proteome was used as a query using BLASTp for the following databases: “non-redundant” (nr), nr restricted to Taxid: Viridae (10239), nr restricted to Taxid: Polydnaviridae (10482), and nr restricted to Taxid: Unclassified Polydnaviridae (40273) (E-value threshold: 1.0x10−3, %ID minimum: 20%, performed 04/16/2019). tBLASTn of L. boulardi and G. hookeri (previously called Ganaspis spp. 1) transcriptomes was performed on 03/10/2019; the threshold for homologs in Lb and G. hookeri were 25% ID and an E-value of 1.0x10−10.",
+    "Genomes sequencing and assembly",
+    "Library preparations, sequencing reactions, and associated validations were conducted by GENEWIZ, Inc. (South Plainfield, NJ, USA). Genomic DNA was extracted from ∼50 mg of tissue (∼100 wasps) of Lh males and females separately using mixed bead beating and PureLink Genomic DNA extraction kits following manufacturer’s protocol. Quantification of extracted DNA was performed using Nanodrop and Qubit2.0 Fluorometer (Live Technologies, Carlsbad, CA, USA). Integrity of genomic DNA was verified by gel electrophoresis (0.6% agarose). DNA libraries were prepared for each wasp gender by acoustic shearing fragmentation using a Covaris S220. Fragments were end repaired and adenylated prior to adapter ligation on 3′ ends (NEB NextUltra DNA Library Preparation kit, Illumina, San Diego, CA, USA). Enrichment and indexing of adapter-ligated DNA was done through limited cycle PCR. DNA library validation was performed using TapeStation (Agilent Technologies, Palo Alto, CA, USA). Libraries were quantified using Qubit 2.0 Fluorometer.",
+    "Real time PCR (Applied Biosystems, Carlsbad, CA, USA) was used to quantify DNA molar mass for each library before multiplexing in equal molar mass. DNA libraries were sequenced using a 2x150 paired-end (PE) configuration on one lane on an Illumina HiSeq 4000. Image analysis and base calling were performed using the HiSeq Control Software (HCS) on the HiSeq instrument.",
+    "The average size of inserts (without adaptors) in the Illumina library was ∼300-350 bp. De novo assembly of reads and scaffolding of contigs was performed using ABySS 2.2 by the New York Genome Center. De novo assembly of combined male/female genome was performed using Platanus-allee and scaffolding was improved using AGOUTI on the University of Delaware’s BIOMIX cluster.",
+    "Sequences from Drosophila-associated bacteria such as Wolbachia spp., Acetobacter pasteurianus, and Lactobacillus plantarum were identified in both assemblies. Wolbachia are endosymbionts of many insects including Leptopilina spp.. Lactobacilli and Acetobacter are symbionts and commensals of sugar-consuming insects. Among the three bacterial species, Wolbachia sequences were the most abundant. BLASTx analysis showed that predicted genes from Wolbachia scaffolds were associated with Wolbachia proteins in GenBank. These bacterial and mitochondrial sequence-containing scaffolds were identified during the NCBI submission process and were manually removed from the submission.",
+    "Evaluation of genome assemblies",
+    "Assemblies made with ABySS and Platanus-allee with AGOUTI were run through QUAST v4.0 to determine scaffold number, N50, and GC%. All assemblies were examined for conserved genes and orthologs with BUSCO v9 using the Insecta set and training parameters set to “Nasonia”. NCBI BLAST+ (v 2.7.1) was used to compare selected scaffolds produced from male and female genome assemblies. E-value threshold was set at 1x10−7. E-values of alignments were considered acceptable if within the range of 0 to 1x10−10.",
+    "K-mer analysis was performed using the K-mer Analysis Toolkit (KAT) and heat maps were used to compare multiplicity (coverage plus repeats) of K-mers to GC content of the reads, coloring bins according to the number of distinct K-mers in each. This analysis was used to determine whether there were separate clusters of multiplicity/GC content that might arise from different sources, such as contamination. BLAST was used to search for homologs of a random sample of genomic scaffolds to which reads from each cluster mapped. The joint assembly of the Lh 14 genome was compared to the published L. clavipes genome (Bioproject: PRJNA84205) through maps of 27-mer multiplicity vs. GC content. Finally, 27-mer multiplicity/GC content of the scaffolds (9.6 Mb) containing MSEV genes was compared to a random subset of scaffolds (9.6 Mb) without MSEV genes. Statistical differences between Lh 14 and L. clavipes genomes and between MSEV-gene containing scaffolds and non-MSEV-gene containing scaffolds were calculated using a multivariate Cramér test.",
+    "Gene predictions, gene annotation, and viral gene searches",
+    "Gene predictions were performed on parallel and anti-parallel strands using AUGUSTUS (v3.3.1; August 2018) with the Nasonia training set. The AUGUSTUS readout was separated into mRNA, coding DNA sequence (CDS), and translations by gffread.",
+    "Gene predictions were annotated by performing a BLASTx of all gene predictions against the entire nr database (Downloaded on January 2019) and InterProScan on the University of Delaware BIOMIX Cluster before using BLAST2GO to finish annotation based on BLASTx and InterProScan results.",
+    "NCBI BLAST+ (v 2.7.1) was used on a local machine to search predictions and scaffolds, cutoff was %ID >70%, E-value < 1E-50, and query coverage > 70%. MSEV genes and 1x10−2 for Polydnavirus and Nudivirus proteins. Family Polydnaviridae and Nudiviridae protein sequences for the 11 species available on OrthoDB v9 were downloaded on February 2019.",
+    "Whole-body transcriptome sequencing and assembly",
+    "Total RNA extraction, library preparations, sequencing reactions, and bioinformatics analysis were conducted at GENEWIZ, INC (South Plainfield, NJ, USA). RNA was extracted from frozen tissue with the Qiagen RNeasy Plus Universal mini kit using manufacturer’s instructions (Qiagen, Hilden, Germany). The extracted RNA was quantified using a Qubit 2.0 Fluorometer and its integrity was checked with the 4200 TapeStation (Agilent Technologies, Palo Alto, CA, USA).",
+    "RNA samples were enriched for mRNA using Oligo d(T) beads. RNA sequencing libraries were prepared using the NEBNext Ultra RNA Library Prep Kit for Illumina following manufacturer’s instructions (NEB, Ipswich, MA, USA). The sequencing libraries were validated by using the Agilent TapeStation. Quantification was performed using the Qubit 2.0 Fluorometer and quantitative PCR (KAPA Biosystems, Wilimington, MA, USA).",
+    "Sequencing libraries were clustered on a single lane of a flow cell and sequenced on the Illumina HiSeq 4000 instrument using a 2x150 PE configuration. Image analysis and base calling were conducted by the HCS. Raw sequence data (.bcl files) was converted into fastq files and de-multiplexed using Illumina’s bcl2fastq 2.17 software. One mismatch was allowed for index sequence identification.",
+    "The Trinity v2.5, de novo assembler was used to assemble the Lh 14 transcripts. The de novo assembled transcriptome was created with a minimum contig length of 200 bp per sample. Transrate v1.0.3 was used to generate statistics for the de novo assembled transcriptome. EMBOSS tools getorf were then used to find the ORFs within the de novo assembled transcriptome. The de novo transcriptome assembly was then annotated using Diamond BLASTx.",
+    "The transcriptome reads were mapped to the genomic scaffolds for downstream analyses using HISAT2 or BWA.",
+    "Preparation of template DNA and PCR",
+    "Male and female wasps (n = 12, for each sex), were separated and washed in 70% ethanol, and then rinsed twice in deionized water. Genomic DNA (gDNA) was extracted using a Qiagen DNeasy Blood and Tissue kit following provided protocols. gDNA was eluted in Tris-EDTA buffer, pH 8.0, and stored at 4°. The concentration of gDNA was determined by NanoDrop (Thermo Fisher).",
+    "For cDNA preparation, male and female wasps (n = 12 for each sex), were separated and washed in 70% ethanol and rinsed twice in deionized water. Total body RNA was extracted using 100 µL of Trizol (Invitrogen) following manufacturer’s protocols. RNA was resuspended in 0.1% DEPC treated water and treated with DNase I to remove contaminating DNA (Thermo Fisher Scientific). The RNA concentration was determined by NanoDrop (Thermo Fisher). cDNA was synthesized using Proto-Script First Strand cDNA Synthesis Kit (New England Biolabs).",
+    "Analysis of select genes",
+    "Primers for p40 and SmGTPase01 are as follows:",
+    "p40 forward: GAATCATTGTTCGTTTGCTTGAAGAAAGAATTGG",
+    "p40 reverse: CATTATTAATGGGCCTTTACAATAATTTTAGCC",
+    "SmGTPase01 forward: CGTTGCACTACCTTGTTTGTCA",
+    "SmGTPase01 reverse: TTGTCTTTGCCCTGAGCGTT",
+    "PCRs were performed with Taq polymerase (gift of C. Li lab, CCNY), PCR buffer (300 mM Tris HCl pH 9.5, 75 mM (NH4)2SO4, 10 mM MgCl2) and deoxyribonucleotides (0.2 mM; Thermo Fisher Scientific). The PCR products were resolved on a 1% agarose gel in Tris acetic acid EDTA buffer (40 mM Tris HCl pH 7.6, 20 mM acetic acid, 1mM EDTA pH 8.0). Ethidium bromide (Sigma Aldrich)-stained gels were visualized on an ultra violet Trans-Illuminator (UVP) and gel images were taken using the DigiDocIt Imaging System (UVP). Gel images were processed in Adobe Photoshop for clarity only.",
+    "gDNA or cDNA-containing PCR products were cloned into pCR TOPO II plasmids (Invitrogen) and transformed into DH10β competent cells (New England Biolabs). For plasmid preparation, colonies were screened via PCR and positive colonies were cultured in Luria Broth with ampicillin (100 µg/mL) at 37° overnight. Plasmids were extracted using Plasmid Miniprep kit (Qiagen) and sequenced (GENEWIZ, INC. South Plainfield, NJ, USA). Sequences were aligned using NCBI BLAST+ and Clustal Omega. Expected PCR band sizes were determined using SerialCloner (v2.6.1).",
+    "Data availability",
+    "L. heterotoma strains are available upon request. File S1 contains details of supplemental files and tables. File S2 contains listing of accession numbers for all sequences reported in this work. Figure S1 contains the 27-mer vs. GC count comparison of MSEV containing scaffolds to non-MSEV containing scaffolds. Table S1 contains annotations and related data for proteins. Table S2 contains BLAST search results of the MSEV proteome against the nr database. Table S3 contains all BUSCOs found in male, female, and joint genome assemblies. MSEV protein sequences are available upon request. Accession numbers for datasets are as follows: Leptopilina heterotoma strain Lh 14, genome assembly: Male genome: QYUB0000000, Female genome: QYUC0000000, Joint genome: VOOK00000000. Leptopilina heterotoma strain Lh 14, whole-body transcriptome: GHUQ00000000. Leptopilina heterotoma abdominal transcriptome by Goecks et al.: GAJC0000000. Leptopilina clavipes genome Bioproject: PRJNA84205. Leptopilina heterotoma strain Lh 14 proteome: PRIDE: PXD005632. Supplemental material available at figshare: https://doi.org/10.25387/g3.10005260."
+  ],
+  "RESULTS": [
+    "Results and Discussion",
+    "The MSEV proteome superset",
+    "A comparative study of the proteomes of the MSEVs from Lh 14 and Lh NY strains previously generated a list of 161 “common” MSEV proteins. More than 90% of the 161 proteins are part of the Lh 14 MSEV proteome. To describe MSEVs more completely, we characterized a larger set of 407 MSEV proteins from Lh 14 (161 common and 246 Lh 14) and define this set as the Lh MSEV “super-set” (Figure 1A). Key results from annotation-based classification, analysis for signal peptide and/or transmembrane domain, and presence/absence of proteins in related wasps are summarized below and in Table S1.",
+    "The presence/absence of signal peptide (SP) alone, or SP with/without the transmembrane (TM) domain(s) in MSEV proteins reveals their possible location (i.e., potentially secreted into the venom gland lumen or associated with MSEV membrane). We therefore searched the 246 Lh 14 proteins for SP and TM domains. Of the 246 proteins, 55 (22.35%) have a predicted SP domain, 37 (15.04%) have a predicted TM domain, while 6 (2.44%) have both a predicted SP and TM domain.",
+    "After annotation, we found that a majority (183/246 or 75%) of the 246 proteins can be classified as core eukaryotic cell biology proteins (Class 1); 13/246 (5%) proteins as virulence- and immunity-related based on associated GO terms (Class 2); and 50/246 or 20% as novel sequences without high confidence annotation (Class 3) (Table S1). A presence/absence analysis of these 246 proteins in published transcriptomes of Lb or a more distantly related wasp, G. hookeri (for thresholds see Methods) revealed the following: only 43/246 (17%) Lh MSEV proteins are expected to be found in Lb and/or G. hookeri (Table S1). Of these, 33/43 (77%) proteins were in Class 1 but only 7/43 (16%) and 3/43 (7%) were in Class 2 and Class 3 categories, respectively. These results support the idea that, multiple but different, infection strategies and/or host evasion strategies might exist among different wasps infecting the same hosts.",
+    "While most of the Class 1 proteins were annotated as ribosomal or mitochondrial-related, a few were described as integral membrane proteins, vesicle trafficking protein SEC22b (E-value: 6.22E-145), and the ion channels sideroflexin 1 and 2 (E-value: 0). We also identified an apolipophorin (E-value: 1.02E-7) (Table S1). The presence of these membrane-associated proteins reinforces the vesicular nature of MSEVs.",
+    "Examples of Class 2 proteins include the neural/ectodermal development factor IMP-L2 (E-value: 5.29x10−50) and a protein involved in pain reception, CG9231 (E-value: 4.39x10−15). A viral-like Diedel protein (E-value: 1.77x10−7), viral Enhancin (E-value: 6.02x10−5), l(2)37Cc (E-value: 3.39x10−165), odorant binding protein 56d-like (E-value: 5.64x10−50), major royal jelly protein (E-value: 8.59x10−135), and two venom acid-phosphatases Acph-1 (E-value: 4.12x10−5) were also found in the Class 2 category; their cDNA sequences were published previously (Table S1). It is possible that these MSEV proteins modulate the hosts’ immune responses and/or influence host development to facilitate successful parasitism.",
+    "Within Class 3, 45 proteins (90%) lacked BLASTp and InterProScan results. However, Conserved Domain Database (CDD) searches returned 9 hits identifying potentially functional domains (Table 1). This included (a) a CD99L2 like antigen (%ID: 24%, E-value: 3x10−3), (b) a DEAD-like helicases superfamily member (%ID: 22%, E-value 2x10−4) and (c) a herpes outer envelope glycoprotein 350 (gp350), (%ID: 28%, E-value: 4x10−3) (Table 1).",
+    "A BLASTp DELTA-BLAST of the potential gp350 domain against the nr database specifying “Vira” (taxid: 10239) under organism resulted in Crimean-Congo hemorrhagic fever orthonairovirus envelope glycoprotein (%ID: 30%, E-value: 2.5x10−1), Lymphocryptovirus Macaca gp350 (%ID: 29%, E-value: 7.2x10−1), and Gallid Alphaherpesvirus 1 envelope glycoprotein J (%ID: 26%, E-value: 1.2) as top hits. BLASTp DELTA-BLAST of the potential gp350 domain against the nr database for Hymenoptera yielded an uncharacterized protein as the best hit (%ID: 24%, E-value: 8x10−6) in the ant Vollenhovia emeryi. This ant protein is predicted to contain calcium-binding EGF domains. The second hit in this search is from N. vitripennis for a predicted mucin-3A like glycoprotein (%ID: 24%, E-value: 2x10−4). Interestingly, transcripts related to the potential Lh gp350-like protein are not found in the Lb or G. hookeri transcriptomes (Table S1). Presence of this gp350-like protein in Lh MSEVs, but its absence in Lb MSEVs, suggests that it somehow contributes to differences in Lh/Lb host-parasite interactions and is therefore worthy of future studies. Complement receptor type 2 (CR2) in human B lymphocytes interacts with gp350 during Epstein-Barr infection and finding a verified homolog of CR2 in Drosophila hosts would be interesting in future research.",
+    "Because more than 200 proteins have now been added to the previously described MSEV proteome, we re-evaluated our previous enrichment analysis. In an ortholog-based comparison of the superset to human extracellular vesicle (EV) proteomes in Vesiclepedia (the most current and robust source of EV data), we found that the largest proportion of superset proteins (49%) are proteins specifically associated with exosomes (Figure 1B). In human and mouse EV proteomes, mitochondrial and ribosomal proteins are enriched. Accordingly, protein components of mitochondria (e.g., respiratory chain) and ribosomes (e.g., large and small subunit proteins) are found to be highly enriched in the Lh MSEV superset. However, we found that the significance of the enrichment was higher between the superset and exosomal proteins than mitochondrial or ribosomal proteins (Figure 1C). These results demonstrate the similarities in the protein profiles of MSEVs and EVs.",
+    "Do Lh MSEVs contain homologs of PDV or viral proteins?",
+    "Even though figitid Leptopilina wasps are distantly related to PDV-containing Ichneumonid and Braconid wasps, an association of PDV-like viruses in figitid wasps cannot be discounted because of shared evolutionary history. Recent publications have identified capsid-less VLPs in Ichneumonidae wasps and it is possible that Lh MSEVs have a similar viral origin. We therefore analyzed the Lh MSEV proteome superset against the GenBank PDV database, and then against its entire Viridae database.",
+    "To identify false positives, MSEV proteins with positive PDV hits (E-values were less than 1.0x10−3, %ID was 20% or greater, and query coverage was 30% or higher) were also searched against the unrestricted nr database to compare relatedness. If an MSEV protein is similar to a viral or virus-related PDV protein, we expected that, in the unrestricted nr database search, the MSEV query sequence would align again with the same viral subject sequences, but with a lower E-value (Table S2).",
+    "For PDV searches (Taxid: 10482 and Taxid: 40273), four proteins returned hits with E-values better than 1.0x10−20 and query coverage greater than 30%. Three of these hits are conserved proteins (cytochrome P450 and histone 4) while the fourth result identified an uncharacterized Cotesia congregata bracovirus (CcBV) protein (%ID: 31.08%, E-value: 1.38x10−17, query coverage: 77%) (Table S2). The unbiased BLASTp search against the entire nr database however had better results against eukaryotic proteins (E values: 0 to 2.0x10−7 and %ID from 100 to 56.25) (Table S2). In fact, the query that yielded the CcBV protein was better matched to a eukaryotic ribonuclease (%ID: 26.06%, E-value 1.14x10−16, query coverage: 84%) (Table S2). These results suggest that MSEV sequence similarities with PDV proteins may not be significant.",
+    "We also searched the Lh MSEV superset for presence of L. boulardi Filamentous Virus (LbFV) homologs (LbFV is a behavior manipulating virus of Lb). Of LbFV’s 108 genes, 13 are present in genomes of Lb, Lh and related species, and the 13 transcripts are expressed in the Lb venom gland. Within our thresholds, we obtained only three (of 13) sequences with similarity to LbFV ORFs. However, these three Lh MSEV proteins, with hits for LbFV sequences obtained better scoring hits in the unrestricted nr database, suggesting that the Lh MSEV proteins are not highly related to the LbFV proteins (Table S2).",
+    "When comparing MSEV proteins to the entirety of Viridae, a total of 35 MSEV proteins had hits with %IDs ranging from 30 to 71% and E-values ranging from 1.0x10−22 to 1.0x10−178 (Table S2). However, a BLASTp search against the entire nr database found that proteins with results for viral hits had better scores when searched against the entire nr database, indicating that while viral hits are possible, they are not the best match (Table S2). This result, in addition to the fact that 372 other MSEV proteins (including the Diedel and Enhancin (Table S1)) did not return viral hits, would indicate that a majority of MSEV proteins are not closely related to viral proteins.",
+    "The whole-body transcriptome contains expressed MSEV transcripts",
+    "We performed a mixed-gender whole-body transcriptome sequencing and de novo assembly of Lh transcripts. This assembly generated 104,066 transcripts. This dataset is more than three times larger than the published data derived from abdomens of female wasps that has 31,400 transcripts. A BLAST analysis of the female abdominal transcripts against the male/female whole-body transcripts showed that a majority (21,493/31,400, 68.4%) were present in the latter data set.",
+    "We searched the whole-body transcriptome for MSEV protein coding sequences using tBLASTn. Of 407 MSEV superset proteins, we identified transcripts for 371 (91.1%) proteins. Despite the ∼9% discrepancy (likely due to differences in expression levels due to different experimental conditions), these results largely verify the transcript data from that we have based our proteomic analyses on. Of the 371 MSEV transcripts identified, 233 (63%) encode Class 1, 44 (12%) encode Class 2, and 94/371 (25%) encode Class 3 proteins.",
+    "Assembly of the Lh genome",
+    "We separately sequenced Lh 14 male and female genomic DNA and assembled the paired-end reads de novo, using ABySS. These assemblies have a modest scaffold N50 of 4,800 with more than 100,000 scaffolds and an average coverage of 87% (Table 2). Assembly with MaSurCa provided similar results (data not shown), indicating that our assembly quality is limited likely due to factors such as large genome size and repetitive sequence regions. Although the N50 values and large number of scaffolds indicate that the genome is not highly assembled, we found at least 80% of BUSCOs shared in the Insecta set in both assemblies (Table 2, BUSCOs in Table S3).",
+    "While still fragmented, a de novo joint assembly of male and female sequences using Platanus-allee and AGOUTI improved assembly and scaffolding statistics (N50: 11,906, average coverage 91%). The number of found BUSCOs in the joint assembly rose to 90% (Table 2, BUSCOs in Table S3).",
+    "Analysis of K-mer multiplicity vs. GC content in the genome sequencing reads using the K-mer analysis tool, KAT showed three possible clusters, although they are difficult to distinguish (Figure 2A). Cluster 1 has high multiplicity (450-650), Cluster 2 has lower multiplicity and a wide range of GC content, and Cluster 3 has the lowest multiplicity and the highest GC content. Cluster 3 overlaps with Cluster 2 making them hard to fully separate. BLAST searches of a random sample (1,672/4,482) from Cluster 1 contigs hit insect homologs 73% (1,220/1,672) of the time, Acetobacter homologs 13% (216/1,672) of the time, and then a variety of mostly Eukaryotic hits. Cluster 2 represents a majority of the wasp genome (>94%), and blast hits of a random sample (316/68,173) of its contigs almost exclusively had homologs in Hymenoptera (311/316; 98%) and mostly in L. heterotoma (227/316; 71%). Cluster 3 is the smallest of the three and contigs from Cluster 3 had homologs exclusively in Acetobacter (110/110). There was no evidence for contamination from a viral source or discrete MSEV-specific set of nucleic acid sequence.",
+    "Furthermore, K-mer multiplicity vs. GC content for the joint assembly of the Lh 14 genome (Figure 2B) showed a very similar heat map to that using the published assembly of L. clavipes (Figure 2C; Bioproject: PRJNA84205). The two genomes have highly similar 27-mer/GC profiles that do not differ statistically (multivariate Cramér test statistic = 114,119, P = 0.73, number bootstrap-replicates = 1000). The L. heterotoma assembly has 27-mers with approximately twice the multiplicity of those found in L. clavipes, which may represent increased repeat content in L. heterotoma and is supported by an assembly size over 200 Mb larger than the L. clavipes genome (463 Mb vs. 255 Mb).",
+    "MSEV genes are encoded in the wasp genome",
+    "Using our annotation pipeline, 28,481 predicted genes were annotated. Within the annotated genes, we found 8 genes for the body color yellow, 3 major royal jelly protein (mrjp) genes, 25 odorant receptor/odorant binding protein coding genes, and 94 gene predictions for cytochrome P450. Some of these nuclear genes are not only involved in development and cellular processes, but are also included in the MSEV proteome (Table S1 and). A search of gene predictions for MSEV proteins via tBLASTn identified 325 of 407 (80%) MSEV sequences (Table 3). Of these, 153/407 (38%) had a percent identity of 95% or greater. Presence or removal of scaffolds with bacterial DNA sequences from either the separate male/female or the joint assembly did not affect this number, supporting the nuclear location of a majority of the MSEV genes.",
+    "As gene prediction software can potentially miss genes, we searched the genomic scaffolds directly for MSEV-coding sequence regions using known protein sequences as queries via tBLASTn before and after removal of bacterial sequences. In both cases, 375/407 (92%) MSEV sequences were at least 70% complete as determined by query coverage (Table 3). Of these, 191/407 (47%) had a percent identity of 95% or greater.",
+    "The scaffolds containing MSEV genes (Fig. S1A) were also compared to a random subset of scaffolds without MSEV genes (Fig S1B) for their 27-mer/GC profiles. These appeared to not differ statistically (multivariate Cramér test statistic = 3755, P = 0.80, number bootstrap-replicates = 1000), indicating that the MSEV genes lie on scaffolds that resemble the rest of the genome.",
+    "Characterization of select MSEV genes",
+    "We spot checked small portions of the genome for gene structure predictions of MSEV virulence protein genes SmGTPse01 (Class 2) and p40 (Class 3). For this, we sequenced PCR products of gDNA corresponding to these genes.",
+    "The MSEV SmGTPase01 has prokaryotic-like GTPase domains and its gene is expected to lack introns. The predicted SmGTPase01 CDS spans 936 bp, which contains the functional GTPase domain. Scaffolds from male and female genomes confirmed the absence of coding region introns (data not shown). We hypothesized that primers in 5′ and 3′ untranslated regions (UTRs) should amplify the exact fragment from cDNA/gDNA as template based on manual characterization of the SmGTPase01 locus (Figure 3A). This prediction was borne out and we amplified an 873 bp fragment only from female cDNA and from both male and female gDNA (Figure 3C). The sequenced PCR products were identical to corresponding sequence within the assembly and the published transcript sequence from Goecks et al. (data not shown).",
+    "The p40 gene encodes a protein that is structurally similar to T3SS bacterial needle-tip proteins IpaD/SipD from Shigella and Salmonella. However, p40’s genomic sequence is expected to have introns. The full p40 gene was computationally assembled and predicted within both male and female genomes. Primers designed for p40’s 5′ and 3′ UTRs (Figure 3B), allowed amplification of p40’s 939 bp cDNA only in preparations from female wasp extracts, but gDNA bands at 1,630 bp were detected from reactions when either male or female genome was used as template, indicating the presence of introns (Figure 3D). Sequencing the cloned cDNA product from females confirmed the published cDNA sequence. We also cloned and sequenced the gDNA products from male and female wasps and found the sequences to be identical (data not shown).",
+    "Unlike the well-characterized Drosophila hosts, the biology and molecular-genetics of their parasitic wasps have remained relatively obscure with only recent characterizations of Leptopilina and Ganaspis spp.. Our proteomic, transcriptomic and genomic results here expand the available information on L. heterotoma. Bioinformatics analysis of the additional MSEV proteins does not alter the initial interpretation of the original 161 proteins. Genomic sequencing and analysis of scaffolds reveals that more than 92% of the MSEV genes reside on the wasp genome. We did not find evidence for MSEV gene association with endosymbiont or commensal bacterial DNA. We suspect that the remaining ∼8% are also nuclear genes and this association will be confirmed in higher quality assemblies. Altogether, these results strongly suggest that, like other subcellular structures, MSEVs are encoded in the wasp nuclear genome.",
+    "The cellular nature of Lh vesicles is likely to be shared by closely related Lv and Lb wasps. Our previous work has shown that the overall morphologies of Lh and Lv MSEVs are similar. However, this is not the case for Lb MSEVs; different Lb strains have varying MSEV morphologies. Interpretation of their identity also varies. For example,) contend that MSEVs/VLPs are derived from a virus ancestral to the LbFV. Our analysis of the expanded proteomic superset does not lend strong support to this line of thinking.",
+    "We did not find convincing evidence of PDV or other viral structural proteins in the Lh MSEV proteome. However, we cannot discount that MSEVs have a viral origin as our analysis is limited by the fragmentation of the genome. It is also possible that a virus related to MSEVs may not have been identified to date. Mechanistically, eukaryotic viruses and vesicles share cellular pathways involving the endomembrane systems of their cells of origin or their target cells (Nolte-‘t Hoen et al. 2016), leading to overlap in protein functionality, but not necessarily origin. Thus, at least some of the Class 1 proteins in the MSEV proteome may be central to MSEV biogenesis in the wasp or for their interactions with the host hemocytes’ endomembrane machinery despite potentially being related to viruses. It is noteworthy that energy metabolism genes appear to be involved in rapid speciation and adaptation to new environments, raising the possibility that MSEV mitochondrial proteins might contribute to this process. How Lh MSEVs are functionally similar to other insect or mammalian EVs remains to be explored experimentally. Functional characterization of predicted infection and immunity Class 2 proteins should explain the immune-suppressive strategies of these wasps. RNA interference, infection assays, and other experimental strategies should make this line of inquiry feasible.",
+    "Functional assignments are difficult for the unannotated Class 3 proteins. These are likely to be quite interesting, due to their different expression profiles in Lh vs. Lb and G. hookeri species. This difference in expression may stem either from cis changes in their regulatory sequences, or from absence of these genes in the Lb or G. hookeri genomes. Recent comparative genomics analysis has shown that over 40% of venom genes in the closely-related species N. vitripennis and N. giraulti have diverged significantly and up to 25% of venom genes are specific to a species. A proteomic analysis of the venom genes of Leptopilina spp. and a molecular understanding of their expression will provide insights into how key activities within MSEVs evolved to parasitize the range of fruit fly hosts.",
+    "A key question regarding Lh virulence proteins critical to wasp success is whether their genes reside in a discrete region of the genome like a “virulence island” found in some microbial genomes, or whether some genes are dispersed within the genome, while others occur in one or more clusters as in wasps with PDVs. More complete assemblies, scaffolded to the level of chromosomes, will describe the genome-wide distribution of these genes in Lh and related wasps. Key MSEV genes could serve as genetic markers in future studies. Comparative genomics will uncover additional gene family members of MSEV proteins in other Leptopilina wasps and enable the development of new functional genomics tools such as CRISPR-disrupted mutant alleles made in N. vitripennis. These approaches will open new avenues for understanding the biology of this host-parasite model.",
+    "Supplemental material available at figshare: https://doi.org/10.25387/g3.10005260.",
+    "Communicating editor: H. Salz"
+  ],
+  "FIG": [
+    "The superset of MSEV proteins: (A) Lh 14 MSEV proteins were annotated using BLAST2GO prior to class sorting via annotation and GO Terms. Wedges denoted as “Common,” were previously published in and represent proteins found in both Lh 14 and Lh NY MSEV proteomes. New proteins analyzed in this work are in wedges labeled “Lh 14 Only.” A majority of proteins belong to Class 1. Table S1 lists 246 proteins added to the superset Lh 14 proteome. (B) and (C) Enrichment analysis of MSEV superset shows high association with exosomes and mitochondria compared to other cellular organelles according to Vesiclepedia. –log 10 (p-value) trend shown in orange for both graphs. The p-values were calculated with the Bonferroni method. (B) Percentage of MSEV genes associated with specific cellular compartments found in Vesiclepedia, relative to all MSEV genes. Of the superset proteins, 41 and 49% are associated with mitochondria and exosomes, respectively (P = 3 × 10−57; 1 × 10−53). (C) Fold-enrichment of the MSEV dataset in specific cellular compartments. Although many protein classes are present in the proteome, exosomal and mitochondrial proteins show more significant enrichments.",
+    "Analysis of K-mer coverage vs. GC count. (A) Analysis of genomic reads. 27-mers generated from the cleaned Illumina reads used to assemble the L. heterotoma genome binned by their GC count vs. multiplicity (total counts among the reads). Bins are colored by the number of distinct K-mers. Different clusters are identified as shown and described in the text. (B and C): A map of 27-mer multiplicity vs. GC content of the joint assembly of the Lh 14 genome (B) to a map from the published L. clavipes genome (Bioproject: PRJNA84205) (C).",
+    "Predicted gene structures verified by PCR amplification experiments (A, B). Diagrams showing primer locations and predicted gene structures of SmGTPase01 (A) and p40 (B). Black arrows indicate primer locations, light gray indicates introns, UTR regions are dark gray and labeled, exons encoding potential protein domains are labeled as shown. Cream colored regions in panel A do not have a specified domain. Diagrams were drawn using GenomeDiagram as part of the Biopython (v. 1.6) package. Each row in the panels A and B diagrams corresponds to approximately 1,000 bp. For primer sequences, see methods. (C and D) Ladder is Thermo Fisher MassRuler ladder. (C) PCR products for SmGTPase01 from male or female cDNA and gDNA. All products are 873 bp long. Male cDNA PCR was negative. (D) PCR products for p40 from male or female cDNA and gDNA. The expected band for p40 cDNA is 939 bp and for gDNA is 1,630 bp. Male cDNA PCR was negative. Sequence analysis of PCR amplification products confirmed gene prediction results."
+  ],
+  "TABLE": [
+    "CDD-search results of MSEV “un-annotated” proteins in the super-set. MSEV ORFs that completed the BLAST2GO pipeline and did not return any results were run through the NCBI CDD-Search Version 3.16 (Accessed: Aug. 2018). Of 45 queries, only 9 returned hits with threshold set to 1x10−2. The ninth result came from a search with E-value threshold set to 1. Results listed are all unique, high scoring hits for each ORF that returned hits from the search",
+    "MSEV Superset Unknowns CDD-Search Results\t \tQuery (in-house ID)\tPSSM-ID\tFrom\tTo\tE-Value\tAccession\tShort name\t \tGAJC01013214.1_14\t331760\t25\t98\t0.000176\tcl26939\tDEXDc superfamily\t \tGAJC01012558.1_12\t330317\t39\t205\t0.003987\tcl25496\tHerpes_BLLF1 superfamily/gp350\t \tGAJC01011863.1_13\t311912\t86\t187\t0.003653\tcl07006\tRNA_polI_A34 superfamily\t \tGAJC01011463.1_48\t315064\t234\t335\t0.002964\tcl13702\tCD99L2 superfamily\t \tGAJC01010930.1_16\t328726\t32\t61\t0.001252\tcl21457\tICL_KPHMT superfamily\t \tGAJC01010353.1_14\t331876\t31\t121\t0.001483\tcl27055\tMutS_III superfamily\t \tGAJC01009713.1_25\t311628\t138\t225\t0.000133\tcl06688\tTSGP1 superfamily\t \tGAJC01009493.1_4\t328724\t79\t96\t0.001983\tcl21455\tP-loop_NTPase superfamily\t \tGAJC01002124.1_43\t330572\t4\t269\t0.0073146\tcl25751\tDUF4045 superfamily",
+    "Assembly statistics: Statistics of male, female, and combined (male plus female) Lh genomes as assessed by QUASTv4.0 and BUSCOv9.0. Percent coverage was found by mapping sequencing reads back to assembly using HISAT2. The identified BUSCOs can be found in Table S1. The QUAST program was run with parameters set for eukaryotic genomes and scaffolds. The BUSCO program was run with species set to ‘Nasonia.’ Contigs smaller than 500 bp were excluded",
+    "ASSEMBLY STATISTICS\t \t\t\tMale\tFemale\tJoint\t \tAssembly\tN50 (bp)\t4,779\t4,843\t11906\t \tNo. scaffolds\t147,558\t147,549\t83,487\t \tLargest scaffold (bp)\t306,667\t176,371\t375,275\t \tTotal length (bp)\t474,383,205\t472,302,230\t462,564,754\t \tGC%\t27.54\t27.28\t27.84\t \tCoverage (%)\t87.7\t86.8\t91.1\t \tBUSCOs (Insecta)\tComplete\t80.2%\t81.3%\t90.9%\t \tSingle\t69.4%\t71.8%\t89.2%\t \tDuplicated\t10.8%\t9.5%\t1.7%\t \tFragmented\t15.9%\t15.1%\t6.5%\t \tMissing\t3.9%\t3.6%\t2.6%\t \tn\t1658\t1658\t1658",
+    "MSEV genes found in scaffolds and predictions: Gene predictions from genome assembly scaffolds and AUGUSTUS gene predictions were searched for MSEV genes using tBLASTn. Results better than %ID >70%, E-value < 1x10−50, and query coverage > 70% were retained",
+    "MSEV GENES FOUND IN GENOME ANALYSIS\t \t\tMSEV BLASTn scaffold results\tAUGUSTUS prediction results\t \tFound\tPercentage\tFound\tPercentage\t \tFemale\t278\t68.3\t169\t41.5\t \tMale\t275\t67.6\t166\t40.8\t \tShared in M+F\t265\t\t159\t\t \tJoint Assembly\t375\t92.1%\t325\t79.9%"
+  ],
+  "REF": [
+    "Literature Cited",
+    "SignalP 5.0 improves signal peptide predictions using deep neural networks.",
+    "Basic local alignment search tool.",
+    "Gene ontology: tool for the unification of biology. The Gene Ontology Consortium.",
+    "Baringhaus, L., and C. Franz, 2004 On a new multivariate two-sample test. 88: 190–206.",
+    "Fast and sensitive protein alignment using DIAMOND.",
+    "Rapid viral symbiogenesis via changes in parasitoid wasp genome architecture.",
+    "BLAST+: architecture and applications.",
+    "Natural infection of D. melanogaster by virulent parasitic wasps induces apoptotic depletion of hematopoietic precursors.",
+    "Identification and immuno-electron microscopy localization of p40, a protein component of immunosuppressive virus-like particles from Leptopilina heterotoma, a virulent parasitoid wasp of Drosophila.",
+    "Biopython: freely available Python tools for computational molecular biology and bioinformatics.",
+    "Extensive inter- and intraspecific venom variation in closely related parasites targeting the same host: the case of Leptopilina parasitoids of Drosophila.",
+    "Blast2GO: a universal tool for annotation, visualization and analysis in functional genomics research.",
+    "Acetic acid bacteria, newly emerging symbionts of insects.",
+    "A behavior-manipulating virus relative as a source of adaptive genes for parasitoid wasps.",
+    "Genomic islands in pathogenic and environmental microorganisms.",
+    "Ten steps to get started in Genome Assembly and Annotation.",
+    "Endogenous viruses of parasitic wasps: variations on a common theme.",
+    "Immune suppressive virus-like particles in a Drosophila parasitoid: significance of their intraspecific morphological variations.",
+    "The gut microbiota of insects - diversity in structure and function.",
+    "Franz, C., 2019 Cramer: Multivariate nonparametric cramer-test for the two-sample-problem. R package version 0.9–3. https://CRAN.R-project.org/package=cramer.",
+    "Pathogenicity islands: a molecular toolbox for bacterial virulence.",
+    "The recurrent domestication of viruses: major evolutionary transitions in parasitic wasps.",
+    "Epithelial mucin genes.",
+    "Mitochondrial bioenergetics as a major motive force of speciation.",
+    "Integrative approach reveals composition of endoparasitoid wasp venoms.",
+    "Full-length transcriptome assembly from RNA-Seq data without a reference genome.",
+    "Association of a new Wolbachia strain with, and its effects on, Leptopilina victoriae, a virulent wasp parasitic to Drosophila spp.",
+    "VLPs of Leptopilina boulardi share biogenesis and overall stellate morphology with VLPs of the heterotoma clade.",
+    "High-throughput functional annotation and data mining with the Blast2GO suite.",
+    "Evidence for organelle-like extracellular vesicles from a parasite of Drosophila and their function in suppressing host immunity",
+    "Partial venom gland transcriptome of a Drosophila parasitoid wasp, Leptopilina heterotoma, reveals novel and shared bioactive profiles with stinging Hymenoptera.",
+    "Harnessing the natural Drosophila-parasitoid model for integrating insect immunity with functional venomics.",
+    "Novel organelles with elements of bacterial and eukaryotic secretion systems weaponize parasites of Drosophila.",
+    "R: A Language for data analysis and graphics.",
+    "ABySS 2.0: resource-efficient assembly of large genomes using a Bloom filter.",
+    "InterProScan 5: genome-scale protein function classification.",
+    "Platanus-allee is a de novo haplotype assembler enabling a comprehensive access to divergent heterozygous regions.",
+    "A combined transmembrane topology and signal peptide prediction method.",
+    "Advantages of combined transmembrane topology and signal peptide prediction - the Phobius web server.",
+    "Vesiclepedia: a compendium for extracellular vesicles with continuous community annotation.",
+    "BlastKOALA and ghostKOALA: KEGG tools for functional characterization of genome and metagenome sequences.",
+    "Insights from natural host-parasite interactions: The Drosophila model.",
+    "A novel hybrid gene prediction method employing protein multiple sequence alignments.",
+    "HISAT: a fast spliced aligner with low memory requirements.",
+    "Decay of sexual trait genes in an asexual parasitoid wasp.",
+    "Predicting transmembrane protein topology with a hidden Markov model: application to complete genomes.",
+    "A RhoGAP protein as a main immune suppressive factor in the Leptopilina boulardi (Hymenoptera, Figitidae) - Drosophila melanogaster interaction.",
+    "Biodiversity: On the origin of bar codes.",
+    "Fast and accurate short read alignment with Burrows-Wheeler transform.",
+    "Generation of heritable germline mutations in the jewel wasp Nasonia vitripennis using CRISPR/Cas9.",
+    "Embryo microinjection and transplantation technique for Nasonia vitripennis genome manipulation.",
+    "The EMBL-EBI bioinformatics web and programmatic tools framework.",
+    "KAT: a K-mer analysis toolkit to quality control NGS datasets and genome assemblies.",
+    "CDD/SPARCLE: functional classification of proteins via subfamily domain architectures.",
+    "The evolution of venom by co-option of single-copy genes.",
+    "Developmental analysis of Ganaspis xanthopoda, a larval parasitoid of Drosophila melanogaster.",
+    "Icarus: visualizer for de novo assembly evaluation.",
+    "Phylogenomics resolves the timing and pattern of insect evolution.",
+    "Biogenesis, structure, and immune-suppressive effects of virus-like particles of a Drosophila parasitoid, Leptopilina victoriae.",
+    "Parasitoid wasp venom SERCA regulates Drosophila calcium levels and inhibits cellular immunity.",
+    "Parasitic hymenoptera and biological Control",
+    "Predicting secretory proteins with signalP.",
+    "Extracellular vesicles and viruses: Are they close relatives?",
+    "Cytology of Wolbachia-induced parthenogenesis in Leptopilina clavipes (Hymenoptera: Figitidae).",
+    "Vesiclepedia 2019: a compendium of RNA, proteins, lipids and metabolites in extracellular vesicles.",
+    "FunRich: An open access standalone functional enrichment and interaction network analysis tool.",
+    "A novel community driven software for functional enrichment analysis of extracellular vesicles data.",
+    "An inherited virus influences the coexistence of parasitoid species through behaviour manipulation.",
+    "Recurrent DNA virus domestication leading to different parasite virulence strategies.",
+    "GenomeDiagram: a python package for the visualization of large-scale genomic data.",
+    "Mechanisms of immune activation and suppression by parasitic wasps of Drosophila in biology",
+    "Leptopilina heterotoma and L. boulardi: strategies to avoid cellular defense responses of Drosophila melanogaster.",
+    "Extrapolations from field studies and known faunas converge on dramatically increased estimates of global microgastrine parasitoid wasp species richness (Hymenoptera: Braconidae).",
+    "Contrasting infection strategies in generalist and specialist wasp parasitoids of Drosophila melanogaster.",
+    "A new approach for investigating venom function applied to venom calreticulin in a parasitoid wasp.",
+    "BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs.",
+    "An introduction to parasitic wasps of Drosophila and the antiparasite immune response.",
+    "TransRate: reference-free quality assessment of de novo transcriptome assemblies.",
+    "A hidden Markov model for predicting transmembrane helices in protein sequences.",
+    "Polydnaviruses: From discovery to current insights.",
+    "The Gene Ontology Resource: 20 years and still GOing strong.",
+    "Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks.",
+    "UniProt: a hub for protein information.",
+    "The virus infecting the parasitoid Leptopilina boulardi exerts a specific action on superparasitism behaviour.",
+    "Analysis of virion structural components reveals vestiges of the ancestral ichnovirus genome.",
+    "Venom atypical extracellular vesicles as interspecies vehicles of virulence factors involved in host specificity: The case of a Drosophila parasitoid wasp.",
+    "A brief review of computational gene prediction methods.",
+    "BUSCO applications from quality assessments to gene prediction and phylogenomics.",
+    "Wolbachia: master manipulators of invertebrate biology.",
+    "Werren, J. H., D. W. Loehlin, and J. D. Giebel, 2009 Larval RNAi in nasonia (parasitoid wasp). Cold Spring Harb Protoc 2009 (10):pdb.prot5311.",
+    "Molecular basis of the interaction between complement receptor type 2 (CR2/CD21) and Epstein-Barr virus glycoprotein gp350.",
+    "AGOUTI: improving genome assembly and annotation using transcriptome data.",
+    "The MaSuRCA genome assembler."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "Literature Cited",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "SignalP 5.0 improves signal peptide predictions using deep neural networks.",
+      "autores": [
+        {
+          "nombre_completo": "J. J. Almagro Armenteros",
+          "nombres": "J. J.",
+          "apellidos": "Almagro Armenteros"
+        },
+        {
+          "nombre_completo": "K. D. Tsirigos",
+          "nombres": "K. D.",
+          "apellidos": "Tsirigos"
+        },
+        {
+          "nombre_completo": "C. K. Sonderby",
+          "nombres": "C. K.",
+          "apellidos": "Sonderby"
+        },
+        {
+          "nombre_completo": "T. N. Petersen",
+          "nombres": "T. N.",
+          "apellidos": "Petersen"
+        },
+        {
+          "nombre_completo": "O. Winther",
+          "nombres": "O.",
+          "apellidos": "Winther"
+        }
+      ],
+      "pmid": "30778233",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2019",
+      "volumen": "37",
+      "fpage": "420",
+      "lpage": "423"
+    },
+    {
+      "titulo": "Basic local alignment search tool.",
+      "autores": [
+        {
+          "nombre_completo": "S. F. Altschul",
+          "nombres": "S. F.",
+          "apellidos": "Altschul"
+        },
+        {
+          "nombre_completo": "W. Gish",
+          "nombres": "W.",
+          "apellidos": "Gish"
+        },
+        {
+          "nombre_completo": "W. Miller",
+          "nombres": "W.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "E. W. Myers",
+          "nombres": "E. W.",
+          "apellidos": "Myers"
+        },
+        {
+          "nombre_completo": "D. J. Lipman",
+          "nombres": "D. J.",
+          "apellidos": "Lipman"
+        }
+      ],
+      "pmid": "2231712",
+      "fuente": "J. Mol. Biol.",
+      "anio": "1990",
+      "volumen": "215",
+      "fpage": "403",
+      "lpage": "410"
+    },
+    {
+      "titulo": "Gene ontology: tool for the unification of biology. The Gene Ontology Consortium.",
+      "autores": [
+        {
+          "nombre_completo": "M. Ashburner",
+          "nombres": "M.",
+          "apellidos": "Ashburner"
+        },
+        {
+          "nombre_completo": "C. A. Ball",
+          "nombres": "C. A.",
+          "apellidos": "Ball"
+        },
+        {
+          "nombre_completo": "J. A. Blake",
+          "nombres": "J. A.",
+          "apellidos": "Blake"
+        },
+        {
+          "nombre_completo": "D. Botstein",
+          "nombres": "D.",
+          "apellidos": "Botstein"
+        },
+        {
+          "nombre_completo": "H. Butler",
+          "nombres": "H.",
+          "apellidos": "Butler"
+        }
+      ],
+      "pmid": "10802651",
+      "fuente": "Nat. Genet.",
+      "anio": "2000",
+      "volumen": "25",
+      "fpage": "25",
+      "lpage": "29"
+    },
+    {
+      "titulo": "Baringhaus, L., and C. Franz, 2004 On a new multivariate two-sample test. 88: 190–206.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fast and sensitive protein alignment using DIAMOND.",
+      "autores": [
+        {
+          "nombre_completo": "B. Buchfink",
+          "nombres": "B.",
+          "apellidos": "Buchfink"
+        },
+        {
+          "nombre_completo": "C. Xie",
+          "nombres": "C.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "D. H. Huson",
+          "nombres": "D. H.",
+          "apellidos": "Huson"
+        }
+      ],
+      "pmid": "25402007",
+      "fuente": "Nat. Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "59",
+      "lpage": "60"
+    },
+    {
+      "titulo": "Rapid viral symbiogenesis via changes in parasitoid wasp genome architecture.",
+      "autores": [
+        {
+          "nombre_completo": "G. R. Burke",
+          "nombres": "G. R.",
+          "apellidos": "Burke"
+        },
+        {
+          "nombre_completo": "T. J. Simmonds",
+          "nombres": "T. J.",
+          "apellidos": "Simmonds"
+        },
+        {
+          "nombre_completo": "B. J. Sharanowski",
+          "nombres": "B. J.",
+          "apellidos": "Sharanowski"
+        },
+        {
+          "nombre_completo": "S. M. Geib",
+          "nombres": "S. M.",
+          "apellidos": "Geib"
+        }
+      ],
+      "pmid": "30053110",
+      "fuente": "Mol. Biol. Evol.",
+      "anio": "2018",
+      "volumen": "35",
+      "fpage": "2463",
+      "lpage": "2474"
+    },
+    {
+      "titulo": "BLAST+: architecture and applications.",
+      "autores": [
+        {
+          "nombre_completo": "C. Camacho",
+          "nombres": "C.",
+          "apellidos": "Camacho"
+        },
+        {
+          "nombre_completo": "G. Coulouris",
+          "nombres": "G.",
+          "apellidos": "Coulouris"
+        },
+        {
+          "nombre_completo": "V. Avagyan",
+          "nombres": "V.",
+          "apellidos": "Avagyan"
+        },
+        {
+          "nombre_completo": "N. Ma",
+          "nombres": "N.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "J. Papadopoulos",
+          "nombres": "J.",
+          "apellidos": "Papadopoulos"
+        }
+      ],
+      "pmid": "20003500",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2009",
+      "volumen": "10",
+      "fpage": "421",
+      "lpage": ""
+    },
+    {
+      "titulo": "Natural infection of D. melanogaster by virulent parasitic wasps induces apoptotic depletion of hematopoietic precursors.",
+      "autores": [
+        {
+          "nombre_completo": "H. Chiu",
+          "nombres": "H.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "12478476",
+      "fuente": "Cell Death Differ.",
+      "anio": "2002",
+      "volumen": "9",
+      "fpage": "1379",
+      "lpage": "1381"
+    },
+    {
+      "titulo": "Identification and immuno-electron microscopy localization of p40, a protein component of immunosuppressive virus-like particles from Leptopilina heterotoma, a virulent parasitoid wasp of Drosophila.",
+      "autores": [
+        {
+          "nombre_completo": "H. Chiu",
+          "nombres": "H.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "J. Morales",
+          "nombres": "J.",
+          "apellidos": "Morales"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "16432035",
+      "fuente": "J. Gen. Virol.",
+      "anio": "2006",
+      "volumen": "87",
+      "fpage": "461",
+      "lpage": "470"
+    },
+    {
+      "titulo": "Biopython: freely available Python tools for computational molecular biology and bioinformatics.",
+      "autores": [
+        {
+          "nombre_completo": "P. J. A. Cock",
+          "nombres": "P. J. A.",
+          "apellidos": "Cock"
+        },
+        {
+          "nombre_completo": "T. Antao",
+          "nombres": "T.",
+          "apellidos": "Antao"
+        },
+        {
+          "nombre_completo": "J. T. Chang",
+          "nombres": "J. T.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "B. A. Chapman",
+          "nombres": "B. A.",
+          "apellidos": "Chapman"
+        },
+        {
+          "nombre_completo": "C. J. Cox",
+          "nombres": "C. J.",
+          "apellidos": "Cox"
+        }
+      ],
+      "pmid": "19304878",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "1422",
+      "lpage": "1423"
+    },
+    {
+      "titulo": "Extensive inter- and intraspecific venom variation in closely related parasites targeting the same host: the case of Leptopilina parasitoids of Drosophila.",
+      "autores": [
+        {
+          "nombre_completo": "D. Colinet",
+          "nombres": "D.",
+          "apellidos": "Colinet"
+        },
+        {
+          "nombre_completo": "E. Deleury",
+          "nombres": "E.",
+          "apellidos": "Deleury"
+        },
+        {
+          "nombre_completo": "C. Anselme",
+          "nombres": "C.",
+          "apellidos": "Anselme"
+        },
+        {
+          "nombre_completo": "D. Cazes",
+          "nombres": "D.",
+          "apellidos": "Cazes"
+        },
+        {
+          "nombre_completo": "J. Poulain",
+          "nombres": "J.",
+          "apellidos": "Poulain"
+        }
+      ],
+      "pmid": "23557852",
+      "fuente": "Insect Biochem. Mol. Biol.",
+      "anio": "2013",
+      "volumen": "43",
+      "fpage": "601",
+      "lpage": "611"
+    },
+    {
+      "titulo": "Blast2GO: a universal tool for annotation, visualization and analysis in functional genomics research.",
+      "autores": [
+        {
+          "nombre_completo": "A. Conesa",
+          "nombres": "A.",
+          "apellidos": "Conesa"
+        },
+        {
+          "nombre_completo": "S. Götz",
+          "nombres": "S.",
+          "apellidos": "Götz"
+        },
+        {
+          "nombre_completo": "J. M. García-Gómez",
+          "nombres": "J. M.",
+          "apellidos": "García-Gómez"
+        },
+        {
+          "nombre_completo": "J. Terol",
+          "nombres": "J.",
+          "apellidos": "Terol"
+        },
+        {
+          "nombre_completo": "M. Talón",
+          "nombres": "M.",
+          "apellidos": "Talón"
+        }
+      ],
+      "pmid": "16081474",
+      "fuente": "Bioinformatics",
+      "anio": "2005",
+      "volumen": "21",
+      "fpage": "3674",
+      "lpage": "3676"
+    },
+    {
+      "titulo": "Acetic acid bacteria, newly emerging symbionts of insects.",
+      "autores": [
+        {
+          "nombre_completo": "E. Crotti",
+          "nombres": "E.",
+          "apellidos": "Crotti"
+        },
+        {
+          "nombre_completo": "A. Rizzi",
+          "nombres": "A.",
+          "apellidos": "Rizzi"
+        },
+        {
+          "nombre_completo": "B. Chouaia",
+          "nombres": "B.",
+          "apellidos": "Chouaia"
+        },
+        {
+          "nombre_completo": "I. Ricci",
+          "nombres": "I.",
+          "apellidos": "Ricci"
+        },
+        {
+          "nombre_completo": "G. Favia",
+          "nombres": "G.",
+          "apellidos": "Favia"
+        }
+      ],
+      "pmid": "20851977",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2010",
+      "volumen": "76",
+      "fpage": "6963",
+      "lpage": "6970"
+    },
+    {
+      "titulo": "A behavior-manipulating virus relative as a source of adaptive genes for parasitoid wasps.",
+      "autores": [
+        {
+          "nombre_completo": "D. Di Giovanni",
+          "nombres": "D.",
+          "apellidos": "Di Giovanni"
+        },
+        {
+          "nombre_completo": "D. Lepetit",
+          "nombres": "D.",
+          "apellidos": "Lepetit"
+        },
+        {
+          "nombre_completo": "M. Boulesteix",
+          "nombres": "M.",
+          "apellidos": "Boulesteix"
+        },
+        {
+          "nombre_completo": "Y. Couté",
+          "nombres": "Y.",
+          "apellidos": "Couté"
+        },
+        {
+          "nombre_completo": "M. Ravallec",
+          "nombres": "M.",
+          "apellidos": "Ravallec"
+        }
+      ],
+      "pmid": "",
+      "fuente": "bioRxiv",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Genomic islands in pathogenic and environmental microorganisms.",
+      "autores": [
+        {
+          "nombre_completo": "U. Dobrindt",
+          "nombres": "U.",
+          "apellidos": "Dobrindt"
+        },
+        {
+          "nombre_completo": "B. Hochhut",
+          "nombres": "B.",
+          "apellidos": "Hochhut"
+        },
+        {
+          "nombre_completo": "U. Hentschel",
+          "nombres": "U.",
+          "apellidos": "Hentschel"
+        },
+        {
+          "nombre_completo": "J. Hacker",
+          "nombres": "J.",
+          "apellidos": "Hacker"
+        }
+      ],
+      "pmid": "15100694",
+      "fuente": "Nat. Rev. Microbiol.",
+      "anio": "2004",
+      "volumen": "2",
+      "fpage": "414",
+      "lpage": "424"
+    },
+    {
+      "titulo": "Ten steps to get started in Genome Assembly and Annotation.",
+      "autores": [
+        {
+          "nombre_completo": "V. Dominguez Del Angel",
+          "nombres": "V.",
+          "apellidos": "Dominguez Del Angel"
+        },
+        {
+          "nombre_completo": "E. Hjerde",
+          "nombres": "E.",
+          "apellidos": "Hjerde"
+        },
+        {
+          "nombre_completo": "L. Sterck",
+          "nombres": "L.",
+          "apellidos": "Sterck"
+        },
+        {
+          "nombre_completo": "S. Capella-Gutierrez",
+          "nombres": "S.",
+          "apellidos": "Capella-Gutierrez"
+        },
+        {
+          "nombre_completo": "C. Notredame",
+          "nombres": "C.",
+          "apellidos": "Notredame"
+        }
+      ],
+      "pmid": "",
+      "fuente": "F1000 Res.",
+      "anio": "2018",
+      "volumen": "7",
+      "fpage": "1",
+      "lpage": "18"
+    },
+    {
+      "titulo": "Endogenous viruses of parasitic wasps: variations on a common theme.",
+      "autores": [
+        {
+          "nombre_completo": "J. M. Drezen",
+          "nombres": "J. M.",
+          "apellidos": "Drezen"
+        },
+        {
+          "nombre_completo": "M. Leobold",
+          "nombres": "M.",
+          "apellidos": "Leobold"
+        },
+        {
+          "nombre_completo": "A. Bezier",
+          "nombres": "A.",
+          "apellidos": "Bezier"
+        },
+        {
+          "nombre_completo": "E. Huguet",
+          "nombres": "E.",
+          "apellidos": "Huguet"
+        },
+        {
+          "nombre_completo": "A. N. Volkoff",
+          "nombres": "A. N.",
+          "apellidos": "Volkoff"
+        }
+      ],
+      "pmid": "28728099",
+      "fuente": "Curr. Opin. Virol.",
+      "anio": "2017",
+      "volumen": "25",
+      "fpage": "41",
+      "lpage": "48"
+    },
+    {
+      "titulo": "Immune suppressive virus-like particles in a Drosophila parasitoid: significance of their intraspecific morphological variations.",
+      "autores": [
+        {
+          "nombre_completo": "S. Dupas",
+          "nombres": "S.",
+          "apellidos": "Dupas"
+        },
+        {
+          "nombre_completo": "M. Brehelin",
+          "nombres": "M.",
+          "apellidos": "Brehelin"
+        },
+        {
+          "nombre_completo": "F. Frey",
+          "nombres": "F.",
+          "apellidos": "Frey"
+        },
+        {
+          "nombre_completo": "Y. Carton",
+          "nombres": "Y.",
+          "apellidos": "Carton"
+        }
+      ],
+      "pmid": "8811846",
+      "fuente": "Parasitology",
+      "anio": "1996",
+      "volumen": "113",
+      "fpage": "207",
+      "lpage": "212"
+    },
+    {
+      "titulo": "The gut microbiota of insects - diversity in structure and function.",
+      "autores": [
+        {
+          "nombre_completo": "P. Engel",
+          "nombres": "P.",
+          "apellidos": "Engel"
+        },
+        {
+          "nombre_completo": "N. A. Moran",
+          "nombres": "N. A.",
+          "apellidos": "Moran"
+        }
+      ],
+      "pmid": "23692388",
+      "fuente": "FEMS Microbiol. Rev.",
+      "anio": "2013",
+      "volumen": "37",
+      "fpage": "699",
+      "lpage": "735"
+    },
+    {
+      "titulo": "Franz, C., 2019 Cramer: Multivariate nonparametric cramer-test for the two-sample-problem. R package version 0.9–3. https://CRAN.R-project.org/package=cramer.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Pathogenicity islands: a molecular toolbox for bacterial virulence.",
+      "autores": [
+        {
+          "nombre_completo": "O. Gal-Mor",
+          "nombres": "O.",
+          "apellidos": "Gal-Mor"
+        },
+        {
+          "nombre_completo": "B. B. Finlay",
+          "nombres": "B. B.",
+          "apellidos": "Finlay"
+        }
+      ],
+      "pmid": "16939533",
+      "fuente": "Cell. Microbiol.",
+      "anio": "2006",
+      "volumen": "8",
+      "fpage": "1707",
+      "lpage": "1719"
+    },
+    {
+      "titulo": "The recurrent domestication of viruses: major evolutionary transitions in parasitic wasps.",
+      "autores": [
+        {
+          "nombre_completo": "J. Gauthier",
+          "nombres": "J.",
+          "apellidos": "Gauthier"
+        },
+        {
+          "nombre_completo": "J. M. Drezen",
+          "nombres": "J. M.",
+          "apellidos": "Drezen"
+        },
+        {
+          "nombre_completo": "E. A. Herniou",
+          "nombres": "E. A.",
+          "apellidos": "Herniou"
+        }
+      ],
+      "pmid": "28534452",
+      "fuente": "Parasitology",
+      "anio": "2018",
+      "volumen": "145",
+      "fpage": "713",
+      "lpage": "723"
+    },
+    {
+      "titulo": "Epithelial mucin genes.",
+      "autores": [
+        {
+          "nombre_completo": "S. J. Gendler",
+          "nombres": "S. J.",
+          "apellidos": "Gendler"
+        },
+        {
+          "nombre_completo": "A. P. Spicer",
+          "nombres": "A. P.",
+          "apellidos": "Spicer"
+        }
+      ],
+      "pmid": "7778880",
+      "fuente": "Annu. Rev. Physiol.",
+      "anio": "1995",
+      "volumen": "57",
+      "fpage": "607",
+      "lpage": "634"
+    },
+    {
+      "titulo": "Mitochondrial bioenergetics as a major motive force of speciation.",
+      "autores": [
+        {
+          "nombre_completo": "M. Gershoni",
+          "nombres": "M.",
+          "apellidos": "Gershoni"
+        },
+        {
+          "nombre_completo": "A. R. Templeton",
+          "nombres": "A. R.",
+          "apellidos": "Templeton"
+        },
+        {
+          "nombre_completo": "D. Mishmar",
+          "nombres": "D.",
+          "apellidos": "Mishmar"
+        }
+      ],
+      "pmid": "19408245",
+      "fuente": "BioEssays",
+      "anio": "2009",
+      "volumen": "31",
+      "fpage": "642",
+      "lpage": "650"
+    },
+    {
+      "titulo": "Integrative approach reveals composition of endoparasitoid wasp venoms.",
+      "autores": [
+        {
+          "nombre_completo": "J. Goecks",
+          "nombres": "J.",
+          "apellidos": "Goecks"
+        },
+        {
+          "nombre_completo": "N. T. Mortimer",
+          "nombres": "N. T.",
+          "apellidos": "Mortimer"
+        },
+        {
+          "nombre_completo": "J. A. Mobley",
+          "nombres": "J. A.",
+          "apellidos": "Mobley"
+        },
+        {
+          "nombre_completo": "G. J. Bowersock",
+          "nombres": "G. J.",
+          "apellidos": "Bowersock"
+        },
+        {
+          "nombre_completo": "J. Taylor",
+          "nombres": "J.",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "23717546",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Full-length transcriptome assembly from RNA-Seq data without a reference genome.",
+      "autores": [
+        {
+          "nombre_completo": "M. G. Grabherr",
+          "nombres": "M. G.",
+          "apellidos": "Grabherr"
+        },
+        {
+          "nombre_completo": "B. J. Haas",
+          "nombres": "B. J.",
+          "apellidos": "Haas"
+        },
+        {
+          "nombre_completo": "M. Yassour",
+          "nombres": "M.",
+          "apellidos": "Yassour"
+        },
+        {
+          "nombre_completo": "J. Z. Levin",
+          "nombres": "J. Z.",
+          "apellidos": "Levin"
+        },
+        {
+          "nombre_completo": "D. A. Thompson",
+          "nombres": "D. A.",
+          "apellidos": "Thompson"
+        }
+      ],
+      "pmid": "21572440",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2011",
+      "volumen": "29",
+      "fpage": "644",
+      "lpage": "652"
+    },
+    {
+      "titulo": "Association of a new Wolbachia strain with, and its effects on, Leptopilina victoriae, a virulent wasp parasitic to Drosophila spp.",
+      "autores": [
+        {
+          "nombre_completo": "G. Gueguen",
+          "nombres": "G.",
+          "apellidos": "Gueguen"
+        },
+        {
+          "nombre_completo": "B. Onemola",
+          "nombres": "B.",
+          "apellidos": "Onemola"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "22685158",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2012",
+      "volumen": "78",
+      "fpage": "5962",
+      "lpage": "5966"
+    },
+    {
+      "titulo": "VLPs of Leptopilina boulardi share biogenesis and overall stellate morphology with VLPs of the heterotoma clade.",
+      "autores": [
+        {
+          "nombre_completo": "G. Gueguen",
+          "nombres": "G.",
+          "apellidos": "Gueguen"
+        },
+        {
+          "nombre_completo": "R. Rajwani",
+          "nombres": "R.",
+          "apellidos": "Rajwani"
+        },
+        {
+          "nombre_completo": "I. Paddibhatla",
+          "nombres": "I.",
+          "apellidos": "Paddibhatla"
+        },
+        {
+          "nombre_completo": "J. Morales",
+          "nombres": "J.",
+          "apellidos": "Morales"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "21704090",
+      "fuente": "Virus Res.",
+      "anio": "2011",
+      "volumen": "160",
+      "fpage": "159",
+      "lpage": "165"
+    },
+    {
+      "titulo": "High-throughput functional annotation and data mining with the Blast2GO suite.",
+      "autores": [
+        {
+          "nombre_completo": "S. Götz",
+          "nombres": "S.",
+          "apellidos": "Götz"
+        },
+        {
+          "nombre_completo": "J. M. García-Gómez",
+          "nombres": "J. M.",
+          "apellidos": "García-Gómez"
+        },
+        {
+          "nombre_completo": "J. Terol",
+          "nombres": "J.",
+          "apellidos": "Terol"
+        },
+        {
+          "nombre_completo": "T. D. Williams",
+          "nombres": "T. D.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "S. H. Nagaraj",
+          "nombres": "S. H.",
+          "apellidos": "Nagaraj"
+        }
+      ],
+      "pmid": "18445632",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2008",
+      "volumen": "36",
+      "fpage": "3420",
+      "lpage": "3435"
+    },
+    {
+      "titulo": "Evidence for organelle-like extracellular vesicles from a parasite of Drosophila and their function in suppressing host immunity",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Heavner",
+          "nombres": "M. E.",
+          "apellidos": "Heavner"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biochemistry",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "236",
+      "lpage": ""
+    },
+    {
+      "titulo": "Partial venom gland transcriptome of a Drosophila parasitoid wasp, Leptopilina heterotoma, reveals novel and shared bioactive profiles with stinging Hymenoptera.",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Heavner",
+          "nombres": "M. E.",
+          "apellidos": "Heavner"
+        },
+        {
+          "nombre_completo": "G. Gueguen",
+          "nombres": "G.",
+          "apellidos": "Gueguen"
+        },
+        {
+          "nombre_completo": "R. Rajwani",
+          "nombres": "R.",
+          "apellidos": "Rajwani"
+        },
+        {
+          "nombre_completo": "P. E. Pagan",
+          "nombres": "P. E.",
+          "apellidos": "Pagan"
+        },
+        {
+          "nombre_completo": "C. Small",
+          "nombres": "C.",
+          "apellidos": "Small"
+        }
+      ],
+      "pmid": "23688557",
+      "fuente": "Gene",
+      "anio": "2013",
+      "volumen": "526",
+      "fpage": "195",
+      "lpage": "204"
+    },
+    {
+      "titulo": "Harnessing the natural Drosophila-parasitoid model for integrating insect immunity with functional venomics.",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Heavner",
+          "nombres": "M. E.",
+          "apellidos": "Heavner"
+        },
+        {
+          "nombre_completo": "A. D. Hudgins",
+          "nombres": "A. D.",
+          "apellidos": "Hudgins"
+        },
+        {
+          "nombre_completo": "R. Rajwani",
+          "nombres": "R.",
+          "apellidos": "Rajwani"
+        },
+        {
+          "nombre_completo": "J. Morales",
+          "nombres": "J.",
+          "apellidos": "Morales"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "25642411",
+      "fuente": "Curr. Opin. Insect Sci.",
+      "anio": "2014",
+      "volumen": "6",
+      "fpage": "61",
+      "lpage": "67"
+    },
+    {
+      "titulo": "Novel organelles with elements of bacterial and eukaryotic secretion systems weaponize parasites of Drosophila.",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Heavner",
+          "nombres": "M. E.",
+          "apellidos": "Heavner"
+        },
+        {
+          "nombre_completo": "J. Ramroop",
+          "nombres": "J.",
+          "apellidos": "Ramroop"
+        },
+        {
+          "nombre_completo": "G. Gueguen",
+          "nombres": "G.",
+          "apellidos": "Gueguen"
+        },
+        {
+          "nombre_completo": "G. Ramrattan",
+          "nombres": "G.",
+          "apellidos": "Ramrattan"
+        },
+        {
+          "nombre_completo": "G. Dolios",
+          "nombres": "G.",
+          "apellidos": "Dolios"
+        }
+      ],
+      "pmid": "28889977",
+      "fuente": "Curr. Biol.",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "2869",
+      "lpage": "2877"
+    },
+    {
+      "titulo": "R: A Language for data analysis and graphics.",
+      "autores": [
+        {
+          "nombre_completo": "R. Ihaka",
+          "nombres": "R.",
+          "apellidos": "Ihaka"
+        },
+        {
+          "nombre_completo": "R. Gentleman",
+          "nombres": "R.",
+          "apellidos": "Gentleman"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Comput. Graph. Stat.",
+      "anio": "1996",
+      "volumen": "5",
+      "fpage": "299",
+      "lpage": "314"
+    },
+    {
+      "titulo": "ABySS 2.0: resource-efficient assembly of large genomes using a Bloom filter.",
+      "autores": [
+        {
+          "nombre_completo": "S. D. Jackman",
+          "nombres": "S. D.",
+          "apellidos": "Jackman"
+        },
+        {
+          "nombre_completo": "B. P. Vandervalk",
+          "nombres": "B. P.",
+          "apellidos": "Vandervalk"
+        },
+        {
+          "nombre_completo": "H. Mohamadi",
+          "nombres": "H.",
+          "apellidos": "Mohamadi"
+        },
+        {
+          "nombre_completo": "J. Chu",
+          "nombres": "J.",
+          "apellidos": "Chu"
+        },
+        {
+          "nombre_completo": "S. Yeo",
+          "nombres": "S.",
+          "apellidos": "Yeo"
+        }
+      ],
+      "pmid": "28232478",
+      "fuente": "Genome Res.",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "768",
+      "lpage": "777"
+    },
+    {
+      "titulo": "InterProScan 5: genome-scale protein function classification.",
+      "autores": [
+        {
+          "nombre_completo": "P. Jones",
+          "nombres": "P.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "D. Binns",
+          "nombres": "D.",
+          "apellidos": "Binns"
+        },
+        {
+          "nombre_completo": "H. Y. Chang",
+          "nombres": "H. Y.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "M. Fraser",
+          "nombres": "M.",
+          "apellidos": "Fraser"
+        },
+        {
+          "nombre_completo": "W. Li",
+          "nombres": "W.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "24451626",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "1236",
+      "lpage": "1240"
+    },
+    {
+      "titulo": "Platanus-allee is a de novo haplotype assembler enabling a comprehensive access to divergent heterozygous regions.",
+      "autores": [
+        {
+          "nombre_completo": "R. Kajitani",
+          "nombres": "R.",
+          "apellidos": "Kajitani"
+        },
+        {
+          "nombre_completo": "D. Yoshimura",
+          "nombres": "D.",
+          "apellidos": "Yoshimura"
+        },
+        {
+          "nombre_completo": "M. Okuno",
+          "nombres": "M.",
+          "apellidos": "Okuno"
+        },
+        {
+          "nombre_completo": "Y. Minakuchi",
+          "nombres": "Y.",
+          "apellidos": "Minakuchi"
+        },
+        {
+          "nombre_completo": "H. Kagoshima",
+          "nombres": "H.",
+          "apellidos": "Kagoshima"
+        }
+      ],
+      "pmid": "30602773",
+      "fuente": "Nat. Commun.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "1",
+      "lpage": "15"
+    },
+    {
+      "titulo": "A combined transmembrane topology and signal peptide prediction method.",
+      "autores": [
+        {
+          "nombre_completo": "L. Käll",
+          "nombres": "L.",
+          "apellidos": "Käll"
+        },
+        {
+          "nombre_completo": "A. Krogh",
+          "nombres": "A.",
+          "apellidos": "Krogh"
+        },
+        {
+          "nombre_completo": "E. L. Sonnhammer",
+          "nombres": "E. L.",
+          "apellidos": "Sonnhammer"
+        }
+      ],
+      "pmid": "15111065",
+      "fuente": "J. Mol. Biol.",
+      "anio": "2004",
+      "volumen": "338",
+      "fpage": "1027",
+      "lpage": "1036"
+    },
+    {
+      "titulo": "Advantages of combined transmembrane topology and signal peptide prediction - the Phobius web server.",
+      "autores": [
+        {
+          "nombre_completo": "L. Käll",
+          "nombres": "L.",
+          "apellidos": "Käll"
+        },
+        {
+          "nombre_completo": "A. Krogh",
+          "nombres": "A.",
+          "apellidos": "Krogh"
+        },
+        {
+          "nombre_completo": "E. L. L. Sonnhammer",
+          "nombres": "E. L. L.",
+          "apellidos": "Sonnhammer"
+        }
+      ],
+      "pmid": "17483518",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2007",
+      "volumen": "35",
+      "fpage": "W429",
+      "lpage": "W432"
+    },
+    {
+      "titulo": "Vesiclepedia: a compendium for extracellular vesicles with continuous community annotation.",
+      "autores": [
+        {
+          "nombre_completo": "H. Kalra",
+          "nombres": "H.",
+          "apellidos": "Kalra"
+        },
+        {
+          "nombre_completo": "R. J. Simpson",
+          "nombres": "R. J.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "H. Ji",
+          "nombres": "H.",
+          "apellidos": "Ji"
+        },
+        {
+          "nombre_completo": "E. Aikawa",
+          "nombres": "E.",
+          "apellidos": "Aikawa"
+        },
+        {
+          "nombre_completo": "P. Altevogt",
+          "nombres": "P.",
+          "apellidos": "Altevogt"
+        }
+      ],
+      "pmid": "23271954",
+      "fuente": "PLoS Biol.",
+      "anio": "2012",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "BlastKOALA and ghostKOALA: KEGG tools for functional characterization of genome and metagenome sequences.",
+      "autores": [
+        {
+          "nombre_completo": "M. Kanehisa",
+          "nombres": "M.",
+          "apellidos": "Kanehisa"
+        },
+        {
+          "nombre_completo": "Y. Sato",
+          "nombres": "Y.",
+          "apellidos": "Sato"
+        },
+        {
+          "nombre_completo": "K. Morishima",
+          "nombres": "K.",
+          "apellidos": "Morishima"
+        }
+      ],
+      "pmid": "26585406",
+      "fuente": "J. Mol. Biol.",
+      "anio": "2016",
+      "volumen": "428",
+      "fpage": "726",
+      "lpage": "731"
+    },
+    {
+      "titulo": "Insights from natural host-parasite interactions: The Drosophila model.",
+      "autores": [
+        {
+          "nombre_completo": "E. S. Keebaugh",
+          "nombres": "E. S.",
+          "apellidos": "Keebaugh"
+        },
+        {
+          "nombre_completo": "T. A. Schlenke",
+          "nombres": "T. A.",
+          "apellidos": "Schlenke"
+        }
+      ],
+      "pmid": "23764256",
+      "fuente": "Dev. Comp. Immunol.",
+      "anio": "2014",
+      "volumen": "42",
+      "fpage": "111",
+      "lpage": "123"
+    },
+    {
+      "titulo": "A novel hybrid gene prediction method employing protein multiple sequence alignments.",
+      "autores": [
+        {
+          "nombre_completo": "O. Keller",
+          "nombres": "O.",
+          "apellidos": "Keller"
+        },
+        {
+          "nombre_completo": "M. Kollmar",
+          "nombres": "M.",
+          "apellidos": "Kollmar"
+        },
+        {
+          "nombre_completo": "M. Stanke",
+          "nombres": "M.",
+          "apellidos": "Stanke"
+        },
+        {
+          "nombre_completo": "S. Waack",
+          "nombres": "S.",
+          "apellidos": "Waack"
+        }
+      ],
+      "pmid": "21216780",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "757",
+      "lpage": "763"
+    },
+    {
+      "titulo": "HISAT: a fast spliced aligner with low memory requirements.",
+      "autores": [
+        {
+          "nombre_completo": "D. Kim",
+          "nombres": "D.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "B. Landmead",
+          "nombres": "B.",
+          "apellidos": "Landmead"
+        },
+        {
+          "nombre_completo": "S. L. Salzberg",
+          "nombres": "S. L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "25751142",
+      "fuente": "Nat. Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "357",
+      "lpage": "360"
+    },
+    {
+      "titulo": "Decay of sexual trait genes in an asexual parasitoid wasp.",
+      "autores": [
+        {
+          "nombre_completo": "K. Kraaijeveld",
+          "nombres": "K.",
+          "apellidos": "Kraaijeveld"
+        },
+        {
+          "nombre_completo": "S. Y. Anvar",
+          "nombres": "S. Y.",
+          "apellidos": "Anvar"
+        },
+        {
+          "nombre_completo": "J. Frank",
+          "nombres": "J.",
+          "apellidos": "Frank"
+        },
+        {
+          "nombre_completo": "A. Schmitz",
+          "nombres": "A.",
+          "apellidos": "Schmitz"
+        },
+        {
+          "nombre_completo": "J. Bast",
+          "nombres": "J.",
+          "apellidos": "Bast"
+        }
+      ],
+      "pmid": "28172869",
+      "fuente": "Genome Biol. Evol.",
+      "anio": "2016",
+      "volumen": "8",
+      "fpage": "3685",
+      "lpage": "3695"
+    },
+    {
+      "titulo": "Predicting transmembrane protein topology with a hidden Markov model: application to complete genomes.",
+      "autores": [
+        {
+          "nombre_completo": "A. Krogh",
+          "nombres": "A.",
+          "apellidos": "Krogh"
+        },
+        {
+          "nombre_completo": "B. Larsson",
+          "nombres": "B.",
+          "apellidos": "Larsson"
+        },
+        {
+          "nombre_completo": "G. von Heijne",
+          "nombres": "G.",
+          "apellidos": "von Heijne"
+        },
+        {
+          "nombre_completo": "E. L. Sonnhammer",
+          "nombres": "E. L.",
+          "apellidos": "Sonnhammer"
+        }
+      ],
+      "pmid": "11152613",
+      "fuente": "J. Mol. Biol.",
+      "anio": "2001",
+      "volumen": "305",
+      "fpage": "567",
+      "lpage": "580"
+    },
+    {
+      "titulo": "A RhoGAP protein as a main immune suppressive factor in the Leptopilina boulardi (Hymenoptera, Figitidae) - Drosophila melanogaster interaction.",
+      "autores": [
+        {
+          "nombre_completo": "C. Labrosse",
+          "nombres": "C.",
+          "apellidos": "Labrosse"
+        },
+        {
+          "nombre_completo": "K. Staslak",
+          "nombres": "K.",
+          "apellidos": "Staslak"
+        },
+        {
+          "nombre_completo": "J. Lesobre",
+          "nombres": "J.",
+          "apellidos": "Lesobre"
+        },
+        {
+          "nombre_completo": "A. Grangeia",
+          "nombres": "A.",
+          "apellidos": "Grangeia"
+        },
+        {
+          "nombre_completo": "E. Huguet",
+          "nombres": "E.",
+          "apellidos": "Huguet"
+        }
+      ],
+      "pmid": "15681220",
+      "fuente": "Insect Biochem. Mol. Biol.",
+      "anio": "2005",
+      "volumen": "35",
+      "fpage": "93",
+      "lpage": "103"
+    },
+    {
+      "titulo": "Biodiversity: On the origin of bar codes.",
+      "autores": [
+        {
+          "nombre_completo": "N. Lane",
+          "nombres": "N.",
+          "apellidos": "Lane"
+        }
+      ],
+      "pmid": "19924185",
+      "fuente": "Nature",
+      "anio": "2009",
+      "volumen": "462",
+      "fpage": "272",
+      "lpage": "274"
+    },
+    {
+      "titulo": "Fast and accurate short read alignment with Burrows-Wheeler transform.",
+      "autores": [
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "R. Durbin",
+          "nombres": "R.",
+          "apellidos": "Durbin"
+        }
+      ],
+      "pmid": "19451168",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "1754",
+      "lpage": "1760"
+    },
+    {
+      "titulo": "Generation of heritable germline mutations in the jewel wasp Nasonia vitripennis using CRISPR/Cas9.",
+      "autores": [
+        {
+          "nombre_completo": "M. Li",
+          "nombres": "M.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "L. Y. C. Au",
+          "nombres": "L. Y. C.",
+          "apellidos": "Au"
+        },
+        {
+          "nombre_completo": "D. Douglah",
+          "nombres": "D.",
+          "apellidos": "Douglah"
+        },
+        {
+          "nombre_completo": "A. Chong",
+          "nombres": "A.",
+          "apellidos": "Chong"
+        },
+        {
+          "nombre_completo": "B. J. White",
+          "nombres": "B. J.",
+          "apellidos": "White"
+        }
+      ],
+      "pmid": "28424460",
+      "fuente": "Sci. Rep.",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "901",
+      "lpage": ""
+    },
+    {
+      "titulo": "Embryo microinjection and transplantation technique for Nasonia vitripennis genome manipulation.",
+      "autores": [
+        {
+          "nombre_completo": "M. Li",
+          "nombres": "M.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "M. Bui",
+          "nombres": "M.",
+          "apellidos": "Bui"
+        },
+        {
+          "nombre_completo": "O. S. Akbari",
+          "nombres": "O. S.",
+          "apellidos": "Akbari"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Vis. Exp",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "9"
+    },
+    {
+      "titulo": "The EMBL-EBI bioinformatics web and programmatic tools framework.",
+      "autores": [
+        {
+          "nombre_completo": "W. Li",
+          "nombres": "W.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "A. Cowley",
+          "nombres": "A.",
+          "apellidos": "Cowley"
+        },
+        {
+          "nombre_completo": "M. Uludag",
+          "nombres": "M.",
+          "apellidos": "Uludag"
+        },
+        {
+          "nombre_completo": "T. Gur",
+          "nombres": "T.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "H. McWilliam",
+          "nombres": "H.",
+          "apellidos": "McWilliam"
+        }
+      ],
+      "pmid": "25845596",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "W580",
+      "lpage": "W584"
+    },
+    {
+      "titulo": "KAT: a K-mer analysis toolkit to quality control NGS datasets and genome assemblies.",
+      "autores": [
+        {
+          "nombre_completo": "D. Mapleson",
+          "nombres": "D.",
+          "apellidos": "Mapleson"
+        },
+        {
+          "nombre_completo": "G. Garcia Accinelli",
+          "nombres": "G.",
+          "apellidos": "Garcia Accinelli"
+        },
+        {
+          "nombre_completo": "G. Kettleborough",
+          "nombres": "G.",
+          "apellidos": "Kettleborough"
+        },
+        {
+          "nombre_completo": "J. Wright",
+          "nombres": "J.",
+          "apellidos": "Wright"
+        },
+        {
+          "nombre_completo": "B. J. Clavijo",
+          "nombres": "B. J.",
+          "apellidos": "Clavijo"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Bioinformatics",
+      "anio": "2016",
+      "volumen": "33",
+      "fpage": "574",
+      "lpage": "576"
+    },
+    {
+      "titulo": "CDD/SPARCLE: functional classification of proteins via subfamily domain architectures.",
+      "autores": [
+        {
+          "nombre_completo": "A. Marchler-Bauer",
+          "nombres": "A.",
+          "apellidos": "Marchler-Bauer"
+        },
+        {
+          "nombre_completo": "Y. Bo",
+          "nombres": "Y.",
+          "apellidos": "Bo"
+        },
+        {
+          "nombre_completo": "L. Han",
+          "nombres": "L.",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "J. He",
+          "nombres": "J.",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "C. J. Lanczycki",
+          "nombres": "C. J.",
+          "apellidos": "Lanczycki"
+        }
+      ],
+      "pmid": "27899674",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D200",
+      "lpage": "D203"
+    },
+    {
+      "titulo": "The evolution of venom by co-option of single-copy genes.",
+      "autores": [
+        {
+          "nombre_completo": "E. O. Martinson",
+          "nombres": "E. O.",
+          "apellidos": "Martinson"
+        },
+        {
+          "nombre_completo": "Y. D. Mrinalini",
+          "nombres": "Y. D.",
+          "apellidos": "Mrinalini"
+        },
+        {
+          "nombre_completo": "C. H. Kelkar",
+          "nombres": "C. H.",
+          "apellidos": "Kelkar"
+        },
+        {
+          "nombre_completo": "surname:Chang",
+          "nombres": "surname:Chang",
+          "apellidos": ""
+        },
+        {
+          "nombre_completo": "J. H. Werren",
+          "nombres": "J. H.",
+          "apellidos": "Werren"
+        }
+      ],
+      "pmid": "28648823",
+      "fuente": "Curr Biol.",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "2007",
+      "lpage": "2013.e8"
+    },
+    {
+      "titulo": "Developmental analysis of Ganaspis xanthopoda, a larval parasitoid of Drosophila melanogaster.",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Melk",
+          "nombres": "J. P.",
+          "apellidos": "Melk"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "10377270",
+      "fuente": "J. Exp. Biol.",
+      "anio": "1999",
+      "volumen": "202",
+      "fpage": "1885",
+      "lpage": "1896"
+    },
+    {
+      "titulo": "Icarus: visualizer for de novo assembly evaluation.",
+      "autores": [
+        {
+          "nombre_completo": "A. Mikheenko",
+          "nombres": "A.",
+          "apellidos": "Mikheenko"
+        },
+        {
+          "nombre_completo": "G. Valin",
+          "nombres": "G.",
+          "apellidos": "Valin"
+        },
+        {
+          "nombre_completo": "A. Prjibelski",
+          "nombres": "A.",
+          "apellidos": "Prjibelski"
+        },
+        {
+          "nombre_completo": "V. Saveliev",
+          "nombres": "V.",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "A. Gurevich",
+          "nombres": "A.",
+          "apellidos": "Gurevich"
+        }
+      ],
+      "pmid": "27378299",
+      "fuente": "Bioinformatics",
+      "anio": "2016",
+      "volumen": "32",
+      "fpage": "3321",
+      "lpage": "3323"
+    },
+    {
+      "titulo": "Phylogenomics resolves the timing and pattern of insect evolution.",
+      "autores": [
+        {
+          "nombre_completo": "B. Misof",
+          "nombres": "B.",
+          "apellidos": "Misof"
+        },
+        {
+          "nombre_completo": "S. Liu",
+          "nombres": "S.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "K. Meusemann",
+          "nombres": "K.",
+          "apellidos": "Meusemann"
+        },
+        {
+          "nombre_completo": "R. S. Peters",
+          "nombres": "R. S.",
+          "apellidos": "Peters"
+        },
+        {
+          "nombre_completo": "A. Donath",
+          "nombres": "A.",
+          "apellidos": "Donath"
+        }
+      ],
+      "pmid": "25378627",
+      "fuente": "Science",
+      "anio": "2014",
+      "volumen": "346",
+      "fpage": "763",
+      "lpage": "767"
+    },
+    {
+      "titulo": "Biogenesis, structure, and immune-suppressive effects of virus-like particles of a Drosophila parasitoid, Leptopilina victoriae.",
+      "autores": [
+        {
+          "nombre_completo": "J. Morales",
+          "nombres": "J.",
+          "apellidos": "Morales"
+        },
+        {
+          "nombre_completo": "H. Chiu",
+          "nombres": "H.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "T. Oo",
+          "nombres": "T.",
+          "apellidos": "Oo"
+        },
+        {
+          "nombre_completo": "R. Plaza",
+          "nombres": "R.",
+          "apellidos": "Plaza"
+        },
+        {
+          "nombre_completo": "S. Hoskins",
+          "nombres": "S.",
+          "apellidos": "Hoskins"
+        }
+      ],
+      "pmid": "15749103",
+      "fuente": "J. Insect Physiol.",
+      "anio": "2005",
+      "volumen": "51",
+      "fpage": "181",
+      "lpage": "195"
+    },
+    {
+      "titulo": "Parasitoid wasp venom SERCA regulates Drosophila calcium levels and inhibits cellular immunity.",
+      "autores": [
+        {
+          "nombre_completo": "N. T. Mortimer",
+          "nombres": "N. T.",
+          "apellidos": "Mortimer"
+        },
+        {
+          "nombre_completo": "J. Goecks",
+          "nombres": "J.",
+          "apellidos": "Goecks"
+        },
+        {
+          "nombre_completo": "B. Z. Kacsoh",
+          "nombres": "B. Z.",
+          "apellidos": "Kacsoh"
+        },
+        {
+          "nombre_completo": "J. A. Mobley",
+          "nombres": "J. A.",
+          "apellidos": "Mobley"
+        },
+        {
+          "nombre_completo": "G. J. Bowersock",
+          "nombres": "G. J.",
+          "apellidos": "Bowersock"
+        }
+      ],
+      "pmid": "23690612",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2013",
+      "volumen": "110",
+      "fpage": "9427",
+      "lpage": "9432"
+    },
+    {
+      "titulo": "Parasitic hymenoptera and biological Control",
+      "autores": [
+        {
+          "nombre_completo": "T. C. Narendran",
+          "nombres": "T. C.",
+          "apellidos": "Narendran"
+        },
+        {
+          "nombre_completo": "R. K. Upadhyay",
+          "nombres": "R. K.",
+          "apellidos": "Upadhyay"
+        },
+        {
+          "nombre_completo": "K. G. Mukerji",
+          "nombres": "K. G.",
+          "apellidos": "Mukerji"
+        },
+        {
+          "nombre_completo": "B. P. Chamola",
+          "nombres": "B. P.",
+          "apellidos": "Chamola"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2001",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Predicting secretory proteins with signalP.",
+      "autores": [
+        {
+          "nombre_completo": "H. Nielsen",
+          "nombres": "H.",
+          "apellidos": "Nielsen"
+        }
+      ],
+      "pmid": "28451972",
+      "fuente": "Methods Mol. Biol.",
+      "anio": "2017",
+      "volumen": "1611",
+      "fpage": "59",
+      "lpage": "73"
+    },
+    {
+      "titulo": "Extracellular vesicles and viruses: Are they close relatives?",
+      "autores": [
+        {
+          "nombre_completo": "E. Nolte-’t Hoen",
+          "nombres": "E.",
+          "apellidos": "Nolte-’t Hoen"
+        },
+        {
+          "nombre_completo": "T. Cremer",
+          "nombres": "T.",
+          "apellidos": "Cremer"
+        },
+        {
+          "nombre_completo": "R. C. Gallo",
+          "nombres": "R. C.",
+          "apellidos": "Gallo"
+        },
+        {
+          "nombre_completo": "L. B. Margolis",
+          "nombres": "L. B.",
+          "apellidos": "Margolis"
+        }
+      ],
+      "pmid": "27432966",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2016",
+      "volumen": "113",
+      "fpage": "9155",
+      "lpage": "9161"
+    },
+    {
+      "titulo": "Cytology of Wolbachia-induced parthenogenesis in Leptopilina clavipes (Hymenoptera: Figitidae).",
+      "autores": [
+        {
+          "nombre_completo": "B. A. Pannebakker",
+          "nombres": "B. A.",
+          "apellidos": "Pannebakker"
+        },
+        {
+          "nombre_completo": "L. P. Pijnacker",
+          "nombres": "L. P.",
+          "apellidos": "Pijnacker"
+        },
+        {
+          "nombre_completo": "B. J. Zwaan",
+          "nombres": "B. J.",
+          "apellidos": "Zwaan"
+        },
+        {
+          "nombre_completo": "L. W. Beukeboom",
+          "nombres": "L. W.",
+          "apellidos": "Beukeboom"
+        }
+      ],
+      "pmid": "15060582",
+      "fuente": "Genome",
+      "anio": "2004",
+      "volumen": "47",
+      "fpage": "299",
+      "lpage": "303"
+    },
+    {
+      "titulo": "Vesiclepedia 2019: a compendium of RNA, proteins, lipids and metabolites in extracellular vesicles.",
+      "autores": [
+        {
+          "nombre_completo": "M. Pathan",
+          "nombres": "M.",
+          "apellidos": "Pathan"
+        },
+        {
+          "nombre_completo": "P. Fonseka",
+          "nombres": "P.",
+          "apellidos": "Fonseka"
+        },
+        {
+          "nombre_completo": "S. V. Chitti",
+          "nombres": "S. V.",
+          "apellidos": "Chitti"
+        },
+        {
+          "nombre_completo": "T. Kang",
+          "nombres": "T.",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "R. Sanwlani",
+          "nombres": "R.",
+          "apellidos": "Sanwlani"
+        }
+      ],
+      "pmid": "30395310",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D516",
+      "lpage": "D519"
+    },
+    {
+      "titulo": "FunRich: An open access standalone functional enrichment and interaction network analysis tool.",
+      "autores": [
+        {
+          "nombre_completo": "M. Pathan",
+          "nombres": "M.",
+          "apellidos": "Pathan"
+        },
+        {
+          "nombre_completo": "S. Keerthikumar",
+          "nombres": "S.",
+          "apellidos": "Keerthikumar"
+        },
+        {
+          "nombre_completo": "C. S. Ang",
+          "nombres": "C. S.",
+          "apellidos": "Ang"
+        },
+        {
+          "nombre_completo": "L. Gangoda",
+          "nombres": "L.",
+          "apellidos": "Gangoda"
+        },
+        {
+          "nombre_completo": "C. Y. Quek",
+          "nombres": "C. Y.",
+          "apellidos": "Quek"
+        }
+      ],
+      "pmid": "25921073",
+      "fuente": "Proteomics",
+      "anio": "2015",
+      "volumen": "15",
+      "fpage": "2597",
+      "lpage": "2601"
+    },
+    {
+      "titulo": "A novel community driven software for functional enrichment analysis of extracellular vesicles data.",
+      "autores": [
+        {
+          "nombre_completo": "M. Pathan",
+          "nombres": "M.",
+          "apellidos": "Pathan"
+        },
+        {
+          "nombre_completo": "S. Keerthikumar",
+          "nombres": "S.",
+          "apellidos": "Keerthikumar"
+        },
+        {
+          "nombre_completo": "D. Chisanga",
+          "nombres": "D.",
+          "apellidos": "Chisanga"
+        },
+        {
+          "nombre_completo": "R. Alessandro",
+          "nombres": "R.",
+          "apellidos": "Alessandro"
+        },
+        {
+          "nombre_completo": "C. S. Ang",
+          "nombres": "C. S.",
+          "apellidos": "Ang"
+        }
+      ],
+      "pmid": "28717418",
+      "fuente": "J. Extracell. Vesicles",
+      "anio": "2017",
+      "volumen": "6",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "An inherited virus influences the coexistence of parasitoid species through behaviour manipulation.",
+      "autores": [
+        {
+          "nombre_completo": "S. Patot",
+          "nombres": "S.",
+          "apellidos": "Patot"
+        },
+        {
+          "nombre_completo": "R. Allemand",
+          "nombres": "R.",
+          "apellidos": "Allemand"
+        },
+        {
+          "nombre_completo": "F. Fleury",
+          "nombres": "F.",
+          "apellidos": "Fleury"
+        },
+        {
+          "nombre_completo": "J. Varaldi",
+          "nombres": "J.",
+          "apellidos": "Varaldi"
+        }
+      ],
+      "pmid": "22487404",
+      "fuente": "Ecol. Lett.",
+      "anio": "2012",
+      "volumen": "15",
+      "fpage": "603",
+      "lpage": "610"
+    },
+    {
+      "titulo": "Recurrent DNA virus domestication leading to different parasite virulence strategies.",
+      "autores": [
+        {
+          "nombre_completo": "A. Pichon",
+          "nombres": "A.",
+          "apellidos": "Pichon"
+        },
+        {
+          "nombre_completo": "A. Bézier",
+          "nombres": "A.",
+          "apellidos": "Bézier"
+        },
+        {
+          "nombre_completo": "S. Urbach",
+          "nombres": "S.",
+          "apellidos": "Urbach"
+        },
+        {
+          "nombre_completo": "J. M. Aury",
+          "nombres": "J. M.",
+          "apellidos": "Aury"
+        },
+        {
+          "nombre_completo": "V. Jouan",
+          "nombres": "V.",
+          "apellidos": "Jouan"
+        }
+      ],
+      "pmid": "26702449",
+      "fuente": "Sci. Adv.",
+      "anio": "2015",
+      "volumen": "1",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "GenomeDiagram: a python package for the visualization of large-scale genomic data.",
+      "autores": [
+        {
+          "nombre_completo": "L. Pritchard",
+          "nombres": "L.",
+          "apellidos": "Pritchard"
+        },
+        {
+          "nombre_completo": "J. A. White",
+          "nombres": "J. A.",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "P. R. J. Birch",
+          "nombres": "P. R. J.",
+          "apellidos": "Birch"
+        },
+        {
+          "nombre_completo": "I. K. Toth",
+          "nombres": "I. K.",
+          "apellidos": "Toth"
+        }
+      ],
+      "pmid": "16377612",
+      "fuente": "Bioinformatics",
+      "anio": "2006",
+      "volumen": "22",
+      "fpage": "616",
+      "lpage": "617"
+    },
+    {
+      "titulo": "Mechanisms of immune activation and suppression by parasitic wasps of Drosophila in biology",
+      "autores": [
+        {
+          "nombre_completo": "J. Ramroop",
+          "nombres": "J.",
+          "apellidos": "Ramroop"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Leptopilina heterotoma and L. boulardi: strategies to avoid cellular defense responses of Drosophila melanogaster.",
+      "autores": [
+        {
+          "nombre_completo": "T. M. Rizki",
+          "nombres": "T. M.",
+          "apellidos": "Rizki"
+        },
+        {
+          "nombre_completo": "R. M. Rizki",
+          "nombres": "R. M.",
+          "apellidos": "Rizki"
+        },
+        {
+          "nombre_completo": "Y. Carton",
+          "nombres": "Y.",
+          "apellidos": "Carton"
+        }
+      ],
+      "pmid": "2108875",
+      "fuente": "Exp. Parasitol.",
+      "anio": "1990",
+      "volumen": "70",
+      "fpage": "466",
+      "lpage": "475"
+    },
+    {
+      "titulo": "Extrapolations from field studies and known faunas converge on dramatically increased estimates of global microgastrine parasitoid wasp species richness (Hymenoptera: Braconidae).",
+      "autores": [
+        {
+          "nombre_completo": "J. J. Rodriguez",
+          "nombres": "J. J.",
+          "apellidos": "Rodriguez"
+        },
+        {
+          "nombre_completo": "J. L. Fernandez-Triana",
+          "nombres": "J. L.",
+          "apellidos": "Fernandez-Triana"
+        },
+        {
+          "nombre_completo": "M. A. Smith",
+          "nombres": "M. A.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "D. H. Janzen",
+          "nombres": "D. H.",
+          "apellidos": "Janzen"
+        },
+        {
+          "nombre_completo": "W. Hallwachs",
+          "nombres": "W.",
+          "apellidos": "Hallwachs"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Insect Conserv. Divers.",
+      "anio": "2013",
+      "volumen": "6",
+      "fpage": "530",
+      "lpage": "536"
+    },
+    {
+      "titulo": "Contrasting infection strategies in generalist and specialist wasp parasitoids of Drosophila melanogaster.",
+      "autores": [
+        {
+          "nombre_completo": "T. A. Schlenke",
+          "nombres": "T. A.",
+          "apellidos": "Schlenke"
+        },
+        {
+          "nombre_completo": "J. Morales",
+          "nombres": "J.",
+          "apellidos": "Morales"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        },
+        {
+          "nombre_completo": "A. G. Clark",
+          "nombres": "A. G.",
+          "apellidos": "Clark"
+        }
+      ],
+      "pmid": "17967061",
+      "fuente": "PLoS Pathog.",
+      "anio": "2007",
+      "volumen": "3",
+      "fpage": "1486",
+      "lpage": "1501"
+    },
+    {
+      "titulo": "A new approach for investigating venom function applied to venom calreticulin in a parasitoid wasp.",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Siebert",
+          "nombres": "A. L.",
+          "apellidos": "Siebert"
+        },
+        {
+          "nombre_completo": "D. Wheeler",
+          "nombres": "D.",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "J. H. Werren",
+          "nombres": "J. H.",
+          "apellidos": "Werren"
+        }
+      ],
+      "pmid": "26359852",
+      "fuente": "Toxicon",
+      "anio": "2015",
+      "volumen": "107",
+      "fpage": "304",
+      "lpage": "316"
+    },
+    {
+      "titulo": "BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs.",
+      "autores": [
+        {
+          "nombre_completo": "F. A. Simão",
+          "nombres": "F. A.",
+          "apellidos": "Simão"
+        },
+        {
+          "nombre_completo": "R. M. Waterhouse",
+          "nombres": "R. M.",
+          "apellidos": "Waterhouse"
+        },
+        {
+          "nombre_completo": "P. Ioannidis",
+          "nombres": "P.",
+          "apellidos": "Ioannidis"
+        },
+        {
+          "nombre_completo": "E. V. Kriventseva",
+          "nombres": "E. V.",
+          "apellidos": "Kriventseva"
+        },
+        {
+          "nombre_completo": "E. M. Zdobnov",
+          "nombres": "E. M.",
+          "apellidos": "Zdobnov"
+        }
+      ],
+      "pmid": "26059717",
+      "fuente": "Bioinformatics",
+      "anio": "2015",
+      "volumen": "31",
+      "fpage": "3210",
+      "lpage": "3212"
+    },
+    {
+      "titulo": "An introduction to parasitic wasps of Drosophila and the antiparasite immune response.",
+      "autores": [
+        {
+          "nombre_completo": "C. Small",
+          "nombres": "C.",
+          "apellidos": "Small"
+        },
+        {
+          "nombre_completo": "I. Paddibhatla",
+          "nombres": "I.",
+          "apellidos": "Paddibhatla"
+        },
+        {
+          "nombre_completo": "R. Rajwani",
+          "nombres": "R.",
+          "apellidos": "Rajwani"
+        },
+        {
+          "nombre_completo": "S. Govind",
+          "nombres": "S.",
+          "apellidos": "Govind"
+        }
+      ],
+      "pmid": "22588641",
+      "fuente": "J. Vis. Exp.",
+      "anio": "2012",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "TransRate: reference-free quality assessment of de novo transcriptome assemblies.",
+      "autores": [
+        {
+          "nombre_completo": "R. Smith-Unna",
+          "nombres": "R.",
+          "apellidos": "Smith-Unna"
+        },
+        {
+          "nombre_completo": "C. Boursnell",
+          "nombres": "C.",
+          "apellidos": "Boursnell"
+        },
+        {
+          "nombre_completo": "R. Patro",
+          "nombres": "R.",
+          "apellidos": "Patro"
+        },
+        {
+          "nombre_completo": "J. M. Hibberd",
+          "nombres": "J. M.",
+          "apellidos": "Hibberd"
+        },
+        {
+          "nombre_completo": "S. Kelly",
+          "nombres": "S.",
+          "apellidos": "Kelly"
+        }
+      ],
+      "pmid": "27252236",
+      "fuente": "Genome Res.",
+      "anio": "2016",
+      "volumen": "26",
+      "fpage": "1134",
+      "lpage": "1144"
+    },
+    {
+      "titulo": "A hidden Markov model for predicting transmembrane helices in protein sequences.",
+      "autores": [
+        {
+          "nombre_completo": "E. L. Sonnhammer",
+          "nombres": "E. L.",
+          "apellidos": "Sonnhammer"
+        },
+        {
+          "nombre_completo": "G. von Heijne",
+          "nombres": "G.",
+          "apellidos": "von Heijne"
+        },
+        {
+          "nombre_completo": "A. Krogh",
+          "nombres": "A.",
+          "apellidos": "Krogh"
+        }
+      ],
+      "pmid": "9783223",
+      "fuente": "Proc. Int. Conf. Intell. Syst. Mol. Biol.",
+      "anio": "1998",
+      "volumen": "6",
+      "fpage": "175",
+      "lpage": "182"
+    },
+    {
+      "titulo": "Polydnaviruses: From discovery to current insights.",
+      "autores": [
+        {
+          "nombre_completo": "M. R. Strand",
+          "nombres": "M. R.",
+          "apellidos": "Strand"
+        },
+        {
+          "nombre_completo": "G. R. Burke",
+          "nombres": "G. R.",
+          "apellidos": "Burke"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Virology",
+      "anio": "2015",
+      "volumen": "479–480",
+      "fpage": "393",
+      "lpage": "402"
+    },
+    {
+      "titulo": "The Gene Ontology Resource: 20 years and still GOing strong.",
+      "autores": [],
+      "pmid": "30395331",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D330",
+      "lpage": "D338"
+    },
+    {
+      "titulo": "Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks.",
+      "autores": [
+        {
+          "nombre_completo": "C. Trapnell",
+          "nombres": "C.",
+          "apellidos": "Trapnell"
+        },
+        {
+          "nombre_completo": "A. Roberts",
+          "nombres": "A.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "L. Goff",
+          "nombres": "L.",
+          "apellidos": "Goff"
+        },
+        {
+          "nombre_completo": "G. Pertea",
+          "nombres": "G.",
+          "apellidos": "Pertea"
+        },
+        {
+          "nombre_completo": "D. Kim",
+          "nombres": "D.",
+          "apellidos": "Kim"
+        }
+      ],
+      "pmid": "22383036",
+      "fuente": "Nat. Protoc.",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "562",
+      "lpage": "578"
+    },
+    {
+      "titulo": "UniProt: a hub for protein information.",
+      "autores": [],
+      "pmid": "25348405",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "D204",
+      "lpage": "D212"
+    },
+    {
+      "titulo": "The virus infecting the parasitoid Leptopilina boulardi exerts a specific action on superparasitism behaviour.",
+      "autores": [
+        {
+          "nombre_completo": "J. Varaldi",
+          "nombres": "J.",
+          "apellidos": "Varaldi"
+        },
+        {
+          "nombre_completo": "S. Petit",
+          "nombres": "S.",
+          "apellidos": "Petit"
+        },
+        {
+          "nombre_completo": "M. Boulétreau",
+          "nombres": "M.",
+          "apellidos": "Boulétreau"
+        },
+        {
+          "nombre_completo": "F. Fleury",
+          "nombres": "F.",
+          "apellidos": "Fleury"
+        }
+      ],
+      "pmid": "16700960",
+      "fuente": "Parasitology",
+      "anio": "2006",
+      "volumen": "132",
+      "fpage": "747",
+      "lpage": "756"
+    },
+    {
+      "titulo": "Analysis of virion structural components reveals vestiges of the ancestral ichnovirus genome.",
+      "autores": [
+        {
+          "nombre_completo": "A. N. Volkoff",
+          "nombres": "A. N.",
+          "apellidos": "Volkoff"
+        },
+        {
+          "nombre_completo": "V. Jouan",
+          "nombres": "V.",
+          "apellidos": "Jouan"
+        },
+        {
+          "nombre_completo": "S. Urbach",
+          "nombres": "S.",
+          "apellidos": "Urbach"
+        },
+        {
+          "nombre_completo": "S. Samain",
+          "nombres": "S.",
+          "apellidos": "Samain"
+        },
+        {
+          "nombre_completo": "M. Bergoin",
+          "nombres": "M.",
+          "apellidos": "Bergoin"
+        }
+      ],
+      "pmid": "20523890",
+      "fuente": "PLoS Pathog.",
+      "anio": "2010",
+      "volumen": "6",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Venom atypical extracellular vesicles as interspecies vehicles of virulence factors involved in host specificity: The case of a Drosophila parasitoid wasp.",
+      "autores": [
+        {
+          "nombre_completo": "B. Wan",
+          "nombres": "B.",
+          "apellidos": "Wan"
+        },
+        {
+          "nombre_completo": "E. Goguet",
+          "nombres": "E.",
+          "apellidos": "Goguet"
+        },
+        {
+          "nombre_completo": "M. Ravallec",
+          "nombres": "M.",
+          "apellidos": "Ravallec"
+        },
+        {
+          "nombre_completo": "O. Pierre",
+          "nombres": "O.",
+          "apellidos": "Pierre"
+        },
+        {
+          "nombre_completo": "S. Lemauf",
+          "nombres": "S.",
+          "apellidos": "Lemauf"
+        }
+      ],
+      "pmid": "31379874",
+      "fuente": "Front. Immunol.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "1688",
+      "lpage": ""
+    },
+    {
+      "titulo": "A brief review of computational gene prediction methods.",
+      "autores": [
+        {
+          "nombre_completo": "Z. Wang",
+          "nombres": "Z.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Chen",
+          "nombres": "Y.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y. Li",
+          "nombres": "Y.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "15901250",
+      "fuente": "Genomics Proteomics Bioinformatics",
+      "anio": "2004",
+      "volumen": "2",
+      "fpage": "216",
+      "lpage": "221"
+    },
+    {
+      "titulo": "BUSCO applications from quality assessments to gene prediction and phylogenomics.",
+      "autores": [
+        {
+          "nombre_completo": "R. M. Waterhouse",
+          "nombres": "R. M.",
+          "apellidos": "Waterhouse"
+        },
+        {
+          "nombre_completo": "M. Seppey",
+          "nombres": "M.",
+          "apellidos": "Seppey"
+        },
+        {
+          "nombre_completo": "F. A. Simão",
+          "nombres": "F. A.",
+          "apellidos": "Simão"
+        },
+        {
+          "nombre_completo": "M. Manni",
+          "nombres": "M.",
+          "apellidos": "Manni"
+        },
+        {
+          "nombre_completo": "P. Ioannidis",
+          "nombres": "P.",
+          "apellidos": "Ioannidis"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Mol. Biol. Evol.",
+      "anio": "2017",
+      "volumen": "35",
+      "fpage": "543",
+      "lpage": "548"
+    },
+    {
+      "titulo": "Wolbachia: master manipulators of invertebrate biology.",
+      "autores": [
+        {
+          "nombre_completo": "J. H. Werren",
+          "nombres": "J. H.",
+          "apellidos": "Werren"
+        },
+        {
+          "nombre_completo": "L. Baldo",
+          "nombres": "L.",
+          "apellidos": "Baldo"
+        },
+        {
+          "nombre_completo": "M. E. Clark",
+          "nombres": "M. E.",
+          "apellidos": "Clark"
+        }
+      ],
+      "pmid": "18794912",
+      "fuente": "Nat. Rev. Microbiol.",
+      "anio": "2008",
+      "volumen": "6",
+      "fpage": "741",
+      "lpage": "751"
+    },
+    {
+      "titulo": "Werren, J. H., D. W. Loehlin, and J. D. Giebel, 2009 Larval RNAi in nasonia (parasitoid wasp). Cold Spring Harb Protoc 2009 (10):pdb.prot5311.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Molecular basis of the interaction between complement receptor type 2 (CR2/CD21) and Epstein-Barr virus glycoprotein gp350.",
+      "autores": [
+        {
+          "nombre_completo": "K. A. Young",
+          "nombres": "K. A.",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "A. P. Herbert",
+          "nombres": "A. P.",
+          "apellidos": "Herbert"
+        },
+        {
+          "nombre_completo": "P. N. Barlow",
+          "nombres": "P. N.",
+          "apellidos": "Barlow"
+        },
+        {
+          "nombre_completo": "V. M. Holers",
+          "nombres": "V. M.",
+          "apellidos": "Holers"
+        },
+        {
+          "nombre_completo": "J. P. Hannan",
+          "nombres": "J. P.",
+          "apellidos": "Hannan"
+        }
+      ],
+      "pmid": "18786993",
+      "fuente": "J. Virol.",
+      "anio": "2008",
+      "volumen": "82",
+      "fpage": "11217",
+      "lpage": "11227"
+    },
+    {
+      "titulo": "AGOUTI: improving genome assembly and annotation using transcriptome data.",
+      "autores": [
+        {
+          "nombre_completo": "S. V. Zhang",
+          "nombres": "S. V.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "L. T. Zhuo",
+          "nombres": "L. T.",
+          "apellidos": "Zhuo"
+        },
+        {
+          "nombre_completo": "M. W. Hahn",
+          "nombres": "M. W.",
+          "apellidos": "Hahn"
+        }
+      ],
+      "pmid": "27435057",
+      "fuente": "Gigascience",
+      "anio": "2016",
+      "volumen": "5",
+      "fpage": "31",
+      "lpage": ""
+    },
+    {
+      "titulo": "The MaSuRCA genome assembler.",
+      "autores": [
+        {
+          "nombre_completo": "A. V. Zimin",
+          "nombres": "A. V.",
+          "apellidos": "Zimin"
+        },
+        {
+          "nombre_completo": "G. Marcais",
+          "nombres": "G.",
+          "apellidos": "Marcais"
+        },
+        {
+          "nombre_completo": "D. Puiu",
+          "nombres": "D.",
+          "apellidos": "Puiu"
+        },
+        {
+          "nombre_completo": "M. Roberts",
+          "nombres": "M.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "S. L. Salzberg",
+          "nombres": "S. L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "23990416",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "2669",
+      "lpage": "2677"
+    }
+  ]
+}

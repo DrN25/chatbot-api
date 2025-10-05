@@ -1,0 +1,1758 @@
+{
+  "TITLE": [
+    "Mice Exposed to Combined Chronic Low-Dose Irradiation and Modeled Microgravity Develop Long-Term Neurological Sequelae"
+  ],
+  "ABSTRACT": [
+    "Spaceflight poses many challenges for humans. Ground-based analogs typically focus on single parameters of spaceflight and their associated acute effects. This study assesses the long-term transcriptional effects following single and combination spaceflight analog conditions using the mouse model: simulated microgravity via hindlimb unloading (HLU) and/or low-dose γ-ray irradiation (LDR) for 21 days, followed by 4 months of readaptation. Changes in gene expression and epigenetic modifications in brain samples during readaptation were analyzed by whole transcriptome shotgun sequencing (RNA-seq) and reduced representation bisulfite sequencing (RRBS). The results showed minimal gene expression and cytosine methylation alterations at 4 months readaptation within single treatment conditions of HLU or LDR. In contrast, following combined HLU+LDR, gene expression and promoter methylation analyses showed multiple altered pathways involved in neurogenesis and neuroplasticity, the regulation of neuropeptides, and cellular signaling. In brief, neurological readaptation following combined chronic LDR and HLU is a dynamic process that involves pathways that regulate neuronal function and structure and may lead to late onset neurological sequelae."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "The central nervous system (CNS) is vulnerable to irradiation and fluid shifts experienced during short- and long-term spaceflight. An important goal for the National Aeronautics and Space Administration (NASA) is to identify the effects of spaceflight-like conditions on the CNS to better prepare astronauts during long-duration missions to the Moon and Mars. During missions beyond low-earth orbit (LEO), astronauts will be continuously exposed to low-dose ionizing radiation (LDR). While high linear energy transfer (LET) galactic cosmic radiation (GCR) and low LET solar particle event (SPE) radiation contribute large portions of the radiation dose accumulated by astronaut crew members, interactions between GCR and SPE particles and spacecraft release secondary radiation including γ-rays that can deliver a significant fraction of the total mission does. In addition, altered gravity (hypergravity experienced at launch/landing and microgravity experienced in-flight) affects homeostatic fluid-shifting in the CNS. Studies examining readaptation to Earth’s gravity are of equal importance, as recovery from spaceflight exposure may require medical intervention, in particular within organs known to be sensitive to irradiation and fluid shifts.",
+    "Astronauts in spaceflight experience impairments in neurocognition (as measured by altered decision making and problem solving) and neurobehavior (as measured by impaired visual perceptions, motor controls and sleep–wake cycles). The NASA Twins study offers some additional insight into post-flight cognitive decline that persists up to 6 months post-flight (end of experimental sampling). Longitudinal diffusion magnetic resonance imaging (MRI) data collected from astronauts pre- and post-flight (shuttle missions <30 days and ISS mission <200 days) revealed whole brain shifting within the skull and white matter disruptions, suggesting spaceflight leads to long-term alterations of brain structure in humans.",
+    "Rodent models offer an appropriate alternative to assess the effects of spaceflight-like conditions on brain tissue. Recently, the Rodent Research (RR)-1 mission flew mice to the International Space Station (ISS) for 33 days and measured neurobehavioral outcomes through video monitoring, which indicated 16-week old (at launch) females displayed unique group hyperactivity behavior at 2 weeks post-launch, implying neurological disruptions occur in flight. Moreover, long-term readaptation to chronic LDR and hindlimb unloading (HLU) (a ground-based analog of spaceflight) resulted in increased aquaporin-4 (AQP4) protein expression, oxidative stress damage, apoptosis, blood–brain barrier (BBB) compromise and an increase in neurobehavioral risk-taking behavior.",
+    "The effects of acute radiation doses on the CNS have been well documented. However, responses to chronic LDR exposure, as encountered on space missions (<0.04 Gy/y), are not well investigated, particularly in a pan-transcriptome context. Moreover, long-term readaptive outcomes on neurohealth following spaceflight-like conditions are less studied. Due to the need to better understand the transcriptional changes associated with chronic LDR in combination with reduced gravity (unloading) on neurohealth, mice were exposed to chronic LDR γ-ray irradiation (0.04 Gy), HLU, or a combination of HLU+LDR for 21 days, followed by a 4-month readaptation period. Whole transcriptome shotgun sequencing (RNA-seq) data were analyzed for differentially expressed genes (DEG), while data from reduced representation bisulfite sequencing (RRBS) were analyzed to determine differentially methylated promoters (DMP). Overall, we found minimal gene alterations at 4 months of readaptation within single treatment conditions of HLU or LDR, namely, in pathways related to the reduced expression of translational machinery, while the combination of HLU+LDR resulted in a wide panel of altered DEG and DMP profiles for tight junctions, aquaporins, neurogenesis markers and neuropeptides. Therefore, exposure to spaceflight-like conditions may lead to mild, long-term neurological consequences, while readaptation is an active process involving neuroplasticity and repair that is cooperatively engaged post-HLU+LDR exposure to maintain neural homeostasis."
+  ],
+  "RESULTS": [
+    "2. Results",
+    "2.1. Experimental Design and Mouse Body Weights Across Experimental and Readaptation Timepoints",
+    "To assess the effects of prolonged spaceflight-like conditions on central nervous system (CNS) health following exposure, 6-month-old female C57BL/6J mice were either irradiated with low-dose γ-ray irradiation (0.04 Gy, LDR), hindlimb unloaded (HLU) or a combination of the two (HLU+LDR) for 21 days, followed by a 4-month readaptation period (Figure 1A). While the LDR γ-ray irradiation used does not recapitulate the entire space radiation spectrum, it constitutes a significant fraction and poses a hazard to astronauts’ health.",
+    "Total body weights were monitored from the initiation of the experimental conditions (0 days), throughout the duration of exposure (up to 21 days), and during the readaptation period (4 months, 4M). Mice were weighted weekly at the same time as the 21-day exposure and monthly for the 4-month readaptation phase. Baseline weight measurements were taken on day 0, prior to the initiation of HLU and LDR exposure. While there was no difference with LDR alone compared to control animals, a trend for decreased body weight in HLU and HLU+LDR combination conditions versus controls was noted, while statistical significance was observed at 7 days post-experimental start in HLU only (Figure 1B). Furthermore, during the readaptation period, decreased weights observed in HLU and in HLU+LDR animals recovered to control values, indicating physiological readaptation following exposure to spaceflight-like conditions.",
+    "Modeled microgravity in combination with chronic low-dose irradiation results in increased differential gene expression in brains at 4 months post-exposure. To determine the readaptation effects on the CNS at 4 months post-exposure, whole brains were isolated and mid-sagittal sectioned into two hemispheres. The right hemisphere was further sectioned mid-coronal and the caudal cortex (including hind- and midbrain) regions were collected for RNA-seq analysis. Collected brains were free of cerebellum and brainstem contamination. Principal component analysis (PCA) of RNA-seq data revealed clustering of samples by experimental conditions (Figure 2A), while volcano plots showed limited DEG (p < 0.05, Log2 fold change > 0.263) in all but the combination HLU+LDR (Figure 2B).",
+    "Brain readaptation following exposure to LDR alone displayed minimal (5) DEG with large fold change inductions only in genes of unknown function (Figure 3A, Table 1). Brain readaptation following exposure to HLU alone displayed 11 DEG with known functions primarily associated with reduced protein synthesis and/or functions mediated by ribosomes (Figure 3B, Table 1). In contrast to single exposures, brain readaptation following exposure to a combination of HLU+LDR displayed numerous (270) DEG associated with various cellular functions including tight junctions, aquaporins, neurogenesis and neuropeptide production (Figure 3C, Table 1). Comprehensive DEG lists are provided in the supplemental data (Table S1). Collectively, these results showed minimal transcriptional changes in single treatment groups at 4 months post-exposure, while the combined exposure to HLU+LDR resulted in multiple DEG.",
+    "2.2. LDR, HLU and Combined HLU+LDR Exposures Displayed Minimal Gene and Promoter Methylation Overlap at 4 Months Readaptation",
+    "Given that there were significant changes in gene expression in the combined exposure to HLU+LDR mice at the 4-month timepoint, we next determined whether these changes in gene expression reflected modifications to cytosine methylation using RRBS analysis. RRBS revealed 137, 71 and 170 differentially methylated promoters (DMPs) in the LDR, HLU, and HLU+LDR animals, respectively (Table 1). A full list of DMPs is provided in supplementary data (Table S2). To find overlap across assays and experimental conditions, gene sets were created from DEG (upregulated/downregulated) and genes corresponding to DMPs (hypermethylated/hypomethylated). Overlapping genes between these sets were determined (Table 2) and summarized in an UpSet diagram (Figure 4). Overall, there was little overlap between assays and experimental conditions (grey bars/dots/line). Most overlap was observed between DMPs from different experimental conditions (red bars/dots/lines). Overlap between DEGs from different experimental conditions was minimal (blue bars/dots/lines). Overlap between DEGs and DMPs from the same experimental condition or from different experimental conditions were also minimal (black bars/dots/lines). Collectively, these results indicated most DEGs and DMPs are unique to their experimental condition with minimal overlap between exposure groups.",
+    "2.3. Readaptation at 4 Months Following Exposure to Combined HLU+LDR Involves Gene Expression Changes in Multiple Brain-Associated Pathways",
+    "To determine the associated mechanisms involved in readaptation and neuroplasticity from simulated spaceflight combined HLU+LDR exposure, we used WebGestalt to detect enriched gene ontology (GO) terms in sets of up- and downregulated genes in post-HLU+LDR animals (Figure 5A,B, Table S3). The downregulated set was enriched for GO terms associated with neurogenesis, transmembrane transport, cell signaling, and neurosynaptic and brain architecture deficits (Figure 5A). The upregulated DEG set was enriched for terms associated with cell proliferation, neurogenesis, and hormonal regulation (Figure 5B). Mouse Reactome pathway analyses of DEGs in the post-HLU+LDR animals indicated biological processes associated with signal transduction, neurodevelopment and neurohomeostasis (Figure S1A, Table S4). Human Reactome pathway translational analyses identified human orthologs involved in neurotransmission and cellular signaling (Figure S1B and Table 3). Collectively, brain-readaptation post-combination HLU+LDR resulted in altered expression in pathways governing biological processes associated with neuroplasticity, neurogenesis, neurostructural reorganization and neuropeptide production."
+  ],
+  "DISCUSS": [
+    "3. Discussion",
+    "Herein, we identified that chronic exposure (21 days) to single or combined HLU and LDR resulted in long-term transcriptional alterations in CNS brain tissue in female mice at 4 months post-exposure. The gene expression changes observed here imply reduced transcriptional machinery, increased neurogenesis and neuropeptide production, and dysregulated cell structure and cell signaling. These studies offer translational value into pathways regulated in humans, as gene ontology analyses identified similar genetic overlap between mice and human profiles, in particular in pathways involved in neurodevelopmental homeostasis and signal transduction. Collectively, brain-related transcriptional changes that are dynamic in readaptation from exposure to spaceflight-like conditions may lead to long-term neurological consequences. Indeed, 21 days of exposure to combined HLU+LDR did not result in immediate neurobehavioral deficits (1 week post-exposure); however, increased risk-taking behavior was observed at 9 months post-exposure, indicating delayed neurological impairments in a combination of HLU+LDR, that was not apparent in HLU or LDR only.",
+    "To assess CNS effects, 4-month post-experimental conditions mid/hindbrain (sans cerebellum and brainstem) were collected, sectioned, and total RNA was isolated for RNA-seq analysis. This portion of the brain houses the hippocampus, basal ganglia, substantia nigra, and thalamus, and is a major signaling hub for the neuroendocrine system (hypothalamus and pituitary gland). Mid/hindbrain sections were assessed to localize the transcriptional profile to a region that is central to neurogenesis (hippocampus) and hypothalamic–pituitary axis (HPA) responses, in order to better assess neurofunctional output without potential contamination from the cerebral cortex or cerebellum. The results displayed robust DEG alterations within combination HLU+LDR at 4 months readaptation compared to controls, and marginal DEG alterations in single HLU or LDR at 4 months readaptation. At 4 months post-HLU exposure, DEGs including EphrB3 and Sh2d5 were altered, suggesting cell morphological and structural changes are active at this timepoint. At 4 months post-LDR exposure, only five DEGs were found, four of which have an unknown function. One DEG, Rps13, was reduced, suggesting impaired protein synthesis and/or other functional outputs mediated by ribosomes. Interestingly, Rps13 was also reduced in HLU alone at 4 months readaptation along with other protein synthesis-related genes, including Hist1h2bc and Rpl36a-ps2, collectively suggesting fundamental translational pathways are altered during chronic HLU and LDR during readaptation. In line with this, another group has reported that chronic LDR whole brain irradiation resulted in protein synthesis impairment that can affect adult neurogenesis. Interestingly, no notable protein synthesis pathway deficits were identified in combined HLU+LDR exposures, suggesting distinct responses are generated within each experimental condition at readaptation. Moreover, very limited DEG overlap was observed between experimental conditions, further validating unique responses to each condition and highlighting the importance of implementing combined exposure studies to better assess spaceflight-like readaptation effects on the nervous system. Other spaceflight-like factors such as hypoxia and social isolation were not assessed in this study and merit further investigation. Nonetheless, the usefulness of this model provides a scaffold for future studies to assess the long-term effects of combination HLU+LDR on the health of the nervous system.",
+    "Brain structural damage through disruption of the blood–brain barrier (BBB) is associated with neurodegeneration and subsequent behavioral dysfunctions. Our previous study showed that aquaporin-4 (AQP4), a water-channel protein involved in brain water homeostasis, was up-regulated following combined exposure to irradiation and unloading, suggesting a disturbance in BBB integrity may lead to edema. Furthermore, AQP4 induction was seen in concert with subtle behavioral changes at 9 months post-exposure, indicating a potential role for BBB dysfunction and neurobehavioral consequences. Although Aqp4 was not identified in this study, Aqp1 gene expression was induced following combination of HLU+LDR at 4 months readaptation, suggesting similar BBB disturbances and possible shifts in brain water homeostasis. In line with this, the induction of aquaporins may be linked to neuroinflammation, while the upregulation of additional immune activation markers including Cd74, H2-Ab1, C1ql2 and Ifit-3 were also identified in combination HLU+LDR at 4 months readaptation, along with hypomethylated Cfi and Mx1, collectively suggesting chronic neuroinflammation may persist during brain readaptation post-combined HLU+LDR exposure.",
+    "In response to extracellular cues (i.e., edema), cells rearrange their structures and ion transport proteins to maintain equilibrium. Furthermore, neuroplasticity is a homeostatic repair mechanism that involves the formation of new synapses and neural processes to compensate for their communication loss following brain infarct, injury or disease. These new formations result in brain restructuring and function, which may be occurring during readaptation post-combined HLU+LDR exposures. Indeed, our results fall in line with responses that were observed within brains isolated hours post-LDR (10 cGy) exposure, whereby multiple synaptic ion transport genes were altered. Herein, multiple cell structural genes, i.e., Drc7, Dnah7b and Fmnl1 and ion transport genes, i.e., Gria3, Grin2a, Calb2, Scn5a, Clcn5, Kcnj13, Kcnn1 and Kcnh1, were altered post-combination HLU+LDR conditions. Moreover, hypomethylation analyses indicated altered cytoskeletal organization, i.e., Ndel1, Cald1 and Lmod3 were observed in both LDR and HLU, suggesting cellular structural changes involved in neuroplasticity and readaptation processes are active, in order to restructure and/or maintain brain homeostasis.",
+    "Tight junctions, including claudins, connexins, and occludins contribute to BBB permeability and maintenance. A reduction in these molecules has been implicated in acute BBB disruption in neuroviral and neuroinflammatory diseases. In line with this, Cdh12 was downregulated, whereas, Cldn2 was induced in combination of HLU+LDR. Furthermore, Cdhr4 was hypomethylated in both LDR alone and HLU+LDR at 4 months readaptation, while Cdhr2 was hypomethylated in LDR and HLU alone, but not in combination HLU+LDR at 4 months readaptation, suggesting BBB restructuring, and further indicating the dynamic process of brain physiology during readaptation.",
+    "Adult neurogenesis is a process of neural and glia self-renewal and the generation of progenitor cells from radial glial cells (RGCs) within the subventricular and subgranular zones of the hippocampus. RGCs are quiescent and are activated to initiate neurogenesis in response to a stimulus, such as LDR or models of increased intracranial pressure. Indeed, the majority of highly upregulated DEGs post-combination HLU+LDR were involved in HPA signaling, neuropeptide growth factors, and neurogenesis, i.e., Otp, Uncx, Ucn3, Avp, Pmch, Prox1, Calb2, Tbr-1, and Hcrt. While the magnitude of gene expression does not always result in observable phenotypes, these notable DEGs may serve an important purpose in neuromaintenance during readaptation. Interestingly, Crh, a stress-induced hormone, was hypermethylated post-exposure to LDR and combination HLU+LDR at 4 months readaptation, implying transcriptional silencing of Crh may be engaged to suppress robust HPA activity during readaptation, which warrants further studies.",
+    "Readaptation results from combined exposures to HLU+LDR are in agreement with literature that spaceflight can alter neurofunction. Indeed, neurocognitive and behavioral effects via altered decision making, problem solving, visual perceptions, motor controls, and sleep–wake cycles have all been identified in flight. While “space-brain” characteristics have suggested astronauts are at risk of developing neurological sequelae in flight and post-flight. Due to the limitations of human neurological studies, mouse models provide an excellent alternative, with the caveat that fluid shifts in mice are marginal in comparison to their human counterparts. Therefore, follow-up studies utilizing larger mammals, i.e., rats, may provide more robust responses. Further, readaptation effects from radiation have been described to cause differential nervous system responses in sex, age, type of irradiation, duration of exposure and total doses, while the readaptation effects of prolonged HLU on the neurohealth of different sexes and age groups are still unclear. Therefore, future studies approaching these additional demographics, both modeled in mice or rats, are required. Nonetheless, our readaptation study in mice exposed to combined HLU+LDR displayed a panel of neurological changes that were translational to humans, suggesting this is a suitable animal model to study spaceflight-related readaptation effects on the nervous system. Additionally, future studies should expand the types of radiation exposure animals experience in order to fully capture the spectrum of radiation that bombards astronauts during spaceflight. The space radiation environment beyond LEO contains several types of ionizing radiation. Galactic cosmic radiation (GCR) with relatively high linear energy transfer (LET) and proton radiation due to solar particle events (SPEs) contribute a significant portion of the radiation dose accumulated by astronaut crew members. High-energy heavy ions (HZE radiation) can produce distinct patterns of energy deposition in cells and tissues. However, secondary particles produced by the interaction of SPE protons and heavy-charged GCR particles with the spacecraft structure include γ-rays and x-rays. These radiation sources can also deliver a significant fraction of the total mission dose and pose a hazard to astronauts’ health. For chronic irradiation exposure, we used flood sources consisting of plastic sheets embedded with the isotope 57Co that emits medium energy (122 and 136 keV) γ-rays. Additional research is needed to elucidate the CNS damage and readaptation response induced by the full spectrum of space radiation.",
+    "In summary, a multitude of neurological effects and persistent brain transcriptional alterations were observed at 4 months post-HLU+LDR in 21-day exposures. Changes included reduced transcriptional machinery, increased neurogenesis and neuropeptide production, and dysregulated cell structure and signaling genes. Thus, brain-related transcriptional changes are dynamic and plastic during readaptation from exposure to spaceflight-like conditions, and while these exposures may lead to long-term neurological consequences, the active processes of neuroplasticity and repair are engaged to maintain neural homeostasis."
+  ],
+  "METHODS": [
+    "4. Materials and Methods",
+    "4.1. Animals",
+    "Six-month-old, female C57BL/6J mice (Jackson Laboratory), as previously reported, were utilized in this report. Upon arrival, they were acclimatized for 7 days in standard habitats at 20 °C with a 12 h:12 h light:dark cycle. Commercial pellet chow and hydrogel were available ad libitum. Animal health status, water and food intake were monitored daily. The study followed recommendations in the Guide for the Care and Use of Laboratory Animals and was approved on April 30, 2014, by the Institutional Animal Care and Use Committee (IACUC) at Loma Linda University (Protocol number 8130028).",
+    "4.2. Experimental Conditions",
+    "Following acclimatization, animals were housed one per cage and assigned to one of four groups: (1) control (n = 3); (2) hindlimb unloaded (HLU) (n = 6); (3) low-dose irradiated (LDR) (n = 6); and (4) combination hindlimb unloaded and low-dose irradiated (HLU+LDR) (n = 4) for 21 days. Post-experimental exposure animals were group housed (3 per cage) for up to 4 months (4M).",
+    "4.3. Hindlimb Unloading and Whole-Body Irradiation",
+    "Hindlimb-unloaded animals (HLU) were treated as previously described, with animals maintained at a 35–40 head-down tilt with the hindlimbs elevated above the bottom of the cage. LDR gamma irradiation was performed by placing 57Co plates (185 MBq activity; GPI, Stoughton, WI) under the cages (1 plate per 2 cages). These cobalt plates deliver chronic low-dose/low-dose-rate γ-ray irradiation. A total dose of 0.04 Gy was delivered at a rate of 0.01 cGy/h over 21 days. HLU+LDR animals were both unloaded and irradiated as described here. Control animals received no treatment. All animals were handled similarly.",
+    "4.4. Euthanasia, Dissection, Tissue Storage, and Nucleic Acid Extraction",
+    "Mice were euthanized with 100% CO2 followed by immediate exsanguination by cardiac puncture. Immediately after euthanasia brains were removed and bisected along the midline and coronally within the half hemispheres, with the brainstem and cerebellum removed. The right caudal half hemisphere of the brain (containing mid- and hindbrain) from each mouse was placed in a sterile cryovial, snap frozen in liquid nitrogen and kept at −80 °C. AllPrep DNA/RNA/miRNA Universal Kit (Qiagen, Hilden, Germany) was used to extract RNA and DNA according to the manufacturer’s instructions. Tissue homogenization was performed using the Tissue homogenizing CKMix (Bertin Instruments, Montigny-le-Bretonneux, France) on a Minilys homogenizer (Bertin Instruments). RNA and DNA concentrations were measured using a Qubit 3.0 Fluorometer (Thermo Fisher Scientific, Waltham, MA, USA) and stored at −80 °C.",
+    "4.5. RNA Sequencing",
+    "The Ovation Mouse RNA-Seq System 1–96 (NuGEN Technologies, Redwood City, CA, USA) was used per manufacturer’s instructions to construct RNA-Seq libraries. A total of 100 ng of total RNA was used as input. First and second strands of cDNA were synthesized from total RNA spiked with 1 µL of 1:500 diluted ERCC ExFold RNA Spike-In Mix 1 (Life Technologies, Carlsbad, CA, USA) at the appropriate ratio. Following primer annealing and cDNA synthesis, the products were sheared using Covaris S220 Focused-ultrasonicator (Covaris Inc., Woburn, MA, USA) to obtain fragment sizes between 150–200 bp. This was followed by end-repair, adaptor index ligation and strand selection. Barcodes with unique indices out of 96 indices, were used per sample for multiplexing. Strand selection was performed using a custom InDA-C primer mixture SS5 Version5 for mice (NuGEN Technologies). Libraries were amplified by PCR with 17 cycles on a Mastercycler Pro (Eppendorf) and purified with RNAClean XP Agencourt beads (Beckman Coulter, Pasadena, CA, USA). These libraries were sequenced on a HiSeq 4000 (Illumina, Mira Loma, CA, USA) to generate 15–30 M 75-bp single end reads per sample. Raw data are available at NASA GeneLab (genelab.nasa.gov, accession GLDS-202).",
+    "4.6. Reduced Representation Bisulfite Sequencing (RRBS)",
+    "The RRBS library was constructed with 100 ng of gDNA as input using Ovation RRBS Methyl-Seq System (NuGEN Technologies) according to the manufacturer’s protocol. Briefly, MspI enzyme, which cuts the DNA at CCGG sites, was used to digest gDNA into fragments. The fragments were directly subject to end blunting and phosphorylation followed by ligation to a methylated adapter with a single-base T overhang. The ligation products were finally repaired in a thermal cycler under the program (60 °C for 10 min, 70 °C for 10 min, held at 4 °C). The product of the final repair reaction was used for bisulfite conversion using the EpiTect Fast DNA Bisulfite Kit (Qiagen). Bisulfite-converted DNA was then amplified on a Mastercycler Pro (Eppendorf, Hamburg, Germany) and bead-purified with Agencourt RNAClean XP Beads (Beckman Coulter). The RRBS libraries were sequenced on Illumina HiSeq 4000 at Loma Linda Center for Genomics to generate 15–55 M 70-bp single end reads per sample. Raw data are available at NASA GeneLab (genelab.nasa.gov, accession GLDS-202).",
+    "4.7. Differential Expression and Pathway Enrichment Analysis",
+    "Sequencing reads were first trimmed with Cutadapt using the Trim Galore! wrapper. Reads were mapped with STAR, expression quantified with RSEM and tximport was used to import counts into DESeq2 for the detection of differentially expressed genes. Log2 fold-change and adjusted p-value cutoffs of 0.263 and 0.05 were used, respectively. Enriched GO terms were detected with WebGestalt using the biological process database. Enriched pathways were detected with Reactome version 67 using an overrepresentation analysis and the full list of DEGs. Human pathways were found using Reactome’s “Project to human” option. Heatmaps were generated using the webtool Morpheus, from the Broad Institute () by performing hierarchical clustering using Euclidean distance. The volcano plots in Figure 2 were generated with the R package EnhancedVolcano. The UpSet diagram in Figure 4 was generated using Intervene.",
+    "4.8. Differential Methylation Analysis",
+    "Sequencing reads were first trimmed with Cutadapt using the Trim Galore! wrapper using the “--RRBS” flag before processing with the “bismark” and “bismark_methylation_extractor” scripts from Bismark. The differential methylation of gene bodies and promoters was performed with RnBeads version 1.10.8 and R version 3.4.1 (R Foundation, Boston, MA, USA). The combined ranking score was utilized to detect differential methylation. It combines absolute and relative effect sizes as well as p-values from statistical modeling into a single score."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "Supplementary materials can be found at ."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Formal analysis, E.G.O., A.M.P., W.A.d.S., N.S., S.S., C.W. and J.M.G.; Funding acquisition, X.W.M.; Investigation, X.W.M.; Methodology, X.W.M.; Project administration, J.M.G.; Validation, N.S.; Visualization, E.G.O., A.M.P., W.A.d.S. and N.S.; Writing—original draft, A.M.P.; Writing—review and editing, E.G.O., A.M.P., W.A.d.S., C.G.T.T., S.S.R., N.S., S.S., C.W., J.E.G.O., A.M.P., W.A.d.S.G. and X.W.M."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This research was funded in part by NASA grant No. 80NSSC17K0693 and NNX13AL97G to XWM and by the NASA Space Biology Program and NASA Space Life and Physical Sciences Research and Applications Division through the GeneLab Project. This research was funded in part by the NASA Space Biology Program to AMP, the BBSRC (BB/N015894/1) to NS, and the NIHR Nottingham Biomedical Research Centre to NS. The views expressed are those of the author(s) and not necessarily those of the NHS, the NIHR or the Department of Health and Social Care. The genomic work was carried out at the LLU Center for Genomics which was funded in part by the National Institutes of Health (NIH) grant S10OD019960 (CW), the Ardmore Institute of Health (AIH) grant 2150141 (CW) and a Charles A. Sims’ gift (CW). WDAS acknowledges support from the MUSC Center for Genomics Medicine Bioinformatics. The APC (article processing charge) was funded by the NASA Space Biology Program and NASA Space Life and Physical Sciences Research and Applications Division through the GeneLab Project."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Low dose radiation effects on the brain-from mechanisms and behavioral outcomes to mitigation strategies",
+    "Effect of gravity and microgravity on intracranial pressure",
+    "Space Radiation: The Number One Risk to Astronaut Health beyond Low Earth Orbit",
+    "Effects of low-dose rate γ-irradiation combined with simulated microgravity on markers of oxidative stress, DNA methylation potential, and remodeling in the mouse heart",
+    "Cognitive neuroscience in space",
+    "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+    "Spaceflight-Associated Brain White Matter Microstructural Changes and Intracranial Fluid Redistribution",
+    "Behavior of mice aboard the International Space Station",
+    "Long-term effects of simulated microgravity and/or chronic exposure to low-dose gamma radiation on behavior and blood-brain barrier integrity",
+    "Simulated Microgravity and Low-Dose/Low-Dose-Rate Radiation Induces Oxidative Damage in the Mouse Brain",
+    "Role of NADPH Oxidase as a Mediator of Oxidative Damage in Low-Dose Irradiated and Hindlimb-Unloaded Mice",
+    "Radiation Toxicity in the Central Nervous System: Mechanisms and Strategies for Injury Reduction",
+    "Risks of Cognitive Detriments after Low Dose Heavy Ion and Proton Exposures",
+    "Low dose (0.04 Gy) irradiation (LDR) and hindlimb unloading (HLU) microgravity in mice: Brain transcriptomic and epigenomic data",
+    "LGM2605 Reduces Space Radiation-Induced NLRP3 Inflammasome Activation and Damage in In Vitro Lung Vascular Networks",
+    "Intervene: A tool for intersection and visualization of multiple gene or genomic region sets",
+    "Extreme sensitivity of adult neurogenesis to low doses of X-irradiation",
+    "Neurovascular unit dysfunction with blood-brain barrier hyperpermeability contributes to major depressive disorder: A review of clinical and experimental evidence",
+    "Systemic pro-inflammatory response facilitates the development of cerebral edema during short hypoxia",
+    "Proinflammatory role of aquaporin-4 in autoimmune neuroinflammation",
+    "Neuroimmunological Implications of AQP4 in Astrocytes",
+    "New Perspectives on the Potential Role of Aquaporins (AQPs) in the Physiology of Inflammation",
+    "Homeostasis, inflammation, and disease susceptibility",
+    "Origin and physiological roles of inflammation",
+    "Early brain response to low-dose radiation exposure involves molecular networks and pathways associated with cognitive functions, advanced aging and Alzheimer’s disease",
+    "Osteopontin facilitates West Nile virus neuroinvasion via neutrophil “Trojan horse” transport",
+    "Selective loss of cortical endothelial tight junction proteins during Alzheimer’s disease progression",
+    "Mechanisms and functional implications of adult neurogenesis",
+    "Molecular Biomarkers for Embryonic and Adult Neural Stem Cell and Neurogenesis",
+    "An immunohistochemical study of radial glial cells in the mouse brain prenatally exposed to gamma-irradiation",
+    "Enhanced hippocampal neurogenesis by intraventricular S100B infusion is associated with improved cognitive recovery after traumatic brain injury",
+    "Basic fibroblast growth factor-enhanced neurogenesis contributes to cognitive recovery in rats following traumatic brain injury",
+    "Space-brain: The negative effects of space exposure on the central nervous system",
+    "Acute radiation syndrome and chronic radiation syndrome",
+    "Heavy ion contributions to organ dose equivalent for the 1977 galactic cosmic ray spectrum",
+    "The hindlimb unloading rat model: Literature overview, technique update and comparison with space flight data",
+    "Cutadapt removes adapter sequences from high-throughput sequencing reads",
+    "STAR: Ultrafast universal RNA-seq aligner",
+    "RSEM: Accurate transcript quantification from RNA-Seq data with or without a reference genome",
+    "Differential analyses for RNA-seq: Transcript-level estimates improve gene-level inferences",
+    "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+    "WebGestalt 2019: Gene set analysis toolkit with revamped UIs and APIs",
+    "The Reactome Pathway Knowledgebase",
+    "Bismark: A flexible aligner and methylation caller for Bisulfite-Seq applications",
+    "Comprehensive analysis of DNA methylation data with RnBeads"
+  ],
+  "FIG": [
+    "Experimental timeline and body weights during- and post-hindlimb unloading (HLU), low-dose irradiation (LDR) or combined HLU+LDR. (A) Whole brains were isolated from C57BL/6J at 4 months post-experimental conditions of hindlimb unloading (HLU, 21 days), low-dose irradiation (LDR, 0.04 Gy for 21 days) or combined LDR and HLU timeline. (B) Body weights were monitored throughout the experiment (21 days) and during readaptation (4 months post-experimental exposure). Baseline weights were taken on day 0, prior to the initiation of HLU and LDR exposure. An unpaired t-test with Welch’s correction compared experimental groups with controls. A * denotes significance of HLU only compared to controls at the 7-day timepoint. Error bars denote standard error of means. Dashed gray arrows highlight start and endpoints of experimental LDR and HLU treatments, and the final timepoint of the experiment when tissue was collected for transcriptomic analysis.",
+    "HLU in combination with LDR results in a heightened differentially expressed gene (DEG) profile in brains isolated at 4 months post-experimental conditions. DEG identified in brain isolated at 4 months post-LDR (0.04 Gy for 21 days), HLU (21 days) or combined HLU+LDR. (A) Principal component analysis (PCA) displays sample clustering within each experimental condition (n = 3–6). (B) Volcano plots indicate DEG profiles at 4 months post-experimental conditions. Vertical dashed lines indicate the Log2 fold-change cutoff used (0.263), while horizontal dashed lines indicate the adjusted p-value cutoff used (0.05). Red dots indicate differentially expressed genes that meet our adjusted p-value and Log2 fold-change cutoffs and compose our set of differentially expressed genes. Green dots indicate genes that do not meet our adjusted p-value cutoff and, therefore, are not differentially expressed. Darker saturation of color represents overlap of genes.",
+    "DEG profiles of brains isolated at 4 months post-HLU, LDR or combined HLU+LDR. (A, left panel) Graph depicts LDR versus control samples Log2 fold-change mean values (n = 3–6); (A, right panel) Heatmap displays individual DEG. (B, left panel) Graph depicts HLU versus control samples Log2 fold-change mean values (n = 3–6); (B, right panel) Heatmap displays individual DEG. (C, left panel) Graph depicts a subset of the largest Log2 fold-change gene set within combined HLU+LDR (combination) verses control samples Log2 fold-change mean values (n = 3–4); (C, right panel) Heatmap displays individual DEG.",
+    "Minimal brain differential gene expression and promoter methylation overlap across different simulated spaceflight experimental conditions. Gene lists of DEGs and the genes corresponding to the differentially methylated promoters (DMPs) were created for each condition: LDR, HLU, or HLU+LDR combined versus controls. The dotted region depicts all conditions, and the connecting lines depict DEG/DMP overlap between experimental conditions. The vertical bars indicate the size of that overlap. A single, grey dot indicates the number of DEG/DMP that do not overlap with any other DEG/DMP. The red dots indicate DMP overlap across different conditions. The blue dots indicate DEG overlap across different conditions. The black dots indicate DEG and DMP overlap. “Upregulated/downregulated” denotes gene expression of DEG and “hypermethylated/hypomethylated” denotes methylation patterns of DMPs.",
+    "Altered biological processes and pathways identified at 4 months post-combined HLU+LDR exposure. (A,B) WebGestalt graphs depict enriched gene ontology (GO) terms for downregulated (A) and upregulated (B) DEGs. The x-axis measures the enrichment ratio for each GO term on a Log2 scale. The y-axis measures -Log10 (false discovery rate, FDR). The size and color tone of the dot is proportional to the size of the category. The displayed categories are from WebGestalt’s “Weighted set cover” option, which displays the GO categories that minimize redundancy."
+  ],
+  "TABLE": [
+    "Differentially methylated promoters (DMPs) and differentially expressed genes (DEGs) at 4 months post-exposure conditions.",
+    "DMP\tDEG\t \tTotal DMP\tHypomethylated DMP\tHypermethylated DMP\tTotalDEG\tUpregulated DEG\tDownregulated DEG\t \tRadiation vs. Control\t137 promoters\t118 promoters\t19 promoters\tGm28900\tGm28900\tRps13\t \tGm43809\tGm43809\tGm10357\t \tGm49345\tGm49345\t\t \tRps13\t\t\t \tGm10357\t\t\t \tUnloading vs. Control\t71 promoters\t62 promoters\tGm35801\tEphb3\tEphb3\tGm12918\t \tGm13066\tKcnc2\tKcnc2\tGm4149\t \tCnpy1\tCdh11\tCdh11\tHist1h2bc\t \tCbfa2t2-ps1\tGal3st3\tGal3st3\tHtr1b\t \tGm15700\tGm12918\t\tSh2d5\t \tGm27679\tGm4149\t\tRps13\t \tHbq1a\tHist1h2bc\t\tRpl36a-ps2\t \t1700019N19Rik\tHtr1b\t\t\t \tGm6024\tSh2d5\t\t\t \t\tRps13\t\t\t \tRpl36a-ps2\t\t\t \tCombined vs. Control\t170 promoters\t119 promoters\t51 promoters\t270 genes\t132 genes\t138 genes",
+    "Gene list of overlapping differentially expressed genes (DEGs) and differentially methylated promoters (DMPs) within each post-exposure condition.",
+    "DEG/DEG Overlap\t \tCondition\tGene\t \tDown HLU+LDR/Down HLU\tGm12918\t \tDown HLU/Down LDR\tRps13\t \tDMP/DMP Overlap\t \tCondition\tMethylated promoter of gene\t \tHypo LDR/Hypo HLU\tGm38049; Zfp648; 1700018C11Rik;\t \tB230104I21Rik; Cald1; Lmod3\t \tSmco3; Angpt2; Gm28515\t \tSln; Gm27159; Gm15271\t \t4933405E24Rik; Ndel1; Gm11373\t \tGm5083; Cdhr2; Mir8097\t \t1700011A15Rik; Krt8; Mir8094\t \tPcdh12; Tmem180\t \tHypo LDR/Hypo HLU+LDR\tGm16564; Gm37267; Adamtsl2\t \tGm13413; Bbox1; Gm11805\t \t1700071G01Rik; Prr33; Cdhr4\t \tSlfn4; Krt19; Gm6401\t \tGm15516; Mx2; Gm10268\t \tGm25301; Armcx2; Gm15726\t \tGm15247\t \tHypo HLU/Hypo HLU+LDR\tGm29100; Nav1; Gm29282\t \tCfi; Mypopos; Adgb\t \tGm26535; Abi3; Gm6969\t \tLpar6\t \tHyper LDR/Hyper HLU+LDR\tOtos; Sys1; Klhl34\t \tCrh; Pcdhb12\t \tHyper HLU/Hyper HLU+LDR\tGm35801\t \tHypo LDR/Hyper HLU+LDR\tGm6987\t \tHyper HLU/Hyper LDR\t1700019N19Rik; Cnpy1; Gm6024\t \tGm15700; Gm27679\t \tHypo LDR/Hypo HLU/Hypo HLU+LDR\tTrp53inp2; Gm22518; Dio1\t \tMir704; Gm805; Gm24998\t \tGm15648\t \tHyper LDR/Hyper HLU/Hyper HLU+LDR\tCbfa2t2-ps1\t \tDEG/DMP Overlap\t \tCondition\tGene or Methylated promoter of gene\t \tDown HLU+LDR/Hyper HLU+LDR\tGm7120\t \tDown HLU+LDR/Hypo HLU+LDR\tEphx4\t \tDown HLU+LDR/Hypo HLU\tBlnk\t \tUp HLU+LDR/Hyper LDR\tRgag4",
+    "Combination of LDR and HLU versus controls DEG and Reactome pathway IDs in mice that translated to human orthologs.",
+    "Pathway Name\tAssociated Mouse Genes\tMouse Pathway ID\tHuman Pathway ID\t \tNeuronal System\tGria3, Cacnb3, Hcn1, Camkk2, Kcnh1, Kcnma1, Kcnn1, Stx1a, Kcnv1, Kcnh5, Grin2a, Slc17a7, Dlgap1, Homer1, Snap25, Nrgn, Kcnh7, Slitrk1\tR-MMU-112316\tR-HSA-112316\t \tPotassium Channels\tKcnn1, Kcnh5, Kcnma1, Hcn1, Kcnh1, Kcnv1, Kcnh7\tR-MMU-1296071\tR-HSA-1296071\t \tVoltage Gated Potassium Channels\tKcnv1, Kcnh1, Kcnh5, Kcnh7\tR-MMU-1296072\tR-HSA-1296072\t \tcGMP effects\tPde1a\tR-MMU-418457\tR-HSA-418457\t \tp75 NTR receptor-mediated signaling\tRtn4r, Obscn, Lingo1, Kalrn\tR-MMU-193704\tR-HSA-193704\t \tNitric oxide stimulates guanylate cyclase\tPde1a\tR-MMU-392154\tR-HSA-392154"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Low dose radiation effects on the brain-from mechanisms and behavioral outcomes to mitigation strategies",
+      "autores": [
+        {
+          "nombre_completo": "A. Kovalchuk",
+          "nombres": "A.",
+          "apellidos": "Kovalchuk"
+        },
+        {
+          "nombre_completo": "B. Kolb",
+          "nombres": "B.",
+          "apellidos": "Kolb"
+        }
+      ],
+      "pmid": "28656797",
+      "fuente": "Cell Cycle",
+      "anio": "2017",
+      "volumen": "16",
+      "fpage": "1266",
+      "lpage": "1270"
+    },
+    {
+      "titulo": "Effect of gravity and microgravity on intracranial pressure",
+      "autores": [
+        {
+          "nombre_completo": "J.S. Lawley",
+          "nombres": "J.S.",
+          "apellidos": "Lawley"
+        },
+        {
+          "nombre_completo": "L.G. Petersen",
+          "nombres": "L.G.",
+          "apellidos": "Petersen"
+        },
+        {
+          "nombre_completo": "E.J. Howden",
+          "nombres": "E.J.",
+          "apellidos": "Howden"
+        },
+        {
+          "nombre_completo": "S. Sarma",
+          "nombres": "S.",
+          "apellidos": "Sarma"
+        },
+        {
+          "nombre_completo": "W.K. Cornwell",
+          "nombres": "W.K.",
+          "apellidos": "Cornwell"
+        },
+        {
+          "nombre_completo": "R. Zhang",
+          "nombres": "R.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "L.A. Whitworth",
+          "nombres": "L.A.",
+          "apellidos": "Whitworth"
+        },
+        {
+          "nombre_completo": "M.A. Williams",
+          "nombres": "M.A.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "B.D. Levine",
+          "nombres": "B.D.",
+          "apellidos": "Levine"
+        }
+      ],
+      "pmid": "28092926",
+      "fuente": "J. Physiol.",
+      "anio": "2017",
+      "volumen": "595",
+      "fpage": "2115",
+      "lpage": "2127"
+    },
+    {
+      "titulo": "Space Radiation: The Number One Risk to Astronaut Health beyond Low Earth Orbit",
+      "autores": [
+        {
+          "nombre_completo": "J.C. Chancellor",
+          "nombres": "J.C.",
+          "apellidos": "Chancellor"
+        },
+        {
+          "nombre_completo": "G.B.I. Scott",
+          "nombres": "G.B.I.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "J.P. Sutton",
+          "nombres": "J.P.",
+          "apellidos": "Sutton"
+        }
+      ],
+      "pmid": "25370382",
+      "fuente": "Life",
+      "anio": "2014",
+      "volumen": "4",
+      "fpage": "491",
+      "lpage": "510"
+    },
+    {
+      "titulo": "Effects of low-dose rate γ-irradiation combined with simulated microgravity on markers of oxidative stress, DNA methylation potential, and remodeling in the mouse heart",
+      "autores": [
+        {
+          "nombre_completo": "J.W. Seawright",
+          "nombres": "J.W.",
+          "apellidos": "Seawright"
+        },
+        {
+          "nombre_completo": "Y. Samman",
+          "nombres": "Y.",
+          "apellidos": "Samman"
+        },
+        {
+          "nombre_completo": "V. Sridharan",
+          "nombres": "V.",
+          "apellidos": "Sridharan"
+        },
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "M. Cao",
+          "nombres": "M.",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "P. Singh",
+          "nombres": "P.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "S. Melnyk",
+          "nombres": "S.",
+          "apellidos": "Melnyk"
+        },
+        {
+          "nombre_completo": "I. Koturbash",
+          "nombres": "I.",
+          "apellidos": "Koturbash"
+        },
+        {
+          "nombre_completo": "G.A. Nelson",
+          "nombres": "G.A.",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "M. Hauer-Jensen",
+          "nombres": "M.",
+          "apellidos": "Hauer-Jensen"
+        }
+      ],
+      "pmid": "28678877",
+      "fuente": "PloS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cognitive neuroscience in space",
+      "autores": [
+        {
+          "nombre_completo": "G.G. De la Torre",
+          "nombres": "G.G.",
+          "apellidos": "De la Torre"
+        }
+      ],
+      "pmid": "25370373",
+      "fuente": "Life",
+      "anio": "2014",
+      "volumen": "4",
+      "fpage": "281",
+      "lpage": "294"
+    },
+    {
+      "titulo": "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F.E. Garrett-Bakelman",
+          "nombres": "F.E.",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M. Darshi",
+          "nombres": "M.",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "S.J. Green",
+          "nombres": "S.J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "R.C. Gur",
+          "nombres": "R.C.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L. Lin",
+          "nombres": "L.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "M.J. McKenna",
+          "nombres": "M.J.",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J. Nasrini",
+          "nombres": "J.",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight-Associated Brain White Matter Microstructural Changes and Intracranial Fluid Redistribution",
+      "autores": [
+        {
+          "nombre_completo": "J.K. Lee",
+          "nombres": "J.K.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "V. Koppelmans",
+          "nombres": "V.",
+          "apellidos": "Koppelmans"
+        },
+        {
+          "nombre_completo": "R.F. Riascos",
+          "nombres": "R.F.",
+          "apellidos": "Riascos"
+        },
+        {
+          "nombre_completo": "K.M. Hasan",
+          "nombres": "K.M.",
+          "apellidos": "Hasan"
+        },
+        {
+          "nombre_completo": "O. Pasternak",
+          "nombres": "O.",
+          "apellidos": "Pasternak"
+        },
+        {
+          "nombre_completo": "A.P. Mulavara",
+          "nombres": "A.P.",
+          "apellidos": "Mulavara"
+        },
+        {
+          "nombre_completo": "J.J. Bloomberg",
+          "nombres": "J.J.",
+          "apellidos": "Bloomberg"
+        },
+        {
+          "nombre_completo": "R.D. Seidler",
+          "nombres": "R.D.",
+          "apellidos": "Seidler"
+        }
+      ],
+      "pmid": "30673793",
+      "fuente": "JAMA Neurol.",
+      "anio": "2019",
+      "volumen": "76",
+      "fpage": "412",
+      "lpage": "419"
+    },
+    {
+      "titulo": "Behavior of mice aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "A.E. Ronca",
+          "nombres": "A.E.",
+          "apellidos": "Ronca"
+        },
+        {
+          "nombre_completo": "E.L. Moyer",
+          "nombres": "E.L.",
+          "apellidos": "Moyer"
+        },
+        {
+          "nombre_completo": "Y. Talyansky",
+          "nombres": "Y.",
+          "apellidos": "Talyansky"
+        },
+        {
+          "nombre_completo": "M. Lowe",
+          "nombres": "M.",
+          "apellidos": "Lowe"
+        },
+        {
+          "nombre_completo": "S. Padmanabhan",
+          "nombres": "S.",
+          "apellidos": "Padmanabhan"
+        },
+        {
+          "nombre_completo": "S. Choi",
+          "nombres": "S.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "C. Gong",
+          "nombres": "C.",
+          "apellidos": "Gong"
+        },
+        {
+          "nombre_completo": "S.M. Cadena",
+          "nombres": "S.M.",
+          "apellidos": "Cadena"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "R.K. Globus",
+          "nombres": "R.K.",
+          "apellidos": "Globus"
+        }
+      ],
+      "pmid": "30976012",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "4717",
+      "lpage": ""
+    },
+    {
+      "titulo": "Long-term effects of simulated microgravity and/or chronic exposure to low-dose gamma radiation on behavior and blood-brain barrier integrity",
+      "autores": [
+        {
+          "nombre_completo": "J.A. Bellone",
+          "nombres": "J.A.",
+          "apellidos": "Bellone"
+        },
+        {
+          "nombre_completo": "P.S. Gifford",
+          "nombres": "P.S.",
+          "apellidos": "Gifford"
+        },
+        {
+          "nombre_completo": "N.C. Nishiyama",
+          "nombres": "N.C.",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "R.E. Hartman",
+          "nombres": "R.E.",
+          "apellidos": "Hartman"
+        },
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        }
+      ],
+      "pmid": "28725731",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "16019",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simulated Microgravity and Low-Dose/Low-Dose-Rate Radiation Induces Oxidative Damage in the Mouse Brain",
+      "autores": [
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "N.C. Nishiyama",
+          "nombres": "N.C.",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "M.J. Pecaut",
+          "nombres": "M.J.",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "M. Campbell-Beachler",
+          "nombres": "M.",
+          "apellidos": "Campbell-Beachler"
+        },
+        {
+          "nombre_completo": "P. Gifford",
+          "nombres": "P.",
+          "apellidos": "Gifford"
+        },
+        {
+          "nombre_completo": "K.E. Haynes",
+          "nombres": "K.E.",
+          "apellidos": "Haynes"
+        },
+        {
+          "nombre_completo": "C. Becronis",
+          "nombres": "C.",
+          "apellidos": "Becronis"
+        },
+        {
+          "nombre_completo": "D.S. Gridley",
+          "nombres": "D.S.",
+          "apellidos": "Gridley"
+        }
+      ],
+      "pmid": "27243749",
+      "fuente": "Radiat. Res.",
+      "anio": "2016",
+      "volumen": "185",
+      "fpage": "647",
+      "lpage": "657"
+    },
+    {
+      "titulo": "Role of NADPH Oxidase as a Mediator of Oxidative Damage in Low-Dose Irradiated and Hindlimb-Unloaded Mice",
+      "autores": [
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "N.C. Nishiyama",
+          "nombres": "N.C.",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "M. Campbell-Beachler",
+          "nombres": "M.",
+          "apellidos": "Campbell-Beachler"
+        },
+        {
+          "nombre_completo": "P. Gifford",
+          "nombres": "P.",
+          "apellidos": "Gifford"
+        },
+        {
+          "nombre_completo": "K.E. Haynes",
+          "nombres": "K.E.",
+          "apellidos": "Haynes"
+        },
+        {
+          "nombre_completo": "D.S. Gridley",
+          "nombres": "D.S.",
+          "apellidos": "Gridley"
+        },
+        {
+          "nombre_completo": "M.J. Pecaut",
+          "nombres": "M.J.",
+          "apellidos": "Pecaut"
+        }
+      ],
+      "pmid": "28763287",
+      "fuente": "Radiat. Res.",
+      "anio": "2017",
+      "volumen": "188",
+      "fpage": "392",
+      "lpage": "399"
+    },
+    {
+      "titulo": "Radiation Toxicity in the Central Nervous System: Mechanisms and Strategies for Injury Reduction",
+      "autores": [
+        {
+          "nombre_completo": "D. Smart",
+          "nombres": "D.",
+          "apellidos": "Smart"
+        }
+      ],
+      "pmid": "28865516",
+      "fuente": "Semin. Radiat. Oncol.",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "332",
+      "lpage": "339"
+    },
+    {
+      "titulo": "Risks of Cognitive Detriments after Low Dose Heavy Ion and Proton Exposures",
+      "autores": [
+        {
+          "nombre_completo": "F.A. Cucinotta",
+          "nombres": "F.A.",
+          "apellidos": "Cucinotta"
+        },
+        {
+          "nombre_completo": "E. Cacao",
+          "nombres": "E.",
+          "apellidos": "Cacao"
+        }
+      ],
+      "pmid": "31120359",
+      "fuente": "Int. J. Radiat. Biol.",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "36"
+    },
+    {
+      "titulo": "Low dose (0.04 Gy) irradiation (LDR) and hindlimb unloading (HLU) microgravity in mice: Brain transcriptomic and epigenomic data",
+      "autores": [
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "NASA GeneLab",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "LGM2605 Reduces Space Radiation-Induced NLRP3 Inflammasome Activation and Damage in In Vitro Lung Vascular Networks",
+      "autores": [
+        {
+          "nombre_completo": "S. Chatterjee",
+          "nombres": "S.",
+          "apellidos": "Chatterjee"
+        },
+        {
+          "nombre_completo": "R.A. Pietrofesa",
+          "nombres": "R.A.",
+          "apellidos": "Pietrofesa"
+        },
+        {
+          "nombre_completo": "K. Park",
+          "nombres": "K.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "J.-Q. Tao",
+          "nombres": "J.-Q.",
+          "apellidos": "Tao"
+        },
+        {
+          "nombre_completo": "A. Carabe-Fernandez",
+          "nombres": "A.",
+          "apellidos": "Carabe-Fernandez"
+        },
+        {
+          "nombre_completo": "A.T. Berman",
+          "nombres": "A.T.",
+          "apellidos": "Berman"
+        },
+        {
+          "nombre_completo": "C. Koumenis",
+          "nombres": "C.",
+          "apellidos": "Koumenis"
+        },
+        {
+          "nombre_completo": "T. Sielecki",
+          "nombres": "T.",
+          "apellidos": "Sielecki"
+        },
+        {
+          "nombre_completo": "M. Christofidou-Solomidou",
+          "nombres": "M.",
+          "apellidos": "Christofidou-Solomidou"
+        }
+      ],
+      "pmid": "30621290",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Intervene: A tool for intersection and visualization of multiple gene or genomic region sets",
+      "autores": [
+        {
+          "nombre_completo": "A. Khan",
+          "nombres": "A.",
+          "apellidos": "Khan"
+        },
+        {
+          "nombre_completo": "A. Mathelier",
+          "nombres": "A.",
+          "apellidos": "Mathelier"
+        }
+      ],
+      "pmid": "28569135",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2017",
+      "volumen": "18",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Extreme sensitivity of adult neurogenesis to low doses of X-irradiation",
+      "autores": [
+        {
+          "nombre_completo": "S. Mizumatsu",
+          "nombres": "S.",
+          "apellidos": "Mizumatsu"
+        },
+        {
+          "nombre_completo": "M.L. Monje",
+          "nombres": "M.L.",
+          "apellidos": "Monje"
+        },
+        {
+          "nombre_completo": "D.R. Morhardt",
+          "nombres": "D.R.",
+          "apellidos": "Morhardt"
+        },
+        {
+          "nombre_completo": "R. Rola",
+          "nombres": "R.",
+          "apellidos": "Rola"
+        },
+        {
+          "nombre_completo": "T.D. Palmer",
+          "nombres": "T.D.",
+          "apellidos": "Palmer"
+        },
+        {
+          "nombre_completo": "J.R. Fike",
+          "nombres": "J.R.",
+          "apellidos": "Fike"
+        }
+      ],
+      "pmid": "12874001",
+      "fuente": "Cancer Res.",
+      "anio": "2003",
+      "volumen": "63",
+      "fpage": "4021",
+      "lpage": "4027"
+    },
+    {
+      "titulo": "Neurovascular unit dysfunction with blood-brain barrier hyperpermeability contributes to major depressive disorder: A review of clinical and experimental evidence",
+      "autores": [
+        {
+          "nombre_completo": "S. Najjar",
+          "nombres": "S.",
+          "apellidos": "Najjar"
+        },
+        {
+          "nombre_completo": "D.M. Pearlman",
+          "nombres": "D.M.",
+          "apellidos": "Pearlman"
+        },
+        {
+          "nombre_completo": "O. Devinsky",
+          "nombres": "O.",
+          "apellidos": "Devinsky"
+        },
+        {
+          "nombre_completo": "A. Najjar",
+          "nombres": "A.",
+          "apellidos": "Najjar"
+        },
+        {
+          "nombre_completo": "D. Zagzag",
+          "nombres": "D.",
+          "apellidos": "Zagzag"
+        }
+      ],
+      "pmid": "24289502",
+      "fuente": "J. Neuroinflammation",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "142",
+      "lpage": ""
+    },
+    {
+      "titulo": "Systemic pro-inflammatory response facilitates the development of cerebral edema during short hypoxia",
+      "autores": [
+        {
+          "nombre_completo": "T.-T. Song",
+          "nombres": "T.-T.",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "Y.-H. Bi",
+          "nombres": "Y.-H.",
+          "apellidos": "Bi"
+        },
+        {
+          "nombre_completo": "Y.-Q. Gao",
+          "nombres": "Y.-Q.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "R. Huang",
+          "nombres": "R.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "K. Hao",
+          "nombres": "K.",
+          "apellidos": "Hao"
+        },
+        {
+          "nombre_completo": "G. Xu",
+          "nombres": "G.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "J.-W. Tang",
+          "nombres": "J.-W.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "Z.-Q. Ma",
+          "nombres": "Z.-Q.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "F.-P. Kong",
+          "nombres": "F.-P.",
+          "apellidos": "Kong"
+        },
+        {
+          "nombre_completo": "J.H. Coote",
+          "nombres": "J.H.",
+          "apellidos": "Coote"
+        }
+      ],
+      "pmid": "26968975",
+      "fuente": "J. Neuroinflammation",
+      "anio": "2016",
+      "volumen": "13",
+      "fpage": "63",
+      "lpage": ""
+    },
+    {
+      "titulo": "Proinflammatory role of aquaporin-4 in autoimmune neuroinflammation",
+      "autores": [
+        {
+          "nombre_completo": "L. Li",
+          "nombres": "L.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "H. Zhang",
+          "nombres": "H.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "M. Varrin-Doyer",
+          "nombres": "M.",
+          "apellidos": "Varrin-Doyer"
+        },
+        {
+          "nombre_completo": "S.S. Zamvil",
+          "nombres": "S.S.",
+          "apellidos": "Zamvil"
+        },
+        {
+          "nombre_completo": "A.S. Verkman",
+          "nombres": "A.S.",
+          "apellidos": "Verkman"
+        }
+      ],
+      "pmid": "",
+      "fuente": "FASEB J. Off. Publ. Fed. Am. Soc. Exp. Biol.",
+      "anio": "2011",
+      "volumen": "25",
+      "fpage": "1556",
+      "lpage": "1566"
+    },
+    {
+      "titulo": "Neuroimmunological Implications of AQP4 in Astrocytes",
+      "autores": [
+        {
+          "nombre_completo": "H. Ikeshima-Kataoka",
+          "nombres": "H.",
+          "apellidos": "Ikeshima-Kataoka"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "New Perspectives on the Potential Role of Aquaporins (AQPs) in the Physiology of Inflammation",
+      "autores": [
+        {
+          "nombre_completo": "R. Meli",
+          "nombres": "R.",
+          "apellidos": "Meli"
+        },
+        {
+          "nombre_completo": "C. Pirozzi",
+          "nombres": "C.",
+          "apellidos": "Pirozzi"
+        },
+        {
+          "nombre_completo": "A. Pelagalli",
+          "nombres": "A.",
+          "apellidos": "Pelagalli"
+        }
+      ],
+      "pmid": "29503618",
+      "fuente": "Front. Physiol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "101",
+      "lpage": ""
+    },
+    {
+      "titulo": "Homeostasis, inflammation, and disease susceptibility",
+      "autores": [
+        {
+          "nombre_completo": "M.E. Kotas",
+          "nombres": "M.E.",
+          "apellidos": "Kotas"
+        },
+        {
+          "nombre_completo": "R. Medzhitov",
+          "nombres": "R.",
+          "apellidos": "Medzhitov"
+        }
+      ],
+      "pmid": "25723161",
+      "fuente": "Cell",
+      "anio": "2015",
+      "volumen": "160",
+      "fpage": "816",
+      "lpage": "827"
+    },
+    {
+      "titulo": "Origin and physiological roles of inflammation",
+      "autores": [
+        {
+          "nombre_completo": "R. Medzhitov",
+          "nombres": "R.",
+          "apellidos": "Medzhitov"
+        }
+      ],
+      "pmid": "18650913",
+      "fuente": "Nature",
+      "anio": "2008",
+      "volumen": "454",
+      "fpage": "428",
+      "lpage": "435"
+    },
+    {
+      "titulo": "Early brain response to low-dose radiation exposure involves molecular networks and pathways associated with cognitive functions, advanced aging and Alzheimer’s disease",
+      "autores": [
+        {
+          "nombre_completo": "X.R. Lowe",
+          "nombres": "X.R.",
+          "apellidos": "Lowe"
+        },
+        {
+          "nombre_completo": "S. Bhattacharya",
+          "nombres": "S.",
+          "apellidos": "Bhattacharya"
+        },
+        {
+          "nombre_completo": "F. Marchetti",
+          "nombres": "F.",
+          "apellidos": "Marchetti"
+        },
+        {
+          "nombre_completo": "A.J. Wyrobek",
+          "nombres": "A.J.",
+          "apellidos": "Wyrobek"
+        }
+      ],
+      "pmid": "19138050",
+      "fuente": "Radiat. Res.",
+      "anio": "2009",
+      "volumen": "171",
+      "fpage": "53",
+      "lpage": "65"
+    },
+    {
+      "titulo": "Osteopontin facilitates West Nile virus neuroinvasion via neutrophil “Trojan horse” transport",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Paul",
+          "nombres": "A.M.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "D. Acharya",
+          "nombres": "D.",
+          "apellidos": "Acharya"
+        },
+        {
+          "nombre_completo": "L. Duty",
+          "nombres": "L.",
+          "apellidos": "Duty"
+        },
+        {
+          "nombre_completo": "E.A. Thompson",
+          "nombres": "E.A.",
+          "apellidos": "Thompson"
+        },
+        {
+          "nombre_completo": "L. Le",
+          "nombres": "L.",
+          "apellidos": "Le"
+        },
+        {
+          "nombre_completo": "D.S. Stokic",
+          "nombres": "D.S.",
+          "apellidos": "Stokic"
+        },
+        {
+          "nombre_completo": "A.A. Leis",
+          "nombres": "A.A.",
+          "apellidos": "Leis"
+        },
+        {
+          "nombre_completo": "F. Bai",
+          "nombres": "F.",
+          "apellidos": "Bai"
+        }
+      ],
+      "pmid": "28680095",
+      "fuente": "Sci. Rep.",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "4722",
+      "lpage": ""
+    },
+    {
+      "titulo": "Selective loss of cortical endothelial tight junction proteins during Alzheimer’s disease progression",
+      "autores": [
+        {
+          "nombre_completo": "Y. Yamazaki",
+          "nombres": "Y.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "M. Shinohara",
+          "nombres": "M.",
+          "apellidos": "Shinohara"
+        },
+        {
+          "nombre_completo": "A. Yamazaki",
+          "nombres": "A.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "M.E. Murray",
+          "nombres": "M.E.",
+          "apellidos": "Murray"
+        },
+        {
+          "nombre_completo": "A.M. Liesinger",
+          "nombres": "A.M.",
+          "apellidos": "Liesinger"
+        },
+        {
+          "nombre_completo": "M.G. Heckman",
+          "nombres": "M.G.",
+          "apellidos": "Heckman"
+        },
+        {
+          "nombre_completo": "E.R. Lesser",
+          "nombres": "E.R.",
+          "apellidos": "Lesser"
+        },
+        {
+          "nombre_completo": "J.E. Parisi",
+          "nombres": "J.E.",
+          "apellidos": "Parisi"
+        },
+        {
+          "nombre_completo": "R.C. Petersen",
+          "nombres": "R.C.",
+          "apellidos": "Petersen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Brain, J. Neurol.",
+      "anio": "2019",
+      "volumen": "142",
+      "fpage": "1077",
+      "lpage": "1092"
+    },
+    {
+      "titulo": "Mechanisms and functional implications of adult neurogenesis",
+      "autores": [
+        {
+          "nombre_completo": "C. Zhao",
+          "nombres": "C.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "W. Deng",
+          "nombres": "W.",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "F.H. Gage",
+          "nombres": "F.H.",
+          "apellidos": "Gage"
+        }
+      ],
+      "pmid": "18295581",
+      "fuente": "Cell",
+      "anio": "2008",
+      "volumen": "132",
+      "fpage": "645",
+      "lpage": "660"
+    },
+    {
+      "titulo": "Molecular Biomarkers for Embryonic and Adult Neural Stem Cell and Neurogenesis",
+      "autores": [
+        {
+          "nombre_completo": "J. Zhang",
+          "nombres": "J.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "J. Jiao",
+          "nombres": "J.",
+          "apellidos": "Jiao"
+        }
+      ],
+      "pmid": "26421301",
+      "fuente": "BioMed Res. Int.",
+      "anio": "2015",
+      "volumen": "2015",
+      "fpage": "727542",
+      "lpage": ""
+    },
+    {
+      "titulo": "An immunohistochemical study of radial glial cells in the mouse brain prenatally exposed to gamma-irradiation",
+      "autores": [
+        {
+          "nombre_completo": "X.Z. Sun",
+          "nombres": "X.Z.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "M. Inouye",
+          "nombres": "M.",
+          "apellidos": "Inouye"
+        },
+        {
+          "nombre_completo": "Y. Fukui",
+          "nombres": "Y.",
+          "apellidos": "Fukui"
+        },
+        {
+          "nombre_completo": "S. Hisano",
+          "nombres": "S.",
+          "apellidos": "Hisano"
+        },
+        {
+          "nombre_completo": "K. Sawada",
+          "nombres": "K.",
+          "apellidos": "Sawada"
+        },
+        {
+          "nombre_completo": "H. Muramatsu",
+          "nombres": "H.",
+          "apellidos": "Muramatsu"
+        },
+        {
+          "nombre_completo": "T. Muramatsu",
+          "nombres": "T.",
+          "apellidos": "Muramatsu"
+        }
+      ],
+      "pmid": "9413282",
+      "fuente": "J. Neuropathol. Exp. Neurol.",
+      "anio": "1997",
+      "volumen": "56",
+      "fpage": "1339",
+      "lpage": "1348"
+    },
+    {
+      "titulo": "Enhanced hippocampal neurogenesis by intraventricular S100B infusion is associated with improved cognitive recovery after traumatic brain injury",
+      "autores": [
+        {
+          "nombre_completo": "A. Kleindienst",
+          "nombres": "A.",
+          "apellidos": "Kleindienst"
+        },
+        {
+          "nombre_completo": "M.J. McGinn",
+          "nombres": "M.J.",
+          "apellidos": "McGinn"
+        },
+        {
+          "nombre_completo": "H.B. Harvey",
+          "nombres": "H.B.",
+          "apellidos": "Harvey"
+        },
+        {
+          "nombre_completo": "R.J. Colello",
+          "nombres": "R.J.",
+          "apellidos": "Colello"
+        },
+        {
+          "nombre_completo": "R.J. Hamm",
+          "nombres": "R.J.",
+          "apellidos": "Hamm"
+        },
+        {
+          "nombre_completo": "M.R. Bullock",
+          "nombres": "M.R.",
+          "apellidos": "Bullock"
+        }
+      ],
+      "pmid": "15941374",
+      "fuente": "J. Neurotrauma",
+      "anio": "2005",
+      "volumen": "22",
+      "fpage": "645",
+      "lpage": "655"
+    },
+    {
+      "titulo": "Basic fibroblast growth factor-enhanced neurogenesis contributes to cognitive recovery in rats following traumatic brain injury",
+      "autores": [
+        {
+          "nombre_completo": "D. Sun",
+          "nombres": "D.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "M.R. Bullock",
+          "nombres": "M.R.",
+          "apellidos": "Bullock"
+        },
+        {
+          "nombre_completo": "M.J. McGinn",
+          "nombres": "M.J.",
+          "apellidos": "McGinn"
+        },
+        {
+          "nombre_completo": "Z. Zhou",
+          "nombres": "Z.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "N. Altememi",
+          "nombres": "N.",
+          "apellidos": "Altememi"
+        },
+        {
+          "nombre_completo": "S. Hagood",
+          "nombres": "S.",
+          "apellidos": "Hagood"
+        },
+        {
+          "nombre_completo": "R. Hamm",
+          "nombres": "R.",
+          "apellidos": "Hamm"
+        },
+        {
+          "nombre_completo": "R.J. Colello",
+          "nombres": "R.J.",
+          "apellidos": "Colello"
+        }
+      ],
+      "pmid": "19100261",
+      "fuente": "Exp. Neurol.",
+      "anio": "2009",
+      "volumen": "216",
+      "fpage": "56",
+      "lpage": "65"
+    },
+    {
+      "titulo": "Space-brain: The negative effects of space exposure on the central nervous system",
+      "autores": [
+        {
+          "nombre_completo": "R. Jandial",
+          "nombres": "R.",
+          "apellidos": "Jandial"
+        },
+        {
+          "nombre_completo": "R. Hoshide",
+          "nombres": "R.",
+          "apellidos": "Hoshide"
+        },
+        {
+          "nombre_completo": "J.D. Waters",
+          "nombres": "J.D.",
+          "apellidos": "Waters"
+        },
+        {
+          "nombre_completo": "C.L. Limoli",
+          "nombres": "C.L.",
+          "apellidos": "Limoli"
+        }
+      ],
+      "pmid": "29416906",
+      "fuente": "Surg. Neurol. Int.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "9",
+      "lpage": ""
+    },
+    {
+      "titulo": "Acute radiation syndrome and chronic radiation syndrome",
+      "autores": [
+        {
+          "nombre_completo": "P. Grammaticos",
+          "nombres": "P.",
+          "apellidos": "Grammaticos"
+        },
+        {
+          "nombre_completo": "E. Giannoula",
+          "nombres": "E.",
+          "apellidos": "Giannoula"
+        },
+        {
+          "nombre_completo": "G.P. Fountos",
+          "nombres": "G.P.",
+          "apellidos": "Fountos"
+        }
+      ],
+      "pmid": "23570025",
+      "fuente": "Hell. J. Nucl. Med.",
+      "anio": "2013",
+      "volumen": "16",
+      "fpage": "56",
+      "lpage": "59"
+    },
+    {
+      "titulo": "Heavy ion contributions to organ dose equivalent for the 1977 galactic cosmic ray spectrum",
+      "autores": [
+        {
+          "nombre_completo": "S.A. Walker",
+          "nombres": "S.A.",
+          "apellidos": "Walker"
+        },
+        {
+          "nombre_completo": "L.W. Townsend",
+          "nombres": "L.W.",
+          "apellidos": "Townsend"
+        },
+        {
+          "nombre_completo": "J.W. Norbury",
+          "nombres": "J.W.",
+          "apellidos": "Norbury"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2013",
+      "volumen": "51",
+      "fpage": "1792",
+      "lpage": "1799"
+    },
+    {
+      "titulo": "The hindlimb unloading rat model: Literature overview, technique update and comparison with space flight data",
+      "autores": [
+        {
+          "nombre_completo": "E. Morey-Holton",
+          "nombres": "E.",
+          "apellidos": "Morey-Holton"
+        },
+        {
+          "nombre_completo": "R.K. Globus",
+          "nombres": "R.K.",
+          "apellidos": "Globus"
+        },
+        {
+          "nombre_completo": "A. Kaplansky",
+          "nombres": "A.",
+          "apellidos": "Kaplansky"
+        },
+        {
+          "nombre_completo": "G. Durnova",
+          "nombres": "G.",
+          "apellidos": "Durnova"
+        }
+      ],
+      "pmid": "16101103",
+      "fuente": "Adv. Space Biol. Med.",
+      "anio": "2005",
+      "volumen": "10",
+      "fpage": "7",
+      "lpage": "40"
+    },
+    {
+      "titulo": "Cutadapt removes adapter sequences from high-throughput sequencing reads",
+      "autores": [
+        {
+          "nombre_completo": "M. Martin",
+          "nombres": "M.",
+          "apellidos": "Martin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "EMBnet.journal",
+      "anio": "2011",
+      "volumen": "17",
+      "fpage": "10",
+      "lpage": ""
+    },
+    {
+      "titulo": "STAR: Ultrafast universal RNA-seq aligner",
+      "autores": [
+        {
+          "nombre_completo": "A. Dobin",
+          "nombres": "A.",
+          "apellidos": "Dobin"
+        },
+        {
+          "nombre_completo": "C.A. Davis",
+          "nombres": "C.A.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "F. Schlesinger",
+          "nombres": "F.",
+          "apellidos": "Schlesinger"
+        },
+        {
+          "nombre_completo": "J. Drenkow",
+          "nombres": "J.",
+          "apellidos": "Drenkow"
+        },
+        {
+          "nombre_completo": "C. Zaleski",
+          "nombres": "C.",
+          "apellidos": "Zaleski"
+        },
+        {
+          "nombre_completo": "S. Jha",
+          "nombres": "S.",
+          "apellidos": "Jha"
+        },
+        {
+          "nombre_completo": "P. Batut",
+          "nombres": "P.",
+          "apellidos": "Batut"
+        },
+        {
+          "nombre_completo": "M. Chaisson",
+          "nombres": "M.",
+          "apellidos": "Chaisson"
+        },
+        {
+          "nombre_completo": "T.R. Gingeras",
+          "nombres": "T.R.",
+          "apellidos": "Gingeras"
+        }
+      ],
+      "pmid": "23104886",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "15",
+      "lpage": "21"
+    },
+    {
+      "titulo": "RSEM: Accurate transcript quantification from RNA-Seq data with or without a reference genome",
+      "autores": [
+        {
+          "nombre_completo": "B. Li",
+          "nombres": "B.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "C.N. Dewey",
+          "nombres": "C.N.",
+          "apellidos": "Dewey"
+        }
+      ],
+      "pmid": "21816040",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2011",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Differential analyses for RNA-seq: Transcript-level estimates improve gene-level inferences",
+      "autores": [
+        {
+          "nombre_completo": "C. Soneson",
+          "nombres": "C.",
+          "apellidos": "Soneson"
+        },
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "M.D. Robinson",
+          "nombres": "M.D.",
+          "apellidos": "Robinson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "F1000Research",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "1521",
+      "lpage": ""
+    },
+    {
+      "titulo": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+      "autores": [
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        }
+      ],
+      "pmid": "25516281",
+      "fuente": "Genome Biol.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "550",
+      "lpage": ""
+    },
+    {
+      "titulo": "WebGestalt 2019: Gene set analysis toolkit with revamped UIs and APIs",
+      "autores": [
+        {
+          "nombre_completo": "Y. Liao",
+          "nombres": "Y.",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "E.J. Jaehnig",
+          "nombres": "E.J.",
+          "apellidos": "Jaehnig"
+        },
+        {
+          "nombre_completo": "Z. Shi",
+          "nombres": "Z.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "B. Zhang",
+          "nombres": "B.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "31114916",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "W199",
+      "lpage": "W205"
+    },
+    {
+      "titulo": "The Reactome Pathway Knowledgebase",
+      "autores": [
+        {
+          "nombre_completo": "A. Fabregat",
+          "nombres": "A.",
+          "apellidos": "Fabregat"
+        },
+        {
+          "nombre_completo": "S. Jupe",
+          "nombres": "S.",
+          "apellidos": "Jupe"
+        },
+        {
+          "nombre_completo": "L. Matthews",
+          "nombres": "L.",
+          "apellidos": "Matthews"
+        },
+        {
+          "nombre_completo": "K. Sidiropoulos",
+          "nombres": "K.",
+          "apellidos": "Sidiropoulos"
+        },
+        {
+          "nombre_completo": "M. Gillespie",
+          "nombres": "M.",
+          "apellidos": "Gillespie"
+        },
+        {
+          "nombre_completo": "P. Garapati",
+          "nombres": "P.",
+          "apellidos": "Garapati"
+        },
+        {
+          "nombre_completo": "R. Haw",
+          "nombres": "R.",
+          "apellidos": "Haw"
+        },
+        {
+          "nombre_completo": "B. Jassal",
+          "nombres": "B.",
+          "apellidos": "Jassal"
+        },
+        {
+          "nombre_completo": "F. Korninger",
+          "nombres": "F.",
+          "apellidos": "Korninger"
+        },
+        {
+          "nombre_completo": "B. May",
+          "nombres": "B.",
+          "apellidos": "May"
+        }
+      ],
+      "pmid": "29145629",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "D649",
+      "lpage": "D655"
+    },
+    {
+      "titulo": "Bismark: A flexible aligner and methylation caller for Bisulfite-Seq applications",
+      "autores": [
+        {
+          "nombre_completo": "F. Krueger",
+          "nombres": "F.",
+          "apellidos": "Krueger"
+        },
+        {
+          "nombre_completo": "S.R. Andrews",
+          "nombres": "S.R.",
+          "apellidos": "Andrews"
+        }
+      ],
+      "pmid": "21493656",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "1571",
+      "lpage": "1572"
+    },
+    {
+      "titulo": "Comprehensive analysis of DNA methylation data with RnBeads",
+      "autores": [
+        {
+          "nombre_completo": "Y. Assenov",
+          "nombres": "Y.",
+          "apellidos": "Assenov"
+        },
+        {
+          "nombre_completo": "F. Müller",
+          "nombres": "F.",
+          "apellidos": "Müller"
+        },
+        {
+          "nombre_completo": "P. Lutsik",
+          "nombres": "P.",
+          "apellidos": "Lutsik"
+        },
+        {
+          "nombre_completo": "J. Walter",
+          "nombres": "J.",
+          "apellidos": "Walter"
+        },
+        {
+          "nombre_completo": "T. Lengauer",
+          "nombres": "T.",
+          "apellidos": "Lengauer"
+        },
+        {
+          "nombre_completo": "C. Bock",
+          "nombres": "C.",
+          "apellidos": "Bock"
+        }
+      ],
+      "pmid": "25262207",
+      "fuente": "Nat. Methods",
+      "anio": "2014",
+      "volumen": "11",
+      "fpage": "1138",
+      "lpage": "1140"
+    }
+  ]
+}

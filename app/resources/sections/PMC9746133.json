@@ -1,0 +1,4190 @@
+{
+  "TITLE": [
+    "Spatial omics technologies at multimodal and single cell/subcellular level"
+  ],
+  "ABSTRACT": [
+    "Spatial omics technologies enable a deeper understanding of cellular organizations and interactions within a tissue of interest. These assays can identify specific compartments or regions in a tissue with differential transcript or protein abundance, delineate their interactions, and complement other methods in defining cellular phenotypes. A variety of spatial methodologies are being developed and commercialized; however, these techniques differ in spatial resolution, multiplexing capability, scale/throughput, and coverage. Here, we review the current and prospective landscape of single cell to subcellular resolution spatial omics technologies and analysis tools to provide a comprehensive picture for both research and clinical applications.",
+    "Supplementary Information",
+    "The online version contains supplementary material available at 10.1186/s13059-022-02824-6."
+  ],
+  "INTRO": [
+    "Spatial omics technologies",
+    "Methods for molecular profiling of single cells in situ, within their native spatial context, are rapidly developing. In recent years, traditional experimental methods, including barcoding with reporters, immunohistochemistry (IHC), and fluorescent in situ hybridization (FISH), have given ways to spatial omics technologies to cover a larger number of transcripts or areas (Fig. 1). Broadly, spatial omics technologies vary in their spatial resolution (minimum size of molecular units profiled), coverage (breadth of tissue covered), scale and throughput (number of samples and profiling speed), and multiplexing capacity (breadth of molecular entities profiled simultaneously). Depending on the research question, the profiling methods can be divided into (1) targeted or multiplexed probe- or antibody-based and (2) transcriptome-wide or next-generation sequencing (NGS)-based approaches.",
+    "Most spatial omics technologies with subcellular level resolution are performed on slide (in situ) using either microscopy or NGS platforms. Currently, there are over 50 different spatial mapping technologies available. In this review, we focus on the latest technologies that enable investigation of cells at the cellular and subcellular level (less than 10 μm, Fig. 2A). The history and technical workflow of lower resolution, non-single-cell, spatial omics technologies have been covered previously. However, at < 10 μm resolution, the cell body and nucleus can be detected for single cell level quantification; with technologies that allow < 1 μm resolution, researchers can then detect a few other large organelles including cytoplasm-membrane distinction; at 200–300 nm, more well-resolved characterizations are possible including mitochondria-, ER-, or Golgi- specific transcript or protein quantifications. At 50 nm ranges, entirely new cellular phenotypes (e.g., movement of organelles and protein trafficking) can be measured. Table 1 highlights available technologies that allow subcellular capture of molecular entities in cells, as well as their technical specifications.",
+    "Targeted spatial omics methods using antibodies and RNA probes",
+    "Targeted spatial omics methods are appropriate when there are specific molecular entities of interest to identify cellular states, identity, and function. Antibodies and RNA probes, such as endogenous transcripts or proteins, are the most ubiquitous detection methods (Fig. 1). Traditional immunofluorescence (IF) imaging methods can only capture four to five channels at a time, limited by spectral overlap. Using probes or antibodies that contain cleavable linkers for sequential imaging and/or barcoding scheme to distinguish multiple probes imaged simultaneously or within the same wavelength, now researchers can profile more than 50 cellular entities from a single slide. The technologies using antibody panels with sequential rounds of staining, imaging, and bleaching/stripping include: Cyclic ImmunoFluorescence (CyCIF), iterative bleaching extends multiplexity (IBEX), multi-epitope-ligand-cartography (MELC), iterative indirect immunofluorescence imaging (4i), ChipCytometry, Cell DIVE (multiplexed immunofluorescence, MxIF), and MACSima Imaging Cyclic Staining (MICS). These are generally limited to 30–50 targets due to constraints in tissue integrity, spectral overlap, and spillover (Table 1). To further increase the number of antibodies, technologies such as CO-Detection by indiEXing (CODEX) increase the target breath to 100 by staining a cocktail of DNA-barcoded antibodies. It then uses complementary oligonucleotide probes and comparatively gentle iterative hybridization cycles for detection. Alternative to imaging-based readouts are methods which use mass spectrometry, such as imaging mass cytometry (IMC) and multiplexed ion beam imaging (MIBI). For IMC and MIBI, antibodies are tagged with rare metals, and tissue samples are stained with the whole antibody cocktail. The tissue sample is then ablated with an ionizing laser in a raster fashion, and detection of the rare metals is possible through time-of-flight mass spectrometry, which has much less spectral overlap than optical methods.",
+    "To avoid nonspecific binding, epitope loss, and tissue degradation, antibody-methods may require further optimization, such as permeabilization or antibody incubation protocols. Using pre-optimized, commercially available antibody panels can significantly reduce this process, although this option is not available for all tissue types. Virtually, all antibody methods capture regions of interest (ROIs) within the tissue slide due to constraints of acquisition time (optical methods) or cost (mass spectrometry-based methods), while providing data that is only relatively quantitative (quantified by relative spectral intensity). A detailed description of these technologies is covered in related manuscripts and reviews specifically focusing on multiplexed methods.",
+    "Similar to antibodies, mRNA probes (specific for sequences of targeted transcripts) can be used to design a panel for targeted spatial profiling. Such approaches have shorter protocols, easier handling, and enable more transcripts (generally few hundreds of transcripts, up to 10,000) to be captured than antibody-based methods. Different multiplexed RNA FISH methods use slightly different approaches to probe design, imaging, and stripping. Specifically, high multiplexing is achieved by using spectral barcoding (specific combination of fluorophores each targeting segments of an RNA resolved by microscopy) and temporal barcoding (multiple rounds of probe hybridization and stripping to create predefined color sequence). Recently, the combination of two barcoding methods and more complicated barcoding strategies can increase the number of molecular entities that can be profiled. For example, while seqFISH uses spectral barcoding of genes across four or five fluorophores for each given temporal barcode, seqFISH + adds mRNA-specific sequences to assign a pseudocolor for each spectral barcode (fluorophore). The new seqFISH + technology can now capture 60 pseudocolors instead of 5 per cycle, allowing more than 8000 gene profiles.",
+    "Barcoding approaches can generally capture more transcripts than antibody-based methods, but are more sensitive to losses (false-negative signals due to dropout) and tissue degradation between the cycles (Fig. 2B, C). To overcome potential errors and dropouts, most probe-based methods utilize extra hybridization steps added for every few cycles to ensure the rest of the transcripts are detected properly. Current technologies include multiplexed error robust fluorescence in situ hybridization (MERFISH), molecular cartography, sequential fluorescence in situ hybridization (seqFISH +), sequent ouroboros single-molecule FISH (osmFISH), Split-FISH, hybridization-based in situ sequencing (HybISS), Esper, CosMx, Multi Omic Single-scan Assay with Integrated Combinatorial Analysis (MOSAICA), and combinatorial padlock-probe-amplified FISH (coppaFISH). Each technology utilizes slightly different probe length, design methods, and protocols. For example, MERFISH probes hybridize with disulfide bond while seqFISH uses DNAse I treatment to cleave the probes for the following rounds of detection. Although most technologies would give similar results in most cases, factors such as probe length, tissue autofluorescence, tissue degradation, and protocol compatibility need to be considered for optimal results. For example, tissues can have different stability for signals over multiple rounds (or long duration) of enzymatic treatments or temperature variations. Indeed, prior work has shown a range of concordance between various spatial imaging technologies, such as with the GeoMx and Hyperion systems, which showed high correlation for differences in cell types and expression of healthy vs. pneumonia (r = 0.699) and different stages of COVID-19 (r = 0.630) but lower correlation of expression metrics of COVID-19 vs. healthy patient (r = 0.362).",
+    "In general, the probe-based methods are more quantitative than antibody-based methods, as absolute numbers of transcripts are counted as individual dots within each scanned spot. Some probe-based methods can also utilize oligo-conjugated antibodies to incorporate subcellular protein landmarks (i.e., organelles) as well. However, the probe design and library composition are critical and sometimes limiting; some techniques are limited by gene length (transcripts must be > 750 bp), expression levels (highly expressing transcripts can create optical crowding and zero inflation spots called), and isoforms (splicing frequencies may be a source of error but can also target differentially transcribed exons or introns). Some of these limitations are an active field of research and can be overcome in several ways if properly accounted for, such as decreasing the binding range (e.g., 25 nucleotides) or overlapping probes to map isoforms. Despite these limitations, there are more published data and analytical software tools already optimized for these targeted technologies (vs. transcriptome-wide methods, described below).",
+    "Transcriptome-wide spatial omics with NGS platforms",
+    "In addition to scRNA-seq methods that allow a comprehensive view on the transcriptome of a cell, several methods for spatial profiling of the transcriptome in an unbiased manner have been developed. Earlier methods focused on targeted acquisition of sample subsets for sequencing and used laser-capture microscopy (LCM) and photocleavable marker-based methods, where specific regions marked by surface markers or mRNA probes were collected and sequenced. LCM-seq, geographical position sequencing (Geo-seq), NICHE-seq, and NanoString GeoMx DSP are a few additional contemporary examples of this technology. These technologies allow user-directed profiling of specific ROIs with as few as 10 cells, allowing researchers to characterize multiple replicates or tissue types/locations for each sample.",
+    "Methods that allow single cell or subcellular resolution rely on spatial barcoding and in situ sequencing. Technologies such as fluorescent in situ sequencing (FISSEQ), spatially resolved transcript amplicon readout mapping (STARmap), Slide-SeqV2, deterministic barcoding in tissue for spatial omics sequencing (DBiT-seq), expansion sequencing (ExSeq), high-definition spatial transcriptomics (HDST), Seq-scope, polony (or DNA cluster)-indexed library-sequencing (PIXEL-seq), and SpaTial Enhanced REsolution Omics-Sequencing (Stereo-Seq) (and ST, 10X Visium for multi-cell version of the same technology) use grid-like nanoballs or sequencing sites on the slide. The resolutions and chemistry of the sequencing sites vary by technologies, as well as amplification methods. For example, FISSEQ uses rolling cycle amplification (RCA) where a random hexamer reverse transcription (RT) primer gets hybridized for cDNA transcription and amplification; STARmap uses padlock probes to avoid RT and use of RNA template; technologies like HDST, Slide-SeqV2, and DBiT-seq all use Barcode and UMI structures with varying nucleotide lengths optimized for each technique and preferred sequencing platform. The individual spots on these slides are several times smaller than typical mammalian cells, enabling single to subcellular characterization of sequencing reads. Although it may be more costly, in situ sequencing approaches allow whole-slide detection whereas capture-based sequencing methods are more focused on smaller ROIs within the tissue. Because the resolution can be limited by the size of the amplicon hybridized on the slide for sequencing, different strategies to improve the UMI and quality of the reads are currently being explored in these technologies. Also, methodologies to capture total transcriptome (viral, coding, and noncoding RNAs) are also developed, such as spatial total RNA-sequencing (STRS).",
+    "In addition, there are spatial barcoding methods such as CITE-seq, ZipSeq, ExSeq, XYZeq, or sci-space, where additional cellular information such as antibody staining or barcoding is added before pooling for single cell sequencing workflow. Additional single cell features such as cell types or tissue location or compartmentalization can be deduced; however, a precise picture of cellular organization is not yet possible. Inspired by these technologies and to overcome the limitations, multiplexed detection methods of transcriptome and proteome have been developed. Examples include spatial multi-omics (SM-Omics), Spatial PrOtein and Transcriptome Sequencing (SPOTS), and spatial co-indexing of transcriptomes and epitopes for multi-omics mapping by NGS (spatial-CITE-seq). These technologies combine existing NGS-based methodologies to allow computational reconstruction of spatial full transcriptome and 200 + proteome maps. Although these technologies make use of NGS technologies to cover the full transcriptome while recording large panels of proteins in tissues, the full transcriptome characterizations are still limited by resolution (SM-Omics uses 10X Visium which allows 55 μm resolution), or location detection (SPOTS and spatial-CITE-seq uses CITE-seq, which is an antibody-binding based method, to provide cellular context, not precise locations within the tissue).",
+    "Other spatial omics technologies for multi-modal study",
+    "Similar to the spatial omics technologies introduced above, which mainly focus on gene expression profiles (and surface marker proteins), approaches around spatial genomics, metabolomics, metagenomics, and epigenomics are also emerging. Spatial ATAC sequencing can be performed by in situ Tn5 transposition, and probe ligation using microfluidics devices, followed by standard digestion and sequencing for chromatin accessibility profiling. Resolution is limited by the microfluidic channel width (20 μm); however, single cell resolution is less crucial than transcript quantification as the analysis relies on the signals within the nuclear regions. Similarly, specific chromatin modifications can be quantified using Spatial-CUT&Tag that applies CUT&Tag chemistry with microfluidic devices. Both technologies use deterministic barcoding delivered over the tissue surface through a microfluidic device attached to the slide. The barcodes are delivered twice perpendicularly so that the combinations result in 2D arrayed pixels containing spatial information. Spatial metabolomics techniques such as targeted approaches using antibodies (metaFISH) or untargeted using matrix-assisted laser desorption/ionization imaging mass spectrometry (MALDI-IMS) hold promise for mapping the spatial context of metabolic species and molecular interactions within the native tissue context, but still suffer from trade-offs in spatial resolution or the breadth of molecular entities profiled.",
+    "Such added layers of genomic data allow researchers to ask new biological questions. For example, in addition to expression level changes within tissue microenvironment, clonal expansion of specific mutations and spatial co-occurrences can be investigated using spatial genomics such as slide-DNA-seq. This method is a modified version of slide-seq where DNA sequences are captured with small (3 mm) beads that are spatially indexed, instead of RNA transcripts. Optimized methodologies for histone removal and Tn5 treatments for a variety of tumor tissue types have been shown to prevent potential bias in DNA capture. More recently, spatial host-microbiome sequencing (SHM-seq) has been reported. SHM-seq is an adapted version from Spatial Transcriptomics, where mRNA probes for transcript captures are modified to DNA capture probes so that they can obtain both polyadenylated transcripts and 16S rRNA hypervariable regions. The recent progress on spatial characterizations allows researchers to locate interactions at the genomics, cellular, and organismal level."
+  ],
+  "FIG": [
+    "Typical workflow of spatial omics experiment. Most technologies offer compatibility with flash frozen or formalin-fixed paraffin embedded tissues. If in situ capture-imaging methods are chosen, a customized set of antibodies or probes will be hybridized to acquire or reconstruct images of multiple channels. With sequencing-based methods, barcoded regions within the slide will be captured for library preparation and sequencing. The downstream analyses are similar across technologies; once the signals are normalized, quantified, and pooled for each cell defined by the cell segmentation masks. Standard analyses such as differential expression, cell proportion, and gene set enrichment can be performed. Using spatial information in particular, cell–cell interaction and ligand-receptor analyses can be performed in-depth. Such information can also be used to define neighborhood or domains of tissue microenvironment, depending on the research question. Figure created with BioRender",
+    "Timeline, type, and specifications of spatial omics technologies. A Timeline of all super resolution methodologies from 2010. Color intensity corresponds to the number of technologies published each year, and blue colored techniques are sequencing-based while red colored techniques are multiplexed IHC/IF methodologies. Top and bottom of the red boxes represent non-FISH and FISH based, respectively. B Proportions of target types and analysis approaches, where Y quantifies methods detecting given analyte (DNA, RNA, or protein). C Comparison of imaging-based technologies. Highest resolution that can be done, some of the super resolution microscopy-based methods were estimated at 50 nm and maximum number of the markers or genes that can be detected in an experiment. Note that depending on the technology, some of them were not optimized yet and can be expanded in future years. Excluded seqFISH + and MERFISH which claims up to 10,000 markers for detection (probe-based method)",
+    "Example subcellular spatial omics data and analysis. A Subcellular spatial omics analysis starts with calling transcripts (or other molecular entities of interest) at their 3D locations from z-stacked images. B Using boundaries drawn by cell segmentation algorithms, the counts are aggregated into single-cell expression profiles, from which cell labels and neighborhood traits are inferred. C Both information can then be used for analyses commonly used for single cell and bulk image and sequencing methods, such as differential expression, clustering, cellular interaction analyses. The tissue sample images in all panels were provided by NanoString Technologies (CosMx platform)"
+  ],
+  "TABLE": [
+    "Summary of single cell or subcellular spatial omics technologies. The table only includes single cell or subcellular resolution spatial omics technology, excluding spatial barcoding methods as it loses the organization context (e.g., CITE-seq, ZipSeq, ExSeq, XYZeq, and sci-space). MERSCOPE employs MERFISH as a platform solution. Slide-SeqV2 and DBiT-seq could be near single-cell. The plex numbers are based on the maximum validated or claimed in publications, as of March 2022. Ab-based Antibody-based methods (multiplexed spectrometry), mFISH Multiplexed FISH (probe-based methods), NGS Next-generation sequencing, SR Not specified and stated as subcellular resolution; falls within the capacity of resolution microscopy, WT Whole transcriptome",
+    "Technology\tType\tTarget\tResolution (nm)\tYear\tCompany\tPlex\t \tFISSEQ\tNGS\tRNA\t600\t2014\tFISSEQ\t8742\t \tMIBI\tAb-based\tRNA, protein\t350\t2014\tIonPath\t40\t \tIMC\tAb-based\tRNA, protein\t1000\t2014\tFluidigm\t37\t \tChipCytometry\tAb-based\tProtein\t500\t2019\tCanopy\t120\t \tMERFISH\tmFISH\tRNA\t100\t2015\tVizgen\t10,000\t \tCyCIF\tAb-based\tProtein\t110\t2015\tRarecyte\t261\t \tseqFISH+a\tmFISH\tRNA\t100\t2016\tSpatial Genomics\t10,000\t \tSTARmap\tNGS\tRNA\tSR\t2018\tN/A\t1020\t \tPhenocycler (CODEX)\tAb-based\tRNA, protein\t260\t2018\tAkoya\t100\t \tosmFISH\tmFISH\tRNA\tSR\t2018\tN/A\t48\t \tSlide-seqV2b\tNGS\tRNA\t10,000\t2020\tN/A\tWT\t \tHDST\tNGS\tRNA\t2000\t2019\tN/A\tWT\t \tSplit-FISH\tmFISH\tRNA\tSR\t2020\tN/A\t317\t \tHybISS\tmFISH\tRNA\tSR\t2020\tN/A\t124\t \tDBiT-seq\tNGS\tRNA, Protein\t10,000\t2020\tAtlasXomics\tWT\t \tStereo-Seq\tNGS\tRNA\t500\t2021\tBGI STOmics\tWT\t \tExSeq\tNGS\tRNA\t1000\t2021\tN/A\tWT\t \tMolecular Cartography\tmFISH\tRNA\t200\t2021\tResolve Biosciences\t100\t \tCell DIVE\tAb-based\tProtein\tSR\t2021\tCytiva\t60\t \tCosMxc\tmFISH\tRNA, protein\t50\t2022\tNanoString Technologies\t960\t \tXeniumc\tmFISH\tRNA, protein\t50\t2022\t10X Genomics\t1000\t \tVisium HD\tNGS\tRNA\t5000\t2021\t10X Genomics\tWT\t \tEsper\tmFISH\tRNA\t260\t2021\tRebus Biosystems\t30\t \tSeq-scope\tNGS\tRNA\t600\t2021\tN/A\tWT\t \tPIXEL-seqc\tNGS\tRNA\t1000\t2021\tN/A\tWT\t \tMOSAICA\tmFISH\tRNA\t100\t2022\tN/A\t60\t \tMICS\tAb-based\tProtein\t100\t2022\tMiltenyi Biotec\t100\t \tEEL FISHc\tmFISH\tRNA\t200\t2022\tRebus Biosystems\t440\t \tcoppaFISHc\tmFISH\tRNA\tSR\t2022\tN/A\t72",
+    "aupdated version of seqFISH; bupdated version of Slide-seq",
+    "cIn preprint or not publicly available yet",
+    "List of reference atlas available for spatial omics applications (as of March 2022). HPA Human Protein Atlas (https://www.proteinatlas.org/), HCA Human Cell Atlas (https://www.humancellatlas.org/), Tabula Sapiens (https://tabula-sapiens-portal.ds.czbiohub.org/)",
+    "GeoMx\tHPA\tHCA\tHCA\tTabula sapiens\t \t\tCoverage\tProject counts\tEst. cell counts\tCell counts\t \tLung\tN\tY\t18\t6,200,000\t35,682\t \tKidney\tY\tY\t9\t4,900,000\t9641\t \tLiver\tN\tY\t10\t5,400,000\t5007\t \tBrain\tY\tY\t14\t9,700,000\tN/A\t \tSkin\tN\tY\t12\t1,500,000\t9424\t \tColon (large intestine)\tY\tY\t4\t1,100,000\tN/A\t \tRectum (large intestine)\tN\tY\t2\t372,300\tN/A\t \tSmall intestine\tN\tY\t3\t986,700\t12,467\t \tStomach\tN\tY\t3\t4,600,000\tN/A\t \tLymph node\tY\tY\t3\t536,700\t53,275\t \tProstate\tN\tY\t3\t798,900\t16,375\t \tOvary\tN\tY\t3\t525,100\tN/A\t \tUterus\tN\tY\t3\t1,000,000\t7124\t \tHeart\tN\tY\t8\t6,200,000\t11,505\t \tEsophagus\tN\tY\t4\t914,600\tN/A\t \tBone marrow\tN\tY\t3\t571,700\t12,297\t \tBone (skeletal muscle)\tN\tY\t2\t212,600\tN/A\t \tAdipose (fat)\tN\tY\t4\t1,000,000\t20,263\t \tBladder\tN\tY\t2\t486,700\t21,517\t \tEye\tN\tY\t7\t4,900,000\t10,650\t \tTestis\tN\tY\t2\t30,200\tN/A\t \tSpleen\tN\tN\t5\t4,800,000\t34,004\t \tAppendix (large intestine)\tN\tY\tN/A\tN/A\tN/A\t \tBile duct\tN\tN\t1\t84,375\tN/A\t \tPancreas\tY\tY\t16\t5,100,000\t13,497\t \tSmooth muscle\tN\tY\tN/A\tN/A\t30,746\t \tNasal cavity\tN\tN\t3\t114,800\tN/A\t \tPeritoneum\tN\tN\tN/A\tN/A\tN/A\t \tBlood\tN\tN\t28\t3,000,000\t50,115\t \tBreast\tN\tY\t2\t709,100\tN/A\t \tLarge intestine\tN\tY\t2\t482,300\t13,680\t \tMammary gland\tN\tN\t1\tN/A\t11,375\t \tSalivary gland\tN\tY\t1\tN/A\t27,199\t \tThymus\tN\tY\t3\t4,800,000\t33,664\t \tTongue\tN\tN\t1\tN/A\t15,020\t \tTrachea\tN\tN\t3\t564,700\t9522\t \tVasculature\tN\tN\t1\tN/A\t17,071"
+  ],
+  "METHODS": [
+    "Overall workflow and experimental design criteria",
+    "Sample preparation and experimental design",
+    "Overall experimental and analytical workflows span a few consistent features (Fig. 1). Generally, mouse or human tissue slides are used for experiments, since the relevant probe and target libraries are already commercially available and represent the largest market; however, in principle these methods can work on any species with an annotated genome (Fig. 3). It is also possible to use cell cultures or sections from specific culture platforms. Most of the techniques offer compatibility with flash frozen (FF) and formalin-fixed paraffin embedded (FFPE) formats. FF format often yields better RNA quality and simpler extraction processing; however, FFPE format more faithfully conserves tissue architecture and is easier to store and ship. Success also varies depending on the sample quality (RNA integrity and processing protocols) and technology (probe/antibody design, permeabilization and chemistry for hybridization, imaging, and library preparation). Some technologies generate stacked multiplexed images to capture all the transcripts across 5–10 μm thick sections and to differentiate transcripts expressed in nuclear and cytoplasmic regions.",
+    "A key question to consider in choosing the methodology and the experimental design is whether specific transcripts, pathways, or cell types need prioritizing. If specific loci are already known, then choosing an in situ capture based methodology and obtaining absolute quantification of the transcripts is often the better approach. Alternatively, if the research hypothesis is more discovery-based, especially for unknown cellular subpopulations, or if a project is aiming for a global comparison across conditions or samples, NGS-based methods may be more appropriate.",
+    "Available reference databases for integration and validation",
+    "Even though the field is relatively new, there are some reference data sources available to explore different methodologies and to use as healthy references (Table 2). For example, the GeoMx spatial organ atlas offers human tissue spatial data from five organ systems: kidney, brain, intestine, lymph node, and pancreas (https://nanostring.com/products/geomx-digital-spatial-profiler/spatial-organ-atlas/). Vizgen also released a mouse liver spatial atlas for people to explore and understand the extent of the technologies, and Akoya biosciences has shared its data from a range of tissues online, including brain, placenta, breast, lung, head and neck, and tonsil online (https://www.akoyabio.com/fusion/data-gallery/). Since many of these investigations focus on cancer samples and normal controls, some datasets can be accessed through human tumor atlas (https://data.humantumoratlas.org/) or the Human Biomolecular Atlas Program (HuBMAP, https://portal.hubmapconsortium.org/).",
+    "Depending on the publications and technologies, some researchers have made data explorer websites or share semi-processed count data on public repositories. Currently, systematization of data standards is lacking, except for the convergence of imaging data into the metadata-rich OME-TIFF file format. Public sharing of datasets and in-depth, online guides will further aid the community by ensuring standardization and reproducibility of data.",
+    "Alternatively, single cell and single nuclei RNA sequencing can be used to cross validate and overcome limitations of spatial omics technologies (i.e., limited detection of rare transcripts, interpolation of missing transcripts through cell type label transfer). Commonly used reference databases are summarized in Table 2. When choosing the reference, it is crucial to understand tissue type and technology of interest. Sample types, tissue dissociation methods, cellular heterogeneity, and type of sequencing chemistry can carry considerable impact, particularly when interested in rare cell types or transient cell expression states (e.g., fetal hemoglobin). For more rigorous data integration and validation, common coordinate framework (CCF) based mapping has been discussed and developed.",
+    "Computational methodologies to analyze spatial omics data",
+    "The information captured from spatial omics data at subcellular resolution is predominantly converted into single cell format (quantification of counts/cell) or csv files, which are then suitable for downstream analysis. In the following section, we introduce methodologies and published software packages for general spatial analysis and available multiplexed image viewers for visualization of the highly multiplexed images. We also review key methods involving traditional analysis similar to scRNA-seq analyses, newer methods that make use of spatial information, and auxiliary methods applied directly to the raw image level.",
+    "Available general-purpose software and pipelines",
+    "As most recent spatial omics technologies support more markers than traditional image formats support, visualizing results of spatial omics data is a non-trivial task. Several specialized image software such as ImageJ or napari can be used to visualize subsets of markers. As some spatial platforms gather information on a per spot basis, several denoising software tools such as content-aware image restoration (CARE), residual channel attention networks (RCAN), and Noise2Void can be applied to raw images to improve the quality especially in fluorescence based platforms. For mass cytometry based spatial platforms, data quality can be improved by spillover correction software. For example, if the ground truth of spillover is known or empirically adjusted from the data, Reinforcement Dynamic Spillover EliminAtion (REDSEA) leverages the spatial proximity of cells with signal that comes from generally mutually exclusive markers.",
+    "There are also user-friendly end-to-end software packages for spatial omics. Graphical user interface supporting software pipelines like ImageJ, QuPath, CellProfiler and many other command line tools take raw input data and transform them into single cell format with coordinate information. Other software like squidpy and scimap (https://github.com/labsyspharm/scimap) provide user-friendly Python APIs for spatial analysis, visualization, and a collection of preprocessed datasets from multiple diverse spatial platforms in AnnData format. Depending on the platform, some technologies offer end-to-end packages for sample processing to data visualization and analysis. For example, TITAN offers open-source software options for IMC image visualization, cell segmentation, analysis, and export. Other commercial technologies also offer end-to-end solutions optimized for each technology, such as AtoMx for GeoMx and CosMx (NanoString), PhenoCycler Software Analysis Suite for CODEX and PhenoCycler (Akoya), and MERSCOPE Visualizer for MERFISH platform (Vizgen).",
+    "Traditional spatial omics methods for single cell analysis",
+    "Typically, the outputs of most spatial omics analyses involve images or barcodes with spatial coordinate information. Such spatial information can be treated as an additional layer of metadata and help inform downstream analysis. Successful downstream analyses on spatial omics data, which either are high dimensional images or spatial barcodes with coordinates, heavily rely upon accurate cell segmentation, which is a process to infer cell boundaries based on intensity values from captured coordinates. Cell segmentation is done on generalizable cellular features, such as DNA staining for nuclei and membrane staining or (cell-type specific) cytoplasmic markers for cell boundaries. Some of imaging-based methods use serialized, z-stack images to better distinguish cellular features each round of imaging; however, this is not so common in sequencing-based methodologies because imaging for segmentation is typically done right before the library preparation or on consecutive tissue slices.",
+    "There are two broad categories of cell segmentation algorithms both based on supervised learning: (1) a combination of computer vision-based feature extraction and machine learning models like random forests and (2) convolutional neural network (CNN)-based deep learning models. The first group, including Ilastik, extracts intensity, edge, and texture features from images using Gaussian filters and their derivatives. Then, the user labels pixels in images typically representing nuclei, cytoplasm, and background areas, which are used as labels for pixel classification using random forests based on the extracted features. The software can then either produce probability maps for the specified classes which can be segmented with CellProfiler or a segmentation map directly.",
+    "The other group uses deep learning for segmentation. DeepCell, Stardist, Splinedist, Cellpose, and Omnipose are all convolutional neural network (CNN)-based models capable of feature extraction, probability map prediction, and cell segmentation. Deepcell incorporates multiple segmentation subtasks including cell segmentation, nuclei segmentation, and cell tracking for sequence of moving cell images via deep watershed methods. DeepCell also offers Panoptic net-based models that use a combination of semantic and instance segmentation. Related tools like Stardist and Splinedist focus on nuclear segmentation using the geometric properties of nuclei; Stardist models nuclear morphology as star convex polygons and assigns probabilities based on center-to-border distances to detect and separate objects, and splinedist generalizes a similar model to capture more smooth-shaped cell masks and recognize eccentric cells using spline interpolation. Cellpose is a general-purpose model for both nuclear and whole-cell segmentation, while the more recent Omnipose specializes in segmentation of bacterial cells that often are elongated or eccentric. Regardless of the segmentation method, the various analytical approaches converge on the creation of a single-cell matrix analogous to scRNA-seq data, by aggregating RNA/protein signal intensity values by sum or mean based on the segmentation masks.",
+    "The aggregated single-cell matrix can then be transformed and normalized through a combination of scaling functions such as logarithm (base2 or base10), minmax, or z-score, and they can be batch corrected using algorithms such as Combat, MNN Correct, batch-balanced k-nearest neighbors, and harmony. One can apply conventional scRNA-seq analysis such as dimensionality reduction using PCA, T-SNE, or UMAP and clustering with Leiden or Phenotyping by Accelerated Refined Community-partitioning (PARC) algorithms. The neighborhood of the cells can also be defined from the intensity features, using modern graph based cell clustering methods such as Louvain, Leiden, or PARC clustering.",
+    "From the expression profiles, phenotyping is possible by manually assigning cell labels based on the expression of markers. While this procedure may be laborious, it enables the detection of novel cell types and states. Nonetheless, methods for automated prediction of cell type identities such as Astir and Stellar also exist. Single-cells and their phenotypes can be visualized either by projecting feature intensity as colors on scatter plots of reduced dimensionality projections, or by visualizing features on heatmaps at the single-cell or cell type level. Common downstream analysis often involves the comparison of cell type abundance between samples of contrasting biological groups and detection of differential expression of markers within cell types between sample groups. Several of these methods were reviewed previously.",
+    "For quantitative technologies, expression levels can be also compared using standard differential gene expression analysis for bulk and single cell RNA-seq. In addition to differentially expressed genes, spatially variable genes can be obtained by published packages such as Trendsceek, SpatialDE, Spatial PAttern Recognition via Kernels (SPARK), and SpaGCN. These packages use different algorithms to compute spatial variations and are implemented for specific technologies. For example, SpatialDE uses Gaussian process regression in which it can detect genes across regions or multiple conditions but is computationally intensive and cannot identify domains. SpaGCN uses a graph convolutional network (GCN) and provides both gene and domain level spatial analyses, but tissue structures identified by cell types are not included in the analysis unlike the methodologies covered in the next section. Also of note, the methods for normalization, batch correction, and data cleaning are just as paramount in spatial expression mapping as they are in bulk analysis, and a range of methods (e.g., COMBAT, EDAseq, RUV2, SEER, etc.) can be used.",
+    "Novel spatial omics methods using spatial information",
+    "Highly resolved spatial omics data allows discovery of new cell types, cell interactions, and tissue structures compared to traditional, single cell sequencing methods because the data comes with paired spatial information in the native tissue conformation. Currently, most methods in this area construct cell graphs, with cells as nodes and edges based on threshold spatial distance between cells to leverage spatial information. The two large branches in this field are (1) spatial microenvironment analysis, which groups and analyzes cells based on their spatial context and (2) inference of intercellular interactions, which investigates how frequently a pair of cell types interact in native tissue conformation.",
+    "One major lineage of computational spatial omics uses cell context to perform various downstream tasks. Stellar (https://github.com/snap-stanford/stellar) is a cell type annotation tool using both marker expression profiles and spatial context information. By learning cellular phenotypes not only from the intensity of markers but also from the spatial arrangement of cell types, Stellar enables the prediction of cell types in an unlabeled dataset and discovery of cell types specific to a new tissue. SpatialLDA is a tumor microenvironment detection method that identifies associated topic or context of each cell based on cell type distribution of immediate spatial neighbors, which for tumor cells could be thought of as tumor microenvironments. UTAG is a structural microanatomy annotation and analysis method that categorizes cells into anatomical structures across organs and diseases including cancers. Both SpatialLDA and UTAG infer larger-scale patterns or organization in tissue, which can be further interrogated to understand how cellular composition and interaction give rise to tissue structure capable of contributing to organ-specific physiology, overall organ architecture, or micro-environments in the tumor micro-environment which may condition clinically relevant outcomes.",
+    "Another branch of interest specifically focuses on learning intercellular interaction. Boisset et al. introduced a computational foundation to quantify cell-to-cell communication by graph permutation test. They proposed assessment of intercellular communication frequency by randomly mixing cell type identities and assigning a statistical likelihood to empirically observed interaction between cell types. A similar approach, using permutation analysis, has been used to detect increased interaction between macrophages and fibroblasts in alveolar walls, which potentially explains fibrosis and the thickening of the alveolar wall in COVID-19 patients. The increased macrophage interactions with fibroblast and other immune cells were consistently observed when cellular interaction clusters were defined by co-occurrence of the cell type proportion changes (https://github.com/jpark-lab/SpatialAnalysis). Other methods try to explain cellular communication through machine learning methods. For example, node-centric expression modeling (NCEM) models cell-to-cell communication events by gradient analysis of variational graph autoencoders. The idea here is to investigate which change in cell-to-cell communication results in a change in observed gene expression through a non-linear graph neural network. Multiview Intercellular SpaTial modeling framework (MISTy) is a graph-based method that investigates marker (gene) networks at multiple spatial resolutions to investigate intra- and inter- cellular interaction at multiple lengths.",
+    "With the ability to capture molecules at a subcellular resolution, co-localization and compartmentalization of molecular entities can be analyzed at a deeper level. For example, RNA species in different subcellular compartments (i.e. endoplasmic reticulum and nuclear vs. cytoplasmic) and their spatial patterning within the cell can be extracted as an independent feature from expression level. Transcripts that are dependent on cellular states such as infection, cell cycles, circadian rhythm can be profiled more accurately and provide new insights. In addition, distribution of cellular features (i.e., protein or viral RNA transcript patterns within a cell) can be studied for biological significance. These features are limited by our understanding of cellular processes and by methodologies to analyze such changes and generate hypotheses in an unbiased manner.",
+    "Multi-modal analysis and ML-aided spatial data analysis methods",
+    "Integration of spatial omics data with other data modalities, such as single-cell RNA or assay for transposase-accessible chromatin (ATAC) sequencing, can enable an even more comprehensive view of cellular systems, by complementing the spatial assays in terms of the number of molecular entities under study and cells profiled. A popular approach to integrate different datasets consists of identifying a subset of variable or “notable” features to serve as anchors across two data modalities. Several methodologies were developed around the integration between different single cell or single nuclei sequencing modalities such as RNA and ATAC. Multi-Omics Factor Analysis (MOFA) introduces a statistical framework for the integration of data modalities, specifically within a common sample space derived from the same sets of cells.",
+    "One of the most used software packages for scRNA-seq analysis, Seurat, also has developed methodologies to integrate such modalities as well as antibody-derived tags from cellular indexing of transcriptomes and epitopes by sequencing (CITE-seq) and spatial omics technologies such as Visium, by using weighted nearest neighbors (WNN) analysis. Multimodal omics analysis framework (MUON), which introduces the MuData format compatible across Python, R, and Julia programming languages, provides a shared interface for commonly used methodologies such as MOFA, WNN, and similarity network fusion (SNF). Similar framework packages include MultiMAP, linked inference of genomic experimental relationships (LIGER), inteGrative anaLysis of mUlti-omics at single-cEll Resolution (GLUER), clustering on network of samples (Conos), and integrative non-negative matrix factorization (iNMF), but some of the packages are more focused on specific spatial omics technologies or analysis of single-cell sequencing modalities. Recently, more packages and methodologies, such as Cell2location, CellTrek, multi-modal structured embedding (MUSE), and Tangram, are being developed specifically to map single cell information to spatial omics analyses. For example, Tangram aligns expression profiles from sc/snRNA-seq to spatial datasets from the same region including MERFISH, STARmap, general smFISH, Visium, and histological images. Such methods to map other data modalities are also used within spatial omics dataset when gene imputation, an approach used to fill in the missing datapoints due to low detection level, limited number of targets, potential errors or dropouts, or genetic variation are needed. On the contrary, multi-omics image integration and tissue state mapping (MIAAIM) focuses on integration of different spatial omics modalities that have diverse densities and spatial resolutions. As most of these software packages only offer methodologies for proper integration of multiple data modalities without losing single cell resolution, more work is needed for multimodal data exploration and visualization.",
+    "Availability of data and materials",
+    "None",
+    "Declarations"
+  ],
+  "CONCL": [
+    "Conclusion",
+    "As spatial omics technologies mature and provide a deeper understanding of the cellular states and functions, spatial epigenomics, metagenomics, and metabolomics will also reveal a great number of biological insights that complement the transcript-level findings. Integration strategies across different molecular classes (for example, integrating metabolomics data with proteomic, transcriptomic, or genomic data) would also be needed. Development of appropriate analysis packages that offers end-to-end solutions for each technology, as well as compatibility with orthogonal platforms is also crucial to increase the usage and application of these technologies.",
+    "In summary, the spatial omics field has blossomed and radically increased the breadth and resolution of in situ experiments in the past few years. These technologies can now boast detection of more than 10,000 unique gene targets with 50–100 nm spatial resolution. Developments in probe chemistry, image acquisition, and commercialization are driving down costs, transforming spatial omics technologies into a commonplace technique available to all labs, similar to NGS in the 2010s and microarrays in the early 2000s. This unparalleled depth and richness of data leading to spatially intact single cell profiles promises to fuel new discoveries for infectious disease, tumor oncology, and basic science applications like cell signaling, migration, and spatiotemporal-delineated functions. Efforts to introduce three-dimensional, deep-slide scanning, and time series data collection will also continue to propel the field even further in the coming years, revealing novel cellular architectures and entirely new domains of biology."
+  ],
+  "SUPPL": [
+    "Supplementary Information",
+    "Publisher’s Note",
+    "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "AUTH_CONT": [
+    "Authors’ contributions",
+    "CEM and JP conceived the idea of the manuscript. JP, JK, and AFR wrote the initial draft of the manuscript with the help from TL, CMR, CEM, and OE. All authors discussed the results and contributed to the final manuscript. The authors read and approved the final manuscript.",
+    "Authors’ Twitter handles",
+    "@jiwoonpark_ (Jiwoon Park), @junbum_kim (Junbum Kim), @elementolab (Olivier Elemento), @afrendeiro (André F. Rendeiro), @mason_lab (Christopher E. Mason)."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "C.E.M. is a scientific advisor of NanoString Inc. O.E. is scientific advisor and equity holder in Freenome, Owkin, Volastra Therapeutics and OneThree Biotech. The remaining authors declare no competing or relevant interests."
+  ],
+  "REF": [
+    "References",
+    "OpenCell: Endogenous tagging for the cartography of human cellular organization",
+    "Cell Painting, a high-content image-based assay for morphological profiling using multiplexed fluorescent dyes",
+    "Systematic morphological profiling of human gene and allele function via Cell Painting",
+    "Imaging individual mRNA molecules using multiple singly labeled probes",
+    "Single-cell systems biology by super-resolution imaging and combinatorial labeling",
+    "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+    "Spatial components of molecular tissue biology",
+    "Highly multiplexed single-cell analysis of formalin-fixed, paraffin-embedded cancer tissue",
+    "IBEX: A versatile multiplex optical imaging approach for deep phenotyping and spatial analysis of cells in complex tissues",
+    "Murine whole-organ immune cell populations revealed by multi-epitope-ligand cartography",
+    "Multiplexed protein maps link subcellular organization to cellular states",
+    "Quantitative immune profiling of human tumor tissues with multiplexed ChipCytometry",
+    "MACSima imaging cyclic staining (MICS) technology reveals combinatorial target pairs for CAR T cell treatment of solid tumors",
+    "Deep profiling of mouse splenic architecture with CODEX multiplexed imaging",
+    "Highly multiplexed imaging of tumor tissues with subcellular resolution by mass cytometry",
+    "Multiplexed ion beam imaging of human breast tumors",
+    "Spatial mapping of protein composition and tissue organization: a primer for multiplexed antibody-based imaging",
+    "Spatial omics and multiplexed imaging to explore cancer biology",
+    "Exploring tissue architecture using spatial transcriptomics",
+    "Spatial transcriptome profiling by MERFISH reveals subcellular RNA compartmentalization and cell cycle-dependent gene expression",
+    "The promise of spatial transcriptomics for neuroscience in the era of molecular cell typing",
+    "Single-chromosome transcriptional profiling reveals chromosomal gene expression regulation",
+    "Single-cell in situ RNA profiling by sequential hybridization",
+    "Transcriptome-scale super-resolved imaging in tissues by RNA seqFISH",
+    "Spatially resolved, highly multiplexed RNA profiling in single cells",
+    "Diversity and function of motile ciliated cell types within ependymal lineages of the zebrafish brain",
+    "Spatial organization of the somatosensory cortex revealed by osmFISH",
+    "Highly specific multiplexed RNA imaging in tissues with split-FISH",
+    "Hybridization-based in situ sequencing (HybISS) for spatially resolved transcriptomics in human and mouse brain tissue",
+    "A single-cell atlas of the normal and malformed human brain vasculature",
+    "Borm L, Albiach AM, Mannens CC, Janusauskas J, Özgün C, Fernández García D, et al. Scalable in situ single-cell profiling by electrophoretic capture of mRNA. BioRxiv. 2022.",
+    "He S, Bhatt R, Birditt B, Brown C, Brown E, Chantranuvatana K, et al. High-plex multiomic analysis in FFPE tissue at single-cellular and subcellular resolution by spatial molecular imaging. BioRxiv. 2021.",
+    "Spatial transcriptomics using combinatorial fluorescence spectral and lifetime encoding, imaging and analysis",
+    "Bugeon S, Duffield J, Dipoppa M, Prankerd I, Ritoux A, Nicoloutsopoulos D, et al. A transcriptomic axis predicts state modulation of cortical interneurons. BioRxiv. 2021.",
+    "The spatial landscape of lung pathology during COVID-19 progression",
+    "Lebrigand K, Bergenstråhle J, Thrane K, Mollbrink A, Barbry P, Waldmann R, et al. The spatial landscape of gene expression isoforms in tissue sections. BioRxiv. 2020.",
+    "LCM-Seq: a method for spatial transcriptomic profiling using laser capture microdissection coupled with PolyA-based RNA sequencing",
+    "Spatial transcriptomic analysis of cryosectioned tissue samples with Geo-seq",
+    "Spatial reconstruction of immune niches by combining photoactivatable reporters and scRNA-seq",
+    "Geomx™ RNA assay: high multiplex, digital, spatial analysis of RNA in FFPE tissue",
+    "Fluorescent in situ sequencing (FISSEQ) of RNA for gene expression profiling in intact cells and tissues",
+    "Three-dimensional intact-tissue sequencing of single-cell transcriptional states",
+    "Highly sensitive spatial transcriptomics at near-cellular resolution with Slide-seqV2",
+    "High-spatial-resolution multi-omics sequencing via deterministic barcoding in tissue",
+    "Expansion sequencing: spatially precise in situ transcriptomics in intact biological systems",
+    "High-definition spatial transcriptomics for in situ tissue profiling",
+    "Microscopic examination of spatial transcriptome using Seq-Scope",
+    "Fu X, Sun L, Chen J, Dong R, Lin Y, Palmiter R, et al. Continuous polony gels for tissue mapping with high resolution and RNA capture efficiency. BioRxiv. 2021.",
+    "Spatiotemporal transcriptomic atlas of mouse organogenesis using DNA nanoball-patterned arrays",
+    "McKellar DW, Mantri M, Hinchman MM, Parker JSL, Sethupathy P, Cosgrove BD, et al. Spatial mapping of the total transcriptome by in situ polyadenylation. Nat Biotechnol. 2022.",
+    "Simultaneous epitope and transcriptome measurement in single cells",
+    "ZipSeq: barcoding for real-time mapping of single cell transcriptomes",
+    "XYZeq: Spatially resolved single-cell RNA sequencing reveals expression heterogeneity in the tumor microenvironment",
+    "Embryo-scale, single-cell spatial transcriptomics",
+    "SM-Omics is an automated platform for high-throughput spatial multi-omics",
+    "Ben-Chetrit N, Niu X, Swett AD, Sotelo J, Jiao MS, Roelli P, et al. Integrated protein and transcriptome high-throughput spatial profiling. BioRxiv. 2022.",
+    "Liu Y, Distasio M, Su G, Asashima H, Enninful A, Qin X, et al. Spatial-CITE-seq: spatially resolved high-plex protein and whole transcriptome co-mapping. BioRxiv. 2022.",
+    "Deng Y, Bartosovic M, Ma S, Zhang D, Liu Y, Qin X, et al. Spatial-ATAC-seq: spatially resolved chromatin accessibility profiling of tissues at genome scale and cellular level. BioRxiv. 2021.",
+    "Llorens-Bobadilla E, Zamboni M, Marklund M, Bhalla N, Chen X, Hartman J, et al. Chromatin accessibility profiling in tissue sections by spatial ATAC. BioRxiv. 2022.",
+    "Spatial-CUT&Tag: spatially resolved chromatin modification profiling at the cellular level",
+    "Spatial metabolomics of in situ host-microbe interactions at the micrometre scale",
+    "Spatial genomics enables multi-modal study of clonal heterogeneity in tissues",
+    "Lötstedt B, Stražar M, Xavier RJ, Regev A, Vickovic S. Spatial host-microbiome sequencing. BioRxiv. 2022.",
+    "Saarenpää S, Shalev O, Ashkenazy H, de Oliveira-Carlos V, Lundberg DS, Weigel D, et al. Spatially resolved host-bacteria-fungi interactomes via spatial metatranscriptomics. BioRxiv. 2022.",
+    "He S, Bhatt R, Brown C, et al. High-plex imaging of RNA and proteins at subcellular resolution in fixed tissue by spatial molecular imaging. Nat Biotechnol. 2022. 10.1038/s41587-022-01483-z.",
+    "Minerva: a light-weight, narrative image browser for multiplexed tissue images",
+    "System-wide transcriptome damage and tissue identity loss in COVID-19 patients",
+    "Shotgun transcriptome, spatial omics, and isothermal profiling of SARS-CoV-2 infection reveals unique host responses, viral diversification, and drug interactions",
+    "Rashid R, Chen Y-A, Hoffer J, Muhlich JL, Lin J-R, Krueger R, et al. Narrative online guides for the interpretation of digital-pathology images and tissue-atlas data. Nat Biomed Eng. 2021.",
+    "Toward a common coordinate framework for the human body",
+    "Andersson A, Andrusivová Ž, Czarnewski P, Li X, Sundström E, Lundeberg J. A landmark-based common coordinate framework for spatial transcriptomics data. BioRxiv. 2021.",
+    "Content-aware image restoration: pushing the limits of fluorescence microscopy",
+    "Three-dimensional residual channel attention networks denoise and sharpen fluorescence microscopy image volumes",
+    "Krull A, Buchholz T-O, Jug F. Noise2Void - learning denoising from single noisy images. In: 2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). IEEE; 2019. p. 2124–32.",
+    "Ab initio spillover compensation in mass cytometry data",
+    "Adjacent cell marker lateral spillover compensation and reinforcement for multiplexed images",
+    "NIH Image to ImageJ: 25 years of image analysis",
+    "QuPath: open source software for digital pathology image analysis",
+    "Cell Profiler: image analysis software for identifying and quantifying cell phenotypes",
+    "Squidpy: a scalable framework for spatial omics analysis",
+    "TITAN: an end-to-end data analysis environment for the Hyperion™ imaging system",
+    "ilastik: interactive machine learning for (bio)image analysis",
+    "Whole-cell segmentation of tissue images with human-level performance using large-scale data annotation and deep learning",
+    "Cell Detection with Star-Convex Polygons",
+    "Mandal S, Uhlmann V. Splinedist: automated cell segmentation with spline curves. In: 2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI). IEEE; 2021. p. 1082–6.",
+    "Cellpose: a generalist algorithm for cellular segmentation",
+    "Cutler KJ, Stringer C, Wiggins PA, Mougous JD. Omnipose: a high-precision morphology-independent solution for bacterial cell segmentation. BioRxiv. 2021.",
+    "Adjusting batch effects in microarray expression data using empirical Bayes methods",
+    "Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors",
+    "BBKNN: fast batch alignment of single cell transcriptomes",
+    "Fast, sensitive and accurate integration of single-cell data with Harmony",
+    "Relations between two sets of variates",
+    "van der Maaten L, Hinton G. Visualizing data using t-SNE. J Mach Learn Res. 2008.",
+    "McInnes L, Healy J, Melville J. UMAP: uniform manifold approximation and projection for dimension reduction. arXiv. 2018.",
+    "From Louvain to Leiden: guaranteeing well-connected communities",
+    "PARC: ultrafast and accurate clustering of phenotypic data of millions of single cells",
+    "Fast unfolding of communities in large networks",
+    "Brbic M, Cao K, Hickey JW, Tan Y, Snyder M, Nolan GP, et al. Annotation of spatially resolved single-cell data with STELLAR. BioRxiv. 2021.",
+    "Automated assignment of cell identity from single-cell multiplexed imaging and proteomic data",
+    "Statistical and machine learning methods for spatially resolved transcriptomics data analysis",
+    "Identification of spatial expression trends in single-cell gene expression data",
+    "SpatialDE: identification of spatially variable genes",
+    "Statistical analysis of spatial expression patterns for spatially resolved transcriptomic studies",
+    "SpaGCN: Integrating gene expression, spatial location and histology to identify spatial domains and spatially variable genes by graph convolutional network",
+    "Detecting and correcting systematic variation in large-scale RNA sequencing data",
+    "Modeling multiplexed images with Spatial-LDA reveals novel tissue microenvironments",
+    "Kim J, Rustam S, Mosquera JM, Randell SH, Shaykhiev R, Rendeiro AF, et al. Unsupervised discovery of tissue architecture in multiplexed imaging. Nat Methods. 2022.",
+    "Mapping the physical network of cellular interactions",
+    "Fischer DS, Schaar AC, Theis FJ. Learning cell communication from spatial graphs of cells. BioRxiv. 2021.",
+    "Explainable multiview framework for dissecting spatial relationships from highly multiplexed data",
+    "MOFA+: a statistical framework for comprehensive integration of multi-modal single-cell data",
+    "MUON: multimodal omics analysis framework",
+    "MultiMAP: dimensionality reduction and integration of multimodal data",
+    "Single-cell multi-omic integration compares and contrasts features of brain cell identity",
+    "Peng T, Chen G, Tan K. GLUER: integrative analysis of single-cell omics and imaging data by deep neural network. BioRxiv. 2021.",
+    "Joint analysis of heterogeneous single-cell RNA-seq dataset collections",
+    "Iterative single-cell multi-omic integration using online learning",
+    "Cell 2location maps fine-grained cell types in spatial transcriptomics",
+    "Spatial charting of single-cell transcriptomes in tissues",
+    "Integrative spatial analysis of cell morphologies and transcriptional states with MUSE",
+    "Deep learning and alignment of spatially resolved single-cell transcriptomes with Tangram",
+    "Limitations of the human reference genome for personalized genomics",
+    "Hess JM, Ilies I, Schapiro D, Iskra JJ, Abdelmoula WM, Regan MS, et al. MIAAIM: Multi-omics image integration and tissue state mapping using topological data analysis and cobordism learning. BioRxiv. 2021."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "OpenCell: Endogenous tagging for the cartography of human cellular organization",
+      "autores": [
+        {
+          "nombre_completo": "NH Cho",
+          "nombres": "NH",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "KC Cheveralls",
+          "nombres": "KC",
+          "apellidos": "Cheveralls"
+        },
+        {
+          "nombre_completo": "A-D Bunner",
+          "nombres": "A-D",
+          "apellidos": "Bunner"
+        },
+        {
+          "nombre_completo": "K Kim",
+          "nombres": "K",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "AC Michaelis",
+          "nombres": "AC",
+          "apellidos": "Michaelis"
+        },
+        {
+          "nombre_completo": "P Raghavan",
+          "nombres": "P",
+          "apellidos": "Raghavan"
+        }
+      ],
+      "pmid": "35271311",
+      "fuente": "Science.",
+      "anio": "2022",
+      "volumen": "375",
+      "fpage": "eabi6983",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cell Painting, a high-content image-based assay for morphological profiling using multiplexed fluorescent dyes",
+      "autores": [
+        {
+          "nombre_completo": "M-A Bray",
+          "nombres": "M-A",
+          "apellidos": "Bray"
+        },
+        {
+          "nombre_completo": "S Singh",
+          "nombres": "S",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "H Han",
+          "nombres": "H",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "CT Davis",
+          "nombres": "CT",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "B Borgeson",
+          "nombres": "B",
+          "apellidos": "Borgeson"
+        },
+        {
+          "nombre_completo": "C Hartland",
+          "nombres": "C",
+          "apellidos": "Hartland"
+        }
+      ],
+      "pmid": "27560178",
+      "fuente": "Nat Protoc",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "1757",
+      "lpage": "1774"
+    },
+    {
+      "titulo": "Systematic morphological profiling of human gene and allele function via Cell Painting",
+      "autores": [
+        {
+          "nombre_completo": "MH Rohban",
+          "nombres": "MH",
+          "apellidos": "Rohban"
+        },
+        {
+          "nombre_completo": "S Singh",
+          "nombres": "S",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "X Wu",
+          "nombres": "X",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "JB Berthet",
+          "nombres": "JB",
+          "apellidos": "Berthet"
+        },
+        {
+          "nombre_completo": "M-A Bray",
+          "nombres": "M-A",
+          "apellidos": "Bray"
+        },
+        {
+          "nombre_completo": "Y Shrestha",
+          "nombres": "Y",
+          "apellidos": "Shrestha"
+        }
+      ],
+      "pmid": "28315521",
+      "fuente": "eLife.",
+      "anio": "2017",
+      "volumen": "6",
+      "fpage": "e24060",
+      "lpage": ""
+    },
+    {
+      "titulo": "Imaging individual mRNA molecules using multiple singly labeled probes",
+      "autores": [
+        {
+          "nombre_completo": "A Raj",
+          "nombres": "A",
+          "apellidos": "Raj"
+        },
+        {
+          "nombre_completo": "P van den Bogaard",
+          "nombres": "P",
+          "apellidos": "van den Bogaard"
+        },
+        {
+          "nombre_completo": "SA Rifkin",
+          "nombres": "SA",
+          "apellidos": "Rifkin"
+        },
+        {
+          "nombre_completo": "A van Oudenaarden",
+          "nombres": "A",
+          "apellidos": "van Oudenaarden"
+        },
+        {
+          "nombre_completo": "S Tyagi",
+          "nombres": "S",
+          "apellidos": "Tyagi"
+        }
+      ],
+      "pmid": "18806792",
+      "fuente": "Nat Methods",
+      "anio": "2008",
+      "volumen": "5",
+      "fpage": "877",
+      "lpage": "879"
+    },
+    {
+      "titulo": "Single-cell systems biology by super-resolution imaging and combinatorial labeling",
+      "autores": [
+        {
+          "nombre_completo": "E Lubeck",
+          "nombres": "E",
+          "apellidos": "Lubeck"
+        },
+        {
+          "nombre_completo": "L Cai",
+          "nombres": "L",
+          "apellidos": "Cai"
+        }
+      ],
+      "pmid": "22660740",
+      "fuente": "Nat Methods",
+      "anio": "2012",
+      "volumen": "9",
+      "fpage": "743",
+      "lpage": "748"
+    },
+    {
+      "titulo": "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "PL Ståhl",
+          "nombres": "PL",
+          "apellidos": "Ståhl"
+        },
+        {
+          "nombre_completo": "F Salmén",
+          "nombres": "F",
+          "apellidos": "Salmén"
+        },
+        {
+          "nombre_completo": "S Vickovic",
+          "nombres": "S",
+          "apellidos": "Vickovic"
+        },
+        {
+          "nombre_completo": "A Lundmark",
+          "nombres": "A",
+          "apellidos": "Lundmark"
+        },
+        {
+          "nombre_completo": "JF Navarro",
+          "nombres": "JF",
+          "apellidos": "Navarro"
+        },
+        {
+          "nombre_completo": "J Magnusson",
+          "nombres": "J",
+          "apellidos": "Magnusson"
+        }
+      ],
+      "pmid": "27365449",
+      "fuente": "Science",
+      "anio": "2016",
+      "volumen": "353",
+      "fpage": "78",
+      "lpage": "82"
+    },
+    {
+      "titulo": "Spatial components of molecular tissue biology",
+      "autores": [
+        {
+          "nombre_completo": "G Palla",
+          "nombres": "G",
+          "apellidos": "Palla"
+        },
+        {
+          "nombre_completo": "DS Fischer",
+          "nombres": "DS",
+          "apellidos": "Fischer"
+        },
+        {
+          "nombre_completo": "A Regev",
+          "nombres": "A",
+          "apellidos": "Regev"
+        },
+        {
+          "nombre_completo": "FJ Theis",
+          "nombres": "FJ",
+          "apellidos": "Theis"
+        }
+      ],
+      "pmid": "35132261",
+      "fuente": "Nat Biotechnol",
+      "anio": "2022",
+      "volumen": "40",
+      "fpage": "308",
+      "lpage": "318"
+    },
+    {
+      "titulo": "Highly multiplexed single-cell analysis of formalin-fixed, paraffin-embedded cancer tissue",
+      "autores": [
+        {
+          "nombre_completo": "MJ Gerdes",
+          "nombres": "MJ",
+          "apellidos": "Gerdes"
+        },
+        {
+          "nombre_completo": "CJ Sevinsky",
+          "nombres": "CJ",
+          "apellidos": "Sevinsky"
+        },
+        {
+          "nombre_completo": "A Sood",
+          "nombres": "A",
+          "apellidos": "Sood"
+        },
+        {
+          "nombre_completo": "S Adak",
+          "nombres": "S",
+          "apellidos": "Adak"
+        },
+        {
+          "nombre_completo": "MO Bello",
+          "nombres": "MO",
+          "apellidos": "Bello"
+        },
+        {
+          "nombre_completo": "A Bordwell",
+          "nombres": "A",
+          "apellidos": "Bordwell"
+        }
+      ],
+      "pmid": "23818604",
+      "fuente": "Proc Natl Acad Sci USA",
+      "anio": "2013",
+      "volumen": "110",
+      "fpage": "11982",
+      "lpage": "11987"
+    },
+    {
+      "titulo": "IBEX: A versatile multiplex optical imaging approach for deep phenotyping and spatial analysis of cells in complex tissues",
+      "autores": [
+        {
+          "nombre_completo": "AJ Radtke",
+          "nombres": "AJ",
+          "apellidos": "Radtke"
+        },
+        {
+          "nombre_completo": "E Kandov",
+          "nombres": "E",
+          "apellidos": "Kandov"
+        },
+        {
+          "nombre_completo": "B Lowekamp",
+          "nombres": "B",
+          "apellidos": "Lowekamp"
+        },
+        {
+          "nombre_completo": "E Speranza",
+          "nombres": "E",
+          "apellidos": "Speranza"
+        },
+        {
+          "nombre_completo": "CJ Chu",
+          "nombres": "CJ",
+          "apellidos": "Chu"
+        },
+        {
+          "nombre_completo": "A Gola",
+          "nombres": "A",
+          "apellidos": "Gola"
+        }
+      ],
+      "pmid": "33376221",
+      "fuente": "Proc Natl Acad Sci USA",
+      "anio": "2020",
+      "volumen": "117",
+      "fpage": "33455",
+      "lpage": "33465"
+    },
+    {
+      "titulo": "Murine whole-organ immune cell populations revealed by multi-epitope-ligand cartography",
+      "autores": [
+        {
+          "nombre_completo": "J Eckhardt",
+          "nombres": "J",
+          "apellidos": "Eckhardt"
+        },
+        {
+          "nombre_completo": "C Ostalecki",
+          "nombres": "C",
+          "apellidos": "Ostalecki"
+        },
+        {
+          "nombre_completo": "K Kuczera",
+          "nombres": "K",
+          "apellidos": "Kuczera"
+        },
+        {
+          "nombre_completo": "G Schuler",
+          "nombres": "G",
+          "apellidos": "Schuler"
+        },
+        {
+          "nombre_completo": "AJ Pommer",
+          "nombres": "AJ",
+          "apellidos": "Pommer"
+        },
+        {
+          "nombre_completo": "M Lechmann",
+          "nombres": "M",
+          "apellidos": "Lechmann"
+        }
+      ],
+      "pmid": "23160665",
+      "fuente": "J Histochem Cytochem",
+      "anio": "2013",
+      "volumen": "61",
+      "fpage": "125",
+      "lpage": "133"
+    },
+    {
+      "titulo": "Multiplexed protein maps link subcellular organization to cellular states",
+      "autores": [
+        {
+          "nombre_completo": "G Gut",
+          "nombres": "G",
+          "apellidos": "Gut"
+        },
+        {
+          "nombre_completo": "MD Herrmann",
+          "nombres": "MD",
+          "apellidos": "Herrmann"
+        },
+        {
+          "nombre_completo": "L Pelkmans",
+          "nombres": "L",
+          "apellidos": "Pelkmans"
+        }
+      ],
+      "pmid": "30072512",
+      "fuente": "Science.",
+      "anio": "2018",
+      "volumen": "361",
+      "fpage": "eaar7042",
+      "lpage": ""
+    },
+    {
+      "titulo": "Quantitative immune profiling of human tumor tissues with multiplexed ChipCytometry",
+      "autores": [
+        {
+          "nombre_completo": "AJ Northcutt",
+          "nombres": "AJ",
+          "apellidos": "Northcutt"
+        },
+        {
+          "nombre_completo": "A Christians",
+          "nombres": "A",
+          "apellidos": "Christians"
+        },
+        {
+          "nombre_completo": "JT Forys",
+          "nombres": "JT",
+          "apellidos": "Forys"
+        },
+        {
+          "nombre_completo": "TD Campbell",
+          "nombres": "TD",
+          "apellidos": "Campbell"
+        },
+        {
+          "nombre_completo": "CL Winkeler",
+          "nombres": "CL",
+          "apellidos": "Winkeler"
+        }
+      ],
+      "pmid": "31748348",
+      "fuente": "J Immunol.",
+      "anio": "2020",
+      "volumen": "204 1 Supplement",
+      "fpage": "159.10",
+      "lpage": ""
+    },
+    {
+      "titulo": "MACSima imaging cyclic staining (MICS) technology reveals combinatorial target pairs for CAR T cell treatment of solid tumors",
+      "autores": [
+        {
+          "nombre_completo": "A Kinkhabwala",
+          "nombres": "A",
+          "apellidos": "Kinkhabwala"
+        },
+        {
+          "nombre_completo": "C Herbel",
+          "nombres": "C",
+          "apellidos": "Herbel"
+        },
+        {
+          "nombre_completo": "J Pankratz",
+          "nombres": "J",
+          "apellidos": "Pankratz"
+        },
+        {
+          "nombre_completo": "DA Yushchenko",
+          "nombres": "DA",
+          "apellidos": "Yushchenko"
+        },
+        {
+          "nombre_completo": "S Rüberg",
+          "nombres": "S",
+          "apellidos": "Rüberg"
+        },
+        {
+          "nombre_completo": "P Praveen",
+          "nombres": "P",
+          "apellidos": "Praveen"
+        }
+      ],
+      "pmid": "35115587",
+      "fuente": "Sci Rep",
+      "anio": "2022",
+      "volumen": "12",
+      "fpage": "1911",
+      "lpage": ""
+    },
+    {
+      "titulo": "Deep profiling of mouse splenic architecture with CODEX multiplexed imaging",
+      "autores": [
+        {
+          "nombre_completo": "Y Goltsev",
+          "nombres": "Y",
+          "apellidos": "Goltsev"
+        },
+        {
+          "nombre_completo": "N Samusik",
+          "nombres": "N",
+          "apellidos": "Samusik"
+        },
+        {
+          "nombre_completo": "J Kennedy-Darling",
+          "nombres": "J",
+          "apellidos": "Kennedy-Darling"
+        },
+        {
+          "nombre_completo": "S Bhate",
+          "nombres": "S",
+          "apellidos": "Bhate"
+        },
+        {
+          "nombre_completo": "M Hale",
+          "nombres": "M",
+          "apellidos": "Hale"
+        },
+        {
+          "nombre_completo": "G Vazquez",
+          "nombres": "G",
+          "apellidos": "Vazquez"
+        }
+      ],
+      "pmid": "30078711",
+      "fuente": "Cell",
+      "anio": "2018",
+      "volumen": "174",
+      "fpage": "968",
+      "lpage": "981.e15"
+    },
+    {
+      "titulo": "Highly multiplexed imaging of tumor tissues with subcellular resolution by mass cytometry",
+      "autores": [
+        {
+          "nombre_completo": "C Giesen",
+          "nombres": "C",
+          "apellidos": "Giesen"
+        },
+        {
+          "nombre_completo": "HAO Wang",
+          "nombres": "HAO",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "D Schapiro",
+          "nombres": "D",
+          "apellidos": "Schapiro"
+        },
+        {
+          "nombre_completo": "N Zivanovic",
+          "nombres": "N",
+          "apellidos": "Zivanovic"
+        },
+        {
+          "nombre_completo": "A Jacobs",
+          "nombres": "A",
+          "apellidos": "Jacobs"
+        },
+        {
+          "nombre_completo": "B Hattendorf",
+          "nombres": "B",
+          "apellidos": "Hattendorf"
+        }
+      ],
+      "pmid": "24584193",
+      "fuente": "Nat Methods",
+      "anio": "2014",
+      "volumen": "11",
+      "fpage": "417",
+      "lpage": "422"
+    },
+    {
+      "titulo": "Multiplexed ion beam imaging of human breast tumors",
+      "autores": [
+        {
+          "nombre_completo": "M Angelo",
+          "nombres": "M",
+          "apellidos": "Angelo"
+        },
+        {
+          "nombre_completo": "SC Bendall",
+          "nombres": "SC",
+          "apellidos": "Bendall"
+        },
+        {
+          "nombre_completo": "R Finck",
+          "nombres": "R",
+          "apellidos": "Finck"
+        },
+        {
+          "nombre_completo": "MB Hale",
+          "nombres": "MB",
+          "apellidos": "Hale"
+        },
+        {
+          "nombre_completo": "C Hitzman",
+          "nombres": "C",
+          "apellidos": "Hitzman"
+        },
+        {
+          "nombre_completo": "AD Borowsky",
+          "nombres": "AD",
+          "apellidos": "Borowsky"
+        }
+      ],
+      "pmid": "24584119",
+      "fuente": "Nat Med",
+      "anio": "2014",
+      "volumen": "20",
+      "fpage": "436",
+      "lpage": "442"
+    },
+    {
+      "titulo": "Spatial mapping of protein composition and tissue organization: a primer for multiplexed antibody-based imaging",
+      "autores": [
+        {
+          "nombre_completo": "JW Hickey",
+          "nombres": "JW",
+          "apellidos": "Hickey"
+        },
+        {
+          "nombre_completo": "EK Neumann",
+          "nombres": "EK",
+          "apellidos": "Neumann"
+        },
+        {
+          "nombre_completo": "AJ Radtke",
+          "nombres": "AJ",
+          "apellidos": "Radtke"
+        },
+        {
+          "nombre_completo": "JM Camarillo",
+          "nombres": "JM",
+          "apellidos": "Camarillo"
+        },
+        {
+          "nombre_completo": "RT Beuschel",
+          "nombres": "RT",
+          "apellidos": "Beuschel"
+        },
+        {
+          "nombre_completo": "A Albanese",
+          "nombres": "A",
+          "apellidos": "Albanese"
+        }
+      ],
+      "pmid": "34811556",
+      "fuente": "Nat Methods",
+      "anio": "2022",
+      "volumen": "19",
+      "fpage": "284",
+      "lpage": "295"
+    },
+    {
+      "titulo": "Spatial omics and multiplexed imaging to explore cancer biology",
+      "autores": [
+        {
+          "nombre_completo": "SM Lewis",
+          "nombres": "SM",
+          "apellidos": "Lewis"
+        },
+        {
+          "nombre_completo": "M-L Asselin-Labat",
+          "nombres": "M-L",
+          "apellidos": "Asselin-Labat"
+        },
+        {
+          "nombre_completo": "Q Nguyen",
+          "nombres": "Q",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "J Berthelet",
+          "nombres": "J",
+          "apellidos": "Berthelet"
+        },
+        {
+          "nombre_completo": "X Tan",
+          "nombres": "X",
+          "apellidos": "Tan"
+        },
+        {
+          "nombre_completo": "VC Wimmer",
+          "nombres": "VC",
+          "apellidos": "Wimmer"
+        }
+      ],
+      "pmid": "34341583",
+      "fuente": "Nat Methods",
+      "anio": "2021",
+      "volumen": "18",
+      "fpage": "997",
+      "lpage": "1012"
+    },
+    {
+      "titulo": "Exploring tissue architecture using spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "A Rao",
+          "nombres": "A",
+          "apellidos": "Rao"
+        },
+        {
+          "nombre_completo": "D Barkley",
+          "nombres": "D",
+          "apellidos": "Barkley"
+        },
+        {
+          "nombre_completo": "GS França",
+          "nombres": "GS",
+          "apellidos": "França"
+        },
+        {
+          "nombre_completo": "I Yanai",
+          "nombres": "I",
+          "apellidos": "Yanai"
+        }
+      ],
+      "pmid": "34381231",
+      "fuente": "Nature",
+      "anio": "2021",
+      "volumen": "596",
+      "fpage": "211",
+      "lpage": "220"
+    },
+    {
+      "titulo": "Spatial transcriptome profiling by MERFISH reveals subcellular RNA compartmentalization and cell cycle-dependent gene expression",
+      "autores": [
+        {
+          "nombre_completo": "C Xia",
+          "nombres": "C",
+          "apellidos": "Xia"
+        },
+        {
+          "nombre_completo": "J Fan",
+          "nombres": "J",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "G Emanuel",
+          "nombres": "G",
+          "apellidos": "Emanuel"
+        },
+        {
+          "nombre_completo": "J Hao",
+          "nombres": "J",
+          "apellidos": "Hao"
+        },
+        {
+          "nombre_completo": "X Zhuang",
+          "nombres": "X",
+          "apellidos": "Zhuang"
+        }
+      ],
+      "pmid": "31501331",
+      "fuente": "Proc Natl Acad Sci USA",
+      "anio": "2019",
+      "volumen": "116",
+      "fpage": "19490",
+      "lpage": "19499"
+    },
+    {
+      "titulo": "The promise of spatial transcriptomics for neuroscience in the era of molecular cell typing",
+      "autores": [
+        {
+          "nombre_completo": "E Lein",
+          "nombres": "E",
+          "apellidos": "Lein"
+        },
+        {
+          "nombre_completo": "LE Borm",
+          "nombres": "LE",
+          "apellidos": "Borm"
+        },
+        {
+          "nombre_completo": "S Linnarsson",
+          "nombres": "S",
+          "apellidos": "Linnarsson"
+        }
+      ],
+      "pmid": "28983044",
+      "fuente": "Science",
+      "anio": "2017",
+      "volumen": "358",
+      "fpage": "64",
+      "lpage": "69"
+    },
+    {
+      "titulo": "Single-chromosome transcriptional profiling reveals chromosomal gene expression regulation",
+      "autores": [
+        {
+          "nombre_completo": "MJ Levesque",
+          "nombres": "MJ",
+          "apellidos": "Levesque"
+        },
+        {
+          "nombre_completo": "A Raj",
+          "nombres": "A",
+          "apellidos": "Raj"
+        }
+      ],
+      "pmid": "23416756",
+      "fuente": "Nat Methods",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "246",
+      "lpage": "248"
+    },
+    {
+      "titulo": "Single-cell in situ RNA profiling by sequential hybridization",
+      "autores": [
+        {
+          "nombre_completo": "E Lubeck",
+          "nombres": "E",
+          "apellidos": "Lubeck"
+        },
+        {
+          "nombre_completo": "AF Coskun",
+          "nombres": "AF",
+          "apellidos": "Coskun"
+        },
+        {
+          "nombre_completo": "T Zhiyentayev",
+          "nombres": "T",
+          "apellidos": "Zhiyentayev"
+        },
+        {
+          "nombre_completo": "M Ahmad",
+          "nombres": "M",
+          "apellidos": "Ahmad"
+        },
+        {
+          "nombre_completo": "L Cai",
+          "nombres": "L",
+          "apellidos": "Cai"
+        }
+      ],
+      "pmid": "24681720",
+      "fuente": "Nat Methods",
+      "anio": "2014",
+      "volumen": "11",
+      "fpage": "360",
+      "lpage": "361"
+    },
+    {
+      "titulo": "Transcriptome-scale super-resolved imaging in tissues by RNA seqFISH",
+      "autores": [
+        {
+          "nombre_completo": "C-HL Eng",
+          "nombres": "C-HL",
+          "apellidos": "Eng"
+        },
+        {
+          "nombre_completo": "M Lawson",
+          "nombres": "M",
+          "apellidos": "Lawson"
+        },
+        {
+          "nombre_completo": "Q Zhu",
+          "nombres": "Q",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "R Dries",
+          "nombres": "R",
+          "apellidos": "Dries"
+        },
+        {
+          "nombre_completo": "N Koulena",
+          "nombres": "N",
+          "apellidos": "Koulena"
+        },
+        {
+          "nombre_completo": "Y Takei",
+          "nombres": "Y",
+          "apellidos": "Takei"
+        }
+      ],
+      "pmid": "30911168",
+      "fuente": "Nature.",
+      "anio": "2019",
+      "volumen": "568",
+      "fpage": "235",
+      "lpage": "9"
+    },
+    {
+      "titulo": "Spatially resolved, highly multiplexed RNA profiling in single cells",
+      "autores": [
+        {
+          "nombre_completo": "KH Chen",
+          "nombres": "KH",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "AN Boettiger",
+          "nombres": "AN",
+          "apellidos": "Boettiger"
+        },
+        {
+          "nombre_completo": "JR Moffitt",
+          "nombres": "JR",
+          "apellidos": "Moffitt"
+        },
+        {
+          "nombre_completo": "S Wang",
+          "nombres": "S",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "X Zhuang",
+          "nombres": "X",
+          "apellidos": "Zhuang"
+        }
+      ],
+      "pmid": "25858977",
+      "fuente": "Science.",
+      "anio": "2015",
+      "volumen": "348",
+      "fpage": "aaa6090",
+      "lpage": ""
+    },
+    {
+      "titulo": "Diversity and function of motile ciliated cell types within ependymal lineages of the zebrafish brain",
+      "autores": [
+        {
+          "nombre_completo": "PP D’Gama",
+          "nombres": "PP",
+          "apellidos": "D’Gama"
+        },
+        {
+          "nombre_completo": "T Qiu",
+          "nombres": "T",
+          "apellidos": "Qiu"
+        },
+        {
+          "nombre_completo": "MI Cosacak",
+          "nombres": "MI",
+          "apellidos": "Cosacak"
+        },
+        {
+          "nombre_completo": "D Rayamajhi",
+          "nombres": "D",
+          "apellidos": "Rayamajhi"
+        },
+        {
+          "nombre_completo": "A Konac",
+          "nombres": "A",
+          "apellidos": "Konac"
+        },
+        {
+          "nombre_completo": "JN Hansen",
+          "nombres": "JN",
+          "apellidos": "Hansen"
+        }
+      ],
+      "pmid": "34610312",
+      "fuente": "Cell Rep",
+      "anio": "2021",
+      "volumen": "37",
+      "fpage": "109775",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spatial organization of the somatosensory cortex revealed by osmFISH",
+      "autores": [
+        {
+          "nombre_completo": "S Codeluppi",
+          "nombres": "S",
+          "apellidos": "Codeluppi"
+        },
+        {
+          "nombre_completo": "LE Borm",
+          "nombres": "LE",
+          "apellidos": "Borm"
+        },
+        {
+          "nombre_completo": "A Zeisel",
+          "nombres": "A",
+          "apellidos": "Zeisel"
+        },
+        {
+          "nombre_completo": "G La Manno",
+          "nombres": "G",
+          "apellidos": "La Manno"
+        },
+        {
+          "nombre_completo": "JA van Lunteren",
+          "nombres": "JA",
+          "apellidos": "van Lunteren"
+        },
+        {
+          "nombre_completo": "CI Svensson",
+          "nombres": "CI",
+          "apellidos": "Svensson"
+        }
+      ],
+      "pmid": "30377364",
+      "fuente": "Nat Methods",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "932",
+      "lpage": "935"
+    },
+    {
+      "titulo": "Highly specific multiplexed RNA imaging in tissues with split-FISH",
+      "autores": [
+        {
+          "nombre_completo": "JJL Goh",
+          "nombres": "JJL",
+          "apellidos": "Goh"
+        },
+        {
+          "nombre_completo": "N Chou",
+          "nombres": "N",
+          "apellidos": "Chou"
+        },
+        {
+          "nombre_completo": "WY Seow",
+          "nombres": "WY",
+          "apellidos": "Seow"
+        },
+        {
+          "nombre_completo": "N Ha",
+          "nombres": "N",
+          "apellidos": "Ha"
+        },
+        {
+          "nombre_completo": "CPP Cheng",
+          "nombres": "CPP",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "Y-C Chang",
+          "nombres": "Y-C",
+          "apellidos": "Chang"
+        }
+      ],
+      "pmid": "32541852",
+      "fuente": "Nat Methods",
+      "anio": "2020",
+      "volumen": "17",
+      "fpage": "689",
+      "lpage": "693"
+    },
+    {
+      "titulo": "Hybridization-based in situ sequencing (HybISS) for spatially resolved transcriptomics in human and mouse brain tissue",
+      "autores": [
+        {
+          "nombre_completo": "D Gyllborg",
+          "nombres": "D",
+          "apellidos": "Gyllborg"
+        },
+        {
+          "nombre_completo": "CM Langseth",
+          "nombres": "CM",
+          "apellidos": "Langseth"
+        },
+        {
+          "nombre_completo": "X Qian",
+          "nombres": "X",
+          "apellidos": "Qian"
+        },
+        {
+          "nombre_completo": "E Choi",
+          "nombres": "E",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "SM Salas",
+          "nombres": "SM",
+          "apellidos": "Salas"
+        },
+        {
+          "nombre_completo": "MM Hilscher",
+          "nombres": "MM",
+          "apellidos": "Hilscher"
+        }
+      ],
+      "pmid": "32990747",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "e112",
+      "lpage": ""
+    },
+    {
+      "titulo": "A single-cell atlas of the normal and malformed human brain vasculature",
+      "autores": [
+        {
+          "nombre_completo": "EA Winkler",
+          "nombres": "EA",
+          "apellidos": "Winkler"
+        },
+        {
+          "nombre_completo": "CN Kim",
+          "nombres": "CN",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "JM Ross",
+          "nombres": "JM",
+          "apellidos": "Ross"
+        },
+        {
+          "nombre_completo": "JH Garcia",
+          "nombres": "JH",
+          "apellidos": "Garcia"
+        },
+        {
+          "nombre_completo": "E Gil",
+          "nombres": "E",
+          "apellidos": "Gil"
+        },
+        {
+          "nombre_completo": "I Oh",
+          "nombres": "I",
+          "apellidos": "Oh"
+        }
+      ],
+      "pmid": "35084939",
+      "fuente": "Science.",
+      "anio": "2022",
+      "volumen": "375",
+      "fpage": "eabi7377",
+      "lpage": ""
+    },
+    {
+      "titulo": "Borm L, Albiach AM, Mannens CC, Janusauskas J, Özgün C, Fernández García D, et al. Scalable in situ single-cell profiling by electrophoretic capture of mRNA. BioRxiv. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "He S, Bhatt R, Birditt B, Brown C, Brown E, Chantranuvatana K, et al. High-plex multiomic analysis in FFPE tissue at single-cellular and subcellular resolution by spatial molecular imaging. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spatial transcriptomics using combinatorial fluorescence spectral and lifetime encoding, imaging and analysis",
+      "autores": [
+        {
+          "nombre_completo": "T Vu",
+          "nombres": "T",
+          "apellidos": "Vu"
+        },
+        {
+          "nombre_completo": "A Vallmitjana",
+          "nombres": "A",
+          "apellidos": "Vallmitjana"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "K La",
+          "nombres": "K",
+          "apellidos": "La"
+        },
+        {
+          "nombre_completo": "Q Xu",
+          "nombres": "Q",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "J Flores",
+          "nombres": "J",
+          "apellidos": "Flores"
+        }
+      ],
+      "pmid": "35013281",
+      "fuente": "Nat Commun",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "169",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bugeon S, Duffield J, Dipoppa M, Prankerd I, Ritoux A, Nicoloutsopoulos D, et al. A transcriptomic axis predicts state modulation of cortical interneurons. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The spatial landscape of lung pathology during COVID-19 progression",
+      "autores": [
+        {
+          "nombre_completo": "AF Rendeiro",
+          "nombres": "AF",
+          "apellidos": "Rendeiro"
+        },
+        {
+          "nombre_completo": "H Ravichandran",
+          "nombres": "H",
+          "apellidos": "Ravichandran"
+        },
+        {
+          "nombre_completo": "Y Bram",
+          "nombres": "Y",
+          "apellidos": "Bram"
+        },
+        {
+          "nombre_completo": "V Chandar",
+          "nombres": "V",
+          "apellidos": "Chandar"
+        },
+        {
+          "nombre_completo": "J Kim",
+          "nombres": "J",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        }
+      ],
+      "pmid": "33780969",
+      "fuente": "Nature",
+      "anio": "2021",
+      "volumen": "593",
+      "fpage": "564",
+      "lpage": "569"
+    },
+    {
+      "titulo": "Lebrigand K, Bergenstråhle J, Thrane K, Mollbrink A, Barbry P, Waldmann R, et al. The spatial landscape of gene expression isoforms in tissue sections. BioRxiv. 2020.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "LCM-Seq: a method for spatial transcriptomic profiling using laser capture microdissection coupled with PolyA-based RNA sequencing",
+      "autores": [
+        {
+          "nombre_completo": "S Nichterwitz",
+          "nombres": "S",
+          "apellidos": "Nichterwitz"
+        },
+        {
+          "nombre_completo": "JA Benitez",
+          "nombres": "JA",
+          "apellidos": "Benitez"
+        },
+        {
+          "nombre_completo": "R Hoogstraaten",
+          "nombres": "R",
+          "apellidos": "Hoogstraaten"
+        },
+        {
+          "nombre_completo": "Q Deng",
+          "nombres": "Q",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "E Hedlund",
+          "nombres": "E",
+          "apellidos": "Hedlund"
+        }
+      ],
+      "pmid": "29130192",
+      "fuente": "Methods Mol Biol",
+      "anio": "2018",
+      "volumen": "1649",
+      "fpage": "95",
+      "lpage": "110"
+    },
+    {
+      "titulo": "Spatial transcriptomic analysis of cryosectioned tissue samples with Geo-seq",
+      "autores": [
+        {
+          "nombre_completo": "J Chen",
+          "nombres": "J",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "S Suo",
+          "nombres": "S",
+          "apellidos": "Suo"
+        },
+        {
+          "nombre_completo": "PP Tam",
+          "nombres": "PP",
+          "apellidos": "Tam"
+        },
+        {
+          "nombre_completo": "J-DJ Han",
+          "nombres": "J-DJ",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "G Peng",
+          "nombres": "G",
+          "apellidos": "Peng"
+        },
+        {
+          "nombre_completo": "N Jing",
+          "nombres": "N",
+          "apellidos": "Jing"
+        }
+      ],
+      "pmid": "28207000",
+      "fuente": "Nat Protoc.",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "566",
+      "lpage": "80"
+    },
+    {
+      "titulo": "Spatial reconstruction of immune niches by combining photoactivatable reporters and scRNA-seq",
+      "autores": [
+        {
+          "nombre_completo": "C Medaglia",
+          "nombres": "C",
+          "apellidos": "Medaglia"
+        },
+        {
+          "nombre_completo": "A Giladi",
+          "nombres": "A",
+          "apellidos": "Giladi"
+        },
+        {
+          "nombre_completo": "L Stoler-Barak",
+          "nombres": "L",
+          "apellidos": "Stoler-Barak"
+        },
+        {
+          "nombre_completo": "M De Giovanni",
+          "nombres": "M",
+          "apellidos": "De Giovanni"
+        },
+        {
+          "nombre_completo": "TM Salame",
+          "nombres": "TM",
+          "apellidos": "Salame"
+        },
+        {
+          "nombre_completo": "A Biram",
+          "nombres": "A",
+          "apellidos": "Biram"
+        }
+      ],
+      "pmid": "29217582",
+      "fuente": "Science",
+      "anio": "2017",
+      "volumen": "358",
+      "fpage": "1622",
+      "lpage": "1626"
+    },
+    {
+      "titulo": "Geomx™ RNA assay: high multiplex, digital, spatial analysis of RNA in FFPE tissue",
+      "autores": [
+        {
+          "nombre_completo": "DR Zollinger",
+          "nombres": "DR",
+          "apellidos": "Zollinger"
+        },
+        {
+          "nombre_completo": "SE Lingle",
+          "nombres": "SE",
+          "apellidos": "Lingle"
+        },
+        {
+          "nombre_completo": "K Sorg",
+          "nombres": "K",
+          "apellidos": "Sorg"
+        },
+        {
+          "nombre_completo": "JM Beechem",
+          "nombres": "JM",
+          "apellidos": "Beechem"
+        },
+        {
+          "nombre_completo": "CR Merritt",
+          "nombres": "CR",
+          "apellidos": "Merritt"
+        }
+      ],
+      "pmid": "32394392",
+      "fuente": "Methods Mol Biol",
+      "anio": "2020",
+      "volumen": "2148",
+      "fpage": "331",
+      "lpage": "345"
+    },
+    {
+      "titulo": "Fluorescent in situ sequencing (FISSEQ) of RNA for gene expression profiling in intact cells and tissues",
+      "autores": [
+        {
+          "nombre_completo": "JH Lee",
+          "nombres": "JH",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "ER Daugharthy",
+          "nombres": "ER",
+          "apellidos": "Daugharthy"
+        },
+        {
+          "nombre_completo": "J Scheiman",
+          "nombres": "J",
+          "apellidos": "Scheiman"
+        },
+        {
+          "nombre_completo": "R Kalhor",
+          "nombres": "R",
+          "apellidos": "Kalhor"
+        },
+        {
+          "nombre_completo": "TC Ferrante",
+          "nombres": "TC",
+          "apellidos": "Ferrante"
+        },
+        {
+          "nombre_completo": "R Terry",
+          "nombres": "R",
+          "apellidos": "Terry"
+        }
+      ],
+      "pmid": "25675209",
+      "fuente": "Nat Protoc",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "442",
+      "lpage": "458"
+    },
+    {
+      "titulo": "Three-dimensional intact-tissue sequencing of single-cell transcriptional states",
+      "autores": [
+        {
+          "nombre_completo": "X Wang",
+          "nombres": "X",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "WE Allen",
+          "nombres": "WE",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "MA Wright",
+          "nombres": "MA",
+          "apellidos": "Wright"
+        },
+        {
+          "nombre_completo": "EL Sylwestrak",
+          "nombres": "EL",
+          "apellidos": "Sylwestrak"
+        },
+        {
+          "nombre_completo": "N Samusik",
+          "nombres": "N",
+          "apellidos": "Samusik"
+        },
+        {
+          "nombre_completo": "S Vesuna",
+          "nombres": "S",
+          "apellidos": "Vesuna"
+        }
+      ],
+      "pmid": "29930089",
+      "fuente": "Science.",
+      "anio": "2018",
+      "volumen": "361",
+      "fpage": "eaat5691",
+      "lpage": ""
+    },
+    {
+      "titulo": "Highly sensitive spatial transcriptomics at near-cellular resolution with Slide-seqV2",
+      "autores": [
+        {
+          "nombre_completo": "RR Stickels",
+          "nombres": "RR",
+          "apellidos": "Stickels"
+        },
+        {
+          "nombre_completo": "E Murray",
+          "nombres": "E",
+          "apellidos": "Murray"
+        },
+        {
+          "nombre_completo": "P Kumar",
+          "nombres": "P",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "JL Marshall",
+          "nombres": "JL",
+          "apellidos": "Marshall"
+        },
+        {
+          "nombre_completo": "DJ Di Bella",
+          "nombres": "DJ",
+          "apellidos": "Di Bella"
+        }
+      ],
+      "pmid": "33288904",
+      "fuente": "Nat Biotechnol",
+      "anio": "2021",
+      "volumen": "39",
+      "fpage": "313",
+      "lpage": "319"
+    },
+    {
+      "titulo": "High-spatial-resolution multi-omics sequencing via deterministic barcoding in tissue",
+      "autores": [
+        {
+          "nombre_completo": "Y Liu",
+          "nombres": "Y",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "M Yang",
+          "nombres": "M",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "G Su",
+          "nombres": "G",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "A Enninful",
+          "nombres": "A",
+          "apellidos": "Enninful"
+        },
+        {
+          "nombre_completo": "CC Guo",
+          "nombres": "CC",
+          "apellidos": "Guo"
+        }
+      ],
+      "pmid": "33188776",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1665",
+      "lpage": "1681.e18"
+    },
+    {
+      "titulo": "Expansion sequencing: spatially precise in situ transcriptomics in intact biological systems",
+      "autores": [
+        {
+          "nombre_completo": "S Alon",
+          "nombres": "S",
+          "apellidos": "Alon"
+        },
+        {
+          "nombre_completo": "DR Goodwin",
+          "nombres": "DR",
+          "apellidos": "Goodwin"
+        },
+        {
+          "nombre_completo": "A Sinha",
+          "nombres": "A",
+          "apellidos": "Sinha"
+        },
+        {
+          "nombre_completo": "AT Wassie",
+          "nombres": "AT",
+          "apellidos": "Wassie"
+        },
+        {
+          "nombre_completo": "F Chen",
+          "nombres": "F",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "ER Daugharthy",
+          "nombres": "ER",
+          "apellidos": "Daugharthy"
+        }
+      ],
+      "pmid": "33509999",
+      "fuente": "Science.",
+      "anio": "2021",
+      "volumen": "371",
+      "fpage": "eaax2656",
+      "lpage": ""
+    },
+    {
+      "titulo": "High-definition spatial transcriptomics for in situ tissue profiling",
+      "autores": [
+        {
+          "nombre_completo": "S Vickovic",
+          "nombres": "S",
+          "apellidos": "Vickovic"
+        },
+        {
+          "nombre_completo": "G Eraslan",
+          "nombres": "G",
+          "apellidos": "Eraslan"
+        },
+        {
+          "nombre_completo": "F Salmén",
+          "nombres": "F",
+          "apellidos": "Salmén"
+        },
+        {
+          "nombre_completo": "J Klughammer",
+          "nombres": "J",
+          "apellidos": "Klughammer"
+        },
+        {
+          "nombre_completo": "L Stenbeck",
+          "nombres": "L",
+          "apellidos": "Stenbeck"
+        },
+        {
+          "nombre_completo": "D Schapiro",
+          "nombres": "D",
+          "apellidos": "Schapiro"
+        }
+      ],
+      "pmid": "31501547",
+      "fuente": "Nat Methods",
+      "anio": "2019",
+      "volumen": "16",
+      "fpage": "987",
+      "lpage": "990"
+    },
+    {
+      "titulo": "Microscopic examination of spatial transcriptome using Seq-Scope",
+      "autores": [
+        {
+          "nombre_completo": "C-S Cho",
+          "nombres": "C-S",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "J Xi",
+          "nombres": "J",
+          "apellidos": "Xi"
+        },
+        {
+          "nombre_completo": "Y Si",
+          "nombres": "Y",
+          "apellidos": "Si"
+        },
+        {
+          "nombre_completo": "S-R Park",
+          "nombres": "S-R",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "J-E Hsu",
+          "nombres": "J-E",
+          "apellidos": "Hsu"
+        },
+        {
+          "nombre_completo": "M Kim",
+          "nombres": "M",
+          "apellidos": "Kim"
+        }
+      ],
+      "pmid": "34115981",
+      "fuente": "Cell",
+      "anio": "2021",
+      "volumen": "184",
+      "fpage": "3559",
+      "lpage": "3572.e22"
+    },
+    {
+      "titulo": "Fu X, Sun L, Chen J, Dong R, Lin Y, Palmiter R, et al. Continuous polony gels for tissue mapping with high resolution and RNA capture efficiency. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spatiotemporal transcriptomic atlas of mouse organogenesis using DNA nanoball-patterned arrays",
+      "autores": [
+        {
+          "nombre_completo": "A Chen",
+          "nombres": "A",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "S Liao",
+          "nombres": "S",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "M Cheng",
+          "nombres": "M",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "K Ma",
+          "nombres": "K",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "L Wu",
+          "nombres": "L",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "Y Lai",
+          "nombres": "Y",
+          "apellidos": "Lai"
+        }
+      ],
+      "pmid": "35512705",
+      "fuente": "Cell",
+      "anio": "2022",
+      "volumen": "185",
+      "fpage": "1777",
+      "lpage": "1792.e21"
+    },
+    {
+      "titulo": "McKellar DW, Mantri M, Hinchman MM, Parker JSL, Sethupathy P, Cosgrove BD, et al. Spatial mapping of the total transcriptome by in situ polyadenylation. Nat Biotechnol. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simultaneous epitope and transcriptome measurement in single cells",
+      "autores": [
+        {
+          "nombre_completo": "M Stoeckius",
+          "nombres": "M",
+          "apellidos": "Stoeckius"
+        },
+        {
+          "nombre_completo": "C Hafemeister",
+          "nombres": "C",
+          "apellidos": "Hafemeister"
+        },
+        {
+          "nombre_completo": "W Stephenson",
+          "nombres": "W",
+          "apellidos": "Stephenson"
+        },
+        {
+          "nombre_completo": "B Houck-Loomis",
+          "nombres": "B",
+          "apellidos": "Houck-Loomis"
+        },
+        {
+          "nombre_completo": "PK Chattopadhyay",
+          "nombres": "PK",
+          "apellidos": "Chattopadhyay"
+        },
+        {
+          "nombre_completo": "H Swerdlow",
+          "nombres": "H",
+          "apellidos": "Swerdlow"
+        }
+      ],
+      "pmid": "28759029",
+      "fuente": "Nat Methods",
+      "anio": "2017",
+      "volumen": "14",
+      "fpage": "865",
+      "lpage": "868"
+    },
+    {
+      "titulo": "ZipSeq: barcoding for real-time mapping of single cell transcriptomes",
+      "autores": [
+        {
+          "nombre_completo": "KH Hu",
+          "nombres": "KH",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "JP Eichorst",
+          "nombres": "JP",
+          "apellidos": "Eichorst"
+        },
+        {
+          "nombre_completo": "CS McGinnis",
+          "nombres": "CS",
+          "apellidos": "McGinnis"
+        },
+        {
+          "nombre_completo": "DM Patterson",
+          "nombres": "DM",
+          "apellidos": "Patterson"
+        },
+        {
+          "nombre_completo": "ED Chow",
+          "nombres": "ED",
+          "apellidos": "Chow"
+        },
+        {
+          "nombre_completo": "K Kersten",
+          "nombres": "K",
+          "apellidos": "Kersten"
+        }
+      ],
+      "pmid": "32632238",
+      "fuente": "Nat Methods",
+      "anio": "2020",
+      "volumen": "17",
+      "fpage": "833",
+      "lpage": "843"
+    },
+    {
+      "titulo": "XYZeq: Spatially resolved single-cell RNA sequencing reveals expression heterogeneity in the tumor microenvironment",
+      "autores": [
+        {
+          "nombre_completo": "Y Lee",
+          "nombres": "Y",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "D Bogdanoff",
+          "nombres": "D",
+          "apellidos": "Bogdanoff"
+        },
+        {
+          "nombre_completo": "Y Wang",
+          "nombres": "Y",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "GC Hartoularos",
+          "nombres": "GC",
+          "apellidos": "Hartoularos"
+        },
+        {
+          "nombre_completo": "JM Woo",
+          "nombres": "JM",
+          "apellidos": "Woo"
+        },
+        {
+          "nombre_completo": "CT Mowery",
+          "nombres": "CT",
+          "apellidos": "Mowery"
+        }
+      ],
+      "pmid": "33883145",
+      "fuente": "Sci Adv.",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "eabg4755",
+      "lpage": ""
+    },
+    {
+      "titulo": "Embryo-scale, single-cell spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "SR Srivatsan",
+          "nombres": "SR",
+          "apellidos": "Srivatsan"
+        },
+        {
+          "nombre_completo": "MC Regier",
+          "nombres": "MC",
+          "apellidos": "Regier"
+        },
+        {
+          "nombre_completo": "E Barkan",
+          "nombres": "E",
+          "apellidos": "Barkan"
+        },
+        {
+          "nombre_completo": "JM Franks",
+          "nombres": "JM",
+          "apellidos": "Franks"
+        },
+        {
+          "nombre_completo": "JS Packer",
+          "nombres": "JS",
+          "apellidos": "Packer"
+        },
+        {
+          "nombre_completo": "P Grosjean",
+          "nombres": "P",
+          "apellidos": "Grosjean"
+        }
+      ],
+      "pmid": "34210887",
+      "fuente": "Science",
+      "anio": "2021",
+      "volumen": "373",
+      "fpage": "111",
+      "lpage": "117"
+    },
+    {
+      "titulo": "SM-Omics is an automated platform for high-throughput spatial multi-omics",
+      "autores": [
+        {
+          "nombre_completo": "S Vickovic",
+          "nombres": "S",
+          "apellidos": "Vickovic"
+        },
+        {
+          "nombre_completo": "B Lötstedt",
+          "nombres": "B",
+          "apellidos": "Lötstedt"
+        },
+        {
+          "nombre_completo": "J Klughammer",
+          "nombres": "J",
+          "apellidos": "Klughammer"
+        },
+        {
+          "nombre_completo": "S Mages",
+          "nombres": "S",
+          "apellidos": "Mages"
+        },
+        {
+          "nombre_completo": "Å Segerstolpe",
+          "nombres": "Å",
+          "apellidos": "Segerstolpe"
+        },
+        {
+          "nombre_completo": "O Rozenblatt-Rosen",
+          "nombres": "O",
+          "apellidos": "Rozenblatt-Rosen"
+        }
+      ],
+      "pmid": "35145087",
+      "fuente": "Nat Commun",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "795",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ben-Chetrit N, Niu X, Swett AD, Sotelo J, Jiao MS, Roelli P, et al. Integrated protein and transcriptome high-throughput spatial profiling. BioRxiv. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Liu Y, Distasio M, Su G, Asashima H, Enninful A, Qin X, et al. Spatial-CITE-seq: spatially resolved high-plex protein and whole transcriptome co-mapping. BioRxiv. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Deng Y, Bartosovic M, Ma S, Zhang D, Liu Y, Qin X, et al. Spatial-ATAC-seq: spatially resolved chromatin accessibility profiling of tissues at genome scale and cellular level. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Llorens-Bobadilla E, Zamboni M, Marklund M, Bhalla N, Chen X, Hartman J, et al. Chromatin accessibility profiling in tissue sections by spatial ATAC. BioRxiv. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spatial-CUT&Tag: spatially resolved chromatin modification profiling at the cellular level",
+      "autores": [
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "M Bartosovic",
+          "nombres": "M",
+          "apellidos": "Bartosovic"
+        },
+        {
+          "nombre_completo": "P Kukanja",
+          "nombres": "P",
+          "apellidos": "Kukanja"
+        },
+        {
+          "nombre_completo": "D Zhang",
+          "nombres": "D",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y Liu",
+          "nombres": "Y",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "G Su",
+          "nombres": "G",
+          "apellidos": "Su"
+        }
+      ],
+      "pmid": "35143307",
+      "fuente": "Science",
+      "anio": "2022",
+      "volumen": "375",
+      "fpage": "681",
+      "lpage": "686"
+    },
+    {
+      "titulo": "Spatial metabolomics of in situ host-microbe interactions at the micrometre scale",
+      "autores": [
+        {
+          "nombre_completo": "B Geier",
+          "nombres": "B",
+          "apellidos": "Geier"
+        },
+        {
+          "nombre_completo": "EM Sogin",
+          "nombres": "EM",
+          "apellidos": "Sogin"
+        },
+        {
+          "nombre_completo": "D Michellod",
+          "nombres": "D",
+          "apellidos": "Michellod"
+        },
+        {
+          "nombre_completo": "M Janda",
+          "nombres": "M",
+          "apellidos": "Janda"
+        },
+        {
+          "nombre_completo": "M Kompauer",
+          "nombres": "M",
+          "apellidos": "Kompauer"
+        },
+        {
+          "nombre_completo": "B Spengler",
+          "nombres": "B",
+          "apellidos": "Spengler"
+        }
+      ],
+      "pmid": "32015496",
+      "fuente": "Nat Microbiol",
+      "anio": "2020",
+      "volumen": "5",
+      "fpage": "498",
+      "lpage": "510"
+    },
+    {
+      "titulo": "Spatial genomics enables multi-modal study of clonal heterogeneity in tissues",
+      "autores": [
+        {
+          "nombre_completo": "T Zhao",
+          "nombres": "T",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "ZD Chiang",
+          "nombres": "ZD",
+          "apellidos": "Chiang"
+        },
+        {
+          "nombre_completo": "JW Morriss",
+          "nombres": "JW",
+          "apellidos": "Morriss"
+        },
+        {
+          "nombre_completo": "LM LaFave",
+          "nombres": "LM",
+          "apellidos": "LaFave"
+        },
+        {
+          "nombre_completo": "EM Murray",
+          "nombres": "EM",
+          "apellidos": "Murray"
+        },
+        {
+          "nombre_completo": "I Del Priore",
+          "nombres": "I",
+          "apellidos": "Del Priore"
+        }
+      ],
+      "pmid": "34912115",
+      "fuente": "Nature",
+      "anio": "2022",
+      "volumen": "601",
+      "fpage": "85",
+      "lpage": "91"
+    },
+    {
+      "titulo": "Lötstedt B, Stražar M, Xavier RJ, Regev A, Vickovic S. Spatial host-microbiome sequencing. BioRxiv. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Saarenpää S, Shalev O, Ashkenazy H, de Oliveira-Carlos V, Lundberg DS, Weigel D, et al. Spatially resolved host-bacteria-fungi interactomes via spatial metatranscriptomics. BioRxiv. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "He S, Bhatt R, Brown C, et al. High-plex imaging of RNA and proteins at subcellular resolution in fixed tissue by spatial molecular imaging. Nat Biotechnol. 2022. 10.1038/s41587-022-01483-z.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Minerva: a light-weight, narrative image browser for multiplexed tissue images",
+      "autores": [
+        {
+          "nombre_completo": "J Hoffer",
+          "nombres": "J",
+          "apellidos": "Hoffer"
+        },
+        {
+          "nombre_completo": "R Rashid",
+          "nombres": "R",
+          "apellidos": "Rashid"
+        },
+        {
+          "nombre_completo": "JL Muhlich",
+          "nombres": "JL",
+          "apellidos": "Muhlich"
+        },
+        {
+          "nombre_completo": "Y-A Chen",
+          "nombres": "Y-A",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "DPW Russell",
+          "nombres": "DPW",
+          "apellidos": "Russell"
+        },
+        {
+          "nombre_completo": "J Ruokonen",
+          "nombres": "J",
+          "apellidos": "Ruokonen"
+        }
+      ],
+      "pmid": "33768192",
+      "fuente": "J Open Source Softw.",
+      "anio": "2020",
+      "volumen": "5",
+      "fpage": "2579",
+      "lpage": ""
+    },
+    {
+      "titulo": "System-wide transcriptome damage and tissue identity loss in COVID-19 patients",
+      "autores": [
+        {
+          "nombre_completo": "J Park",
+          "nombres": "J",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "J Foox",
+          "nombres": "J",
+          "apellidos": "Foox"
+        },
+        {
+          "nombre_completo": "T Hether",
+          "nombres": "T",
+          "apellidos": "Hether"
+        },
+        {
+          "nombre_completo": "DC Danko",
+          "nombres": "DC",
+          "apellidos": "Danko"
+        },
+        {
+          "nombre_completo": "S Warren",
+          "nombres": "S",
+          "apellidos": "Warren"
+        },
+        {
+          "nombre_completo": "Y Kim",
+          "nombres": "Y",
+          "apellidos": "Kim"
+        }
+      ],
+      "pmid": "35233546",
+      "fuente": "Cell Rep Med",
+      "anio": "2022",
+      "volumen": "3",
+      "fpage": "100522",
+      "lpage": ""
+    },
+    {
+      "titulo": "Shotgun transcriptome, spatial omics, and isothermal profiling of SARS-CoV-2 infection reveals unique host responses, viral diversification, and drug interactions",
+      "autores": [
+        {
+          "nombre_completo": "D Butler",
+          "nombres": "D",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "C Mozsary",
+          "nombres": "C",
+          "apellidos": "Mozsary"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "J Foox",
+          "nombres": "J",
+          "apellidos": "Foox"
+        },
+        {
+          "nombre_completo": "J Rosiene",
+          "nombres": "J",
+          "apellidos": "Rosiene"
+        },
+        {
+          "nombre_completo": "A Shaiber",
+          "nombres": "A",
+          "apellidos": "Shaiber"
+        }
+      ],
+      "pmid": "33712587",
+      "fuente": "Nat Commun",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "1660",
+      "lpage": ""
+    },
+    {
+      "titulo": "Rashid R, Chen Y-A, Hoffer J, Muhlich JL, Lin J-R, Krueger R, et al. Narrative online guides for the interpretation of digital-pathology images and tissue-atlas data. Nat Biomed Eng. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Toward a common coordinate framework for the human body",
+      "autores": [
+        {
+          "nombre_completo": "JE Rood",
+          "nombres": "JE",
+          "apellidos": "Rood"
+        },
+        {
+          "nombre_completo": "T Stuart",
+          "nombres": "T",
+          "apellidos": "Stuart"
+        },
+        {
+          "nombre_completo": "S Ghazanfar",
+          "nombres": "S",
+          "apellidos": "Ghazanfar"
+        },
+        {
+          "nombre_completo": "T Biancalani",
+          "nombres": "T",
+          "apellidos": "Biancalani"
+        },
+        {
+          "nombre_completo": "E Fisher",
+          "nombres": "E",
+          "apellidos": "Fisher"
+        },
+        {
+          "nombre_completo": "A Butler",
+          "nombres": "A",
+          "apellidos": "Butler"
+        }
+      ],
+      "pmid": "31835027",
+      "fuente": "Cell",
+      "anio": "2019",
+      "volumen": "179",
+      "fpage": "1455",
+      "lpage": "1467"
+    },
+    {
+      "titulo": "Andersson A, Andrusivová Ž, Czarnewski P, Li X, Sundström E, Lundeberg J. A landmark-based common coordinate framework for spatial transcriptomics data. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Content-aware image restoration: pushing the limits of fluorescence microscopy",
+      "autores": [
+        {
+          "nombre_completo": "M Weigert",
+          "nombres": "M",
+          "apellidos": "Weigert"
+        },
+        {
+          "nombre_completo": "U Schmidt",
+          "nombres": "U",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "T Boothe",
+          "nombres": "T",
+          "apellidos": "Boothe"
+        },
+        {
+          "nombre_completo": "A Müller",
+          "nombres": "A",
+          "apellidos": "Müller"
+        },
+        {
+          "nombre_completo": "A Dibrov",
+          "nombres": "A",
+          "apellidos": "Dibrov"
+        },
+        {
+          "nombre_completo": "A Jain",
+          "nombres": "A",
+          "apellidos": "Jain"
+        }
+      ],
+      "pmid": "30478326",
+      "fuente": "Nat Methods",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "1090",
+      "lpage": "1097"
+    },
+    {
+      "titulo": "Three-dimensional residual channel attention networks denoise and sharpen fluorescence microscopy image volumes",
+      "autores": [
+        {
+          "nombre_completo": "J Chen",
+          "nombres": "J",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "H Sasaki",
+          "nombres": "H",
+          "apellidos": "Sasaki"
+        },
+        {
+          "nombre_completo": "H Lai",
+          "nombres": "H",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "Y Su",
+          "nombres": "Y",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "J Liu",
+          "nombres": "J",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y Wu",
+          "nombres": "Y",
+          "apellidos": "Wu"
+        }
+      ],
+      "pmid": "34059829",
+      "fuente": "Nat Methods",
+      "anio": "2021",
+      "volumen": "18",
+      "fpage": "678",
+      "lpage": "687"
+    },
+    {
+      "titulo": "Krull A, Buchholz T-O, Jug F. Noise2Void - learning denoising from single noisy images. In: 2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). IEEE; 2019. p. 2124–32.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ab initio spillover compensation in mass cytometry data",
+      "autores": [
+        {
+          "nombre_completo": "Q Miao",
+          "nombres": "Q",
+          "apellidos": "Miao"
+        },
+        {
+          "nombre_completo": "F Wang",
+          "nombres": "F",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J Dou",
+          "nombres": "J",
+          "apellidos": "Dou"
+        },
+        {
+          "nombre_completo": "R Iqbal",
+          "nombres": "R",
+          "apellidos": "Iqbal"
+        },
+        {
+          "nombre_completo": "M Muftuoglu",
+          "nombres": "M",
+          "apellidos": "Muftuoglu"
+        },
+        {
+          "nombre_completo": "R Basar",
+          "nombres": "R",
+          "apellidos": "Basar"
+        }
+      ],
+      "pmid": "33342071",
+      "fuente": "Cytometry A",
+      "anio": "2021",
+      "volumen": "99",
+      "fpage": "899",
+      "lpage": "909"
+    },
+    {
+      "titulo": "Adjacent cell marker lateral spillover compensation and reinforcement for multiplexed images",
+      "autores": [
+        {
+          "nombre_completo": "Y Bai",
+          "nombres": "Y",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "B Zhu",
+          "nombres": "B",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "X Rovira-Clave",
+          "nombres": "X",
+          "apellidos": "Rovira-Clave"
+        },
+        {
+          "nombre_completo": "H Chen",
+          "nombres": "H",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "M Markovic",
+          "nombres": "M",
+          "apellidos": "Markovic"
+        },
+        {
+          "nombre_completo": "CN Chan",
+          "nombres": "CN",
+          "apellidos": "Chan"
+        }
+      ],
+      "pmid": "34295327",
+      "fuente": "Front Immunol",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "652631",
+      "lpage": ""
+    },
+    {
+      "titulo": "NIH Image to ImageJ: 25 years of image analysis",
+      "autores": [
+        {
+          "nombre_completo": "CA Schneider",
+          "nombres": "CA",
+          "apellidos": "Schneider"
+        },
+        {
+          "nombre_completo": "WS Rasband",
+          "nombres": "WS",
+          "apellidos": "Rasband"
+        },
+        {
+          "nombre_completo": "KW Eliceiri",
+          "nombres": "KW",
+          "apellidos": "Eliceiri"
+        }
+      ],
+      "pmid": "22930834",
+      "fuente": "Nat Methods",
+      "anio": "2012",
+      "volumen": "9",
+      "fpage": "671",
+      "lpage": "675"
+    },
+    {
+      "titulo": "QuPath: open source software for digital pathology image analysis",
+      "autores": [
+        {
+          "nombre_completo": "P Bankhead",
+          "nombres": "P",
+          "apellidos": "Bankhead"
+        },
+        {
+          "nombre_completo": "MB Loughrey",
+          "nombres": "MB",
+          "apellidos": "Loughrey"
+        },
+        {
+          "nombre_completo": "JA Fernández",
+          "nombres": "JA",
+          "apellidos": "Fernández"
+        },
+        {
+          "nombre_completo": "Y Dombrowski",
+          "nombres": "Y",
+          "apellidos": "Dombrowski"
+        },
+        {
+          "nombre_completo": "DG McArt",
+          "nombres": "DG",
+          "apellidos": "McArt"
+        },
+        {
+          "nombre_completo": "PD Dunne",
+          "nombres": "PD",
+          "apellidos": "Dunne"
+        }
+      ],
+      "pmid": "29203879",
+      "fuente": "Sci Rep",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "16878",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cell Profiler: image analysis software for identifying and quantifying cell phenotypes",
+      "autores": [
+        {
+          "nombre_completo": "AE Carpenter",
+          "nombres": "AE",
+          "apellidos": "Carpenter"
+        },
+        {
+          "nombre_completo": "TR Jones",
+          "nombres": "TR",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "MR Lamprecht",
+          "nombres": "MR",
+          "apellidos": "Lamprecht"
+        },
+        {
+          "nombre_completo": "C Clarke",
+          "nombres": "C",
+          "apellidos": "Clarke"
+        },
+        {
+          "nombre_completo": "IH Kang",
+          "nombres": "IH",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "O Friman",
+          "nombres": "O",
+          "apellidos": "Friman"
+        }
+      ],
+      "pmid": "17076895",
+      "fuente": "Genome Biol",
+      "anio": "2006",
+      "volumen": "7",
+      "fpage": "R100",
+      "lpage": ""
+    },
+    {
+      "titulo": "Squidpy: a scalable framework for spatial omics analysis",
+      "autores": [
+        {
+          "nombre_completo": "G Palla",
+          "nombres": "G",
+          "apellidos": "Palla"
+        },
+        {
+          "nombre_completo": "H Spitzer",
+          "nombres": "H",
+          "apellidos": "Spitzer"
+        },
+        {
+          "nombre_completo": "M Klein",
+          "nombres": "M",
+          "apellidos": "Klein"
+        },
+        {
+          "nombre_completo": "D Fischer",
+          "nombres": "D",
+          "apellidos": "Fischer"
+        },
+        {
+          "nombre_completo": "AC Schaar",
+          "nombres": "AC",
+          "apellidos": "Schaar"
+        },
+        {
+          "nombre_completo": "LB Kuemmerle",
+          "nombres": "LB",
+          "apellidos": "Kuemmerle"
+        }
+      ],
+      "pmid": "35102346",
+      "fuente": "Nat Methods",
+      "anio": "2022",
+      "volumen": "19",
+      "fpage": "171",
+      "lpage": "178"
+    },
+    {
+      "titulo": "TITAN: an end-to-end data analysis environment for the Hyperion™ imaging system",
+      "autores": [
+        {
+          "nombre_completo": "S Thirumal",
+          "nombres": "S",
+          "apellidos": "Thirumal"
+        },
+        {
+          "nombre_completo": "A Jamzad",
+          "nombres": "A",
+          "apellidos": "Jamzad"
+        },
+        {
+          "nombre_completo": "T Cotechini",
+          "nombres": "T",
+          "apellidos": "Cotechini"
+        },
+        {
+          "nombre_completo": "CT Hindmarch",
+          "nombres": "CT",
+          "apellidos": "Hindmarch"
+        },
+        {
+          "nombre_completo": "CH Graham",
+          "nombres": "CH",
+          "apellidos": "Graham"
+        },
+        {
+          "nombre_completo": "DR Siemens",
+          "nombres": "DR",
+          "apellidos": "Siemens"
+        }
+      ],
+      "pmid": "35060322",
+      "fuente": "Cytometry A",
+      "anio": "2022",
+      "volumen": "101",
+      "fpage": "423",
+      "lpage": "433"
+    },
+    {
+      "titulo": "ilastik: interactive machine learning for (bio)image analysis",
+      "autores": [
+        {
+          "nombre_completo": "S Berg",
+          "nombres": "S",
+          "apellidos": "Berg"
+        },
+        {
+          "nombre_completo": "D Kutra",
+          "nombres": "D",
+          "apellidos": "Kutra"
+        },
+        {
+          "nombre_completo": "T Kroeger",
+          "nombres": "T",
+          "apellidos": "Kroeger"
+        },
+        {
+          "nombre_completo": "CN Straehle",
+          "nombres": "CN",
+          "apellidos": "Straehle"
+        },
+        {
+          "nombre_completo": "BX Kausler",
+          "nombres": "BX",
+          "apellidos": "Kausler"
+        },
+        {
+          "nombre_completo": "C Haubold",
+          "nombres": "C",
+          "apellidos": "Haubold"
+        }
+      ],
+      "pmid": "31570887",
+      "fuente": "Nat Methods",
+      "anio": "2019",
+      "volumen": "16",
+      "fpage": "1226",
+      "lpage": "1232"
+    },
+    {
+      "titulo": "Whole-cell segmentation of tissue images with human-level performance using large-scale data annotation and deep learning",
+      "autores": [
+        {
+          "nombre_completo": "NF Greenwald",
+          "nombres": "NF",
+          "apellidos": "Greenwald"
+        },
+        {
+          "nombre_completo": "G Miller",
+          "nombres": "G",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "E Moen",
+          "nombres": "E",
+          "apellidos": "Moen"
+        },
+        {
+          "nombre_completo": "A Kong",
+          "nombres": "A",
+          "apellidos": "Kong"
+        },
+        {
+          "nombre_completo": "A Kagel",
+          "nombres": "A",
+          "apellidos": "Kagel"
+        },
+        {
+          "nombre_completo": "T Dougherty",
+          "nombres": "T",
+          "apellidos": "Dougherty"
+        }
+      ],
+      "pmid": "34795433",
+      "fuente": "Nat Biotechnol",
+      "anio": "2022",
+      "volumen": "40",
+      "fpage": "555",
+      "lpage": "565"
+    },
+    {
+      "titulo": "Cell Detection with Star-Convex Polygons",
+      "autores": [
+        {
+          "nombre_completo": "U Schmidt",
+          "nombres": "U",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "M Weigert",
+          "nombres": "M",
+          "apellidos": "Weigert"
+        },
+        {
+          "nombre_completo": "C Broaddus",
+          "nombres": "C",
+          "apellidos": "Broaddus"
+        },
+        {
+          "nombre_completo": "G Myers",
+          "nombres": "G",
+          "apellidos": "Myers"
+        },
+        {
+          "nombre_completo": "AF Frangi",
+          "nombres": "AF",
+          "apellidos": "Frangi"
+        },
+        {
+          "nombre_completo": "JA Schnabel",
+          "nombres": "JA",
+          "apellidos": "Schnabel"
+        },
+        {
+          "nombre_completo": "C Davatzikos",
+          "nombres": "C",
+          "apellidos": "Davatzikos"
+        },
+        {
+          "nombre_completo": "C Alberola-López",
+          "nombres": "C",
+          "apellidos": "Alberola-López"
+        },
+        {
+          "nombre_completo": "G Fichtinger",
+          "nombres": "G",
+          "apellidos": "Fichtinger"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Medical image computing and computer assisted intervention – MICCAI 2018: 21st International Conference, Granada, Spain, September 16–20, 2018, Proceedings, Part II",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "265",
+      "lpage": "273"
+    },
+    {
+      "titulo": "Mandal S, Uhlmann V. Splinedist: automated cell segmentation with spline curves. In: 2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI). IEEE; 2021. p. 1082–6.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cellpose: a generalist algorithm for cellular segmentation",
+      "autores": [
+        {
+          "nombre_completo": "C Stringer",
+          "nombres": "C",
+          "apellidos": "Stringer"
+        },
+        {
+          "nombre_completo": "T Wang",
+          "nombres": "T",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "M Michaelos",
+          "nombres": "M",
+          "apellidos": "Michaelos"
+        },
+        {
+          "nombre_completo": "M Pachitariu",
+          "nombres": "M",
+          "apellidos": "Pachitariu"
+        }
+      ],
+      "pmid": "33318659",
+      "fuente": "Nat Methods",
+      "anio": "2021",
+      "volumen": "18",
+      "fpage": "100",
+      "lpage": "106"
+    },
+    {
+      "titulo": "Cutler KJ, Stringer C, Wiggins PA, Mougous JD. Omnipose: a high-precision morphology-independent solution for bacterial cell segmentation. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Adjusting batch effects in microarray expression data using empirical Bayes methods",
+      "autores": [
+        {
+          "nombre_completo": "WE Johnson",
+          "nombres": "WE",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "C Li",
+          "nombres": "C",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "A Rabinovic",
+          "nombres": "A",
+          "apellidos": "Rabinovic"
+        }
+      ],
+      "pmid": "16632515",
+      "fuente": "Biostatistics",
+      "anio": "2007",
+      "volumen": "8",
+      "fpage": "118",
+      "lpage": "127"
+    },
+    {
+      "titulo": "Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors",
+      "autores": [
+        {
+          "nombre_completo": "L Haghverdi",
+          "nombres": "L",
+          "apellidos": "Haghverdi"
+        },
+        {
+          "nombre_completo": "ATL Lun",
+          "nombres": "ATL",
+          "apellidos": "Lun"
+        },
+        {
+          "nombre_completo": "MD Morgan",
+          "nombres": "MD",
+          "apellidos": "Morgan"
+        },
+        {
+          "nombre_completo": "JC Marioni",
+          "nombres": "JC",
+          "apellidos": "Marioni"
+        }
+      ],
+      "pmid": "29608177",
+      "fuente": "Nat Biotechnol",
+      "anio": "2018",
+      "volumen": "36",
+      "fpage": "421",
+      "lpage": "427"
+    },
+    {
+      "titulo": "BBKNN: fast batch alignment of single cell transcriptomes",
+      "autores": [
+        {
+          "nombre_completo": "K Polański",
+          "nombres": "K",
+          "apellidos": "Polański"
+        },
+        {
+          "nombre_completo": "MD Young",
+          "nombres": "MD",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "Z Miao",
+          "nombres": "Z",
+          "apellidos": "Miao"
+        },
+        {
+          "nombre_completo": "KB Meyer",
+          "nombres": "KB",
+          "apellidos": "Meyer"
+        },
+        {
+          "nombre_completo": "SA Teichmann",
+          "nombres": "SA",
+          "apellidos": "Teichmann"
+        },
+        {
+          "nombre_completo": "J-E Park",
+          "nombres": "J-E",
+          "apellidos": "Park"
+        }
+      ],
+      "pmid": "31400197",
+      "fuente": "Bioinformatics",
+      "anio": "2020",
+      "volumen": "36",
+      "fpage": "964",
+      "lpage": "965"
+    },
+    {
+      "titulo": "Fast, sensitive and accurate integration of single-cell data with Harmony",
+      "autores": [
+        {
+          "nombre_completo": "I Korsunsky",
+          "nombres": "I",
+          "apellidos": "Korsunsky"
+        },
+        {
+          "nombre_completo": "N Millard",
+          "nombres": "N",
+          "apellidos": "Millard"
+        },
+        {
+          "nombre_completo": "J Fan",
+          "nombres": "J",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "K Slowikowski",
+          "nombres": "K",
+          "apellidos": "Slowikowski"
+        },
+        {
+          "nombre_completo": "F Zhang",
+          "nombres": "F",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "K Wei",
+          "nombres": "K",
+          "apellidos": "Wei"
+        }
+      ],
+      "pmid": "31740819",
+      "fuente": "Nat Methods",
+      "anio": "2019",
+      "volumen": "16",
+      "fpage": "1289",
+      "lpage": "1296"
+    },
+    {
+      "titulo": "Relations between two sets of variates",
+      "autores": [
+        {
+          "nombre_completo": "H Hotelling",
+          "nombres": "H",
+          "apellidos": "Hotelling"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biometrika",
+      "anio": "1936",
+      "volumen": "28",
+      "fpage": "321",
+      "lpage": ""
+    },
+    {
+      "titulo": "van der Maaten L, Hinton G. Visualizing data using t-SNE. J Mach Learn Res. 2008.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "McInnes L, Healy J, Melville J. UMAP: uniform manifold approximation and projection for dimension reduction. arXiv. 2018.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "From Louvain to Leiden: guaranteeing well-connected communities",
+      "autores": [
+        {
+          "nombre_completo": "VA Traag",
+          "nombres": "VA",
+          "apellidos": "Traag"
+        },
+        {
+          "nombre_completo": "L Waltman",
+          "nombres": "L",
+          "apellidos": "Waltman"
+        },
+        {
+          "nombre_completo": "NJ van Eck",
+          "nombres": "NJ",
+          "apellidos": "van Eck"
+        }
+      ],
+      "pmid": "30914743",
+      "fuente": "Sci Rep",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "5233",
+      "lpage": ""
+    },
+    {
+      "titulo": "PARC: ultrafast and accurate clustering of phenotypic data of millions of single cells",
+      "autores": [
+        {
+          "nombre_completo": "SV Stassen",
+          "nombres": "SV",
+          "apellidos": "Stassen"
+        },
+        {
+          "nombre_completo": "DMD Siu",
+          "nombres": "DMD",
+          "apellidos": "Siu"
+        },
+        {
+          "nombre_completo": "KCM Lee",
+          "nombres": "KCM",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "JWK Ho",
+          "nombres": "JWK",
+          "apellidos": "Ho"
+        },
+        {
+          "nombre_completo": "HKH So",
+          "nombres": "HKH",
+          "apellidos": "So"
+        },
+        {
+          "nombre_completo": "KK Tsia",
+          "nombres": "KK",
+          "apellidos": "Tsia"
+        }
+      ],
+      "pmid": "31971583",
+      "fuente": "Bioinformatics",
+      "anio": "2020",
+      "volumen": "36",
+      "fpage": "2778",
+      "lpage": "2786"
+    },
+    {
+      "titulo": "Fast unfolding of communities in large networks",
+      "autores": [
+        {
+          "nombre_completo": "VD Blondel",
+          "nombres": "VD",
+          "apellidos": "Blondel"
+        },
+        {
+          "nombre_completo": "J-L Guillaume",
+          "nombres": "J-L",
+          "apellidos": "Guillaume"
+        },
+        {
+          "nombre_completo": "R Lambiotte",
+          "nombres": "R",
+          "apellidos": "Lambiotte"
+        },
+        {
+          "nombre_completo": "E Lefebvre",
+          "nombres": "E",
+          "apellidos": "Lefebvre"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Stat Mech",
+      "anio": "2008",
+      "volumen": "2008",
+      "fpage": "P10008",
+      "lpage": ""
+    },
+    {
+      "titulo": "Brbic M, Cao K, Hickey JW, Tan Y, Snyder M, Nolan GP, et al. Annotation of spatially resolved single-cell data with STELLAR. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Automated assignment of cell identity from single-cell multiplexed imaging and proteomic data",
+      "autores": [
+        {
+          "nombre_completo": "MJ Geuenich",
+          "nombres": "MJ",
+          "apellidos": "Geuenich"
+        },
+        {
+          "nombre_completo": "J Hou",
+          "nombres": "J",
+          "apellidos": "Hou"
+        },
+        {
+          "nombre_completo": "S Lee",
+          "nombres": "S",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "S Ayub",
+          "nombres": "S",
+          "apellidos": "Ayub"
+        },
+        {
+          "nombre_completo": "HW Jackson",
+          "nombres": "HW",
+          "apellidos": "Jackson"
+        },
+        {
+          "nombre_completo": "KR Campbell",
+          "nombres": "KR",
+          "apellidos": "Campbell"
+        }
+      ],
+      "pmid": "34536381",
+      "fuente": "Cell Syst",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "1173",
+      "lpage": "1186.e5"
+    },
+    {
+      "titulo": "Statistical and machine learning methods for spatially resolved transcriptomics data analysis",
+      "autores": [
+        {
+          "nombre_completo": "Z Zeng",
+          "nombres": "Z",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "Y Li",
+          "nombres": "Y",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y Luo",
+          "nombres": "Y",
+          "apellidos": "Luo"
+        }
+      ],
+      "pmid": "35337374",
+      "fuente": "Genome Biol",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "83",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identification of spatial expression trends in single-cell gene expression data",
+      "autores": [
+        {
+          "nombre_completo": "D Edsgärd",
+          "nombres": "D",
+          "apellidos": "Edsgärd"
+        },
+        {
+          "nombre_completo": "P Johnsson",
+          "nombres": "P",
+          "apellidos": "Johnsson"
+        },
+        {
+          "nombre_completo": "R Sandberg",
+          "nombres": "R",
+          "apellidos": "Sandberg"
+        }
+      ],
+      "pmid": "29553578",
+      "fuente": "Nat Methods",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "339",
+      "lpage": "342"
+    },
+    {
+      "titulo": "SpatialDE: identification of spatially variable genes",
+      "autores": [
+        {
+          "nombre_completo": "V Svensson",
+          "nombres": "V",
+          "apellidos": "Svensson"
+        },
+        {
+          "nombre_completo": "SA Teichmann",
+          "nombres": "SA",
+          "apellidos": "Teichmann"
+        },
+        {
+          "nombre_completo": "O Stegle",
+          "nombres": "O",
+          "apellidos": "Stegle"
+        }
+      ],
+      "pmid": "29553579",
+      "fuente": "Nat Methods",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "343",
+      "lpage": "346"
+    },
+    {
+      "titulo": "Statistical analysis of spatial expression patterns for spatially resolved transcriptomic studies",
+      "autores": [
+        {
+          "nombre_completo": "S Sun",
+          "nombres": "S",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J Zhu",
+          "nombres": "J",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "X Zhou",
+          "nombres": "X",
+          "apellidos": "Zhou"
+        }
+      ],
+      "pmid": "31988518",
+      "fuente": "Nat Methods",
+      "anio": "2020",
+      "volumen": "17",
+      "fpage": "193",
+      "lpage": "200"
+    },
+    {
+      "titulo": "SpaGCN: Integrating gene expression, spatial location and histology to identify spatial domains and spatially variable genes by graph convolutional network",
+      "autores": [
+        {
+          "nombre_completo": "J Hu",
+          "nombres": "J",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "X Li",
+          "nombres": "X",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "K Coleman",
+          "nombres": "K",
+          "apellidos": "Coleman"
+        },
+        {
+          "nombre_completo": "A Schroeder",
+          "nombres": "A",
+          "apellidos": "Schroeder"
+        },
+        {
+          "nombre_completo": "N Ma",
+          "nombres": "N",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "DJ Irwin",
+          "nombres": "DJ",
+          "apellidos": "Irwin"
+        }
+      ],
+      "pmid": "34711970",
+      "fuente": "Nat Methods",
+      "anio": "2021",
+      "volumen": "18",
+      "fpage": "1342",
+      "lpage": "1351"
+    },
+    {
+      "titulo": "Detecting and correcting systematic variation in large-scale RNA sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "S Li",
+          "nombres": "S",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "PP Łabaj",
+          "nombres": "PP",
+          "apellidos": "Łabaj"
+        },
+        {
+          "nombre_completo": "P Zumbo",
+          "nombres": "P",
+          "apellidos": "Zumbo"
+        },
+        {
+          "nombre_completo": "P Sykacek",
+          "nombres": "P",
+          "apellidos": "Sykacek"
+        },
+        {
+          "nombre_completo": "W Shi",
+          "nombres": "W",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "L Shi",
+          "nombres": "L",
+          "apellidos": "Shi"
+        }
+      ],
+      "pmid": "25150837",
+      "fuente": "Nat Biotechnol",
+      "anio": "2014",
+      "volumen": "32",
+      "fpage": "888",
+      "lpage": "895"
+    },
+    {
+      "titulo": "Modeling multiplexed images with Spatial-LDA reveals novel tissue microenvironments",
+      "autores": [
+        {
+          "nombre_completo": "Z Chen",
+          "nombres": "Z",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "I Soifer",
+          "nombres": "I",
+          "apellidos": "Soifer"
+        },
+        {
+          "nombre_completo": "H Hilton",
+          "nombres": "H",
+          "apellidos": "Hilton"
+        },
+        {
+          "nombre_completo": "L Keren",
+          "nombres": "L",
+          "apellidos": "Keren"
+        },
+        {
+          "nombre_completo": "V Jojic",
+          "nombres": "V",
+          "apellidos": "Jojic"
+        }
+      ],
+      "pmid": "32243203",
+      "fuente": "J Comput Biol",
+      "anio": "2020",
+      "volumen": "27",
+      "fpage": "1204",
+      "lpage": "1218"
+    },
+    {
+      "titulo": "Kim J, Rustam S, Mosquera JM, Randell SH, Shaykhiev R, Rendeiro AF, et al. Unsupervised discovery of tissue architecture in multiplexed imaging. Nat Methods. 2022.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mapping the physical network of cellular interactions",
+      "autores": [
+        {
+          "nombre_completo": "J-C Boisset",
+          "nombres": "J-C",
+          "apellidos": "Boisset"
+        },
+        {
+          "nombre_completo": "J Vivié",
+          "nombres": "J",
+          "apellidos": "Vivié"
+        },
+        {
+          "nombre_completo": "D Grün",
+          "nombres": "D",
+          "apellidos": "Grün"
+        },
+        {
+          "nombre_completo": "MJ Muraro",
+          "nombres": "MJ",
+          "apellidos": "Muraro"
+        },
+        {
+          "nombre_completo": "A Lyubimova",
+          "nombres": "A",
+          "apellidos": "Lyubimova"
+        },
+        {
+          "nombre_completo": "A van Oudenaarden",
+          "nombres": "A",
+          "apellidos": "van Oudenaarden"
+        }
+      ],
+      "pmid": "29786092",
+      "fuente": "Nat Methods",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "547",
+      "lpage": "553"
+    },
+    {
+      "titulo": "Fischer DS, Schaar AC, Theis FJ. Learning cell communication from spatial graphs of cells. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Explainable multiview framework for dissecting spatial relationships from highly multiplexed data",
+      "autores": [
+        {
+          "nombre_completo": "J Tanevski",
+          "nombres": "J",
+          "apellidos": "Tanevski"
+        },
+        {
+          "nombre_completo": "ROR Flores",
+          "nombres": "ROR",
+          "apellidos": "Flores"
+        },
+        {
+          "nombre_completo": "A Gabor",
+          "nombres": "A",
+          "apellidos": "Gabor"
+        },
+        {
+          "nombre_completo": "D Schapiro",
+          "nombres": "D",
+          "apellidos": "Schapiro"
+        },
+        {
+          "nombre_completo": "J Saez-Rodriguez",
+          "nombres": "J",
+          "apellidos": "Saez-Rodriguez"
+        }
+      ],
+      "pmid": "35422018",
+      "fuente": "Genome Biol",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "97",
+      "lpage": ""
+    },
+    {
+      "titulo": "MOFA+: a statistical framework for comprehensive integration of multi-modal single-cell data",
+      "autores": [
+        {
+          "nombre_completo": "R Argelaguet",
+          "nombres": "R",
+          "apellidos": "Argelaguet"
+        },
+        {
+          "nombre_completo": "D Arnol",
+          "nombres": "D",
+          "apellidos": "Arnol"
+        },
+        {
+          "nombre_completo": "D Bredikhin",
+          "nombres": "D",
+          "apellidos": "Bredikhin"
+        },
+        {
+          "nombre_completo": "Y Deloro",
+          "nombres": "Y",
+          "apellidos": "Deloro"
+        },
+        {
+          "nombre_completo": "B Velten",
+          "nombres": "B",
+          "apellidos": "Velten"
+        },
+        {
+          "nombre_completo": "JC Marioni",
+          "nombres": "JC",
+          "apellidos": "Marioni"
+        }
+      ],
+      "pmid": "32393329",
+      "fuente": "Genome Biol",
+      "anio": "2020",
+      "volumen": "21",
+      "fpage": "111",
+      "lpage": ""
+    },
+    {
+      "titulo": "MUON: multimodal omics analysis framework",
+      "autores": [
+        {
+          "nombre_completo": "D Bredikhin",
+          "nombres": "D",
+          "apellidos": "Bredikhin"
+        },
+        {
+          "nombre_completo": "I Kats",
+          "nombres": "I",
+          "apellidos": "Kats"
+        },
+        {
+          "nombre_completo": "O Stegle",
+          "nombres": "O",
+          "apellidos": "Stegle"
+        }
+      ],
+      "pmid": "35105358",
+      "fuente": "Genome Biol",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "42",
+      "lpage": ""
+    },
+    {
+      "titulo": "MultiMAP: dimensionality reduction and integration of multimodal data",
+      "autores": [
+        {
+          "nombre_completo": "MS Jain",
+          "nombres": "MS",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "K Polanski",
+          "nombres": "K",
+          "apellidos": "Polanski"
+        },
+        {
+          "nombre_completo": "CD Conde",
+          "nombres": "CD",
+          "apellidos": "Conde"
+        },
+        {
+          "nombre_completo": "X Chen",
+          "nombres": "X",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Park",
+          "nombres": "J",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "L Mamanova",
+          "nombres": "L",
+          "apellidos": "Mamanova"
+        }
+      ],
+      "pmid": "34930412",
+      "fuente": "Genome Biol",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "346",
+      "lpage": ""
+    },
+    {
+      "titulo": "Single-cell multi-omic integration compares and contrasts features of brain cell identity",
+      "autores": [
+        {
+          "nombre_completo": "JD Welch",
+          "nombres": "JD",
+          "apellidos": "Welch"
+        },
+        {
+          "nombre_completo": "V Kozareva",
+          "nombres": "V",
+          "apellidos": "Kozareva"
+        },
+        {
+          "nombre_completo": "A Ferreira",
+          "nombres": "A",
+          "apellidos": "Ferreira"
+        },
+        {
+          "nombre_completo": "C Vanderburg",
+          "nombres": "C",
+          "apellidos": "Vanderburg"
+        },
+        {
+          "nombre_completo": "C Martin",
+          "nombres": "C",
+          "apellidos": "Martin"
+        },
+        {
+          "nombre_completo": "EZ Macosko",
+          "nombres": "EZ",
+          "apellidos": "Macosko"
+        }
+      ],
+      "pmid": "31178122",
+      "fuente": "Cell",
+      "anio": "2019",
+      "volumen": "177",
+      "fpage": "1873",
+      "lpage": "1887.e17"
+    },
+    {
+      "titulo": "Peng T, Chen G, Tan K. GLUER: integrative analysis of single-cell omics and imaging data by deep neural network. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Joint analysis of heterogeneous single-cell RNA-seq dataset collections",
+      "autores": [
+        {
+          "nombre_completo": "N Barkas",
+          "nombres": "N",
+          "apellidos": "Barkas"
+        },
+        {
+          "nombre_completo": "V Petukhov",
+          "nombres": "V",
+          "apellidos": "Petukhov"
+        },
+        {
+          "nombre_completo": "D Nikolaeva",
+          "nombres": "D",
+          "apellidos": "Nikolaeva"
+        },
+        {
+          "nombre_completo": "Y Lozinsky",
+          "nombres": "Y",
+          "apellidos": "Lozinsky"
+        },
+        {
+          "nombre_completo": "S Demharter",
+          "nombres": "S",
+          "apellidos": "Demharter"
+        },
+        {
+          "nombre_completo": "K Khodosevich",
+          "nombres": "K",
+          "apellidos": "Khodosevich"
+        }
+      ],
+      "pmid": "31308548",
+      "fuente": "Nat Methods",
+      "anio": "2019",
+      "volumen": "16",
+      "fpage": "695",
+      "lpage": "698"
+    },
+    {
+      "titulo": "Iterative single-cell multi-omic integration using online learning",
+      "autores": [
+        {
+          "nombre_completo": "C Gao",
+          "nombres": "C",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "J Liu",
+          "nombres": "J",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "AR Kriebel",
+          "nombres": "AR",
+          "apellidos": "Kriebel"
+        },
+        {
+          "nombre_completo": "S Preissl",
+          "nombres": "S",
+          "apellidos": "Preissl"
+        },
+        {
+          "nombre_completo": "C Luo",
+          "nombres": "C",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "R Castanon",
+          "nombres": "R",
+          "apellidos": "Castanon"
+        }
+      ],
+      "pmid": "33875866",
+      "fuente": "Nat Biotechnol",
+      "anio": "2021",
+      "volumen": "39",
+      "fpage": "1000",
+      "lpage": "1007"
+    },
+    {
+      "titulo": "Cell 2location maps fine-grained cell types in spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "V Kleshchevnikov",
+          "nombres": "V",
+          "apellidos": "Kleshchevnikov"
+        },
+        {
+          "nombre_completo": "A Shmatko",
+          "nombres": "A",
+          "apellidos": "Shmatko"
+        },
+        {
+          "nombre_completo": "E Dann",
+          "nombres": "E",
+          "apellidos": "Dann"
+        },
+        {
+          "nombre_completo": "A Aivazidis",
+          "nombres": "A",
+          "apellidos": "Aivazidis"
+        },
+        {
+          "nombre_completo": "HW King",
+          "nombres": "HW",
+          "apellidos": "King"
+        },
+        {
+          "nombre_completo": "T Li",
+          "nombres": "T",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "35027729",
+      "fuente": "Nat Biotechnol",
+      "anio": "2022",
+      "volumen": "40",
+      "fpage": "661",
+      "lpage": "671"
+    },
+    {
+      "titulo": "Spatial charting of single-cell transcriptomes in tissues",
+      "autores": [
+        {
+          "nombre_completo": "R Wei",
+          "nombres": "R",
+          "apellidos": "Wei"
+        },
+        {
+          "nombre_completo": "S He",
+          "nombres": "S",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "S Bai",
+          "nombres": "S",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "E Sei",
+          "nombres": "E",
+          "apellidos": "Sei"
+        },
+        {
+          "nombre_completo": "M Hu",
+          "nombres": "M",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "A Thompson",
+          "nombres": "A",
+          "apellidos": "Thompson"
+        }
+      ],
+      "pmid": "35314812",
+      "fuente": "Nat Biotechnol",
+      "anio": "2022",
+      "volumen": "40",
+      "fpage": "1190",
+      "lpage": "1199"
+    },
+    {
+      "titulo": "Integrative spatial analysis of cell morphologies and transcriptional states with MUSE",
+      "autores": [
+        {
+          "nombre_completo": "F Bao",
+          "nombres": "F",
+          "apellidos": "Bao"
+        },
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "S Wan",
+          "nombres": "S",
+          "apellidos": "Wan"
+        },
+        {
+          "nombre_completo": "SQ Shen",
+          "nombres": "SQ",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "B Wang",
+          "nombres": "B",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Q Dai",
+          "nombres": "Q",
+          "apellidos": "Dai"
+        }
+      ],
+      "pmid": "35347329",
+      "fuente": "Nat Biotechnol",
+      "anio": "2022",
+      "volumen": "40",
+      "fpage": "1200",
+      "lpage": "1209"
+    },
+    {
+      "titulo": "Deep learning and alignment of spatially resolved single-cell transcriptomes with Tangram",
+      "autores": [
+        {
+          "nombre_completo": "T Biancalani",
+          "nombres": "T",
+          "apellidos": "Biancalani"
+        },
+        {
+          "nombre_completo": "G Scalia",
+          "nombres": "G",
+          "apellidos": "Scalia"
+        },
+        {
+          "nombre_completo": "L Buffoni",
+          "nombres": "L",
+          "apellidos": "Buffoni"
+        },
+        {
+          "nombre_completo": "R Avasthi",
+          "nombres": "R",
+          "apellidos": "Avasthi"
+        },
+        {
+          "nombre_completo": "Z Lu",
+          "nombres": "Z",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "A Sanger",
+          "nombres": "A",
+          "apellidos": "Sanger"
+        }
+      ],
+      "pmid": "34711971",
+      "fuente": "Nat Methods",
+      "anio": "2021",
+      "volumen": "18",
+      "fpage": "1352",
+      "lpage": "1362"
+    },
+    {
+      "titulo": "Limitations of the human reference genome for personalized genomics",
+      "autores": [
+        {
+          "nombre_completo": "JA Rosenfeld",
+          "nombres": "JA",
+          "apellidos": "Rosenfeld"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "TM Smith",
+          "nombres": "TM",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "22811759",
+      "fuente": "PLoS ONE",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e40294",
+      "lpage": ""
+    },
+    {
+      "titulo": "Hess JM, Ilies I, Schapiro D, Iskra JJ, Abdelmoula WM, Regan MS, et al. MIAAIM: Multi-omics image integration and tissue state mapping using topological data analysis and cobordism learning. BioRxiv. 2021.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    }
+  ]
+}

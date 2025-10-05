@@ -1,0 +1,547 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Klebsiella Species Isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "Isolated across four locations aboard the International Space Station (ISS), 10 bacterial strains were compared using whole-genome sequencing analysis and were phylogenetically identified as Klebsiella. The whole-genome sequences will aid in comparative genomic studies of ISS Klebsiella strains with Earth counterparts, to gain insight into their adaptation to space conditions.",
+    "ABSTRACT",
+    "Isolated across four locations aboard the International Space Station (ISS), 10 bacterial strains were compared using whole-genome sequencing analysis and were phylogenetically identified as Klebsiella. The whole-genome sequences will aid in comparative genomic studies of ISS Klebsiella strains with Earth counterparts to gain insight into their adaptation to space conditions."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "The genus Klebsiella was discovered by Carl Friedlander in 1882 from the lungs of patients who had died of pneumonia. In infected individuals, Klebsiella species can populate the gastrointestinal tract and nasopharynx, surviving on mucosal surfaces, and are known for being highly virulent and resistant to antibiotics. When found on Earth, this genus of bacterial pathogens has various degrees of pathogenicity, which can lead to severe breathing problems necessitating a ventilator and rapid on-site treatment. When exposed to space conditions, however, Klebsiella species might become immunogenic and thus pose a risk to already immunocompromised astronauts aboard the International Space Station (ISS). Since microgravity and radiation in space are reported to induce multiple genetic adaptations in microbial species, such as structural modifications of the cell membrane, that can subsequently alter their virulence, the strains identified here might potentially pose a problem for the health of astronauts. Therefore, a genetic comparison is necessary to provide more details on the survival of Klebsiella species, which have gained more attention because classical Klebsiella pneumoniae and its hypervirulent pathotype are becoming increasingly resistant to various antibiotics, such as carbapenems. The pathogenicity and resistance of the members of the genus Klebsiella might potentially create a problem for space travel, specifically for the safety of astronauts.",
+    "Several strains of Klebsiella species, including K. aerogenes (n = 1), K. pneumoniae (n = 1), and K. quasipneumoniae (n = 8), were isolated from various locations on ISS environmental surfaces. The flight number, location, and other sampling characteristics of the ISS Klebsiella isolates are detailed in Table 1. Briefly, the environmental samples collected from the ISS and subsequently brought down to Earth at room temperature were aseptically handled according to established procedures, and 100-μl aliquots of concentrated samples were spread onto either Reasoner’s 2A (R2A) agar (25°C for 7 days) or blood agar (37°C for 2 days) for isolation of microorganisms. After morphological observation, pure colonies were archived at −80°C until further analyses. Cultures of the 10 Klebsiella strains were grown overnight on tryptic soy agar at 25°C until harvesting and DNA extraction using the ZymoBIOMICS DNA Magbead kit.",
+    "Genomes were sequenced using the Illumina (San Diego, CA) Nextera Flex protocol for library preparation, and a NovaSeq 6000 S4 flow cell (paired end, 2 × 150 bp) was used for paired-end sequencing. The quality was assessed with FastQC (v0.11.7). Adapter trimming and quality filtering were then carried out with fastp (v0.20.0). After quality control, the sequences were assembled using SPAdes (v3.11.1). To assess the quality of the final sequences, a QUAST (v5.0.2) analysis was performed to check the N50 values, the number of contigs, and the total genome length (Table 1). The GC contents are 54.96% for K. aerogenes, 57.25% for K. pneumoniae, and 58.11 to 58.13% for K. quasipneumoniae. The 16S rRNA gene sequences of the Klebsiella strains were compared to find the nearest neighbor, and phylogenic characterization was determined by calculating the average nucleotide identity (ANI) using the EZBioCloud calculator, in comparison with the respective type strains (K. aerogenes ATCC 13048T, K. pneumoniae ATCC 13883T, and K. quasipneumoniae 01A030T). Default parameters were used for all software.",
+    "Data availability.",
+    "This whole-genome sequencing project has been deposited in GenBank, and the GenBank and raw read accession numbers are given in Table 1. The BioProject accession numbers are PRJNA635942, PRJNA640688, and PRJNA640693. Whole-genome sequencing data have also been deposited in NASA GeneLab (accession numbers GLDS-302, GLDS-309, and GLDS-311). The versions described in this paper are the first versions."
+  ],
+  "TABLE": [
+    "Metadata and genome statistics of Klebsiella strains isolated from various ISS environmental surfaces during the Microbial Tracking-1 flight project",
+    "Sample name\tNearest speciesa\tANI (%)b\tGenBank accession no.\tRaw read accession no.\tFlight-locationc\tLocation descriptiond\tNo. of contigs\tGenome size (bp)\tN50 (bp)\tMedian coverage (×)\tNo. of raw reads (×106)\tNo. of quality-controlled reads (×106)\t \tIIIF7SW-P1\tK. aerogenes ATCC 13048T\t98.66\tJACBPC000000000\tSRR12071884\tF3-7\tLab 3\t25\t5,155,046\t502,580\t346.88\t21.6\t21.5\t \tF3-2P(2*)\tK. pneumoniae ATCC 13883T\t99.01\tJACAUF000000000\tSRR12068826\tF3-2\tWHC\t75\t5,489,009\t332,420\t293.62\t19.0\t18.9\t \tIF1SW-B2\tK. quasipneumoniae 01A030T\t96.54\tJABWPD000000000\tSRR11884995\tF1-1\tCupola\t24\t5,192,853\t601,624\t533.04\t31.4\t31.2\t \tIF1SW-P3\tK. quasipneumoniae 01A030T\t96.60\tJABWOZ000000000\tSRR11885008\tF1-1\tCupola\t28\t5,192,422\t600,611\t467.41\t28.2\t28.0\t \tIF1SW-P4\tK. quasipneumoniae 01A030T\t96.55\tJABWPA000000000\tSRR11885009\tF1-1\tCupola\t29\t5,192,468\t343,111\t297.32\t18.6\t18.6\t \tIF2SW-B3\tK. quasipneumoniae 01A030T\t96.54\tJABWPC000000000\tSRR11885011\tF1-2\tWHC\t24\t5,192,354\t600,611\t712.50\t39.8\t39.6\t \tIF2SW-P1\tK. quasipneumoniae 01A030T\t96.61\tJABWPB000000000\tSRR11885010\tF1-2\tWHC\t27\t5,192,385\t601,139\t480.80\t30.2\t30.1\t \tIIIF3SW-P1\tK. quasipneumoniae 01A030T\t96.63\tJABXWM000000000\tSRR12070037\tF3-3\tARED\t31\t5,154,415\t766,557\t286.96\t18.0\t17.8\t \tF3-6P(1)\tK. quasipneumoniae 01A030T\t96.57\tJABXWL000000000\tSRR12070038\tF3-6\tPMM\t28\t5,196,291\t1,009,008\t371.62\t23.2\t22.9\t \tF3-6P(2)\tK. quasipneumoniae 01A030T\t96.60\tJABXWK000000000\tSRR12070039\tF3-6\tPMM\t31\t5,196,372\t1,009,008\t367.78\t23.4\t23.1",
+    "The 16S rRNA gene sequences were retrieved from the whole-genome sequences of the queried genomes and subjected to BLAST analysis against type strains for all 16S rRNA sequences in the NCBI database. Bacterial species identity was determined when the queried sequence showed >97.5% similarity to the 16S rRNA gene sequence of the type strain. The whole-genome sequence of the nearest neighbor listed was selected for ANI evaluation.",
+    "ANI calculations were carried out using the EZBioCloud ANI calculator (https://www.ezbiocloud.net/tools/ani) by comparing with the listed type strain.",
+    "Hyphenated designations indicate the flight number followed by the location; for example, F3-7 indicates flight 3 and location 7.",
+    "WHC, waste and hygiene compartment; ARED, advanced resistive exercise device; PMM, permanent multipurpose module port 1."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Ueber die Schizomyceten bei der acuten fibrösen Pneumonie",
+    "Colonization, infection, and the accessory genome of Klebsiella pneumoniae",
+    "The growing resistance of Klebsiella pneumoniae; the need to expand our antibiogram: case report and review of the literature",
+    "Growth on carbohydrates from carbonaceous meteorites alters the immunogenicity of environment-derived bacterial pathogens",
+    "Impact of space flight on bacterial virulence and antibiotic susceptibility",
+    "Hypervirulent Klebsiella pneumoniae",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "FastQC: a quality control tool for high throughput sequence data",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "QUAST: quality assessment tool for genome assemblies",
+    "A large-scale evaluation of algorithms to calculate average nucleotide identity"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ueber die Schizomyceten bei der acuten fibrösen Pneumonie",
+      "autores": [
+        {
+          "nombre_completo": "C Friedlaender",
+          "nombres": "C",
+          "apellidos": "Friedlaender"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Arch Pathol Anat",
+      "anio": "1882",
+      "volumen": "87",
+      "fpage": "319",
+      "lpage": "324"
+    },
+    {
+      "titulo": "Colonization, infection, and the accessory genome of Klebsiella pneumoniae",
+      "autores": [
+        {
+          "nombre_completo": "RM Martin",
+          "nombres": "RM",
+          "apellidos": "Martin"
+        },
+        {
+          "nombre_completo": "MA Bachman",
+          "nombres": "MA",
+          "apellidos": "Bachman"
+        }
+      ],
+      "pmid": "29404282",
+      "fuente": "Front Cell Infect Microbiol",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "4",
+      "lpage": ""
+    },
+    {
+      "titulo": "The growing resistance of Klebsiella pneumoniae; the need to expand our antibiogram: case report and review of the literature",
+      "autores": [
+        {
+          "nombre_completo": "MA Garbati",
+          "nombres": "MA",
+          "apellidos": "Garbati"
+        },
+        {
+          "nombre_completo": "AI Al Godhair",
+          "nombres": "AI",
+          "apellidos": "Al Godhair"
+        }
+      ],
+      "pmid": "24381721",
+      "fuente": "Afr J Infect Dis",
+      "anio": "2013",
+      "volumen": "7",
+      "fpage": "8",
+      "lpage": "10"
+    },
+    {
+      "titulo": "Growth on carbohydrates from carbonaceous meteorites alters the immunogenicity of environment-derived bacterial pathogens",
+      "autores": [
+        {
+          "nombre_completo": "J Domínguez-Andrés",
+          "nombres": "J",
+          "apellidos": "Domínguez-Andrés"
+        },
+        {
+          "nombre_completo": "M Eleveld",
+          "nombres": "M",
+          "apellidos": "Eleveld"
+        },
+        {
+          "nombre_completo": "HJM Op den Camp",
+          "nombres": "HJM",
+          "apellidos": "Op den Camp"
+        },
+        {
+          "nombre_completo": "MI de Jonge",
+          "nombres": "MI",
+          "apellidos": "de Jonge"
+        },
+        {
+          "nombre_completo": "MG Netea",
+          "nombres": "MG",
+          "apellidos": "Netea"
+        },
+        {
+          "nombre_completo": "G Renieris",
+          "nombres": "G",
+          "apellidos": "Renieris"
+        },
+        {
+          "nombre_completo": "TJ Boltje",
+          "nombres": "TJ",
+          "apellidos": "Boltje"
+        },
+        {
+          "nombre_completo": "RJ Mesman",
+          "nombres": "RJ",
+          "apellidos": "Mesman"
+        },
+        {
+          "nombre_completo": "L van Niftrik",
+          "nombres": "L",
+          "apellidos": "van Niftrik"
+        },
+        {
+          "nombre_completo": "SJ Moons",
+          "nombres": "SJ",
+          "apellidos": "Moons"
+        },
+        {
+          "nombre_completo": "P Rettberg",
+          "nombres": "P",
+          "apellidos": "Rettberg"
+        },
+        {
+          "nombre_completo": "JWM van der Meer",
+          "nombres": "JWM",
+          "apellidos": "van der Meer"
+        },
+        {
+          "nombre_completo": "EJ Giamarellos-Bourboulis",
+          "nombres": "EJ",
+          "apellidos": "Giamarellos-Bourboulis"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Astrobiology",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Impact of space flight on bacterial virulence and antibiotic susceptibility",
+      "autores": [
+        {
+          "nombre_completo": "PW Taylor",
+          "nombres": "PW",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "26251622",
+      "fuente": "Infect Drug Resist",
+      "anio": "2015",
+      "volumen": "8",
+      "fpage": "249",
+      "lpage": "262"
+    },
+    {
+      "titulo": "Hypervirulent Klebsiella pneumoniae",
+      "autores": [
+        {
+          "nombre_completo": "TA Russo",
+          "nombres": "TA",
+          "apellidos": "Russo"
+        },
+        {
+          "nombre_completo": "CM Marr",
+          "nombres": "CM",
+          "apellidos": "Marr"
+        }
+      ],
+      "pmid": "31092506",
+      "fuente": "Clin Microbiol Rev",
+      "anio": "2019",
+      "volumen": "32",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "K Wheeler",
+          "nombres": "K",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "J Minich",
+          "nombres": "J",
+          "apellidos": "Minich"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "FastQC: a quality control tool for high throughput sequence data",
+      "autores": [
+        {
+          "nombre_completo": "S Andrews",
+          "nombres": "S",
+          "apellidos": "Andrews"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2010",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V Saveliev",
+          "nombres": "V",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "A large-scale evaluation of algorithms to calculate average nucleotide identity",
+      "autores": [
+        {
+          "nombre_completo": "S-H Yoon",
+          "nombres": "S-H",
+          "apellidos": "Yoon"
+        },
+        {
+          "nombre_completo": "S Ha",
+          "nombres": "S",
+          "apellidos": "Ha"
+        },
+        {
+          "nombre_completo": "J Lim",
+          "nombres": "J",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "S Kwon",
+          "nombres": "S",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J Chun",
+          "nombres": "J",
+          "apellidos": "Chun"
+        }
+      ],
+      "pmid": "28204908",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2017",
+      "volumen": "110",
+      "fpage": "1281",
+      "lpage": "1286"
+    }
+  ]
+}

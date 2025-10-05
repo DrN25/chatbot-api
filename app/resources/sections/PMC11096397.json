@@ -1,0 +1,1538 @@
+{
+  "TITLE": [
+    "Microbial adaptation to spaceflight is correlated with bacteriophage-encoded functions"
+  ],
+  "ABSTRACT": [
+    "Evidence from the International Space Station suggests microbial populations are rapidly adapting to the spacecraft environment; however, the mechanism of this adaptation is not understood. Bacteriophages are prolific mediators of bacterial adaptation on Earth. Here we survey 245 genomes sequenced from bacterial strains isolated on the International Space Station for dormant (lysogenic) bacteriophages. Our analysis indicates phage-associated genes are significantly different between spaceflight strains and their terrestrial counterparts. In addition, we identify 283 complete prophages, those that could initiate bacterial lysis and infect additional hosts, of which 21% are novel. These prophage regions encode functions that correlate with increased persistence in extreme environments, such as spaceflight, to include antimicrobial resistance and virulence, DNA damage repair, and dormancy. Our results correlate microbial adaptation in spaceflight to bacteriophage-encoded functions that may impact human health in spaceflight.",
+    "Viruses that infect bacteria shape microbial communities. Here, authors show that this may hold for bacteria isolated from the International Space Station, with spacefaring viruses correlated to host adaptation to the spaceflight environment."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Human space exploration is at a turning point. The push for long-duration, crewed missions to the moon and beyond, coupled with the emergence of commercial space tourism is redefining the risks associated with space travel. Adverse health effects due to host-microorganism interactions is acknowledged by the NASA Human Research Program, and currently this risk is accepted for short duration spaceflight. However, as flight durations increase and the population that experiences spaceflight expands beyond professional astronauts, it is of increasing importance to understand the interplay between microbial adaptation to the spaceflight environment (e.g., microgravity, ionizing radiation, altered host-microbe interactions, etc.) and human health.",
+    "Microorganisms on the International Space Station (ISS) are undergoing adaptation and host-mediated propagation throughout the environment. Studies to date suggest microbes on the ISS, predominantly derived from the crew microbiome, are enriched in functions related to metal ion tolerance, dormancy, and antibiotic resistance. A primary mechanism by which bacteria adapt to novel environments and stress is through genome plasticity, the ability to uptake exogenous genetic material. The presence of temperate bacteriophages, or prophages, in bacterial genomes is one of the main factors that enable genome plasticity. The entrance of a phage into a bacterial genome is performed through the process of lysogeny, forming a “dormant” prophage containing the entirety of the bacteriophage DNA that is not actively bactericidal, but can undergo replication into a mature virus. These prophages can remain dormant for extended periods of time, or switch into their active (lytic) state, typically after intense DNA damage. Lytic phages can become bactericidal and infect other bacterial cells, taking either their lytic or lysogenic state in their new host.",
+    "Prophages dramatically alter their host’s physiology. The presence of prophages can disrupt and silence bacterial genes, and they can cause chromosomal rearrangements, leading to changes in gene expression in their bacterial host. Prophages can confer host immunity to other bacteriophages, preventing lytic attack. During the transition to the lytic state, prophages can copy adjacent bacterial genes, integrating them into the viral genome. This genetic material is transferred to new bacterial hosts. Examples of phage transduced functions include virulence and antimicrobial resistance genes, toxins, effector proteins, and regulatory proteins.",
+    "Prophages also affect microbial populations at the community level. The introduction of bacteriophages into soil samples significantly changed the microbial composition and diversity of the soil microbial community. In aquatic environments, bacteriophage lyse 20–40% of bacterial biomass per day. In mouse model studies, both temperate and lytic phages influence the host gut microbiome, with lytic phages leading to a more beneficial community, and temperate phages leading to dysbiosis.",
+    "The role of bacteriophage in the adaptation of bacteria to the spaceflight environment is unknown. Previous studies have highlighted the importance of microbial communities in spaceflight, with changes noted in the composition of both the gut and skin microbiomes of astronauts. While other studies have noted the presence of prophages in a single bacteria species isolated from the ISS, in this work we show a comprehensive analysis of the prevalence and characterization of prophage that inhabit the spacecraft-built environment."
+  ],
+  "RESULTS": [
+    "Results",
+    "Genome summary and sampling cadence and locations",
+    "The International Space Station (ISS) is a unique built environment consisting of 388 cubic meters of habitable space. Crew size has ranged from 3 to 10 over the 22 years of continuous habitation. Surfaces within the occupied modules have been continuously sampled and analyzed for microbial populations to understand the microbiome of the built spacecraft environment. We set out to analyze the genomes that resulted from these experiments to assess the role of bacteriophage in the spacecraft-built environment.",
+    "We identified 10 bacterial strains of interest (see Methods): Acinetobacter pittii, Bacillus amyloliquifaecins, Bacillus thuringiensis, Enterobacter bugandensis, Klebsiella quasipneumoniae, Micrococcus luteus, Paenibacillus polymyxa, Pseudomonas fulva, Staphylococcus epidermidis, and Staphylococcus saprophyticus. These 10 species represent isolates from sampling campaigns spanning from 2006 to 2018 from eight locations within the ISS (Fig. 1) and a Crew Resupply Vehicle while it was docked with the ISS. Overall, 245 spaceflight genomes and metagenome-assembled genomes were included in our analysis. A full table with links to genomes and data sources can be found in Supplementary data 1.",
+    "Prophage region identification and comparison",
+    "We extracted prophage regions from flight genomes for each species using PHASTER and summed the prophage regions identified (categorized by PHASTER as complete, questionable, or incomplete), as these region numbers are proportional to the number of prophages that, at some point, lysogenized and entered the bacterial genome. For comparison, we obtained all terrestrial, complete genomes for these species from NCBI and determined the number of prophage regions for these genomes (NCBI accessions can be found in Supplementary data 1). Average number of prophage regions in the flight genomes ranged from 0.75 per genome for M. luteus to 7 for P. fulva (Fig. 2). For M. luteus, 3 of the 8 flight isolates had two possible incomplete prophage regions per genome, but the PHASTER results suggested they were low confidence annotations and prophage analysis by PhiSpy, which employs more stringent criteria, did not identify any prophage regions. Thus, M. luteus was removed from further analysis. Of the nine remaining species, all had multiple incomplete prophage regions and at least one complete phage, which, in theory, could convert to a lytic phenotype. In addition, five species presented with poly-lysogeny defined as containing multiple complete prophages. There were no universal trends in the number of prophage regions in the flight genomes versus the terrestrial isolates (Fig. 2), with four species having significantly more prophage in flight genomes, four with more in terrestrial, and one that was insignificant (Fig. 2, Mann–Whitney, two-sided, p < 0.05).",
+    "Due to the consistency in flight isolate prophage numbers for most of the species investigated (Fig. 2), coupled with the sampling cadence on the ISS (Supplementary data 1), we explored the genomic diversity between the flight isolates and the terrestrial strains. We used a pangenome approach to compare the similarity within the flight strains for each species, compared to the pangenome for all strains of the same species (all genomes in NCBI with an Assembly level at or above scaffold). We defined the core pangenome as genes present in at least 90% of the genomes, with the remaining genes defined as the accessory pangenome. We looked at two metrics for our analysis. First, we looked at the ratio in the size of the flight-strain pangenome versus the all-strain pangenome, working from the assumption that the more similar the flight strains, the larger the flight-strain core genome. Second, we took the fraction of the flight-strain core pangenome versus the total flight-strain pangenome (core plus accessory), as the smaller the accessory genome the less genetic diversity between the ISS strains. For high-confidence prophage regions (prophage calls consistent between PHASTER and PhiSpy algorithms), we removed the prophage regions from the genomes (replaced with N) to capture phage-independent genome variability.",
+    "Flight strains for four of nine species (B. amyloliquifaeciens, K. quasipneumoniae, S. epidermidis, and S. saprophyticus) had a core pangenome fraction of 0.90 or less (Supplementary data 1). The accessory pangenome of the remaining five species was 3% or less of the total pangenome, suggesting a high level of genetic similarity between the flight strains for these species. The ratio of the flight strains’ core pangenome versus the total species core pangenome was larger for all species, as expected for strains continuously sampled from the same environment. However, the magnitude of the ratio mirrored the change in the core pangenome fraction with the K. quasipneumoniae, S. epidermidis, and S. saprophyticus flight strains having similarly sized core pangenome as the all-strain pangenome (1.06, 1.01, and 1.03, respectively). S. epidermidis had the most longitudinal sampling cadence with 30 separate samples taken over 12 years (Supplementary data 1), which correlated with the highest level of genetic diversity between flight genomes (flight versus all core ratio of 1.01 and a flight ISS core fraction of 0.54). However, there were no clear trends in the pangenome comparison versus sampling cadence for the remaining eight species. For example, the 21 flight strains for A. pittii were sampled across three campaigns, two of which were 3 years apart. Still, these genomes showed the highest pangenome core ratio (1.21) and a flight core versus total pangenome fraction of 0.97, with only 89 genes in the accessory pangenome. S. saprophyticus’ 29 flight genomes came from a similar sampling cadence while having the second most genetic diversity among flight strains. The full genome diversity comparison can be found in Supplementary data 1.",
+    "We then applied the pangenome approach to determine if prophages contribute to variation between flight and terrestrial strains of the same species. Again, using all genomes in NCBI with an Assembly level at or above scaffold, but not removing the high confidence prophage regions, we identified Clusters of Orthologous Groups (COG) functions that were significantly different (q value < 0.05) between the flight and terrestrial genomes. For both flight and terrestrial genomes, there were significant differences in gene clusters associated with the phage-associated COG Mobilome (Fig. 3). Terrestrial genomes were enriched for transposases across multiple species, including A. pittii, B. thuringiensis, K. quasipneumoniae, and S. epidermidis, compared to spaceflight genomes. Spaceflight genomes were enriched for Mu-like phage structural proteins in A. pittii, E. bugandensis, and P. fulva and enriched for general phage structural proteins in A. pittii, E. bugandensis, K. quasipneumoniae, P. fulva, and S. epidermidis. Only S. saprophyticus contained prophages that were not significantly different between flight and terrestrial genomes. In addition, A. pittii, B. amyloliquifaecins, B. thuringiensis, E. bugandensis, and P. fulva indicated unique phage-associated gene clusters in both flight and terrestrial genomes suggesting a possible divergence in prophage regions resulting from spaceflight.",
+    "Complete prophage classification",
+    "To investigate the novelty of the flight prophages, we analyzed the complete prophage regions in comparison to known phage. In total, 283 complete prophage regions were identified in the 9 bacterial species’ flight genomes and all 283 were consistent between PHASTER and PhiSpy, suggesting high confidence prophage annotations. We clustered these complete prophages into 71 bins of >90% similarity, and determined the hypothetical phage family of each cluster by NCBI nucleotide BLAST search [Megablast] of viruses in the RefSeq Genome Database and the IMG Viral (VR) Database. The IMG Viral database was the more comprehensive of the two with an average query identity score (nucleotide identity multiplied by alignment percentage) of 55%, compared to 28% for the RefSeq viral genomes. Of the 71 clusters, 11 were unclassified (15%) based on having a total query identity of less than 40% with any phage in the RefSeq or IMG VR Databases. Of the remaining 60 clusters, all complete prophages were found to be tailed phages of class Caudoviricetes (Supplementary data 1). Of these 71 intact prophage clusters, 21 could be classified as novel species and 26 as novel genera based on current suggested cutoffs of 95% query identity for species and 70% for genera (Fig. 4a).",
+    "Next, we determined the homology of the complete prophage regions to bacterial genomes in the RefSeq database. As lysogenic prophage regions are incorporated into the bacterial genome, homologous regions may be present in terrestrial genomes in the bacterial database. The average query identity increased from 55% in the viral database to 80% with the bacterial database. Using the same cutoffs as above, 21 of the 71 clusters would be considered novel at the 95% query coverage cutoff and 16 would be considered novel at the 70% cutoff (Fig. 4b). Of the nine species, only B. thuringiensis lacked a novel complete prophage at the 70% cutoff (hereafter: non-redundant prophage region), suggesting unique prophage-associated genomic content was broadly observed in the flight genomes (Table 1).",
+    "Finally, we attempted to elicit a lytic phenotype from the flight strains. Seven isolates from four different BSL1 species [B. amyloliquifaeciens (IIF7SC-B1 and IIF7SW-P4), P. fulva (F8_7S_9B), P. polymyxa (IIF5SW-B4 and IIF8SW-P3), and S. saprophyticus (F6_7S_P5 and F5_7S_P13)] were provided by the NASA Jet Propulsion Laboratory. As the phage induction mechanisms have not yet been explored in these species, we subjected them to two common DNA damaging stimuli, mitomycin C and UV exposure. For all strains, log-phase cultures treated with mitomycin C (500, 100, 20, 4, and 0.8 ng mL−1) showed a dose-response decrease in culture viability, as measured by OD600, ~8 h post-mitomycin C addition (Supplementary Fig. 1). In contrast, cell viability was more variable following UV-C radiation (254 nm; 5, 25, 50, 100, 200 J m−2). Both S. saprophyticus species showed dose-dependent effect on the growth curve (b–c). This was similar to both B. amyloliquifaeciens isolates for the initial 12 h of growth, after which the growth curves were indistinguishable between treatments, which coincided with the formation of a biofilm (Supplementary Fig. 2d, e). The data for P. polymyxa was inconclusive as this species’ biofilm growth phenotype made it difficult to standardize culture starting densities and resulted in non-uniform light attenuation during OD600 determination (Supplementary Fig. 2f, g). P. fulva growth curves showed very little change in response to UV expose, which may suggest enhanced UV resistance in this ISS isolate (Supplementary Fig. 2a).",
+    "For all species with more than one isolate, the complete prophages were identical in both strains, preventing us from testing for bacteriophage infection via the soft-agar overlay method. Instead, we attempted to purify phage particles post-mitomycin C addition via filtration (0.22 µm) and precipitation (8% PEG8000, 1 M NaCl). While we were unable to recover phage particles, our attempt was cursory, and a more comprehensive exploration of phage induction in these isolates is needed.",
+    "Long-read assemblies provide insight into mobile genetic elements",
+    "We explored the contribution of genome assembly level on the prophage predictions by both the PHASTER and PhiSpy algorithms. From the seven isolates we sequenced two strains, P. fulva F8_7S_9B and S. saprophyticus F5_7S_P13, via Nanopore MinION. P. fulva was chosen as all the spaceflight strains are poly-lysogenic with a non-redundant prophage region in each strain (Cluster 52, Table 1). S. saprophyticus F5_7S_P13 is a member of Cluster 41 containing a non-redundant prophage region (Table 1).",
+    "Assemblies for both species resulted in a single contig for the bacterial chromosome. S. saprophyticus F5_7S_P13 contained three plasmids of 30, 33 and 36 kb in length. For this species, all five of the short-read assembly prophage regions mapped to the long-read assembly. However, one short-read incomplete prophage region was missing in the long-read assembly PHASTER analysis, despite the entire prophage region mapping to the long-read assembly (Supplementary data 1). This prophage region was present in the PhiSpy prophage calls for the long-read assembly. In addition, the long-read prophage analysis suggested the complete prophage from this species was truncated in the short-read assembly (42.1 kb versus 56.2 kb). Interestingly, the incomplete prophage #5 from the short-read prophage analysis (Accession: NZ_JAFDPF010000007.1, sequence: 10127 to 19977) was located on the 36 kb plasmid.",
+    "The prophage analysis for P. fulva F8_7S_9B suggested the short-read assembly led to fragmented prophage analysis. The long-read assembly identified 9 prophage regions, compared to 7 in the short-read assembly, with one short-read incomplete prophage region missing in the long-read assembly analysis (Supplementary data 1). Similar to S. saprophyticus, the entire prophage region mapped to the long-read assembly with no clear reason for its exclusion from the PHASTER prophage calls. This prophage region was not identified by PhiSpy in the long-read analysis. Long-read prophages #1, 5 and 6 were absent in the short-read analysis due to the prophage regions being split across separate contigs in the short-read assembly. Of the two complete prophages in P. fulva F8_7S_9B, a 62.9 kb long-read prophage region was split into two short-read prophage regions due to lying on two adjacent contigs. The other complete prophage region was annotated as a single 47.6 kb region in the long-read assembly but as two prophage regions in the short-read assembly (intact: 35.6 kb and incomplete: 12.1 kb region). The long-read assemblies can be found on NASA’s Open Science Data Repository (OSD-582, DOI: 10.26030/v6s6-w170) and NCBI (see Data Availability Statement).",
+    "Functional analysis of prophage region-encoded proteins",
+    "We selected a representative strain from each species and curated the prophage-encoded bacterial gene annotations to assess the functional contribution of phages to their hosts. Of the functionally annotated content, 46% was uncharacterized or hypothetical proteins. Of the remaining content, 20% was annotated as related to phage processes such as structural proteins (e.g., capsid, tail, etc.), lysogeny, and phage replication (e.g., integrases, terminases). The remaining content was annotated as microbial proteins, conferring a variety of capabilities to the host species (Fig. 5). The total number of prophage-encoded bacterial proteins that could be ascribed a function ranged from ~60 for both Staphylococcus species to a high of 102 for E. bugandensis (707 total for all species). The most prominent functional category contained proteins related to Signal Transduction and Transcriptional Regulation (104 proteins across all species), followed by DNA Repair and Replication (91 proteins), and Cell Wall Biogenesis and Degradation (65 proteins). To investigate the subset of prophage-encoded proteins that provide unique capabilities to their host, we extracted prophage-encoded annotations that lacked functional homology to host genome-encoded proteins (Fig. 5). We computed a conservation score for each category defined as the fraction of prophage-encoded proteins that were functionally unique. While only consisting of five proteins across three species, Secretion Systems had the highest conservation score of 1.0 (100% of the prophage-encoded proteins conferred a unique capability to their host). Translation, Ribosomal Structure and Biogenesis, as well as Lipid and Fatty Acid Metabolism also had high conservation scores (0.9 for both categories). The prominent prophage-encoded functional categories of Signal Transduction and Transcriptional Regulation, DNA Repair and Replication, and Cell Wall Biogenesis and Degradation had conservation scores of 0.6, 0.51, and 0.48, respectively.",
+    "Many of the functions conferred by prophage-encoded proteins are correlated to increased fitness in competitive environments. All nine species had putative virulence related genes encoded on prophage regions, with 45% of these conferring unique functions to their hosts. Based on the assessment of antibiotic resistance genes using ABRicate, P. polymyxa prophage contained an aminoglycoside resistance gene (aadK), and S. epidermidis prophage contained two confirmed antibiotic resistance genes, a macrolide resistance gene [mph(C)] and an efflux pump [msr(A)]. Approximately 33% of the putative AMR proteins were possible resistance pumps for macromolecules. A. pittii, B. amyloliquifaeciens, and E. bugandensis all contained prophage-encoded pyocin-related defense proteins. Both Staphylococcus species contained prophage-encoded pathogenicity island genes and enzymes associated with putative virulence or antibiotic resistance functions (Supplementary data 1). A. pittii, B. amyloliquifaeciens, and B. thuringiensis contained prophage-encoded enzymes for deoxynucleotide sugar biosynthesis found in both antimicrobial biosynthetic pathways, such as streptomycin, as well as polyketide biosynthesis related to pathogenicity and antimicrobial activity. These enzymes were unique to the prophage regions, with no homologs found in the non-prophage host genomic content.",
+    "Additional prophage-encoded gene products may confer fitness in the built spacecraft environment. Stress response proteins included those associated with sporulation and hibernation and metal resistance genes and transporters. Both categories have been shown to be enriched in spacecraft-associated microorganisms. Four species had prophage-encoded LexA-related transcriptional regulators or repressors involved in the regulation of the SOS response in bacteria, which have recently been shown to be uniquely present in ISS strains of A. pittii. This study also showed the presence of the RelBE toxin-antitoxin system in ISS A. pittii strains, which is also prophage-encoded."
+  ],
+  "FIG": [
+    "Sampling locations on the International Space Station.",
+    "Purple shaded area: Node 3; sampling locations: Cupola (L1), Waste and Hygiene Compartment (L2), Advanced Resistive Exercise Device (ARED) (L3), Green shaded region: Node 1; sampling locations: dining table (L4), overhead 4 (L5), Yellow shaded region: Permanent Multipurpose Module; sampling locations: (L6), Blue shaded region: US Lab sampling locations: Lab Overhead 3 (L7), Orange shaded region: Node 2; sampling locations: crew quarters (L8). Images courtesy of NASA.",
+    "ISS (flight) versus terrestrial prophage counts.",
+    "The median is indicated by a dashed horizontal line for each condition (flight or terrestrial) for each species. The number of genomes in the flight and terrestrial categories are indicated adjacent to each group of data. Two-tailed Mann–Whitney p value, for H0 nflight = nterrestrial, and the U-statistic and Common Language Effect Size (f) for the terrestrial condition are shown. Source data are provided as a Source Data file.",
+    "Mobilome-associated Clusters of Orthologous Groups (COG) functions significantly different in either flight or terrestrial genomes [q value < 0.05, two-tailed Rao score test p value corrected for multiple testing (see Methods)].",
+    "General categories of phage genes are given different shapes, while the different species are show in different colors. Log10(q-values) > 18 have their values shown adjacent to their respective data point. Source data are provided as a Source Data file.",
+    "Homology of complete prophage regions versus viral and genome databases.",
+    "a Query identity (nucleotide query coverage fraction × by identity fraction) for complete prophage regions in each species queried against the RefSeq and IMG viral databases. The higher value between the two databases was plotted. b Query identity (nucleotide query coverage fraction × by identity fraction) for complete prophage regions in each species queried against the RefSeq bacteria database. Vertical dashed lines indicate the 0.95 and 0.70 query identity cutoffs. Source data are provided as a Source Data file.",
+    "Species-specific prophage-encoded protein functions.",
+    "Left panel: all prophage encoded proteins in each species. Right panel: the subset of prophage-encoded proteins that confer a unique function to their host. *Conservation score: mean of the functionally unique protein count divided by the total prophage protein count for each functional category. Phage-related proteins and uncharacterized/hypothetical proteins were excluded from the figure."
+  ],
+  "TABLE": [
+    "Non-redundant prophage regions in spaceflight isolates",
+    "Species\tCluster\tRepresentative Phage\tGenomes in Cluster\tSize (kb)\tFamily\tQuery Identitya\t \tNCBI Virus\tIMG Virus\tNCBI Bacteria\t \tA. pittii\t2\tIIF1SW-P2 sequence:120779-155538\t13\t34.8\tCaudoviricetes\t0%\t65%\t59%\t \t3\tIIF1SW-P4 sequence:16202-50961\t8\t34.8\tCaudoviricetes\t0%\t65%\t59%\t \tB. amyloliquefaciens\t6\tIIF7SW-B4 sequence:76-30790\t2\t30.7\tCaudoviricetes\t0%\t55%\t21%\t \tE. bugandensis\t12\tIFACSW-P1 sequence:830462-877738\t7\t47.3\tCaudoviricetes\t11%\t52%\t47%\t \t17\tIF2SW-F2 sequence:448858-496167\t2\t47.3\tCaudoviricetes\t11%\t51%\t47%\t \tK. quasipneumoniae\t24\tIIIF3SW-P1 sequence:1181253-1232366\t2\t51.1\tUnclassified\t4%\t37%\t20%\t \tP. fulva\t52\tF8_8S_9P sequence:173154-179665\t1\t6.5\tCaudoviricetes\t0%\t56%\t33%\t \tP. polymyxa\t26\tIIF5SW-B4 sequence:979867-1033318\t5\t53.5\tCaudoviricetes\t0%\t56%\t33%\t \t28\tIIF2*SW-P4 sequence:600724-654175\t2\t53.5\tCaudoviricetes\t0%\t66%\t29%\t \tS. epidermidis\t34\tIF4SW-P4 sequence:652269-693911\t2\t41.6\tCaudoviricetes\t20%\t58%\t55%\t \t38\ts34 sequence:116777-162391\t2\t45.6\tCaudoviricetes\t16%\t68%\t41%\t \t62\ts51 sequence:616-49418\t1\t48.8\tCaudoviricetes\t11%\t65%\t54%\t \t69\ts17 sequence:35-44746\t1\t44.7\tUnclassified\t29%\t40%\t39%\t \t74\tF6_3S_P_7 sequence:72993-118974\t1\t46\tCaudoviricetes\t14%\t48%\t45%\t \tS. saprophyticus\t41\tF6_7S_P_5 sequence:592884-635056\t2\t42.2\tCaudoviricetes\t43%\t63%\t25%\t \t42\tF5_7S_P5C sequence:174-42331\t5\t42.2\tCaudoviricetes\t43%\t63%\t25%\t \t70\ts43 sequence:757637-811609\t1\t54\tUnclassified\t5%\t32%\t12%\t \t71\tF5_7S_P11B sequence:38923-82523\t1\t43.6\tCaudoviricetes\t50%\t61%\t24%",
+    "aNCBI Megablast query coverage × alignment."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Prophages are cited to be the largest factor associated with strain variation and diversity within terrestrial bacterial species, which holds in the spaceflight environment as phage-associated genes were significantly different in 8 of the 9 phage-containing species analyzed. Several spaceflight species contained genes related to the production of Mu-like phage proteins compared to their terrestrial counterparts. Mu-like phages are unique in that they randomly integrate into the host genome, increasing mutation rates and host gene disruption. Increased genetic diversity via Mu-like phage induced mutation may assist in microbial adaptation to the spaceflight environment and would explain the retention of these phage in flight strains. In comparison, terrestrial genomes contained transposases absent in the flight strains. Transposases are common in dense populations where there is rampant DNA sharing across a population of individuals. The absence of these transposase regions may be related to the nutrient poor environment of the ISS. The presence of transposases in the terrestrial organisms may also be indicative of active mobile genetic elements, which we were unable to confirm for the spaceflight isolates.",
+    "Our analysis suggested a high number of novel prophages in the flight genomes. In total, we identified 283 complete prophages making up 71 unique prophage clusters, 18 of which were hypothesized as novel, and host-related genes making up over a third of the genes present in these prophage regions. While the discovery of novel prophages is not uncommon, with viral dark matter reported to be 70–95% of human associated viromes, a previous viral metagenomic study was able to classify the majority of the viruses in extreme environments.",
+    "Prophages are a primary mechanism of bacterial host gene transfer, to include antibiotic resistance and virulence genes. We identified at least one putative antibiotic resistance or virulence host-related gene within the prophage regions of all species studied. In comparison, <12% of highly antibiotic resistant ESKAPE pathogens carry a prophage-encoded antibiotic resistance gene. In addition, lysogens carrying antibiotic resistance genes have been shown to provide a fitness benefit for their host. There are several reports of spaceflight-induced increases in antibiotic tolerance or increased antibiotic resistance gene clusters. With our identification of confirmed antibiotic genes within prophage regions of P. polymyxa and S. epidermidis, as well as the conservation of prophage regions within members of the same species, we describe one possible mechanism for this increased antibiotic tolerance.",
+    "We also identified categories of genes related to host immunity, stress response, and DNA repair. The presence of prophages within a bacterial host can provide immunity to attack from other bacteriophages or phage-like pyocins by inhibiting lytic phage replication, or repressing other phages. We identified several host immunity genes in the flight prophages that could mediate phage and pyocin resistance. In addition, both Bacillus species contained prophage-encoded sporulation genes, related to persistence in harsh terrestrial environments and spaceflight. Prophage-encoded DNA repair genes were present across several species, notably those activated in response to radiation. UV radiation induced activation of lytic phage is well known; however, the ISS structure shields the interior from UV radiation. The presence of DNA-repair genes may play a role in the protection of the host genome from galactic cosmic rays or general DNA damage from desiccation in the built environment.",
+    "The association between genomic features enriched in ISS isolates and prophage regions suggest phage are important for adaptation to the spaceflight environment. However, these are correlations, and experimentation is required to directly connect prophage-mediated genetic plasticity with persistence in the built spacecraft environment. In addition, the opportunity for phage infection of microbial strains after they leave the crew microbiome is likely limited. Thus, an important line of inquiry is to assess the lytic-lysogenic traits of microorganisms while they are still host-associated."
+  ],
+  "METHODS": [
+    "Methods",
+    "Flight and terrestrial genomes",
+    "Candidate flight species to use in our analysis were determined from literature. Isolates from the ISS were identified in the NCBI databases by searching the BioSample database for “geo_loc_name=USA: International Space Station”[attr] AND “SPECIES NAME”. These hits were mapped back to the NCBI Assembly database and the flight genomes were validated and downloaded. The terrestrial genomes were downloaded from the Assembly database with the following conditions: Latest RefSeq only, Exclude anomalous and Taxonomy Check Status OK. The Assembly Level differed based on analysis with Scaffold and above used for pangenome analysis and Complete genome was used for prophage identification. The Assembly Level for all ISS flight genomes were either Scaffold or Contig. Metagenomes were downloaded from the NASA Open Science Data Repository OSD-69 (DOI: 10.26030/cary-q426). A full list of genomes, reference links and sampling locations can be found in Supplementary data 1.",
+    "Prophage identification and classification",
+    "Prophage regions for both ISS and terrestrial isolates were identified with PHASTER. Results were separated into complete, questionable, and incomplete prophage regions and the prophage regions in fasta format were downloaded from the PHASTER web-based server. In addition, flight and terrestrial genomes, downloaded from NCBI using E-utilities (v 1.77) in GenBank format, were also searched for prophage regions using PhiSpy [v4.2.20,] using default parameters. PhiSpy prophage regions consistent with PHASTER prophage regions were analyzed using ABRicate (v1.0.0, Seemann T, Abricate, Github https://github.com/tseemann/abricate) with all associated databases to identify antibiotic resistance genes in prophage regions. Fasta files of the bacterial genomes without prophages were exported and used for the flight isolate genome diversity analysis. Prophage regions from ISS strains were queried against the Virulence Factor Database (accessed April 2023) to identify putative virulence factors using NCBI Blast. Statistical differences in prophage number were determined using a two-tailed Mann–Whitney U rank test, correcting for ties, as implemented in SciPy [v1.7.3,]. The effect size was computed as the common language effect size f value where f. The U-statistic and f value were reported for the terrestrial condition. Prophage regions identified as complete were clustered using MeShClust [v3.0,] with a cut off of 90% nucleotide identity. The nucleotide sequence labeled as the center of each cluster was assessed for homology with known viral and bacterial sequences in the NCBI RefSeq genome database using BLAST [Megablast, accessed November 2022] and high confidence genomes in the IMG/VR database [v4.1, accessed July 2023]. Phage classification was determined based on the taxonomic similarity to the best hit in the viral database (query coverage percentage multiplied by percent identity > 40%).",
+    "Pangenome analysis",
+    "Pangenome analysis of the flight and terrestrial genomes from NCBI and the NASA Open Science Data Repository was completed using the pangenomics workflow in anvi’o [v7.1]. For Bacillus thuringiensis, Klebsiella quasipneumoniae, and Staphylococcus epidermidis, the terrestrial genomes were subsampled into sets of 300 genomes and the pangenome workflow run separately on each subset (2 sets for B. thuringiensis and K. quasipneumoniae each, and 3 sets for S. epidermidis). For the ISS flight genome diversity analysis, the non-prophage containing bacterial genomes output from PhiSpy was used for analysis. Outputs from the anvio-summarize function were parsed for the number of genomes in which each gene was present. The core pangenome was defined as genes present in at least 90% of the genomes (or for ISS species with less than 10 genomes, the cutoff was n-1 genomes, where n is the number of available genomes). The accessory pangenome was defined as the difference between the core pangenome and the total number of genes in the pangenome. The core ratio was the defined as the number of genes in the ISS flight core pangenome versus to all-strains (ISS and terrestrial) core pangenome. The core pangenome fraction was defined as the number of genes in the core pangenome divided by the total pangenome size (core plus accessory).",
+    "For the functional enrichment analysis, the full bacterial genome with prophage regions was used for analysis. Functional enrichments between flight and terrestrial strains were determined using the built in anvi-compute-functional-enrichments-in-pan workflow with COG20_FUNCTION as the annotation source. This workflow used the two-tailed Rao test statistic to determine the significance of a categorical variable (in this case flight versus terrestrial) to explain the functional occurrence. The resulting p value was corrected for multiple tests and reported as a q value, with a set significance threshold of q < 0.05. For species with subsampled genomes, a COG was considered enriched if it was present at a q value (p value adjusted for multiple tests) of 0.05 or lower for at least two subsets. Enrichment summaries and outputs from the anvio-summarize script were used for downstream analysis.",
+    "Mitomycin C and UV treatment of ISS bacterial isolates",
+    "Flight isolates of Paenibacillus polymyxa (strains IIFSW-B4 and IIF8SW-P3), Bacillus amyloliquefaciens (strains IIF7SW-P4 and IIF7SC-B1), Pseudomonas fulva strain F8_7S_9B, and Staphylococcus saprophyticus (strains F5_7S_P13 and F6_7S_P5) were provided by the Biotechnology and Planetary Protection Group at the NASA Jet Propulsion Laboratory and grown overnight in tryptic soy broth (TSB) at 30 °C. Cultures were diluted to an OD600 of 0.3–0.4 and 4 mL was placed in a 30 mm diameter plastic petri dish. With the lid removed, the cultures were subjected to aggregate UV doses of 5, 25, 50, 100, and 200 J m−2 of UV-C radiation from a G30T8 UV lamp (75 µW cm−2 at the plate surface). Doses were determined using a 2π UV-B/C light probe connected to a hand-held light meter (ILT2400, International Light Technologies, Peabody, MA, USA) in integrate mode. After each dose was delivered, duplicate 200 µL aliquots were removed from the petri dish and placed into separate wells of a 96-well microtiter plate. Cell growth was determined by microplate reader optical measurements at 600 nm once per hour (SpectraMax 340, Molecular Devices, San Jose, CA, USA). Negative control sample OD600 was subtracted from the time-course culture data prior to analysis.",
+    "For the mitomycin C treatment, flight isolates grown overnight  in TSB at 30 °C were diluted to 0.3–0.4 OD600 and 200 µL was aliquoted into a 96-well plate. Mitomycin C stock solution in DMSO (10 mg/mL, Sigma-Aldrich, St. Louis, MO, USA) was diluted to 110 µg/mL in TSB before being serial diluted five times at 5× dilution in TSB. 5 µL of these dilutions, along with a TSB control, were added to separate wells of the culture-containing 96-well plate (2 technical replicates per isolate) resulting in a final concentration set of 500, 100, 20, 4, 0.8, and 0.0 ng mL−1. Cell growth was determined by microplate reader optical measurements at 600 nm once per hour (SpectraMax 340, Molecular Devices, San Jose, CA, USA). Negative control sample OD600 was subtracted from the time-course culture data prior to analysis.",
+    "For phage isolation attempts, 5 mL of cultures were grown to mid-log phase before being treated with mitomycin C (0.5 µg/mL final concentration). Cultures were returned to the 30 °C incubator overnight. Cells and debris were removed by centrifugation and the supernatant was filtered through a low-protein binding 0.22 µm PES syringe filter. To the clarified supernatant, a PEG8000, NaCl stock solution was added to yield a final concentration of 8% PEG8000, 1 M NaCl. Solutions were incubated overnight at 4 °C, transferred to triplicate 1.5 mL microcentrifuge tubes and centrifuged at 15 000 × g for 30 min at 4 °C. Tubes were visually examined for the presence of phage pellets.",
+    "Long-read genome sequencing of bacterial isolates",
+    "Flight isolates of Paenibacillus polymyxa (strains IIFSW-B4 and IIF8SW-P3), Bacillus amyloliquefaciens (strains IIF7SW-P4 and IIF7SC-B1), Pseudomonas fulva strain F8_7S_9B, and Staphylococcus saprophyticus (strains F5_7S_P13 and F6_7S_P5) were grown on tryptic soy agar plates. After 72 h the plates were scraped and biomass was suspended in 1 mL of buffer (100 mM Tris HCl, 50 mM NaCl, pH 7.0), and genomic DNA was extracted via a lysozyme, proteinase K treatment followed by phenol-chloroform extraction and ethanol precipitation as outlined in. DNA quality was assessed by fluorometric quantification (Qubit, Invitrogen, Waltham, MA, USA) and UV-Vis microvolume spectrophotometry (Nanodrop, Thermo Fischer Scientific, Waltham, MA, USA). Paenibacillus polymyxa and Bacillus amyloliquefaciens, as well as Staphylococcus saprophyticus F5_7S_P13, were excluded from the sequencing run due to biofilm polysaccharides preventing extraction of gDNA with sufficient purity for MinION sequencing. All gDNA manipulations were performed using wide-bore pipet tips to prevent genomic DNA (gDNA) shearing. Native gDNA was sequenced on a MinION R9.4 flowcell (Oxford Nanopore Technologies (ONT), Oxford, UK). The sequencing library was prepared using the ONT Rapid Barcoding Sequencing kit (SQK-RBK004, Oxford Nanopore Technologies, Oxford, UK) according to the manufacturer’s protocol. Sequencing Fast5 files were base-called using the ONT Guppy base-caller (v6.2.1) using the super high accuracy model. Genomes were assembled using Flye [v2.9.1] and polished with the ONT tool Medaka (v1.7.0, https://github.com/nanoporetech/medaka) using default parameters for both. Closed contigs were checked for prophage regions using the PHASTER web-based interface as outlined above.",
+    "Functional annotation of prophage regions",
+    "Open reading frames encoded within the prophage nucleotide sequences from the PHASTER output were determined using the NCBI ORFinder. Open reading frames were annotated using MicrobeAnnotator [2.0.5,], using DIAMOND search for homology determination. The output file was combined with the E values for the homology scores and any E value higher than 1 × 10−40 was flagged for manual curation. Proteins flagged for manual curation were compiled into a single file in fasta format and searched against the NCBI RefSeq database. The results were curated for accuracy and confidence and the annotation added to the summary file. All annotations in the summary file were then manually assigned to one of 21 categories based on their functional annotation.",
+    "All data visualization was performed using in Python (v3.9) using Jupyter Notebooks [v1.0.0,] and the packages Matplotlib [v3.5.1,] and Seaborn [v0.11.2,]. Additional packages used for analysis included NumPy [v1.22.3,], Pandas [v1.4.2,], and Biopython [1.79,]. No custom code, algorithms, or scripts central to the research were generated.",
+    "Reporting summary",
+    "Further information on research design is available in the Nature Portfolio Reporting Summary linked to this article.",
+    "Supplementary information",
+    "Source data",
+    "Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "SUPPL": [
+    "Supplementary information",
+    "The online version contains supplementary material available at 10.1038/s41467-023-42104-w.",
+    "Data availability",
+    "The long-read assemblies and raw fast5 files generated in this study have been deposited in the NASA Open Science Data Repository (https://osdr.nasa.gov/) under accession code OSD-582 (https://osdr.nasa.gov/bio/repo/data/studies/OSD-582, 10.26030/v6s6-w170) and in the NCBI databases Assembly under accession codes GCF_017167745.1 (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_017167745.1) and GCF_017166245.1 (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_017166245.1), BioProject under accession code PRJNA994947 (https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA994947), BioSamples under accession codes SAMN36453224 (https://www.ncbi.nlm.nih.gov/biosample/36453225) and SAMN36453224 (https://www.ncbi.nlm.nih.gov/biosample/36453224), and SRA under accession codes SRR25281509 (https://www.ncbi.nlm.nih.gov/sra/SRX21026417[accn]) and SRR25281510 (https://www.ncbi.nlm.nih.gov/sra/SRX21026416[accn]). All data for figures have been uploaded to Figshare (10.6084/m9.figshare.23290226). Source data are provided with this paper."
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "J.T.B. and I.I. conceived and designed the study. J.T.B. performed the pangenome analysis, mitomycin C and UV experiments, MinION sequencing and assembly, and curation of prophage-encoded protein functions. I.I. built and executed the pipeline for prophage identification, comparison, and classification, and the presence of antibiotic resistance markers. Both authors wrote and edited the paper.",
+    "Peer review",
+    "Peer review information",
+    "Nature Communications thanks Louis-Charles Fortier and the other, anonymous, reviewer(s) for their contribution to the peer review of this work. A peer review file is available."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "The authors declare no competing interests."
+  ],
+  "REF": [
+    "References",
+    "A microbial survey of the International Space Station (ISS)",
+    "Crewmember microbiome may influence microbial composition of ISS habitable surfaces",
+    "Space Station conditions are selective but do not alter microbial characteristics relevant to human health",
+    "Machine learning algorithm to characterize antimicrobial resistance associated with the International Space Station surface microbiome",
+    "Ramisetty, B. C. M. & Sudhakari, P. A. Bacterial ‘Grounded’ Prophages: Hotspots for Genetic Renovation and Innovation. Front. Genet.10, 65 (2019).",
+    "Bacteria-phage coevolution as a driver of ecological and evolutionary processes in microbial communities",
+    "Lysogeny in nature: mechanisms, impact and ecology of temperate phages",
+    "Importance of prophages to evolution and virulence of bacterial pathogens",
+    "Phages and the Evolution of Bacterial Pathogens: from Genomic Rearrangements to Lysogenic Conversion",
+    "Impact of phages on soil bacterial communities and nitrogen availability under different assembly scenarios",
+    "Marine viruses — major players in the global ecosystem",
+    "Alterations in the diversity and composition of mice gut microbiota by lytic or temperate gut phage treatment",
+    "Study of the impact of long-duration space missions at the International Space Station on the astronaut microbiome",
+    "Genomic and Functional Characterization of Enterococcus faecalis Isolates Recovered From the International Space Station and Their Potential for Pathogenicity",
+    "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+    "PHAST: A Fast Phage Search Tool",
+    "PHASTER: a better, faster version of the PHAST phage search tool",
+    "Database resources of the National Center for Biotechnology Information",
+    "PhiSpy: a novel algorithm for finding prophages in bacterial genomes that combines similarity- and composition-based strategies",
+    "BLAST+: architecture and applications",
+    "Reference sequence (RefSeq) database at NCBI: current status, taxonomic expansion, and functional annotation",
+    "IMG/VR v4: an expanded database of uncultivated virus genomes within a framework of extensive functional, taxonomic, and ecological metadata",
+    "A Roadmap for Genome-Based Phage Taxonomy",
+    "Bacillus and Paenibacillus secreted polyketides and peptides involved in controlling human and plant pathogens",
+    "Multidrug-resistant Acinetobacter pittii is adapting to and exhibiting potential succession aboard the International Space Station",
+    "Bacteriophage Mu genome sequence: analysis and comparison with Mu-like prophages in Haemophilus, Neisseria and Deinococcus",
+    "High abundance and expression of transposases in bacteria from the Baltic Sea",
+    "Classification and quantification of bacteriophage taxa in human gut metagenomes",
+    "The human virome: assembly, composition and host interactions",
+    "A Review on Viral Metagenomics in Extreme Environments",
+    "Distribution of Antimicrobial Resistance and Virulence Genes within the Prophage-Associated Regions in Nosocomial Pathogens",
+    "The ESKAPE mobilome contributes to the spread of antimicrobial resistance and CRISPR-mediated conflict between mobile genetic elements",
+    "Fitness benefits to bacteria of carrying prophages and prophage‐encoded antibiotic‐resistance genes peak in different environments",
+    "Study of minimal inhibitory concentration of antibiotics on bacteria cultivated in vitro in space (Cytos 2 experiment)",
+    "Effects of microgravity on the virulence of Listeria monocytogenes, Enterococcus faecalis, Candida albicans, and methicillin-resistant Staphylococcus aureus",
+    "Spaceflight Modifies Escherichia coli Gene Expression in Response to Antibiotic Exposure and Reveals Role of Oxidative Stress Response",
+    "Prophages mediate defense against phage infection through diverse mechanisms",
+    "Prophages encode phage-defense systems with cognate self-immunity",
+    "Lysogeny and Sporulation in Bacillus Isolates from the Gulf of Mexico",
+    "Developmentally-Regulated Excision of the SPβ Prophage Reconstitutes a Gene Required for Spore Envelope Maturation in Bacillus subtilis",
+    "Space Radiation Dosimetry at the Exposure Facility of the International Space Station for the Tanpopo Mission",
+    "Draft Genome Sequences of Enterobacteriales Strains Isolated from the International Space Station",
+    "Draft Genome Sequences of Bacillaceae Strains Isolated from the International Space Station",
+    "Draft Genome Sequences of Various Bacterial Phyla Isolated from the International Space Station",
+    "Venkateswaran, K. Microbial Observatory (ISS-MO): Indoor microbiome study of the International Space Station surfaces. 10.26030/cary-q426 (2016).",
+    "Validating the AMRFinder Tool and Resistance Gene Database by Using Antimicrobial Resistance Genotype-Phenotype Correlations in a Collection of Isolates",
+    "CARD 2017: expansion and model-centric curation of the comprehensive antibiotic resistance database",
+    "Identification of acquired antimicrobial resistance genes",
+    "ARG-ANNOT, a new bioinformatic tool to discover antibiotic resistance genes in bacterial genomes",
+    "In silico detection and typing of plasmids using PlasmidFinder and plasmid multilocus sequence typing",
+    "In silico serotyping of E. coli from short read data identifies limited novel O-loci but extensive diversity of O:H serotype combinations within and between pathogenic lineages",
+    "MEGARes 2.0: a database for classification of antimicrobial drug, biocide and metal resistance determinants in metagenomic sequence data",
+    "VFDB 2016: hierarchical and refined dataset for big data analysis–10 years on",
+    "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+    "MeShClust v3.0: high-quality clustering of DNA sequences using the mean shift algorithm and alignment-free identity scores",
+    "NASA GeneLab: interfaces for the exploration of space omics data",
+    "Snakemake—a scalable bioinformatics workflow engine",
+    "Fast and sensitive protein alignment using DIAMOND",
+    "Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome",
+    "Community-led, integrated, reproducible multi-omics with anvi’o",
+    "Discovery of Chlorophyll d: Isolation and Characterization of a Far-Red Cyanobacterium from the Original Site of Manning and Strain (1943) at Moss Beach, California",
+    "Assembly of long, error-prone reads using repeat graphs",
+    "MicrobeAnnotator: a user-friendly, comprehensive functional annotation pipeline for microbial genomes",
+    "Jupyter: Thinking and Storytelling With Code and Data",
+    "Matplotlib: A 2D graphics environment",
+    "seaborn: statistical data visualization",
+    "Array programming with NumPy",
+    "team, T. pandas development. pandas-dev/pandas: Pandas. 10.5281/zenodo.3509134 (2020).",
+    "McKinney, W. Data Structures for Statistical Computing in Python. in Proceedings of the 9thPython in Science Conference (eds. Walt, S. van der & Millman, J.) 56–61 10.25080/Majora-92bf1922-00a (2010).",
+    "Biopython: freely available Python tools for computational molecular biology and bioinformatics"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A microbial survey of the International Space Station (ISS)",
+      "autores": [
+        {
+          "nombre_completo": "JM Lang",
+          "nombres": "JM",
+          "apellidos": "Lang"
+        }
+      ],
+      "pmid": "29492330",
+      "fuente": "PeerJ",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "e4029",
+      "lpage": ""
+    },
+    {
+      "titulo": "Crewmember microbiome may influence microbial composition of ISS habitable surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Avila-Herrera",
+          "nombres": "A",
+          "apellidos": "Avila-Herrera"
+        }
+      ],
+      "pmid": "32348348",
+      "fuente": "PLoS ONE",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "e0231838",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space Station conditions are selective but do not alter microbial characteristics relevant to human health",
+      "autores": [
+        {
+          "nombre_completo": "M Mora",
+          "nombres": "M",
+          "apellidos": "Mora"
+        }
+      ],
+      "pmid": "31488812",
+      "fuente": "Nat. Commun.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "3990",
+      "lpage": ""
+    },
+    {
+      "titulo": "Machine learning algorithm to characterize antimicrobial resistance associated with the International Space Station surface microbiome",
+      "autores": [
+        {
+          "nombre_completo": "P Madrigal",
+          "nombres": "P",
+          "apellidos": "Madrigal"
+        }
+      ],
+      "pmid": "35999570",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "134",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ramisetty, B. C. M. & Sudhakari, P. A. Bacterial ‘Grounded’ Prophages: Hotspots for Genetic Renovation and Innovation. Front. Genet.10, 65 (2019).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacteria-phage coevolution as a driver of ecological and evolutionary processes in microbial communities",
+      "autores": [
+        {
+          "nombre_completo": "B Koskella",
+          "nombres": "B",
+          "apellidos": "Koskella"
+        },
+        {
+          "nombre_completo": "MA Brockhurst",
+          "nombres": "MA",
+          "apellidos": "Brockhurst"
+        }
+      ],
+      "pmid": "24617569",
+      "fuente": "FEMS Microbiol. Rev.",
+      "anio": "2014",
+      "volumen": "38",
+      "fpage": "916",
+      "lpage": "931"
+    },
+    {
+      "titulo": "Lysogeny in nature: mechanisms, impact and ecology of temperate phages",
+      "autores": [
+        {
+          "nombre_completo": "C Howard-Varona",
+          "nombres": "C",
+          "apellidos": "Howard-Varona"
+        },
+        {
+          "nombre_completo": "KR Hargreaves",
+          "nombres": "KR",
+          "apellidos": "Hargreaves"
+        },
+        {
+          "nombre_completo": "ST Abedon",
+          "nombres": "ST",
+          "apellidos": "Abedon"
+        },
+        {
+          "nombre_completo": "MB Sullivan",
+          "nombres": "MB",
+          "apellidos": "Sullivan"
+        }
+      ],
+      "pmid": "28291233",
+      "fuente": "ISME J.",
+      "anio": "2017",
+      "volumen": "11",
+      "fpage": "1511",
+      "lpage": "1520"
+    },
+    {
+      "titulo": "Importance of prophages to evolution and virulence of bacterial pathogens",
+      "autores": [
+        {
+          "nombre_completo": "L-C Fortier",
+          "nombres": "L-C",
+          "apellidos": "Fortier"
+        },
+        {
+          "nombre_completo": "O Sekulovic",
+          "nombres": "O",
+          "apellidos": "Sekulovic"
+        }
+      ],
+      "pmid": "23611873",
+      "fuente": "Virulence",
+      "anio": "2013",
+      "volumen": "4",
+      "fpage": "354",
+      "lpage": "365"
+    },
+    {
+      "titulo": "Phages and the Evolution of Bacterial Pathogens: from Genomic Rearrangements to Lysogenic Conversion",
+      "autores": [
+        {
+          "nombre_completo": "H Brüssow",
+          "nombres": "H",
+          "apellidos": "Brüssow"
+        },
+        {
+          "nombre_completo": "C Canchaya",
+          "nombres": "C",
+          "apellidos": "Canchaya"
+        },
+        {
+          "nombre_completo": "W-D Hardt",
+          "nombres": "W-D",
+          "apellidos": "Hardt"
+        }
+      ],
+      "pmid": "15353570",
+      "fuente": "Microbiol. Mol. Biol. Rev.",
+      "anio": "2004",
+      "volumen": "68",
+      "fpage": "560",
+      "lpage": "602"
+    },
+    {
+      "titulo": "Impact of phages on soil bacterial communities and nitrogen availability under different assembly scenarios",
+      "autores": [
+        {
+          "nombre_completo": "LPP Braga",
+          "nombres": "LPP",
+          "apellidos": "Braga"
+        }
+      ],
+      "pmid": "32252805",
+      "fuente": "Microbiome",
+      "anio": "2020",
+      "volumen": "8",
+      "fpage": "52",
+      "lpage": ""
+    },
+    {
+      "titulo": "Marine viruses — major players in the global ecosystem",
+      "autores": [
+        {
+          "nombre_completo": "CA Suttle",
+          "nombres": "CA",
+          "apellidos": "Suttle"
+        }
+      ],
+      "pmid": "17853907",
+      "fuente": "Nat. Rev. Microbiol.",
+      "anio": "2007",
+      "volumen": "5",
+      "fpage": "801",
+      "lpage": "812"
+    },
+    {
+      "titulo": "Alterations in the diversity and composition of mice gut microbiota by lytic or temperate gut phage treatment",
+      "autores": [
+        {
+          "nombre_completo": "H Bao",
+          "nombres": "H",
+          "apellidos": "Bao"
+        }
+      ],
+      "pmid": "30302521",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2018",
+      "volumen": "102",
+      "fpage": "10219",
+      "lpage": "10230"
+    },
+    {
+      "titulo": "Study of the impact of long-duration space missions at the International Space Station on the astronaut microbiome",
+      "autores": [
+        {
+          "nombre_completo": "AA Voorhies",
+          "nombres": "AA",
+          "apellidos": "Voorhies"
+        }
+      ],
+      "pmid": "31289321",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "9911",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genomic and Functional Characterization of Enterococcus faecalis Isolates Recovered From the International Space Station and Their Potential for Pathogenicity",
+      "autores": [
+        {
+          "nombre_completo": "NC Bryan",
+          "nombres": "NC",
+          "apellidos": "Bryan"
+        }
+      ],
+      "pmid": "33505359",
+      "fuente": "Front. Microbiol.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "515319",
+      "lpage": ""
+    },
+    {
+      "titulo": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30424821",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "204",
+      "lpage": ""
+    },
+    {
+      "titulo": "PHAST: A Fast Phage Search Tool",
+      "autores": [
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Liang",
+          "nombres": "Y",
+          "apellidos": "Liang"
+        },
+        {
+          "nombre_completo": "KH Lynch",
+          "nombres": "KH",
+          "apellidos": "Lynch"
+        },
+        {
+          "nombre_completo": "JJ Dennis",
+          "nombres": "JJ",
+          "apellidos": "Dennis"
+        },
+        {
+          "nombre_completo": "DS Wishart",
+          "nombres": "DS",
+          "apellidos": "Wishart"
+        }
+      ],
+      "pmid": "21672955",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2011",
+      "volumen": "39",
+      "fpage": "W347",
+      "lpage": "W352"
+    },
+    {
+      "titulo": "PHASTER: a better, faster version of the PHAST phage search tool",
+      "autores": [
+        {
+          "nombre_completo": "D Arndt",
+          "nombres": "D",
+          "apellidos": "Arndt"
+        }
+      ],
+      "pmid": "27141966",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2016",
+      "volumen": "44",
+      "fpage": "W16",
+      "lpage": "W21"
+    },
+    {
+      "titulo": "Database resources of the National Center for Biotechnology Information",
+      "autores": [
+        {
+          "nombre_completo": "EW Sayers",
+          "nombres": "EW",
+          "apellidos": "Sayers"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2021",
+      "volumen": "50",
+      "fpage": "D20",
+      "lpage": "D26"
+    },
+    {
+      "titulo": "PhiSpy: a novel algorithm for finding prophages in bacterial genomes that combines similarity- and composition-based strategies",
+      "autores": [
+        {
+          "nombre_completo": "S Akhter",
+          "nombres": "S",
+          "apellidos": "Akhter"
+        },
+        {
+          "nombre_completo": "RK Aziz",
+          "nombres": "RK",
+          "apellidos": "Aziz"
+        },
+        {
+          "nombre_completo": "RA Edwards",
+          "nombres": "RA",
+          "apellidos": "Edwards"
+        }
+      ],
+      "pmid": "22584627",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2012",
+      "volumen": "40",
+      "fpage": "e126",
+      "lpage": ""
+    },
+    {
+      "titulo": "BLAST+: architecture and applications",
+      "autores": [
+        {
+          "nombre_completo": "C Camacho",
+          "nombres": "C",
+          "apellidos": "Camacho"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinforma.",
+      "anio": "2009",
+      "volumen": "10",
+      "fpage": "421",
+      "lpage": ""
+    },
+    {
+      "titulo": "Reference sequence (RefSeq) database at NCBI: current status, taxonomic expansion, and functional annotation",
+      "autores": [
+        {
+          "nombre_completo": "NA O’Leary",
+          "nombres": "NA",
+          "apellidos": "O’Leary"
+        }
+      ],
+      "pmid": "26553804",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2016",
+      "volumen": "44",
+      "fpage": "D733",
+      "lpage": "D745"
+    },
+    {
+      "titulo": "IMG/VR v4: an expanded database of uncultivated virus genomes within a framework of extensive functional, taxonomic, and ecological metadata",
+      "autores": [
+        {
+          "nombre_completo": "AP Camargo",
+          "nombres": "AP",
+          "apellidos": "Camargo"
+        }
+      ],
+      "pmid": "36399502",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2023",
+      "volumen": "51",
+      "fpage": "D733",
+      "lpage": "D743"
+    },
+    {
+      "titulo": "A Roadmap for Genome-Based Phage Taxonomy",
+      "autores": [
+        {
+          "nombre_completo": "D Turner",
+          "nombres": "D",
+          "apellidos": "Turner"
+        },
+        {
+          "nombre_completo": "AM Kropinski",
+          "nombres": "AM",
+          "apellidos": "Kropinski"
+        },
+        {
+          "nombre_completo": "EM Adriaenssens",
+          "nombres": "EM",
+          "apellidos": "Adriaenssens"
+        }
+      ],
+      "pmid": "33803862",
+      "fuente": "Viruses",
+      "anio": "2021",
+      "volumen": "13",
+      "fpage": "506",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacillus and Paenibacillus secreted polyketides and peptides involved in controlling human and plant pathogens",
+      "autores": [
+        {
+          "nombre_completo": "S Olishevska",
+          "nombres": "S",
+          "apellidos": "Olishevska"
+        },
+        {
+          "nombre_completo": "A Nickzad",
+          "nombres": "A",
+          "apellidos": "Nickzad"
+        },
+        {
+          "nombre_completo": "E Déziel",
+          "nombres": "E",
+          "apellidos": "Déziel"
+        }
+      ],
+      "pmid": "30603850",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2019",
+      "volumen": "103",
+      "fpage": "1189",
+      "lpage": "1215"
+    },
+    {
+      "titulo": "Multidrug-resistant Acinetobacter pittii is adapting to and exhibiting potential succession aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "BT Tierney",
+          "nombres": "BT",
+          "apellidos": "Tierney"
+        }
+      ],
+      "pmid": "36503581",
+      "fuente": "Microbiome",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "210",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacteriophage Mu genome sequence: analysis and comparison with Mu-like prophages in Haemophilus, Neisseria and Deinococcus",
+      "autores": [
+        {
+          "nombre_completo": "GJ Morgan",
+          "nombres": "GJ",
+          "apellidos": "Morgan"
+        },
+        {
+          "nombre_completo": "GF Hatfull",
+          "nombres": "GF",
+          "apellidos": "Hatfull"
+        },
+        {
+          "nombre_completo": "S Casjens",
+          "nombres": "S",
+          "apellidos": "Casjens"
+        },
+        {
+          "nombre_completo": "RW Hendrix",
+          "nombres": "RW",
+          "apellidos": "Hendrix"
+        }
+      ],
+      "pmid": "11922669",
+      "fuente": "J. Mol. Biol.",
+      "anio": "2002",
+      "volumen": "317",
+      "fpage": "337",
+      "lpage": "359"
+    },
+    {
+      "titulo": "High abundance and expression of transposases in bacteria from the Baltic Sea",
+      "autores": [
+        {
+          "nombre_completo": "T Vigil-Stenman",
+          "nombres": "T",
+          "apellidos": "Vigil-Stenman"
+        },
+        {
+          "nombre_completo": "K Ininbergs",
+          "nombres": "K",
+          "apellidos": "Ininbergs"
+        },
+        {
+          "nombre_completo": "B Bergman",
+          "nombres": "B",
+          "apellidos": "Bergman"
+        },
+        {
+          "nombre_completo": "M Ekman",
+          "nombres": "M",
+          "apellidos": "Ekman"
+        }
+      ],
+      "pmid": "28731472",
+      "fuente": "ISME J.",
+      "anio": "2017",
+      "volumen": "11",
+      "fpage": "2611",
+      "lpage": "2623"
+    },
+    {
+      "titulo": "Classification and quantification of bacteriophage taxa in human gut metagenomes",
+      "autores": [
+        {
+          "nombre_completo": "AS Waller",
+          "nombres": "AS",
+          "apellidos": "Waller"
+        }
+      ],
+      "pmid": "24621522",
+      "fuente": "ISME J.",
+      "anio": "2014",
+      "volumen": "8",
+      "fpage": "1391",
+      "lpage": "1402"
+    },
+    {
+      "titulo": "The human virome: assembly, composition and host interactions",
+      "autores": [
+        {
+          "nombre_completo": "G Liang",
+          "nombres": "G",
+          "apellidos": "Liang"
+        },
+        {
+          "nombre_completo": "FD Bushman",
+          "nombres": "FD",
+          "apellidos": "Bushman"
+        }
+      ],
+      "pmid": "33785903",
+      "fuente": "Nat. Rev. Microbiol.",
+      "anio": "2021",
+      "volumen": "19",
+      "fpage": "514",
+      "lpage": "527"
+    },
+    {
+      "titulo": "A Review on Viral Metagenomics in Extreme Environments",
+      "autores": [
+        {
+          "nombre_completo": "S Dávila-Ramos",
+          "nombres": "S",
+          "apellidos": "Dávila-Ramos"
+        }
+      ],
+      "pmid": "31749771",
+      "fuente": "Front. Microbiol.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "2403",
+      "lpage": ""
+    },
+    {
+      "titulo": "Distribution of Antimicrobial Resistance and Virulence Genes within the Prophage-Associated Regions in Nosocomial Pathogens",
+      "autores": [
+        {
+          "nombre_completo": "K Kondo",
+          "nombres": "K",
+          "apellidos": "Kondo"
+        },
+        {
+          "nombre_completo": "M Kawano",
+          "nombres": "M",
+          "apellidos": "Kawano"
+        },
+        {
+          "nombre_completo": "M Sugai",
+          "nombres": "M",
+          "apellidos": "Sugai"
+        }
+      ],
+      "pmid": "34232073",
+      "fuente": "mSphere",
+      "anio": "2021",
+      "volumen": "6",
+      "fpage": "e00452",
+      "lpage": "21"
+    },
+    {
+      "titulo": "The ESKAPE mobilome contributes to the spread of antimicrobial resistance and CRISPR-mediated conflict between mobile genetic elements",
+      "autores": [
+        {
+          "nombre_completo": "J Botelho",
+          "nombres": "J",
+          "apellidos": "Botelho"
+        },
+        {
+          "nombre_completo": "A Cazares",
+          "nombres": "A",
+          "apellidos": "Cazares"
+        },
+        {
+          "nombre_completo": "H Schulenburg",
+          "nombres": "H",
+          "apellidos": "Schulenburg"
+        }
+      ],
+      "pmid": "36610752",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2023",
+      "volumen": "51",
+      "fpage": "236",
+      "lpage": "252"
+    },
+    {
+      "titulo": "Fitness benefits to bacteria of carrying prophages and prophage‐encoded antibiotic‐resistance genes peak in different environments",
+      "autores": [
+        {
+          "nombre_completo": "CC Wendling",
+          "nombres": "CC",
+          "apellidos": "Wendling"
+        },
+        {
+          "nombre_completo": "D Refardt",
+          "nombres": "D",
+          "apellidos": "Refardt"
+        },
+        {
+          "nombre_completo": "AR Hall",
+          "nombres": "AR",
+          "apellidos": "Hall"
+        }
+      ],
+      "pmid": "33347602",
+      "fuente": "Evolution",
+      "anio": "2021",
+      "volumen": "75",
+      "fpage": "515",
+      "lpage": "528"
+    },
+    {
+      "titulo": "Study of minimal inhibitory concentration of antibiotics on bacteria cultivated in vitro in space (Cytos 2 experiment)",
+      "autores": [
+        {
+          "nombre_completo": "R Tixador",
+          "nombres": "R",
+          "apellidos": "Tixador"
+        }
+      ],
+      "pmid": "3899095",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "1985",
+      "volumen": "56",
+      "fpage": "748",
+      "lpage": "751"
+    },
+    {
+      "titulo": "Effects of microgravity on the virulence of Listeria monocytogenes, Enterococcus faecalis, Candida albicans, and methicillin-resistant Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "TG Hammond",
+          "nombres": "TG",
+          "apellidos": "Hammond"
+        }
+      ],
+      "pmid": "24283929",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1081",
+      "lpage": "1090"
+    },
+    {
+      "titulo": "Spaceflight Modifies Escherichia coli Gene Expression in Response to Antibiotic Exposure and Reveals Role of Oxidative Stress Response",
+      "autores": [
+        {
+          "nombre_completo": "TR Aunins",
+          "nombres": "TR",
+          "apellidos": "Aunins"
+        }
+      ],
+      "pmid": "29615983",
+      "fuente": "Front. Microbiol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "310",
+      "lpage": ""
+    },
+    {
+      "titulo": "Prophages mediate defense against phage infection through diverse mechanisms",
+      "autores": [
+        {
+          "nombre_completo": "J Bondy-Denomy",
+          "nombres": "J",
+          "apellidos": "Bondy-Denomy"
+        }
+      ],
+      "pmid": "27258950",
+      "fuente": "ISME J.",
+      "anio": "2016",
+      "volumen": "10",
+      "fpage": "2854",
+      "lpage": "2866"
+    },
+    {
+      "titulo": "Prophages encode phage-defense systems with cognate self-immunity",
+      "autores": [
+        {
+          "nombre_completo": "SV Owen",
+          "nombres": "SV",
+          "apellidos": "Owen"
+        }
+      ],
+      "pmid": "34597593",
+      "fuente": "Cell Host Microbe",
+      "anio": "2021",
+      "volumen": "29",
+      "fpage": "1620",
+      "lpage": "1633.e8"
+    },
+    {
+      "titulo": "Lysogeny and Sporulation in Bacillus Isolates from the Gulf of Mexico",
+      "autores": [
+        {
+          "nombre_completo": "J Mobberley",
+          "nombres": "J",
+          "apellidos": "Mobberley"
+        }
+      ],
+      "pmid": "20008174",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2010",
+      "volumen": "76",
+      "fpage": "829",
+      "lpage": "842"
+    },
+    {
+      "titulo": "Developmentally-Regulated Excision of the SPβ Prophage Reconstitutes a Gene Required for Spore Envelope Maturation in Bacillus subtilis",
+      "autores": [
+        {
+          "nombre_completo": "K Abe",
+          "nombres": "K",
+          "apellidos": "Abe"
+        }
+      ],
+      "pmid": "25299644",
+      "fuente": "PLOS Genet.",
+      "anio": "2014",
+      "volumen": "10",
+      "fpage": "e1004636",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space Radiation Dosimetry at the Exposure Facility of the International Space Station for the Tanpopo Mission",
+      "autores": [
+        {
+          "nombre_completo": "S Kodaira",
+          "nombres": "S",
+          "apellidos": "Kodaira"
+        }
+      ],
+      "pmid": "34348047",
+      "fuente": "Astrobiology",
+      "anio": "2021",
+      "volumen": "21",
+      "fpage": "1473",
+      "lpage": "1478"
+    },
+    {
+      "titulo": "Draft Genome Sequences of Enterobacteriales Strains Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "AR Bharadwaj",
+          "nombres": "AR",
+          "apellidos": "Bharadwaj"
+        }
+      ],
+      "pmid": "32912916",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00817",
+      "lpage": "e00820"
+    },
+    {
+      "titulo": "Draft Genome Sequences of Bacillaceae Strains Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "R Daudu",
+          "nombres": "R",
+          "apellidos": "Daudu"
+        }
+      ],
+      "pmid": "33122406",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00701",
+      "lpage": "e00720"
+    },
+    {
+      "titulo": "Draft Genome Sequences of Various Bacterial Phyla Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "AC Simpson",
+          "nombres": "AC",
+          "apellidos": "Simpson"
+        }
+      ],
+      "pmid": "33927037",
+      "fuente": "Microbiol. Resour. Announc.",
+      "anio": "2021",
+      "volumen": "10",
+      "fpage": "e00214",
+      "lpage": "e00221"
+    },
+    {
+      "titulo": "Venkateswaran, K. Microbial Observatory (ISS-MO): Indoor microbiome study of the International Space Station surfaces. 10.26030/cary-q426 (2016).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Validating the AMRFinder Tool and Resistance Gene Database by Using Antimicrobial Resistance Genotype-Phenotype Correlations in a Collection of Isolates",
+      "autores": [
+        {
+          "nombre_completo": "M Feldgarden",
+          "nombres": "M",
+          "apellidos": "Feldgarden"
+        }
+      ],
+      "pmid": "31427293",
+      "fuente": "Antimicrob. Agents Chemother.",
+      "anio": "2019",
+      "volumen": "63",
+      "fpage": "e00483",
+      "lpage": "19"
+    },
+    {
+      "titulo": "CARD 2017: expansion and model-centric curation of the comprehensive antibiotic resistance database",
+      "autores": [
+        {
+          "nombre_completo": "B Jia",
+          "nombres": "B",
+          "apellidos": "Jia"
+        }
+      ],
+      "pmid": "27789705",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D566",
+      "lpage": "D573"
+    },
+    {
+      "titulo": "Identification of acquired antimicrobial resistance genes",
+      "autores": [
+        {
+          "nombre_completo": "E Zankari",
+          "nombres": "E",
+          "apellidos": "Zankari"
+        }
+      ],
+      "pmid": "22782487",
+      "fuente": "J. Antimicrob. Chemother.",
+      "anio": "2012",
+      "volumen": "67",
+      "fpage": "2640",
+      "lpage": "2644"
+    },
+    {
+      "titulo": "ARG-ANNOT, a new bioinformatic tool to discover antibiotic resistance genes in bacterial genomes",
+      "autores": [
+        {
+          "nombre_completo": "SK Gupta",
+          "nombres": "SK",
+          "apellidos": "Gupta"
+        }
+      ],
+      "pmid": "24145532",
+      "fuente": "Antimicrob. Agents Chemother.",
+      "anio": "2014",
+      "volumen": "58",
+      "fpage": "212",
+      "lpage": "220"
+    },
+    {
+      "titulo": "In silico detection and typing of plasmids using PlasmidFinder and plasmid multilocus sequence typing",
+      "autores": [
+        {
+          "nombre_completo": "A Carattoli",
+          "nombres": "A",
+          "apellidos": "Carattoli"
+        }
+      ],
+      "pmid": "24777092",
+      "fuente": "Antimicrob. Agents Chemother.",
+      "anio": "2014",
+      "volumen": "58",
+      "fpage": "3895",
+      "lpage": "3903"
+    },
+    {
+      "titulo": "In silico serotyping of E. coli from short read data identifies limited novel O-loci but extensive diversity of O:H serotype combinations within and between pathogenic lineages",
+      "autores": [
+        {
+          "nombre_completo": "DJ Ingle",
+          "nombres": "DJ",
+          "apellidos": "Ingle"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Micro. Genom.",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "e000064",
+      "lpage": ""
+    },
+    {
+      "titulo": "MEGARes 2.0: a database for classification of antimicrobial drug, biocide and metal resistance determinants in metagenomic sequence data",
+      "autores": [
+        {
+          "nombre_completo": "E Doster",
+          "nombres": "E",
+          "apellidos": "Doster"
+        }
+      ],
+      "pmid": "31722416",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "D561",
+      "lpage": "D569"
+    },
+    {
+      "titulo": "VFDB 2016: hierarchical and refined dataset for big data analysis–10 years on",
+      "autores": [
+        {
+          "nombre_completo": "L Chen",
+          "nombres": "L",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "D Zheng",
+          "nombres": "D",
+          "apellidos": "Zheng"
+        },
+        {
+          "nombre_completo": "B Liu",
+          "nombres": "B",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "J Yang",
+          "nombres": "J",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Q Jin",
+          "nombres": "Q",
+          "apellidos": "Jin"
+        }
+      ],
+      "pmid": "26578559",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2016",
+      "volumen": "44",
+      "fpage": "D694",
+      "lpage": "D697"
+    },
+    {
+      "titulo": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+      "autores": [
+        {
+          "nombre_completo": "P Virtanen",
+          "nombres": "P",
+          "apellidos": "Virtanen"
+        }
+      ],
+      "pmid": "32015543",
+      "fuente": "Nat. Methods",
+      "anio": "2020",
+      "volumen": "17",
+      "fpage": "261",
+      "lpage": "272"
+    },
+    {
+      "titulo": "MeShClust v3.0: high-quality clustering of DNA sequences using the mean shift algorithm and alignment-free identity scores",
+      "autores": [
+        {
+          "nombre_completo": "HZ Girgis",
+          "nombres": "HZ",
+          "apellidos": "Girgis"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Genom.",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "423",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA GeneLab: interfaces for the exploration of space omics data",
+      "autores": [
+        {
+          "nombre_completo": "DC Berrios",
+          "nombres": "DC",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "J Galazka",
+          "nombres": "J",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "K Grigorev",
+          "nombres": "K",
+          "apellidos": "Grigorev"
+        },
+        {
+          "nombre_completo": "S Gebre",
+          "nombres": "S",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "SV Costes",
+          "nombres": "SV",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "33080015",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2021",
+      "volumen": "49",
+      "fpage": "D1515",
+      "lpage": "D1522"
+    },
+    {
+      "titulo": "Snakemake—a scalable bioinformatics workflow engine",
+      "autores": [
+        {
+          "nombre_completo": "J Köster",
+          "nombres": "J",
+          "apellidos": "Köster"
+        },
+        {
+          "nombre_completo": "S Rahmann",
+          "nombres": "S",
+          "apellidos": "Rahmann"
+        }
+      ],
+      "pmid": "22908215",
+      "fuente": "Bioinformatics",
+      "anio": "2012",
+      "volumen": "28",
+      "fpage": "2520",
+      "lpage": "2522"
+    },
+    {
+      "titulo": "Fast and sensitive protein alignment using DIAMOND",
+      "autores": [
+        {
+          "nombre_completo": "B Buchfink",
+          "nombres": "B",
+          "apellidos": "Buchfink"
+        },
+        {
+          "nombre_completo": "C Xie",
+          "nombres": "C",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "DH Huson",
+          "nombres": "DH",
+          "apellidos": "Huson"
+        }
+      ],
+      "pmid": "25402007",
+      "fuente": "Nat. Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "59",
+      "lpage": "60"
+    },
+    {
+      "titulo": "Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome",
+      "autores": [
+        {
+          "nombre_completo": "A Shaiber",
+          "nombres": "A",
+          "apellidos": "Shaiber"
+        }
+      ],
+      "pmid": "33323122",
+      "fuente": "Genome Biol.",
+      "anio": "2020",
+      "volumen": "21",
+      "fpage": "292",
+      "lpage": ""
+    },
+    {
+      "titulo": "Community-led, integrated, reproducible multi-omics with anvi’o",
+      "autores": [
+        {
+          "nombre_completo": "AM Eren",
+          "nombres": "AM",
+          "apellidos": "Eren"
+        }
+      ],
+      "pmid": "33349678",
+      "fuente": "Nat. Microbiol.",
+      "anio": "2021",
+      "volumen": "6",
+      "fpage": "3",
+      "lpage": "6"
+    },
+    {
+      "titulo": "Discovery of Chlorophyll d: Isolation and Characterization of a Far-Red Cyanobacterium from the Original Site of Manning and Strain (1943) at Moss Beach, California",
+      "autores": [
+        {
+          "nombre_completo": "NY Kiang",
+          "nombres": "NY",
+          "apellidos": "Kiang"
+        }
+      ],
+      "pmid": "35456869",
+      "fuente": "Microorganisms",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "819",
+      "lpage": ""
+    },
+    {
+      "titulo": "Assembly of long, error-prone reads using repeat graphs",
+      "autores": [
+        {
+          "nombre_completo": "M Kolmogorov",
+          "nombres": "M",
+          "apellidos": "Kolmogorov"
+        },
+        {
+          "nombre_completo": "J Yuan",
+          "nombres": "J",
+          "apellidos": "Yuan"
+        },
+        {
+          "nombre_completo": "Y Lin",
+          "nombres": "Y",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "30936562",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2019",
+      "volumen": "37",
+      "fpage": "540",
+      "lpage": "546"
+    },
+    {
+      "titulo": "MicrobeAnnotator: a user-friendly, comprehensive functional annotation pipeline for microbial genomes",
+      "autores": [
+        {
+          "nombre_completo": "CA Ruiz-Perez",
+          "nombres": "CA",
+          "apellidos": "Ruiz-Perez"
+        },
+        {
+          "nombre_completo": "RE Conrad",
+          "nombres": "RE",
+          "apellidos": "Conrad"
+        },
+        {
+          "nombre_completo": "KT Konstantinidis",
+          "nombres": "KT",
+          "apellidos": "Konstantinidis"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinforma.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "11",
+      "lpage": ""
+    },
+    {
+      "titulo": "Jupyter: Thinking and Storytelling With Code and Data",
+      "autores": [
+        {
+          "nombre_completo": "BE Granger",
+          "nombres": "BE",
+          "apellidos": "Granger"
+        },
+        {
+          "nombre_completo": "F Pérez",
+          "nombres": "F",
+          "apellidos": "Pérez"
+        }
+      ],
+      "pmid": "35939280",
+      "fuente": "Comput. Sci. Eng.",
+      "anio": "2021",
+      "volumen": "23",
+      "fpage": "7",
+      "lpage": "14"
+    },
+    {
+      "titulo": "Matplotlib: A 2D graphics environment",
+      "autores": [
+        {
+          "nombre_completo": "JD Hunter",
+          "nombres": "JD",
+          "apellidos": "Hunter"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Comput. Sci. Eng.",
+      "anio": "2007",
+      "volumen": "9",
+      "fpage": "90",
+      "lpage": "95"
+    },
+    {
+      "titulo": "seaborn: statistical data visualization",
+      "autores": [
+        {
+          "nombre_completo": "ML Waskom",
+          "nombres": "ML",
+          "apellidos": "Waskom"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Open Source Softw.",
+      "anio": "2021",
+      "volumen": "6",
+      "fpage": "3021",
+      "lpage": ""
+    },
+    {
+      "titulo": "Array programming with NumPy",
+      "autores": [
+        {
+          "nombre_completo": "CR Harris",
+          "nombres": "CR",
+          "apellidos": "Harris"
+        }
+      ],
+      "pmid": "32939066",
+      "fuente": "Nature",
+      "anio": "2020",
+      "volumen": "585",
+      "fpage": "357",
+      "lpage": "362"
+    },
+    {
+      "titulo": "team, T. pandas development. pandas-dev/pandas: Pandas. 10.5281/zenodo.3509134 (2020).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "McKinney, W. Data Structures for Statistical Computing in Python. in Proceedings of the 9thPython in Science Conference (eds. Walt, S. van der & Millman, J.) 56–61 10.25080/Majora-92bf1922-00a (2010).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Biopython: freely available Python tools for computational molecular biology and bioinformatics",
+      "autores": [
+        {
+          "nombre_completo": "PJA Cock",
+          "nombres": "PJA",
+          "apellidos": "Cock"
+        }
+      ],
+      "pmid": "19304878",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "1422",
+      "lpage": "1423"
+    }
+  ]
+}

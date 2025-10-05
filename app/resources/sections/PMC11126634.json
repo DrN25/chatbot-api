@@ -1,0 +1,1777 @@
+{
+  "TITLE": [
+    "Fungal diversity differences in the indoor dust microbiome from built environments on earth and in space"
+  ],
+  "ABSTRACT": [
+    "Human occupied built environments are no longer confined to Earth. In fact, there have been humans living and working in low-Earth orbit on the International Space Station (ISS) since November 2000. With NASA’s Artemis missions and the age of commercial space stations set to begin, more human-occupied spacecraft than ever will be in Earth’s orbit and beyond. On Earth and in the ISS, microbes, especially fungi, can be found in dust and grow when unexpected, elevated moisture conditions occur. However, we do not yet know how indoor microbiomes in Earth-based homes and in the ISS differ due to their unique set of environmental conditions. Here we show that bacterial and fungal communities are different in dust collected from vacuum bags on Earth and the ISS, with Earth-based homes being more diverse (465 fungal OTUs and 237 bacterial ASVs) compared to the ISS (102 fungal OTUs and 102 bacterial ASVs). When dust from these locations were exposed to varying equilibrium relative humidity conditions (ERH), there were also significant fungal community composition changes as ERH and time elevated increased (Bray Curtis: R2 = 0.35, P = 0.001). These findings can inform future spacecraft design to promote healthy indoor microbiomes that support crew health, spacecraft integrity, and planetary protection."
+  ],
+  "INTRO": [
+    "Introduction",
+    "In the upcoming decades, human activity in space will rapidly expand both in low-Earth orbit (LEO) and beyond to an estimated $1.4 trillion dollar industry. NASA’s Artemis missions, which will send humans back to the moon, includes a lunar orbiting space station (The Lunar Gateway) as well as a lunar surface habitat, and will all be a stepping stone to sending humans to Mars. In addition, private companies, such as Starlab Space, LLC and Blue Origin, are building commercially owned and operated space stations with support from NASA’s commercial LEO destination initiative. The rapid increase in the number of people living and working in space will require careful spacecraft design to support human health and wellbeing. One critical aspect of this design is to understand the microorganisms within a spacecraft.",
+    "The International Space Station (ISS) has been a continuously inhabited confined environment in LEO since November 2000, and over 12,000 microbial species have been identified onboard. The ISS is a closed system and the microbes primarily originate from the astronauts onboard, as all humans have a distinct associated microbial ecosystem. Other potential microbial sources on the ISS include plant experiments being grown onboard, as well as those from the original construction materials. The ISS has its own unique microbiome, as does every human-occupied indoor environment on Earth.",
+    "Similar to Earth-based indoor environments, many of these microbes can reside in the dust generated onboard the ISS. This is due to the high nutrient content in dust that microbes can utilize, with moisture being the limiting factor for growth. Bacterial communities from ISS dust and other Earth-based confined environments such as clean rooms, operating rooms, and intensive care units each contain a similar core microbial community, although there are some significant differences between environment types. Whether in space or on Earth, it is critical to maintain microbial communities indoors that support human health. For instance, health effects on Earth are associated with microbial growth, and thus it is critical to prevent this growth by controlling indoor moisture. Although, NASA standards for nominal relative humidity conditions on the ISS is between 25 and 75%, there are pockets of elevated moisture present due to astronaut hygiene, exercising, in food areas, and in plant habitats. This study also provides insight into how microbial communities will react to unintended conditions such as a ventilation system failure or fire suppression event. There have also been reported issues reported on the ISS due to unintended microbial growth such as crewmember infections and destruction of plants onboard. However, we need an improved understanding of how the microbial communities on the ISS compare to typical occupied spaces on Earth, and how these communities change under unexpected adverse conditions such as excess moisture.",
+    "The goal of this study is to determine similarities and differences between microbial communities and growth under elevated moisture conditions in occupied spaces on Earth and the ISS. Here, we leverage raw sequencing data from two previous studies with nearly identical methods that have performed microbial analyses on dust collected from the ISS and from Earth-based residential homes. These studies have a special focus on indoor fungi and characterize what happens when ideal growth conditions occur such as the introduction of elevated moisture conditions. This is a unique one-to-one comparison as methods were performed in the same laboratory, therefore all incubation, DNA extraction, DNA sequencing, and bioinformatics protocols are almost identical. Key differences between the studies were the presence of dust in carpet for Earth-based samples and different starting dust mass concentrations (50 mg for Earth-dust and 25 mg for ISS dust).",
+    "The ISS is a complex environment that serves as an astronaut home, workplace, and transportation environment. While it can’t be distinctly classified as only one of these, we chose the residential home comparison because people on Earth spend most of their time in their home and to emphasize that astronauts are spending all their time in the spacecraft, including during sleep. This comparison of Earth- and space-based microbiomes in continuously occupied indoor environments will help us gain a better understanding of how the unique conditions experienced during spaceflight may alter microbial communities. As humanity becomes more active in space, the need to define what a healthy microbiome is in human occupied spacecraft will grow ever more important. These results can inform both Earth-based and future space-based indoor spaces on how microbial communities may change to identify any potential problems that may arise when unintended microbial growth occurs in these environments."
+  ],
+  "RESULTS": [
+    "Results",
+    "Fungal communities in original dust samples",
+    "We compared fungal communities in dust from the ISS and Earth-based residential homes. These samples are referred to as “original dust” and are the dust collected from vacuum bags from both locations that were not exposed to any elevated equilibrium relative humidity (ERH) conditions in the laboratory prior to analysis. In total we had 15 original dust samples from Earth (1 sample each from 15 separate homes) and 4 original dust samples from the ISS (which included 3 triplicates from a total of four separate ISS vacuum bags). The most abundant fungal genera from these locations were different. Epicoccum, Alternaria, Pseudopithomyces, and Cladosporium were the dominant fungal genera on Earth while Aspergillus, Cyberlindnera, Rhodotorula, and Candida were more abundant on the ISS (Fig. 1a).",
+    "Diversity metrics were analyzed using operational taxonomic units (OTUs) for fungi and amplicon sequence variants (ASVs) for bacteria due to the differences in bioinformatic pipelines used in this study. For original dust, fungal beta diversity significantly separated out by Earth and ISS samples (R2 = 0.23, P = 0.001, Table S1) (Fig. 1b). In general, the Earth samples were much more diverse compared to ISS samples. Earth original dust samples had a mean fungal OTU count of 465, while the ISS dust had a mean of only 102 OTUs (Table S2). Alpha diversity also showed significant differences in Richness and Shannon diversity metrics when comparing original dust samples between these locations (Richness H = 18.44, P < 0.0001; Shannon H = 17.20, P < 0.0001) (Fig. 1c,d). We also performed a differential absolute abundance analysis on original dust samples showing there were a total of 791 fungal species identified with 119 more abundant in Earth-based dust from a wide variety of genera and 24 species more abundant in ISS samples (primarily from the Aspergillus, Malassezia, and Penicillium genera) (Table S3).",
+    "Fungal growth in dust is also different under elevated moisture conditions",
+    "We compared growth in fungal communities under varying elevated moisture conditions between Earth and the ISS. For each study, the same incubation procedure was followed in which dust (for ISS), or dust/carpet (for Earth) were incubated at 50% ERH and then exposed to 85% or 100% ERH for 0-, 6-, 12-, 18-, and 24-h per day. In this study, we compared incubated samples for each varying ERH condition (85% and 100% ERH) by combining all time points (Days 5, 10, and 14) and averaging by location (4 Earth-based homes and 4 ISS vacuum bags) as well as original dust samples.",
+    "Fungal relative abundance for all ERH conditions (50%, 85%, and 100%) were similar to original dust samples with Epicoccum dominating for Earth samples and Aspergillus in ISS samples. However, when comparing all varying ERH samples, Aspergillus outcompetes all other fungal genera in ISS samples, where the communities in Earth samples remain relatively stable (Fig. 2a). Fungal communities of all combined varying ERH samples also varied based on location (R2 = 0.35, P = 0.001) especially at lower ERH conditions and shorter times elevated, with communities from different locations becoming more similar as ERH/time elevated increased (Fig. 2b). Additional breakdowns for fungal beta diversity at specific ERH conditions (50%, 85%, and 100%) and times elevated (6-, 12-, 18-, and 24-h) all showed fungal community composition differences between Earth and ISS samples (Fig. S1, Table S1).",
+    "Fungal alpha diversity was also significantly different between Earth and ISS varying ERH samples at 85% and 100% ERH for all times elevated (Kruskal–Wallis P < 0.001 for all conditions) (Fig. 3, Table S4). Earth-based samples were more diverse than ISS dust for all conditions and both locations generally became less diverse as ERH and time elevated increased. For all time points at varying elevated conditions (85% ERH), on Earth there was an average of 462 OTUs while on the ISS there were an average of 95 OTUs (Table S2). This was also true for all times elevated above saturated conditions (100% ERH), as on Earth there was an average of 356 fungal OTUs while on the ISS there were 56 (Table S2). A more detailed breakdown of fungal alpha diversity at each time elevated can be found in Figures S2-S5 and Table S2,S4. We also compared differential absolute abundance for varying ERH samples at 100% ERH and all times elevated (6-, 12-, 18-, and 24-h). For these conditions, a total of 521 fungal species were identified with 456 more abundant in Earth-based house dust and 26 of them being more abundant in ISS dust (Table S5).",
+    "Bacterial community composition also different between earth and ISS samples",
+    "We compared bacterial diversity in a smaller subset of samples that included original dust from 4 Earth-based residential homes and 4 separate ISS vacuum bags. Bacterial beta diversity for original dust samples visually separated by location, but due to low sample size statistical significance was not able to be determined (Fig. S6). Bacterial diversity in original dust samples was significantly different between Earth and ISS for Richness metrics (H = 5.33, P = 0.021), but not for Shannon diversity metrics (H = 3.00, P = 0.083) (Fig. S7, Table S6). Bacterial diversity was much higher on Earth with 237 bacterial ASVs compared to 102 on the ISS (Table S2). In varying ERH samples, bacterial comparisons we were made using original dust as well as day 14 samples at 50%, 85%, and 100% for 24-h time elevated which included 20 samples from both locations. Bacterial beta diversity for these samples was significantly different between Earth and the ISS for both weighted (R2 = 0.16, P = 0.004) and unweighted (R2 = 0.22, P = 0.001) unifrac distance matrices (Fig. 4a, Table S7).",
+    "Bacterial alpha diversity was also significantly different for time-of-wetness samples between these locations for both Richness (Richness H = 11.38, P = 0.0001) and Shannon diversity (H = 9.79, P = 0.0018) (Fig. 4b, Table S6). Again, for these samples Earth samples were more diverse with 104 bacterial ASVs while only 53 in ISS dust (Table S2). A limited bacterial differential abundance analysis was performed on original dust samples only. Of these samples a total of 81 bacterial species were identified of which 3 species were more abundant in ISS dust (Acinetobacter rhizosphaerae, Prevotella melaninogenica, and Rothia dentocariosa) and 11 species more abundant in Earth-based dust (Table S8).",
+    "We also performed a bacterial family level analysis for original dust samples and day 14 time-of-wetness samples. Relative abundance analyses show that for all conditions Earth-based dust and ISS dust contain different bacterial communities (Fig. 5). It also shows that while the communities are different between the two locations, the communities in both remain stable up until the 100% ERH condition is reached, at which point, clear differences can be seen. For Earth-based communities Moraxellaceae, Pseudomonadaceae, and Micrococcaceae were the most abundant families in original dust, at 50% ERH, and at 85% ERH, with Staphylococcaceae and Bacillaceae becoming most abundant at 100% ERH. For ISS samples Corynebacteriaceae, Staphylococcaceae, Streptoccoceae, and Pseudomonadaceae are most abundant bacterial families up until 100% ERH, when Corynebacteriaceae and Staphylococcaceae significantly increasing as well as Paenibacillaceae becoming a major portion of the community."
+  ],
+  "FIG": [
+    "Fungal comparisons of original dust (no incubations or ERH exposure) from Earth-based residential homes and the International Space Station. (a) Relative abundance of fungal genera comparison of these locations with “Other” being any fungal genera that was below 5% relative abundance cumulatively. (b) Fungal beta diversity using the Bray–Curtis dissimilar matrix show a compelling difference between Earth-based and ISS samples. Ellipses represent the 95% confidence interval. Fungal (c) Richness and (d) Shannon diversity plots comparing original dust from Earth-based residential homes to dust from the International Space Station. For all plots there was a total of 15 Earth-based original dust samples (1 for 15 residential homes) and 4 ISS dust bag samples (that included triplicates for each bag). ***Indicates Kruskal–Wallis t-test significance of P < 0.0001.",
+    "Fungal comparisons of varying equilibrium relative humidity (ERH) samples from Earth-based residential homes and the International Space Station. For both plots Earth and ISS samples represent the average of species measured in days 5, 10, and 14 combined for each relative humidity condition. (a) Relative abundance of fungal genera comparison of these locations with “Other” being any fungal genera that was below 5% relative abundance cumulatively. (b) Fungal beta diversity using the Bray–Curtis dissimilar matrix show a compelling difference between Earth-based and ISS samples. Ellipses represent the 95% confidence interval. For both plots there was a total of 108 Earth-based original dust samples and 107 ISS samples.",
+    "Fungal alpha diversity plots of time-of-wetness samples for Earth-based residential homes (red) and from the International Space Station (blue). For both plots Earth and ISS samples represent the average of species measured in days 5, 10, and 14 for each relative humidity condition. Comparisons show Shannon diversity and Richness metrics for both (a) 85% and (b) 100% ERH conditions and the time fraction per day elevated on x-axis. ** Indicates Kruskal–Wallis t-test between Earth and ISS samples for all times.",
+    "(a) Bacterial beta diversity with Bray Curtis dissimilarity principal coordinate analyses plots for original time of wetness samples (TOW). Location of dust samples are indicated by shape (Earth – circle, ISS – triangle) and TOW is indicated by color gradient (Green – Original Dust to Red – 100% relative humidity). Ellipses represent 95% confidence interval for each set of data. (b) Bacterial Richness and Shannon diversity plots for time of wetness samples comparing Earth-based house dust to dust collected from the ISS. A total of 4 Earth-based house sites were compared to 4 separate ISS vacuum bags. Only original dust samples and day 14, 24-h time-of-wetness conditions were sequenced for bacteria at 50%, 85%, and 100% RH conditions for both plots. * Indicates Kruskal–Wallis t-test significance of P < 0.05 while ** is P < 0.001.",
+    "Bacterial family level relative abundance plots comparing Earth- and space-based communities. Original dust samples were the average of 4 Earth-based samples from 4 separate homes and dust from 4 separate ISS vacuum bags. 50%, 85%, and 100% ERH samples were from day 14 only and were also the average of 4 Earth-based homes and 4 ISS vacuum bags."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "There are clear differences in bacterial and fungal communities in dust collected from Earth-based residential homes and from the ISS. This includes original dust immediately removed from a vacuum bag as well as after this dust is exposed to varying elevated moisture conditions to encourage rapid microbial growth. In general, these difference were more pronounced in fungi, especially under elevated moisture conditions, presumably because fungi are more sensitive to changing moisture conditions when compared to bacteria. Interestingly, fungal communities in ISS dust changed much more rapidly compared to Earth house dust with varying moisture conditions mainly due to Aspergillus dominating in the ISS dust. These differences may be attributed to the unique stressors faced by microbes during spaceflight conditions such as microgravity, low-dose radiation, and elevated CO2 concentrations which allows them to rapidly grow when ideal conditions are introduced. In Earth-based house dust the presence of Epicocum sp. was the major difference in fungal genera when comparing to ISS dust. This is most likely due to Epicocum sp. mostly being associated with soils, fruits, and grains, which are not found in the ISS environment.",
+    "The microbes in these locations likely differ due to different environmental contributions. For example, on Earth the number of human occupants, presence of pets, types of building materials, types of ventilation system, and contribution of the outdoor environment can all have a profound impact on the microbes present. This study shows that Earth-based indoor environments are much more diverse compared to the ISS, which has fewer occupants, no pets (although mouse experiments are often onboard), no outdoor contributions, and different types of materials and ventilation. In addition, behaviors such as cleaning habits also contribute to microbial presence and, on the ISS, cleaning is done weekly with different types of cleaners, none of which are aerosol disinfectants. Earth-based homes can vacuum, use aerosols, carpet powders, and many other products, though we do not know the cleaning habits used in these specific samples and if it could contribute to the differences in the microbial communities.",
+    "This study is subject to several limitations, which mainly relate to the location of incubations, as ISS dust was incubated on Earth and not in space. Future research might evaluate how these changes may differ when incubations occur under microgravity, higher radiation levels, and other conditions unique to space travel. In addition, Earth dust samples were also incubated embedded in carpet and vacuumed again before molecular analysis, while ISS samples were not, which could alter the overall results. The different studies had a difference in starting dust mass of 25 mg for ISS and 50 mg for Earth samples and the ISS dust was not sieved, although we do not anticipate that this had a measurable impact on the findings. In addition, not sieving the ISS dust is potentially more representative of dust exposure in the ISS built environment due to lack of gravitational forces settling larger particles. Furthermore, we had limited information of ISS dust sampling, including locations onboard, how long between cleaning events, or if the vacuum was used to clean other areas of the spacecraft. This study utilized a DNA-based analysis that could not determine viability of organisms and is also subject to standard limitations of qPCR and DNA sequencing analysis of microbes.",
+    "Overall, the microbiome of dust from Earth is more diverse than that of the ISS. These community differences result in changes in microbial growth upon exposure to moisture that may be associated with health impacts. With the ISS being decommissioned in 2030, there will be newly designed commercial space stations taking its place. In addition, there will be more people than ever living and working in space, including the general public with space tourism. This study shows that there are clear differences in a highly regulated government owned and operated spacecraft and these changes can become increasingly important as new station designs, with larger, more varied crews, and commercial objectives launch into low-Earth orbit. This understanding can help us to maintain a healthy indoor microbiome on spacecraft during both increased activity in low-Earth orbit and long duration human-occupied space travel, to promote crew health, spacecraft integrity, and planetary protection."
+  ],
+  "METHODS": [
+    "Methods",
+    "Overview",
+    "This study aims to understand the differences between the indoor microbiomes of Earth-based residential buildings and dust collected from the International Space Station (ISS). Specifically, ISS dust and residential carpet with dust previously collected from homes in Ohio were incubated under varying relative humidity conditions using the time-of-wetness framework. Fungal and bacterial DNA was extracted from these incubated samples, sequenced with Illumina MiSeq, and analyzed with a bioinformatics pipeline to determine taxonomy.",
+    "Dust samples",
+    "All ISS dust used in this study was obtained from vacuum bags (CELOC hypo-allergenic filter system Oreck# PKBB12DW) from the vacuum onboard which the astronauts use to clean the HEPA filter coverings that are part of the air ventilation system. Briefly, ISS dust samples were triple sealed in plastic bags until they could be returned to Earth, where all experiments were conducted. A detailed breakdown of ISS dust sample collection dates can be found in our previous study. Earth carpet and dust samples were collected in residential homes throughout Ohio, USA in a previous study. Briefly, dust was collected from the homes vacuum bags and carpet was removed directly from the same homes. The dust was embedded into carpet collected from the same home using ASTM method F609-13 after which incubations were then performed. After incubations, the dust was vacuumed from the carpet using Eureka Mighty Mite with adapter for a 19 mm × 90 mm Whatman cellulose thimble. The previous study had sampled 19 residential homes and for comparison to ISS dust, 4 of these homes were randomly selected to correspond to the 4 total ISS vacuum bags collected.",
+    "Incubations",
+    "For both studies, incubations occurred in a sterilized 3.8 L glass chamber and placed in a VWR incubator (Model TFFU20F2QWA Radnor, PA USA) set to 25°C covered with parafilm to retain ERH conditions and allow CO2 to escape. Salt solutions were made to simulate 50% and 85% ERH conditions, while Deionized (DI) water was used for 100% ERH conditions. Onset® HOBO® Data loggers (Onset Computer Corporation, Bourne, MA USA) to monitor ERH and temperature conditions inside the incubation chamber. ISS Dust samples were not sieved and measured out into approximately 25 mg portions that were placed on sterile aluminum foil on a plastic dish. In comparison, Earth dust samples were sieved to 300 μm and embedded in 10 cm × 10 cm carpet squares for incubation. We do not anticipate any significant impact with the carpet and ISS dust as they are very similar in structure due the linty, fibrous nature of the ISS dust. Earth and ISS samples were exposed to varying elevated ERH conditions using the time-of-wetness framework previously outlined, which refers to the time fraction per day that relative humidity conditions are above the 80% threshold. Briefly, samples were incubated between 50% ERH and elevated (85% ERH)/saturated (100% ERH) conditions for 0, 6, 12, 18, and 24 h per day. ISS Samples were extracted and quantified at day 5, 10, 14, and 21 after incubation (one 25 mg dust sample per day per bag), while Earth samples were analyzed at day 0, 5, 10, and 14 after vacuuming approximately 50 mg of dust from carpet squares.",
+    "DNA extraction and sequencing",
+    "DNA was extracted from dust samples for both studies using a DNeasy Powerlyzer Power Soil Kit (Qiagen, Hilden, Germany) with a modified bead mixture (1 g garnet, 0.3 g 100 µm glass beads, and 0.1 g 500 µm beads). Each DNA extraction run included a blank and was confirmed to contain no microbial DNA. A total of 50 µL of DNA extract was collected for each sample and stored at -20℃ until use. Sequencing for all samples was performed on an Illumina MiSeq™ at RTL Genomics (Lubbock, TX, USA). For fungal sequencing ITS1F (CTTGGTCATTTAGAGGAAGTAA) and ITS2aR (GCTGCGTTCTTCATCGATGC) ribosomal DNA primers, while bacteria used 515F (5’-GTGCCAGCMGCCGCGGTA) and 806R (5’-GGACTACHVHHHTWTCTAAT) primers with 2 × 300 bp sequencing reads.",
+    "Differential abundance analyses used total fungal and bacterial quantitative polymerase chain reaction (qPCR) values measure at the kingdom level as previously described. To quantify fungal concentration, we targeted the 18S rRNA gene with forward primer (FF2) 5′-GGTTCTATTTTGTTGGT TTCTA-3′, and reverse primer (FR1) 5′-CTCTCAATCTGTCAATCCTTATT-3′. For bacteria we targeted the 16S rRNA gene with forward primer 5’-TCCTACGGGAGGCAGCAGT-3’, reverse prime 5’-GGACTACCAGGGTATCTAATCCTGTT-3’, and PROBE (6-FAM)-5’CGTATTACCGCGGCTGCTGGCAC-3’-(BHQ).",
+    "For the purposes of this study, we compared a randomly selected 4 out of 19 sites from the Earth-based study to the 4 ISS bags for varying ERH comparison and included samples from the original dust as well as at day 5, 10, and 14 for all ERH conditions. For original dust samples, all available samples were used which included a total of 15 samples (one per home as available) from the Earth-based study compared to 4 total ISS samples (with three replicates per ISS vacuum bag).",
+    "Bioinformatics",
+    "The raw sequencing files were extracted from both previous studies at NASA’s GeneLab database (OSD-694, GLDS-623) (for ISS samples) and the European Nucleotide Archive under accession number PRJEB37053 (for Earth samples). All sequences were then combined and run together using Quantitative Insights Into Microbial Ecology 2 (QIIME2), version 2021.8, bioinformatics pipeline to analyze raw FASTQ sequencing data. A note that Earth samples from the original study were originally analyzed using the QIIME1, version 1.9, but re-analyzed using QIIME2 for this comparison. For both fungi and bacteria, primers and spacers were trimmed using the Cutadapt plug-in and paired-ends joined using the VSEARCH join-pairs method. Sequences were then quality trimmed to a Phred score of 30 with a 3 low-quality base window using the Quality-filter plugin.",
+    "Fungal sequences were clustered using the VSEARCH open reference method with Unite database reference sequences (version 9.0), while bacterial sequences were quality checked using Dada2 and clustered by phylogeny. Beta Diversity metrics for fungi were analyzed using Bray–Curtis dissimilarity while bacteria utilized unweighted and weighted unifrac statistics with a principle coordinate analysis (PCoA) and Adonis function in QIIME2. Alpha diversity metrics were calculated for all incubations and significance (P < 0.05) determined using the Kruskal–Wallis test statistic from QIIME2.",
+    "The Basic Local Alignment Search Tool (BLAST) version 2.9.0, the User-friendly Nordic Internal Transcribed spacer Ectomycorrhiza (UNITE) 2022 database, and Fungal High-throughput Taxonomic tool for use with Next-Generation Sequencing (FHitINGS) version 1.4 was used to identify fungal taxonomy. Bacteria utilized the Greengenes database version 13_8 in QIIME2 using the feature-classifier plugin.",
+    "Statistical analyses",
+    "Principal Coordinate Analysis (PCoA) plots using Bray–Curtis and UniFrac distance matrices were created in QIIME2 version 2021.8.0 then imported into R Studio (version 2021.09.0 Build 351) for visualization. The Adonis function was used to significance of beta diversity between Earth- and ISS-based dust samples and time elevated at each relative humidity condition. Alpha diversity significance was determined using a Kruskal–Wallis test, comparing by relative humidity condition and location. We also used Statistical Analysis System (SAS)® Studio, version 9.4, to compare absolute abundance of microbial species for time-of-wetness and original dust samples. Specifically, we used the PROC MULTTEST FDR Test Mean function in SAS. False Discovery Rate (FDR) was used instead of Positive False Discovery Rate (PFDR) due to the relatively small sample size . Species that did not occur in at least 10% of all samples were removed before analysis . All relative abundance data was transformed using the inverse hyperbolic sine function and combined with qPCR quantities to produce an absolute abundance value as previously described .",
+    "Supplementary Information",
+    "Publisher's note",
+    "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "SUPPL": [
+    "Supplementary Information",
+    "The online version contains supplementary material available at 10.1038/s41598-024-62191-z.",
+    "Data availability",
+    "The microbial sequencing data sets used in this study have been previously posted in publicly available databases. Earth-based sequences were previously reported  and are found in the European Nucleotide Archive, accession number PRJEB37053. All sequencing data from International Space Station samples were previously reported  in a recent study and can be found in the NASA GeneLab database, with identifiers 10.26030/87vb-2280, OSD-694, GLDS-623."
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "Nicholas Nastasi: Writing—original draft, Visualization, Software, Methodology, Formal Analyses. Sarah R. Haines: Writing—review and editing, Data resources. Ashleigh Bope: Writing—review and editing, Methodology, Data analysis. Marit E. Meyer: Writing—review and editing, Resources. John M. Horack: Writing—review and editing, Resources. Karen C. Dannemiller: Writing—original draft, Supervision, Project administration, Methodology, Funding acquisition, Conceptualization."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "The authors declare no competing interests."
+  ],
+  "REF": [
+    "References",
+    "Sheetz M. Bank of America expects the space industry to triple to a $1.4 trillion market within a decade. 4 Oct 2020 [cited 22 Jan 2023]. https://www.cnbc.com/2020/10/02/why-the-space-industry-may-triple-to-1point4-trillion-by-2030.html.",
+    "National Aeronautics and Space Administration. Artemis Plan NASA’s Lunar Exploration Program Overview. NASA; 2020 Sep. https://www.nasa.gov/sites/default/files/atoms/files/artemis_plan-20200921.pdf.",
+    "NASA. Commercial Destinations in Low-Earth Orbit (LEO). 12 May 2022 [cited 22 Jan 2023]. https://www.nasa.gov/leo-economy/commercial-destinations-in-low-earth-orbit.",
+    "A microbial survey of the International Space Station (ISS)",
+    "Crewmember microbiome may influence microbial composition of ISS habitable surfaces",
+    "The human microbiome project",
+    "Microbiological and nutritional analysis of lettuce crops grown on the international space station",
+    "Chapter 4—Microbial communities associated with house dust",
+    "International Space Station environmental microbiome—microbial inventories of ISS filter debris",
+    "Fungal and bacterial growth in floor dust at elevated relative humidity levels",
+    "Morphology and quantification of fungal growth in residential dust and carpets",
+    "Microorganisms in confined habitats: Microbial monitoring and control of intensive care units, operating rooms, cleanrooms and the international space station",
+    "Microbiomes of the dust particles collected from the international space station and spacecraft assembly facilities",
+    "Moving towards a robust definition for a “healthy” indoor microbiome",
+    "A comprehensive review of microbial contamination in the indoor environment: Sources, sampling, health risks, and mitigation strategies",
+    "National Aeronautics and Space Agency (NASA). NASA Space Flight Human-System Standard Volume 2: Human Factors, Habitability, and Environmental Health. NASA; 2022 Apr. Report No.: NASA-STD-3001. https://www.nasa.gov/wp-content/uploads/2020/10/2022-04-08_nasa-std-3001_vol_2_rev_c_final.pdf.",
+    "Incidence of clinical symptoms during long-duration orbital spaceflight",
+    "Fusarium oxysporum as an opportunistic fungal pathogen on zinnia hybrida plants grown on board the international space station",
+    "Nastasi N, Bope A, Meyer ME, Horack JM, Dannemiller KC. Predicting how moisture impacts microbes in dust from spacecraft. Submitted.",
+    "Modeling microbial growth in carpet dust exposed to diurnal variations in relative humidity using the “Time-of-Wetness” framework",
+    "Effects of spaceflight and simulated microgravity on microbial growth and secondary metabolism",
+    "Space-type radiation induces multimodal responses in the mouse gut microbiome and metabolome",
+    "Elevated atmospheric carbon dioxide concentrations amplify Alternaria alternata sporulation and total antigen production",
+    "Increased enzymatic activity in rice leaf blast suppression by crude extract of Epicoccum sp",
+    "Human occupancy as a source of indoor airborne bacteria",
+    "Household pet ownership and the microbial diversity of the human gut microbiota",
+    "Architectural design influences the diversity and structure of the built environment microbiome",
+    "The roles of the outdoors and occupants in contributing to a potential pan-microbiome of the built environment: A review",
+    "Combining real-time PCR and next-generation DNA sequencing to provide quantitative comparisons of fungal aerosol populations",
+    "Strain-dependent variation in 18S ribosomal DNA Copy numbers in Aspergillus fumigatus",
+    "The role of microbial biofilms in deterioration of space station candidate materials",
+    "National Aeronautics and Space Administration. Implementing Planetary Protection Requirements for Space Fight. NASA. Report No.: NASA-STD-871927 (2022).",
+    "Accuracy, precision, and method detection limits of quantitative PCR for airborne bacteria and fungi",
+    "Nuclear ribosomal internal transcribed spacer (ITS) region as a universal DNA barcode marker for Fungi",
+    "Development of a fungus-specific PCR assay for detecting low-level fungi in an indoor environment",
+    "Size-resolved emission rates of airborne bacteria and fungi in an occupied classroom",
+    "Determination of bacterial load by real-time PCR using a broad-range (universal) probe and primers set",
+    "QIIME allows analysis of high-throughput community sequencing data",
+    "Cutadapt removes adapter sequences from high-throughput sequencing reads",
+    "VSEARCH: A versatile open source tool for metagenomics",
+    "Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing",
+    "Optimizing taxonomic classification of marker-gene amplicon sequences with QIIME 2’s q2-feature-classifier plugin",
+    "The UNITE database for molecular identification of fungi: Handling dark taxa and parallel taxonomic classifications",
+    "DADA2: High-resolution sample inference from Illumina amplicon data",
+    "Basic local alignment search tool",
+    "Fungal high-throughput taxonomic identification tool for use with next-generation sequencing (FHiTINGS)",
+    "An improved Greengenes taxonomy with explicit ranks for ecological and evolutionary analyses of bacteria and archaea",
+    "Next-generation DNA sequencing reveals that low fungal diversity in house dust is associated with childhood asthma development",
+    "Spring is associated with increased total and allergenic fungal concentrations in house dust from a pediatric asthma cohort in New York City"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Sheetz M. Bank of America expects the space industry to triple to a $1.4 trillion market within a decade. 4 Oct 2020 [cited 22 Jan 2023]. https://www.cnbc.com/2020/10/02/why-the-space-industry-may-triple-to-1point4-trillion-by-2030.html.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "National Aeronautics and Space Administration. Artemis Plan NASA’s Lunar Exploration Program Overview. NASA; 2020 Sep. https://www.nasa.gov/sites/default/files/atoms/files/artemis_plan-20200921.pdf.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA. Commercial Destinations in Low-Earth Orbit (LEO). 12 May 2022 [cited 22 Jan 2023]. https://www.nasa.gov/leo-economy/commercial-destinations-in-low-earth-orbit.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A microbial survey of the International Space Station (ISS)",
+      "autores": [
+        {
+          "nombre_completo": "JM Lang",
+          "nombres": "JM",
+          "apellidos": "Lang"
+        },
+        {
+          "nombre_completo": "DA Coil",
+          "nombres": "DA",
+          "apellidos": "Coil"
+        },
+        {
+          "nombre_completo": "RY Neches",
+          "nombres": "RY",
+          "apellidos": "Neches"
+        },
+        {
+          "nombre_completo": "WE Brown",
+          "nombres": "WE",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "D Cavalier",
+          "nombres": "D",
+          "apellidos": "Cavalier"
+        },
+        {
+          "nombre_completo": "M Severance",
+          "nombres": "M",
+          "apellidos": "Severance"
+        }
+      ],
+      "pmid": "29492330",
+      "fuente": "PeerJ",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "e4029",
+      "lpage": ""
+    },
+    {
+      "titulo": "Crewmember microbiome may influence microbial composition of ISS habitable surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Avila-Herrera",
+          "nombres": "A",
+          "apellidos": "Avila-Herrera"
+        },
+        {
+          "nombre_completo": "J Thissen",
+          "nombres": "J",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "NA Be",
+          "nombres": "NA",
+          "apellidos": "Be"
+        },
+        {
+          "nombre_completo": "DJ Smith",
+          "nombres": "DJ",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        }
+      ],
+      "pmid": "32348348",
+      "fuente": "PLoS ONE",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "e0231838",
+      "lpage": ""
+    },
+    {
+      "titulo": "The human microbiome project",
+      "autores": [
+        {
+          "nombre_completo": "PJ Turnbaugh",
+          "nombres": "PJ",
+          "apellidos": "Turnbaugh"
+        },
+        {
+          "nombre_completo": "RE Ley",
+          "nombres": "RE",
+          "apellidos": "Ley"
+        },
+        {
+          "nombre_completo": "M Hamady",
+          "nombres": "M",
+          "apellidos": "Hamady"
+        },
+        {
+          "nombre_completo": "CM Fraser-Liggett",
+          "nombres": "CM",
+          "apellidos": "Fraser-Liggett"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        },
+        {
+          "nombre_completo": "JI Gordon",
+          "nombres": "JI",
+          "apellidos": "Gordon"
+        }
+      ],
+      "pmid": "17943116",
+      "fuente": "Nature",
+      "anio": "2007",
+      "volumen": "449",
+      "fpage": "804",
+      "lpage": "810"
+    },
+    {
+      "titulo": "Microbiological and nutritional analysis of lettuce crops grown on the international space station",
+      "autores": [
+        {
+          "nombre_completo": "CLM Khodadad",
+          "nombres": "CLM",
+          "apellidos": "Khodadad"
+        },
+        {
+          "nombre_completo": "ME Hummerick",
+          "nombres": "ME",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "LE Spencer",
+          "nombres": "LE",
+          "apellidos": "Spencer"
+        },
+        {
+          "nombre_completo": "AR Dixit",
+          "nombres": "AR",
+          "apellidos": "Dixit"
+        },
+        {
+          "nombre_completo": "JT Richards",
+          "nombres": "JT",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "MW Romeyn",
+          "nombres": "MW",
+          "apellidos": "Romeyn"
+        }
+      ],
+      "pmid": "32210992",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "199",
+      "lpage": ""
+    },
+    {
+      "titulo": "Chapter 4—Microbial communities associated with house dust",
+      "autores": [
+        {
+          "nombre_completo": "H Rintala",
+          "nombres": "H",
+          "apellidos": "Rintala"
+        },
+        {
+          "nombre_completo": "M Pitkäranta",
+          "nombres": "M",
+          "apellidos": "Pitkäranta"
+        },
+        {
+          "nombre_completo": "M Täubel",
+          "nombres": "M",
+          "apellidos": "Täubel"
+        },
+        {
+          "nombre_completo": "AI Laskin",
+          "nombres": "AI",
+          "apellidos": "Laskin"
+        },
+        {
+          "nombre_completo": "S Sariaslani",
+          "nombres": "S",
+          "apellidos": "Sariaslani"
+        },
+        {
+          "nombre_completo": "GM Gadd",
+          "nombres": "GM",
+          "apellidos": "Gadd"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Advances in Applied Microbiology",
+      "anio": "2012",
+      "volumen": "",
+      "fpage": "75",
+      "lpage": "120"
+    },
+    {
+      "titulo": "International Space Station environmental microbiome—microbial inventories of ISS filter debris",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J Cisneros",
+          "nombres": "J",
+          "apellidos": "Cisneros"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "SO Rogers",
+          "nombres": "SO",
+          "apellidos": "Rogers"
+        },
+        {
+          "nombre_completo": "J Perry",
+          "nombres": "J",
+          "apellidos": "Perry"
+        }
+      ],
+      "pmid": "24695826",
+      "fuente": "Appl. Microbiol Biotechnol.",
+      "anio": "2014",
+      "volumen": "98",
+      "fpage": "6453",
+      "lpage": "6466"
+    },
+    {
+      "titulo": "Fungal and bacterial growth in floor dust at elevated relative humidity levels",
+      "autores": [
+        {
+          "nombre_completo": "KC Dannemiller",
+          "nombres": "KC",
+          "apellidos": "Dannemiller"
+        },
+        {
+          "nombre_completo": "CJ Weschler",
+          "nombres": "CJ",
+          "apellidos": "Weschler"
+        },
+        {
+          "nombre_completo": "J Peccia",
+          "nombres": "J",
+          "apellidos": "Peccia"
+        }
+      ],
+      "pmid": "27272645",
+      "fuente": "Indoor Air",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "354",
+      "lpage": "363"
+    },
+    {
+      "titulo": "Morphology and quantification of fungal growth in residential dust and carpets",
+      "autores": [
+        {
+          "nombre_completo": "N Nastasi",
+          "nombres": "N",
+          "apellidos": "Nastasi"
+        },
+        {
+          "nombre_completo": "SR Haines",
+          "nombres": "SR",
+          "apellidos": "Haines"
+        },
+        {
+          "nombre_completo": "L Xu",
+          "nombres": "L",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "H da Silva",
+          "nombres": "H",
+          "apellidos": "da Silva"
+        },
+        {
+          "nombre_completo": "A Divjan",
+          "nombres": "A",
+          "apellidos": "Divjan"
+        },
+        {
+          "nombre_completo": "MA Barnes",
+          "nombres": "MA",
+          "apellidos": "Barnes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Build. Environ.",
+      "anio": "2020",
+      "volumen": "174",
+      "fpage": "106774",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microorganisms in confined habitats: Microbial monitoring and control of intensive care units, operating rooms, cleanrooms and the international space station",
+      "autores": [
+        {
+          "nombre_completo": "M Mora",
+          "nombres": "M",
+          "apellidos": "Mora"
+        },
+        {
+          "nombre_completo": "A Mahnert",
+          "nombres": "A",
+          "apellidos": "Mahnert"
+        },
+        {
+          "nombre_completo": "K Koskinen",
+          "nombres": "K",
+          "apellidos": "Koskinen"
+        },
+        {
+          "nombre_completo": "MR Pausan",
+          "nombres": "MR",
+          "apellidos": "Pausan"
+        },
+        {
+          "nombre_completo": "L Oberauner-Wappis",
+          "nombres": "L",
+          "apellidos": "Oberauner-Wappis"
+        },
+        {
+          "nombre_completo": "R Krause",
+          "nombres": "R",
+          "apellidos": "Krause"
+        }
+      ],
+      "pmid": "27790191",
+      "fuente": "Front. Microbiol.",
+      "anio": "2016",
+      "volumen": "7",
+      "fpage": "1573",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbiomes of the dust particles collected from the international space station and spacecraft assembly facilities",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska",
+          "nombres": "A",
+          "apellidos": "Checinska"
+        },
+        {
+          "nombre_completo": "AJ Probst",
+          "nombres": "AJ",
+          "apellidos": "Probst"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "JR White",
+          "nombres": "JR",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "D Kumar",
+          "nombres": "D",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        }
+      ],
+      "pmid": "26502721",
+      "fuente": "Microbiome",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Moving towards a robust definition for a “healthy” indoor microbiome",
+      "autores": [
+        {
+          "nombre_completo": "KC Dannemiller",
+          "nombres": "KC",
+          "apellidos": "Dannemiller"
+        }
+      ],
+      "pmid": "31120023",
+      "fuente": "mSystems",
+      "anio": "2019",
+      "volumen": "4",
+      "fpage": "e00074",
+      "lpage": "19"
+    },
+    {
+      "titulo": "A comprehensive review of microbial contamination in the indoor environment: Sources, sampling, health risks, and mitigation strategies",
+      "autores": [
+        {
+          "nombre_completo": "H Chawla",
+          "nombres": "H",
+          "apellidos": "Chawla"
+        },
+        {
+          "nombre_completo": "P Anand",
+          "nombres": "P",
+          "apellidos": "Anand"
+        },
+        {
+          "nombre_completo": "K Garg",
+          "nombres": "K",
+          "apellidos": "Garg"
+        },
+        {
+          "nombre_completo": "N Bhagat",
+          "nombres": "N",
+          "apellidos": "Bhagat"
+        },
+        {
+          "nombre_completo": "SG Varmani",
+          "nombres": "SG",
+          "apellidos": "Varmani"
+        },
+        {
+          "nombre_completo": "T Bansal",
+          "nombres": "T",
+          "apellidos": "Bansal"
+        }
+      ],
+      "pmid": "38074709",
+      "fuente": "Front. Public Health",
+      "anio": "2023",
+      "volumen": "11",
+      "fpage": "1285393",
+      "lpage": ""
+    },
+    {
+      "titulo": "National Aeronautics and Space Agency (NASA). NASA Space Flight Human-System Standard Volume 2: Human Factors, Habitability, and Environmental Health. NASA; 2022 Apr. Report No.: NASA-STD-3001. https://www.nasa.gov/wp-content/uploads/2020/10/2022-04-08_nasa-std-3001_vol_2_rev_c_final.pdf.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Incidence of clinical symptoms during long-duration orbital spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "B Crucian",
+          "nombres": "B",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "A Babiak-Vazquez",
+          "nombres": "A",
+          "apellidos": "Babiak-Vazquez"
+        },
+        {
+          "nombre_completo": "S Johnston",
+          "nombres": "S",
+          "apellidos": "Johnston"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "CM Ott",
+          "nombres": "CM",
+          "apellidos": "Ott"
+        },
+        {
+          "nombre_completo": "C Sams",
+          "nombres": "C",
+          "apellidos": "Sams"
+        }
+      ],
+      "pmid": "27843335",
+      "fuente": "Int. J. Gen. Med.",
+      "anio": "2016",
+      "volumen": "9",
+      "fpage": "383",
+      "lpage": "391"
+    },
+    {
+      "titulo": "Fusarium oxysporum as an opportunistic fungal pathogen on zinnia hybrida plants grown on board the international space station",
+      "autores": [
+        {
+          "nombre_completo": "AC Schuerger",
+          "nombres": "AC",
+          "apellidos": "Schuerger"
+        },
+        {
+          "nombre_completo": "BS Amaradasa",
+          "nombres": "BS",
+          "apellidos": "Amaradasa"
+        },
+        {
+          "nombre_completo": "NS Dufault",
+          "nombres": "NS",
+          "apellidos": "Dufault"
+        },
+        {
+          "nombre_completo": "ME Hummerick",
+          "nombres": "ME",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "JT Richards",
+          "nombres": "JT",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "CL Khodadad",
+          "nombres": "CL",
+          "apellidos": "Khodadad"
+        }
+      ],
+      "pmid": "33926205",
+      "fuente": "Astrobiology",
+      "anio": "2021",
+      "volumen": "21",
+      "fpage": "1029",
+      "lpage": "1048"
+    },
+    {
+      "titulo": "Nastasi N, Bope A, Meyer ME, Horack JM, Dannemiller KC. Predicting how moisture impacts microbes in dust from spacecraft. Submitted.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Modeling microbial growth in carpet dust exposed to diurnal variations in relative humidity using the “Time-of-Wetness” framework",
+      "autores": [
+        {
+          "nombre_completo": "SR Haines",
+          "nombres": "SR",
+          "apellidos": "Haines"
+        },
+        {
+          "nombre_completo": "JA Siegel",
+          "nombres": "JA",
+          "apellidos": "Siegel"
+        },
+        {
+          "nombre_completo": "KC Dannemiller",
+          "nombres": "KC",
+          "apellidos": "Dannemiller"
+        }
+      ],
+      "pmid": "32403157",
+      "fuente": "Indoor Air",
+      "anio": "2020",
+      "volumen": "30",
+      "fpage": "978",
+      "lpage": "992"
+    },
+    {
+      "titulo": "Effects of spaceflight and simulated microgravity on microbial growth and secondary metabolism",
+      "autores": [
+        {
+          "nombre_completo": "B Huang",
+          "nombres": "B",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "D-G Li",
+          "nombres": "D-G",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y Huang",
+          "nombres": "Y",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "C-T Liu",
+          "nombres": "C-T",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "29807538",
+      "fuente": "Mil. Med. Res.",
+      "anio": "2018",
+      "volumen": "5",
+      "fpage": "18",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space-type radiation induces multimodal responses in the mouse gut microbiome and metabolome",
+      "autores": [
+        {
+          "nombre_completo": "D Casero",
+          "nombres": "D",
+          "apellidos": "Casero"
+        },
+        {
+          "nombre_completo": "K Gill",
+          "nombres": "K",
+          "apellidos": "Gill"
+        },
+        {
+          "nombre_completo": "V Sridharan",
+          "nombres": "V",
+          "apellidos": "Sridharan"
+        },
+        {
+          "nombre_completo": "I Koturbash",
+          "nombres": "I",
+          "apellidos": "Koturbash"
+        },
+        {
+          "nombre_completo": "G Nelson",
+          "nombres": "G",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "M Hauer-Jensen",
+          "nombres": "M",
+          "apellidos": "Hauer-Jensen"
+        }
+      ],
+      "pmid": "28821301",
+      "fuente": "Microbiome",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Elevated atmospheric carbon dioxide concentrations amplify Alternaria alternata sporulation and total antigen production",
+      "autores": [
+        {
+          "nombre_completo": "J Wolf",
+          "nombres": "J",
+          "apellidos": "Wolf"
+        },
+        {
+          "nombre_completo": "NR O’Neill",
+          "nombres": "NR",
+          "apellidos": "O’Neill"
+        },
+        {
+          "nombre_completo": "CA Rogers",
+          "nombres": "CA",
+          "apellidos": "Rogers"
+        },
+        {
+          "nombre_completo": "ML Muilenberg",
+          "nombres": "ML",
+          "apellidos": "Muilenberg"
+        },
+        {
+          "nombre_completo": "LH Ziska",
+          "nombres": "LH",
+          "apellidos": "Ziska"
+        }
+      ],
+      "pmid": "20462828",
+      "fuente": "Environ. Health Perspect.",
+      "anio": "2010",
+      "volumen": "118",
+      "fpage": "1223",
+      "lpage": "1228"
+    },
+    {
+      "titulo": "Increased enzymatic activity in rice leaf blast suppression by crude extract of Epicoccum sp",
+      "autores": [
+        {
+          "nombre_completo": "APA Sena",
+          "nombres": "APA",
+          "apellidos": "Sena"
+        },
+        {
+          "nombre_completo": "AA Chaibub",
+          "nombres": "AA",
+          "apellidos": "Chaibub"
+        },
+        {
+          "nombre_completo": "MVCB Côrtes",
+          "nombres": "MVCB",
+          "apellidos": "Côrtes"
+        },
+        {
+          "nombre_completo": "GB Silva",
+          "nombres": "GB",
+          "apellidos": "Silva"
+        },
+        {
+          "nombre_completo": "VL Silva-Lobo",
+          "nombres": "VL",
+          "apellidos": "Silva-Lobo"
+        },
+        {
+          "nombre_completo": "AS Prabhu",
+          "nombres": "AS",
+          "apellidos": "Prabhu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Trop. Plant Pathol.",
+      "anio": "2013",
+      "volumen": "38",
+      "fpage": "387",
+      "lpage": "397"
+    },
+    {
+      "titulo": "Human occupancy as a source of indoor airborne bacteria",
+      "autores": [
+        {
+          "nombre_completo": "D Hospodsky",
+          "nombres": "D",
+          "apellidos": "Hospodsky"
+        },
+        {
+          "nombre_completo": "J Qian",
+          "nombres": "J",
+          "apellidos": "Qian"
+        },
+        {
+          "nombre_completo": "WW Nazaroff",
+          "nombres": "WW",
+          "apellidos": "Nazaroff"
+        },
+        {
+          "nombre_completo": "N Yamamoto",
+          "nombres": "N",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "K Bibby",
+          "nombres": "K",
+          "apellidos": "Bibby"
+        },
+        {
+          "nombre_completo": "H Rismani-Yazdi",
+          "nombres": "H",
+          "apellidos": "Rismani-Yazdi"
+        }
+      ],
+      "pmid": "22529946",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e34867",
+      "lpage": ""
+    },
+    {
+      "titulo": "Household pet ownership and the microbial diversity of the human gut microbiota",
+      "autores": [
+        {
+          "nombre_completo": "AE Kates",
+          "nombres": "AE",
+          "apellidos": "Kates"
+        },
+        {
+          "nombre_completo": "O Jarrett",
+          "nombres": "O",
+          "apellidos": "Jarrett"
+        },
+        {
+          "nombre_completo": "JH Skarlupka",
+          "nombres": "JH",
+          "apellidos": "Skarlupka"
+        },
+        {
+          "nombre_completo": "A Sethi",
+          "nombres": "A",
+          "apellidos": "Sethi"
+        },
+        {
+          "nombre_completo": "M Duster",
+          "nombres": "M",
+          "apellidos": "Duster"
+        },
+        {
+          "nombre_completo": "L Watson",
+          "nombres": "L",
+          "apellidos": "Watson"
+        }
+      ],
+      "pmid": "32185142",
+      "fuente": "Front. Cell. Infect. Microbiol.",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "73",
+      "lpage": ""
+    },
+    {
+      "titulo": "Architectural design influences the diversity and structure of the built environment microbiome",
+      "autores": [
+        {
+          "nombre_completo": "SW Kembel",
+          "nombres": "SW",
+          "apellidos": "Kembel"
+        },
+        {
+          "nombre_completo": "E Jones",
+          "nombres": "E",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "J Kline",
+          "nombres": "J",
+          "apellidos": "Kline"
+        },
+        {
+          "nombre_completo": "D Northcutt",
+          "nombres": "D",
+          "apellidos": "Northcutt"
+        },
+        {
+          "nombre_completo": "J Stenson",
+          "nombres": "J",
+          "apellidos": "Stenson"
+        },
+        {
+          "nombre_completo": "AM Womack",
+          "nombres": "AM",
+          "apellidos": "Womack"
+        }
+      ],
+      "pmid": "22278670",
+      "fuente": "ISME J.",
+      "anio": "2012",
+      "volumen": "6",
+      "fpage": "1469",
+      "lpage": "1479"
+    },
+    {
+      "titulo": "The roles of the outdoors and occupants in contributing to a potential pan-microbiome of the built environment: A review",
+      "autores": [
+        {
+          "nombre_completo": "MHY Leung",
+          "nombres": "MHY",
+          "apellidos": "Leung"
+        },
+        {
+          "nombre_completo": "PKH Lee",
+          "nombres": "PKH",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "27216717",
+      "fuente": "Microbiome",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "21",
+      "lpage": ""
+    },
+    {
+      "titulo": "Combining real-time PCR and next-generation DNA sequencing to provide quantitative comparisons of fungal aerosol populations",
+      "autores": [
+        {
+          "nombre_completo": "KC Dannemiller",
+          "nombres": "KC",
+          "apellidos": "Dannemiller"
+        },
+        {
+          "nombre_completo": "N Lang-Yona",
+          "nombres": "N",
+          "apellidos": "Lang-Yona"
+        },
+        {
+          "nombre_completo": "N Yamamoto",
+          "nombres": "N",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "Y Rudich",
+          "nombres": "Y",
+          "apellidos": "Rudich"
+        },
+        {
+          "nombre_completo": "J Peccia",
+          "nombres": "J",
+          "apellidos": "Peccia"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Atmos. Environ.",
+      "anio": "2014",
+      "volumen": "84",
+      "fpage": "113",
+      "lpage": "121"
+    },
+    {
+      "titulo": "Strain-dependent variation in 18S ribosomal DNA Copy numbers in Aspergillus fumigatus",
+      "autores": [
+        {
+          "nombre_completo": "ML Herrera",
+          "nombres": "ML",
+          "apellidos": "Herrera"
+        },
+        {
+          "nombre_completo": "AC Vallor",
+          "nombres": "AC",
+          "apellidos": "Vallor"
+        },
+        {
+          "nombre_completo": "JA Gelfond",
+          "nombres": "JA",
+          "apellidos": "Gelfond"
+        },
+        {
+          "nombre_completo": "TF Patterson",
+          "nombres": "TF",
+          "apellidos": "Patterson"
+        },
+        {
+          "nombre_completo": "BL Wickes",
+          "nombres": "BL",
+          "apellidos": "Wickes"
+        }
+      ],
+      "pmid": "19261786",
+      "fuente": "J. Clin. Microbiol.",
+      "anio": "2009",
+      "volumen": "47",
+      "fpage": "1325",
+      "lpage": "1332"
+    },
+    {
+      "titulo": "The role of microbial biofilms in deterioration of space station candidate materials",
+      "autores": [
+        {
+          "nombre_completo": "JD Gu",
+          "nombres": "JD",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "M Roman",
+          "nombres": "M",
+          "apellidos": "Roman"
+        },
+        {
+          "nombre_completo": "T Esselman",
+          "nombres": "T",
+          "apellidos": "Esselman"
+        },
+        {
+          "nombre_completo": "R Mitchell",
+          "nombres": "R",
+          "apellidos": "Mitchell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. Biodeterior. Biodegrad.",
+      "anio": "1998",
+      "volumen": "41",
+      "fpage": "25",
+      "lpage": "33"
+    },
+    {
+      "titulo": "National Aeronautics and Space Administration. Implementing Planetary Protection Requirements for Space Fight. NASA. Report No.: NASA-STD-871927 (2022).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Accuracy, precision, and method detection limits of quantitative PCR for airborne bacteria and fungi",
+      "autores": [
+        {
+          "nombre_completo": "D Hospodsky",
+          "nombres": "D",
+          "apellidos": "Hospodsky"
+        },
+        {
+          "nombre_completo": "N Yamamoto",
+          "nombres": "N",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "J Peccia",
+          "nombres": "J",
+          "apellidos": "Peccia"
+        }
+      ],
+      "pmid": "20817798",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2010",
+      "volumen": "76",
+      "fpage": "7004",
+      "lpage": "7012"
+    },
+    {
+      "titulo": "Nuclear ribosomal internal transcribed spacer (ITS) region as a universal DNA barcode marker for Fungi",
+      "autores": [
+        {
+          "nombre_completo": "CL Schoch",
+          "nombres": "CL",
+          "apellidos": "Schoch"
+        },
+        {
+          "nombre_completo": "KA Seifert",
+          "nombres": "KA",
+          "apellidos": "Seifert"
+        },
+        {
+          "nombre_completo": "S Huhndorf",
+          "nombres": "S",
+          "apellidos": "Huhndorf"
+        },
+        {
+          "nombre_completo": "V Robert",
+          "nombres": "V",
+          "apellidos": "Robert"
+        },
+        {
+          "nombre_completo": "JL Spouge",
+          "nombres": "JL",
+          "apellidos": "Spouge"
+        },
+        {
+          "nombre_completo": "CA Levesque",
+          "nombres": "CA",
+          "apellidos": "Levesque"
+        }
+      ],
+      "pmid": "22454494",
+      "fuente": "Proc. Natl. Acad. Sci. U. S. A.",
+      "anio": "2012",
+      "volumen": "109",
+      "fpage": "6241",
+      "lpage": "6246"
+    },
+    {
+      "titulo": "Development of a fungus-specific PCR assay for detecting low-level fungi in an indoor environment",
+      "autores": [
+        {
+          "nombre_completo": "G Zhou",
+          "nombres": "G",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "WZ Whong",
+          "nombres": "WZ",
+          "apellidos": "Whong"
+        },
+        {
+          "nombre_completo": "T Ong",
+          "nombres": "T",
+          "apellidos": "Ong"
+        },
+        {
+          "nombre_completo": "B Chen",
+          "nombres": "B",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "11090263",
+      "fuente": "Mol. Cell. Probes",
+      "anio": "2000",
+      "volumen": "14",
+      "fpage": "339",
+      "lpage": "348"
+    },
+    {
+      "titulo": "Size-resolved emission rates of airborne bacteria and fungi in an occupied classroom",
+      "autores": [
+        {
+          "nombre_completo": "J Qian",
+          "nombres": "J",
+          "apellidos": "Qian"
+        },
+        {
+          "nombre_completo": "D Hospodsky",
+          "nombres": "D",
+          "apellidos": "Hospodsky"
+        },
+        {
+          "nombre_completo": "N Yamamoto",
+          "nombres": "N",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "WW Nazaroff",
+          "nombres": "WW",
+          "apellidos": "Nazaroff"
+        },
+        {
+          "nombre_completo": "J Peccia",
+          "nombres": "J",
+          "apellidos": "Peccia"
+        }
+      ],
+      "pmid": "22257156",
+      "fuente": "Indoor Air",
+      "anio": "2012",
+      "volumen": "22",
+      "fpage": "339",
+      "lpage": "351"
+    },
+    {
+      "titulo": "Determination of bacterial load by real-time PCR using a broad-range (universal) probe and primers set",
+      "autores": [
+        {
+          "nombre_completo": "MA Nadkarni",
+          "nombres": "MA",
+          "apellidos": "Nadkarni"
+        },
+        {
+          "nombre_completo": "FE Martin",
+          "nombres": "FE",
+          "apellidos": "Martin"
+        },
+        {
+          "nombre_completo": "NA Jacques",
+          "nombres": "NA",
+          "apellidos": "Jacques"
+        },
+        {
+          "nombre_completo": "N Hunter",
+          "nombres": "N",
+          "apellidos": "Hunter"
+        }
+      ],
+      "pmid": "11782518",
+      "fuente": "Microbiology",
+      "anio": "2002",
+      "volumen": "148",
+      "fpage": "257",
+      "lpage": "266"
+    },
+    {
+      "titulo": "QIIME allows analysis of high-throughput community sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "JG Caporaso",
+          "nombres": "JG",
+          "apellidos": "Caporaso"
+        },
+        {
+          "nombre_completo": "J Kuczynski",
+          "nombres": "J",
+          "apellidos": "Kuczynski"
+        },
+        {
+          "nombre_completo": "J Stombaugh",
+          "nombres": "J",
+          "apellidos": "Stombaugh"
+        },
+        {
+          "nombre_completo": "K Bittinger",
+          "nombres": "K",
+          "apellidos": "Bittinger"
+        },
+        {
+          "nombre_completo": "FD Bushman",
+          "nombres": "FD",
+          "apellidos": "Bushman"
+        },
+        {
+          "nombre_completo": "EK Costello",
+          "nombres": "EK",
+          "apellidos": "Costello"
+        }
+      ],
+      "pmid": "20383131",
+      "fuente": "Nat. Methods",
+      "anio": "2010",
+      "volumen": "7",
+      "fpage": "335",
+      "lpage": "336"
+    },
+    {
+      "titulo": "Cutadapt removes adapter sequences from high-throughput sequencing reads",
+      "autores": [
+        {
+          "nombre_completo": "M Martin",
+          "nombres": "M",
+          "apellidos": "Martin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "EMBnet.journal",
+      "anio": "2011",
+      "volumen": "17",
+      "fpage": "10",
+      "lpage": "12"
+    },
+    {
+      "titulo": "VSEARCH: A versatile open source tool for metagenomics",
+      "autores": [
+        {
+          "nombre_completo": "T Rognes",
+          "nombres": "T",
+          "apellidos": "Rognes"
+        },
+        {
+          "nombre_completo": "T Flouri",
+          "nombres": "T",
+          "apellidos": "Flouri"
+        },
+        {
+          "nombre_completo": "B Nichols",
+          "nombres": "B",
+          "apellidos": "Nichols"
+        },
+        {
+          "nombre_completo": "C Quince",
+          "nombres": "C",
+          "apellidos": "Quince"
+        },
+        {
+          "nombre_completo": "F Mahé",
+          "nombres": "F",
+          "apellidos": "Mahé"
+        }
+      ],
+      "pmid": "27781170",
+      "fuente": "PeerJ.",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "e2584",
+      "lpage": ""
+    },
+    {
+      "titulo": "Quality-filtering vastly improves diversity estimates from Illumina amplicon sequencing",
+      "autores": [
+        {
+          "nombre_completo": "NA Bokulich",
+          "nombres": "NA",
+          "apellidos": "Bokulich"
+        },
+        {
+          "nombre_completo": "S Subramanian",
+          "nombres": "S",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "JJ Faith",
+          "nombres": "JJ",
+          "apellidos": "Faith"
+        },
+        {
+          "nombre_completo": "D Gevers",
+          "nombres": "D",
+          "apellidos": "Gevers"
+        },
+        {
+          "nombre_completo": "JI Gordon",
+          "nombres": "JI",
+          "apellidos": "Gordon"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "23202435",
+      "fuente": "Nat. Methods",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "57",
+      "lpage": "59"
+    },
+    {
+      "titulo": "Optimizing taxonomic classification of marker-gene amplicon sequences with QIIME 2’s q2-feature-classifier plugin",
+      "autores": [
+        {
+          "nombre_completo": "NA Bokulich",
+          "nombres": "NA",
+          "apellidos": "Bokulich"
+        },
+        {
+          "nombre_completo": "BD Kaehler",
+          "nombres": "BD",
+          "apellidos": "Kaehler"
+        },
+        {
+          "nombre_completo": "JR Rideout",
+          "nombres": "JR",
+          "apellidos": "Rideout"
+        },
+        {
+          "nombre_completo": "M Dillon",
+          "nombres": "M",
+          "apellidos": "Dillon"
+        },
+        {
+          "nombre_completo": "E Bolyen",
+          "nombres": "E",
+          "apellidos": "Bolyen"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "29773078",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "90",
+      "lpage": ""
+    },
+    {
+      "titulo": "The UNITE database for molecular identification of fungi: Handling dark taxa and parallel taxonomic classifications",
+      "autores": [
+        {
+          "nombre_completo": "RH Nilsson",
+          "nombres": "RH",
+          "apellidos": "Nilsson"
+        },
+        {
+          "nombre_completo": "K-H Larsson",
+          "nombres": "K-H",
+          "apellidos": "Larsson"
+        },
+        {
+          "nombre_completo": "AFS Taylor",
+          "nombres": "AFS",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "J Bengtsson-Palme",
+          "nombres": "J",
+          "apellidos": "Bengtsson-Palme"
+        },
+        {
+          "nombre_completo": "TS Jeppesen",
+          "nombres": "TS",
+          "apellidos": "Jeppesen"
+        },
+        {
+          "nombre_completo": "D Schigel",
+          "nombres": "D",
+          "apellidos": "Schigel"
+        }
+      ],
+      "pmid": "30371820",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D259",
+      "lpage": "D264"
+    },
+    {
+      "titulo": "DADA2: High-resolution sample inference from Illumina amplicon data",
+      "autores": [
+        {
+          "nombre_completo": "BJ Callahan",
+          "nombres": "BJ",
+          "apellidos": "Callahan"
+        },
+        {
+          "nombre_completo": "PJ McMurdie",
+          "nombres": "PJ",
+          "apellidos": "McMurdie"
+        },
+        {
+          "nombre_completo": "MJ Rosen",
+          "nombres": "MJ",
+          "apellidos": "Rosen"
+        },
+        {
+          "nombre_completo": "AW Han",
+          "nombres": "AW",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "AJA Johnson",
+          "nombres": "AJA",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "SP Holmes",
+          "nombres": "SP",
+          "apellidos": "Holmes"
+        }
+      ],
+      "pmid": "27214047",
+      "fuente": "Nat. Methods",
+      "anio": "2016",
+      "volumen": "13",
+      "fpage": "581",
+      "lpage": "583"
+    },
+    {
+      "titulo": "Basic local alignment search tool",
+      "autores": [
+        {
+          "nombre_completo": "SF Altschul",
+          "nombres": "SF",
+          "apellidos": "Altschul"
+        },
+        {
+          "nombre_completo": "W Gish",
+          "nombres": "W",
+          "apellidos": "Gish"
+        },
+        {
+          "nombre_completo": "W Miller",
+          "nombres": "W",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "EW Myers",
+          "nombres": "EW",
+          "apellidos": "Myers"
+        },
+        {
+          "nombre_completo": "DJ Lipman",
+          "nombres": "DJ",
+          "apellidos": "Lipman"
+        }
+      ],
+      "pmid": "2231712",
+      "fuente": "J. Mol. Biol.",
+      "anio": "1990",
+      "volumen": "215",
+      "fpage": "403",
+      "lpage": "410"
+    },
+    {
+      "titulo": "Fungal high-throughput taxonomic identification tool for use with next-generation sequencing (FHiTINGS)",
+      "autores": [
+        {
+          "nombre_completo": "KC Dannemiller",
+          "nombres": "KC",
+          "apellidos": "Dannemiller"
+        },
+        {
+          "nombre_completo": "D Reeves",
+          "nombres": "D",
+          "apellidos": "Reeves"
+        },
+        {
+          "nombre_completo": "K Bibby",
+          "nombres": "K",
+          "apellidos": "Bibby"
+        },
+        {
+          "nombre_completo": "N Yamamoto",
+          "nombres": "N",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "J Peccia",
+          "nombres": "J",
+          "apellidos": "Peccia"
+        }
+      ],
+      "pmid": "23765392",
+      "fuente": "J. Basic Microbiol.",
+      "anio": "2014",
+      "volumen": "54",
+      "fpage": "315",
+      "lpage": "321"
+    },
+    {
+      "titulo": "An improved Greengenes taxonomy with explicit ranks for ecological and evolutionary analyses of bacteria and archaea",
+      "autores": [
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "MN Price",
+          "nombres": "MN",
+          "apellidos": "Price"
+        },
+        {
+          "nombre_completo": "J Goodrich",
+          "nombres": "J",
+          "apellidos": "Goodrich"
+        },
+        {
+          "nombre_completo": "EP Nawrocki",
+          "nombres": "EP",
+          "apellidos": "Nawrocki"
+        },
+        {
+          "nombre_completo": "TZ DeSantis",
+          "nombres": "TZ",
+          "apellidos": "DeSantis"
+        },
+        {
+          "nombre_completo": "A Probst",
+          "nombres": "A",
+          "apellidos": "Probst"
+        }
+      ],
+      "pmid": "22134646",
+      "fuente": "ISME J.",
+      "anio": "2012",
+      "volumen": "6",
+      "fpage": "610",
+      "lpage": "618"
+    },
+    {
+      "titulo": "Next-generation DNA sequencing reveals that low fungal diversity in house dust is associated with childhood asthma development",
+      "autores": [
+        {
+          "nombre_completo": "KC Dannemiller",
+          "nombres": "KC",
+          "apellidos": "Dannemiller"
+        },
+        {
+          "nombre_completo": "MJ Mendell",
+          "nombres": "MJ",
+          "apellidos": "Mendell"
+        },
+        {
+          "nombre_completo": "JM Macher",
+          "nombres": "JM",
+          "apellidos": "Macher"
+        },
+        {
+          "nombre_completo": "K Kumagai",
+          "nombres": "K",
+          "apellidos": "Kumagai"
+        },
+        {
+          "nombre_completo": "A Bradman",
+          "nombres": "A",
+          "apellidos": "Bradman"
+        },
+        {
+          "nombre_completo": "N Holland",
+          "nombres": "N",
+          "apellidos": "Holland"
+        }
+      ],
+      "pmid": "24883433",
+      "fuente": "Indoor Air",
+      "anio": "2014",
+      "volumen": "24",
+      "fpage": "236",
+      "lpage": "247"
+    },
+    {
+      "titulo": "Spring is associated with increased total and allergenic fungal concentrations in house dust from a pediatric asthma cohort in New York City",
+      "autores": [
+        {
+          "nombre_completo": "SJ Cochran",
+          "nombres": "SJ",
+          "apellidos": "Cochran"
+        },
+        {
+          "nombre_completo": "L Acosta",
+          "nombres": "L",
+          "apellidos": "Acosta"
+        },
+        {
+          "nombre_completo": "A Divjan",
+          "nombres": "A",
+          "apellidos": "Divjan"
+        },
+        {
+          "nombre_completo": "AR Lemons",
+          "nombres": "AR",
+          "apellidos": "Lemons"
+        },
+        {
+          "nombre_completo": "AG Rundle",
+          "nombres": "AG",
+          "apellidos": "Rundle"
+        },
+        {
+          "nombre_completo": "RL Miller",
+          "nombres": "RL",
+          "apellidos": "Miller"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Build. Environ.",
+      "anio": "2022",
+      "volumen": "226",
+      "fpage": "109711",
+      "lpage": ""
+    }
+  ]
+}

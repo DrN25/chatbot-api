@@ -1,0 +1,1495 @@
+{
+  "TITLE": [
+    "Molecular Muscle Experiment: Hardware and Operational Lessons for Future Astrobiology Space Experiments"
+  ],
+  "ABSTRACT": [
+    "Biology experiments in space seek to increase our understanding of what happens to life beyond Earth and how we can safely send life beyond Earth. Spaceflight is associated with many (mal)adaptations in physiology, including decline in musculoskeletal, cardiovascular, vestibular, and immune systems. Biological experiments in space are inherently challenging to implement. Development of hardware and validation of experimental conditions are critical to ensure the collection of high-quality data. The model organism Caenorhabditis elegans has been studied in space for more than 20 years to better understand spaceflight-induced (patho)physiology, particularly spaceflight-induced muscle decline. These experiments have used a variety of hardware configurations. Despite this, hardware used in the past was not available for our most recent experiment, the Molecular Muscle Experiment (MME). Therefore, we had to design and validate flight hardware for MME. MME provides a contemporary example of many of the challenges faced by researchers conducting C. elegans experiments onboard the International Space Station. Here, we describe the hardware selection and validation, in addition to the ground-based experiment scientific validation testing. These experiences and operational solutions allow others to replicate and/or improve our experimental design on future missions."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "Space is an extreme environment in which humans have been routinely living and working for more than 20 years, and ambitions remain to live and work further beyond Earth. Spaceflight is associated with deconditioning of multiple bodily systems, including the musculoskeletal, cardiovascular, vestibular, and immune systems (Demontis et al.,; Strollo et al.,). Physiological decline occurs despite participation in exercise countermeasures, which are a potent stimulus to promote musculoskeletal and cardiovascular adaptation (Trappe et al.,) and optimal immune function (Simpson et al.,) on Earth. While vestibular adaptations take place in the first days after transition to the microgravity environment, decline in musculoskeletal, cardiovascular, and immune systems can worsen with missions of greater duration (Fitts et al.,; Strollo et al.,), potentially limiting our capacity for interplanetary missions such as to Mars (Gaffney et al.,).",
+    "These challenges have motivated research around strategies to prevent this (mal)adaptation in space. As the precise molecular mechanisms of spaceflight-induced physiological deconditioning have not been identified, this limits our ability to design molecularly rationalized countermeasures.",
+    "Biological experiments in space can, however, be methodologically challenging. Although the United States has designated the US segment of the International Space Station (ISS) as a National Laboratory, experiments are not routinely carried out by using standardized equipment or methods that are in common use in other laboratories on Earth. Size, power, mass, late access for experiment integration onto the rocket, and ability to oversee the experiment remain challenges, despite more than 40 years of conducting biology experiments in space. Thus, the development of hardware and the validation of experimental conditions remain critical in the acquisition of quality data that can ultimately promote understanding of biological changes in space that should underpin rationale countermeasures to physiological changes in space.",
+    "Our current experiment, the Molecular Muscle Experiment (MME), uses the model organism, Caenorhabditis elegans, to explore the molecular mechanisms of spaceflight-induced muscle atrophy. C. elegans is an established model organism for studies on Earth (Kaletta and Hengartner,; Corsi et al.,; Shen et al.,) and in space (Szewczyk et al.,; Higashitani et al.,; Honda et al.,, 2014; Higashibata et al.,).",
+    "In the context of very limited access to space, the short life span and microscopic size of C. elegans enable data to be collected across the entire life span (Gaffney et al.,) in high n numbers and replicates to generate robust data rapidly. The operational requirements of MME include many that apply to biological payloads across species (e.g., late access, temperature-controlled upload/download, and time critical astronaut interventions). MME is therefore a generalizable example of many of the challenges in conducting contemporary astrobiology research onboard the ISS.",
+    "C. elegans have been studied in space for more than 20 years by using a variety of spaceflight hardware configurations (Ishioka and Higashibata,). With the exception of STS-107 (Szewczyk et al.,), all past flights involved in the study of C. elegans have used nonstandard laboratory hardware. It is therefore not surprising that C. elegans spaceflight experiments can fail due to lack of sufficient oxygen to support the worms (Warren et al.,), a problem that can be dealt with through preflight ground testing. Here, we describe the hardware selection and validation in addition to the ground-based experiment sequence validation testing for MME.",
+    "The first key challenge was overcoming the difficulty of growing worms inside plastic bags. The second key challenge was working out timings to allow upload to the ISS using passive temperature control. These studies should allow other researchers to replicate and/or improve our experimental design on future missions."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. Nematode and bacteria preparation",
+    "The C. elegans strain PD55 (ccIs55 (unc-54::lacZ) V) was used for development and testing phases of this study. Animals were cultured at 20°C by using standard methods on nematode growth media plates. To obtain L1 animals, age synchronizations were carried out by gravity settling as described previously (Gaffney et al.,). During the hardware development phases, Escherichia coli OP50 was grown overnight in LB-broth, centrifuged, and resuspended in S-Basal; 500 or 5000 L1 were used in experiments with 3–10 mL of OP50.",
+    "During the hardware development phases and all experimentation unless stipulated otherwise, stocks were prepared by adding 5000 L1 larvae to 6 mL of freeze-dried OP50 (LabTie; StartLife, Netherlands) in S-Basal. Freeze-dried OP50 was made by using LabTie's protocol of 1 vial per 250 mL S-Basal. To streamline procedures for launch preparation, worms to be flown (PD55 (ccIs55 (unc-54::lacZ) V), CF1038 (daf-16 (mu86) I), CF1139 (daf-16 (mu86) I; muIs61 (daf-16::GFP)?), PJ1145 (ccIs55 (unc-54::lacZ) V; njEx38 (unc-54p::daf-2(+) + goa-1p::GFP + rol-6 (su1006))), DM2 (dim-1 (ra102) X)) were cultured in freeze-dried OP50 in S-Basal in 75 cm2 cell culture flasks. Animals were cultured for a minimum of 2 weeks following transfer from plates before synchronization.",
+    "During final preflight testing of the launch procedures, age synchronizations were carried out from liquid culture stocks rather than from plates to obtain 5000 L1 larvae the day before loading into bags. These cultures were left overnight in 6-well tissue culture dishes in a final volume of 500 μL freeze-dried OP50 in S-Basal at 20°C. The next day, 6 mL freeze-dried OP50 was pipetted into each well before loading into flight culture bags.",
+    "2.2. Validation of culture bags",
+    "The experimental design for launch involved growing worms inside gas-permeable plastic bags onboard the ISS. Therefore, we tested the biocompatibility of three different bag materials: (i) polyethylene (PE) bags (1.5 inch, 250 gauge, Lay Flat Polythene Tubing; Kite Packaging Ltd., United Kingdom), (ii) Japanese Aerospace Exploration Agency (JAXA) PE bags (Nipro, Japan), and (iii) fluorinated ethylene propylene (FEP) bags (Saint-Gobain Performance Plastics; TOSS GmbH, Germany). The PE bags and FEP bags are low friction and allow good gas exchange of oxygen and carbon dioxide, although gas exchange is reported to be superior in FEP to PE in bags of equal thickness (NB. all bags have previously supported C. elegans cultures in spaceflight experiments onboard the ISS).",
+    "The JAXA bags are a proprietary PE blend that is no longer commercially available. To test the bags, 5000 L1 larvae were placed in the bag with OP50 before bags were heat sealed (Pacseal+ impulse heat sealer; Rajapack, United Kingdom), and then, the worms were cultured for 7 days at 20°C. After 7 days, the total worm population in each bag was counted. Three biological replicates were carried out per condition. A one-way analysis of variance (ANOVA) was carried out in GraphPad Prism to compare the populations of worms in the three bags.",
+    "2.3. Oxygen consumption rates",
+    "To investigate whether diet influenced changes in oxygen consumption rates (OCR), measurements were carried out with the Seahorse XFe24 Analyzer (Agilent, Santa Clara, CA), as previously described (Hewitt et al.,; Koopman et al., ). Worms were cultured in either chemically defined media [C. elegans maintenance media, CeMM (Szewczyk et al.,), purchased from Cell Guidance Systems custom media service, United Kingdom], or freeze-dried OP50 in S-Basal. Adult animals were washed twice in incubation media [M9 buffer: 22.04 mM KH2PO4, 42.27 mM Na2HPO4, 85.56 mM NaCl (final concentrations, sterilized)] and placed in 200 μL M9-filled wells of standard Seahorse plates (20 worms/well) in 5 replicates per condition. Stable OCR measurements were taken by performing five measurement cycles for basal OCR, nine cycles for maximal OCR following the addition of carbonyl cyanide p-trifluoromethoxyphenylhydrazone (FCCP) (10 μM final well concentration), and five cycles for nonmitochondrial OCR following the addition of sodium azide (40 nM final well concentration).",
+    "OCR measurements were normalized to the number of worms per well. To obtain stable OCR measurements, the final three, seven, and two measurement cycles were used for the statistical analysis of basal, maximal, and nonmitochondrial OCR, respectively, as previously described (Hewitt et al.,). Differences in OCR were detected with a one-way ANOVA with Tukey's multiple comparison test using GraphPad Prism 8 (La Jolla, CA). Statistical significance was set at p < 0.05.",
+    "2.4. Culture volume optimization",
+    "Age-synchronized L1 larvae were placed into experimental bags containing freeze-dried OP50 in S-Basal (5000 L1 worms per bag). The amount of OP50 in the bag was optimized where 3, 4, 5, 6, 7, 8, 9, and 10 mL volumes were tested. Three biological replicates were carried out per condition.",
+    "2.5. Hardware development and validation",
+    "For flight, the experimental bags were to be placed into European Space Agency (ESA) experiment cassettes (ECs). As C. elegans require oxygen to develop, gas exchange between the inside of the EC and outside of the EC is required. ECs that allowed gas exchange via a gas-permeable Gortex membrane have previously been used with C. elegans onboard the ISS (Szewczyk et al.,); unfortunately, these were no longer available for use with MME. Therefore, we had to design (Fig. 1) and validate new ECs (Kayser Italia, Livorno, Italy).",
+    "To validate how well worms would grow inside the ECs, three bags each loaded with 5000 L1 worms and 6 mL freeze-dried OP50 in S-Basal were cultured inside the EC for 1 week at 20°C. Once complete, the population of viable worms in the bags were counted under a dissecting microscope (Nikon SMZ645; Nikon, Japan) and compared against control bags that were otherwise identical except were located outside the EC.",
+    "Two different cage inserts for the ECs were designed and tested to maintain separation between the bags during the turbulent upload phase of launch, to maintain a surface area for gas exchange in flight, and to prevent the bags from freezing together at the end of the experiment. To test which cage design was best, worms were grown in bags alone, in cage design 1, and in cage design 2. Upon selection of cage design 2, further testing was carried out by growing worms in bags alone, in cage 2 alone, and in cage 2 inside an EC. Three biological replicates were carried out per condition.",
+    "2.6. Validation of experimental timings",
+    "As MME was to be uploaded in an active state (e.g., worms were not placed in stasis), and as launches to the ISS are often associated with delays due to inclement weather or technical problems, we needed to validate our experimental design to confirm that it could withstand launch delays. To test this, we obtained upload times from handover to installation on the ISS from NASA cold stowage for previous SpaceX launches (Table 1), as well as data for the performance of 10°C and 12°C ICE Bricks passive upload cold stowage phase change material over upload to ISS time frames.",
+    "Using these data, we loaded 5000 L1 larvae into 6 mL of freeze-dried OP50 in S-Basal into the bags inside the full EC setup (including the cage insert) and tested various upload scenarios. Following upload scenario testing, we ran the full experiment simulating a scheduled launch, a 24 h delay, and a 48 h delay. Following these simulations, the total worm populations were counted and compared with the nominal (on-time) launch scenario. A nominal launch scenario is associated with the generation of >45,000 worms per bag, which is the requirement for postflight analysis. To determine whether our experimental design could withstand a 24 or 48 h delay, we set a matched population threshold of >45,000 worms per bag at the end of the experiment."
+  ],
+  "FIG": [
+    "Hardware for the MME. Images of the hardware used for the experiment include (A) the first cage prototype and (B) the second cage prototype developed by Kayser Italia. (C) The assembly of experimental bags and cages within the EC. EC, experiment cassette; MME, Molecular Muscle Experiment. Color image is available online.",
+    "Growth of Caenorhabditis elegans in different plastic culture bags. Five thousand L1 larvae were loaded in standard Petri dishes, PE bags, JAXA bags, or FEP bags and cultured for 1 week at 20°C (all conditions in triplicate). Growth in PE bags was not significantly different from Petri dish controls, whereas both JAXA (**p < 0.01) and FEP (****p < 0.0001) have reduced growth compared with controls. Both PE and JAXA produce viable numbers of worms for the analysis requirements, whereas FEP do not. FEP, fluorinated ethylene propylene; JAXA, Japanese Aerospace Exploration Agency; PE, polyethylene.",
+    "C. elegans grown on a bacterial diet display increased oxygen consumption compared with a chemically defined diet. Twenty adult worms grown on bacterial diet (OP50) or chemically defined diet (CeMM) were analyzed in a Seahorse XF Analyzer (n = 5 replicates per condition). In both the basal state (***p < 0.001) and in the maximal state following injection of FCCP (****p < 0.0001), oxygen consumption rates are significantly higher in OP50 compared with CeMM. **p < 0.01. CeMM, C. elegans maintenance media; FCCP, carbonyl cyanide p-trifluoromethoxyphenylhydrazone; SA, sodium azide.",
+    "Optimization of culture volume in PE bags. (A) Volume of liquid culture and surface area to volume ratio in CERISE, ICE-FIRST, and MME. (B) Worm population size after starting with 5000 L1 worms, which were allowed to grow for 7 days at 20°C (n = 3 replicates), using different culture volumes in PE. Worm growth is optimal between 5 and 7 mL culture volume with a surface area to volume ratio in the range of 10 cm2/mL.",
+    "Growth of worms within prototype cages. Five hundred L1 worms were grown in culture bags for 7 days at 20°C, either within or not within a cage design (n = 3 replicates). Worm growth was lower in cage 1 compared with no cage (**p < 0.01), whereas there was no significant difference in worm growth between no cage and cage 2.",
+    "Validating growth of worms within the full experimental design. Five thousand L1 worms were grown in PE culture bags for 7 days at 20°C (n = 3 replicates). Three bags were grown without additional hardware, three bags were placed in the cage without the cassette, and three bags were placed in the complete experimental container (cage and cassette, Fig. 1). No significant differences in growth were observed.",
+    "MME mission logo.",
+    "Final experimental timeline verification test. (A) Timing details for nominal upload, 24 h, and 48 h delays to launch. (B) Population growth after the full experiment following a nominal upload, and a simulated 24 and 48 h delay. One-way ANOVA is not significant between the three groups. ANOVA, analysis of variance."
+  ],
+  "TABLE": [
+    "Duration from Launch: 26 H Turnover to NASA Cold Stowage Until Installation on the International Space Station",
+    "Mission\tHandover to installation, h\t \tSpX-4\t130\t \tSpX-5\t97\t \tSpX-6\t137\t \tSpX-8\t91\t \tSpX-9\t105\t \tSpX-10\t152\t \tSpX-11\t138\t \tSpX-12\t90\t \tSpX-13\t94\t \tSpX-14\t94",
+    "Operation Scenarios Tested",
+    "Duration\tTemperature profile\tOutcome\t \t8 Days\t20°C\tNot viable, ran out of food\t \t7 Days\t20°C\tViable, no Dauer larvae\t \t1 Day\t12°C\tViable\t \t+6.5 Days\t20°C\t \t8 Days\t12°C\tSome tests ran out of food around day 5.5 at 20°C\t \t+6.5 Days\t20°C\t \t3 Days\t12°C\tViable\t \t+6 Days\t20°C\t \t8 Days\t12°C\tViable, food close to exhaustion\t \t+6 Days\t20°C\t \t8 Days\tNASA 12°C phase change\tRan out of food around day 5 at 20°C\t \t+6 Days\t20°C\t \t8 Days\tNASA 10°C phase change\tViable\t \t+6 Days\t20°C\t \t5 Days\tNASA 10°C phase change\tViable\t \t+6 Days\t20°C"
+  ],
+  "RESULTS": [
+    "3. Results",
+    "3.1. Evaluation and selection of culture bags",
+    "Several previous spaceflight experiments have grown worms in liquid culture inside plastic experimental bags (Selch et al.,; Szewczyk et al.,; Higashitani et al.,); in some cases, worms were grown with an OP50 diet, in others with a CeMM diet. While it is not usual to grow C. elegans inside plastic bags on Earth, containment of liquid is a safety requirement onboard the ISS. We therefore sought to establish a plastic culture bag that would allow worm growth for MME.",
+    "We evaluated three culture bags based on past use in C. elegans flight experiments. Unsurprisingly, the PE bags we selected to replicate the bags used on ICE-FIRST (Szewczyk et al.,) and the JAXA bags we selected to replicate the bags used on CERISE (Higashitani et al.,) performed well at supporting worm growth (Fig. 2). However, the FEP bags we selected to replicate bags tested on Earth (Szewczyk et al.,) for flight use failed to support growth, with more than half of the worms actually dying in the bags (Fig. 2).",
+    "3.2. Diet induces changes in OCR",
+    "Given that past ground tests with FEP bags (Szewczyk et al.,) and a past flight with culture chambers utilizing FEP for gas exchange (Oczypok et al.,) successfully supported C. elegans growth, we wanted to understand why FEP bags did not work in our ground testing (Fig. 2). Since both past reports of use of FEP involved growing worms in CeMM rather than the OP50 diet used in MME, we were curious if the failure to grow was due to the food source. Worms grown in CeMM take longer to develop, have longer life expectancies, exhibit altered gene expression, and exhibit the characteristics of dietary restriction (Szewczyk et al.,; Zhang et al.,).",
+    "Given the physiological and gene expression changes in CeMM-grown worms, we hypothesized that worms grown in CeMM have differences in metabolism compared with those grown in OP50. To examine whether these different diets alter metabolism, we used the Seahorse XFe24 Analyzer (Agilent) to measure oxygen consumption in worms grown chronically in CeMM and OP50. As shown in Fig. 3, worms grown in CeMM have significantly lower basal levels of oxygen consumption. This suggests that OP50-grown worms could have been limited for oxygen inside the FEP bags, whereas the CeMM grown worms were not. The use of CeMM rather than OP50 as a food source may therefore reduce the oxygen exchange requirement and thus increase the viability of worm experiments conducted inside plastic culture bags on the ISS.",
+    "3.3. Optimizing culture volume in the flight bags",
+    "Having determined that gas exchange was a limiting factor for worm growth inside plastic culture bags, we re-evaluated the surface area to volume ratio of our bags versus past flights CERISE (Higashitani et al.,) and ICE-FIRST (Szewczyk et al.,) as this ratio also influences oxygen availability for the worms within the bags. As shown in Fig. 4, the surface area to volume ratio for CERISE, which used the OP50 diet, was 8.4 cm2/mL, whereas the ratio for ICE-FIRST, which used the CeMM diet, was 10 cm2/mL. We therefore maintained the size of the bag and altered the volume of worms + OP50 feed solution, testing volumes between 3 and 10 mL. Based on CERISE, which used JAXA bags, we expected a ratio of around 8.4 cm2/mL, which equates to a little more than 7 mL of liquid culture in the bag.",
+    "To preserve the limited available stocks of JAXA bags and to validate materials readily available for future flights, we used PE bags instead of the JAXA bags for testing. Testing with PE bags (Fig. 4) revealed that the maximum volume in the PE culture bag should be 6–7 mL, which is roughly consistent with the past performance of the JAXA bags during CERISE. Together, these results highlight the importance of considering and testing surface area for gas exchange when designing C. elegans spaceflight experiments involving liquid cultures.",
+    "3.4. Flight hardware validation",
+    "The culture bags were to be held within ECs to provide an additional level of containment, thus increasing the safety of the crew as well as protecting the cultures themselves from launch and/or in-flight damage. As shown in Fig. 1, cages to contain the bags within the ECs were designed to enforce space between the culture bags during launch, ensure gas exchange, and prevent culture bags from freezing together at the end of the experiment. As shown in Fig. 5, when culture bags were used either outside or inside cage design 2, which had more space between the bags, there was no significant difference in worm growth. In contrast, cage design 1, which had less space between the bags, had significantly less growth than outside the cage. Thus, cage design 2 was adopted for MME.",
+    "Next, growth in the culture bags inside the ECs with or without the cages was evaluated. As shown in Fig. 6, no significant differences in worm growth were noted for worms grown in PE culture bags outside or inside cage design 2, confirming prior testing (Fig. 5). Furthermore, there were no significant differences for worms grown in PE culture bags alone versus inside the combined cage and ECs.",
+    "3.5. Optimizing culture conditions for upload",
+    "To allow for comparison of our anticipated gene expression data with gene expression data from ICE-FIRST (Szewczyk et al.,) and CERISE (Higashitani et al.,), it was important that we time our cultures to enter adulthood following birth and development in space. As our experiment did not involve an activation step like CERISE, we conducted it as a timed upload like ICE-FIRST. However, for MME, the launch vehicle was SpaceX's Dragon and not Russia's Soyuz, and active temperature control during upload was not preferred from an operations perspective.",
+    "Therefore, as SpaceX's Dragon is frequently subjected to launch delays and as phase change materials could be used to maintain temperature during upload, it was important that we test various upload scenarios to establish working timings for upload to the ISS such that the worms were at an appropriate developmental stage, population density, and had not run out of food. As shown in Table 2, we started testing with fixed temperature of a duration calculated to allow P0 animals to grow to adulthood during upload (days 1–3/4) and the F1 generation to grow to mid-adulthood after living only in the spaceflight environment (days 3–8). We found that this duration exhausted our food source as evidenced by lack of visible food and presence of Dauer larvae. Reducing growth by 1 day resulted in viable worms of sufficient numbers for analysis (Table 2 and Figs. 2 and 6).",
+    "Unfortunately, with a maximum possible late turnover of payload at launch of—24 h, 3 days from turnover until installation in an incubator onboard the ISS was not a realistic timeline to produce viable animal cultures. Thus, for the timelines/late handover scenario associated with a Dragon launch scenario, similar to ICE-FIRST (Szewczyk et al.,), we would require active temperature control throughout upload. We therefore moved on to test other scenarios that were, from an operations perspective, preferred.",
+    "We next tested the effect of cold incubation during the prelaunch (1 day) or prelaunch plus longest reported cold stowage upload via Dragon (Table 2, 8 days). For these tests, we also reduced the time of culturing at 20°C by half a day as we anticipated some level of development to occur while at 12°C. As shown in Table 2, chilling of the cultures for the day between handover and launch allowed for viable cultures, subjected to the same operational issues as when culturing at 20°C, whereas 8 days of chilling the cultures did not allow for all cultures tested to be viable.",
+    "We therefore tested short cold stowage upload (1 day handover to launch with 2 days from launch to the ISS) and longest reported cold stowage upload via Dragon (8 days) with a further half-day reduction in the time of culturing at 20°C. As shown in Table 2, both short and long cold stowage followed by 6 days of incubation produced viable cultures. These results suggested that even the longest duration cold stowage followed by a period of incubation onboard the ISS would be a suitable operational solution for MME.",
+    "As passive rather than active temperature control was preferred for upload operations, we tested the effect of passive cold stowage using NASA's phase change materials. Given that 12°C active temperature control during upload produced viable cultures, we first tested NASA's 12°C phase change materials temperature profile during long upload. As shown in Table 2, long cold stowage when using NASA's 12°C phase change materials temperature profile did not produce viable cultures, with worms running out of food about 1 day before the end of the incubation at 20°C.",
+    "This result may appear surprising; however, the phase change material starts at 10°C and ramps up to 14°C over the period of cold stowage. Thus, from an engineering perspective, the 12°C phase change materials do indeed maintain 12°C ± 2°C, but from a biological perspective, this is quite different from the 12°C ± 0.5°C achieved via active temperature control. Confirming that 10°C phase change materials also maintain within +/−2°C, we tested long cold stowage using NASA's 10°C phase change materials temperature profile, which did produce viable cultures (Table 2).",
+    "Having confirmed a viable passive stowage upload scenario for MME, we finally tested the impact of a short upload scenario with the 10°C phase change materials (1 day turnover to launch, 3 days to station, 1 day to put in incubator) and found that this also produced viable cultures (Table 2). Thus, through various iterations of testing that included what we might do to culture worms in our own laboratory, to implementing operational restrictions imposed by launch and upload to the ISS coupled with a better understanding of passive cold stowage performance, we were able to achieve a viable experimental protocol. Importantly, the data from this testing also inform of the ability of the experimental protocol to perform in other, off-nominal scenarios.",
+    "3.6. Validation of launch procedures, upload timings, and simulated incubation on the ISS",
+    "Having finalized an operationally acceptable upload scenario, we prepared for flight. First, to help increase the visibility of our outreach efforts (Gaffney et al.,), we developed and finalized a mission logo (Fig. 7). This was distributed to ∼2000 members of the public, mainly school children, between final ground testing and launch and created a “brand” for our experiment that was used by the UK government and media, which reached an estimated 41 million people.",
+    "Second, in consultation with ESA, we agreed a nominal launch scenario to be used in our final testing (Fig. 8A) as well as to assess the impact of a 24- and 48-h launch delay on our finalized experimental timeline. Note that a notional period of time (7 days) was used to simulate time in the Minus Eighty Laboratory Freezer for ISS (MELFI) before download of the samples back to Earth. As shown in Fig. 8B, cultures from the nominal and both launch delay scenarios grew as expected."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "The desired culture bag and EC hardware used in the past were not available for use with MME. Therefore, what should have been a straightforward repurposing of previously flown hardware became a program of work to redesign and revalidate flight hardware. This entailed dealing with the frequent challenges of successfully designing and flying an experiment to the ISS: use and validation of nonstandard laboratory hardware and validation of experimental timings for upload of biologically active experiments to the ISS.",
+    "We evaluated three culture bags based on past use in C. elegans flight experiments. Unsurprisingly, two of the bags selected to replicate bags used in previous flight performed well. However, one of the bags selected, made of FEP, was not compatible with worm growth despite having previously been used. This result was particularly striking as FEP is reported to have better gas exchange properties than PE and is why FEP bags are used to fly cell culture experiments (Vassy et al.,). Upon closer inspection of the specifications of the PE and FEP bags, it was clear that the PE bags were half as thick as the FEP bags and therefore performed better as a gas exchange surface despite worse performance as a material.",
+    "As both PE and FEP bags are nonstandard equipment for growing C. elegans, these findings highlight the importance of properly testing proposed flight hardware before flight, as selecting FEP bags for better gas exchange and ease of use properties (e.g., the capacity to load animals into bags via injection ports) was the operational preference before testing. Having uncovered that gas exchange did appear to be a concern for growing worms in plastic bags, we tested if culture volume to gas exchange surface area impacted culture growth. Unsurprisingly, we found that it did, which enabled us to optimize culture volume for MME, something not done for ICE-FIRST (Szewczyk et al.,).",
+    "We also examined worm oxygen consumption using the diet from ICE-FIRST, CeMM (Szewczyk et al.,), and the diet from CERISE, OP50 (Higashitani et al.,). Consistent with the biological changes for worms grown in CeMM (Szewczyk et al.,), we found that the worms consumed less oxygen. Collectively, our results suggest that growing worms in plastic culture bags does pose a challenge to worm experiment viability. The use of CeMM rather than OP50 as a food source may therefore reduce the oxygen exchange requirement and thus increase the viability of worm experiments conducted inside plastic culture bags on the ISS, but this comes with the added challenge that CeMM is more prone to become contaminated.",
+    "Regardless, it remains clear that proper ground testing is required preflight despite past successful C. elegans spaceflight experiments. Additionally, in contrast to challenges with experimental bags and gas exchange, the development of new ECs, similarly dependent on effective surface area to volume ratios, presented no problems. Gas exchange in the ECs was capable of producing a viable experiment. This result suggests that for future experiments it is likely that gas exchange between the C. elegans culture and ISS will be limited principally by the exchange properties of the culture bags and not the ECs.",
+    "The second most challenging portion of our preflight testing was testing and finalizing suitable scenarios for upload to the ISS that were consistent both with current operational realities and with successfully conducting our experiment. The data on durations from payload handover until integration on the ISS provided us with a realistic range of upload timings and should prove useful for others planning to upload via Dragon with NASA cold stowage.",
+    "Using these timings, we were able to establish that a C. elegans payload can be kept in a stasis during cold upload at 8–12°C, then subsequently grow and reproduce effectively. Of note, while the use of phase change material removed the need for active temperature control during upload, it was critical that we tested the performance of the phase change material temperature profile. Indeed, for biologically active cultures, phase change material provides a significantly different temperature profile than active temperature control."
+  ],
+  "CONCL": [
+    "5. Conclusion",
+    "In conclusion, we have updated the flight hardware and upload conditions available to support C. elegans experiments onboard the ISS. These validations provide a platform for MME and future investigators to successfully, and efficiently, conduct experiments onboard the ISS."
+  ],
+  "COMP_INT": [
+    "Author Disclosure Statement",
+    "No competing financial interests exist."
+  ],
+  "ACK_FUND": [
+    "Funding Information",
+    "This work was supported by the BBSRC (Grant Nos. BB/N015894/1, BB/P025781/1); the UK Space Agency and the STFC (Grant No. ST/R005737/1); and ESA (designations Molecular Muscle Experiment and ESA-14-ISLRA_Prop-0029). J.E.H. and S.A.V. were supported by the National Aeronautics and Space Administration (NASA) (NNX15AL16G to S.A.V.). Some strains were provided by the CGC, which is funded by NIH Office of Research Infrastructure Programs (P40 OD010440)."
+  ],
+  "REF": [
+    "References",
+    "A transparent window into biology: a primer on Caenorhabditis elegans",
+    "Human pathophysiological adaptations to the space environment",
+    "Prolonged space flight-induced alterations in the structure and function of human skeletal muscle fibres",
+    "Methods to assess subcellular compartments of muscle in C. elegans",
+    "The effect of long-term confinement and the efficacy of exercise countermeasures on muscle strength during a simulated mission to Mars: data from the Mars500 study",
+    "Greater loss of mitochondrial function with ageing is associated with earlier onset of sarcopenia in C",
+    "Worms in space for outreach on earth: Space Life Science activities for the classroom",
+    "Muscle strength deficiency and mitochondrial dysfunction in a muscular dystrophy model of Caenorhabditis elegans and its functional response to drugs",
+    "Microgravity elicits reproducible alterations in cytoskeletal and metabolic gene and protein expression in space-flown Caenorhabditis elegans",
+    "C. elegans RNAi space experiment (CERISE) in Japanese Experiment Module KIBO",
+    "Genes down-regulated in spaceflight are involved in the control of longevity in Caenorhabditis elegans",
+    "Spaceflight and ageing: reflecting on Caenorhabditis elegans in space",
+    "Space experiments using C. elegans as a model organism",
+    "Finding function in novel targets: C. elegans as a model organism",
+    "A screening-based platform for the assessment of cellular respiration in Caenorhabditis elegans",
+    "Remote automated multi-generational growth and observation of an animal in low Earth orbit",
+    "Genomic response of the nematode Caenorhabditis elegans to spaceflight",
+    "Caenorhabditis elegans: a convenient in vivo model for assessing the impact of food bioactive compounds on obesity, aging, and Alzheimer's disease",
+    "Exercise and the regulation of immune functions",
+    "Recent progress in space physiology and aging",
+    "Chemically defined medium and Caenorhabditis elegans",
+    "Caenorhabditis elegans survives atmospheric breakup of STS-107, Space Shuttle Columbia",
+    "Delayed development and lifespan extension as features of metaboliclifestyle alteration in C. elegans under dietary restriction",
+    "Description of international Caenorhabditis elegans experiment first flight (ICE-FIRST)",
+    "Exercise in space: human skeletal muscle after 6 months aboard the International Space Station",
+    "The effect of weightlessness on cytoskeleton architecture and proliferation of human breast cancer cell line MCF-7",
+    "Evaluation of the fluids mixing enclosure system for life science experiments during a commercial Caenorhabditis elegans spaceflight experiment",
+    "TMC-1 attenuates C. elegans development and sexual behaviour in a chemically defined food environment"
+  ],
+  "ABBR": [
+    "Abbreviations Used",
+    "CeMM",
+    "C. elegans maintenance media",
+    "ECs",
+    "experiment cassettes",
+    "ESA",
+    "European Space Agency",
+    "FEP",
+    "fluorinated ethylene propylene",
+    "ISS",
+    "International Space Station",
+    "JAXA",
+    "Japanese Aerospace Exploration Agency",
+    "MELFI",
+    "Minus Eighty Laboratory Freezer for ISS",
+    "MME",
+    "Molecular Muscle Experiment",
+    "OCR",
+    "oxygen consumption rates",
+    "PE",
+    "polyethylene",
+    "Associate Editor: Petra Rettberg"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A transparent window into biology: a primer on Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "A.K. Corsi",
+          "nombres": "A.K.",
+          "apellidos": "Corsi"
+        },
+        {
+          "nombre_completo": "B. Wightman",
+          "nombres": "B.",
+          "apellidos": "Wightman"
+        },
+        {
+          "nombre_completo": "M. Chalfie",
+          "nombres": "M.",
+          "apellidos": "Chalfie"
+        }
+      ],
+      "pmid": "26088431",
+      "fuente": "Genetics",
+      "anio": "2015",
+      "volumen": "200",
+      "fpage": "387",
+      "lpage": "407"
+    },
+    {
+      "titulo": "Human pathophysiological adaptations to the space environment",
+      "autores": [
+        {
+          "nombre_completo": "G.C. Demontis",
+          "nombres": "G.C.",
+          "apellidos": "Demontis"
+        },
+        {
+          "nombre_completo": "M.M. Germani",
+          "nombres": "M.M.",
+          "apellidos": "Germani"
+        },
+        {
+          "nombre_completo": "E.G. Caiani",
+          "nombres": "E.G.",
+          "apellidos": "Caiani"
+        },
+        {
+          "nombre_completo": "I. Barravecchia",
+          "nombres": "I.",
+          "apellidos": "Barravecchia"
+        },
+        {
+          "nombre_completo": "C. Passino",
+          "nombres": "C.",
+          "apellidos": "Passino"
+        },
+        {
+          "nombre_completo": "D. Angeloni",
+          "nombres": "D.",
+          "apellidos": "Angeloni"
+        }
+      ],
+      "pmid": "28824446",
+      "fuente": "Front Physiol",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "547",
+      "lpage": ""
+    },
+    {
+      "titulo": "Prolonged space flight-induced alterations in the structure and function of human skeletal muscle fibres",
+      "autores": [
+        {
+          "nombre_completo": "R.H. Fitts",
+          "nombres": "R.H.",
+          "apellidos": "Fitts"
+        },
+        {
+          "nombre_completo": "S.W. Trappe",
+          "nombres": "S.W.",
+          "apellidos": "Trappe"
+        },
+        {
+          "nombre_completo": "D.L. Costill",
+          "nombres": "D.L.",
+          "apellidos": "Costill"
+        },
+        {
+          "nombre_completo": "P.M. Gallagher",
+          "nombres": "P.M.",
+          "apellidos": "Gallagher"
+        },
+        {
+          "nombre_completo": "A.C. Creer",
+          "nombres": "A.C.",
+          "apellidos": "Creer"
+        },
+        {
+          "nombre_completo": "P.A. Colloton",
+          "nombres": "P.A.",
+          "apellidos": "Colloton"
+        },
+        {
+          "nombre_completo": "J.R. Peters",
+          "nombres": "J.R.",
+          "apellidos": "Peters"
+        },
+        {
+          "nombre_completo": "J.G. Romatowski",
+          "nombres": "J.G.",
+          "apellidos": "Romatowski"
+        },
+        {
+          "nombre_completo": "J.L. Bain",
+          "nombres": "J.L.",
+          "apellidos": "Bain"
+        },
+        {
+          "nombre_completo": "D.A. Riley",
+          "nombres": "D.A.",
+          "apellidos": "Riley"
+        }
+      ],
+      "pmid": "20660569",
+      "fuente": "J Physiol",
+      "anio": "2010",
+      "volumen": "588",
+      "fpage": "3567",
+      "lpage": "3592"
+    },
+    {
+      "titulo": "Methods to assess subcellular compartments of muscle in C. elegans",
+      "autores": [
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "J.J. Bass",
+          "nombres": "J.J.",
+          "apellidos": "Bass"
+        },
+        {
+          "nombre_completo": "T.F. Barratt",
+          "nombres": "T.F.",
+          "apellidos": "Barratt"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Vis Exp",
+      "anio": "2014",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The effect of long-term confinement and the efficacy of exercise countermeasures on muscle strength during a simulated mission to Mars: data from the Mars500 study",
+      "autores": [
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "E. Fomina",
+          "nombres": "E.",
+          "apellidos": "Fomina"
+        },
+        {
+          "nombre_completo": "D. Babich",
+          "nombres": "D.",
+          "apellidos": "Babich"
+        },
+        {
+          "nombre_completo": "V. Kitov",
+          "nombres": "V.",
+          "apellidos": "Kitov"
+        },
+        {
+          "nombre_completo": "K. Uskov",
+          "nombres": "K.",
+          "apellidos": "Uskov"
+        },
+        {
+          "nombre_completo": "D.A. Green",
+          "nombres": "D.A.",
+          "apellidos": "Green"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sport Med Open",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "40",
+      "lpage": ""
+    },
+    {
+      "titulo": "Greater loss of mitochondrial function with ageing is associated with earlier onset of sarcopenia in C",
+      "autores": [
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "A. Pollard",
+          "nombres": "A.",
+          "apellidos": "Pollard"
+        },
+        {
+          "nombre_completo": "T.F. Barratt",
+          "nombres": "T.F.",
+          "apellidos": "Barratt"
+        },
+        {
+          "nombre_completo": "D. Constantin-Teodosiu",
+          "nombres": "D.",
+          "apellidos": "Constantin-Teodosiu"
+        },
+        {
+          "nombre_completo": "P.L. Greenhaff",
+          "nombres": "P.L.",
+          "apellidos": "Greenhaff"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "30455409",
+      "fuente": "elegans. Aging (Albany. NY)",
+      "anio": "2018a",
+      "volumen": "10",
+      "fpage": "3382",
+      "lpage": "3396"
+    },
+    {
+      "titulo": "Worms in space for outreach on earth: Space Life Science activities for the classroom",
+      "autores": [
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "A. Pollard",
+          "nombres": "A.",
+          "apellidos": "Pollard"
+        },
+        {
+          "nombre_completo": "C. Deane",
+          "nombres": "C.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "M. Cooke",
+          "nombres": "M.",
+          "apellidos": "Cooke"
+        },
+        {
+          "nombre_completo": "M. Balsamo",
+          "nombres": "M.",
+          "apellidos": "Balsamo"
+        },
+        {
+          "nombre_completo": "J. Hewitt",
+          "nombres": "J.",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "S. Vanapalli",
+          "nombres": "S.",
+          "apellidos": "Vanapalli"
+        },
+        {
+          "nombre_completo": "N. Szewczyk",
+          "nombres": "N.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "B. Phillips",
+          "nombres": "B.",
+          "apellidos": "Phillips"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravit Space Res",
+      "anio": "2018b",
+      "volumen": "6",
+      "fpage": "74",
+      "lpage": "82"
+    },
+    {
+      "titulo": "Muscle strength deficiency and mitochondrial dysfunction in a muscular dystrophy model of Caenorhabditis elegans and its functional response to drugs",
+      "autores": [
+        {
+          "nombre_completo": "J.E. Hewitt",
+          "nombres": "J.E.",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "A.K. Pollard",
+          "nombres": "A.K.",
+          "apellidos": "Pollard"
+        },
+        {
+          "nombre_completo": "L. Lesanpezeshki",
+          "nombres": "L.",
+          "apellidos": "Lesanpezeshki"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "C.J. Gaffney",
+          "nombres": "C.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S.A. Vanapalli",
+          "nombres": "S.A.",
+          "apellidos": "Vanapalli"
+        }
+      ],
+      "pmid": "30396907",
+      "fuente": "Dis Model Mech",
+      "anio": "2018",
+      "volumen": "11",
+      "fpage": "dmm036137",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microgravity elicits reproducible alterations in cytoskeletal and metabolic gene and protein expression in space-flown Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "Y. Mogami",
+          "nombres": "Y.",
+          "apellidos": "Mogami"
+        },
+        {
+          "nombre_completo": "K. Fukui",
+          "nombres": "K.",
+          "apellidos": "Fukui"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "S. Harada",
+          "nombres": "S.",
+          "apellidos": "Harada"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S.A. Baba",
+          "nombres": "S.A.",
+          "apellidos": "Baba"
+        }
+      ],
+      "pmid": "28725720",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15022",
+      "lpage": ""
+    },
+    {
+      "titulo": "C. elegans RNAi space experiment (CERISE) in Japanese Experiment Module KIBO",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "T. Yamazaki",
+          "nombres": "T.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "N. Szewczyk",
+          "nombres": "N.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Takanami",
+          "nombres": "T.",
+          "apellidos": "Takanami"
+        },
+        {
+          "nombre_completo": "H. Suzuki",
+          "nombres": "H.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "K. Fukui",
+          "nombres": "K.",
+          "apellidos": "Fukui"
+        }
+      ],
+      "pmid": "20729992",
+      "fuente": "Biol Sci Space",
+      "anio": "2009",
+      "volumen": "23",
+      "fpage": "183",
+      "lpage": "187"
+    },
+    {
+      "titulo": "Genes down-regulated in spaceflight are involved in the control of longevity in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "Y. Matsunaga",
+          "nombres": "Y.",
+          "apellidos": "Matsunaga"
+        },
+        {
+          "nombre_completo": "Y. Yonezawa",
+          "nombres": "Y.",
+          "apellidos": "Yonezawa"
+        },
+        {
+          "nombre_completo": "T. Kawano",
+          "nombres": "T.",
+          "apellidos": "Kawano"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "K. Kuriyama",
+          "nombres": "K.",
+          "apellidos": "Kuriyama"
+        },
+        {
+          "nombre_completo": "T. Shimazu",
+          "nombres": "T.",
+          "apellidos": "Shimazu"
+        },
+        {
+          "nombre_completo": "M. Tanaka",
+          "nombres": "M.",
+          "apellidos": "Tanaka"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "22768380",
+      "fuente": "Sci Rep",
+      "anio": "2012",
+      "volumen": "2",
+      "fpage": "487",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight and ageing: reflecting on Caenorhabditis elegans in space",
+      "autores": [
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "M. Narici",
+          "nombres": "M.",
+          "apellidos": "Narici"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "24217152",
+      "fuente": "Gerontology",
+      "anio": "2014",
+      "volumen": "60",
+      "fpage": "138",
+      "lpage": "142"
+    },
+    {
+      "titulo": "Space experiments using C. elegans as a model organism",
+      "autores": [
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Handbook of Space Pharmaceuticals",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "1",
+      "lpage": "32"
+    },
+    {
+      "titulo": "Finding function in novel targets: C. elegans as a model organism",
+      "autores": [
+        {
+          "nombre_completo": "T. Kaletta",
+          "nombres": "T.",
+          "apellidos": "Kaletta"
+        },
+        {
+          "nombre_completo": "M.O. Hengartner",
+          "nombres": "M.O.",
+          "apellidos": "Hengartner"
+        }
+      ],
+      "pmid": "16672925",
+      "fuente": "Nat Rev Drug Discov",
+      "anio": "2006",
+      "volumen": "5",
+      "fpage": "387",
+      "lpage": "399"
+    },
+    {
+      "titulo": "A screening-based platform for the assessment of cellular respiration in Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "M. Koopman",
+          "nombres": "M.",
+          "apellidos": "Koopman"
+        },
+        {
+          "nombre_completo": "H. Michels",
+          "nombres": "H.",
+          "apellidos": "Michels"
+        },
+        {
+          "nombre_completo": "B.M. Dancy",
+          "nombres": "B.M.",
+          "apellidos": "Dancy"
+        },
+        {
+          "nombre_completo": "R. Kamble",
+          "nombres": "R.",
+          "apellidos": "Kamble"
+        },
+        {
+          "nombre_completo": "L. Mouchiroud",
+          "nombres": "L.",
+          "apellidos": "Mouchiroud"
+        },
+        {
+          "nombre_completo": "J. Auwerx",
+          "nombres": "J.",
+          "apellidos": "Auwerx"
+        },
+        {
+          "nombre_completo": "E.A. Nollen",
+          "nombres": "E.A.",
+          "apellidos": "Nollen"
+        },
+        {
+          "nombre_completo": "R.H. Houtkooper",
+          "nombres": "R.H.",
+          "apellidos": "Houtkooper"
+        }
+      ],
+      "pmid": "27583642",
+      "fuente": "Nat Protoc",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "1798",
+      "lpage": "1816"
+    },
+    {
+      "titulo": "Remote automated multi-generational growth and observation of an animal in low Earth orbit",
+      "autores": [
+        {
+          "nombre_completo": "E.A. Oczypok",
+          "nombres": "E.A.",
+          "apellidos": "Oczypok"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "J. Freeman",
+          "nombres": "J.",
+          "apellidos": "Freeman"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "R. Johnsen",
+          "nombres": "R.",
+          "apellidos": "Johnsen"
+        },
+        {
+          "nombre_completo": "D. Baillie",
+          "nombres": "D.",
+          "apellidos": "Baillie"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "22130552",
+      "fuente": "J R Soc Interface",
+      "anio": "2012",
+      "volumen": "9",
+      "fpage": "596",
+      "lpage": "599"
+    },
+    {
+      "titulo": "Genomic response of the nematode Caenorhabditis elegans to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F. Selch",
+          "nombres": "F.",
+          "apellidos": "Selch"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "M. Imamizo-Sato",
+          "nombres": "M.",
+          "apellidos": "Imamizo-Sato"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv Sp Res",
+      "anio": "2008",
+      "volumen": "41",
+      "fpage": "807",
+      "lpage": "815"
+    },
+    {
+      "titulo": "Caenorhabditis elegans: a convenient in vivo model for assessing the impact of food bioactive compounds on obesity, aging, and Alzheimer's disease",
+      "autores": [
+        {
+          "nombre_completo": "P. Shen",
+          "nombres": "P.",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "Y. Yue",
+          "nombres": "Y.",
+          "apellidos": "Yue"
+        },
+        {
+          "nombre_completo": "J. Zheng",
+          "nombres": "J.",
+          "apellidos": "Zheng"
+        },
+        {
+          "nombre_completo": "Y. Park",
+          "nombres": "Y.",
+          "apellidos": "Park"
+        }
+      ],
+      "pmid": "29261338",
+      "fuente": "Annu Rev Food Sci Technol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1",
+      "lpage": "22"
+    },
+    {
+      "titulo": "Exercise and the regulation of immune functions",
+      "autores": [
+        {
+          "nombre_completo": "R.J. Simpson",
+          "nombres": "R.J.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "H. Kunz",
+          "nombres": "H.",
+          "apellidos": "Kunz"
+        },
+        {
+          "nombre_completo": "N. Agha",
+          "nombres": "N.",
+          "apellidos": "Agha"
+        },
+        {
+          "nombre_completo": "R. Graff",
+          "nombres": "R.",
+          "apellidos": "Graff"
+        }
+      ],
+      "pmid": "26477922",
+      "fuente": "Prog Mol Biol Transl Sci",
+      "anio": "2015",
+      "volumen": "135",
+      "fpage": "355",
+      "lpage": "380"
+    },
+    {
+      "titulo": "Recent progress in space physiology and aging",
+      "autores": [
+        {
+          "nombre_completo": "F. Strollo",
+          "nombres": "F.",
+          "apellidos": "Strollo"
+        },
+        {
+          "nombre_completo": "S. Gentile",
+          "nombres": "S.",
+          "apellidos": "Gentile"
+        },
+        {
+          "nombre_completo": "G. Strollo",
+          "nombres": "G.",
+          "apellidos": "Strollo"
+        },
+        {
+          "nombre_completo": "A. Mambro",
+          "nombres": "A.",
+          "apellidos": "Mambro"
+        },
+        {
+          "nombre_completo": "J. Vernikos",
+          "nombres": "J.",
+          "apellidos": "Vernikos"
+        }
+      ],
+      "pmid": "30483144",
+      "fuente": "Front Physiol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1551",
+      "lpage": ""
+    },
+    {
+      "titulo": "Chemically defined medium and Caenorhabditis elegans",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "E. Kozak",
+          "nombres": "E.",
+          "apellidos": "Kozak"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "14580264",
+      "fuente": "BMC Biotechnol",
+      "anio": "2003",
+      "volumen": "3",
+      "fpage": "19",
+      "lpage": ""
+    },
+    {
+      "titulo": "Caenorhabditis elegans survives atmospheric breakup of STS-107, Space Shuttle Columbia",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "R.L. Mancinelli",
+          "nombres": "R.L.",
+          "apellidos": "Mancinelli"
+        },
+        {
+          "nombre_completo": "W. McLamb",
+          "nombres": "W.",
+          "apellidos": "McLamb"
+        },
+        {
+          "nombre_completo": "D. Reed",
+          "nombres": "D.",
+          "apellidos": "Reed"
+        },
+        {
+          "nombre_completo": "B.S. Blumberg",
+          "nombres": "B.S.",
+          "apellidos": "Blumberg"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "16379525",
+      "fuente": "Astrobiology",
+      "anio": "2005",
+      "volumen": "5",
+      "fpage": "690",
+      "lpage": "705"
+    },
+    {
+      "titulo": "Delayed development and lifespan extension as features of metaboliclifestyle alteration in C. elegans under dietary restriction",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "I.A. Udranszky",
+          "nombres": "I.A.",
+          "apellidos": "Udranszky"
+        },
+        {
+          "nombre_completo": "E. Kozak",
+          "nombres": "E.",
+          "apellidos": "Kozak"
+        },
+        {
+          "nombre_completo": "J. Sunga",
+          "nombres": "J.",
+          "apellidos": "Sunga"
+        },
+        {
+          "nombre_completo": "S.K. Kim",
+          "nombres": "S.K.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "L.A. Jacobson",
+          "nombres": "L.A.",
+          "apellidos": "Jacobson"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        }
+      ],
+      "pmid": "17023606",
+      "fuente": "J Exp Biol",
+      "anio": "2006",
+      "volumen": "209",
+      "fpage": "4129",
+      "lpage": "4139"
+    },
+    {
+      "titulo": "Description of international Caenorhabditis elegans experiment first flight (ICE-FIRST)",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "J. Tillman",
+          "nombres": "J.",
+          "apellidos": "Tillman"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "N. Fujimoto",
+          "nombres": "N.",
+          "apellidos": "Fujimoto"
+        },
+        {
+          "nombre_completo": "K. Kuriyama",
+          "nombres": "K.",
+          "apellidos": "Kuriyama"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        },
+        {
+          "nombre_completo": "K. Fukui",
+          "nombres": "K.",
+          "apellidos": "Fukui"
+        },
+        {
+          "nombre_completo": "D. Baillie",
+          "nombres": "D.",
+          "apellidos": "Baillie"
+        },
+        {
+          "nombre_completo": "A. Rose",
+          "nombres": "A.",
+          "apellidos": "Rose"
+        },
+        {
+          "nombre_completo": "G. Gasset",
+          "nombres": "G.",
+          "apellidos": "Gasset"
+        },
+        {
+          "nombre_completo": "B. Eche",
+          "nombres": "B.",
+          "apellidos": "Eche"
+        },
+        {
+          "nombre_completo": "D. Chaput",
+          "nombres": "D.",
+          "apellidos": "Chaput"
+        },
+        {
+          "nombre_completo": "C.A. Conley",
+          "nombres": "C.A.",
+          "apellidos": "Conley"
+        },
+        {
+          "nombre_completo": "M. Viso",
+          "nombres": "M.",
+          "apellidos": "Viso"
+        },
+        {
+          "nombre_completo": "L. Granger",
+          "nombres": "L.",
+          "apellidos": "Granger"
+        },
+        {
+          "nombre_completo": "L. Segalat",
+          "nombres": "L.",
+          "apellidos": "Segalat"
+        },
+        {
+          "nombre_completo": "A. Higashitani",
+          "nombres": "A.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "S. Honda",
+          "nombres": "S.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "Y. Honda",
+          "nombres": "Y.",
+          "apellidos": "Honda"
+        },
+        {
+          "nombre_completo": "H. Kagawa",
+          "nombres": "H.",
+          "apellidos": "Kagawa"
+        },
+        {
+          "nombre_completo": "R. Adachi",
+          "nombres": "R.",
+          "apellidos": "Adachi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv Sp Res",
+      "anio": "2008",
+      "volumen": "42",
+      "fpage": "1072",
+      "lpage": "1079"
+    },
+    {
+      "titulo": "Exercise in space: human skeletal muscle after 6 months aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S. Trappe",
+          "nombres": "S.",
+          "apellidos": "Trappe"
+        },
+        {
+          "nombre_completo": "D. Costill",
+          "nombres": "D.",
+          "apellidos": "Costill"
+        },
+        {
+          "nombre_completo": "P. Gallagher",
+          "nombres": "P.",
+          "apellidos": "Gallagher"
+        },
+        {
+          "nombre_completo": "A. Creer",
+          "nombres": "A.",
+          "apellidos": "Creer"
+        },
+        {
+          "nombre_completo": "J.R. Peters",
+          "nombres": "J.R.",
+          "apellidos": "Peters"
+        },
+        {
+          "nombre_completo": "H. Evans",
+          "nombres": "H.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "D.A. Riley",
+          "nombres": "D.A.",
+          "apellidos": "Riley"
+        },
+        {
+          "nombre_completo": "R.H. Fitts",
+          "nombres": "R.H.",
+          "apellidos": "Fitts"
+        }
+      ],
+      "pmid": "19150852",
+      "fuente": "J Appl Physiol",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "1159",
+      "lpage": "1168"
+    },
+    {
+      "titulo": "The effect of weightlessness on cytoskeleton architecture and proliferation of human breast cancer cell line MCF-7",
+      "autores": [
+        {
+          "nombre_completo": "J. Vassy",
+          "nombres": "J.",
+          "apellidos": "Vassy"
+        },
+        {
+          "nombre_completo": "S. Portet",
+          "nombres": "S.",
+          "apellidos": "Portet"
+        },
+        {
+          "nombre_completo": "D. Schoevaert",
+          "nombres": "D.",
+          "apellidos": "Schoevaert"
+        },
+        {
+          "nombre_completo": "M. Beil",
+          "nombres": "M.",
+          "apellidos": "Beil"
+        },
+        {
+          "nombre_completo": "G. Millot",
+          "nombres": "G.",
+          "apellidos": "Millot"
+        },
+        {
+          "nombre_completo": "F. Fauvel-Lafeve",
+          "nombres": "F.",
+          "apellidos": "Fauvel-Lafeve"
+        },
+        {
+          "nombre_completo": "A. Karniguian",
+          "nombres": "A.",
+          "apellidos": "Karniguian"
+        },
+        {
+          "nombre_completo": "G. Gasset",
+          "nombres": "G.",
+          "apellidos": "Gasset"
+        },
+        {
+          "nombre_completo": "T. Irinopoulou",
+          "nombres": "T.",
+          "apellidos": "Irinopoulou"
+        },
+        {
+          "nombre_completo": "F. Calvo",
+          "nombres": "F.",
+          "apellidos": "Calvo"
+        },
+        {
+          "nombre_completo": "J.P. Rigaut",
+          "nombres": "J.P.",
+          "apellidos": "Rigaut"
+        }
+      ],
+      "pmid": "11292682",
+      "fuente": "FASEB J",
+      "anio": "2001",
+      "volumen": "15",
+      "fpage": "1104",
+      "lpage": "1106"
+    },
+    {
+      "titulo": "Evaluation of the fluids mixing enclosure system for life science experiments during a commercial Caenorhabditis elegans spaceflight experiment",
+      "autores": [
+        {
+          "nombre_completo": "P. Warren",
+          "nombres": "P.",
+          "apellidos": "Warren"
+        },
+        {
+          "nombre_completo": "A. Golden",
+          "nombres": "A.",
+          "apellidos": "Golden"
+        },
+        {
+          "nombre_completo": "J. Hanover",
+          "nombres": "J.",
+          "apellidos": "Hanover"
+        },
+        {
+          "nombre_completo": "D. Love",
+          "nombres": "D.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "F. Shephard",
+          "nombres": "F.",
+          "apellidos": "Shephard"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        }
+      ],
+      "pmid": "23794777",
+      "fuente": "Adv Space Res",
+      "anio": "2013",
+      "volumen": "51",
+      "fpage": "2241",
+      "lpage": "2250"
+    },
+    {
+      "titulo": "TMC-1 attenuates C. elegans development and sexual behaviour in a chemically defined food environment",
+      "autores": [
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "D.G. Gualberto",
+          "nombres": "D.G.",
+          "apellidos": "Gualberto"
+        },
+        {
+          "nombre_completo": "X. Guo",
+          "nombres": "X.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "P. Correa",
+          "nombres": "P.",
+          "apellidos": "Correa"
+        },
+        {
+          "nombre_completo": "C. Jee",
+          "nombres": "C.",
+          "apellidos": "Jee"
+        },
+        {
+          "nombre_completo": "L.R. Garcia",
+          "nombres": "L.R.",
+          "apellidos": "Garcia"
+        }
+      ],
+      "pmid": "25695879",
+      "fuente": "Nat Commun",
+      "anio": "2015",
+      "volumen": "6",
+      "fpage": "6345",
+      "lpage": ""
+    }
+  ]
+}

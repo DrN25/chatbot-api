@@ -1,0 +1,3317 @@
+{
+  "TITLE": [
+    "A New Era for Space Life Science: International Standards for Space Omics Processing"
+  ],
+  "ABSTRACT": [
+    "Summary",
+    "Space agencies have announced plans for human missions to the Moon to prepare for Mars. However, the space environment presents stressors that include radiation, microgravity, and isolation. Understanding how these factors affect biology is crucial for safe and effective crewed space exploration. There is a need to develop countermeasures, to adapt plants and microbes for nutrient sources and bioregenerative life support, and to limit pathogen infection. Scientists across the world are conducting space omics experiments on model organisms and, more recently, on humans. Optimal extraction of actionable scientific discoveries from these precious datasets will only occur at the collective level with improved standardization. To address this shortcoming, we established ISSOP (International Standards for Space Omics Processing), an international consortium of scientists who aim to enhance standard guidelines between space biologists at a global level. Here we introduce our consortium and share past lessons learned and future challenges related to spaceflight omics.",
+    "The Bigger Picture",
+    "With the rise of commercial spaceflight and prospective human missions to Mars, a wider health range of humans will enter space for longer spans and at higher exposure to environmental stressors than ever before. Numerous adverse health effects have been observed in space, including bone demineralization and skeletal muscle atrophy, among others. Scientists across the world are conducting space omics studies to develop countermeasures for safe and effective crewed space missions. However, optimal extraction of scientific insight from such data is contingent on improved standardization. In response, we founded ISSOP (International Standards for Space Omics Processing), an international consortium of scientists who aim to enhance guidelines between space biologists globally. This paper informs scientists and data scientists from many fields about the challenges and future avenues of space omics and can serve as an introductory reference for new members in the space biology discipline.",
+    "Humans will be entering space for longer spans and at higher exposure to environmental stressors than ever before. Numerous adverse health effects have been observed in space, including bone demineralization and skeletal muscle atrophy. We have formed an international consortium of scientists who aim to develop better standardization guidelines of space biology (especially omics) data. Maximum extraction of scientific knowledge from these rare data can lead to countermeasures needed for safe and effective crewed space missions."
+  ],
+  "INTRO": [
+    "Background",
+    "Humankind has entered a new era of deep space exploration, with space agencies announcing plans to put humans back on the Moon in preparation for the first crewed missions to Mars. Radiation, microgravity, altered atmospheric gas composition, isolation, and diet changes are some of the known stressors on humans in the space environment; these factors are expected to increase with mission duration and distance outside of low Earth orbit. Examples of adverse human health effects during spaceflight include bone demineralization, skeletal muscle atrophy, cardiovascular deconditioning, vestibular control, immune system suppression, and neuro-ocular ailments. It is necessary to better understand how spaceflight factors affect human health in order to develop the countermeasures needed for safe and effective crewed space missions. Moreover, critical elements of the space exploration infrastructure, including food and medical supplies, are insufficient for prolonged missions.",
+    "The National Aeronautics and Space Administration (NASA) Twins Study further motivated the need for comprehensive, consortium-based approaches to study the long-term effects of spaceflight on humans. Here, nine research groups studied a single data type in detail while a tenth group performed a multi-omics synthesis to construct a systematic whole-body layout of the changes. The study found alterations in numerous data types, including telomere length, gene regulation, gut microbiome composition, body weight, carotid artery dimensions, and serum metabolite profiles. While many of these changes were transient, some persisted for over 6 months after return to Earth.",
+    "While the NASA Twins Study represents a step change in space biology research, it is also anomalous. The vast majority of space biology experiments and datasets are generated using model organisms (Figure 1). Animal models are used to infer how spaceflight affects humans; plant models are used to elicit how crops can be cultivated in space for food and renewed oxygen sources; and microbes are studied to understand how space affects human microbiomes, plant-microbe interactions, and environmental cleanliness, while also advancing the fields of space biotechnology, planetary protection, and astrobiology. Specifically, the NASA Rodent Research (RR) and Japan Aerospace Exploration Agency (JAXA) Mouse Habitat Unit (MHU) series are part of a long heritage of rodent experiments in space; the zebrafish, medaka fish, fruit fly, and worm have all been valuable models for studying the effects of microgravity (μg), hypergravity, and space stressors using much larger sample size and proper 1g controls in space via centrifuges and on ground via microgravity simulators; plant models are consistently flown to investigate gravitropism and now food production; and microbial models have been guests on Apollo, Space Lab 1, the Space Shuttle, and the International Space Station (ISS), with recent interest turning toward understanding the natural microbiomes of spaceships and astronauts.",
+    "In all cases, space biologists around the world are increasingly reliant on omics approaches due to its ability to maximize the knowledge gained from rare spaceflight experiments (Figure S1). This includes epigenomics, transcriptomics, proteomics, metagenomics, and metabolomics. While omics can generate vast quantities of data, potentially paving the way for successful space missions, optimal extraction of actionable scientific insights from these complex data will only occur with improved standardization and communication at the international level.",
+    "In recent years, various consortiums have formed to address the increasingly expensive, large, and complicated nature of biological data. These committees implemented standards that significantly accelerated the scientific progress of their respective communities. The space omics community remains relatively new and can adopt successful frameworks from these exemplar groups. At the same time, guidelines developed by these groups cannot simply be replicated into the space omics discipline. Conducting biological research in spaceflight presents unique technical and biological challenges that have not been met before and will need to be specifically addressed by the international space biology community to ensure its success.",
+    "In response, we have formed a consortium called International Standards for Space Omics Processing (ISSOP). Our members are scientists who conduct space omics experiments funded by multiple space agencies in Japan (JAXA), Europe (including delegates from the European Space Agency [ESA] Space Omics Topical Team), and the United States (NASA). We bring expertise related to the processing of space omics samples from humans, vertebrate, and invertebrate model organisms, plants, and microbes; the implementation of multi-omics and systems biology approaches in space biology; and the normalization of spaceflight metadata. We are also informed with the latest developments across government, industry, and academia. Our mission is to develop, share, and encourage sample-processing standardization and metadata normalization of spaceflight omics experiments to allow for a better harmonization of data and increased gain of knowledge.",
+    "In this paper, we begin by describing examples of past lessons learned from omics studies on model organisms in space. These examples showcase the unique technical and biological challenges inherent to performing spaceflight omics and underline the need for improved standardization in the discipline. We then announce the current formation of ISSOP to address these needs at the international level. We close with a brief section with potential future avenues for ISSOP to bring standardized and systematic science to the space omics field.",
+    "Past Lessons Learned from Space Omics with Model Organisms",
+    "There are a number of unique challenges during each stage of a space omics experiment. In this section, we summarize those challenges and any advances therein that have been achieved in recent years through model organism studies. We journey through this section in roughly the same order of stages that researchers conduct space omics research projects (Figure 2).",
+    "Planning and Experimental Phase",
+    "Limitations in Space, Time, and Finances",
+    "The space omics community faces novel technical difficulties when planning spaceflight experiments. Basic challenges include logistical limitations in space, time, and finances. First, capacity limitations on orbiting platforms restrict the number of experimental replicates and variables, especially for rodent and plant studies. Small replicate numbers constrain statistical power and limit strain diversity. Genetically diverse crops will be crucial to foster robust bioregenerative life support systems in long-term space missions; however, the majority of plant species studied in space have been confined to low biomass species due to limited volume. Second, crew time is exceptionally limited for experimental procedures in spaceflight. In 2019, an hour of astronaut time was valued at $17,500, while the mean hourly wage in the United States for biochemists and biophysicists was $52.01. These numbers roughly indicate it can be more than 300 times more expensive to perform experiments on orbit versus terrestrially. It is difficult to perform certain procedures on the ISS due to the small crew size and the lack of laboratory equipment and experience compared with what is common in terrestrial laboratories. Third, repeating unsuccessful experiments and following up successful experiments are both difficult due to logistical and financial constraints and typically face much longer waiting times compared with experiments on the ground.",
+    "Hardware and Housing",
+    "Biological experiments during spaceflight are rarely performed using standard ground equipment. Developing special hardware and housing technology that can operate in spaceflight conditions is an ongoing challenge. In the past few decades, several space research platforms for animal and plant physiology have been developed. Alongside these engineering advances, it has become clear that the hardware itself and how it is employed in experimental design must be carefully standardized and iteratively improved to mitigate unintentional confounding factors as they become better known.",
+    "For example, the standard rodent vivarium cages used in ground studies are unsuitable in microgravity. One hardware design that has proved to be an effective platform for rodent studies during spaceflight is the NASA Animal Enclosure Model (AEM). A recent meta-study compared AEM ground controls and vivarium ground controls by examining all datasets in the NASA GeneLab database that had samples for both conditions. The authors applied an unbiased systems biology approach that revealed substantial transcriptional differences in ground control rodents when only the habitat was changed. In particular, a mild hypoxic phenotype was observed in the AEM condition, possibly due to its intentional design to intake ambient air, thereby passively intaking higher CO2 concentrations implemented to match the spaceflight environment. Importantly, increased CO2 levels may cause a decrease in cognitive scores and an increase in headaches in humans. Overall, this study underlined the critical need for well-designed ground control experiments in order to address confounders that might otherwise lead to incorrect conclusions about the omics effects of spaceflight, something that has also been observed in flies cultivated in space.",
+    "Plants also require special hardware designs for spaceflight, several of which have been used enough to understand that the hardware itself introduces extraneous variables. For example, Biological Research in Canisters (BRIC) hardware, which required no power and only limited crew time, was employed in numerous astrobotany experiments and found to have several shortcomings. The hardware itself reduced plant endodermal cell size, partially due to etiolated response to its dark environment. Similarly, the BRIC Petri Dish Fixation Unit (BRIC-PDFU) hardware induces stress-related changes in the transcriptome and proteome of Arabidopsis seedlings, highlighting the continued need for iterative hardware revisions henceforth.",
+    "The spaceflight community redevelops hardware not only to improve design but also to add new features that conserve time and effort for crew members. These features include real-time imaging, ground commanding, and automated software. New features are also added to better differentiate between the combinatorial effects of living in space. For example, in contrast to the NASA BRIC and BRIC-PDFU platforms, both the European KUBIK incubator and the JAXA Multiple Artificial-Gravity Research System (MARS) platforms provide 1g in-flights controls. These controls may mitigate the risk of falsely identifying omics results as responsive to microgravity exposure when they are instead relevant to other spaceflight variables.",
+    "Nonetheless, we note that, as is the case with most innovative spacecraft housing units, these platforms themselves introduce their own confounding influences. In particular, gravity gradients appear across the rotor system and sample positions do not experience the same gravity force. Given that small differences in partial gravity exposure cause large transcriptional profiles changes in plants, it is paramount for plant biologists who use these platforms to publish metadata that include both nominal partial g and real partial g for each sample position.",
+    "The use of reliable 1g controls both on Earth and in orbit is greatly acknowledged. A large variety of ground-based simulation systems can be used together to dissect the differential contribution of each confounding factor introduced by spaceflight or hardware requirements. Microgravity simulators include 2D clinostats, random positioning machines (RPMs), rotating wall vessels (RWVs), and diamagnetic levitation. Each of these simulators brings specific artifacts; for instance, clinostats introduce centrifugal accelerations and vibrations and diamagnetic levitation affects cell components differently based on magnetic susceptibility. For these reasons, consistent terminology must be used and standards must be proposed for different simulators and different modes of operation.",
+    "We note that commercial platforms are increasingly being contracted for spaceflight biological experiments, including TangoLabs (Space Tango, Lexington, KY), NanoLabs (NanoRacks, Houston, TX), and ICE Cubes Facilities (Space Application Services, Sint-Stevens-Woluwe, Belgium). To improve standardization and share lessons learned, communication will be increasingly crucial between the academic, government, and industry sectors developing and improving upon hardware designs. Consistent metadata collection about hardware used will also be crucial for informed interpretation of space omics data.",
+    "Sample Collection and Storage",
+    "Sample Collection",
+    "Due in part to limitations in crew time and finances, inconsistencies have arisen in how samples are obtained for analysis. For example, in some rodent experiments, animals are euthanized in space (“ISS terminal”) and either preserved as whole frozen carcasses (“ISS terminal frozen return”) for eventual dissection on Earth or dissected immediately by astronauts (“ISS terminal dissected return”). Alternatively, animals can be returned to Earth alive for euthanasia and dissection (“live animal return”). Each method has its strengths and weaknesses: While ISS-terminal approaches fix spaceflight responses directly, live animal return saves the time and specialized training astronauts would need to perform fine anatomical dissection on the ISS and ensure that these procedures are instead performed by professional technicians on Earth. Live animal return also allows scientists to study the offspring of returned spaceflight mice and to examine recovery to Earth conditions. On the downside, live animal return is confounded by exerted forces during reentry, reacclimation to Earth conditions after splashdown and before dissection, and circadian rhythm differences.",
+    "Sample Preservation",
+    "Adequate preservation of samples aboard the ISS is a continuing challenge and a hindrance to capturing unchanged biological responses to the orbital environment. Without access to liquid nitrogen, the current tissue freezing standard on the ISS is −80°C slow freezing. Unfortunately, NASA Rodent Research-1 (RR-1) missions revealed that space mouse gene expression analysis may not be reliable with slow freezing. Indeed, slow freezing of mouse carcasses on orbit for eventual dissection on Earth (ISS terminal frozen return samples) showed large gene expression changes when compared with mice dissected by astronauts in orbit (ISS terminal dissected return samples). This appeared to be exacerbated by the use of poly(A) enrichment-based RNA sequencing (RNA-seq) protocol, and could be alleviated by the use of a ribodepletion-based approach and by snap-freezing carcasses in liquid nitrogen. As a result, the Rapid Freeze hardware was recently developed for use on the ISS. The device can freeze mouse tissues (Glovebox freezer) and whole carcasses (Cryochiller) at rates similar to those attained with liquid nitrogen immersion. Studies are ongoing to determine how this new hardware compares with current ISS standard methods.",
+    "RNAlater consists of quaternary ammonium sulfates and cesium sulfates that denature and deactivate ribonucleases to prevent sample degradation. It is one fixative that has been widely used in space omics because it efficiently preserves nucleic acids and is deemed safe in the orbital environment. However, a secondary control study found that numerous genes identified in spaceflight experiments exhibit more pronounced differential expression induced by RNAlater than by microgravity. The fixation process is not rapid enough to prevent a response to the preservative in plants or invertebrates. Under normal circumstances, parallel fixation of treatment and control samples would account for the preservation effects. However, spaceflight is by no means a normal circumstance: it is likely that the fixation process is markedly altered in microgravity, which induces sweeping alterations to structural components of plants and invertebrates and differences in fluid dynamics. Ultimately, transcriptomic experiments performed aboard the ISS should preferentially use snap-freezing preservation. In the absence of snap-freezing capabilities, experimentalists should examine the overlap in response to RNAlater and their experimental treatments to eliminate potential fixative-induced transcriptome events.",
+    "Data Curation and Distribution",
+    "The Cancer Genome Atlas (TCGA) project significantly enhanced our understanding of complex biology with its carefully curated and publicly available multi-omics database. In order to unravel how biology responds to space factors, the space omics community needs to capture this spirit and construct an analogous database tailored to the unique characteristics of space omics data. NASA GeneLab is the first comprehensive space omics database that aims to optimize scientific return from spaceflight and ground simulation experiments funded by multiple space agencies around the world. The repository currently maintains more than 300 transcriptomic, epigenomic, proteomic, metabolomic, and metagenomic datasets from plant, animal, and microbial space experiments. Users can upload, download, store, and analyze spaceflight-relevant omics data in an open-access manner.",
+    "GeneLab complies with FAIR (findability, accessibility, interoperability, and reusability) principles and houses raw, intermediate, and fully processed data files. This renders the data accessible to citizen scientists and scientists at every level. Users can fully reproduce each step of the analysis pipeline and reanalyze data using their preferred bioinformatics tools starting from any step in the pipeline. As raw and intermediate files lack interpretable biological meaning, processed data files contain user-friendly menus that allow users to easily explore statistical comparisons and visualizations between data in order to generate new space biology hypotheses at high and interconnected levels.",
+    "The power of a database is greater than the sum of its individual datasets, but only if its individual datasets can be cross-examined in intelligent ways that assist with pattern discovery. Metadata are datasets that provide information about other datasets and hence are the bedrock of interconnecting datasets in informed manners. For this reason, implementation of best practices for metadata is just as important as for the datasets themselves.",
+    "GeneLab links critical metadata to each dataset. Metadata cover numerous factors that may present confounding variables during space omics experiments: biology factors (such as age, gender, strain, and ecotype), lifestyle factors (such as diet, exercise, and light cycle), experimental design factors (such as hardware and preflight and postflight exposure to stressors), sample-processing factors (such as preservation methods and library preparation methods), and spaceflight factors (such as gravity, atmospheric pressure, temperature, and ionizing radiation). Overall, metadata can be systematically examined to create robust networks that predict confounding variables and eventually determine additional experimental and engineering improvement areas for spaceflight omics studies.",
+    "Metadata protocols continue to be refined in the space biology discipline. For example, ISS environmental metadata (such as CO2, temperature, and radiation levels) are now integrated in space omics data. Dosimeters are not typically incorporated in the housing units of space omics experiments; hence, dosage exposure for study samples must be extrapolated from surrounding dosimeters. Meticulous metadata standardization efforts will continue to evolve and solve such challenges. External tools are also being developed to facilitate metadata reproducibility and discoverability. The Gilroy Astrobiology Team at the University of Wisconsin developed a metadata visualization API for the GeneLab platform called TOAST (Test of Arabidopsis Space Transcriptome) and a cross-species transcriptional viewer (NASA GeneLab Cross Kingdom Database) that uses iterative approaches to assist users with discovering common gene clusters among space omics datasets.",
+    "As much as possible, space biologists employ standardized ontological vocabularies accepted by the larger scientific community through the Ontology for Biomedical Investigations (OBI). However, given the unprecedented nature of space biology, terminology must sometimes be extended from the OBI. This has been the case especially for radiobiology and space radiation terms. The addition of new ontology terms must be done carefully in manners that support controlled integration between datasets and metadata sources.",
+    "Normalizing metadata is another enormous manual effort, sometimes requiring interviewing principal investigators and perusing publications to procure critical metadata. With growing volumes of incoming space omics datasets, this ambitious effort cannot be scaled. Going forward, submission portals can be created to increase automatic curation, which has already been proved relatively successful in non-spaceflight applications. Algorithms can guide data submitters to deposit crucial metadata and even provide explanations for why certain metadata are essential. Successfully relaying the importance of space omics confounders to researchers will improve their metadata submission adherence, thereby increasing the automation of metadata curation and the reliability of cross-data studies. Recent groups have indeed demonstrated the power of integrating multiple datasets from the GeneLab database to elicit global systemic responses to the space environment. Future studies can similarly leverage the database and its thorough metadata to obtain the larger sample sizes and stronger statistical powers needed to further identify salient factors affecting space-flown organisms.",
+    "Sample Sharing",
+    "Deciphering fundamental molecular responses to space will likely not be achieved by a single research group. Sample-sharing schemes must be honed to maximize discoverability and reproducibility between researchers in the space omics discipline. To this end, sharing a common biobank and sample-processing facility is ideal. An organized, navigable biobank can allow researchers to determine whether tissues of interest are already available from previous studies and avoid conducting redundant, resource-consuming experiments in space. A central sample-processing facility can prevent batch effects that would otherwise be introduced in a multiple-facility configuration. The common facility can generate high-quality data using standard operating procedures (SOPs) performed by specially trained laboratory operators and robotic workstations. Overall, this framework would be in congruence with successful multi-omics endeavors, such as the TCGA project, where each type of omics was managed by a single center.",
+    "Fortunately, space omics-sharing schemes are already implemented in Japan and the United States. A typical JAXA mouse live animal return study consists of 12 mice, producing more than 30 different tissue types across multiple omics assays that are then shared by more than 10 primary investigators. Genomics datasets from spaceflight mice are processed in a common laboratory at the University of Tsukuba that implements automated sample processing using LabDroids. In the United States, unused frozen spaceflight samples from previous experiments are often archived in the NASA Biospecimen Sharing Program of the Life Sciences Data Archive. GeneLab scientists at the sample-processing laboratory process these samples and generate omics data using standardized methods for data reproducibility. While ESA does not have its own sample-sharing schemes, it does encourage multinational spaceflight experiments with sample sharing between European researchers and it does participate bilaterally with JAXA and NASA schemes. As the discipline forges onward, valuable sharing schemes for these rare and costly biological specimens returned from orbit should continue to be perfected.",
+    "Current Need for a Global Consortium: ISSOP",
+    "With an increasing reliance on and promise of omics technologies when properly standardized, and with different countries providing specific expertise, we have formed to create guidelines for space omics data with input from scientists at the global level. We envision that, as the field of human space omics matures, our guidelines can be readily extended from animal models to humans and to specifically allow for translatable inference and comparison between animal model data and human data. Our latest protocols will be available on our consortium website (https://issop.space) and GitHub (https://github.com/ISSOP) as they are developed and continuously updated.",
+    "Here we announce the inception of the ISSOP consortium. ISSOP is a portmanteau of the abbreviations ISS and SOP. We are an international consortium of scientists with a 3-fold mission statement. First, we develop, share, and encourage sample-processing standardization and metadata normalization of spaceflight omics experiments. Second, we aim to optimize the conditions for scientists and the general public to derive valid hypotheses from these precious data by reducing confounding factors and increasing interoperability at the global level. Third, our standardization efforts are crucial for understanding the effects of spaceflight on biological organisms and preparing the international community toward developing safe and effective crewed space exploration beyond low Earth orbit. Our objectives, deliverables, and expected impacts are listed in Table 1.",
+    "ISSOP meets regularly virtually and at the American Society for Gravitational and Space Research (ASGSR) conference, where we can communicate latest standardization guidelines to and from various industry representatives. Our collaborative meetings are designed to identify mechanisms to increase the impact of future space omics experiments while sharing new data and analysis methods. We invite interested readers to contact ISSOP with inquiries or suggestions at issop@issop.space. Corresponding authors in the current paper can also be contacted with questions specific to each geographical region within ISSOP (R.H. for Europe, M.M. for Japan, and J.M.G. for the United States)."
+  ],
+  "FIG": [
+    "Example Uses, Pros, and Cons of Various Model Organisms Used in Space Omics Experiments",
+    "Roadmap of the Unique Challenges and Solutions during Each Stage of a Space Omics Experiment"
+  ],
+  "TABLE": [
+    "Objectives, Deliverables, and Expected Impacts of ISSOP",
+    "Community objectives\t(1) Inform space biologists of recommended guidelines for space omics experiments; (2) Enhance information exchange between space biologists at the global level; (3) Reach a more diverse community of scientists and citizen scientists; (4) Incentivize engagement toward space omics and metadata standardization in the space biology research community; (5) Invite researchers committed to these values to join our efforts\t \tTangible deliverables\t(1) Publish and routinely update our recommended sample-processing guidelines in a free and public repository; (2) Publish and routinely update lessons we have learned about space omics experiments in a free and public repository; (3) Upload key raw files, intermediate files, and final files using transparent and standardized data analysis pipelines for each dataset in the NASA GeneLab database; (4) Implement critical metadata standards for all datasets in the NASA GeneLab database\t \tShorter-term expected impacts\t(1) Reduction in confounding factors and promotion of harmonization and interoperability between space omics datasets; (2) Increased accuracy when comparing between data, including historic spaceflight data with recently generated data, spaceflight analogue data with actual spaceflight data, and model organism data with human data; (3) Prevention of space biology researchers making the same expensive mistakes that have already been learned from other researchers; (4) Democratized access to priceless space omics data in various file formats accessible to both citizen scientists and seasoned bioinformaticians alike; (5) Accelerated derivation of valid hypotheses and novel discoveries related to the effects of space conditions on biological organisms\t \tLonger-term expected impacts\t(1) Improvements in hardware and software technology for future space omics experiments; (2) Advances in biological technologies, therapeutics, and countermeasures to support life in space; (3) Advances in biological technologies and therapeutics applicable to improvements of life on Earth"
+  ],
+  "CONCL": [
+    "Future Avenues",
+    "In this paper, we discussed the challenges of performing omics experiments in spaceflight on model organisms. An international consortium of scientists who bring expertise in space omics studies across a breadth of assay types and model organisms can best advance the field in a multifaceted manner. In future work, ISSOP can develop space omics recommendations across individual assays, including proteomics, metabolomics, metagenomics, transcriptomics, and epigenomics. Guidelines can also be developed for lesser-known but promising molecular biology laboratory techniques. For instance, JAXA and NASA projects have recently started to utilize laser microdissection (LMD) and spatial transcriptomics respectively for data collection at the tissue-part-specific level as opposed to simply the tissue-specific level. ISSOP members who participate in these studies can develop standardization protocols in the context of space omics. Best practices can also be proposed for various organisms. For example, as mentioned previously, physical limitations on orbit restrict sample sizes in certain organisms, including plants. ISSOP members with expertise in astrobotany can provide guidance on standards to maximize information from small numbers of samples during spaceflight. Digitization of sample handling with advanced robotics will be one of the important components for future remote experiments and project sharing. In total, ISSOP can present diverse and balanced guidelines for conducting space omics experiments across a range of assay types and model organisms; these guidelines can include quantitative and qualitative information about data collection, data extraction, library preparation, quality control, sample preservation, and sequencing parameters. It may be possible to eventually consolidate this information into a protocol decision tree algorithm that can provide standardized recommendations to principal investigators based on their organisms and assays of interest.",
+    "The challenges delineated in this paper will be further intensified as we leap into an age of human space omics. Commercial spaceflight will induce a wider health range of humans entering space while future long-term deep space missions will expose humans to more intense environmental stressors for longer durations than ever before. Fine-tuning the space telemedicine field will be necessary for these ambitious frontiers and will best be achieved with the addition of omics as a standard measures program. Pioneering crewed missions to Mars will likely require international input due to complexities in the technology and cultural ethics of working with human subjects. ISSOP may be uniquely positioned to leverage lessons learned thus far from model organisms to develop an informed framework early on that can maximize scientific discovery and minimize ethical problems for an upcoming era of human space omics. Compellingly, careful standardization of space omics data through ISSOP may pave the way for cell space atlases and precision spaceflight medicine that will critically improve the safety of humans traveling through space.",
+    "Here we have introduced ISSOP as an international consortium that can prime researchers to extract as much actionable insight as possible from space omics data through improved standardization, altogether benefiting upcoming trailblazing space missions during this critical period. This paper is intended to inform scientists and data scientists across a wide spectrum of disciplines about the challenges and future directions of the exciting field of space omics. This paper can also serve as an introductory reference for students and new members in the space omics and larger space biology discipline. We invite interested readers to learn more about ISSOP through our webpage. Satellite ISSOP papers will follow with more detailed focuses on specific realms of standard space omics processing, all intended to improve our understanding of the omics effects of spaceflight so humanity can reach new worlds safely."
+  ],
+  "REF": [
+    "References",
+    "Space radiation biology for “living in space”",
+    "Future human bone research in space",
+    "Space travel directly induces skeletal muscle atrophy",
+    "Cardiovascular deconditioning during space flight and the use of saline as a countermeasure to orthostatic intolerance",
+    "Understanding vestibular-related physiological functions could provide clues on adapting to a new gravitational environment",
+    "Immune resistance of man in space flights",
+    "How does spaceflight affect the acquired immune system?",
+    "Space flight-associated neuro-ocular syndrome (SANS)",
+    "Space food for thought: challenges and considerations for food and nutrition on exploration missions",
+    "The NASA Twins Study: a multidimensional analysis of a year-long human spaceflight",
+    "Space habitation and microbiology: status and roadmap of space agencies",
+    "Microbial monitoring of crewed habitats in space-current status and future perspectives",
+    "Validation of a new rodent experimental system to investigate consequences of long duration space habitation",
+    "Development of new experimental platform “MARS”-Multiple Artificial-gravity Research System-to elucidate the impacts of micro/partial gravity on mice",
+    "Dietary intervention of mice using an improved Multiple Artificial-gravity Research System (MARS) under artificial 1",
+    "Transcriptomic response of Drosophila melanogaster pupae developed in hypergravity",
+    "Elucidating the “gravome”: quantitative proteomic profiling of the response to chronic hypergravity in Drosophila",
+    "Mutations induced in Drosophila during space flight",
+    "Innate immune responses of Drosophila melanogaster are altered by spaceflight",
+    "The development of Drosophila Melanogaster under different duration space flight and subsequent adaptation to earth gravity",
+    "Microgravity promotes osteoclast activity in medaka fish reared at the international space station",
+    "Histological and transcriptomic analysis of adult Japanese medaka sampled onboard the international space station",
+    "Microgravity elicits reproducible alterations in cytoskeletal and metabolic gene and protein expression in space-flown",
+    "Spaceflight-related suboptimal conditions can accentuate the altered gravity response of Drosophila transcriptome",
+    "Plant responses to gravity",
+    "Microbiological and nutritional analysis of lettuce crops grown on the international space station",
+    "Phosphate uptake in Saccharomyces cerevisiae Hansen wild type and phenotypes exposed to space flight irradiation",
+    "Neurospora circadian rhythms in space: a reexamination of the endogenous-exogenous question",
+    "Spaceflight enhances cell aggregation and random budding in Candida albicans",
+    "Comparison of transcriptome profiles from two separate missions to the International Space Station",
+    "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "Study of the impact of long-duration space missions at the International Space Station on the astronaut microbiome",
+    "The metagenomics and Metadesign of the Subways and Urban Biomes (MetaSUB) international consortium inaugural meeting report",
+    "The Cancer Genome Atlas (TCGA): an immeasurable source of knowledge",
+    "The NIH extracellular RNA communication consortium",
+    "The NIH roadmap epigenomics mapping consortium",
+    "The genotype-tissue expression (GTEx) project",
+    "ChIP-seq guidelines and practices of the ENCODE and modENCODE consortia",
+    "The 4D nucleome project",
+    "Revamping Space-omics in Europe",
+    "Space, the final frontier: a critical review of recent experiments performed in microgravity",
+    "Commercial and Merkating Pricing Policy",
+    "May 2019 National Occupational Employment and wage Estimates",
+    "The Mice Drawer System (MDS) experiment and the space endurance record-breaking mice",
+    "Ground-based assessment of JAXA mouse habitat cage unit by mouse phenotypic studies",
+    "Exploring the effects of spaceflight on mouse physiology using the open access NASA GeneLab platform",
+    "Evaluation of rodent spaceflight in the NASA animal enclosure module for an extended operational period (up to 35 days)",
+    "Global transcriptomic analysis suggests carbon dioxide as an environmental stressor in spaceflight: a systems biology GeneLab case study",
+    "Relationship between carbon dioxide levels and reported headaches on the international space station",
+    "Associations of cognitive function scores with carbon dioxide, ventilation, and volatile organic compound exposures in office workers: a controlled exposure study of green and conventional office environments",
+    "Morphometric analyses of petioles of seedlings grown in a spaceflight experiment",
+    "Growth in spaceflight hardware results in alterations to the transcriptome and proteome",
+    "RNAseq analysis of the response of Arabidopsis thaliana to Fractional gravity under blue-light Stimulation during spaceflight",
+    "RNA-seq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+    "The FixBox: hardware to provide on-orbit fixation capabilities to the EMCS on the ISS",
+    "Manzano A., Villacampa A., Sáez-Vásquez J., Kiss J.Z., Javier Medina F., Herranz R.. The importance of Earth reference controls in spaceflight –omics research: characterization of nucleolin mutants from the Seedling Growth experiments. iScience. doi:10.2139/ssrn.3661944",
+    "Ground-based facilities for simulation of microgravity: organism-specific recommendations for their use, and recommended terminology",
+    "Polo S.-H.L., Saravia-Butler A.M., Boyko V., Dinh M.T., Chen Y.-C., Fogle H., Reinsch S.S., Ray S., Chakravarty K., Marcu O., et al RNAseq analysis of rodent spaceflight experiments is confounded by sample collection techniques.bioRxiv doi:10.1101/2020.07.18.209775",
+    "Transcriptome and proteome responses in RNAlater preserved tissue of Arabidopsis thaliana",
+    "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+    "GeneLab: omics database for spaceflight experiments",
+    "FAIRness and usability for open-access omics data systems",
+    "The FAIR Guiding Principles for scientific data management and stewardship",
+    "Test of space transcriptome: a discovery environment to explore multiple plant biology spaceflight experiments",
+    "NASA GeneLab project: bridging space radiation omics with ground studies",
+    "Classification, ontology, and precision medicine",
+    "Robotic crowd biology with Maholo LabDroids",
+    "The societal impacts of a mars mission in the future of space exploration",
+    "Mapping the mouse cell atlas by microwell-seq",
+    "How to build a human cell atlas",
+    "Why personalized medicine is the frontier of medicine and performance for humans in space",
+    "Personalized medicine in human space flight: using Omics based analyses to develop individualized countermeasures that enhance astronaut safety and performance",
+    "Where failure is not an option –personalized medicine in astronauts",
+    "Vision changes after spaceflight are related to alterations in folate– and vitamin B-12–dependent one-carbon metabolism",
+    "Genotype, B-vitamin status, and androgens affect spaceflight-induced ophthalmic changes"
+  ],
+  "SUPPL": [
+    "Supplemental Information",
+    "Supplemental Information can be found online at https://doi.org/10.1016/j.patter.2020.100148."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space radiation biology for “living in space”",
+      "autores": [
+        {
+          "nombre_completo": "S. Furukawa",
+          "nombres": "S.",
+          "apellidos": "Furukawa"
+        },
+        {
+          "nombre_completo": "A. Nagamatsu",
+          "nombres": "A.",
+          "apellidos": "Nagamatsu"
+        },
+        {
+          "nombre_completo": "M. Nenoi",
+          "nombres": "M.",
+          "apellidos": "Nenoi"
+        },
+        {
+          "nombre_completo": "A. Fujimori",
+          "nombres": "A.",
+          "apellidos": "Fujimori"
+        },
+        {
+          "nombre_completo": "S. Kakinuma",
+          "nombres": "S.",
+          "apellidos": "Kakinuma"
+        },
+        {
+          "nombre_completo": "T. Katsube",
+          "nombres": "T.",
+          "apellidos": "Katsube"
+        },
+        {
+          "nombre_completo": "B. Wang",
+          "nombres": "B.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "C. Tsuruoka",
+          "nombres": "C.",
+          "apellidos": "Tsuruoka"
+        },
+        {
+          "nombre_completo": "T. Shirai",
+          "nombres": "T.",
+          "apellidos": "Shirai"
+        },
+        {
+          "nombre_completo": "A.J. Nakamura",
+          "nombres": "A.J.",
+          "apellidos": "Nakamura"
+        }
+      ],
+      "pmid": "32337251",
+      "fuente": "Biomed. Res. Int.",
+      "anio": "2020",
+      "volumen": "2020",
+      "fpage": "4703286",
+      "lpage": ""
+    },
+    {
+      "titulo": "Future human bone research in space",
+      "autores": [
+        {
+          "nombre_completo": "A. LeBlanc",
+          "nombres": "A.",
+          "apellidos": "LeBlanc"
+        },
+        {
+          "nombre_completo": "L. Shackelford",
+          "nombres": "L.",
+          "apellidos": "Shackelford"
+        },
+        {
+          "nombre_completo": "V. Schneider",
+          "nombres": "V.",
+          "apellidos": "Schneider"
+        }
+      ],
+      "pmid": "9600765",
+      "fuente": "Bone",
+      "anio": "1998",
+      "volumen": "22",
+      "fpage": "113S",
+      "lpage": "116S"
+    },
+    {
+      "titulo": "Space travel directly induces skeletal muscle atrophy",
+      "autores": [
+        {
+          "nombre_completo": "H. Vandenburgh",
+          "nombres": "H.",
+          "apellidos": "Vandenburgh"
+        },
+        {
+          "nombre_completo": "J. Chromiak",
+          "nombres": "J.",
+          "apellidos": "Chromiak"
+        },
+        {
+          "nombre_completo": "J. Shansky",
+          "nombres": "J.",
+          "apellidos": "Shansky"
+        },
+        {
+          "nombre_completo": "M. Del Tatto",
+          "nombres": "M.",
+          "apellidos": "Del Tatto"
+        },
+        {
+          "nombre_completo": "J. Lemaire",
+          "nombres": "J.",
+          "apellidos": "Lemaire"
+        }
+      ],
+      "pmid": "10336885",
+      "fuente": "FASEB J.",
+      "anio": "1999",
+      "volumen": "13",
+      "fpage": "1031",
+      "lpage": "1038"
+    },
+    {
+      "titulo": "Cardiovascular deconditioning during space flight and the use of saline as a countermeasure to orthostatic intolerance",
+      "autores": [
+        {
+          "nombre_completo": "M.W. Bungo",
+          "nombres": "M.W.",
+          "apellidos": "Bungo"
+        },
+        {
+          "nombre_completo": "J.B. Charles",
+          "nombres": "J.B.",
+          "apellidos": "Charles"
+        },
+        {
+          "nombre_completo": "P.C.;suffix:Jr. Johnson",
+          "nombres": "P.C.;suffix:Jr.",
+          "apellidos": "Johnson"
+        }
+      ],
+      "pmid": "4062772",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "1985",
+      "volumen": "56",
+      "fpage": "985",
+      "lpage": "990"
+    },
+    {
+      "titulo": "Understanding vestibular-related physiological functions could provide clues on adapting to a new gravitational environment",
+      "autores": [
+        {
+          "nombre_completo": "H. Morita",
+          "nombres": "H.",
+          "apellidos": "Morita"
+        },
+        {
+          "nombre_completo": "H. Kaji",
+          "nombres": "H.",
+          "apellidos": "Kaji"
+        },
+        {
+          "nombre_completo": "Y. Ueta",
+          "nombres": "Y.",
+          "apellidos": "Ueta"
+        },
+        {
+          "nombre_completo": "C. Abe",
+          "nombres": "C.",
+          "apellidos": "Abe"
+        }
+      ],
+      "pmid": "32169037",
+      "fuente": "J. Physiol. Sci.",
+      "anio": "2020",
+      "volumen": "70",
+      "fpage": "17",
+      "lpage": ""
+    },
+    {
+      "titulo": "Immune resistance of man in space flights",
+      "autores": [
+        {
+          "nombre_completo": "I.V. Konstantinova",
+          "nombres": "I.V.",
+          "apellidos": "Konstantinova"
+        }
+      ],
+      "pmid": "11537113",
+      "fuente": "Acta Astronaut.",
+      "anio": "1991",
+      "volumen": "23",
+      "fpage": "123",
+      "lpage": "127"
+    },
+    {
+      "titulo": "How does spaceflight affect the acquired immune system?",
+      "autores": [
+        {
+          "nombre_completo": "T. Akiyama",
+          "nombres": "T.",
+          "apellidos": "Akiyama"
+        },
+        {
+          "nombre_completo": "K. Horie",
+          "nombres": "K.",
+          "apellidos": "Horie"
+        },
+        {
+          "nombre_completo": "E. Hinoi",
+          "nombres": "E.",
+          "apellidos": "Hinoi"
+        },
+        {
+          "nombre_completo": "M. Hiraiwa",
+          "nombres": "M.",
+          "apellidos": "Hiraiwa"
+        },
+        {
+          "nombre_completo": "A. Kato",
+          "nombres": "A.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "Y. Maekawa",
+          "nombres": "Y.",
+          "apellidos": "Maekawa"
+        },
+        {
+          "nombre_completo": "A. Takahashi",
+          "nombres": "A.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "S. Furukawa",
+          "nombres": "S.",
+          "apellidos": "Furukawa"
+        }
+      ],
+      "pmid": "32411817",
+      "fuente": "NPJ Microgravity",
+      "anio": "2020",
+      "volumen": "6",
+      "fpage": "14",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space flight-associated neuro-ocular syndrome (SANS)",
+      "autores": [
+        {
+          "nombre_completo": "A.G. Lee",
+          "nombres": "A.G.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "T.H. Mader",
+          "nombres": "T.H.",
+          "apellidos": "Mader"
+        },
+        {
+          "nombre_completo": "C.R. Gibson",
+          "nombres": "C.R.",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "T.J. Brunstetter",
+          "nombres": "T.J.",
+          "apellidos": "Brunstetter"
+        },
+        {
+          "nombre_completo": "W.J. Tarver",
+          "nombres": "W.J.",
+          "apellidos": "Tarver"
+        }
+      ],
+      "pmid": "29527011",
+      "fuente": "Eye (Lond)",
+      "anio": "2018",
+      "volumen": "32",
+      "fpage": "1164",
+      "lpage": "1167"
+    },
+    {
+      "titulo": "Space food for thought: challenges and considerations for food and nutrition on exploration missions",
+      "autores": [
+        {
+          "nombre_completo": "G.L. Douglas",
+          "nombres": "G.L.",
+          "apellidos": "Douglas"
+        },
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "32652037",
+      "fuente": "J. Nutr.",
+      "anio": "2020",
+      "volumen": "150",
+      "fpage": "2242",
+      "lpage": ""
+    },
+    {
+      "titulo": "The NASA Twins Study: a multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F.E. Garrett-Bakelman",
+          "nombres": "F.E.",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M. Darshi",
+          "nombres": "M.",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "S.J. Green",
+          "nombres": "S.J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "R.C. Gur",
+          "nombres": "R.C.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L. Lin",
+          "nombres": "L.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "M.J. McKenna",
+          "nombres": "M.J.",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J. Nasrini",
+          "nombres": "J.",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space habitation and microbiology: status and roadmap of space agencies",
+      "autores": [
+        {
+          "nombre_completo": "M. Ott",
+          "nombres": "M.",
+          "apellidos": "Ott"
+        },
+        {
+          "nombre_completo": "D. Pierson",
+          "nombres": "D.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "M. Shirakawa",
+          "nombres": "M.",
+          "apellidos": "Shirakawa"
+        },
+        {
+          "nombre_completo": "F. Tanigaki",
+          "nombres": "F.",
+          "apellidos": "Tanigaki"
+        },
+        {
+          "nombre_completo": "M. Hida",
+          "nombres": "M.",
+          "apellidos": "Hida"
+        },
+        {
+          "nombre_completo": "T. Yamazaki",
+          "nombres": "T.",
+          "apellidos": "Yamazaki"
+        },
+        {
+          "nombre_completo": "T. Shimazu",
+          "nombres": "T.",
+          "apellidos": "Shimazu"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "25130884",
+      "fuente": "Microbes Environ.",
+      "anio": "2014",
+      "volumen": "29",
+      "fpage": "239",
+      "lpage": "242"
+    },
+    {
+      "titulo": "Microbial monitoring of crewed habitats in space-current status and future perspectives",
+      "autores": [
+        {
+          "nombre_completo": "N. Yamaguchi",
+          "nombres": "N.",
+          "apellidos": "Yamaguchi"
+        },
+        {
+          "nombre_completo": "M. Roberts",
+          "nombres": "M.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "S. Castro",
+          "nombres": "S.",
+          "apellidos": "Castro"
+        },
+        {
+          "nombre_completo": "C. Oubre",
+          "nombres": "C.",
+          "apellidos": "Oubre"
+        },
+        {
+          "nombre_completo": "K. Makimura",
+          "nombres": "K.",
+          "apellidos": "Makimura"
+        },
+        {
+          "nombre_completo": "N. Leys",
+          "nombres": "N.",
+          "apellidos": "Leys"
+        },
+        {
+          "nombre_completo": "E. Grohmann",
+          "nombres": "E.",
+          "apellidos": "Grohmann"
+        },
+        {
+          "nombre_completo": "T. Sugita",
+          "nombres": "T.",
+          "apellidos": "Sugita"
+        },
+        {
+          "nombre_completo": "T. Ichijo",
+          "nombres": "T.",
+          "apellidos": "Ichijo"
+        },
+        {
+          "nombre_completo": "M. Nasu",
+          "nombres": "M.",
+          "apellidos": "Nasu"
+        }
+      ],
+      "pmid": "25130885",
+      "fuente": "Microbes Environ.",
+      "anio": "2014",
+      "volumen": "29",
+      "fpage": "250",
+      "lpage": "260"
+    },
+    {
+      "titulo": "Validation of a new rodent experimental system to investigate consequences of long duration space habitation",
+      "autores": [
+        {
+          "nombre_completo": "S.Y. Choi",
+          "nombres": "S.Y.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "A. Saravia-Butler",
+          "nombres": "A.",
+          "apellidos": "Saravia-Butler"
+        },
+        {
+          "nombre_completo": "Y. Shirazi-Fard",
+          "nombres": "Y.",
+          "apellidos": "Shirazi-Fard"
+        },
+        {
+          "nombre_completo": "D. Leveson-Gower",
+          "nombres": "D.",
+          "apellidos": "Leveson-Gower"
+        },
+        {
+          "nombre_completo": "L.S. Stodieck",
+          "nombres": "L.S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "S.M. Cadena",
+          "nombres": "S.M.",
+          "apellidos": "Cadena"
+        },
+        {
+          "nombre_completo": "J. Beegle",
+          "nombres": "J.",
+          "apellidos": "Beegle"
+        },
+        {
+          "nombre_completo": "S. Solis",
+          "nombres": "S.",
+          "apellidos": "Solis"
+        },
+        {
+          "nombre_completo": "A. Ronca",
+          "nombres": "A.",
+          "apellidos": "Ronca"
+        },
+        {
+          "nombre_completo": "R.K. Globus",
+          "nombres": "R.K.",
+          "apellidos": "Globus"
+        }
+      ],
+      "pmid": "32047211",
+      "fuente": "Sci. Rep.",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "2336",
+      "lpage": ""
+    },
+    {
+      "titulo": "Development of new experimental platform “MARS”-Multiple Artificial-gravity Research System-to elucidate the impacts of micro/partial gravity on mice",
+      "autores": [
+        {
+          "nombre_completo": "D. Shiba",
+          "nombres": "D.",
+          "apellidos": "Shiba"
+        },
+        {
+          "nombre_completo": "H. Mizuno",
+          "nombres": "H.",
+          "apellidos": "Mizuno"
+        },
+        {
+          "nombre_completo": "A. Yumoto",
+          "nombres": "A.",
+          "apellidos": "Yumoto"
+        },
+        {
+          "nombre_completo": "M. Shimomura",
+          "nombres": "M.",
+          "apellidos": "Shimomura"
+        },
+        {
+          "nombre_completo": "H. Kobayashi",
+          "nombres": "H.",
+          "apellidos": "Kobayashi"
+        },
+        {
+          "nombre_completo": "H. Morita",
+          "nombres": "H.",
+          "apellidos": "Morita"
+        },
+        {
+          "nombre_completo": "M. Shimbo",
+          "nombres": "M.",
+          "apellidos": "Shimbo"
+        },
+        {
+          "nombre_completo": "M. Hamada",
+          "nombres": "M.",
+          "apellidos": "Hamada"
+        },
+        {
+          "nombre_completo": "T. Kudo",
+          "nombres": "T.",
+          "apellidos": "Kudo"
+        },
+        {
+          "nombre_completo": "M. Shinohara",
+          "nombres": "M.",
+          "apellidos": "Shinohara"
+        }
+      ],
+      "pmid": "28883615",
+      "fuente": "Sci. Rep.",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "10837",
+      "lpage": ""
+    },
+    {
+      "titulo": "Dietary intervention of mice using an improved Multiple Artificial-gravity Research System (MARS) under artificial 1",
+      "autores": [
+        {
+          "nombre_completo": "C. Matsuda",
+          "nombres": "C.",
+          "apellidos": "Matsuda"
+        },
+        {
+          "nombre_completo": "T. Kato",
+          "nombres": "T.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "S. Inoue-Suzuki",
+          "nombres": "S.",
+          "apellidos": "Inoue-Suzuki"
+        },
+        {
+          "nombre_completo": "J. Kikuchi",
+          "nombres": "J.",
+          "apellidos": "Kikuchi"
+        },
+        {
+          "nombre_completo": "T. Ohta",
+          "nombres": "T.",
+          "apellidos": "Ohta"
+        },
+        {
+          "nombre_completo": "M. Kagawa",
+          "nombres": "M.",
+          "apellidos": "Kagawa"
+        },
+        {
+          "nombre_completo": "M. Hattori",
+          "nombres": "M.",
+          "apellidos": "Hattori"
+        },
+        {
+          "nombre_completo": "H. Kobayashi",
+          "nombres": "H.",
+          "apellidos": "Kobayashi"
+        },
+        {
+          "nombre_completo": "D. Shiba",
+          "nombres": "D.",
+          "apellidos": "Shiba"
+        },
+        {
+          "nombre_completo": "M. Shirakawa",
+          "nombres": "M.",
+          "apellidos": "Shirakawa"
+        }
+      ],
+      "pmid": "31312718",
+      "fuente": "NPJ Microgravity",
+      "anio": "2019",
+      "volumen": "5",
+      "fpage": "16",
+      "lpage": ""
+    },
+    {
+      "titulo": "Transcriptomic response of Drosophila melanogaster pupae developed in hypergravity",
+      "autores": [
+        {
+          "nombre_completo": "S. Hateley",
+          "nombres": "S.",
+          "apellidos": "Hateley"
+        },
+        {
+          "nombre_completo": "R. Hosamani",
+          "nombres": "R.",
+          "apellidos": "Hosamani"
+        },
+        {
+          "nombre_completo": "S.R. Bhardwaj",
+          "nombres": "S.R.",
+          "apellidos": "Bhardwaj"
+        },
+        {
+          "nombre_completo": "L. Pachter",
+          "nombres": "L.",
+          "apellidos": "Pachter"
+        },
+        {
+          "nombre_completo": "S. Bhattacharya",
+          "nombres": "S.",
+          "apellidos": "Bhattacharya"
+        }
+      ],
+      "pmid": "27621057",
+      "fuente": "Genomics",
+      "anio": "2016",
+      "volumen": "108",
+      "fpage": "158",
+      "lpage": "167"
+    },
+    {
+      "titulo": "Elucidating the “gravome”: quantitative proteomic profiling of the response to chronic hypergravity in Drosophila",
+      "autores": [
+        {
+          "nombre_completo": "R. Hosamani",
+          "nombres": "R.",
+          "apellidos": "Hosamani"
+        },
+        {
+          "nombre_completo": "R. Leib",
+          "nombres": "R.",
+          "apellidos": "Leib"
+        },
+        {
+          "nombre_completo": "S.R. Bhardwaj",
+          "nombres": "S.R.",
+          "apellidos": "Bhardwaj"
+        },
+        {
+          "nombre_completo": "C.M. Adams",
+          "nombres": "C.M.",
+          "apellidos": "Adams"
+        },
+        {
+          "nombre_completo": "S. Bhattacharya",
+          "nombres": "S.",
+          "apellidos": "Bhattacharya"
+        }
+      ],
+      "pmid": "27648494",
+      "fuente": "J. Proteome Res.",
+      "anio": "2016",
+      "volumen": "15",
+      "fpage": "4165",
+      "lpage": "4175"
+    },
+    {
+      "titulo": "Mutations induced in Drosophila during space flight",
+      "autores": [
+        {
+          "nombre_completo": "M. Ikenaga",
+          "nombres": "M.",
+          "apellidos": "Ikenaga"
+        },
+        {
+          "nombre_completo": "I. Yoshikawa",
+          "nombres": "I.",
+          "apellidos": "Yoshikawa"
+        },
+        {
+          "nombre_completo": "M. Kojo",
+          "nombres": "M.",
+          "apellidos": "Kojo"
+        },
+        {
+          "nombre_completo": "T. Ayaki",
+          "nombres": "T.",
+          "apellidos": "Ayaki"
+        },
+        {
+          "nombre_completo": "H. Ryo",
+          "nombres": "H.",
+          "apellidos": "Ryo"
+        },
+        {
+          "nombre_completo": "K. Ishizaki",
+          "nombres": "K.",
+          "apellidos": "Ishizaki"
+        },
+        {
+          "nombre_completo": "T. Kato",
+          "nombres": "T.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "H. Yamamoto",
+          "nombres": "H.",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "R. Hara",
+          "nombres": "R.",
+          "apellidos": "Hara"
+        }
+      ],
+      "pmid": "11541768",
+      "fuente": "Biol. Sci. Space",
+      "anio": "1997",
+      "volumen": "11",
+      "fpage": "346",
+      "lpage": "350"
+    },
+    {
+      "titulo": "Innate immune responses of Drosophila melanogaster are altered by spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "O. Marcu",
+          "nombres": "O.",
+          "apellidos": "Marcu"
+        },
+        {
+          "nombre_completo": "M.P. Lera",
+          "nombres": "M.P.",
+          "apellidos": "Lera"
+        },
+        {
+          "nombre_completo": "M.E. Sanchez",
+          "nombres": "M.E.",
+          "apellidos": "Sanchez"
+        },
+        {
+          "nombre_completo": "E. Levic",
+          "nombres": "E.",
+          "apellidos": "Levic"
+        },
+        {
+          "nombre_completo": "L.A. Higgins",
+          "nombres": "L.A.",
+          "apellidos": "Higgins"
+        },
+        {
+          "nombre_completo": "A. Shmygelska",
+          "nombres": "A.",
+          "apellidos": "Shmygelska"
+        },
+        {
+          "nombre_completo": "T.F. Fahlen",
+          "nombres": "T.F.",
+          "apellidos": "Fahlen"
+        },
+        {
+          "nombre_completo": "H. Nichol",
+          "nombres": "H.",
+          "apellidos": "Nichol"
+        },
+        {
+          "nombre_completo": "S. Bhattacharya",
+          "nombres": "S.",
+          "apellidos": "Bhattacharya"
+        }
+      ],
+      "pmid": "21264297",
+      "fuente": "PLoS One",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "e15361",
+      "lpage": ""
+    },
+    {
+      "titulo": "The development of Drosophila Melanogaster under different duration space flight and subsequent adaptation to earth gravity",
+      "autores": [
+        {
+          "nombre_completo": "I.V. Ogneva",
+          "nombres": "I.V.",
+          "apellidos": "Ogneva"
+        },
+        {
+          "nombre_completo": "S.N. Belyakin",
+          "nombres": "S.N.",
+          "apellidos": "Belyakin"
+        },
+        {
+          "nombre_completo": "S.V. Sarantseva",
+          "nombres": "S.V.",
+          "apellidos": "Sarantseva"
+        }
+      ],
+      "pmid": "27861601",
+      "fuente": "PLoS One",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "e0166885",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microgravity promotes osteoclast activity in medaka fish reared at the international space station",
+      "autores": [
+        {
+          "nombre_completo": "M. Chatani",
+          "nombres": "M.",
+          "apellidos": "Chatani"
+        },
+        {
+          "nombre_completo": "A. Mantoku",
+          "nombres": "A.",
+          "apellidos": "Mantoku"
+        },
+        {
+          "nombre_completo": "K. Takeyama",
+          "nombres": "K.",
+          "apellidos": "Takeyama"
+        },
+        {
+          "nombre_completo": "D. Abduweli",
+          "nombres": "D.",
+          "apellidos": "Abduweli"
+        },
+        {
+          "nombre_completo": "Y. Sugamori",
+          "nombres": "Y.",
+          "apellidos": "Sugamori"
+        },
+        {
+          "nombre_completo": "K. Aoki",
+          "nombres": "K.",
+          "apellidos": "Aoki"
+        },
+        {
+          "nombre_completo": "K. Ohya",
+          "nombres": "K.",
+          "apellidos": "Ohya"
+        },
+        {
+          "nombre_completo": "H. Suzuki",
+          "nombres": "H.",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "S. Uchida",
+          "nombres": "S.",
+          "apellidos": "Uchida"
+        },
+        {
+          "nombre_completo": "T. Sakimura",
+          "nombres": "T.",
+          "apellidos": "Sakimura"
+        }
+      ],
+      "pmid": "26387549",
+      "fuente": "Sci. Rep.",
+      "anio": "2015",
+      "volumen": "5",
+      "fpage": "14172",
+      "lpage": ""
+    },
+    {
+      "titulo": "Histological and transcriptomic analysis of adult Japanese medaka sampled onboard the international space station",
+      "autores": [
+        {
+          "nombre_completo": "Y. Murata",
+          "nombres": "Y.",
+          "apellidos": "Murata"
+        },
+        {
+          "nombre_completo": "T. Yasuda",
+          "nombres": "T.",
+          "apellidos": "Yasuda"
+        },
+        {
+          "nombre_completo": "T. Watanabe-Asaka",
+          "nombres": "T.",
+          "apellidos": "Watanabe-Asaka"
+        },
+        {
+          "nombre_completo": "S. Oda",
+          "nombres": "S.",
+          "apellidos": "Oda"
+        },
+        {
+          "nombre_completo": "A. Mantoku",
+          "nombres": "A.",
+          "apellidos": "Mantoku"
+        },
+        {
+          "nombre_completo": "K. Takeyama",
+          "nombres": "K.",
+          "apellidos": "Takeyama"
+        },
+        {
+          "nombre_completo": "M. Chatani",
+          "nombres": "M.",
+          "apellidos": "Chatani"
+        },
+        {
+          "nombre_completo": "A. Kudo",
+          "nombres": "A.",
+          "apellidos": "Kudo"
+        },
+        {
+          "nombre_completo": "S. Uchida",
+          "nombres": "S.",
+          "apellidos": "Uchida"
+        },
+        {
+          "nombre_completo": "H. Suzuki",
+          "nombres": "H.",
+          "apellidos": "Suzuki"
+        }
+      ],
+      "pmid": "26427061",
+      "fuente": "PLoS One",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "e0138799",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microgravity elicits reproducible alterations in cytoskeletal and metabolic gene and protein expression in space-flown",
+      "autores": [
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "T. Hashizume",
+          "nombres": "T.",
+          "apellidos": "Hashizume"
+        },
+        {
+          "nombre_completo": "K. Nemoto",
+          "nombres": "K.",
+          "apellidos": "Nemoto"
+        },
+        {
+          "nombre_completo": "N. Higashitani",
+          "nombres": "N.",
+          "apellidos": "Higashitani"
+        },
+        {
+          "nombre_completo": "T. Etheridge",
+          "nombres": "T.",
+          "apellidos": "Etheridge"
+        },
+        {
+          "nombre_completo": "C. Mori",
+          "nombres": "C.",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "S. Harada",
+          "nombres": "S.",
+          "apellidos": "Harada"
+        },
+        {
+          "nombre_completo": "T. Sugimoto",
+          "nombres": "T.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "N.J. Szewczyk",
+          "nombres": "N.J.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S.A. Baba",
+          "nombres": "S.A.",
+          "apellidos": "Baba"
+        }
+      ],
+      "pmid": "28725720",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15022",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight-related suboptimal conditions can accentuate the altered gravity response of Drosophila transcriptome",
+      "autores": [
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "A. Benguría",
+          "nombres": "A.",
+          "apellidos": "Benguría"
+        },
+        {
+          "nombre_completo": "D.A. Laván",
+          "nombres": "D.A.",
+          "apellidos": "Laván"
+        },
+        {
+          "nombre_completo": "I. López-Vidriero",
+          "nombres": "I.",
+          "apellidos": "López-Vidriero"
+        },
+        {
+          "nombre_completo": "G. Gasset",
+          "nombres": "G.",
+          "apellidos": "Gasset"
+        },
+        {
+          "nombre_completo": "F. Javier Medina",
+          "nombres": "F.",
+          "apellidos": "Javier Medina"
+        },
+        {
+          "nombre_completo": "J.J. van Loon",
+          "nombres": "J.J.",
+          "apellidos": "van Loon"
+        },
+        {
+          "nombre_completo": "R. Marco",
+          "nombres": "R.",
+          "apellidos": "Marco"
+        }
+      ],
+      "pmid": "20819157",
+      "fuente": "Mol. Ecol.",
+      "anio": "2010",
+      "volumen": "19",
+      "fpage": "4255",
+      "lpage": "4264"
+    },
+    {
+      "titulo": "Plant responses to gravity",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Vandenbrink",
+          "nombres": "J.P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "30935972",
+      "fuente": "Semin. Cell Dev. Biol.",
+      "anio": "2019",
+      "volumen": "92",
+      "fpage": "122",
+      "lpage": "125"
+    },
+    {
+      "titulo": "Microbiological and nutritional analysis of lettuce crops grown on the international space station",
+      "autores": [
+        {
+          "nombre_completo": "C.L.M. Khodadad",
+          "nombres": "C.L.M.",
+          "apellidos": "Khodadad"
+        },
+        {
+          "nombre_completo": "M.E. Hummerick",
+          "nombres": "M.E.",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "L.E. Spencer",
+          "nombres": "L.E.",
+          "apellidos": "Spencer"
+        },
+        {
+          "nombre_completo": "A.R. Dixit",
+          "nombres": "A.R.",
+          "apellidos": "Dixit"
+        },
+        {
+          "nombre_completo": "J.T. Richards",
+          "nombres": "J.T.",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "M.W. Romeyn",
+          "nombres": "M.W.",
+          "apellidos": "Romeyn"
+        },
+        {
+          "nombre_completo": "T.M. Smith",
+          "nombres": "T.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "R.M. Wheeler",
+          "nombres": "R.M.",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "G.D. Massa",
+          "nombres": "G.D.",
+          "apellidos": "Massa"
+        }
+      ],
+      "pmid": "32210992",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "199",
+      "lpage": ""
+    },
+    {
+      "titulo": "Phosphate uptake in Saccharomyces cerevisiae Hansen wild type and phenotypes exposed to space flight irradiation",
+      "autores": [
+        {
+          "nombre_completo": "D. Berry",
+          "nombres": "D.",
+          "apellidos": "Berry"
+        },
+        {
+          "nombre_completo": "P.A. Volz",
+          "nombres": "P.A.",
+          "apellidos": "Volz"
+        }
+      ],
+      "pmid": "395899",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "1979",
+      "volumen": "38",
+      "fpage": "751",
+      "lpage": "753"
+    },
+    {
+      "titulo": "Neurospora circadian rhythms in space: a reexamination of the endogenous-exogenous question",
+      "autores": [
+        {
+          "nombre_completo": "F.M. Sulzman",
+          "nombres": "F.M.",
+          "apellidos": "Sulzman"
+        },
+        {
+          "nombre_completo": "D. Ellman",
+          "nombres": "D.",
+          "apellidos": "Ellman"
+        },
+        {
+          "nombre_completo": "C.A. Fuller",
+          "nombres": "C.A.",
+          "apellidos": "Fuller"
+        },
+        {
+          "nombre_completo": "M.C. Moore-Ede",
+          "nombres": "M.C.",
+          "apellidos": "Moore-Ede"
+        },
+        {
+          "nombre_completo": "G. Wassmer",
+          "nombres": "G.",
+          "apellidos": "Wassmer"
+        }
+      ],
+      "pmid": "11540800",
+      "fuente": "Science",
+      "anio": "1984",
+      "volumen": "225",
+      "fpage": "232",
+      "lpage": "234"
+    },
+    {
+      "titulo": "Spaceflight enhances cell aggregation and random budding in Candida albicans",
+      "autores": [
+        {
+          "nombre_completo": "A. Crabbé",
+          "nombres": "A.",
+          "apellidos": "Crabbé"
+        },
+        {
+          "nombre_completo": "S.M. Nielsen-Preiss",
+          "nombres": "S.M.",
+          "apellidos": "Nielsen-Preiss"
+        },
+        {
+          "nombre_completo": "C.M. Woolley",
+          "nombres": "C.M.",
+          "apellidos": "Woolley"
+        },
+        {
+          "nombre_completo": "J. Barrila",
+          "nombres": "J.",
+          "apellidos": "Barrila"
+        },
+        {
+          "nombre_completo": "K. Buchanan",
+          "nombres": "K.",
+          "apellidos": "Buchanan"
+        },
+        {
+          "nombre_completo": "J. McCracken",
+          "nombres": "J.",
+          "apellidos": "McCracken"
+        },
+        {
+          "nombre_completo": "D.O. Inglis",
+          "nombres": "D.O.",
+          "apellidos": "Inglis"
+        },
+        {
+          "nombre_completo": "S.C. Searles",
+          "nombres": "S.C.",
+          "apellidos": "Searles"
+        },
+        {
+          "nombre_completo": "M.A. Nelman-Gonzalez",
+          "nombres": "M.A.",
+          "apellidos": "Nelman-Gonzalez"
+        },
+        {
+          "nombre_completo": "C.M. Ott",
+          "nombres": "C.M.",
+          "apellidos": "Ott"
+        }
+      ],
+      "pmid": "24324620",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e80677",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparison of transcriptome profiles from two separate missions to the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "M.D. Morrison",
+          "nombres": "M.D.",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "P. Fajardo-Cavazos",
+          "nombres": "P.",
+          "apellidos": "Fajardo-Cavazos"
+        },
+        {
+          "nombre_completo": "W.L. Nicholson",
+          "nombres": "W.L.",
+          "apellidos": "Nicholson"
+        }
+      ],
+      "pmid": "30623021",
+      "fuente": "NPJ Microgravity",
+      "anio": "2019",
+      "volumen": "5",
+      "fpage": "1",
+      "lpage": ""
+    },
+    {
+      "titulo": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "N.K. Singh",
+          "nombres": "N.K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J.M. Wood",
+          "nombres": "J.M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30424821",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "204",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [
+        {
+          "nombre_completo": "N.K. Singh",
+          "nombres": "N.K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "D. Bezdan",
+          "nombres": "D.",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "A. Checinska Sielaff",
+          "nombres": "A.",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "K. Wheeler",
+          "nombres": "K.",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "C.E. Mason",
+          "nombres": "C.E.",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol.",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "Study of the impact of long-duration space missions at the International Space Station on the astronaut microbiome",
+      "autores": [
+        {
+          "nombre_completo": "A.A. Voorhies",
+          "nombres": "A.A.",
+          "apellidos": "Voorhies"
+        },
+        {
+          "nombre_completo": "C. Mark Ott",
+          "nombres": "C.",
+          "apellidos": "Mark Ott"
+        },
+        {
+          "nombre_completo": "S. Mehta",
+          "nombres": "S.",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "D.L. Pierson",
+          "nombres": "D.L.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "B.E. Crucian",
+          "nombres": "B.E.",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "A. Feiveson",
+          "nombres": "A.",
+          "apellidos": "Feiveson"
+        },
+        {
+          "nombre_completo": "C.M. Oubre",
+          "nombres": "C.M.",
+          "apellidos": "Oubre"
+        },
+        {
+          "nombre_completo": "M. Torralba",
+          "nombres": "M.",
+          "apellidos": "Torralba"
+        },
+        {
+          "nombre_completo": "K. Moncera",
+          "nombres": "K.",
+          "apellidos": "Moncera"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "31289321",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "9911",
+      "lpage": ""
+    },
+    {
+      "titulo": "The metagenomics and Metadesign of the Subways and Urban Biomes (MetaSUB) international consortium inaugural meeting report",
+      "autores": [],
+      "pmid": "27255532",
+      "fuente": "Microbiome",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "24",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Cancer Genome Atlas (TCGA): an immeasurable source of knowledge",
+      "autores": [
+        {
+          "nombre_completo": "K. Tomczak",
+          "nombres": "K.",
+          "apellidos": "Tomczak"
+        },
+        {
+          "nombre_completo": "P. Czerwińska",
+          "nombres": "P.",
+          "apellidos": "Czerwińska"
+        },
+        {
+          "nombre_completo": "M. Wiznerowicz",
+          "nombres": "M.",
+          "apellidos": "Wiznerowicz"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Contemp. Oncol.",
+      "anio": "2015",
+      "volumen": "19",
+      "fpage": "A68",
+      "lpage": "A77"
+    },
+    {
+      "titulo": "The NIH extracellular RNA communication consortium",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Ainsztein",
+          "nombres": "A.M.",
+          "apellidos": "Ainsztein"
+        },
+        {
+          "nombre_completo": "P.J. Brooks",
+          "nombres": "P.J.",
+          "apellidos": "Brooks"
+        },
+        {
+          "nombre_completo": "V.G. Dugan",
+          "nombres": "V.G.",
+          "apellidos": "Dugan"
+        },
+        {
+          "nombre_completo": "A. Ganguly",
+          "nombres": "A.",
+          "apellidos": "Ganguly"
+        },
+        {
+          "nombre_completo": "M. Guo",
+          "nombres": "M.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "T.K. Howcroft",
+          "nombres": "T.K.",
+          "apellidos": "Howcroft"
+        },
+        {
+          "nombre_completo": "C.A. Kelley",
+          "nombres": "C.A.",
+          "apellidos": "Kelley"
+        },
+        {
+          "nombre_completo": "L.S. Kuo",
+          "nombres": "L.S.",
+          "apellidos": "Kuo"
+        },
+        {
+          "nombre_completo": "P.A. Labosky",
+          "nombres": "P.A.",
+          "apellidos": "Labosky"
+        },
+        {
+          "nombre_completo": "R. Lenzi",
+          "nombres": "R.",
+          "apellidos": "Lenzi"
+        }
+      ],
+      "pmid": "26320938",
+      "fuente": "J. Extracell. Vesicles",
+      "anio": "2015",
+      "volumen": "4",
+      "fpage": "27493",
+      "lpage": ""
+    },
+    {
+      "titulo": "The NIH roadmap epigenomics mapping consortium",
+      "autores": [
+        {
+          "nombre_completo": "B.E. Bernstein",
+          "nombres": "B.E.",
+          "apellidos": "Bernstein"
+        },
+        {
+          "nombre_completo": "J.A. Stamatoyannopoulos",
+          "nombres": "J.A.",
+          "apellidos": "Stamatoyannopoulos"
+        },
+        {
+          "nombre_completo": "J.F. Costello",
+          "nombres": "J.F.",
+          "apellidos": "Costello"
+        },
+        {
+          "nombre_completo": "B. Ren",
+          "nombres": "B.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "A. Milosavljevic",
+          "nombres": "A.",
+          "apellidos": "Milosavljevic"
+        },
+        {
+          "nombre_completo": "A. Meissner",
+          "nombres": "A.",
+          "apellidos": "Meissner"
+        },
+        {
+          "nombre_completo": "M. Kellis",
+          "nombres": "M.",
+          "apellidos": "Kellis"
+        },
+        {
+          "nombre_completo": "M.A. Marra",
+          "nombres": "M.A.",
+          "apellidos": "Marra"
+        },
+        {
+          "nombre_completo": "A.L. Beaudet",
+          "nombres": "A.L.",
+          "apellidos": "Beaudet"
+        },
+        {
+          "nombre_completo": "J.R. Ecker",
+          "nombres": "J.R.",
+          "apellidos": "Ecker"
+        }
+      ],
+      "pmid": "20944595",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2010",
+      "volumen": "28",
+      "fpage": "1045",
+      "lpage": "1048"
+    },
+    {
+      "titulo": "The genotype-tissue expression (GTEx) project",
+      "autores": [
+        {
+          "nombre_completo": "L.J. Carithers",
+          "nombres": "L.J.",
+          "apellidos": "Carithers"
+        },
+        {
+          "nombre_completo": "H.M. Moore",
+          "nombres": "H.M.",
+          "apellidos": "Moore"
+        }
+      ],
+      "pmid": "26484569",
+      "fuente": "Biopreservation Biobanking",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "307",
+      "lpage": "308"
+    },
+    {
+      "titulo": "ChIP-seq guidelines and practices of the ENCODE and modENCODE consortia",
+      "autores": [
+        {
+          "nombre_completo": "S.G. Landt",
+          "nombres": "S.G.",
+          "apellidos": "Landt"
+        },
+        {
+          "nombre_completo": "G.K. Marinov",
+          "nombres": "G.K.",
+          "apellidos": "Marinov"
+        },
+        {
+          "nombre_completo": "A. Kundaje",
+          "nombres": "A.",
+          "apellidos": "Kundaje"
+        },
+        {
+          "nombre_completo": "P. Kheradpour",
+          "nombres": "P.",
+          "apellidos": "Kheradpour"
+        },
+        {
+          "nombre_completo": "F. Pauli",
+          "nombres": "F.",
+          "apellidos": "Pauli"
+        },
+        {
+          "nombre_completo": "S. Batzoglou",
+          "nombres": "S.",
+          "apellidos": "Batzoglou"
+        },
+        {
+          "nombre_completo": "B.E. Bernstein",
+          "nombres": "B.E.",
+          "apellidos": "Bernstein"
+        },
+        {
+          "nombre_completo": "P. Bickel",
+          "nombres": "P.",
+          "apellidos": "Bickel"
+        },
+        {
+          "nombre_completo": "J.B. Brown",
+          "nombres": "J.B.",
+          "apellidos": "Brown"
+        },
+        {
+          "nombre_completo": "P. Cayting",
+          "nombres": "P.",
+          "apellidos": "Cayting"
+        }
+      ],
+      "pmid": "22955991",
+      "fuente": "Genome Res.",
+      "anio": "2012",
+      "volumen": "22",
+      "fpage": "1813",
+      "lpage": "1831"
+    },
+    {
+      "titulo": "The 4D nucleome project",
+      "autores": [
+        {
+          "nombre_completo": "J. Dekker",
+          "nombres": "J.",
+          "apellidos": "Dekker"
+        },
+        {
+          "nombre_completo": "A.S. Belmont",
+          "nombres": "A.S.",
+          "apellidos": "Belmont"
+        },
+        {
+          "nombre_completo": "M. Guttman",
+          "nombres": "M.",
+          "apellidos": "Guttman"
+        },
+        {
+          "nombre_completo": "V.O. Leshyk",
+          "nombres": "V.O.",
+          "apellidos": "Leshyk"
+        },
+        {
+          "nombre_completo": "J.T. Lis",
+          "nombres": "J.T.",
+          "apellidos": "Lis"
+        },
+        {
+          "nombre_completo": "S. Lomvardas",
+          "nombres": "S.",
+          "apellidos": "Lomvardas"
+        },
+        {
+          "nombre_completo": "L.A. Mirny",
+          "nombres": "L.A.",
+          "apellidos": "Mirny"
+        },
+        {
+          "nombre_completo": "C.C. O'Shea",
+          "nombres": "C.C.",
+          "apellidos": "O'Shea"
+        },
+        {
+          "nombre_completo": "P.J. Park",
+          "nombres": "P.J.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "B. Ren",
+          "nombres": "B.",
+          "apellidos": "Ren"
+        }
+      ],
+      "pmid": "28905911",
+      "fuente": "Nature",
+      "anio": "2017",
+      "volumen": "549",
+      "fpage": "219",
+      "lpage": "226"
+    },
+    {
+      "titulo": "Revamping Space-omics in Europe",
+      "autores": [
+        {
+          "nombre_completo": "P. Madrigal",
+          "nombres": "P.",
+          "apellidos": "Madrigal"
+        },
+        {
+          "nombre_completo": "A. Gabel",
+          "nombres": "A.",
+          "apellidos": "Gabel"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "C.S. Deane",
+          "nombres": "C.S.",
+          "apellidos": "Deane"
+        },
+        {
+          "nombre_completo": "D. Bezdan",
+          "nombres": "D.",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "E. Carnero-Diaz",
+          "nombres": "E.",
+          "apellidos": "Carnero-Diaz"
+        },
+        {
+          "nombre_completo": "F.J. Medina",
+          "nombres": "F.J.",
+          "apellidos": "Medina"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "I. Grosse",
+          "nombres": "I.",
+          "apellidos": "Grosse"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cell Syst.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space, the final frontier: a critical review of recent experiments performed in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Vandenbrink",
+          "nombres": "J.P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "26795156",
+      "fuente": "Plant Sci.",
+      "anio": "2016",
+      "volumen": "243",
+      "fpage": "115",
+      "lpage": "119"
+    },
+    {
+      "titulo": "Commercial and Merkating Pricing Policy",
+      "autores": [
+        {
+          "nombre_completo": "D. Elburn",
+          "nombres": "D.",
+          "apellidos": "Elburn"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "May 2019 National Occupational Employment and wage Estimates",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2008",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Mice Drawer System (MDS) experiment and the space endurance record-breaking mice",
+      "autores": [
+        {
+          "nombre_completo": "R. Cancedda",
+          "nombres": "R.",
+          "apellidos": "Cancedda"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "A. Ruggiu",
+          "nombres": "A.",
+          "apellidos": "Ruggiu"
+        },
+        {
+          "nombre_completo": "S. Tavella",
+          "nombres": "S.",
+          "apellidos": "Tavella"
+        },
+        {
+          "nombre_completo": "R. Biticchi",
+          "nombres": "R.",
+          "apellidos": "Biticchi"
+        },
+        {
+          "nombre_completo": "D. Santucci",
+          "nombres": "D.",
+          "apellidos": "Santucci"
+        },
+        {
+          "nombre_completo": "S. Schwartz",
+          "nombres": "S.",
+          "apellidos": "Schwartz"
+        },
+        {
+          "nombre_completo": "P. Ciparelli",
+          "nombres": "P.",
+          "apellidos": "Ciparelli"
+        },
+        {
+          "nombre_completo": "G. Falcetti",
+          "nombres": "G.",
+          "apellidos": "Falcetti"
+        },
+        {
+          "nombre_completo": "C. Tenconi",
+          "nombres": "C.",
+          "apellidos": "Tenconi"
+        }
+      ],
+      "pmid": "22666312",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e32243",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ground-based assessment of JAXA mouse habitat cage unit by mouse phenotypic studies",
+      "autores": [
+        {
+          "nombre_completo": "M. Shimbo",
+          "nombres": "M.",
+          "apellidos": "Shimbo"
+        },
+        {
+          "nombre_completo": "T. Kudo",
+          "nombres": "T.",
+          "apellidos": "Kudo"
+        },
+        {
+          "nombre_completo": "M. Hamada",
+          "nombres": "M.",
+          "apellidos": "Hamada"
+        },
+        {
+          "nombre_completo": "H. Jeon",
+          "nombres": "H.",
+          "apellidos": "Jeon"
+        },
+        {
+          "nombre_completo": "Y. Imamura",
+          "nombres": "Y.",
+          "apellidos": "Imamura"
+        },
+        {
+          "nombre_completo": "K. Asano",
+          "nombres": "K.",
+          "apellidos": "Asano"
+        },
+        {
+          "nombre_completo": "R. Okada",
+          "nombres": "R.",
+          "apellidos": "Okada"
+        },
+        {
+          "nombre_completo": "Y. Tsunakawa",
+          "nombres": "Y.",
+          "apellidos": "Tsunakawa"
+        },
+        {
+          "nombre_completo": "S. Mizuno",
+          "nombres": "S.",
+          "apellidos": "Mizuno"
+        },
+        {
+          "nombre_completo": "K. Yagami",
+          "nombres": "K.",
+          "apellidos": "Yagami"
+        }
+      ],
+      "pmid": "26822934",
+      "fuente": "Exp. Anim.",
+      "anio": "2016",
+      "volumen": "65",
+      "fpage": "175",
+      "lpage": "187"
+    },
+    {
+      "titulo": "Exploring the effects of spaceflight on mouse physiology using the open access NASA GeneLab platform",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "Y. Shirazi-Fard",
+          "nombres": "Y.",
+          "apellidos": "Shirazi-Fard"
+        },
+        {
+          "nombre_completo": "S. Choi",
+          "nombres": "S.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "D. Berrios",
+          "nombres": "D.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "S.G. Gebre",
+          "nombres": "S.G.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "J.M. Galazka",
+          "nombres": "J.M.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Vis. Exp.",
+      "anio": "2019",
+      "volumen": "143",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Evaluation of rodent spaceflight in the NASA animal enclosure module for an extended operational period (up to 35 days)",
+      "autores": [
+        {
+          "nombre_completo": "E.L. Moyer",
+          "nombres": "E.L.",
+          "apellidos": "Moyer"
+        },
+        {
+          "nombre_completo": "P.M. Dumars",
+          "nombres": "P.M.",
+          "apellidos": "Dumars"
+        },
+        {
+          "nombre_completo": "G.S. Sun",
+          "nombres": "G.S.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "K.J. Martin",
+          "nombres": "K.J.",
+          "apellidos": "Martin"
+        },
+        {
+          "nombre_completo": "D.G. Heathcote",
+          "nombres": "D.G.",
+          "apellidos": "Heathcote"
+        },
+        {
+          "nombre_completo": "R.D. Boyle",
+          "nombres": "R.D.",
+          "apellidos": "Boyle"
+        },
+        {
+          "nombre_completo": "M.G. Skidmore",
+          "nombres": "M.G.",
+          "apellidos": "Skidmore"
+        }
+      ],
+      "pmid": "28725722",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "16002",
+      "lpage": ""
+    },
+    {
+      "titulo": "Global transcriptomic analysis suggests carbon dioxide as an environmental stressor in spaceflight: a systems biology GeneLab case study",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "D.J. Smith",
+          "nombres": "D.J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "29520055",
+      "fuente": "Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "4191",
+      "lpage": ""
+    },
+    {
+      "titulo": "Relationship between carbon dioxide levels and reported headaches on the international space station",
+      "autores": [
+        {
+          "nombre_completo": "J. Law",
+          "nombres": "J.",
+          "apellidos": "Law"
+        },
+        {
+          "nombre_completo": "M. Van Baalen",
+          "nombres": "M.",
+          "apellidos": "Van Baalen"
+        },
+        {
+          "nombre_completo": "M. Foy",
+          "nombres": "M.",
+          "apellidos": "Foy"
+        },
+        {
+          "nombre_completo": "S.S. Mason",
+          "nombres": "S.S.",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "C. Mendez",
+          "nombres": "C.",
+          "apellidos": "Mendez"
+        },
+        {
+          "nombre_completo": "M.L. Wear",
+          "nombres": "M.L.",
+          "apellidos": "Wear"
+        },
+        {
+          "nombre_completo": "V.E. Meyers",
+          "nombres": "V.E.",
+          "apellidos": "Meyers"
+        },
+        {
+          "nombre_completo": "D. Alexander",
+          "nombres": "D.",
+          "apellidos": "Alexander"
+        }
+      ],
+      "pmid": "24806559",
+      "fuente": "J. Occup. Environ. Med.",
+      "anio": "2014",
+      "volumen": "56",
+      "fpage": "477",
+      "lpage": "483"
+    },
+    {
+      "titulo": "Associations of cognitive function scores with carbon dioxide, ventilation, and volatile organic compound exposures in office workers: a controlled exposure study of green and conventional office environments",
+      "autores": [
+        {
+          "nombre_completo": "J.G. Allen",
+          "nombres": "J.G.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "P. MacNaughton",
+          "nombres": "P.",
+          "apellidos": "MacNaughton"
+        },
+        {
+          "nombre_completo": "U. Satish",
+          "nombres": "U.",
+          "apellidos": "Satish"
+        },
+        {
+          "nombre_completo": "S. Santanam",
+          "nombres": "S.",
+          "apellidos": "Santanam"
+        },
+        {
+          "nombre_completo": "J. Vallarino",
+          "nombres": "J.",
+          "apellidos": "Vallarino"
+        },
+        {
+          "nombre_completo": "J.D. Spengler",
+          "nombres": "J.D.",
+          "apellidos": "Spengler"
+        }
+      ],
+      "pmid": "26502459",
+      "fuente": "Environ. Health Perspect.",
+      "anio": "2016",
+      "volumen": "124",
+      "fpage": "805",
+      "lpage": "812"
+    },
+    {
+      "titulo": "Morphometric analyses of petioles of seedlings grown in a spaceflight experiment",
+      "autores": [
+        {
+          "nombre_completo": "C.M. Johnson",
+          "nombres": "C.M.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "R.E. Edelmann",
+          "nombres": "R.E.",
+          "apellidos": "Edelmann"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "26376793",
+      "fuente": "J. Plant Res.",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "1007",
+      "lpage": "1016"
+    },
+    {
+      "titulo": "Growth in spaceflight hardware results in alterations to the transcriptome and proteome",
+      "autores": [
+        {
+          "nombre_completo": "P. Basu",
+          "nombres": "P.",
+          "apellidos": "Basu"
+        },
+        {
+          "nombre_completo": "C.P.S. Kruse",
+          "nombres": "C.P.S.",
+          "apellidos": "Kruse"
+        },
+        {
+          "nombre_completo": "D.R. Luesse",
+          "nombres": "D.R.",
+          "apellidos": "Luesse"
+        },
+        {
+          "nombre_completo": "S.E. Wyatt",
+          "nombres": "S.E.",
+          "apellidos": "Wyatt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2017",
+      "volumen": "15",
+      "fpage": "88",
+      "lpage": "96"
+    },
+    {
+      "titulo": "RNAseq analysis of the response of Arabidopsis thaliana to Fractional gravity under blue-light Stimulation during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "J.P. Vandenbrink",
+          "nombres": "J.P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "W.L. Poehlman",
+          "nombres": "W.L.",
+          "apellidos": "Poehlman"
+        },
+        {
+          "nombre_completo": "F.A. Feltus",
+          "nombres": "F.A.",
+          "apellidos": "Feltus"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "F.J. Medina",
+          "nombres": "F.J.",
+          "apellidos": "Medina"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNA-seq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J.P. Vandenbrink",
+          "nombres": "J.P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "W.L. Poehlman",
+          "nombres": "W.L.",
+          "apellidos": "Poehlman"
+        },
+        {
+          "nombre_completo": "F. Alex Feltus",
+          "nombres": "F.",
+          "apellidos": "Alex Feltus"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "M. Ciska",
+          "nombres": "M.",
+          "apellidos": "Ciska"
+        },
+        {
+          "nombre_completo": "F. Javier Medina",
+          "nombres": "F.",
+          "apellidos": "Javier Medina"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "31709515",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "1466",
+      "lpage": "1476"
+    },
+    {
+      "titulo": "The FixBox: hardware to provide on-orbit fixation capabilities to the EMCS on the ISS",
+      "autores": [
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "E. Creus",
+          "nombres": "E.",
+          "apellidos": "Creus"
+        },
+        {
+          "nombre_completo": "A. Tomás",
+          "nombres": "A.",
+          "apellidos": "Tomás"
+        },
+        {
+          "nombre_completo": "M.A. Valbuena",
+          "nombres": "M.A.",
+          "apellidos": "Valbuena"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "M. Ciska",
+          "nombres": "M.",
+          "apellidos": "Ciska"
+        },
+        {
+          "nombre_completo": "R.E. Edelmann",
+          "nombres": "R.E.",
+          "apellidos": "Edelmann"
+        },
+        {
+          "nombre_completo": "J.Z. Kiss",
+          "nombres": "J.Z.",
+          "apellidos": "Kiss"
+        },
+        {
+          "nombre_completo": "F.J. Medina",
+          "nombres": "F.J.",
+          "apellidos": "Medina"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microgravity Sci. Technol.",
+      "anio": "2020",
+      "volumen": "32",
+      "fpage": "1105",
+      "lpage": "1120"
+    },
+    {
+      "titulo": "Manzano A., Villacampa A., Sáez-Vásquez J., Kiss J.Z., Javier Medina F., Herranz R.. The importance of Earth reference controls in spaceflight –omics research: characterization of nucleolin mutants from the Seedling Growth experiments. iScience. doi:10.2139/ssrn.3661944",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ground-based facilities for simulation of microgravity: organism-specific recommendations for their use, and recommended terminology",
+      "autores": [
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "R. Anken",
+          "nombres": "R.",
+          "apellidos": "Anken"
+        },
+        {
+          "nombre_completo": "J. Boonstra",
+          "nombres": "J.",
+          "apellidos": "Boonstra"
+        },
+        {
+          "nombre_completo": "M. Braun",
+          "nombres": "M.",
+          "apellidos": "Braun"
+        },
+        {
+          "nombre_completo": "P.C. Christianen",
+          "nombres": "P.C.",
+          "apellidos": "Christianen"
+        },
+        {
+          "nombre_completo": "M. de Geest",
+          "nombres": "M.",
+          "apellidos": "de Geest"
+        },
+        {
+          "nombre_completo": "J. Hauslage",
+          "nombres": "J.",
+          "apellidos": "Hauslage"
+        },
+        {
+          "nombre_completo": "R. Hilbig",
+          "nombres": "R.",
+          "apellidos": "Hilbig"
+        },
+        {
+          "nombre_completo": "R.J. Hill",
+          "nombres": "R.J.",
+          "apellidos": "Hill"
+        },
+        {
+          "nombre_completo": "M. Lebert",
+          "nombres": "M.",
+          "apellidos": "Lebert"
+        }
+      ],
+      "pmid": "23252378",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1",
+      "lpage": "17"
+    },
+    {
+      "titulo": "Polo S.-H.L., Saravia-Butler A.M., Boyko V., Dinh M.T., Chen Y.-C., Fogle H., Reinsch S.S., Ray S., Chakravarty K., Marcu O., et al RNAseq analysis of rodent spaceflight experiments is confounded by sample collection techniques.bioRxiv doi:10.1101/2020.07.18.209775",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Transcriptome and proteome responses in RNAlater preserved tissue of Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "C.P.S. Kruse",
+          "nombres": "C.P.S.",
+          "apellidos": "Kruse"
+        },
+        {
+          "nombre_completo": "P. Basu",
+          "nombres": "P.",
+          "apellidos": "Basu"
+        },
+        {
+          "nombre_completo": "D.R. Luesse",
+          "nombres": "D.R.",
+          "apellidos": "Luesse"
+        },
+        {
+          "nombre_completo": "S.E. Wyatt",
+          "nombres": "S.E.",
+          "apellidos": "Wyatt"
+        }
+      ],
+      "pmid": "28423006",
+      "fuente": "PLoS One",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0175943",
+      "lpage": ""
+    },
+    {
+      "titulo": "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "W.-G. Choi",
+          "nombres": "W.-G.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "R.J. Barker",
+          "nombres": "R.J.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S.-H. Kim",
+          "nombres": "S.-H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S.J. Swanson",
+          "nombres": "S.J.",
+          "apellidos": "Swanson"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "30644539",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "123",
+      "lpage": "136"
+    },
+    {
+      "titulo": "GeneLab: omics database for spaceflight experiments",
+      "autores": [
+        {
+          "nombre_completo": "S. Ray",
+          "nombres": "S.",
+          "apellidos": "Ray"
+        },
+        {
+          "nombre_completo": "S. Gebre",
+          "nombres": "S.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "D.C. Berrios",
+          "nombres": "D.C.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "P.B. Tran",
+          "nombres": "P.B.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "J.M. Galazka",
+          "nombres": "J.M.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "30329036",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "1753",
+      "lpage": "1759"
+    },
+    {
+      "titulo": "FAIRness and usability for open-access omics data systems",
+      "autores": [
+        {
+          "nombre_completo": "D.C. Berrios",
+          "nombres": "D.C.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "30815061",
+      "fuente": "AMIA Annu. Symp. Proc.",
+      "anio": "2018",
+      "volumen": "2018",
+      "fpage": "232",
+      "lpage": "241"
+    },
+    {
+      "titulo": "The FAIR Guiding Principles for scientific data management and stewardship",
+      "autores": [
+        {
+          "nombre_completo": "M.D. Wilkinson",
+          "nombres": "M.D.",
+          "apellidos": "Wilkinson"
+        },
+        {
+          "nombre_completo": "M. Dumontier",
+          "nombres": "M.",
+          "apellidos": "Dumontier"
+        },
+        {
+          "nombre_completo": "I.J. Aalbersberg",
+          "nombres": "I.J.",
+          "apellidos": "Aalbersberg"
+        },
+        {
+          "nombre_completo": "G. Appleton",
+          "nombres": "G.",
+          "apellidos": "Appleton"
+        },
+        {
+          "nombre_completo": "M. Axton",
+          "nombres": "M.",
+          "apellidos": "Axton"
+        },
+        {
+          "nombre_completo": "A. Baak",
+          "nombres": "A.",
+          "apellidos": "Baak"
+        },
+        {
+          "nombre_completo": "N. Blomberg",
+          "nombres": "N.",
+          "apellidos": "Blomberg"
+        },
+        {
+          "nombre_completo": "J.W. Boiten",
+          "nombres": "J.W.",
+          "apellidos": "Boiten"
+        },
+        {
+          "nombre_completo": "L.B. da Silva Santos",
+          "nombres": "L.B.",
+          "apellidos": "da Silva Santos"
+        },
+        {
+          "nombre_completo": "P.E. Bourne",
+          "nombres": "P.E.",
+          "apellidos": "Bourne"
+        }
+      ],
+      "pmid": "26978244",
+      "fuente": "Sci. Data",
+      "anio": "2016",
+      "volumen": "3",
+      "fpage": "160018",
+      "lpage": ""
+    },
+    {
+      "titulo": "Test of space transcriptome: a discovery environment to explore multiple plant biology spaceflight experiments",
+      "autores": [
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "J. Lombardino",
+          "nombres": "J.",
+          "apellidos": "Lombardino"
+        },
+        {
+          "nombre_completo": "K. Rasmussen",
+          "nombres": "K.",
+          "apellidos": "Rasmussen"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "32265943",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "147",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA GeneLab project: bridging space radiation omics with ground studies",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "J. Miller",
+          "nombres": "J.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "Y. Kidane",
+          "nombres": "Y.",
+          "apellidos": "Kidane"
+        },
+        {
+          "nombre_completo": "D. Berrios",
+          "nombres": "D.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "S.G. Gebre",
+          "nombres": "S.G.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "29652620",
+      "fuente": "Radiat. Res.",
+      "anio": "2018",
+      "volumen": "189",
+      "fpage": "553",
+      "lpage": "559"
+    },
+    {
+      "titulo": "Classification, ontology, and precision medicine",
+      "autores": [
+        {
+          "nombre_completo": "M.A. Haendel",
+          "nombres": "M.A.",
+          "apellidos": "Haendel"
+        },
+        {
+          "nombre_completo": "C.G. Chute",
+          "nombres": "C.G.",
+          "apellidos": "Chute"
+        },
+        {
+          "nombre_completo": "P.N. Robinson",
+          "nombres": "P.N.",
+          "apellidos": "Robinson"
+        }
+      ],
+      "pmid": "30304648",
+      "fuente": "N. Engl. J. Med.",
+      "anio": "2018",
+      "volumen": "379",
+      "fpage": "1452",
+      "lpage": "1462"
+    },
+    {
+      "titulo": "Robotic crowd biology with Maholo LabDroids",
+      "autores": [
+        {
+          "nombre_completo": "N. Yachie",
+          "nombres": "N.",
+          "apellidos": "Yachie"
+        },
+        {
+          "nombre_completo": "surname:Robotic Biology Consortium",
+          "nombres": "surname:Robotic Biology Consortium",
+          "apellidos": ""
+        },
+        {
+          "nombre_completo": "T. Natsume",
+          "nombres": "T.",
+          "apellidos": "Natsume"
+        }
+      ],
+      "pmid": "28398329",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2017",
+      "volumen": "35",
+      "fpage": "310",
+      "lpage": "312"
+    },
+    {
+      "titulo": "The societal impacts of a mars mission in the future of space exploration",
+      "autores": [
+        {
+          "nombre_completo": "A. Shaghaghi",
+          "nombres": "A.",
+          "apellidos": "Shaghaghi"
+        },
+        {
+          "nombre_completo": "K. Antonakopoulos",
+          "nombres": "K.",
+          "apellidos": "Antonakopoulos"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Phys. Proced.",
+      "anio": "2012",
+      "volumen": "",
+      "fpage": "176",
+      "lpage": "185"
+    },
+    {
+      "titulo": "Mapping the mouse cell atlas by microwell-seq",
+      "autores": [
+        {
+          "nombre_completo": "X. Han",
+          "nombres": "X.",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "R. Wang",
+          "nombres": "R.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Zhou",
+          "nombres": "Y.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "L. Fei",
+          "nombres": "L.",
+          "apellidos": "Fei"
+        },
+        {
+          "nombre_completo": "H. Sun",
+          "nombres": "H.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "S. Lai",
+          "nombres": "S.",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "A. Saadatpour",
+          "nombres": "A.",
+          "apellidos": "Saadatpour"
+        },
+        {
+          "nombre_completo": "Z. Zhou",
+          "nombres": "Z.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "H. Chen",
+          "nombres": "H.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "F. Ye",
+          "nombres": "F.",
+          "apellidos": "Ye"
+        }
+      ],
+      "pmid": "29775597",
+      "fuente": "Cell",
+      "anio": "2018",
+      "volumen": "173",
+      "fpage": "1307",
+      "lpage": ""
+    },
+    {
+      "titulo": "How to build a human cell atlas",
+      "autores": [
+        {
+          "nombre_completo": "A. Regev",
+          "nombres": "A.",
+          "apellidos": "Regev"
+        },
+        {
+          "nombre_completo": "S.A. Teichmann",
+          "nombres": "S.A.",
+          "apellidos": "Teichmann"
+        },
+        {
+          "nombre_completo": "E.S. Lander",
+          "nombres": "E.S.",
+          "apellidos": "Lander"
+        },
+        {
+          "nombre_completo": "I. Amit",
+          "nombres": "I.",
+          "apellidos": "Amit"
+        },
+        {
+          "nombre_completo": "C. Benoist",
+          "nombres": "C.",
+          "apellidos": "Benoist"
+        },
+        {
+          "nombre_completo": "E. Birney",
+          "nombres": "E.",
+          "apellidos": "Birney"
+        }
+      ],
+      "pmid": "28682347",
+      "fuente": "Nature",
+      "anio": "2017",
+      "volumen": "547",
+      "fpage": "24",
+      "lpage": ""
+    },
+    {
+      "titulo": "Why personalized medicine is the frontier of medicine and performance for humans in space",
+      "autores": [
+        {
+          "nombre_completo": "M.A. Schmidt",
+          "nombres": "M.A.",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "C.M. Schmidt",
+          "nombres": "C.M.",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "R.M. Hubbard",
+          "nombres": "R.M.",
+          "apellidos": "Hubbard"
+        },
+        {
+          "nombre_completo": "C.E. Mason",
+          "nombres": "C.E.",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "",
+      "fuente": "New Space",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "63",
+      "lpage": "76"
+    },
+    {
+      "titulo": "Personalized medicine in human space flight: using Omics based analyses to develop individualized countermeasures that enhance astronaut safety and performance",
+      "autores": [
+        {
+          "nombre_completo": "M.A. Schmidt",
+          "nombres": "M.A.",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "T.J. Goodwin",
+          "nombres": "T.J.",
+          "apellidos": "Goodwin"
+        }
+      ],
+      "pmid": "24273472",
+      "fuente": "Metabolomics",
+      "anio": "2013",
+      "volumen": "9",
+      "fpage": "1134",
+      "lpage": "1156"
+    },
+    {
+      "titulo": "Where failure is not an option –personalized medicine in astronauts",
+      "autores": [
+        {
+          "nombre_completo": "J.C. Stingl",
+          "nombres": "J.C.",
+          "apellidos": "Stingl"
+        },
+        {
+          "nombre_completo": "S. Welker",
+          "nombres": "S.",
+          "apellidos": "Welker"
+        },
+        {
+          "nombre_completo": "G. Hartmann",
+          "nombres": "G.",
+          "apellidos": "Hartmann"
+        },
+        {
+          "nombre_completo": "V. Damann",
+          "nombres": "V.",
+          "apellidos": "Damann"
+        },
+        {
+          "nombre_completo": "R. Gerzer",
+          "nombres": "R.",
+          "apellidos": "Gerzer"
+        }
+      ],
+      "pmid": "26489089",
+      "fuente": "PLOS ONE",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "e0140764",
+      "lpage": ""
+    },
+    {
+      "titulo": "Vision changes after spaceflight are related to alterations in folate– and vitamin B-12–dependent one-carbon metabolism",
+      "autores": [
+        {
+          "nombre_completo": "S. Zwart",
+          "nombres": "S.",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "C. Gibson",
+          "nombres": "C.",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "T. Mader",
+          "nombres": "T.",
+          "apellidos": "Mader"
+        },
+        {
+          "nombre_completo": "K. Ericson",
+          "nombres": "K.",
+          "apellidos": "Ericson"
+        },
+        {
+          "nombre_completo": "R. Ploutz-Snyder",
+          "nombres": "R.",
+          "apellidos": "Ploutz-Snyder"
+        },
+        {
+          "nombre_completo": "S. Smith",
+          "nombres": "S.",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "",
+      "fuente": "SciVee",
+      "anio": "2012",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genotype, B-vitamin status, and androgens affect spaceflight-induced ophthalmic changes",
+      "autores": [
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "J.F. Gregory",
+          "nombres": "J.F.",
+          "apellidos": "Gregory"
+        },
+        {
+          "nombre_completo": "S.H. Zeisel",
+          "nombres": "S.H.",
+          "apellidos": "Zeisel"
+        },
+        {
+          "nombre_completo": "C.R. Gibson",
+          "nombres": "C.R.",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "T.H. Mader",
+          "nombres": "T.H.",
+          "apellidos": "Mader"
+        },
+        {
+          "nombre_completo": "J.M. Kinchen",
+          "nombres": "J.M.",
+          "apellidos": "Kinchen"
+        },
+        {
+          "nombre_completo": "P.M. Ueland",
+          "nombres": "P.M.",
+          "apellidos": "Ueland"
+        },
+        {
+          "nombre_completo": "R. Ploutz-Snyder",
+          "nombres": "R.",
+          "apellidos": "Ploutz-Snyder"
+        },
+        {
+          "nombre_completo": "M.A. Heer",
+          "nombres": "M.A.",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "26316272",
+      "fuente": "FASEB J.",
+      "anio": "2016",
+      "volumen": "30",
+      "fpage": "141",
+      "lpage": "148"
+    }
+  ]
+}

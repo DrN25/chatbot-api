@@ -1,0 +1,2001 @@
+{
+  "TITLE": [
+    "Altered quorum sensing and physiology of Staphylococcus aureus during spaceflight detected by multi-omics data analysis"
+  ],
+  "ABSTRACT": [
+    "Staphylococcus aureus colonizes the nares of approximately 30% of humans, a risk factor for opportunistic infections. To gain insight into S. aureus virulence potential in the spaceflight environment, we analyzed RNA-Seq, cellular proteomics, and metabolomics data from the “Biological Research in Canisters-23” (BRIC-23) GeneLab spaceflight experiment, a mission designed to measure the response of S. aureus to growth in low earth orbit on the international space station. This experiment used Biological Research in Canisters-Petri Dish Fixation Units (BRIC-PDFUs) to grow asynchronous ground control and spaceflight cultures of S. aureus for 48 h. RNAIII, the effector of the Accessory Gene Regulator (Agr) quorum sensing system, was the most highly upregulated gene transcript in spaceflight relative to ground controls. The agr operon gene transcripts were also highly upregulated during spaceflight, followed by genes encoding phenol-soluble modulins and secreted proteases, which are positively regulated by Agr. Upregulated spaceflight genes/proteins also had functions related to urease activity, type VII-like Ess secretion, and copper transport. We also performed secretome analysis of BRIC-23 culture supernatants, which revealed that spaceflight samples had increased abundance of secreted virulence factors, including Agr-regulated proteases (SspA, SspB), staphylococcal nuclease (Nuc), and EsxA (secreted by the Ess system). These data also indicated that S. aureus metabolism is altered in spaceflight conditions relative to the ground controls. Collectively, these data suggest that S. aureus experiences increased quorum sensing and altered expression of virulence factors in response to the spaceflight environment that may impact its pathogenic potential."
+  ],
+  "INTRO": [
+    "Introduction",
+    "Staphylococcus aureus is a pernicious pathogen capable of infecting nearly every tissue and organ system in the human body. Most S. aureus strains are resistant to multiple antibiotics, and certain isolates are resistant to nearly all antibiotics used in the clinical setting. The CDC 2019 Antibiotic Threats Report listed methicillin-resistant S. aureus (MRSA) at a “serious” threat level, with over 10,000 estimated deaths in 2017 alone. S. aureus is a frequent cause of hospital-acquired infections, and in recent years, highly virulent and transmissible community-acquired methicillin-resistant S. aureus (CA-MRSA) strains have emerged. Approximately 30% of humans are nasally colonized by S. aureus, which represents a significant risk factor for invasive infections. As a pathogen, S. aureus expresses a vast repertoire of cell surface adhesins, secreted toxins, and tissue-degrading enzymes that contribute to its ability to colonize host tissue, evade the immune system, and transition from a localized to systemic infection. The expression of these virulence factors is coordinated by a complex network of genetic regulators, including the Accessory Gene Regulator (Agr) quorum-sensing system, which has been extensively reviewed. The agr operon is comprised of two transcripts, RNAII and RNAIII, which are activated by the P2 and P3 promoters, respectively. RNAIII is an untranslated RNA species that regulates a variety of target genes at both the transcriptional and post-transcriptional level, making it a primary downstream effector of the Agr system, whereas the RNAII transcript contains the agrBDCA genes [reviewed in refs. ]: AgrD, which is processed and secreted out of the cell in a form known as the autoinducing peptide (AIP), AgrB, the membrane protein that performs this processing and secretion, AgrC, a sensor kinase which recognizes the AIP and transduces the signal to AgrA, the response regulator which activates transcription at the P2 and P3 promoters.",
+    "S. aureus also poses a potential health risk to astronauts during long-term spaceflight missions. This bacterium was recovered from the nasal passages of Apollo 13 and 14 astronauts at significantly higher numbers compared to preflight samples collected from the same astronauts, and S. aureus was also among the most frequently isolated bacteria from astronauts that participated in 25 Space Shuttle missions (STS-26 to STS-50). Furthermore, several studies monitoring the presence of microbes aboard the International Space Station (ISS) as well as in the environment of a full-duration simulation of a crewed return flight to Mars identified staphylococci as being predominant. Because of the potential threat of S. aureus to astronaut health, this pathogen’s stress resistance and virulence potential have been studied in both a spaceflight experiment and in ground-based models of simulated microgravity. In the previous spaceflight experiment, S. aureus virulence was reduced when assessed as a function of the quantity of residual bacteria in the presence and absence of Caenorhabditis elegans. However, these studies were conducted using a nematode feeding model, which does not entirely reflect the complexity of S. aureus pathogenesis in humans.",
+    "NASA previously conducted a “Biological Research in Canisters-23” (BRIC-23) spaceflight experiment (OSDR accession# OSD-145), designed to measure the response of both Bacillus subtilis and S. aureus to the spaceflight environment. In this experiment, Biological Research in Canisters-Petri Dish Fixation Units (BRIC-PDFUs) were used to grow asynchronous ground controls and spaceflight samples of S. aureus strain UAMS-1, a clinical MSSA isolate that was originally isolated from an osteomyelitis infection. Herein, our analysis of the S. aureus RNA-Seq, proteomics, and metabolomics datasets from BRIC-23 suggests that S. aureus spaceflight samples may have altered metabolism (increased amino acid metabolism, TCA cycle, and transport of non-preferred carbon sources, and decreased glycolysis/fermentation and translation machinery) relative to ground-control cultures. Furthermore, agr genes and several positively regulated targets were the most highly upregulated transcripts in spaceflight. We also performed secretome analysis of culture supernatants from the BRIC-23 spaceflight and ground control cultures, in which several Agr-regulated secreted proteins were increased in abundance in the spaceflight samples. Collectively, these data suggest that S. aureus experiences altered metabolism, increased quorum sensing, and altered expression of virulence factors in response to the spaceflight environment that may impact its pathogenic potential."
+  ],
+  "RESULTS": [
+    "Results",
+    "Experimental considerations, sample variability, and clustering amongst FLT and GC samples",
+    "As outlined in Fig. 1a, the BRIC-23 flight (FLT) experiment and corresponding asynchronous ground controls (GCs) were conducted on S. aureus cultures grown to a single time point (48 h) at ISS ambient ( ~ 22 °C) temperature. The total CFUs per petri dish harvested from both flight and ground control experiments (as reported in OSDR entry OSD-145) suggested that the FLT cultures may have grown to higher cell densities compared to GC cultures (Fig. 1b).",
+    "Principle components analysis (PCA) was performed on all quantile normalized Reads Per Kilobase of transcript, per Million mapped reads (RPKM) gene expression values from the BRIC-23 FLT and GC RNA-Seq samples (n = 9 per experimental group) (Fig. 2a). This analysis revealed that the samples within each experimental group showed robust clustering, and that most of the sample variability correlated with experimental group (FLT vs. GC) along the PC1 axis. Cellular proteomics (Fig. 2b) and secretomics (Fig. 2c) PCA of scaled abundances and normalized weighted spectra, respectively, revealed similar trends as the RNA-Seq data. All datasets were also subjected to differential expression/abundance analysis to identify differences in transcript and protein relative abundances between spaceflight and ground control samples. FLT and GC genes that showed statistically significant differences in relative abundance ( > 2-fold change) in the RNA-Seq dataset (summarized in Supplemental Table 1) were also subjected to hierarchical clustering analysis, which showed robust clustering amongst the biological replicates within each experimental group (n = 9 each), indicating consistency of the data across replicates in each group (Supplemental Fig. 1). For cellular proteomics, the metadata associated with this experiment in GeneLab indicated that due to low protein yield from some of the GC samples, replicates had to be pooled prior to proteomics, resulting in only n = 3 GC samples and n = 9 FLT samples. However, hierarchical clustering analysis on the FLT and GC proteins that showed statistically significant differences in relative abundance ( > 1.5-fold change, Supplemental Table 2) indicated good consistency and clustering between the biological replicates within each experimental group (Supplemental Fig. 1). FLT and GC samples (n = 5 each) analyzed for secretomics also displayed strong clustering among proteins with significant differences in relative abundance ( > 1.5-fold change, Supplemental Fig. 1 and Supplemental Table 3). Interestingly, the average concentration of secreted proteins of FLT sample supernatants was approximately 30% less than that of the GC culture supernatants (Fig. 1c; measured after concentration and removal of < 5 kDa peptides/amino acids).",
+    "Overlap between RNA-Seq, proteomics, and secretomics datasets",
+    "In total, 386 genes and proteins were identified across the RNA-Seq, cellular proteomics, and secretomics datasets that exceeded the respective cutoff values of 2-fold for RNA-Seq and 1.5-fold for proteomics (Fig. 3), with 37 genes/proteins that were common to at least two datasets (Table 1). Of the twenty genes that were common to RNA-Seq and cellular proteomics (Table 1), nineteen displayed increased abundance in spaceflight, including multiple genes and proteins related to the urease pathway and Type VII secretion, as well as two genes related to copper transport and two subunits of L-serine dehydratase. Notably, AgrA, the main response regulator of the agr quorum sensing system, was found to have both increased transcript levels and increased protein abundance in spaceflight samples. The sole protein downregulated in both datasets was a predicted GMP reductase, responsible for interconversion of purine nucleotides. Eight of the nine genes and proteins overlapping between the RNA-Seq and secretomics datasets were primarily annotated as intracellular proteins, involved in several different pathways. The lone extracellular protein in this dataset, EsxA, is secreted by the Type VII-like Ess secretion system. Other genes and proteins of the Ess-related secretion system (EsaA, EsaB, EssC) were also upregulated in both the RNA-Seq and cellular proteomics datasets (Table 1). Four genes and proteins were common to all three datasets, and all displayed increased abundance in spaceflight in each analysis. These consisted of the urease alpha and beta subunits, the urease accessory protein UreG, and the secreted EsxA protein described above (Table 1).",
+    "Overview of gene and protein functional categories identified in multi-omics analysis",
+    "The statistically significant changes in transcripts and proteins that fell within the fold-change cutoff criteria for each dataset ( > 2-fold for RNA-Seq, > 1.5-fold for proteomics and secretomics) were manually curated and functionally categorized to broadly examine which aspects of S. aureus physiology and virulence were affected by spaceflight conditions (Fig. 4). All datasets contained many hypothetical or uncharacterized proteins and genes, accounting for approximately 21% of all DE genes (RNA-Seq, Fig. 4a), 33% of all DE cellular proteins (proteomics, Fig. 4b), and 33% of all DE secreted proteins (secretomics, Fig. 4c). In the RNA-Seq DE analysis, gene transcripts related to extracellular transport, urease, and Type VII secretion were among the most commonly upregulated, along with genes involved in capsule biosynthesis and metabolism of a variety of substrates, including amino acids and carbohydrates (Fig. 4a). As discussed in more detail below, genes of the agr P2 (agrBDCA) and P3 (RNAIII) transcripts represented the five most highly upregulated transcripts (14 to 88-fold) in FLT samples (Supplemental Table 1). Additionally, expression of many Agr-independent virulence factors was upregulated in spaceflight relative to the ground controls (discussed in more detail below), as well as expression of genes and/or proteins involved in DNA-binding, transcriptional regulators, ABC transporters, urease subunits, and metal acquisition (Fig. 4). Ribosomal proteins was the most commonly downregulated category in FLT samples amongst cellular proteins, followed by those involved in glycolysis, ATP synthesis, and stress resistance. Additionally, a number of small RNAs (RNA-Seq) were downregulated in FLT samples relative to GC samples (Fig. 4a).",
+    "Functional enrichment amongst these omics datasets was also assessed by PaintOmics and STRING (Table 2 and Supplemental Table 4, respectively), which confirmed the patterns of gene and protein functional categories observed in Fig. 4. Using PaintOmics, an overrepresentation of significant biological features (P < 0.05) of pathways related to arginine biosynthesis, purine metabolism, thiamine metabolism, quorum sensing, and phosphotransferase systems (PTS) were common to both the RNA-Seq and proteomics datasets (Table 2). Additionally, pathways related to ribosome function and fructose/mannose metabolism were significantly enriched in the proteomics dataset, and two-component system and riboflavin metabolism were significantly enriched in the RNA-Seq dataset (Table 2). STRING analysis of RNA-Seq, proteomics, and secretomics DE genes/proteins (meeting statistical and fold-change cutoff criteria) revealed significant (FDR-adjusted P < 0.05) enrichment of many of the same functional pathways detected by PaintOmics (Supplemental Table 4). Additionally, categories related to polysaccharide biosynthesis (RNA-Seq), sucrose/starch metabolism (RNA-Seq), heme/virulence (RNA-Seq), nickel cation binding (RNA-Seq and proteomics), and arginine biosynthesis (secretomics) were significantly enriched in STRING analysis of these data.",
+    "Expression changes in Agr and virulence factors in spaceflight",
+    "Notably, expression of genes comprising the agr operon were highly upregulated in spaceflight samples, with agrA, agrB, agrC, and agrD each showing an approximately 14-fold increase in transcript abundance, and RNAIII displaying an 88-fold increase in transcript abundance (Supplemental Table 1). AgrA, the direct transcriptional activator of the agr P2 and P3 operons, was also upregulated 3.96-fold in the FLT proteomics data (Table 1), corroborating the increased transcript abundance of agrA observed in the RNA-Seq data. Additionally, genes and proteins known to be upregulated by Agr were also upregulated in FLT samples in a manner consistent with a highly active Agr system, including increased expression of genes encoding PSM alpha (psmα, 8.08-fold) and gamma hemolysin C (hlgC, 2.20-fold), and increased protein abundance of SspA (6.95-fold), SspB (13.07-fold), and ScpA (7.18-fold). The secreted metalloprotease aureolysin (Aur), regulated by Agr via repression of Rot, was also upregulated by 2.2–3.5 fold in the secretomics and proteomics datasets, respectively (Table 1). Agr has also been implicated in positive regulation of the capsular polysaccharide synthesis operon capABCDE, and expression of these genes was upregulated in spaceflight (2.15–2.39-fold; Supplemental Table 1). Abundance of the surface protein fibronectin-binding protein A (FnbA), the expression of which is inhibited by Agr, was also significantly decreased in the spaceflight proteomics data (−1.81-fold).",
+    "Several virulence factors not under Agr’s regulatory control were also upregulated in spaceflight samples. The Type VII-like Ess secretion system had six transcripts with increased abundance in FLT samples, four of which were also identified and upregulated in the proteomics and/or secretomics datasets. Staphylococcal nuclease (Nuc) was also highly upregulated in secretomics samples from spaceflight (7.72-fold). Although increased abundance of other non-agr-regulated virulence factors was also observed, such as those implicated in hemolysin production (CvfC, 1.51-fold) and nasal colonization (SceD, 1.57-fold), other well-characterized S. aureus virulence factors such as hyaluronidase, coagulase, lipase, and staphylokinase, were not identified as being significantly altered between FLT and GC samples.",
+    "S. aureus metabolic alterations under spaceflight conditions",
+    "S. aureus is noted for its ability to thrive in a variety of environments and adjust its metabolism accordingly, and its virulence potential can be mediated by diverse environmental and nutritional stimuli. In addition to genes and proteins related to the Agr quorum sensing system and its regulon, expression patterns of metabolic genes and proteins in spaceflight suggested that these S. aureus cultures may have experienced an altered metabolic state compared to the ground control cultures. Both cellular and secreted metabolites were analyzed for alterations in spaceflight cultures, and PCA plots of metabolomics data indicated that spaceflight samples and ground control samples clustered separately (Supplemental Fig. 2a). These metabolomics data also corroborated many of the changes in gene and protein expression levels associated with S. aureus metabolic functions. Urease expression, for example, was noted to be significantly upregulated in spaceflight, with seven genes upregulated between 4.12 and 5.02-fold and six proteins upregulated between 1.85 and 2.53-fold. Urea concentrations were decreased in spaceflight supernatant samples but did not meet the statistical cutoffs applied to the metabolomics analyses (data not shown). Additionally, altered levels of metabolites, genes and/or proteins related to arginine metabolism (increased ornithine, arginine/ornithine antiporter ArcD, Arginine deiminase ArcA, arginine kinase) were observed in FLT samples relative to GCs (Supplemental Tables 1–3, 5, 6).",
+    "Spaceflight S. aureus samples also exhibited several features congruent with a transition to catabolism of non-preferred carbon sources. These included decreased abundance of glucose in culture supernatants (Supplemental Table 6), decreased abundance of a glucose import protein (SAR1435), and functional enrichment (Table 1) and upregulated expression of genes and/or proteins of several sugar transporters (SAR0235, SAR0193, SAR2244, SAR1803) (Supplemental Tables 1–3). Several members of TCA cycle, including CitZ, OdhA/B, and SdhA/B displayed increased protein abundance and/or gene expression in spaceflight samples. Altered levels of metabolites, genes and/or proteins related to cysteine/serine metabolism (increased O-acetylserine, homoserine, cysteine, ornithine carbamoyltransferase, and serine dehydratase), and methionine metabolism (decreased methionine, increased methionine sulfoxide, increased methionine ABC transporter) were also observed in spaceflight samples relative to ground controls (Supplemental Tables 1–3, 5, 6). Additionally, increased expression of several metal transport genes was observed in the spaceflight cultures (Supplemental Table 1)."
+  ],
+  "FIG": [
+    "BRIC-23 Flight Experiment Overview and Associated Data.",
+    "a Overview of BRIC-23 Flight Experiment. Full details have been previously published in. b Average total CFU harvested from FLT and GC cultures. c Average protein concentration (measured after concentration and removal of < 5 kDa peptides/amino acids) of culture supernatants from FLT and GC cultures. For B and C, data represent the average of n = 9 biological samples per growth condition, error bars = standard deviation. P-values (two-tailed t-test) are shown.",
+    "Principal Component Analysis (PCA) of Omics Data.",
+    "a RNA-Seq (n = 9 biological samples each for FLT and GC). b Proteomics (n = 9 FLT and n = 3 GC biological samples). c Secretomics (n = 5 biological samples each for FLT and GC). In all graphs, BRIC-23 flight (FLT; circles) and ground control (GC; triangles) samples are indicated. PCA analysis of RNA-Seq data was performed on normalized RPKM values for all genes using CLC genomics workbench, and PCA analysis of proteomics and secretomics was performed on scaled abundances and normalized weighted spectra, respectively, using Clustvis.",
+    "Venn diagram showing the number of DE genes/proteins in RNA-Seq, cellular proteomics, and secretomics BRIC-23 datasets.",
+    "BRIC-23 RNA-Seq data cutoffs: DE fold-change ≥ 2, P-value < 0.000016 (2-tailed t-test), and mean normalized expression value ≥ 10 for both samples. BRIC-23 cellular proteomics and secretomics data cutoffs: P-value < 0.05 (Student t-test), fold-change > 1.5.",
+    "Distribution of S. aureus UAMS-1 gene/protein functional categories differentially expressed (DE) during spaceflight relative to ground control.",
+    "a BRIC-23 RNA-Seq data was subjected to DE analysis, with cutoffs (DE fold-change ≥ 2, P-value < 0.000016 and mean normalized expression value ≥ 10 for both samples) applied prior to assignment of functional categories (based on S. aureus genome annotations and/or UNIProt database). b, c BRIC-23 cellular proteomics (B) and secretomics (C) functional categories were assigned based on S. aureus genome annotations and/or UNIProt database (P-value < 0.05, fold-change > 1.5).",
+    "Summary of S. aureus alterations in physiology and virulence factor production in the spaceflight environment.",
+    "Diagram is based on analyzed RNA-Seq, proteomics, secretomics, and metabolomics data presented in this study."
+  ],
+  "TABLE": [
+    "Summary of overlapping gene transcripts and proteins identified as statistically significant and meeting fold-change cutoff criteria in RNA-Seq, proteomics, and secretomics DE analyses.",
+    "Gene ID\tFunction\tRNA-Seqa\tProteomicsa\tSecretomicsa\t \t\tType VII secretion system\t\t\t\t \tSAR0279\t6 kDa early secretory antigenic target ESAT-6 (EsxA)\t4.61\t1.61\t7.50\t \tSAR0280\tType VII secretion protein EsaA\t3.01\t2.03\t\t \tSAR0283\tType VII secretion protein EssB\t4.28\t2.55\t\t \tSAR0284\tType VII secretion system protein EssC\t4.73\t1.71\t\t \t\tAgr-regulated\t\t\t\t \tSAR2126\tResponse regulator transcription factor AgrA\t14.30\t3.96\t\t \tSAR1021\tCysteine protease precursor; SspB\t\t2.55\t13.07\t \tSAR1022\tGlutamyl endopeptidase precursor; V8 Protease; SspA\t\t3.48\t6.95\t \tSAR2716\tZinc metalloproteinase aureolysin; Aur\t\t3.27\t2.19\t \t\tCopper-associated\t\t\t\t \tSAR2637\tCopper-exporting P-type ATPase A (CopA)\t2.91\t2.55\t\t \tSAR2639\tCopZ putative heavy-metal-associated protein\t\t3.11\t18.19\t \tSAR0720\tCopper-translocating P-type ATPase\t2.19\t2.55\t\t \tSAR0721\tMulticopper oxidase protein\t\t1.93\t4.08\t \t\tArginine and Urea Metabolism\t\t\t\t \tSAR2714\tArginine deiminase\t\t2.05\t3.04\t \tSAR2374\tUrease alpha subunit\t4.91\t2.28\t1.82\t \tSAR2373\tUrease beta subunit\t5.02\t2.15\t4.35\t \tSAR2375\tUrease accessory protein UreE\t4.66\t1.91\t\t \tSAR2376\tUrease accessory protein UreF\t4.37\t2.37\t\t \tSAR2377\tUrease accessory protein UreG\t4.37\t1.85\t4.37\t \tSAR2378\tUrease accessory protein UreD\t4.12\t2.53\t\t \t\tMisc. cell processes\t\t\t\t \tSAR2611\tL-serine dehydratase, beta subunit\t2.76\t2.10\t\t \tSAR2610\tL-serine dehydratase, alpha subunit\t2.19\t1.63\t\t \tSAR1425\t2-oxoglutarate dehydrogenase E1 component\t2.03\t1.55\t\t \tSAR1870\tMethionine adenosyltransferase\t\t1.63\t1.61\t \tSAR1851\tRiboflavin biosynthesis protein RibBA; GTP cyclohydrolase II\t2.02\t1.73\t\t \tSAR2775\t2-oxoglutarate/malate translocator-like protein\t2.05\t1.94\t\t \tSAR1984\tBacterial non-heme ferritin\t2.13\t\t1.58\t \tSAR0278\tSecreted antigen precursor; staphyloxanthin biosynthesis\t3.00\t2.71\t\t \tSAR1347\tGMP reductase (predicted)\t−2.07\t−1.66\t\t \tSAR0155\tCapsular polysaccharide synthesis enzyme\t2.15\t\t−2.56\t \tSAR2359\tPutative molybdenum cofactor biosynthesis protein B\t\t−1.91\t2.91\t \tSAR1127\tHypothetical protein, similarity with fibrinogen-binding protein Efb\t3.78\t\t−2.36\t \tSAR2506\tPhosphoglycerate mutase\t2.55\t\t−1.56\t \tSAR1797\t30 S ribosomal protein S4\t\t−2.10\t1.69\t \t\tHypothetical\t\t\t\t \tSAR0007\tADP-dependent (S)-NAD(P)H-hydrate dehydratase\t2.46\t\t1.80\t \tSAR0345\tConserved hypothetical protein\t\t1.52\t2.94\t \tSAR2028\tAminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme\t\t1.55\t2.03\t \tSAR2054\tHypothetical phage protein\t\t−1.55\t−1.53",
+    "aNumbers represent the fold-Change (FLT/GC). Plus (+) and minus (-) symbols designate upregulated and downregulated, respectively, in FLT samples relative to GC samples.",
+    "Pathway enrichment analysis in BRIC-23 RNA-Seq and proteomics datasets.",
+    "Pathway namea\tUnique genes\tProteomics P-value\tRNA-Seq Gene expression P-value\tCombined P-value (Fisher)\t \tArginine biosynthesis\t16\t0.04\t0.02\t0.01\t \tPurine metabolism\t44\t0.05\t0.03\t0.01\t \tThiamine metabolism\t9\t0.00\t1.00\t0.02\t \tQuorum sensing\t36\t0.45\t0.01\t0.03\t \tPhosphotransferase system (PTS)\t16\t0.05\t0.12\t0.04\t \tRibosome\t56\t0.04\t1.00\t0.17\t \tFructose and mannose metabolism\t14\t0.05\t0.44\t0.11\t \tTwo-component system\t62\t0.88\t0.04\t0.15\t \tRiboflavin metabolism\t9\t0.49\t0.05\t0.12",
+    "aSignificant (P < 0.05, Fisher exact test) pathway enrichments for each dataset (RNA-Seq, proteomics), as well as the combined datasets, are indicated. Pathway enrichment analysis was performed using PaintOmics 3."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Our analysis of the S. aureus RNA-Seq, proteomics, secretomics, and metabolomics datasets from BRIC-23 indicate that S. aureus undergoes significant alterations in physiology and virulence factor production in the spaceflight environment which could alter its pathogenic potential for astronauts conducting long-term spaceflight missions. However, these results need to be interpreted in the context of the experimental confines of the BRIC-23 experiment, namely that only a single time point (48 h growth) was assessed, and that the experiment was conducted at ISS ambient temperature ( ~ 22 °C). Ground-based pre-science verification test (pre-SVT) growth curves previously conducted at ~25 °C (using dried starting inoculum on petri dishes and growth medium identical to those used in the BRIC-23 flight and ground controls) indicated that S. aureus entered early stationary phase by 48 h growth in this condition. In comparison, SVT incubation of BRIC-PDFUs in the the ISS Environmental Simulator (ISSES) chamber at KSC conducted at ~22 °C, which more closely mimicked ISS ambient temperature, showed that cultures reached late exponential phase growth by 48 h. Since a true growth curve (multiple time points) was not conducted in the actual BRIC-23 flight and ground control experiments, we cannot speculate on any potential differences in the growth rates and/or phase of growth between BRIC-23 FLT and GC cultures at the 48 h time point. However, the reported total CFUs per petri dish in both flight and ground control experiments suggest that the FLT cultures may have grown to higher cell densities compared to GC cultures (Fig. 1b). Similar to this, experiments previously conducted with Pseudomonas aeruginosa demonstrated that this bacterium achieved increased final cell density (as measured by flow cytometry of fixed cells) in flight cultures relative to ground controls under the specific growth medium characteristics of low phosphate and low oxygen availability. Esherichia coli and Bacillus subtilis spaceflight cultures grown at 23 °C in a fluid processing apparatus also achieved increased stationary phase cell densities in flight cultures relative to their corresponding ground controls. It is therefore not clear whether the S. aureus BRIC-23 FLT cultures were in an identical phase of growth compared to the GC cultures, which could impact some of the observed differences discussed in more detail below.",
+    "Additionally, temperature is known to have a significant impact on S. aureus gene expression, as it has recently been shown that expression of genes encoding secreted proteases and toxins (aur, sspA, sspB, esxA), as well as agrD, displayed increased transcript abundance at 34 °C compared to 37 °C and 40 °C. Therefore, the BRIC-23 data could be considered more relevant to conditions experienced by S. aureus outside of the host (i.e., growth and/or persistence on fomites, which could impact S. aureus transmission). Future experiments examining multiple time points and a more biologically relevant incubation temperature (35–37 °C) represent logical follow-up steps to gain a complete picture of the S. aureus physiological response to spaceflight.",
+    "A major finding of the BRIC-23 data analysis was that the S. aureus Agr quorum sensing response, as well as increased expression of both Agr-dependent and Agr-independent virulence factors, was highly upregulated during this spaceflight experiment. Given the challenges of medical treatment of bacterial infections in space, increased potential for Agr quorum sensing and production of virulence factors are concerns for astronaut health, and worthy of additional study of this bacterium under spaceflight conditions. Agr function has been identified as a critical component of infection and lethality in animal models, including rabbit and mouse models of osteomyelitis, necrotic pneumonia, and skin infection. Additionally, agr has been observed to be important for human infection, with CA-MRSA skin infections strongly affected by Agr activity. However, naturally occurring agr mutant strains as well as mixed cultures of wildtype and mutant agr variants have been isolated from human infections, indicating that Agr is not the only system responsible for pathogenesis, and that loss of Agr function may in fact contribute to chronic infection. Autoinduction of Agr is activated in late exponential phase and stationary phase in response to high cell density, as higher concentrations of secreted AIP can be recognized by AgrC, resulting in a positive feedback loop of agr activation. Low Agr activity is characterized by cell attachment and biofilm formation, and as cell density increases, agr activation encourages a cellular transition to a dispersal and pathogenesis-focused lifestyle. This is accomplished through upregulation of secreted proteases and toxins, which help cells overcome host defenses, and downregulation of surface adhesion factors to aid in dissemination throughout the host. Given that higher CFUs were recovered from the BRIC-23 FLT cultures at 48 h growth relative to the GC cultures, it is possible that the increased cell density of FLT cultures contributed to increased activation of Agr. Interestingly, even though increased Agr activation was observed in FLT cultures, the average concentration of secreted proteins in FLT sample supernatants was approximately 30% less than the GC culture supernatants (Fig. 1c), possibly a consequence of increased expression and abundance of secreted proteases (SspA, SspB, ScpA, Aur) which are known to have significant effects on the stability of the S. aureus exoproteome. Interestingly, observations from previous ground-based simulated microgravity studies of S. aureus also showed that simulated microgravity cultures excreted less protein compared to normal gravity controls.",
+    "Several virulence factors not under Agr’s regulatory control were also upregulated in spaceflight samples. These included several components of the Type VII-like Ess secretion system, which has been implicated in protection from host antimicrobial resistance as well as exhibiting a potential role in cross-strain competition. Therefore, increased expression of the Ess system could potentially confer a competitive advantage to S. aureus in colonizing and/or persisting on environmental fomites, as well as the human body. Staphylococcal nuclease, controlled by the SaeRS regulatory system, was also highly upregulated in secretomics samples from spaceflight. This enzyme breaks down extracellular DNA and RNA, contributing to biofilm dispersal. Nuclease also contributes to S. aureus pathogenicity by enhancing its ability to evade killing by neutrophils, via degradation of the DNA backbone of neutrophil extracellular traps (NETs). Increased abundance of other non-agr-regulated virulence factors implicated in hemolysin production (CvfC) and nasal colonization (SceD) was also observed. Collectively, this data suggests that the virulence potential of S. aureus in spaceflight could be amplified by factors in addition to the Agr regulon.",
+    "Additionally, S. aureus appears to undergo an altered metabolism during spaceflight. For example, urease subunit gene expression and/or protein abundance was significantly upregulated in spaceflight. This enzyme hydrolyzes urea to form ammonia and carbon dioxide, and is a vital contributor to acid stress survival in S. aureus. Increased urease expression and activity, in conjunction with increased acid production, has also been demonstrated in S. aureus biofilms. Altered levels of metabolites, genes and/or proteins related to arginine metabolism were also observed in spaceflight samples relative to ground controls. Collectively, these changes could reflect an overall increase in urea cycle activity in response to acid stress and/or as an alternative pathway for ATP production, as the arginine deiminase pathway produces both ammonia and ATP (via substrate-level phosphorylation). Spaceflight S. aureus samples also exhibited several features congruent with a transition to catabolism of non-preferred carbon sources, including decreased abundance of extracellular glucose, increased abundance of gene transcripts and/or proteins encoding various sugar transporters, and increased protein abundance and/or gene expression of TCA cycle enzymes. Derepression of the tricarboxylic acid (TCA) cycle in S. aureus has been associated with decreased availability of carbon sources which generally occurs during post-exponential growth. Additionally, altered levels of metabolites, genes and/or proteins related to cysteine/serine metabolism (increased O-acetylserine, homoserine, cysteine, ornithine carbamoyltransferase, and serine dehydratase), and methionine metabolism (decreased methionine, increased methionine sulfoxide, increased methionine ABC transporter) were observed in spaceflight samples relative to ground controls (Supplemental Tables 1–3, 5, 6). These changes, in combination with increased expression of several metal transport genes (Supplemental Table 1), suggest that S. aureus could have altered sulfur and/or metal requirements to support its metabolism under flight conditions.",
+    "The global regulator CodY was also identified in the cellular proteomics analysis, with a –1.52-fold change in spaceflight samples. CodY notably responds to changes in nutrient levels and alters the expression of a wide range of metabolic genes, virulence factors, and other regulators. Some targets known to be repressed by this regulator include capsule synthesis, Agr, and staphylococcal nuclease, which all exhibit increased abundance in spaceflight samples (Supplemental Tables 1–3). Therefore, depleted nutrients in the spaceflight environment could contribute to these observed alterations in S. aureus virulence factor production and metabolism, partly through decreased CodY activity.",
+    "In summary, data from the BRIC-23 experiment indicate that S. aureus spaceflight cultures exhibit changes in physiology and virulence factor production (summarized in Fig. 5) which could affect its ability to cause human disease during long-duration spaceflight missions. Specifically, S. aureus spaceflight samples may have altered metabolism (increased amino acid metabolism, TCA cycle, and transport of non-preferred carbon sources, and decreased glycolysis/fermentation and translation machinery) relative to ground-control cultures. Furthermore, both Agr-dependent and Agr-independent virulence factor expression were upregulated in spaceflight, with the agr RNAII and RNAIII transcripts themselves being the most highly upregulated. However, it is important to interpret these results in the context of the experimental confines of the BRIC-23 experiment."
+  ],
+  "METHODS": [
+    "Methods",
+    "Overview of BRIC-23 experimental design",
+    "A general overview of the BRIC-23 flight (FLT) experiment is outlined in Fig. 1, and complete details have been previously described. In brief, two BRIC-PDFUs (each containing five 60 mm Petri dishes with 107 CFU of S. aureus UAMS-1 cells dried on the bottom of each plate) were launched to the ISS on SpaceX CRS-9 on 07/18/2016. Growth was actuated in each petri dish by addition of 8.5 ml tryptone soytone yeast extract medium containing 10% glycerol (TSYG) on 07/22/2016, followed by growth at ~22 °C for 48 h. BRIC-PDFUs were then placed in −80 °C stowage until return from the ISS on 08/30/2016. Samples remained frozen during return and were stored at −80 °C until deintegration. Ground control (GC) experiments were performed asynchronously with the same hardware, configuration, timing, and growth temperature as in the BRIC-23 FL experiment. Deintegrated samples from both FLT and GC were stored at −80 °C until processed for RNA-Seq, proteomics, and metabolomics as described in. RNA-Seq, cellular proteomics, and metabolomics raw data files and associated metadata are available through NASA Open Science for Life in Space (OSDR) entry OSD-145: BRIC-23 GeneLab Process Verification Test: Staphylococcus aureus transcriptomic, proteomic, and metabolomic data (10.26030/ga0p-2817) (https://osdr.nasa.gov/bio/repo/data/studies/OSD-145).",
+    "BRIC-23 secretomics and data analysis",
+    "Filter-sterilized and concentrated (5 kDa MW cutoff) BRIC-23 supernatants were provided by NASA’s Life Science Data Archive (LSDA) (n = 5 each of BRIC-23 FLT and GC samples). Proteins from a 480–610 µl volume of each sample were precipitated by adding 120–150 µL of 100% (v/v) trichloroacetic acid to each sample, followed by incubation for 30 min at 4 °C. Samples were centrifuged at 20,000 × g for 5 min, then the supernatant was discarded. Protein pellets were washed with 200 µL of cold acetone, then samples were centrifuged again as above, and the acetone wash was repeated for a total of two washes. Protein pellets were dried by leaving tubes open in a Class 2AII biosafety cabinet for 5 min to allow acetone to evaporate. Next, pellets were resuspended in 200 µL urea buffer (6 M urea, 0.4 M Tris, pH 7.8) and stored at −20 °C. Protein concentrations were measured via Bio-Rad Protein Assay (Bio-Rad Protein Assay Kit, Bio-Rad).",
+    "Equal amounts of protein (10.59 µg per sample) were used, and three replicates per sample type were separated by sodium dodecyl sulfate-polyacrylamide gel electrophoresis (SDS-PAGE). The entire lane per sample was excised with a scalpel and diced into 1 mm2 cubes. In-gel trypsin digestion was performed as previously described. Protein identification and quantification were performed using a label-free quantitative shotgun mass proteomics approach using an HPLC-Orbitrap Fusion mass spectrometer (UF-ICBR proteomics core). Briefly, the peptide samples were analyzed using a 250-mm Ultrahigh-Performance Liquid Chromatography (UHPLC) system coupled to an Orbitrap Fusion mass spectrometer (Thermo Scientific). The Thermo EASY nano-LC system was used for liquid chromatography, employing a 20-mm C16 pre-column (Thermo Scientific) to remove impurities. A reversed-phase C18 analytical column with a 100 Å pore (Thermo Scientific, Acclaim PepMap 100 C18 LC Column) was used for sample separation. The following solvents were used for chromatography: solvent A (0.1% formic acid), solvent B (80% acetonitrile, 0.1% formic acid) with a 2–40% solvent B acetonitrile gradient for 105 min, followed by a 14-minute wash with 98% solvent B, and equilibration with 2% solvent A. The LC system was directly interfaced with the Orbitrap Fusion mass spectrometer. The Orbitrap detector acquired MS data at 120 K resolution with a scan range of 350–2000 m/z. For MS/MS analysis, ions were isolated by a quadrupole, prioritizing the most intense ions, and ions for all available parallelizable times were injected. Precursor ions were then excluded for 36 s. Fragmentation was performed using collision-induced dissociation (CID) at a collision energy of 35% and an activation time of 10 ms.",
+    "Proteins were identified and quantified from the generated raw data using Proteome Discoverer, as previously described. These data were also analyzed by Scaffold software version 4.11.0 (Proteome Software, Inc., USA) to identify secreted proteins with statistically significant alterations in expression. Briefly, tandem mass spectra were extracted, charge state deconvoluted, and deisotoped using Proteome Discoverer (Thermo Fisher Scientific). Tandem mass spectrometry (MS/MS) samples were analyzed by using the SEQUEST algorithm (Thermo Fisher) using available databases containing S. aureus proteins (Genbank #BX571856.1) and contaminants. Scaffold software version 4.11.0 (Proteome Software, Inc., USA) was used to validate MS/MS-based peptide and protein identifications, where the required delta Cn scores were >0.2 and XCorr scores were >1.2, 1.9, 2.3, and 2.6 for singly, doubly, triply, and quadruply charged peptides, respectively. Protein identifications were accepted if they were established at >95.0% probability and contained >2 identified peptides, with a peptide FDR of 0.2%. The protein probabilities were assigned by the Protein Prophet algorithm. Weighted spectral counts were used for protein quantification, and data were normalized before the fold changes were calculated between the flight and control samples. The P < 0.05 (Student t-test, calculated in GraphPad Prism) and a minimum 1.5-fold change between treatment and control proteins indicated proteins with significant changes in abundance. Secretomics raw data files and associated metadata are available through NASA OSDR entry OSD-500: BRIC-23: Secretomics (10.26030/rztr-e997) (https://osdr.nasa.gov/bio/repo/data/studies/OSD-500).",
+    "BRIC-23 cellular proteomics analysis",
+    "Cellular proteins were identified and quantified from the generated raw data from the BRIC-23 experiment (https://osdr.nasa.gov/bio/repo/data/studies/OSD-145) using Proteome Discoverer. Briefly, tandem mass spectra were extracted, charge state deconvoluted, and deisotoped using Proteome Discoverer (Thermo Fisher Scientific). Tandem mass spectrometry (MS/MS) samples were analyzed by using the SEQUEST algorithm (Thermo Fisher) using available databases containing S. aureus proteins (Genbank #BX571856.1). All analyzed fractions were merged before the analysis. SEQUEST search parameters were as follows: two maximum trypsin mis-cleavages, precursor mass tolerance of 10 ppm, fragment mass tolerance of 0.6 Da; static modifications were TMT six-plex/+229.163 Da (N-terminus, Lys) and carbamidomethyl modification/+57.021 Da (Cys); dynamic modification was oxidation modification/+15.995 Da (Met). Maximum dynamic modifications per peptide were four. High XCorr Confidence Thresholds were 1.2, 1.9, 2.3, and 2.6 for z = 1, 2, 3, and >4, respectively. The maximum allowable delta Cn value was 0.05. Moreover, a decoy databank search was performed to establish FDR at a minimum of 0.05 for protein identifications, where the validation was done using the q-value method. All the medium and high-confidence peptides were used to identify and quantify proteins. The reporter ions (i.e., m/z 126, 127 N, 127 C, 128 N, 131) were identified where the most confident centroid was used and 10 ppm for reporter ion mass tolerance. The reporter ion values were normalized to control samples (128 N). Proteins belonging to multiple protein groups were grouped into a single accession number, and final ratios were reported. Fold changes were calculated between flight and ground samples, where the P-value was calculated using the Student’s t-test (P < 0.05), indicating proteins with significant changes in abundance (minimum 1.5-fold change).",
+    "BRIC-23 RNA-Seq analysis",
+    "FastQ data files from n = 9 FLT and n = 9 GC samples were downloaded from OSDR (https://osdr.nasa.gov/bio/repo/data/studies/OSD-145) and imported into CLC Genomics Workbench (Qiagen) for analysis. Ribosomal RNA reads were filtered out, and the remaining reads were mapped to the S. aureus MRSA252 genome (Genbank #BX571856.1). The UAMS-1 genome (strain used in the BRIC-23 flight experiment) is not closed. Therefore, the updated Genbank genome file for MRSA252, which contains annotations for sRNAs and critical virulence genes such as phenol soluble modulins (psma1-4), was used instead. A previously published analysis pipeline was followed using the “RNA-Seq analysis” feature of CLC Genomics Workbench version 21, with quantile normalization of data sets. Standard cutoffs ( ≥ 2-fold change, mean normalized expression value ≥ 10 for both samples) were used to curate differential gene expression (DE) data, performed as described in. Microsoft Excel was used for RNA-Seq DE data reduction and statistical analysis. Student’s two-tailed t-test was used to determine significance (P < 0.000016 with 5% FDR Bonferroni correction).",
+    "Metabolomics Analysis",
+    "MetaboAnalyst 5.0 (https://www.metaboanalyst.ca/home.xhtml) was used to quantify the cellular and supernatant untargeted metabolomics data from BRIC-23 datasets (https://osdr.nasa.gov/bio/repo/data/studies/OSD-145). All missing values were replaced by half of the minimum positive value found within the data. However, features with over 50% missing values were removed from the dataset. The data were normalized by sum and subjected to log transformation and auto-scaling, where the values were mean-centered and divided by the standard deviation of each variable. A P-value threshold of 0.05 (Student t-test) was used for generating volcano plots and a fold change of 1.5.",
+    "Bioinformatics",
+    "Functional categories of genes/proteins identified by RNA-Seq, proteomics, and secretomics as being statistically significant ( > 2-fold change in expression for RNA-Seq, and >1.5-fold change for proteomics and secretomics) were assigned using manual curation based on gene annotation and/or predicted function using the following databases: Aureowiki, Uniprot, PATRIC and Biocyc. Hierarchical clustering and heat map generation of statistically significant DE data was performed using 1-Pearson correlation on rows and columns, using Morpheus default settings (https://software.broadinstitute.org/morpheus). Venn diagram of overlapping and unique DE genes/proteins identified by RNA-Seq, proteomics, and secretomics as being statistically significant with > 2-fold change in expression for RNA-Seq and > 1.5-fold change for proteomics and secretomics, was generated using OmicsBox (BioBam, Valencia, Spain). Principal Components Analysis (PCA) of RNA-Seq, proteomics, and secretomics data was performed using ClustVis. PCA plots for metabolomics data were generated with Rscript chemometrics.R within the MetaboAnalyst program. RNA-Seq, cellular proteomics, and/or secretomics DE data were analyzed using Paint-omics version 3 and STRING version 11.5 to detect enriched KEGG pathways and genes/proteins, respectively. The NCBI MRSA252 genome (Genbank #BX571856.1) was used as a reference in both analyses.",
+    "Statistical analysis",
+    "Statistical analysis specific to each -omics analysis is described in each respective section above. Statistical analyses were performed using Microsoft Excel, Graphpad Prism 9, Scaffold software version 4.11.0, or MetaboAnalyst 5.0, as indicated.",
+    "Reporting summary",
+    "Further information on research design is available in the Nature Research Reporting Summary linked to this article.",
+    "Supplementary information",
+    "Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "SUPPL": [
+    "Supplementary information",
+    "The online version contains supplementary material available at 10.1038/s41526-023-00343-7.",
+    "Data availability",
+    "All BRIC-23 -omics datasets and corresponding metadata can be accessed through NASA OSDR (for RNASeq, proteomics, and metabolomics: 10.26030/ga0p-2817f; or secretomics: 10.26030/rztr-e997). All other data presented in this manuscript is available as figures/tables, or supplementary figures/tables."
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "M.R.H.—Conceptualization, Formal Analysis, Investigation, Visualization, Writing—original draft, Writing—review & editing. M.J.F.—Conceptualization, Formal Analysis, Methodology, Investigation, Visualization, Data curation, Writing—original draft, Writing—review & editing. R.K.C.—Conceptualization, Formal Analysis, Visualization, Writing—review & editing. K.C.R.—Conceptualization, Project Administration, Funding acquisition, Formal Analysis, Visualization, Writing—original draft, Writing—review & editing."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "The authors declare no competing interests."
+  ],
+  "REF": [
+    "References",
+    "CDC. (ed CDC) (U.S. Department of Health and Human Services, CDC; 2019, Atlanta, GA, 2019).",
+    "The commensal lifestyle of Staphylococcus aureus and its interactions with the nasal microbiota",
+    "At the crossroads of bacterial metabolism and virulence factor synthesis in Staphylococci",
+    "Therapeutic targeting of the Staphylococcus aureus accessory gene regulator (agr) system",
+    "Regulation of virulence in Staphylococcus aureus: molecular mechanisms and remaining puzzles",
+    "Jenul, C. & Horswill, A. R. Regulation of Staphylococcus aureus virulence. Microbiol. Spectr.7, 10.1128/microbiolspec.GPP3-0031-2018 (2019).",
+    "Flipping the switch: tools for detecting small molecule inhibitors of staphylococcal virulence",
+    "Synthesis of staphylococcal virulence factors is controlled by a regulatory RNA molecule",
+    "Autoflora in the upper respiratory tract of Apollo astronauts",
+    "Preflight and postflight microbiological results from 25 space shuttle crews",
+    "Microbial contamination of advanced life support (ALS) systems poses a moderate threat to the long-term stability of space-based bioregenerative systems",
+    "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+    "Microbial monitoring of crewed habitats in space-current status and future perspectives",
+    "Preparing for the crewed Mars journey: microbiota dynamics in the confined Mars500 habitat during simulated Mars flight and landing",
+    "Effects of microgravity on the virulence of Listeria monocytogenes, Enterococcus faecalis, Candida albicans, and methicillin-resistant Staphylococcus aureus",
+    "Low-shear modelled microgravity alters expression of virulence determinants of Staphylococcus aureus",
+    "Induction of attachment-independent biofilm formation and repression of Hfq expression by low-fluid-shear culture of Staphylococcus aureus",
+    "Investigating alterations in the cellular envelope of Staphylococcus aureus in simulated microgravity using a random positioning machine",
+    "Rotating wall vessel exposure alters protein secretion and global gene expression in Staphylococcus aureus",
+    "Establishing standard protocols for bacterial culture in biological research in canisters (BRIC) hardware",
+    "GeneLab, N., Nicholson, W., Richards, S. & Levine, H. (NASA Open Science Data Repository, 2017).",
+    "Wells, B., McCray, R. H., Best, M. D. & Levine, H. G. (SAE International, 2001).",
+    "Role of the accessory gene regulator (agr) in pathogenesis of staphylococcal osteomyelitis",
+    "The type VII secretion system of Staphylococcus aureus secretes a nuclease toxin that targets competitor bacteria",
+    "Paintomics: a web based tool for the joint visualization of transcriptomics and metabolomics data",
+    "The STRING database in 2023: protein-protein association networks and functional enrichment analyses for any sequenced genome of interest",
+    "Role of the accessory gene regulator agr in community-associated methicillin-resistant Staphylococcus aureus pathogenesis",
+    "Transcription profiling-based identification of Staphylococcus aureus genes regulated by the agr and/or sarA loci",
+    "Relative quantitative comparisons of the extracellular protein profiles of Staphylococcus aureus UAMS-1 and its sarA, agr, and sarA agr regulatory mutants using one-dimensional polyacrylamide gel electrophoresis and nanocapillary liquid chromatography coupled with tandem mass spectrometry",
+    "Coordinated and differential control of aureolysin (aur) and serine protease (sspA) transcription in Staphylococcus aureus by sarA, rot and agr (RNAIII)",
+    "RNAIII-independent target gene control by the agr quorum-sensing system: insight into the evolution of virulence regulation in Staphylococcus aureus",
+    "The influence of agr and sigmaB in growth phase dependent regulation of virulence factors in Staphylococcus aureus",
+    "Regulation of Staphylococcus aureus capsular polysaccharide expression by agr and sarA",
+    "Transcription of Staphylococcus aureus fibronectin binding protein genes is negatively regulated by agr and an agr-independent mechanism",
+    "Agr-independent regulation of fibronectin-binding protein(s) by the regulatory locus sar in Staphylococcus aureus",
+    "The cvfC operon of Staphylococcus aureus contributes to virulence via expression of the thyA gene",
+    "Characterization of IsaA and SceD, two putative lytic transglycosylases of Staphylococcus aureus",
+    "Balasubramanian, D., Harper, L., Shopsin, B. & Torres, V. J. Staphylococcus aureus pathogenesis in diverse host environments. Pathog. Dis.75, 10.1093/femspd/ftx005 (2017).",
+    "Kim, W. et al. Effect of spaceflight on final cell density is modulated by nutrient and oxygen availability. BMC Microbiol.13, 10.1186/1471-2180-13-241 (2013).",
+    "Bacterial growth in space flight: logistic growth curve parameters for Escherichia coli and Bacillus subtilis",
+    "Bastock, R. A. et al. Staphylococcus aureus responds to physiologically relevant temperature changes by altering its global transcript and protein profile. mSphere6, 10.1128/mSphere.01303-20 (2021).",
+    "Importance of the global regulators Agr and SaeRS in the pathogenesis of CA-MRSA USA300 infection",
+    "Surface proteins and exotoxins are required for the pathogenesis of Staphylococcus aureus pneumonia",
+    "Mutation of Agr is associated with the adaptation of Staphylococcus aureus to the host during chronic osteomyelitis",
+    "agr function in clinical Staphylococcus aureus isolates",
+    "Paharik, A. E. & Horswill, A. R. The Staphylococcal Biofilm: Adhesins, Regulation, and Host Response. Microbiol Spectr4, 10.1128/microbiolspec.VMBF-0022-2015 (2016).",
+    "Interconnections between Sigma B, agr, and proteolytic activity in Staphylococcus aureus biofilm maturation",
+    "Agr-mediated dispersal of Staphylococcus aureus biofilms",
+    "A secreted bacterial protease tailors the Staphylococcus aureus virulence repertoire to modulate bone remodeling during osteomyelitis",
+    "Gimza, B. D., Larias, M. I., Budny, B. G. & Shaw, L. N. Mapping the Global Network of Extracellular Protease Regulation in Staphylococcus aureus. mSphere4, 10.1128/mSphere.00676-19 (2019).",
+    "Identification of a novel maturation mechanism and restricted substrate specificity for the SspB cysteine protease of Staphylococcus aureus",
+    "Activation of the SspA serine protease zymogen of Staphylococcus aureus proceeds through unique variations of a trypsinogen-like mechanism and is dependent on both autocatalytic and metalloprotease-specific processing",
+    "Description of staphylococcus serine protease (ssp) operon in Staphylococcus aureus and nonpolar inactivation of sspA-encoded serine protease",
+    "The type VII secretion system protects Staphylococcus aureus against antimicrobial host fatty acids",
+    "Staphylococcus aureus nuclease is an SaeRS-dependent virulence factor",
+    "A spectrum of CodY activities drives metabolic reorganization and virulence gene expression in Staphylococcus aureus",
+    "Catalytic properties and specificity of the extracellular nuclease of Staphylococcus aureus",
+    "Nuclease modulates biofilm formation in community-associated methicillin-resistant Staphylococcus aureus",
+    "Nuclease expression by Staphylococcus aureus facilitates escape from neutrophil extracellular traps",
+    "Urease is an essential component of the acid response network of Staphylococcus aureus and is required for a persistent murine kidney infection",
+    "Differential gene expression profiling of Staphylococcus aureus cultivated under biofilm and planktonic conditions",
+    "Biosynthesis and metabolism of arginine in bacteria",
+    "Staphylococcus aureus ArcR controls expression of the arginine deiminase operon",
+    "A metabolomics and proteomics study of the adaptation of Staphylococcus aureus to glucose starvation",
+    "Correlation of acetate catabolism and growth yield in Staphylococcus aureus: implications for host-pathogen interactions",
+    "CodY, a master integrator of metabolism and virulence in Gram-positive bacteria",
+    "Direct targets of CodY in Staphylococcus aureus",
+    "The impact of CodY on virulence determinant production in community-associated methicillin-resistant Staphylococcus aureus",
+    "The effect of oxygen on bile resistance in Listeria monocytogenes",
+    "Antigen-encapsulating host extracellular vesicles derived from Salmonella-infected cells stimulate pathogen -specific Th1-type responses in vivo",
+    "Salmonella Typhimurium alters the extracellular proteome of macrophages and leads to the production of pro-inflammatory exosomes",
+    "Endocannabinoid hydrolases in avian HD11 macrophages identified by chemoproteomics: inactivation by small-molecule inhibitors and pathogen-induced downregulation of their activity",
+    "The effects of model aromatic lignin compounds on growth and lipid accumulation of Rhodococcus rhodochrous",
+    "Analysis of differentially expressed proteins in Yersinia enterocolitica-infected HeLa cells",
+    "Use of focused ultrasonication in activity-based profiling of deubiquitinating enzymes in tissue",
+    "Activity-based proteomic profiling of deubiquitinating enzymes in Salmonella-infected macrophages leads to identification of putative function of UCH-L5 in inflammasome regulation",
+    "SILAC-based quantitative proteomic analysis of human lung cell response to copper oxide nanoparticles",
+    "Global analysis of lysine acetylation suggests the involvement of protein acetylation in diverse biological processes in rice (Oryza sativa)",
+    "RNA-Sequencing of Staphylococcus aureus messenger RNA",
+    "Staphylococcus aureus nitric oxide synthase (saNOS) modulates aerobic respiratory metabolism and cell physiology",
+    "Computational analysis of bacterial RNA-Seq data",
+    "Modification of the Streptococcus mutans transcriptome by LrgAB and environmental stressors",
+    "Using MetaboAnalyst 5.0 for LC–HRMS spectra processing, multi-omics integration and covariate adjustment of global metabolomics data",
+    "AureoWiki - The repository of the Staphylococcus aureus research and annotation community",
+    "UniProt: the Universal Protein Knowledgebase in 2023",
+    "Improvements to PATRIC, the all-bacterial bioinformatics database and analysis resource center",
+    "The BioCyc collection of microbial genomes and metabolic pathways",
+    "Bioinformatics, B. OmicsBox – Bioinformatics Made Easy, (2019).",
+    "ClustVis: a web tool for visualizing clustering of multivariate data using Principal Component Analysis and heatmap"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "CDC. (ed CDC) (U.S. Department of Health and Human Services, CDC; 2019, Atlanta, GA, 2019).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The commensal lifestyle of Staphylococcus aureus and its interactions with the nasal microbiota",
+      "autores": [
+        {
+          "nombre_completo": "B Krismer",
+          "nombres": "B",
+          "apellidos": "Krismer"
+        },
+        {
+          "nombre_completo": "C Weidenmaier",
+          "nombres": "C",
+          "apellidos": "Weidenmaier"
+        },
+        {
+          "nombre_completo": "A Zipperer",
+          "nombres": "A",
+          "apellidos": "Zipperer"
+        },
+        {
+          "nombre_completo": "A Peschel",
+          "nombres": "A",
+          "apellidos": "Peschel"
+        }
+      ],
+      "pmid": "29021598",
+      "fuente": "Nat. Rev. Microbiol.",
+      "anio": "2017",
+      "volumen": "15",
+      "fpage": "675",
+      "lpage": "687"
+    },
+    {
+      "titulo": "At the crossroads of bacterial metabolism and virulence factor synthesis in Staphylococci",
+      "autores": [
+        {
+          "nombre_completo": "GA Somerville",
+          "nombres": "GA",
+          "apellidos": "Somerville"
+        },
+        {
+          "nombre_completo": "RA Proctor",
+          "nombres": "RA",
+          "apellidos": "Proctor"
+        }
+      ],
+      "pmid": "19487727",
+      "fuente": "Microbiol. Mol. Biol. Rev.",
+      "anio": "2009",
+      "volumen": "73",
+      "fpage": "233",
+      "lpage": "248"
+    },
+    {
+      "titulo": "Therapeutic targeting of the Staphylococcus aureus accessory gene regulator (agr) system",
+      "autores": [
+        {
+          "nombre_completo": "L Tan",
+          "nombres": "L",
+          "apellidos": "Tan"
+        },
+        {
+          "nombre_completo": "SR Li",
+          "nombres": "SR",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "B Jiang",
+          "nombres": "B",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "XM Hu",
+          "nombres": "XM",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "S Li",
+          "nombres": "S",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "29422887",
+      "fuente": "Front Microbiol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "55",
+      "lpage": ""
+    },
+    {
+      "titulo": "Regulation of virulence in Staphylococcus aureus: molecular mechanisms and remaining puzzles",
+      "autores": [
+        {
+          "nombre_completo": "B Wang",
+          "nombres": "B",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "TW Muir",
+          "nombres": "TW",
+          "apellidos": "Muir"
+        }
+      ],
+      "pmid": "26971873",
+      "fuente": "Cell Chem. Biol.",
+      "anio": "2016",
+      "volumen": "23",
+      "fpage": "214",
+      "lpage": "224"
+    },
+    {
+      "titulo": "Jenul, C. & Horswill, A. R. Regulation of Staphylococcus aureus virulence. Microbiol. Spectr.7, 10.1128/microbiolspec.GPP3-0031-2018 (2019).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Flipping the switch: tools for detecting small molecule inhibitors of staphylococcal virulence",
+      "autores": [
+        {
+          "nombre_completo": "CL Quave",
+          "nombres": "CL",
+          "apellidos": "Quave"
+        },
+        {
+          "nombre_completo": "AR Horswill",
+          "nombres": "AR",
+          "apellidos": "Horswill"
+        }
+      ],
+      "pmid": "25566220",
+      "fuente": "Front Microbiol.",
+      "anio": "2014",
+      "volumen": "5",
+      "fpage": "706",
+      "lpage": ""
+    },
+    {
+      "titulo": "Synthesis of staphylococcal virulence factors is controlled by a regulatory RNA molecule",
+      "autores": [
+        {
+          "nombre_completo": "RP Novick",
+          "nombres": "RP",
+          "apellidos": "Novick"
+        }
+      ],
+      "pmid": "7691599",
+      "fuente": "EMBO J.",
+      "anio": "1993",
+      "volumen": "12",
+      "fpage": "3967",
+      "lpage": "3975"
+    },
+    {
+      "titulo": "Autoflora in the upper respiratory tract of Apollo astronauts",
+      "autores": [
+        {
+          "nombre_completo": "JG Decelle",
+          "nombres": "JG",
+          "apellidos": "Decelle"
+        },
+        {
+          "nombre_completo": "GR Taylor",
+          "nombres": "GR",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "984836",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "1976",
+      "volumen": "32",
+      "fpage": "659",
+      "lpage": "665"
+    },
+    {
+      "titulo": "Preflight and postflight microbiological results from 25 space shuttle crews",
+      "autores": [
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "SAE Trans.",
+      "anio": "1993",
+      "volumen": "102",
+      "fpage": "949",
+      "lpage": "953"
+    },
+    {
+      "titulo": "Microbial contamination of advanced life support (ALS) systems poses a moderate threat to the long-term stability of space-based bioregenerative systems",
+      "autores": [
+        {
+          "nombre_completo": "AC Schuerger",
+          "nombres": "AC",
+          "apellidos": "Schuerger"
+        }
+      ],
+      "pmid": "11876200",
+      "fuente": "Life Support Biosph. Sci.",
+      "anio": "1998",
+      "volumen": "5",
+      "fpage": "325",
+      "lpage": "337"
+    },
+    {
+      "titulo": "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "24695826",
+      "fuente": "Appl Microbiol Biotechnol.",
+      "anio": "2014",
+      "volumen": "98",
+      "fpage": "6453",
+      "lpage": "6466"
+    },
+    {
+      "titulo": "Microbial monitoring of crewed habitats in space-current status and future perspectives",
+      "autores": [
+        {
+          "nombre_completo": "N Yamaguchi",
+          "nombres": "N",
+          "apellidos": "Yamaguchi"
+        }
+      ],
+      "pmid": "25130885",
+      "fuente": "Microbes Environ.",
+      "anio": "2014",
+      "volumen": "29",
+      "fpage": "250",
+      "lpage": "260"
+    },
+    {
+      "titulo": "Preparing for the crewed Mars journey: microbiota dynamics in the confined Mars500 habitat during simulated Mars flight and landing",
+      "autores": [
+        {
+          "nombre_completo": "P Schwendner",
+          "nombres": "P",
+          "apellidos": "Schwendner"
+        }
+      ],
+      "pmid": "28974259",
+      "fuente": "Microbiome",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "129",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of microgravity on the virulence of Listeria monocytogenes, Enterococcus faecalis, Candida albicans, and methicillin-resistant Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "TG Hammond",
+          "nombres": "TG",
+          "apellidos": "Hammond"
+        }
+      ],
+      "pmid": "24283929",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1081",
+      "lpage": "1090"
+    },
+    {
+      "titulo": "Low-shear modelled microgravity alters expression of virulence determinants of Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "H Rosado",
+          "nombres": "H",
+          "apellidos": "Rosado"
+        },
+        {
+          "nombre_completo": "M Doyle",
+          "nombres": "M",
+          "apellidos": "Doyle"
+        },
+        {
+          "nombre_completo": "J Hinds",
+          "nombres": "J",
+          "apellidos": "Hinds"
+        },
+        {
+          "nombre_completo": "PW Taylor",
+          "nombres": "PW",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Acta Astronautica",
+      "anio": "2010",
+      "volumen": "66",
+      "fpage": "408",
+      "lpage": "413"
+    },
+    {
+      "titulo": "Induction of attachment-independent biofilm formation and repression of Hfq expression by low-fluid-shear culture of Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "SL Castro",
+          "nombres": "SL",
+          "apellidos": "Castro"
+        },
+        {
+          "nombre_completo": "M Nelman-Gonzalez",
+          "nombres": "M",
+          "apellidos": "Nelman-Gonzalez"
+        },
+        {
+          "nombre_completo": "CA Nickerson",
+          "nombres": "CA",
+          "apellidos": "Nickerson"
+        },
+        {
+          "nombre_completo": "CM Ott",
+          "nombres": "CM",
+          "apellidos": "Ott"
+        }
+      ],
+      "pmid": "21803898",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2011",
+      "volumen": "77",
+      "fpage": "6368",
+      "lpage": "6378"
+    },
+    {
+      "titulo": "Investigating alterations in the cellular envelope of Staphylococcus aureus in simulated microgravity using a random positioning machine",
+      "autores": [
+        {
+          "nombre_completo": "S Singh",
+          "nombres": "S",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "PB Vidyasagar",
+          "nombres": "PB",
+          "apellidos": "Vidyasagar"
+        },
+        {
+          "nombre_completo": "GR Kulkarni",
+          "nombres": "GR",
+          "apellidos": "Kulkarni"
+        }
+      ],
+      "pmid": "34281660",
+      "fuente": "Life Sci. Space Res (Amst.)",
+      "anio": "2021",
+      "volumen": "30",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "Rotating wall vessel exposure alters protein secretion and global gene expression in Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "H Rosado",
+          "nombres": "H",
+          "apellidos": "Rosado"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Astrobiol.",
+      "anio": "2012",
+      "volumen": "11",
+      "fpage": "71",
+      "lpage": "81"
+    },
+    {
+      "titulo": "Establishing standard protocols for bacterial culture in biological research in canisters (BRIC) hardware",
+      "autores": [
+        {
+          "nombre_completo": "P Fajardo-Cavazos",
+          "nombres": "P",
+          "apellidos": "Fajardo-Cavazos"
+        },
+        {
+          "nombre_completo": "WL Nicholson",
+          "nombres": "WL",
+          "apellidos": "Nicholson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravit. Space Res.",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "58",
+      "lpage": "69"
+    },
+    {
+      "titulo": "GeneLab, N., Nicholson, W., Richards, S. & Levine, H. (NASA Open Science Data Repository, 2017).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Wells, B., McCray, R. H., Best, M. D. & Levine, H. G. (SAE International, 2001).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Role of the accessory gene regulator (agr) in pathogenesis of staphylococcal osteomyelitis",
+      "autores": [
+        {
+          "nombre_completo": "AF Gillaspy",
+          "nombres": "AF",
+          "apellidos": "Gillaspy"
+        }
+      ],
+      "pmid": "7642265",
+      "fuente": "Infect. Immun.",
+      "anio": "1995",
+      "volumen": "63",
+      "fpage": "3373",
+      "lpage": "3380"
+    },
+    {
+      "titulo": "The type VII secretion system of Staphylococcus aureus secretes a nuclease toxin that targets competitor bacteria",
+      "autores": [
+        {
+          "nombre_completo": "Z Cao",
+          "nombres": "Z",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "MG Casabona",
+          "nombres": "MG",
+          "apellidos": "Casabona"
+        },
+        {
+          "nombre_completo": "H Kneuper",
+          "nombres": "H",
+          "apellidos": "Kneuper"
+        },
+        {
+          "nombre_completo": "JD Chalmers",
+          "nombres": "JD",
+          "apellidos": "Chalmers"
+        },
+        {
+          "nombre_completo": "T Palmer",
+          "nombres": "T",
+          "apellidos": "Palmer"
+        }
+      ],
+      "pmid": "27723728",
+      "fuente": "Nat. Microbiol.",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "16183",
+      "lpage": ""
+    },
+    {
+      "titulo": "Paintomics: a web based tool for the joint visualization of transcriptomics and metabolomics data",
+      "autores": [
+        {
+          "nombre_completo": "F Garcia-Alcalde",
+          "nombres": "F",
+          "apellidos": "Garcia-Alcalde"
+        },
+        {
+          "nombre_completo": "F Garcia-Lopez",
+          "nombres": "F",
+          "apellidos": "Garcia-Lopez"
+        },
+        {
+          "nombre_completo": "J Dopazo",
+          "nombres": "J",
+          "apellidos": "Dopazo"
+        },
+        {
+          "nombre_completo": "A Conesa",
+          "nombres": "A",
+          "apellidos": "Conesa"
+        }
+      ],
+      "pmid": "21098431",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "137",
+      "lpage": "139"
+    },
+    {
+      "titulo": "The STRING database in 2023: protein-protein association networks and functional enrichment analyses for any sequenced genome of interest",
+      "autores": [
+        {
+          "nombre_completo": "D Szklarczyk",
+          "nombres": "D",
+          "apellidos": "Szklarczyk"
+        }
+      ],
+      "pmid": "36370105",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2023",
+      "volumen": "51",
+      "fpage": "D638",
+      "lpage": "D646"
+    },
+    {
+      "titulo": "Role of the accessory gene regulator agr in community-associated methicillin-resistant Staphylococcus aureus pathogenesis",
+      "autores": [
+        {
+          "nombre_completo": "GY Cheung",
+          "nombres": "GY",
+          "apellidos": "Cheung"
+        },
+        {
+          "nombre_completo": "R Wang",
+          "nombres": "R",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "BA Khan",
+          "nombres": "BA",
+          "apellidos": "Khan"
+        },
+        {
+          "nombre_completo": "DE Sturdevant",
+          "nombres": "DE",
+          "apellidos": "Sturdevant"
+        },
+        {
+          "nombre_completo": "M Otto",
+          "nombres": "M",
+          "apellidos": "Otto"
+        }
+      ],
+      "pmid": "21402769",
+      "fuente": "Infect. Immun.",
+      "anio": "2011",
+      "volumen": "79",
+      "fpage": "1927",
+      "lpage": "1935"
+    },
+    {
+      "titulo": "Transcription profiling-based identification of Staphylococcus aureus genes regulated by the agr and/or sarA loci",
+      "autores": [
+        {
+          "nombre_completo": "PM Dunman",
+          "nombres": "PM",
+          "apellidos": "Dunman"
+        }
+      ],
+      "pmid": "11717293",
+      "fuente": "J. Bacteriol.",
+      "anio": "2001",
+      "volumen": "183",
+      "fpage": "7341",
+      "lpage": "7353"
+    },
+    {
+      "titulo": "Relative quantitative comparisons of the extracellular protein profiles of Staphylococcus aureus UAMS-1 and its sarA, agr, and sarA agr regulatory mutants using one-dimensional polyacrylamide gel electrophoresis and nanocapillary liquid chromatography coupled with tandem mass spectrometry",
+      "autores": [
+        {
+          "nombre_completo": "RC Jones",
+          "nombres": "RC",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "J Deck",
+          "nombres": "J",
+          "apellidos": "Deck"
+        },
+        {
+          "nombre_completo": "RD Edmondson",
+          "nombres": "RD",
+          "apellidos": "Edmondson"
+        },
+        {
+          "nombre_completo": "ME Hart",
+          "nombres": "ME",
+          "apellidos": "Hart"
+        }
+      ],
+      "pmid": "18539737",
+      "fuente": "J. Bacteriol.",
+      "anio": "2008",
+      "volumen": "190",
+      "fpage": "5265",
+      "lpage": "5278"
+    },
+    {
+      "titulo": "Coordinated and differential control of aureolysin (aur) and serine protease (sspA) transcription in Staphylococcus aureus by sarA, rot and agr (RNAIII)",
+      "autores": [
+        {
+          "nombre_completo": "J Oscarsson",
+          "nombres": "J",
+          "apellidos": "Oscarsson"
+        },
+        {
+          "nombre_completo": "K Tegmark-Wisell",
+          "nombres": "K",
+          "apellidos": "Tegmark-Wisell"
+        },
+        {
+          "nombre_completo": "S Arvidson",
+          "nombres": "S",
+          "apellidos": "Arvidson"
+        }
+      ],
+      "pmid": "16782403",
+      "fuente": "Int. J. Med. Microbiol.",
+      "anio": "2006",
+      "volumen": "296",
+      "fpage": "365",
+      "lpage": "380"
+    },
+    {
+      "titulo": "RNAIII-independent target gene control by the agr quorum-sensing system: insight into the evolution of virulence regulation in Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "SY Queck",
+          "nombres": "SY",
+          "apellidos": "Queck"
+        }
+      ],
+      "pmid": "18851841",
+      "fuente": "Mol. Cell",
+      "anio": "2008",
+      "volumen": "32",
+      "fpage": "150",
+      "lpage": "158"
+    },
+    {
+      "titulo": "The influence of agr and sigmaB in growth phase dependent regulation of virulence factors in Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "AK Ziebandt",
+          "nombres": "AK",
+          "apellidos": "Ziebandt"
+        }
+      ],
+      "pmid": "15378746",
+      "fuente": "Proteomics",
+      "anio": "2004",
+      "volumen": "4",
+      "fpage": "3034",
+      "lpage": "3047"
+    },
+    {
+      "titulo": "Regulation of Staphylococcus aureus capsular polysaccharide expression by agr and sarA",
+      "autores": [
+        {
+          "nombre_completo": "T Luong",
+          "nombres": "T",
+          "apellidos": "Luong"
+        },
+        {
+          "nombre_completo": "S Sau",
+          "nombres": "S",
+          "apellidos": "Sau"
+        },
+        {
+          "nombre_completo": "M Gomez",
+          "nombres": "M",
+          "apellidos": "Gomez"
+        },
+        {
+          "nombre_completo": "JC Lee",
+          "nombres": "JC",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "CY Lee",
+          "nombres": "CY",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "11796569",
+      "fuente": "Infect. Immun.",
+      "anio": "2002",
+      "volumen": "70",
+      "fpage": "444",
+      "lpage": "450"
+    },
+    {
+      "titulo": "Transcription of Staphylococcus aureus fibronectin binding protein genes is negatively regulated by agr and an agr-independent mechanism",
+      "autores": [
+        {
+          "nombre_completo": "P Saravia-Otten",
+          "nombres": "P",
+          "apellidos": "Saravia-Otten"
+        },
+        {
+          "nombre_completo": "HP Muller",
+          "nombres": "HP",
+          "apellidos": "Muller"
+        },
+        {
+          "nombre_completo": "S Arvidson",
+          "nombres": "S",
+          "apellidos": "Arvidson"
+        }
+      ],
+      "pmid": "9286974",
+      "fuente": "J. Bacteriol.",
+      "anio": "1997",
+      "volumen": "179",
+      "fpage": "5259",
+      "lpage": "5263"
+    },
+    {
+      "titulo": "Agr-independent regulation of fibronectin-binding protein(s) by the regulatory locus sar in Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "C Wolz",
+          "nombres": "C",
+          "apellidos": "Wolz"
+        }
+      ],
+      "pmid": "10760180",
+      "fuente": "Mol. Microbiol.",
+      "anio": "2000",
+      "volumen": "36",
+      "fpage": "230",
+      "lpage": "243"
+    },
+    {
+      "titulo": "The cvfC operon of Staphylococcus aureus contributes to virulence via expression of the thyA gene",
+      "autores": [
+        {
+          "nombre_completo": "M Ikuo",
+          "nombres": "M",
+          "apellidos": "Ikuo"
+        },
+        {
+          "nombre_completo": "C Kaito",
+          "nombres": "C",
+          "apellidos": "Kaito"
+        },
+        {
+          "nombre_completo": "K Sekimizu",
+          "nombres": "K",
+          "apellidos": "Sekimizu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Micro. Pathog.",
+      "anio": "2010",
+      "volumen": "49",
+      "fpage": "1",
+      "lpage": "7"
+    },
+    {
+      "titulo": "Characterization of IsaA and SceD, two putative lytic transglycosylases of Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "MR Stapleton",
+          "nombres": "MR",
+          "apellidos": "Stapleton"
+        }
+      ],
+      "pmid": "17675373",
+      "fuente": "J. Bacteriol.",
+      "anio": "2007",
+      "volumen": "189",
+      "fpage": "7316",
+      "lpage": "7325"
+    },
+    {
+      "titulo": "Balasubramanian, D., Harper, L., Shopsin, B. & Torres, V. J. Staphylococcus aureus pathogenesis in diverse host environments. Pathog. Dis.75, 10.1093/femspd/ftx005 (2017).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Kim, W. et al. Effect of spaceflight on final cell density is modulated by nutrient and oxygen availability. BMC Microbiol.13, 10.1186/1471-2180-13-241 (2013).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bacterial growth in space flight: logistic growth curve parameters for Escherichia coli and Bacillus subtilis",
+      "autores": [
+        {
+          "nombre_completo": "MA Kacena",
+          "nombres": "MA",
+          "apellidos": "Kacena"
+        }
+      ],
+      "pmid": "10091330",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "1999",
+      "volumen": "51",
+      "fpage": "229",
+      "lpage": "234"
+    },
+    {
+      "titulo": "Bastock, R. A. et al. Staphylococcus aureus responds to physiologically relevant temperature changes by altering its global transcript and protein profile. mSphere6, 10.1128/mSphere.01303-20 (2021).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Importance of the global regulators Agr and SaeRS in the pathogenesis of CA-MRSA USA300 infection",
+      "autores": [
+        {
+          "nombre_completo": "CP Montgomery",
+          "nombres": "CP",
+          "apellidos": "Montgomery"
+        },
+        {
+          "nombre_completo": "S Boyle-Vavra",
+          "nombres": "S",
+          "apellidos": "Boyle-Vavra"
+        },
+        {
+          "nombre_completo": "RS Daum",
+          "nombres": "RS",
+          "apellidos": "Daum"
+        }
+      ],
+      "pmid": "21151999",
+      "fuente": "PLoS One",
+      "anio": "2010",
+      "volumen": "5",
+      "fpage": "e15177",
+      "lpage": ""
+    },
+    {
+      "titulo": "Surface proteins and exotoxins are required for the pathogenesis of Staphylococcus aureus pneumonia",
+      "autores": [
+        {
+          "nombre_completo": "J Bubeck Wardenburg",
+          "nombres": "J",
+          "apellidos": "Bubeck Wardenburg"
+        },
+        {
+          "nombre_completo": "RJ Patel",
+          "nombres": "RJ",
+          "apellidos": "Patel"
+        },
+        {
+          "nombre_completo": "O Schneewind",
+          "nombres": "O",
+          "apellidos": "Schneewind"
+        }
+      ],
+      "pmid": "17101657",
+      "fuente": "Infect. Immun.",
+      "anio": "2007",
+      "volumen": "75",
+      "fpage": "1040",
+      "lpage": "1044"
+    },
+    {
+      "titulo": "Mutation of Agr is associated with the adaptation of Staphylococcus aureus to the host during chronic osteomyelitis",
+      "autores": [
+        {
+          "nombre_completo": "CM Suligoy",
+          "nombres": "CM",
+          "apellidos": "Suligoy"
+        }
+      ],
+      "pmid": "29456969",
+      "fuente": "Front Cell Infect. Microbiol",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "18",
+      "lpage": ""
+    },
+    {
+      "titulo": "agr function in clinical Staphylococcus aureus isolates",
+      "autores": [
+        {
+          "nombre_completo": "KE Traber",
+          "nombres": "KE",
+          "apellidos": "Traber"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microbiol. (Read.)",
+      "anio": "2008",
+      "volumen": "154",
+      "fpage": "2265",
+      "lpage": "2274"
+    },
+    {
+      "titulo": "Paharik, A. E. & Horswill, A. R. The Staphylococcal Biofilm: Adhesins, Regulation, and Host Response. Microbiol Spectr4, 10.1128/microbiolspec.VMBF-0022-2015 (2016).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Interconnections between Sigma B, agr, and proteolytic activity in Staphylococcus aureus biofilm maturation",
+      "autores": [
+        {
+          "nombre_completo": "KJ Lauderdale",
+          "nombres": "KJ",
+          "apellidos": "Lauderdale"
+        },
+        {
+          "nombre_completo": "BR Boles",
+          "nombres": "BR",
+          "apellidos": "Boles"
+        },
+        {
+          "nombre_completo": "AL Cheung",
+          "nombres": "AL",
+          "apellidos": "Cheung"
+        },
+        {
+          "nombre_completo": "AR Horswill",
+          "nombres": "AR",
+          "apellidos": "Horswill"
+        }
+      ],
+      "pmid": "19188357",
+      "fuente": "Infect. Immun.",
+      "anio": "2009",
+      "volumen": "77",
+      "fpage": "1623",
+      "lpage": "1635"
+    },
+    {
+      "titulo": "Agr-mediated dispersal of Staphylococcus aureus biofilms",
+      "autores": [
+        {
+          "nombre_completo": "BR Boles",
+          "nombres": "BR",
+          "apellidos": "Boles"
+        },
+        {
+          "nombre_completo": "AR Horswill",
+          "nombres": "AR",
+          "apellidos": "Horswill"
+        }
+      ],
+      "pmid": "18437240",
+      "fuente": "PLoS Pathog.",
+      "anio": "2008",
+      "volumen": "4",
+      "fpage": "e1000052",
+      "lpage": ""
+    },
+    {
+      "titulo": "A secreted bacterial protease tailors the Staphylococcus aureus virulence repertoire to modulate bone remodeling during osteomyelitis",
+      "autores": [
+        {
+          "nombre_completo": "JE Cassat",
+          "nombres": "JE",
+          "apellidos": "Cassat"
+        }
+      ],
+      "pmid": "23768499",
+      "fuente": "Cell Host Microbe",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "759",
+      "lpage": "772"
+    },
+    {
+      "titulo": "Gimza, B. D., Larias, M. I., Budny, B. G. & Shaw, L. N. Mapping the Global Network of Extracellular Protease Regulation in Staphylococcus aureus. mSphere4, 10.1128/mSphere.00676-19 (2019).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identification of a novel maturation mechanism and restricted substrate specificity for the SspB cysteine protease of Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "I Massimi",
+          "nombres": "I",
+          "apellidos": "Massimi"
+        }
+      ],
+      "pmid": "12207024",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2002",
+      "volumen": "277",
+      "fpage": "41770",
+      "lpage": "41777"
+    },
+    {
+      "titulo": "Activation of the SspA serine protease zymogen of Staphylococcus aureus proceeds through unique variations of a trypsinogen-like mechanism and is dependent on both autocatalytic and metalloprotease-specific processing",
+      "autores": [
+        {
+          "nombre_completo": "NN Nickerson",
+          "nombres": "NN",
+          "apellidos": "Nickerson"
+        },
+        {
+          "nombre_completo": "L Prasad",
+          "nombres": "L",
+          "apellidos": "Prasad"
+        },
+        {
+          "nombre_completo": "L Jacob",
+          "nombres": "L",
+          "apellidos": "Jacob"
+        },
+        {
+          "nombre_completo": "LT Delbaere",
+          "nombres": "LT",
+          "apellidos": "Delbaere"
+        },
+        {
+          "nombre_completo": "MJ McGavin",
+          "nombres": "MJ",
+          "apellidos": "McGavin"
+        }
+      ],
+      "pmid": "17878159",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2007",
+      "volumen": "282",
+      "fpage": "34129",
+      "lpage": "34138"
+    },
+    {
+      "titulo": "Description of staphylococcus serine protease (ssp) operon in Staphylococcus aureus and nonpolar inactivation of sspA-encoded serine protease",
+      "autores": [
+        {
+          "nombre_completo": "K Rice",
+          "nombres": "K",
+          "apellidos": "Rice"
+        },
+        {
+          "nombre_completo": "R Peralta",
+          "nombres": "R",
+          "apellidos": "Peralta"
+        },
+        {
+          "nombre_completo": "D Bast",
+          "nombres": "D",
+          "apellidos": "Bast"
+        },
+        {
+          "nombre_completo": "J de Azavedo",
+          "nombres": "J",
+          "apellidos": "de Azavedo"
+        },
+        {
+          "nombre_completo": "MJ McGavin",
+          "nombres": "MJ",
+          "apellidos": "McGavin"
+        }
+      ],
+      "pmid": "11119502",
+      "fuente": "Infect. Immun.",
+      "anio": "2001",
+      "volumen": "69",
+      "fpage": "159",
+      "lpage": "169"
+    },
+    {
+      "titulo": "The type VII secretion system protects Staphylococcus aureus against antimicrobial host fatty acids",
+      "autores": [
+        {
+          "nombre_completo": "A Kengmo Tchoupa",
+          "nombres": "A",
+          "apellidos": "Kengmo Tchoupa"
+        }
+      ],
+      "pmid": "32908165",
+      "fuente": "Sci. Rep.",
+      "anio": "2020",
+      "volumen": "10",
+      "fpage": "14838",
+      "lpage": ""
+    },
+    {
+      "titulo": "Staphylococcus aureus nuclease is an SaeRS-dependent virulence factor",
+      "autores": [
+        {
+          "nombre_completo": "ME Olson",
+          "nombres": "ME",
+          "apellidos": "Olson"
+        }
+      ],
+      "pmid": "23381999",
+      "fuente": "Infect. Immun.",
+      "anio": "2013",
+      "volumen": "81",
+      "fpage": "1316",
+      "lpage": "1324"
+    },
+    {
+      "titulo": "A spectrum of CodY activities drives metabolic reorganization and virulence gene expression in Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "NR Waters",
+          "nombres": "NR",
+          "apellidos": "Waters"
+        }
+      ],
+      "pmid": "27116338",
+      "fuente": "Mol. Microbiol",
+      "anio": "2016",
+      "volumen": "101",
+      "fpage": "495",
+      "lpage": "514"
+    },
+    {
+      "titulo": "Catalytic properties and specificity of the extracellular nuclease of Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "P Cuatrecasas",
+          "nombres": "P",
+          "apellidos": "Cuatrecasas"
+        },
+        {
+          "nombre_completo": "S Fuchs",
+          "nombres": "S",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "CB Anfinsen",
+          "nombres": "CB",
+          "apellidos": "Anfinsen"
+        }
+      ],
+      "pmid": "4290246",
+      "fuente": "J. Biol. Chem.",
+      "anio": "1967",
+      "volumen": "242",
+      "fpage": "1541",
+      "lpage": "1547"
+    },
+    {
+      "titulo": "Nuclease modulates biofilm formation in community-associated methicillin-resistant Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "MR Kiedrowski",
+          "nombres": "MR",
+          "apellidos": "Kiedrowski"
+        }
+      ],
+      "pmid": "22096493",
+      "fuente": "PLoS One",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "e26714",
+      "lpage": ""
+    },
+    {
+      "titulo": "Nuclease expression by Staphylococcus aureus facilitates escape from neutrophil extracellular traps",
+      "autores": [
+        {
+          "nombre_completo": "ET Berends",
+          "nombres": "ET",
+          "apellidos": "Berends"
+        }
+      ],
+      "pmid": "20829609",
+      "fuente": "J. Innate Immun.",
+      "anio": "2010",
+      "volumen": "2",
+      "fpage": "576",
+      "lpage": "586"
+    },
+    {
+      "titulo": "Urease is an essential component of the acid response network of Staphylococcus aureus and is required for a persistent murine kidney infection",
+      "autores": [
+        {
+          "nombre_completo": "C Zhou",
+          "nombres": "C",
+          "apellidos": "Zhou"
+        }
+      ],
+      "pmid": "30608981",
+      "fuente": "PLoS Pathog.",
+      "anio": "2019",
+      "volumen": "15",
+      "fpage": "e1007538",
+      "lpage": ""
+    },
+    {
+      "titulo": "Differential gene expression profiling of Staphylococcus aureus cultivated under biofilm and planktonic conditions",
+      "autores": [
+        {
+          "nombre_completo": "A Resch",
+          "nombres": "A",
+          "apellidos": "Resch"
+        },
+        {
+          "nombre_completo": "R Rosenstein",
+          "nombres": "R",
+          "apellidos": "Rosenstein"
+        },
+        {
+          "nombre_completo": "C Nerz",
+          "nombres": "C",
+          "apellidos": "Nerz"
+        },
+        {
+          "nombre_completo": "F Gotz",
+          "nombres": "F",
+          "apellidos": "Gotz"
+        }
+      ],
+      "pmid": "15870358",
+      "fuente": "Appl Environ. Microbiol",
+      "anio": "2005",
+      "volumen": "71",
+      "fpage": "2663",
+      "lpage": "2676"
+    },
+    {
+      "titulo": "Biosynthesis and metabolism of arginine in bacteria",
+      "autores": [
+        {
+          "nombre_completo": "R Cunin",
+          "nombres": "R",
+          "apellidos": "Cunin"
+        },
+        {
+          "nombre_completo": "N Glansdorff",
+          "nombres": "N",
+          "apellidos": "Glansdorff"
+        },
+        {
+          "nombre_completo": "A Pierard",
+          "nombres": "A",
+          "apellidos": "Pierard"
+        },
+        {
+          "nombre_completo": "V Stalon",
+          "nombres": "V",
+          "apellidos": "Stalon"
+        }
+      ],
+      "pmid": "3534538",
+      "fuente": "Microbiol Rev.",
+      "anio": "1986",
+      "volumen": "50",
+      "fpage": "314",
+      "lpage": "352"
+    },
+    {
+      "titulo": "Staphylococcus aureus ArcR controls expression of the arginine deiminase operon",
+      "autores": [
+        {
+          "nombre_completo": "J Makhlin",
+          "nombres": "J",
+          "apellidos": "Makhlin"
+        }
+      ],
+      "pmid": "17557828",
+      "fuente": "J. Bacteriol.",
+      "anio": "2007",
+      "volumen": "189",
+      "fpage": "5976",
+      "lpage": "5986"
+    },
+    {
+      "titulo": "A metabolomics and proteomics study of the adaptation of Staphylococcus aureus to glucose starvation",
+      "autores": [
+        {
+          "nombre_completo": "M Liebeke",
+          "nombres": "M",
+          "apellidos": "Liebeke"
+        }
+      ],
+      "pmid": "21327190",
+      "fuente": "Mol. Biosyst.",
+      "anio": "2011",
+      "volumen": "7",
+      "fpage": "1241",
+      "lpage": "1253"
+    },
+    {
+      "titulo": "Correlation of acetate catabolism and growth yield in Staphylococcus aureus: implications for host-pathogen interactions",
+      "autores": [
+        {
+          "nombre_completo": "GA Somerville",
+          "nombres": "GA",
+          "apellidos": "Somerville"
+        }
+      ],
+      "pmid": "12874354",
+      "fuente": "Infect. Immun.",
+      "anio": "2003",
+      "volumen": "71",
+      "fpage": "4724",
+      "lpage": "4732"
+    },
+    {
+      "titulo": "CodY, a master integrator of metabolism and virulence in Gram-positive bacteria",
+      "autores": [
+        {
+          "nombre_completo": "SR Brinsmade",
+          "nombres": "SR",
+          "apellidos": "Brinsmade"
+        }
+      ],
+      "pmid": "27744611",
+      "fuente": "Curr. Genet",
+      "anio": "2017",
+      "volumen": "63",
+      "fpage": "417",
+      "lpage": "425"
+    },
+    {
+      "titulo": "Direct targets of CodY in Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "CD Majerczyk",
+          "nombres": "CD",
+          "apellidos": "Majerczyk"
+        }
+      ],
+      "pmid": "20363936",
+      "fuente": "J. Bacteriol.",
+      "anio": "2010",
+      "volumen": "192",
+      "fpage": "2861",
+      "lpage": "2877"
+    },
+    {
+      "titulo": "The impact of CodY on virulence determinant production in community-associated methicillin-resistant Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "FE Rivera",
+          "nombres": "FE",
+          "apellidos": "Rivera"
+        },
+        {
+          "nombre_completo": "HK Miller",
+          "nombres": "HK",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "SL Kolar",
+          "nombres": "SL",
+          "apellidos": "Kolar"
+        },
+        {
+          "nombre_completo": "SM;suffix:Jr. Stevens",
+          "nombres": "SM;suffix:Jr.",
+          "apellidos": "Stevens"
+        },
+        {
+          "nombre_completo": "LN Shaw",
+          "nombres": "LN",
+          "apellidos": "Shaw"
+        }
+      ],
+      "pmid": "22106056",
+      "fuente": "Proteomics",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "263",
+      "lpage": "268"
+    },
+    {
+      "titulo": "The effect of oxygen on bile resistance in Listeria monocytogenes",
+      "autores": [
+        {
+          "nombre_completo": "ML Wright",
+          "nombres": "ML",
+          "apellidos": "Wright"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Proteom. Bioinform",
+      "anio": "2016",
+      "volumen": "9",
+      "fpage": "107",
+      "lpage": "119"
+    },
+    {
+      "titulo": "Antigen-encapsulating host extracellular vesicles derived from Salmonella-infected cells stimulate pathogen -specific Th1-type responses in vivo",
+      "autores": [
+        {
+          "nombre_completo": "W Hui",
+          "nombres": "W",
+          "apellidos": "Hui"
+        }
+      ],
+      "pmid": "33956909",
+      "fuente": "PLoS Pathog.",
+      "anio": "2021",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Salmonella Typhimurium alters the extracellular proteome of macrophages and leads to the production of pro-inflammatory exosomes",
+      "autores": [
+        {
+          "nombre_completo": "WW Hui",
+          "nombres": "WW",
+          "apellidos": "Hui"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Infect. Immun.",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Endocannabinoid hydrolases in avian HD11 macrophages identified by chemoproteomics: inactivation by small-molecule inhibitors and pathogen-induced downregulation of their activity",
+      "autores": [
+        {
+          "nombre_completo": "JH Lee",
+          "nombres": "JH",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "29196970",
+      "fuente": "Mol. Cell Biochem.",
+      "anio": "2017",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The effects of model aromatic lignin compounds on growth and lipid accumulation of Rhodococcus rhodochrous",
+      "autores": [
+        {
+          "nombre_completo": "SA Shields-Menard",
+          "nombres": "SA",
+          "apellidos": "Shields-Menard"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. Biodeterior. Biodegrad.",
+      "anio": "2017",
+      "volumen": "121",
+      "fpage": "79",
+      "lpage": "90"
+    },
+    {
+      "titulo": "Analysis of differentially expressed proteins in Yersinia enterocolitica-infected HeLa cells",
+      "autores": [
+        {
+          "nombre_completo": "N Alugubelly",
+          "nombres": "N",
+          "apellidos": "Alugubelly"
+        },
+        {
+          "nombre_completo": "K Hercik",
+          "nombres": "K",
+          "apellidos": "Hercik"
+        },
+        {
+          "nombre_completo": "P Kibler",
+          "nombres": "P",
+          "apellidos": "Kibler"
+        },
+        {
+          "nombre_completo": "B Nanduri",
+          "nombres": "B",
+          "apellidos": "Nanduri"
+        },
+        {
+          "nombre_completo": "MJ Edelmann",
+          "nombres": "MJ",
+          "apellidos": "Edelmann"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biochim. Biophys. Acta",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Use of focused ultrasonication in activity-based profiling of deubiquitinating enzymes in tissue",
+      "autores": [
+        {
+          "nombre_completo": "B Nanduri",
+          "nombres": "B",
+          "apellidos": "Nanduri"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Anal. Biochem.",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Activity-based proteomic profiling of deubiquitinating enzymes in Salmonella-infected macrophages leads to identification of putative function of UCH-L5 in inflammasome regulation",
+      "autores": [
+        {
+          "nombre_completo": "E Kummari",
+          "nombres": "E",
+          "apellidos": "Kummari"
+        }
+      ],
+      "pmid": "26267804",
+      "fuente": "PLoS ONE",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "e0135531",
+      "lpage": ""
+    },
+    {
+      "titulo": "SILAC-based quantitative proteomic analysis of human lung cell response to copper oxide nanoparticles",
+      "autores": [
+        {
+          "nombre_completo": "MJ Edelmann",
+          "nombres": "MJ",
+          "apellidos": "Edelmann"
+        },
+        {
+          "nombre_completo": "LA Shack",
+          "nombres": "LA",
+          "apellidos": "Shack"
+        },
+        {
+          "nombre_completo": "CD Naske",
+          "nombres": "CD",
+          "apellidos": "Naske"
+        },
+        {
+          "nombre_completo": "KB Walters",
+          "nombres": "KB",
+          "apellidos": "Walters"
+        },
+        {
+          "nombre_completo": "B Nanduri",
+          "nombres": "B",
+          "apellidos": "Nanduri"
+        }
+      ],
+      "pmid": "25470785",
+      "fuente": "PLoS ONE",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e114390",
+      "lpage": ""
+    },
+    {
+      "titulo": "Global analysis of lysine acetylation suggests the involvement of protein acetylation in diverse biological processes in rice (Oryza sativa)",
+      "autores": [
+        {
+          "nombre_completo": "BR Nallamilli",
+          "nombres": "BR",
+          "apellidos": "Nallamilli"
+        }
+      ],
+      "pmid": "24586658",
+      "fuente": "PLoS ONE",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e89283",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNA-Sequencing of Staphylococcus aureus messenger RNA",
+      "autores": [
+        {
+          "nombre_completo": "RK Carroll",
+          "nombres": "RK",
+          "apellidos": "Carroll"
+        },
+        {
+          "nombre_completo": "A Weiss",
+          "nombres": "A",
+          "apellidos": "Weiss"
+        },
+        {
+          "nombre_completo": "LN Shaw",
+          "nombres": "LN",
+          "apellidos": "Shaw"
+        }
+      ],
+      "pmid": "25646612",
+      "fuente": "Methods Mol. Biol.",
+      "anio": "2016",
+      "volumen": "1373",
+      "fpage": "131",
+      "lpage": "141"
+    },
+    {
+      "titulo": "Staphylococcus aureus nitric oxide synthase (saNOS) modulates aerobic respiratory metabolism and cell physiology",
+      "autores": [
+        {
+          "nombre_completo": "AB Mogen",
+          "nombres": "AB",
+          "apellidos": "Mogen"
+        }
+      ],
+      "pmid": "28431199",
+      "fuente": "Mol. Microbiol.",
+      "anio": "2017",
+      "volumen": "105",
+      "fpage": "139",
+      "lpage": "157"
+    },
+    {
+      "titulo": "Computational analysis of bacterial RNA-Seq data",
+      "autores": [
+        {
+          "nombre_completo": "R McClure",
+          "nombres": "R",
+          "apellidos": "McClure"
+        }
+      ],
+      "pmid": "23716638",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "e140",
+      "lpage": ""
+    },
+    {
+      "titulo": "Modification of the Streptococcus mutans transcriptome by LrgAB and environmental stressors",
+      "autores": [
+        {
+          "nombre_completo": "KC Rice",
+          "nombres": "KC",
+          "apellidos": "Rice"
+        },
+        {
+          "nombre_completo": "ME Turner",
+          "nombres": "ME",
+          "apellidos": "Turner"
+        },
+        {
+          "nombre_completo": "OV Carney",
+          "nombres": "OV",
+          "apellidos": "Carney"
+        },
+        {
+          "nombre_completo": "T Gu",
+          "nombres": "T",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "SJ Ahn",
+          "nombres": "SJ",
+          "apellidos": "Ahn"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Micro. Genom.",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "e000104",
+      "lpage": ""
+    },
+    {
+      "titulo": "Using MetaboAnalyst 5.0 for LC–HRMS spectra processing, multi-omics integration and covariate adjustment of global metabolomics data",
+      "autores": [
+        {
+          "nombre_completo": "Z Pang",
+          "nombres": "Z",
+          "apellidos": "Pang"
+        }
+      ],
+      "pmid": "35715522",
+      "fuente": "Nat. Protoc.",
+      "anio": "2022",
+      "volumen": "17",
+      "fpage": "1735",
+      "lpage": "1761"
+    },
+    {
+      "titulo": "AureoWiki - The repository of the Staphylococcus aureus research and annotation community",
+      "autores": [
+        {
+          "nombre_completo": "S Fuchs",
+          "nombres": "S",
+          "apellidos": "Fuchs"
+        }
+      ],
+      "pmid": "29198880",
+      "fuente": "Int. J. Med. Microbiol.",
+      "anio": "2018",
+      "volumen": "308",
+      "fpage": "558",
+      "lpage": "568"
+    },
+    {
+      "titulo": "UniProt: the Universal Protein Knowledgebase in 2023",
+      "autores": [
+        {
+          "nombre_completo": "C UniProt",
+          "nombres": "C",
+          "apellidos": "UniProt"
+        }
+      ],
+      "pmid": "36408920",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2023",
+      "volumen": "51",
+      "fpage": "D523",
+      "lpage": "D531"
+    },
+    {
+      "titulo": "Improvements to PATRIC, the all-bacterial bioinformatics database and analysis resource center",
+      "autores": [
+        {
+          "nombre_completo": "AR Wattam",
+          "nombres": "AR",
+          "apellidos": "Wattam"
+        }
+      ],
+      "pmid": "27899627",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D535",
+      "lpage": "D542"
+    },
+    {
+      "titulo": "The BioCyc collection of microbial genomes and metabolic pathways",
+      "autores": [
+        {
+          "nombre_completo": "PD Karp",
+          "nombres": "PD",
+          "apellidos": "Karp"
+        }
+      ],
+      "pmid": "29447345",
+      "fuente": "Brief. Bioinform.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "1085",
+      "lpage": "1093"
+    },
+    {
+      "titulo": "Bioinformatics, B. OmicsBox – Bioinformatics Made Easy, (2019).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "ClustVis: a web tool for visualizing clustering of multivariate data using Principal Component Analysis and heatmap",
+      "autores": [
+        {
+          "nombre_completo": "T Metsalu",
+          "nombres": "T",
+          "apellidos": "Metsalu"
+        },
+        {
+          "nombre_completo": "J Vilo",
+          "nombres": "J",
+          "apellidos": "Vilo"
+        }
+      ],
+      "pmid": "25969447",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "W566",
+      "lpage": "W570"
+    }
+  ]
+}

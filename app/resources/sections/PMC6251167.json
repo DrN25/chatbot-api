@@ -1,0 +1,2121 @@
+{
+  "TITLE": [
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains"
+  ],
+  "ABSTRACT": [
+    "Background",
+    "The antimicrobial resistance (AMR) phenotypic properties, multiple drug resistance (MDR) gene profiles, and genes related to potential virulence and pathogenic properties of five Enterobacter bugandensis strains isolated from the International Space Station (ISS) were carried out and compared with genomes of three clinical strains. Whole genome sequences of ISS strains were characterized using the hybrid de novo assembly of Nanopore and Illumina reads. In addition to traditional microbial taxonomic approaches, multilocus sequence typing (MLST) analysis was performed to classify the phylogenetic lineage. Agar diffusion discs assay was performed to test antibiotics susceptibility. The draft genomes after assembly and scaffolding were annotated with the Rapid Annotations using Subsystems Technology and RNAmmer servers for downstream analysis.",
+    "Results",
+    "Molecular phylogeny and whole genome analysis of the ISS strains with all publicly available Enterobacter genomes revealed that ISS strains were E. bugandensis and similar to the type strain EB-247T and two clinical isolates (153_ECLO and MBRL 1077). Comparative genomic analyses of all eight E. bungandensis strains showed, a total of 4733 genes were associated with carbohydrate metabolism (635 genes), amino acid and derivatives (496 genes), protein metabolism (291 genes), cofactors, vitamins, prosthetic groups, pigments (275 genes), membrane transport (247 genes), and RNA metabolism (239 genes). In addition, 112 genes identified in the ISS strains were involved in virulence, disease, and defense. Genes associated with resistance to antibiotics and toxic compounds, including the MDR tripartite system were also identified in the ISS strains. A multiple antibiotic resistance (MAR) locus or MAR operon encoding MarA, MarB, MarC, and MarR, which regulate more than 60 genes, including upregulation of drug efflux systems that have been reported in Escherichia coli K12, was also observed in the ISS strains.",
+    "Conclusion",
+    "Given the MDR results for these ISS Enterobacter genomes and increased chance of pathogenicity (PathogenFinder algorithm with > 79% probability), these species pose important health considerations for future missions. Thorough genomic characterization of the strains isolated from ISS can help to understand the pathogenic potential, and inform future missions, but analyzing them in in-vivo systems is required to discern the influence of microgravity on their pathogenicity.",
+    "Electronic supplementary material",
+    "The online version of this article (10.1186/s12866-018-1325-2) contains supplementary material, which is available to authorized users."
+  ],
+  "INTRO": [
+    "Background",
+    "Enterobacter species are facultative anaerobic, Gram-stain-negative, and saprophytic microorganisms found in soil, sewage, and as a commensal enteric flora of the human gastrointestinal tract. They have been associated with nosocomial infection in humans, causing bacteremia, endocarditis, septic arthritis, osteomyelitis, skin and soft tissue infections, lower respiratory tract, urinary tract, and intra-abdominal infections. Some Enterobacter have also been reported plant pathogens. Antibiotic resistance and its clinical implications have been extensively studied in genus Enterobacter, especially Enterobacter cloacae, which is resistant to cephalosporins, ampicillin, amoxicillin, and cefoxitin.",
+    "In an ongoing effort of the International Space Station (ISS) Microbial Observatory investigation, the National Aeronautics and Space Administration (NASA) is cataloging the total and viable microbial communities of crew-associated environments using cultivation and molecular techniques of microbial detection. As a result, five isolates belonging to the Enterobacter bugandensis group of bacteria from two different locations of the ISS were isolated. Since the initial molecular screening identified these strains as Enterobacter but the identification was not able to resolve their taxonomy to species level, detailed genomic characterizations were warranted in addition to the traditional microbiological characterization. Due to its unstable taxonomic structure, methods utilized for the speciation of Enterobacter varied widely. Commercial biochemical typing systems such as API® 20E or Vitek® 2, and matrix-assisted laser desorption ionization–time of flight mass spectrometry (MALDI-TOF MS) methods have been used, but with limited success. On the basis of 16S rRNA analysis, Enterobacter was structured as a polyphyletic genus and most of the species could not be resolved. Therefore, multilocus sequence typing (MLST) analysis was found to be more appropriate for phylogenetic classification of Enterobacter species.",
+    "To resolve this question further, whole genome sequencing (WGS) and de novo assembly was performed on all five ISS E. bugandensis strains, creating MLST and genome variation profiles of the ISS strains. Furthermore, comparative genome alignment of the ISS strains with all publicly available 1291 Enterobacter genomes revealed that genomes of these five ISS strains were highly similar to only three clinical E. bugandensis with very high genome similarities and formed a unique ecotype. They are (a) EB-247 strain, isolated from neonatal blood of a patient from Tanzania, (b) 153_ECLO strain, isolated from the urine of a neonatal patient strain admitted to the University of Washington Medical Center, Seattle, WA and (c) MBRL 1077 strain, a carbapenemase-producing strain isolated from the wound of a 72-year-old woman with a history of cutaneous scleroderma, medically complicated obesity, and venous insufficiency. In this study, comparative genomic analyses of five ISS strains and three clinical isolates were carried out to elucidate antimicrobial resistance (AMR) phenotypic properties, MDR gene profiles, and genes related to potential virulence and pathogenic potential of the ISS Enterobacter strains."
+  ],
+  "METHODS": [
+    "Methods",
+    "Sample collection from ISS environmental surfaces, processing, cultivation of bacteria were already reported. When 105 bacterial strains isolated from various ISS locations were analyzed for their phylogenetic affiliations, five isolates were identified as Enterobacter bugandensis. The five Enterobacter isolates characterized during this study were isolated from two different locations of the ISS flight in March 2015. Four isolates were isolated from the waste and hygiene compartment (WHC), and one strain from the Advanced Resistive Exercise Device (ARED) foot platform of ISS.",
+    "Phenotypic characterization",
+    "The isolates were biochemically identified using Vitek®2 Compact gram-negative (GN) cards (bioMerieux, Inc., Hazelwood, MO) and BioLog (Hayward, CA) carbon substrate utilization profile characterization. Sample preparation for MALDI-TOF MS protein analysis was carried out as previously established. MALDI-TOF mass spectra were obtained from an Ultraflex III instrument (Bruker Daltonik, Billerica, MA) operated in linear positive mode under Flex-Control 3.1 software. Mass spectra were processed using Flex Analysis (version 3.1; Bruker Daltonik) and BioTyper software (version 3.1; Bruker Daltonik).",
+    "Genome sequence analysis",
+    "Genomic DNA extraction was performed as described previously. WGS was performed on the Oxford Nanopore MinION (Oxford, United Kingdom) and Illumina MiSeq sequencing platform (San Diego, CA). A hybrid approach was utilized for genome assembly using reads from both platforms. Nanopore reads were processed using Poretools toolkit for the purposes of quality control and downstream analysis. Error corrected Nanopore and MiSeq reads were assembled using SPAdes. Scaffolding of the assembled contigs was done using SSpace and gap filling was executed using GapFiller. The draft genomes after assembly and scaffolding were annotated with the help of the Rapid Annotations using Subsystems Technology (RAST) and RNAmmer servers for downstream analysis ISS strains assembly characteristics are given in Additional file 1: Table S1. The 16S rRNA, gyrB, and rpoB gene sequences were retrieved from the WGS and analyzed for their phylogenetic affiliations. The neighbor-joining phylogenetic analysis was performed using the MEGA7 software package. MLST analysis was carried out as described previously. The MLST scheme employed here uses seven house-keeping genes: dnaA (DNA replication initiator), fusA (codes Elongation factor G), gyrB (DNA replication and repair), leuS (Leucine tRNA ligase), pyrG (CTP synthase), rplB (50S ribosomal protein), and rpoB (β subunit of bacterial RNA polymerase). The retrieved sequences were compared with the sequence types deposited at E. cloacae MLST database, concatenated according to the MLST scheme. The genes were analyzed independently, or as a single concatenate using neighbor-joining algorithms.",
+    "The SNP-based phylogenetic tree was generated using CSIPhylogeny version 1.4. Using genome sequences of multiple isolates CSIPhylogeny calls SNP, filters the SNPs, performs site validation, and infers a phylogeny based on the concatenated alignment of high-quality SNPs. The analysis included Enterobacter reference whole genome sequences which were downloaded from the NCBI GenBank database. This genome-wide SNP analysis allows for higher resolution phylogenetic analysis compared to other methods, which is necessary for comparing highly similar genomes. All positions containing gaps and missing data were eliminated. A total of 3832 positions in the dataset were used to confer the final tree.",
+    "Hybrid-genome-assembly (ONT and Illumina data) of strain IF3SW-P2 was nominated as reference genome of the 5 strains sequenced. The IF3SW-P2 genome was used to realign the Illumina MiSeq reads with reads of other 4 strains using bwa-mem (http://bio-bwa.sourceforge.net/). Postprocessing of the BAM files was performed using SAMtools and picard (https://github.com/broadinstitute/picard). GATK HaplotypeCaller (https://software.broadinstitute.org/gatk/) was used for SNP and indels identification.",
+    "Pairwise average nucleotide index (ANI) was calculated using the algorithm from Goris et al. 2007 and GC content was determined using EzTaxon-e. Digital DNA-DNA hybridization (dDDH) was performed using the Genome-to-Genome Distance Calculator 2.0 (GGDC 2.0). Briefly, the genome sequences in FASTA format were submitted to GGDC 2.0 along with the sequences in FASTA format for the Enterobacter reference genome that were available: E. aerogenes KCTC 2190, E. asburiae ATCC 35953, E. bugandensis EB-247T, E. cancerogenus ATCC 35316, E. cloacae ATCC 13047, E. hormaechei ATCC 49162, E. kobei DSM 13645, E. lignolyticus SCF1, E. ludwigii EN119, E. massiliensis JC163, E. mori LMG25706, E. muelleri JM-458T, E. xiangfangensis LMG 27195, and E. soli ATCC BAA-2102. The results were obtained by comparing query genomes (ISS isolates) with each of the reference genomes to calculate dDDH and intergenomic distances. Global comparison of ISS isolates with other species was done using local BLAST. Genome sequence assemblies were aligned using BLASTN and the diagrammatic view was created using BLAST Ring Image Generator (BRIG) software.",
+    "Nucleotide sequence deposition",
+    "The WGS data submitted to the National Center for Biotechnology Information (NCBI) GenBank and NASA GenLab databases were downloaded and characterized during this study. The complete genome sequences of all ISS strains were deposited in NCBI under Bioproject PRJNA319366 as well as at the NASA GeneLab system (GLDS-67; https://genelab-data.ndc.nasa.gov/genelab/accession/GLDS-67/#). The GenBank/EMBL/DDBJ accession numbers for the 16S rRNA gene sequence of isolated strains are: IF2SW-B1 (KY218809), IF2SW-B5 (KY218813), IF2SW-P2 T (KY218815), IF2SW-P3 (KY218816), and IF3SW-P2 (KY218819)."
+  ],
+  "RESULTS": [
+    "Results",
+    "Phenotypic characteristics",
+    "The ISS strains showed aerobic, motile, rod shape, Gram stain negative characteristics; colonies were pale yellow in color, formed within 24–36 h at 35 °C on R2A, TSA, and blood agar. Growth was observed at 1–8% NaCl and in pH range 5–7. The Vitek and BioLog systems as well as MALDI-TOF profiles identified the ISS strains as E. ludwigii. The MALDI-TOF profile scores for the tested strains were 2.16 (E. ludwigii) and 2.10 (E. asburiae). In general, no noticeable phenotypic differences were observed among the Enterobacter species tested including E. bugandensis EB-247T, whose genome is closer to ISS strains. As reported earlier, all these five ISS Enterobacter isolates were resistant to cefazolin, cefoxitin, oxacillin, penicillin and rifampin, while for ciprofloxacin and erythromycin, strains were either resistant or intermediate resistant. For gentamycin and tobramycin some strains were resistant, some intermediate resistant, and some susceptible.",
+    "Molecular phylogeny",
+    "The 16S rRNA gene sequencing of all five isolates placed them within the Enterobacter group and showed maximum similarity (99.6%) with E. bugandensis EB-247T, E. cancerogenus LMG 2693, E. ludwigii EN-119, and E. mori R18–2 (99 to 100%). Since 16S rRNA gene sequencing analysis is insufficient to differentiate Enterobacter species, polygenic and whole genome-based analyses were further attempted. All ISS strains were phylogenetically characterized by the gyrB locus (~ 1.9 kb) and showed that the ISS isolates form a close group with E. bugandensis EB-247T and 153_ECLO strains (> 99%) while MBRL 1077 isolate was exhibiting 97% similarity with high bootstrap value.",
+    "MLST analysis",
+    "The genomic contigs of the ISS isolates were searched for gene sequences of dnaA, fusA, gyrB. leuS, pyrG, rplB, and rpoB, which are standardized for the use of MLST analysis and reported for E. cloacae species. The good congruence between the single-gene reconstructions and the concatenate reinforced the stability of the genealogy were observed. The reconstruction was based on the RAxML algorithm and the resulting MLST tree (Fig. 1) shows that the ISS isolates are phlylogenetically related to E. bugandensis clinical strains (EB-247, strain 153_ECLO, and isolate MBRL 1077).",
+    "SNP analysis",
+    "Even though MLST analysis was clearly able to genomically resolve the ISS isolates to species level and distinguish them from other members of the genus Enterobacter, whole genome SNP analysis, SNP tree analysis excluding plasmid sequences, was carried out to validate these results. The snpTree does not ignore any nucleotide positions and is able to consider 100% of the chromosomal genome. All the available WGS of the Enterobacter genus reference genomes from GenBank were used for SNP analysis with snpTree. Of the 22 total nucleotide sequences; 58,121 positions were found in all analyzed genomes and 3832 positions in the dataset were used to confer the final tree (Fig. 2). The snpTree analyses confirmed and gave a strong validation to the MLST/gyrB data, confirming that all ISS isolates are E. bugandensis but strain MBRL 1077 grouped differently from the members of the E. bugandensis group.",
+    "SNP identification within ISS strains was carried out using GATK HaplotypeCaller. Filtered SNP calls and indels (after removal of false positives) are given in the Additional file 1: Table S1. Post-filtration analyses showed that there were 9, 12, 15, 13, and 0 SNPs seen in IF2SWB1, IF2SWB5, IF2SWP2, IS2WP3 and IS3SWP2, respectively. Further 6, 0, 4, 6, and 0 indels were seen in IF2SWB1, IF2SWB5, IF2SWP2, IS2WP3 and IS3SWP2, respectively (Additional file 1: Table S1). A maximum of 15 SNPs was observed among ISS isolates, probably being clonal in origin, with a very recent common ancestor. However, it should be noted that 4 strains were isolated from location #2 (space toilet) and one strain from the exercise platform (ARED).",
+    "ANI values and digital DNA-DNA hybridization",
+    "The ANI values for the ISS strains were maximum against E. bugandensis EB-247, 153_ECLO, and MBRL 1077 strains (> 95%) as were those of MLST analyses, and the ANI values of rest of the Enterobacter genomes tested were < 91% (Table 1). The digital DNA-DNA hybridization (dDDH) results of the ISS strain showed high similarity with E. bugandensis EB-247 (89.2%), 153_ECLO (89.4%), and MBRL 1077 (64%) strains whereas dDDH value was < 44.6% to all the other available Enterobacter reference genomes (Table 1). Based on various molecular analyses attempted during this study all five ISS Enterobacter strains were phenotypically and genotypically identified as E. bugandensis.",
+    "Functional characteristics",
+    "A detailed genome analysis of all five ISS strains and 3 clinical isolates were carried out to understand its genetic makeup. A total of 4733 genes were classified as carbohydrate metabolism (635 genes), amino acid and derivatives (496 genes), protein metabolism (291 genes), cofactors, vitamins, prosthetic groups, pigments (275 genes), membrane transport (247 genes), and RNA metabolism (239 genes) (Fig. 3). To test antimicrobial resistance at genomic level, the ISS strains were further compared with nosocomial isolates (1291 genomes) having more than 95% ANI identity with the ISS strains, which taxonomically identified them as same species. Genomes of the clinical strains of E. bugandensis 247, 153_ECLO, and MBRL-1077, whose ANI values were > 95%, were used for the genetic comparison to further broaden the picture.",
+    "Features playing a broad role and implemented by the same domain such as Spectinomycin 9-O-adenylyltransferase and Streptomycin 3-O-adenylyltransferase (EC 2.7.7.47) were only present in E. bugandensis 247 due to the probable lack of selective pressure that might have been encountered by the ISS isolates (Table 2). The predicted arsenic resistance (arsenic resistance protein, ArsH) noticed in E. bugandensis 247 but not in other strains should be phenotypically tested to confirm the resistance properties conferred in strain E. bugandensis 247 and cross checked with the ISS strains for their inability to degrade arsenic. Trace metals detected in ISS potable water samples, but typically below potability requirements, included arsenic, barium, chromium, copper, iron, manganese, molybdenum, nickel, lead, selenium, and zinc. No mercury or cadmium was detected and the arsenic levels varied from nondetectable in water samples to a maximum of 3.8 μg/L.",
+    "Global comparison of ISS genomes with other Enterobacter genomes",
+    "A visualization program was reported to be invaluable in determining the genotypic differences between closely related prokaryotes. Visualizing a prokaryote genome as a circular image has become a powerful means of displaying informative comparisons of one genome to a number of others. Using BRIG, a global visual comparison of ISS isolates with other Enterobacter WGS from the GenBank Microbial Genomes Resource was carried out. The resulting output of the BRIG analysis, a visualization image, showed draft genome assembly information, read coverage, assembly breakpoints, and collapsed repeats. The mapping of unassembled sequencing reads of the ISS genomes against fully annotated E. cloacae central reference sequences is depicted in Fig. 4."
+  ],
+  "FIG": [
+    "Multiple-locus sequence types (MLST) analysis of ISS strains and related species of the Enterobacter. The obtained genomic contigs of the ISS isolates (in bold) were searched for gene sequences of dnaA, fusA, gyrB, leuS, pyrG, rplB, and rpoB, which are standardized for the use in MLST analysis and reported for E. cloacae species. The retrieved sequences were compared with the sequence types deposited at the Enterobacter MLST database, concatenated according to the MLST scheme. The reconstruction was based on the RAxML algorithm, and the bootstrap values were calculated using 1000 replicates. The bar indicates 2% sequence divergence",
+    "Single nucleotide polymorphism (SNP) based phylogenetic tree, showing the relationship between the ISS isolates (in bold) and members of the Enterobacter genus. The tree was generated using CSI Phylogeny version 1.4",
+    "Metabolic functional profiles and subsystem categories distribution of strain IF3SW-P2. 4733 genes were identified that dominated by carbohydrate metabolism followed by amino acid and derivatives",
+    "Global comparison of ISS E. bugandensis with other Enterobacter WGS from NCBI Microbial Genomes Resource was done using BRIG. Genome sequence assemblies were aligned using BLASTN and the diagrammatic view was created using BRIG software. The innermost ring indicates the genomic position of the reference genome (E. bugandensis 247T), next ring indicates GC content, and the third ring indicates GC skewness. The remaining 21 rings indicate the presence or absence of BLASTN hits at that position. Each ring represents WGS of single Enterobacter species, each shown in different color. Positions covered by BLASTN alignments are indicated in solid colors and gaps (white spaces) represent genomic regions not covered by BLASTN alignments. Order of genome from inner ring to outer is as follow: E. aerogenes KCTC 2190, E. asburiae ATCC 35953 T, E. bugandensis EB-247T, E. cancerogenus ATCC 35316, E. bugandensis 153_ECLO, E. cloacae ATCC 13047T, E. bugandensis MBRL1077, E. hormaechei ATCC 49162T, E. kobei DSM 13645T, E. lignolyticus SCF1, E. ludwigii EN-119T, E. massiliensis JC163T, E. mori LMG 25706T, E. muelleri JM-458T, Enterobacter soli ATCC BAA-2102T, Enterobacter xiangfangensis LMG 27195T, E. bugandensis IF2SW-B1, E. bugandensis IF2SW-B5, E. bugandensis IF2SW-P2, E. bugandensis IF2SW-P3, E. bugandensis IF3SW-P2, Xenorhabdus nematophila ATCC 19061T"
+  ],
+  "TABLE": [
+    "Digital DDH and ANI values of ISS strains and comparison with various Enterobacter species",
+    "Bacteria\tStrain number\tSource\tGenBank accession number\tISS Enterobacter bugandensis isolates (n = 5)\t \tdDDH\tANI (%)\t \tE. bugandensis\tIF2SW-P2\tISS-WHC\tPOUR00000000\t100\t100.00\t \tE. bugandensis\tIF2SW-B1\tISS-WHC\tPOUQ00000000\t100\t99.99\t \tE. bugandensis\tIF2SW-B5\tISS-WHC\tRBVJ00000000\t100\t99.99\t \tE. bugandensis\tIF2SW-P3\tISS-WHC\tPOUP00000000\t100\t99.99\t \tE. bugandensis\tIF3SW-P2\tISS-AREED\tPOUO00000000\t100\t99.99\t \tE. bugandensis\tEB-247T\tNosocomial\tFYBI00000000\t89.2\t98.66\t \tE. bugandensis\t153 ECLO\tNosocomial\tNZ_JVSD00000000\t89.4\t98.73\t \tE. bugandensis\tMBRL1077\tNosocomial\tPRJNA310238\t63.9\t95.26\t \tE. aerogenes\tKCTC 2190\tNosocomial\tCP002824\t22.7\t78.74\t \tE. asburiae\tATCC 35953T\tNosocomial\tNZ_CP011863\t30.4\t85.59\t \tE. cancerogenus\tATCC 35316\tStool\tNZ_ABWM00000000\t31.8\t86.10\t \tE. cloacae\tATCC 13047T\tSpinal fluid\tNC_014121\t35.4\t87.91\t \tE. hormaechei\tATCC 49162T\tSputum\tAFHR01000000\t35.4\t87.82\t \tE. kobei\tDSM 13645T\tBlood\tNZ_CP017181\t42.8\t90.54\t \tE. lignolyticus\tSCF1\tSoil\tCP002272\t23.5\t79.98\t \tE. ludwigii\tEN-119T\tHuman\tNZ_CP017279\t34.4\t87.57\t \tE. massiliensis\tJC163T\tStool\tNZ_CAEO00000000\t22.8\t79.07\t \tE. mori\tLMG 25706T\tMulberry\tNZ_AEXB00000000\t37.0\t88.59\t \tE. muelleri\tJM-458T\tRhizosphere\tFXLQ00000000\t44.6\t90.77\t \tXenorhabdus nematophila\tATCC 19061T\tIntestine\tFN667742\t22.8\t69.41",
+    "dDDH digital DNA-DNA hybridization, ANI Average Nucleotide Identity, WHC Waste and Hygiene Compartment, ARED Advanced resistive exercise device (ARED) foot platform",
+    "Comparative analyses of antimicrobial gene profiles of E. bungandensis isolated from ISS and clinical sources",
+    "AMR genes and its role\tAMR genes that are present in the strains that are:\t \tISS (n = 5)\t153 ECLO\tMBRL 1077\tEB247\t \tCystine ABC transporter, ATP-binding protein\t+\t+\t+\t+\t \tCystine ABC transporter, permease protein\t+\t+\t+\t+\t \tD-cysteine desulfhydrase (EC 4.4.1.15)\t+\t+\t+\t+\t \tSpectinomycin 9-O-adenylyltransferase\t\t\t\t+\t \tStreptomycin 3-O-adenylyltransferase (EC 2.7.7.47)\t\t\t\t+\t \tArsenate reductase (EC 1.20.4.1)\t+\t+\t+\t+\t \tArsenic efflux pump protein\t+\t+\t+\t+\t \tArsenic resistance protein ArsH\t\t\t\t+\t \tArsenical resistance operon repressor\t+\t+\t+\t+\t \tBeta-lactamase (EC 3.5.2.6)\t+\t+\t+\t+\t \tBeta-lactamase class C and other penicillin binding proteins\t\t\t+\t\t \tMetal-dependent hydrolases of the beta-lactamase superfamily I\t+\t+\t+\t+\t \tCation efflux system protein CusA\t+\t+\t+\t+\t \tCation efflux system protein CusC precursor\t\t\t+\t+\t \tCation efflux system protein CusF precursor\t\t\t+\t+\t \tCobalt-zinc-cadmium resistance protein\t+\t+\t+\t+\t \tCobalt-zinc-cadmium resistance protein CzcA\t+\t+\t+\t+\t \tCobalt/zinc/cadmium efflux RND transporter, membrane fusion protein, CzcB family\t\t\t+\t+\t \tCopper-sensing two-component system response regulator CusR\t\t\t+\t+\t \tDNA-binding heavy metal response regulator\t+\t+\t+\t+\t \tHeavy metal sensor histidine kinase\t\t\t\t+\t \tProbable Co/Zn/Cd efflux system membrane fusion protein\t+\t+\t+\t+\t \tZinc transporter ZitB\t+\t+\t+\t+\t \tAcetyl-coenzyme A carboxyl transferase beta chain (EC 6.4.1.2)\t+\t+\t+\t+\t \tAmidophosphoribosyltransferase (EC 2.4.2.14)\t+\t+\t+\t+\t \tColicin V production protein\t+\t+\t+\t+\t \tDedA protein\t+\t+\t+\t+\t \tDedD protein\t+\t+\t+\t+\t \tDihydrofolate synthase (EC 6.3.2.12)\t+\t+\t+\t+\t \tFolylpolyglutamate synthase (EC 6.3.2.17)\t+\t+\t+\t+\t \ttRNA pseudouridine synthase A (EC 4.2.1.70)\t+\t+\t+\t+\t \tBlue copper oxidase CueO precursor\t+\t+\t+\t+\t \tCopper resistance protein C precursor\t+\t+\t+\t+\t \tCopper resistance protein D\t+\t+\t+\t+\t \tCopper-translocating P-type ATPase (EC 3.6.3.4)\t+\t+\t+\t+\t \tCopper homeostasis protein CutE\t+\t+\t+\t+\t \tCopper homeostasis protein CutF precursor\t+\t+\t+\t+\t \tMagnesium and cobalt efflux protein CorC\t+\t+\t+\t+\t \tMembrane protein, suppressor for copper-sensitivity ScsB\t+\t+\t+\t+\t \tMembrane protein, suppressor for copper-sensitivity ScsD\t+\t+\t+\t+\t \tSecreted protein, suppressor for copper-sensitivity ScsC\t+\t+\t+\t+\t \tSuppression of copper sensitivity: putative copper binding protein ScsA\t+\t+\t+\t+\t \tFosfomycin resistance protein FosA\t+\t+\t+\t+\t \tMembrane-bound lysozyme inhibitor of c-type lysozyme\t+\t+\t+\t+\t \t16 kDa heat shock protein A\t+\t+\t+\t+\t \t16 kDa heat shock protein B\t+\t+\t+\t+\t \tHTH-type transcriptional regulator YidP\t+\t+\t+\t+\t \tMediator of hyperadherence YidE\t+\t+\t+\t+\t \tOuter membrane lipoprotein YidQ\t+\t+\t+\t+\t \tUncharacterized protein YidR\t+\t+\t+\t+\t \tMercuric ion reductase (EC 1.16.1.1)\t\t\t\t+\t \tPF00070 family, FAD-dependent NAD(P)-disulphide oxidoreductase\t+\t+\t+\t+\t \tMercuric resistance operon coregulator\t\t\t\t+\t \tMercuric resistance operon regulatory protein\t\t\t\t+\t \tMercuric transport protein, MerE\t\t\t\t+\t \tAcriflavin resistance protein\t+\t+\t+\t+\t \tMacrolide export ATP-binding/permease protein MacB (EC 3.6.3.-)\t+\t+\t+\t+\t \tMacrolide-specific efflux protein MacA\t+\t+\t+\t+\t \tMembrane fusion protein of RND family multidrug efflux pump\t+\t+\t+\t+\t \tMulti antimicrobial extrusion protein (Na(+)/drug antiporter), MATE family of MDR efflux pumps\t+\t+\t+\t+\t \tMultidrug-efflux transporter, major facilitator superfamily (MFS) (TC 2.A.1)\t+\t+\t+\t+\t \tProbable transcription regulator protein of MDR efflux pump cluster\t+\t+\t+\t+\t \tRND efflux system, inner membrane transporter CmeB\t+\t+\t+\t+\t \tRND efflux system, membrane fusion protein CmeA\t+\t+\t+\t+\t \tRND efflux system, outer membrane lipoprotein CmeC\t+\t+\t\t+\t \tRND efflux system, outer membrane lipoprotein, NodT family\t+\t+\t+\t+\t \tTranscription repressor of multidrug efflux pump acrAB operon, TetR (AcrR) family\t+\t+\t+\t+\t \tType I secretion outer membrane protein, TolC precursor\t+\t+\t+\t+\t \tInner membrane component of tripartite multidrug resistance system\t+\t+\t+\t+\t \tMembrane fusion component of tripartite multidrug resistance system\t+\t+\t+\t+\t \tOuter membrane component of tripartite multidrug resistance system\t+\t+\t+\t+\t \tMultiple antibiotic resistance protein MarA\t+\t+\t+\t+\t \tMultiple antibiotic resistance protein MarB\t+\t+\t+\t+\t \tMultiple antibiotic resistance protein MarC\t+\t+\t+\t+\t \tMultiple antibiotic resistance protein MarR\t+\t+\t+\t+\t \tDNA-directed RNA polymerase beta subunit (EC 2.7.7.6)\t+\t+\t+\t+\t \tDNA-directed RNA polymerase beta' subunit (EC 2.7.7.6)\t+\t+\t+\t+\t \tLSU ribosomal protein L20p\t+\t+\t+\t+\t \tLSU ribosomal protein L35p\t+\t+\t+\t+\t \tTranslation initiation factor 3\t+\t+\t+\t+\t \tSSU ribosomal protein S12p (S23e)\t+\t+\t+\t\t \tSSU ribosomal protein S7p (S5e)\t+\t+\t+\t\t \tTranslation elongation factor G\t+\t+\t+\t\t \tTranslation elongation factor Tu\t+\t+\t+\t\t \tL-aspartate oxidase (EC 1.4.3.16)\t+\t+\t+\t+\t \tQuinolinate phosphoribosyltransferase [decarboxylating] (EC 2.4.2.19)\t+\t+\t+\t+\t \tQuinolinate synthetase (EC 2.5.1.72)\t+\t+\t+\t+\t \tDNA gyrase subunit A (EC 5.99.1.3)\t+\t+\t+\t+\t \tDNA gyrase subunit B (EC 5.99.1.3)\t+\t+\t+\t+\t \tTopoisomerase IV subunit A (EC 5.99.1.-)\t+\t+\t+\t+\t \tTopoisomerase IV subunit B (EC 5.99.1.-)\t+\t+\t+\t+\t \tStreptothricin acetyltransferase, Streptomyces lavendulae type\t+\t+\t+\t+\t \tMultidrug transporter MdtB\t+\t+\t+\t+\t \tMultidrug transporter MdtC\t+\t+\t+\t+\t \tMultidrug transporter MdtD\t+\t+\t+\t+\t \tProbable RND efflux membrane fusion protein\t+\t+\t+\t+\t \tResponse regulator BaeR\t+\t+\t+\t+\t \tSensory histidine kinase BaeS\t+\t+\t+\t+\t \tConserved uncharacterized protein CreA\t+\t+\t+\t+\t \tInner membrane protein CreD\t+\t+\t\t\t \tTwo-component response regulator CreB\t+\t+\t\t\t \tTwo-component response regulator CreC\t+\t+"
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "In summary, a comparative phenotypic and genotypic analyses of ISS isolates identified as E. bugandensis were carried out. Additional genomic analyses revealed a close genetic relatedness between ISS isolates and nosocomial earth isolates. MLST and whole genome SNP tree placed ISS and nosocomial isolates to a separate clade when phylogenetically aligned with other member of genus Enterobacter. A detailed functional and antimicrobial resistance analysis reveals that the ISS isolates have a 79% probability of being a human pathogen and share similar antimicrobial resistance pattern with E. bugandensis EB-247, MBRL-1077 and 153_ECLO strains, making them relevant for future missions and crew health considerations.",
+    "A total of 112 identified genes of the ISS strains were involved in virulence, disease, and defense. Genes associated with resistance to antibiotics and toxic compounds, including the multidrug resistance tripartite system (also known as 3-protein systems) as shown in a polychlorinated biphenyl-degrader, Burkholderia xenovorans LB400, was noticed in the ISS strain. This protein forms the basic structure and plays a crucial role in, the functioning of an efflux pump rendering a microbe drug resistant. A multiple antibiotic resistance (MAR) locus or MAR operon was observed in ISS strains, which codes for protein MarA, MarB, MarC, and MarR, and regulate more than 60 genes, including upregulation of drug efflux systems that have been reported in Escherichia coli K12. Aminoglycoside adenylyltransferases, whose role is spectinomycin 9-O-adenylyltransferases, which confers microbial resistance to the aminoglycosides in Salmonella enterica, was also seen in ISS strains. Similarly, resistance to fluoroquinolones due to a mutation in gyrA gene in S. enterica, and fosfomycin resistance due to the presence of FosA protein-coding gene, which catalyzes the addition of glutathione to C1 of the oxirane in Serratia marcescens, were observed in ISS strains. Multiple copies of multi-drug resistance (MDR) genes highly homologous to S. marcescens, a pathogen, were identified in the ISS Enterobacter genomes, which gives an indication that these strains may be a potential human pathogen. When tested with PathogenFinder algorithm, strain IF2SW-P2T had > 77% probability to be a human pathogen. When compared with E. cloacae ATCC 13047, which is a well-described human pathogen, all five ISS strains showed a > 79% probability score.",
+    "Astronauts have been taking beta-lactam based medical drugs for approximately two decades, and ß-lactamase (superfamily I [metal dependent hydrolases] and E.C.3.5.2.6) was present in all strains under study, while penicillin-binding proteins (PPB4B) were only present in MBRL-1077. Fluoroquinolone resistance due to gyrase and topoisomerase mutation was present in all the strains. Metal-dependent hydrolases, cation efflux system protein CusA, cobalt-zinc-cadmium resistance protein, cobalt-zinc-cadmium resistance protein CzcA, DNA-binding heavy metal response regulator, Co/Zn/Cd efflux system membrane fusion protein, zinc transporter ZitB were found in both ISS isolate and nosocomial organism understudy. These genes principally help in detoxification of periplasm by exporting toxic metal cation outside the cell. Determinants of the metal resistance are usually located on the plasmid and readily acquired from the environment and also complement antibiotic resistance. The plasmid encoded putative transcriptional regulators containing the CopG/Arc/MetJ DNA-binding domain and a metal-binding domain were present in the ISS strains (Additional file 2: Table S2). Further studies are required for phenotypic characterization to confirm this trait. Presence of active beta lactamase gene, efflux pump, and RND (resistance, nodulation and cell division protein family) protein family renders broad-spectrum resistance to ISS isolates from drugs and natural inhibitors.",
+    "We have recently observed that competency of bacteria to acquire foreign genetic material increases in microgravity (in preparation) and similar mechanism for metal resistance of ISS strain was also predicted. Antimicrobial and metal resistance is also conferred by RND genes, which were present in all the strains under study. Genomic analysis reveals the presence of genes associated with MDR efflux pump, belonging to RND, which are reported to be the major contributors of resistance to antibiotic and other toxic compounds to the bacteria. RND efflux system, inner membrane transporter CmeB, membrane fusion protein CmeA, outer membrane lipoprotein CmeC, outer membrane lipoprotein NodT family were found in all strains. These become important for the future space studies, as MDR has been reported to play role in the physiological function and confer resistance to the substances like bile, hormone and host defense molecule, which can make bacteria a dominant persistor and lead to pathogenicity in humans."
+  ],
+  "CONCL": [
+    "Conclusion",
+    "The genomic characterizations showed that the ISS Enterobacter strains might potentially exhibit pathogenicity to human. However, the pathogenicity of the ISS strains compared to clinical strains isolated from patients should be explored in vivo experiments before making any assumption about whether these potential AMR gene markers are due to spaceflight changes or not. Moreover, the transit time and route for the organisms from the ISS may have some small impact on the response or physiological traits of the bacteria. WGS is still an important tool to monitor transmission routes of opportunistic pathogen bacteria. To avoid this, future missions could utilize Nanopore sequencing directly in microgravity as well as additional function and taxonomic classification methods, and then leverage the above detailed analytic steps to gauge relevance for crew health and safety.",
+    "Additional files"
+  ],
+  "ABBR": [
+    "Abbreviation",
+    "AMR",
+    "Antimicrobial resistance",
+    "ANI",
+    "Average nucleotide index",
+    "ARED",
+    "Advanced Resistive Exercise Device",
+    "dDDH",
+    "Digital DNA-DNA hybridization",
+    "GGDC",
+    "Genome-to-Genome Distance Calculator",
+    "GN",
+    "Gram-negative",
+    "ISS",
+    "International Space Station",
+    "MALDI-TOF MS",
+    "Matrix-assisted laser desorption ionization–time of flight mass spectrometry",
+    "MAR",
+    "Multiple antibiotic resistance",
+    "MDR",
+    "Multiple drug resistance",
+    "MLST",
+    "Multilocus sequence typing",
+    "NASA",
+    "National Aeronautics and Space Administration",
+    "NCBI",
+    "National Center for Biotechnology Information",
+    "WGS",
+    "Whole genome sequencing",
+    "WHC",
+    "Waste and hygiene compartment"
+  ],
+  "AUTH_CONT": [
+    "Authors’ contributions",
+    "Conceived and designed the experiments: KV. Performed the experiments: NKS, DB, ACS and KW. Analyzed the data: NKS. CM structured and designed verification pipeline for carrying out sequencing, analysis of the de novo assemblies, including contig alignment, genome completion, and annotation checks. KW carried out the phenotypic assays of the antibiotic assays, Vitek-2 based biochemical characterization, and hemolytic characterization of the strains studied. Contributed reagents/materials/analysis tools and acquired funding: KV, CM. Wrote the paper: NKS, ACS, DB, CM, and KV. All authors read and approved the final manuscript.",
+    "Ethics approval and consent to participate",
+    "No formal ethics approval was required in this particular study.",
+    "Consent for publication",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "The authors declare that they have no competing interests",
+    "Publisher’s Note",
+    "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "REF": [
+    "References",
+    "Enterobacter cloacae complex: clinical impact and emerging antibiotic resistance",
+    "Enterobacter bacteremia: clinical features and emergence of antibiotic resistance during therapy",
+    "Enterobacter aerogenes and Enterobacter cloacae; versatile bacterial pathogens confronting antibiotic treatment",
+    "Enterobacter pyrinus sp. nov., an organism associated with Brown leaf spot disease of pear trees",
+    "The porin and the permeating antibiotic: a selective diffusion barrier in gram-negative bacteria",
+    "Clinical significance of community- and healthcare-acquired carbapenem-resistant Enterobacteriaceae isolates",
+    "Checinska A, Probst AJ, Vaishampayan P, White JR, Kumar D, Stepanov VG, Fox GE, Nilsson HR, Pierson DL, Perry J, et al. Microbiomes of the dust particles collected from the international Space Station and spacecraft assembly facilities. Microbiome. 2015;3(1).",
+    "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+    "Detection of antimicrobial resistance genes associated with the international Space Station environmental surfaces",
+    "Particular distribution of Enterobacter cloacae strains isolated from urinary tract infection within clonal complexes",
+    "MALDI-TOF MS as a tool to detect a nosocomial outbreak of extended-Spectrum-β-lactamase- and ArmA methyltransferase-producing Enterobacter cloacae clinical isolates in Algeria",
+    "Taxonomic evaluation of the genus Enterobacter based on multilocus sequence analysis (MLSA): proposal to reclassify E. nimipressuralis and E. amnigenus into Lelliottia gen. nov. as Lelliottia nimipressuralis comb. nov. and Lelliottia amnigena comb. nov., respectively, E. gergoviae and E. pyrinus into Pluralibacter gen. nov. as Pluralibacter gergoviae comb. nov. and Pluralibacter pyrinus comb. nov., respectively, E. cowanii, E. radicincitans, E. oryzae and E. arachidis into Kosakonia gen. nov. as Kosakonia cowanii comb. nov., Kosakonia radicincitans comb. nov., Kosakonia oryzae comb. nov. and Kosakonia arachidis comb. nov., respectively, and E. turicensis, E. helveticus and E. pulveris into Cronobacter as Cronobacter zurichensis nom. nov., Cronobacter helveticus comb. nov. and Cronobacter pulveris comb. nov., respectively, and emended description of the genera Enterobacter and Cronobacter",
+    "Enterobacter bugandensis sp. nov, isolated from neonatal blood",
+    "A year of infection in the intensive care unit: prospective whole genome sequencing of bacterial clinical isolates reveals cryptic transmissions and novel microbiota",
+    "Carbapenem- and Colistin-resistant Enterobacter cloacae from Delta, Colorado, in 2015",
+    "Evaluation of the VITEK 2 system for rapid identification of medically relevant gram-negative rods",
+    "Comparison of Biolog GEN III MicroStation semi-automated bacterial identification system with matrix-assisted laser desorption ionization-time of flight mass spectrometry and 16S ribosomal RNA gene sequencing for the identification of bacteria of veterinary interest",
+    "Schumann P, Maier T. Chapter 13 - MALDI-TOF mass spectrometry applied to classification and identification of Bacteria. In: Michael Goodfellow IS, Jongsik C, editors. Methods in Microbiology, vol. 41: Academic Press; 2014. p. 275–306.",
+    "Poretools: a toolkit for analyzing nanopore sequence data",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "Scaffolding pre-assembled contigs using SSPACE",
+    "GapFiller: a de novo assembly approach to fill the gap within paired reads",
+    "The RAST server: rapid annotations using subsystems technology",
+    "RNAmmer: consistent and rapid annotation of ribosomal RNA genes",
+    "Castro-Wallace SL, Chiu CY, John KK, Stahl SE, Rubins KH, McIntyre ABR, Dworkin JP, Lupisella ML, Smith DJ, Botkin DJ et al: Nanopore DNA sequencing and genome assembly on the international Space Station. bioRxiv 2016.",
+    "McIntyre ABR, Alexander N, Burton AS, Castro-Wallace S, Chiu CY, John KK, Stahl SE, Li S, Mason CE: Nanopore detection of bacterial DNA base modifications. bioRxiv 2017.",
+    "MEGA7: molecular evolutionary genetics analysis version 7.0 for bigger datasets",
+    "Multilocus sequence typing of total-genome-sequenced bacteria",
+    "Multilocus sequence typing (MLST) for characterization of Enterobacter cloacae",
+    "BIGSdb: scalable analysis of bacterial genome variation at the population level",
+    "Genome project data processing S: the sequence alignment/map format and SAMtools",
+    "DNA–DNA hybridization values and their relationship to whole-genome sequence similarities",
+    "Introducing EzTaxon-e: a prokaryotic 16S rRNA gene sequence database with phylotypes that represent uncultured species",
+    "Genome sequence-based species delimitation with confidence intervals and improved distance functions",
+    "Basic local alignment search tool",
+    "BLAST ring image generator (BRIG): simple prokaryote genome comparisons",
+    "RAxML-III: a fast program for maximum likelihood-based inference of large phylogenetic trees",
+    "Burkholderia xenovorans LB400 harbors a multi-replicon, 9.73-Mbp genome shaped for versatility",
+    "Multidrug resistance mechanisms: drug efflux across two membranes",
+    "Tripartite assembly of RND multidrug efflux pumps",
+    "The multiple antibiotic resistance regulator MarR is a copper sensor in Escherichia coli",
+    "Molecular mechanisms of antibiotic resistance",
+    "The multiple antibiotic resistance (mar) locus and its significance",
+    "Nucleotide sequence of a spectinomycin adenyltransferase AAD(9) determinant from Staphylococcus aureus and its relationship to AAD(3″) (9)",
+    "Relationship between mutations in the gyrA gene and quinolone resistance in clinical isolates of Corynebacterium striatum and Corynebacterium amycolatum",
+    "Fosfomycin resistance proteins: a nexus of glutathione transferases and epoxide hydrolases in a metalloenzyme superfamily",
+    "PathogenFinder - distinguishing friend from foe using bacterial whole genome sequence data",
+    "Complete genome sequence of Enterobacter cloacae subsp. cloacae type strain ATCC 13047",
+    "Review of antimicrobial resistance in the environment and its relevance to environmental regulators",
+    "Oves M. Antibiotics and heavy metal resistance emergence in water borne Bacteria. J Investig Genomics. 2016;3(2).",
+    "Landscape of resistance-nodulation-cell division (RND)-type efflux pumps in Enterobacter cloacae Complex",
+    "Bacterial multidrug efflux pumps: mechanisms, physiology and pharmacological exploitations",
+    "Nanopore DNA sequencing and genome assembly on the international Space Station"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enterobacter cloacae complex: clinical impact and emerging antibiotic resistance",
+      "autores": [
+        {
+          "nombre_completo": "ML Mezzatesta",
+          "nombres": "ML",
+          "apellidos": "Mezzatesta"
+        },
+        {
+          "nombre_completo": "F Gona",
+          "nombres": "F",
+          "apellidos": "Gona"
+        },
+        {
+          "nombre_completo": "S Stefani",
+          "nombres": "S",
+          "apellidos": "Stefani"
+        }
+      ],
+      "pmid": "22827309",
+      "fuente": "Future Microbiol",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "887",
+      "lpage": "902"
+    },
+    {
+      "titulo": "Enterobacter bacteremia: clinical features and emergence of antibiotic resistance during therapy",
+      "autores": [
+        {
+          "nombre_completo": "JW Chow",
+          "nombres": "JW",
+          "apellidos": "Chow"
+        },
+        {
+          "nombre_completo": "MJ Fine",
+          "nombres": "MJ",
+          "apellidos": "Fine"
+        },
+        {
+          "nombre_completo": "DM Shlaes",
+          "nombres": "DM",
+          "apellidos": "Shlaes"
+        },
+        {
+          "nombre_completo": "JP Quinn",
+          "nombres": "JP",
+          "apellidos": "Quinn"
+        },
+        {
+          "nombre_completo": "DC Hooper",
+          "nombres": "DC",
+          "apellidos": "Hooper"
+        },
+        {
+          "nombre_completo": "MP Johnson",
+          "nombres": "MP",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "R Ramphal",
+          "nombres": "R",
+          "apellidos": "Ramphal"
+        },
+        {
+          "nombre_completo": "MM Wagener",
+          "nombres": "MM",
+          "apellidos": "Wagener"
+        },
+        {
+          "nombre_completo": "DK Miyashiro",
+          "nombres": "DK",
+          "apellidos": "Miyashiro"
+        },
+        {
+          "nombre_completo": "VL Yu",
+          "nombres": "VL",
+          "apellidos": "Yu"
+        }
+      ],
+      "pmid": "1892329",
+      "fuente": "Ann Intern Med",
+      "anio": "1991",
+      "volumen": "115",
+      "fpage": "585",
+      "lpage": "590"
+    },
+    {
+      "titulo": "Enterobacter aerogenes and Enterobacter cloacae; versatile bacterial pathogens confronting antibiotic treatment",
+      "autores": [
+        {
+          "nombre_completo": "A Davin-Regli",
+          "nombres": "A",
+          "apellidos": "Davin-Regli"
+        },
+        {
+          "nombre_completo": "JM Pages",
+          "nombres": "JM",
+          "apellidos": "Pages"
+        }
+      ],
+      "pmid": "26042091",
+      "fuente": "Front Microbiol",
+      "anio": "2015",
+      "volumen": "6",
+      "fpage": "392",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enterobacter pyrinus sp. nov., an organism associated with Brown leaf spot disease of pear trees",
+      "autores": [
+        {
+          "nombre_completo": "YR Chung",
+          "nombres": "YR",
+          "apellidos": "Chung"
+        },
+        {
+          "nombre_completo": "DJ Brenner",
+          "nombres": "DJ",
+          "apellidos": "Brenner"
+        },
+        {
+          "nombre_completo": "AG Steigerwalt",
+          "nombres": "AG",
+          "apellidos": "Steigerwalt"
+        },
+        {
+          "nombre_completo": "BS Kim",
+          "nombres": "BS",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "HT Kim",
+          "nombres": "HT",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "KY Cho",
+          "nombres": "KY",
+          "apellidos": "Cho"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "1993",
+      "volumen": "43",
+      "fpage": "157",
+      "lpage": "161"
+    },
+    {
+      "titulo": "The porin and the permeating antibiotic: a selective diffusion barrier in gram-negative bacteria",
+      "autores": [
+        {
+          "nombre_completo": "JM Pages",
+          "nombres": "JM",
+          "apellidos": "Pages"
+        },
+        {
+          "nombre_completo": "CE James",
+          "nombres": "CE",
+          "apellidos": "James"
+        },
+        {
+          "nombre_completo": "M Winterhalter",
+          "nombres": "M",
+          "apellidos": "Winterhalter"
+        }
+      ],
+      "pmid": "18997824",
+      "fuente": "Nat Rev Microbiol",
+      "anio": "2008",
+      "volumen": "6",
+      "fpage": "893",
+      "lpage": "903"
+    },
+    {
+      "titulo": "Clinical significance of community- and healthcare-acquired carbapenem-resistant Enterobacteriaceae isolates",
+      "autores": [
+        {
+          "nombre_completo": "HJ Tang",
+          "nombres": "HJ",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "CF Hsieh",
+          "nombres": "CF",
+          "apellidos": "Hsieh"
+        },
+        {
+          "nombre_completo": "PC Chang",
+          "nombres": "PC",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "JJ Chen",
+          "nombres": "JJ",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "YH Lin",
+          "nombres": "YH",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "CC Lai",
+          "nombres": "CC",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "CM Chao",
+          "nombres": "CM",
+          "apellidos": "Chao"
+        },
+        {
+          "nombre_completo": "YC Chuang",
+          "nombres": "YC",
+          "apellidos": "Chuang"
+        }
+      ],
+      "pmid": "26999356",
+      "fuente": "PLoS One",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "e0151897",
+      "lpage": ""
+    },
+    {
+      "titulo": "Checinska A, Probst AJ, Vaishampayan P, White JR, Kumar D, Stepanov VG, Fox GE, Nilsson HR, Pierson DL, Perry J, et al. Microbiomes of the dust particles collected from the international Space Station and spacecraft assembly facilities. Microbiome. 2015;3(1).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J Cisneros",
+          "nombres": "J",
+          "apellidos": "Cisneros"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "SO Rogers",
+          "nombres": "SO",
+          "apellidos": "Rogers"
+        },
+        {
+          "nombre_completo": "J Perry",
+          "nombres": "J",
+          "apellidos": "Perry"
+        }
+      ],
+      "pmid": "24695826",
+      "fuente": "Appl Microbiol Biotechnol",
+      "anio": "2014",
+      "volumen": "98",
+      "fpage": "6453",
+      "lpage": "6466"
+    },
+    {
+      "titulo": "Detection of antimicrobial resistance genes associated with the international Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "AC Sielaff",
+          "nombres": "AC",
+          "apellidos": "Sielaff"
+        },
+        {
+          "nombre_completo": "KG Frey",
+          "nombres": "KG",
+          "apellidos": "Frey"
+        },
+        {
+          "nombre_completo": "JE Allen",
+          "nombres": "JE",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "N Singh",
+          "nombres": "N",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "C Jaing",
+          "nombres": "C",
+          "apellidos": "Jaing"
+        },
+        {
+          "nombre_completo": "K Wheeler",
+          "nombres": "K",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nat Sci Rep",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "814",
+      "lpage": ""
+    },
+    {
+      "titulo": "Particular distribution of Enterobacter cloacae strains isolated from urinary tract infection within clonal complexes",
+      "autores": [
+        {
+          "nombre_completo": "M Akbari",
+          "nombres": "M",
+          "apellidos": "Akbari"
+        },
+        {
+          "nombre_completo": "B Bakhshi",
+          "nombres": "B",
+          "apellidos": "Bakhshi"
+        },
+        {
+          "nombre_completo": "S Najar Peerayeh",
+          "nombres": "S",
+          "apellidos": "Najar Peerayeh"
+        }
+      ],
+      "pmid": "26498349",
+      "fuente": "Iran Biomed J",
+      "anio": "2016",
+      "volumen": "20",
+      "fpage": "49",
+      "lpage": "55"
+    },
+    {
+      "titulo": "MALDI-TOF MS as a tool to detect a nosocomial outbreak of extended-Spectrum-β-lactamase- and ArmA methyltransferase-producing Enterobacter cloacae clinical isolates in Algeria",
+      "autores": [
+        {
+          "nombre_completo": "NCH Khennouchi",
+          "nombres": "NCH",
+          "apellidos": "Khennouchi"
+        },
+        {
+          "nombre_completo": "L Loucif",
+          "nombres": "L",
+          "apellidos": "Loucif"
+        },
+        {
+          "nombre_completo": "N Boutefnouchet",
+          "nombres": "N",
+          "apellidos": "Boutefnouchet"
+        },
+        {
+          "nombre_completo": "H Allag",
+          "nombres": "H",
+          "apellidos": "Allag"
+        },
+        {
+          "nombre_completo": "J-M Rolain",
+          "nombres": "J-M",
+          "apellidos": "Rolain"
+        }
+      ],
+      "pmid": "26239991",
+      "fuente": "Antimicrob Agents Chemother",
+      "anio": "2015",
+      "volumen": "59",
+      "fpage": "6477",
+      "lpage": "6483"
+    },
+    {
+      "titulo": "Taxonomic evaluation of the genus Enterobacter based on multilocus sequence analysis (MLSA): proposal to reclassify E. nimipressuralis and E. amnigenus into Lelliottia gen. nov. as Lelliottia nimipressuralis comb. nov. and Lelliottia amnigena comb. nov., respectively, E. gergoviae and E. pyrinus into Pluralibacter gen. nov. as Pluralibacter gergoviae comb. nov. and Pluralibacter pyrinus comb. nov., respectively, E. cowanii, E. radicincitans, E. oryzae and E. arachidis into Kosakonia gen. nov. as Kosakonia cowanii comb. nov., Kosakonia radicincitans comb. nov., Kosakonia oryzae comb. nov. and Kosakonia arachidis comb. nov., respectively, and E. turicensis, E. helveticus and E. pulveris into Cronobacter as Cronobacter zurichensis nom. nov., Cronobacter helveticus comb. nov. and Cronobacter pulveris comb. nov., respectively, and emended description of the genera Enterobacter and Cronobacter",
+      "autores": [
+        {
+          "nombre_completo": "C Brady",
+          "nombres": "C",
+          "apellidos": "Brady"
+        },
+        {
+          "nombre_completo": "I Cleenwerck",
+          "nombres": "I",
+          "apellidos": "Cleenwerck"
+        },
+        {
+          "nombre_completo": "S Venter",
+          "nombres": "S",
+          "apellidos": "Venter"
+        },
+        {
+          "nombre_completo": "T Coutinho",
+          "nombres": "T",
+          "apellidos": "Coutinho"
+        },
+        {
+          "nombre_completo": "P De Vos",
+          "nombres": "P",
+          "apellidos": "De Vos"
+        }
+      ],
+      "pmid": "23632228",
+      "fuente": "Syst Appl Microbiol",
+      "anio": "2013",
+      "volumen": "36",
+      "fpage": "309",
+      "lpage": "319"
+    },
+    {
+      "titulo": "Enterobacter bugandensis sp. nov, isolated from neonatal blood",
+      "autores": [
+        {
+          "nombre_completo": "S Doijad",
+          "nombres": "S",
+          "apellidos": "Doijad"
+        },
+        {
+          "nombre_completo": "C Imirzalioglu",
+          "nombres": "C",
+          "apellidos": "Imirzalioglu"
+        },
+        {
+          "nombre_completo": "Y Yao",
+          "nombres": "Y",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "NB Pati",
+          "nombres": "NB",
+          "apellidos": "Pati"
+        },
+        {
+          "nombre_completo": "L Falgenhauer",
+          "nombres": "L",
+          "apellidos": "Falgenhauer"
+        },
+        {
+          "nombre_completo": "T Hain",
+          "nombres": "T",
+          "apellidos": "Hain"
+        },
+        {
+          "nombre_completo": "BU Foesel",
+          "nombres": "BU",
+          "apellidos": "Foesel"
+        },
+        {
+          "nombre_completo": "B Abt",
+          "nombres": "B",
+          "apellidos": "Abt"
+        },
+        {
+          "nombre_completo": "J Overmann",
+          "nombres": "J",
+          "apellidos": "Overmann"
+        },
+        {
+          "nombre_completo": "MM Mirambo",
+          "nombres": "MM",
+          "apellidos": "Mirambo"
+        }
+      ],
+      "pmid": "26637818",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "2016",
+      "volumen": "66",
+      "fpage": "968",
+      "lpage": "974"
+    },
+    {
+      "titulo": "A year of infection in the intensive care unit: prospective whole genome sequencing of bacterial clinical isolates reveals cryptic transmissions and novel microbiota",
+      "autores": [
+        {
+          "nombre_completo": "DJ Roach",
+          "nombres": "DJ",
+          "apellidos": "Roach"
+        },
+        {
+          "nombre_completo": "JN Burton",
+          "nombres": "JN",
+          "apellidos": "Burton"
+        },
+        {
+          "nombre_completo": "C Lee",
+          "nombres": "C",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "B Stackhouse",
+          "nombres": "B",
+          "apellidos": "Stackhouse"
+        },
+        {
+          "nombre_completo": "SM Butler-Wu",
+          "nombres": "SM",
+          "apellidos": "Butler-Wu"
+        },
+        {
+          "nombre_completo": "BT Cookson",
+          "nombres": "BT",
+          "apellidos": "Cookson"
+        },
+        {
+          "nombre_completo": "J Shendure",
+          "nombres": "J",
+          "apellidos": "Shendure"
+        },
+        {
+          "nombre_completo": "SJ Salipante",
+          "nombres": "SJ",
+          "apellidos": "Salipante"
+        }
+      ],
+      "pmid": "26230489",
+      "fuente": "PLoS Genet",
+      "anio": "2015",
+      "volumen": "11",
+      "fpage": "e1005413",
+      "lpage": ""
+    },
+    {
+      "titulo": "Carbapenem- and Colistin-resistant Enterobacter cloacae from Delta, Colorado, in 2015",
+      "autores": [
+        {
+          "nombre_completo": "AP Norgan",
+          "nombres": "AP",
+          "apellidos": "Norgan"
+        },
+        {
+          "nombre_completo": "JM Freese",
+          "nombres": "JM",
+          "apellidos": "Freese"
+        },
+        {
+          "nombre_completo": "PM Tuin",
+          "nombres": "PM",
+          "apellidos": "Tuin"
+        },
+        {
+          "nombre_completo": "SA Cunningham",
+          "nombres": "SA",
+          "apellidos": "Cunningham"
+        },
+        {
+          "nombre_completo": "PR Jeraldo",
+          "nombres": "PR",
+          "apellidos": "Jeraldo"
+        },
+        {
+          "nombre_completo": "R Patel",
+          "nombres": "R",
+          "apellidos": "Patel"
+        }
+      ],
+      "pmid": "26883705",
+      "fuente": "Antimicrob Agents Chemother",
+      "anio": "2016",
+      "volumen": "60",
+      "fpage": "3141",
+      "lpage": "3144"
+    },
+    {
+      "titulo": "Evaluation of the VITEK 2 system for rapid identification of medically relevant gram-negative rods",
+      "autores": [
+        {
+          "nombre_completo": "G Funke",
+          "nombres": "G",
+          "apellidos": "Funke"
+        },
+        {
+          "nombre_completo": "D Monnet",
+          "nombres": "D",
+          "apellidos": "Monnet"
+        },
+        {
+          "nombre_completo": "C de Bernardis",
+          "nombres": "C",
+          "apellidos": "de Bernardis"
+        },
+        {
+          "nombre_completo": "A von Graevenitz",
+          "nombres": "A",
+          "apellidos": "von Graevenitz"
+        },
+        {
+          "nombre_completo": "J Freney",
+          "nombres": "J",
+          "apellidos": "Freney"
+        }
+      ],
+      "pmid": "9650942",
+      "fuente": "J Clin Microbiol",
+      "anio": "1998",
+      "volumen": "36",
+      "fpage": "1948",
+      "lpage": "1952"
+    },
+    {
+      "titulo": "Comparison of Biolog GEN III MicroStation semi-automated bacterial identification system with matrix-assisted laser desorption ionization-time of flight mass spectrometry and 16S ribosomal RNA gene sequencing for the identification of bacteria of veterinary interest",
+      "autores": [
+        {
+          "nombre_completo": "P Wragg",
+          "nombres": "P",
+          "apellidos": "Wragg"
+        },
+        {
+          "nombre_completo": "L Randall",
+          "nombres": "L",
+          "apellidos": "Randall"
+        },
+        {
+          "nombre_completo": "AM Whatmore",
+          "nombres": "AM",
+          "apellidos": "Whatmore"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J Microbiol Meth",
+      "anio": "2014",
+      "volumen": "105",
+      "fpage": "16",
+      "lpage": "21"
+    },
+    {
+      "titulo": "Schumann P, Maier T. Chapter 13 - MALDI-TOF mass spectrometry applied to classification and identification of Bacteria. In: Michael Goodfellow IS, Jongsik C, editors. Methods in Microbiology, vol. 41: Academic Press; 2014. p. 275–306.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Poretools: a toolkit for analyzing nanopore sequence data",
+      "autores": [
+        {
+          "nombre_completo": "NJ Loman",
+          "nombres": "NJ",
+          "apellidos": "Loman"
+        },
+        {
+          "nombre_completo": "AR Quinlan",
+          "nombres": "AR",
+          "apellidos": "Quinlan"
+        }
+      ],
+      "pmid": "25143291",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "3399",
+      "lpage": "3401"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "Scaffolding pre-assembled contigs using SSPACE",
+      "autores": [
+        {
+          "nombre_completo": "M Boetzer",
+          "nombres": "M",
+          "apellidos": "Boetzer"
+        },
+        {
+          "nombre_completo": "CV Henkel",
+          "nombres": "CV",
+          "apellidos": "Henkel"
+        },
+        {
+          "nombre_completo": "HJ Jansen",
+          "nombres": "HJ",
+          "apellidos": "Jansen"
+        },
+        {
+          "nombre_completo": "D Butler",
+          "nombres": "D",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "W Pirovano",
+          "nombres": "W",
+          "apellidos": "Pirovano"
+        }
+      ],
+      "pmid": "21149342",
+      "fuente": "Bioinformatics",
+      "anio": "2011",
+      "volumen": "27",
+      "fpage": "578",
+      "lpage": "579"
+    },
+    {
+      "titulo": "GapFiller: a de novo assembly approach to fill the gap within paired reads",
+      "autores": [
+        {
+          "nombre_completo": "F Nadalin",
+          "nombres": "F",
+          "apellidos": "Nadalin"
+        },
+        {
+          "nombre_completo": "F Vezzi",
+          "nombres": "F",
+          "apellidos": "Vezzi"
+        },
+        {
+          "nombre_completo": "A Policriti",
+          "nombres": "A",
+          "apellidos": "Policriti"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2012",
+      "volumen": "13",
+      "fpage": "S8",
+      "lpage": ""
+    },
+    {
+      "titulo": "The RAST server: rapid annotations using subsystems technology",
+      "autores": [
+        {
+          "nombre_completo": "RK Aziz",
+          "nombres": "RK",
+          "apellidos": "Aziz"
+        },
+        {
+          "nombre_completo": "D Bartels",
+          "nombres": "D",
+          "apellidos": "Bartels"
+        },
+        {
+          "nombre_completo": "AA Best",
+          "nombres": "AA",
+          "apellidos": "Best"
+        },
+        {
+          "nombre_completo": "M DeJongh",
+          "nombres": "M",
+          "apellidos": "DeJongh"
+        },
+        {
+          "nombre_completo": "T Disz",
+          "nombres": "T",
+          "apellidos": "Disz"
+        },
+        {
+          "nombre_completo": "RA Edwards",
+          "nombres": "RA",
+          "apellidos": "Edwards"
+        },
+        {
+          "nombre_completo": "K Formsma",
+          "nombres": "K",
+          "apellidos": "Formsma"
+        },
+        {
+          "nombre_completo": "S Gerdes",
+          "nombres": "S",
+          "apellidos": "Gerdes"
+        },
+        {
+          "nombre_completo": "EM Glass",
+          "nombres": "EM",
+          "apellidos": "Glass"
+        },
+        {
+          "nombre_completo": "M Kubal",
+          "nombres": "M",
+          "apellidos": "Kubal"
+        }
+      ],
+      "pmid": "18261238",
+      "fuente": "BMC Genomics",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "75",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNAmmer: consistent and rapid annotation of ribosomal RNA genes",
+      "autores": [
+        {
+          "nombre_completo": "Karin Lagesen",
+          "nombres": "Karin",
+          "apellidos": "Lagesen"
+        },
+        {
+          "nombre_completo": "Peter Hallin",
+          "nombres": "Peter",
+          "apellidos": "Hallin"
+        },
+        {
+          "nombre_completo": "Einar Andreas Rødland",
+          "nombres": "Einar Andreas",
+          "apellidos": "Rødland"
+        },
+        {
+          "nombre_completo": "Hans-Henrik Stærfeldt",
+          "nombres": "Hans-Henrik",
+          "apellidos": "Stærfeldt"
+        },
+        {
+          "nombre_completo": "Torbjørn Rognes",
+          "nombres": "Torbjørn",
+          "apellidos": "Rognes"
+        },
+        {
+          "nombre_completo": "David W. Ussery",
+          "nombres": "David W.",
+          "apellidos": "Ussery"
+        }
+      ],
+      "pmid": "17452365",
+      "fuente": "Nucleic Acids Research",
+      "anio": "2007",
+      "volumen": "35",
+      "fpage": "3100",
+      "lpage": "3108"
+    },
+    {
+      "titulo": "Castro-Wallace SL, Chiu CY, John KK, Stahl SE, Rubins KH, McIntyre ABR, Dworkin JP, Lupisella ML, Smith DJ, Botkin DJ et al: Nanopore DNA sequencing and genome assembly on the international Space Station. bioRxiv 2016.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "McIntyre ABR, Alexander N, Burton AS, Castro-Wallace S, Chiu CY, John KK, Stahl SE, Li S, Mason CE: Nanopore detection of bacterial DNA base modifications. bioRxiv 2017.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "MEGA7: molecular evolutionary genetics analysis version 7.0 for bigger datasets",
+      "autores": [
+        {
+          "nombre_completo": "S Kumar",
+          "nombres": "S",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "G Stecher",
+          "nombres": "G",
+          "apellidos": "Stecher"
+        },
+        {
+          "nombre_completo": "K Tamura",
+          "nombres": "K",
+          "apellidos": "Tamura"
+        }
+      ],
+      "pmid": "27004904",
+      "fuente": "Mol Biol Evol",
+      "anio": "2016",
+      "volumen": "33",
+      "fpage": "1870",
+      "lpage": "1874"
+    },
+    {
+      "titulo": "Multilocus sequence typing of total-genome-sequenced bacteria",
+      "autores": [
+        {
+          "nombre_completo": "MV Larsen",
+          "nombres": "MV",
+          "apellidos": "Larsen"
+        },
+        {
+          "nombre_completo": "S Cosentino",
+          "nombres": "S",
+          "apellidos": "Cosentino"
+        },
+        {
+          "nombre_completo": "S Rasmussen",
+          "nombres": "S",
+          "apellidos": "Rasmussen"
+        },
+        {
+          "nombre_completo": "C Friis",
+          "nombres": "C",
+          "apellidos": "Friis"
+        },
+        {
+          "nombre_completo": "H Hasman",
+          "nombres": "H",
+          "apellidos": "Hasman"
+        },
+        {
+          "nombre_completo": "RL Marvig",
+          "nombres": "RL",
+          "apellidos": "Marvig"
+        },
+        {
+          "nombre_completo": "L Jelsbak",
+          "nombres": "L",
+          "apellidos": "Jelsbak"
+        },
+        {
+          "nombre_completo": "T Sicheritz-Ponten",
+          "nombres": "T",
+          "apellidos": "Sicheritz-Ponten"
+        },
+        {
+          "nombre_completo": "DW Ussery",
+          "nombres": "DW",
+          "apellidos": "Ussery"
+        },
+        {
+          "nombre_completo": "FM Aarestrup",
+          "nombres": "FM",
+          "apellidos": "Aarestrup"
+        }
+      ],
+      "pmid": "22238442",
+      "fuente": "J Clin Microbiol",
+      "anio": "2012",
+      "volumen": "50",
+      "fpage": "1355",
+      "lpage": "1361"
+    },
+    {
+      "titulo": "Multilocus sequence typing (MLST) for characterization of Enterobacter cloacae",
+      "autores": [
+        {
+          "nombre_completo": "T Miyoshi-Akiyama",
+          "nombres": "T",
+          "apellidos": "Miyoshi-Akiyama"
+        },
+        {
+          "nombre_completo": "K Hayakawa",
+          "nombres": "K",
+          "apellidos": "Hayakawa"
+        },
+        {
+          "nombre_completo": "N Ohmagari",
+          "nombres": "N",
+          "apellidos": "Ohmagari"
+        },
+        {
+          "nombre_completo": "M Shimojima",
+          "nombres": "M",
+          "apellidos": "Shimojima"
+        },
+        {
+          "nombre_completo": "T Kirikae",
+          "nombres": "T",
+          "apellidos": "Kirikae"
+        }
+      ],
+      "pmid": "23776664",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e66358",
+      "lpage": ""
+    },
+    {
+      "titulo": "BIGSdb: scalable analysis of bacterial genome variation at the population level",
+      "autores": [
+        {
+          "nombre_completo": "KA Jolley",
+          "nombres": "KA",
+          "apellidos": "Jolley"
+        },
+        {
+          "nombre_completo": "MC Maiden",
+          "nombres": "MC",
+          "apellidos": "Maiden"
+        }
+      ],
+      "pmid": "21143983",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2010",
+      "volumen": "11",
+      "fpage": "595",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome project data processing S: the sequence alignment/map format and SAMtools",
+      "autores": [
+        {
+          "nombre_completo": "H Li",
+          "nombres": "H",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "B Handsaker",
+          "nombres": "B",
+          "apellidos": "Handsaker"
+        },
+        {
+          "nombre_completo": "A Wysoker",
+          "nombres": "A",
+          "apellidos": "Wysoker"
+        },
+        {
+          "nombre_completo": "T Fennell",
+          "nombres": "T",
+          "apellidos": "Fennell"
+        },
+        {
+          "nombre_completo": "J Ruan",
+          "nombres": "J",
+          "apellidos": "Ruan"
+        },
+        {
+          "nombre_completo": "N Homer",
+          "nombres": "N",
+          "apellidos": "Homer"
+        },
+        {
+          "nombre_completo": "G Marth",
+          "nombres": "G",
+          "apellidos": "Marth"
+        },
+        {
+          "nombre_completo": "G Abecasis",
+          "nombres": "G",
+          "apellidos": "Abecasis"
+        },
+        {
+          "nombre_completo": "R Durbin",
+          "nombres": "R",
+          "apellidos": "Durbin"
+        }
+      ],
+      "pmid": "19505943",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "25",
+      "fpage": "2078",
+      "lpage": "2079"
+    },
+    {
+      "titulo": "DNA–DNA hybridization values and their relationship to whole-genome sequence similarities",
+      "autores": [
+        {
+          "nombre_completo": "J Goris",
+          "nombres": "J",
+          "apellidos": "Goris"
+        },
+        {
+          "nombre_completo": "KT Konstantinidis",
+          "nombres": "KT",
+          "apellidos": "Konstantinidis"
+        },
+        {
+          "nombre_completo": "JA Klappenbach",
+          "nombres": "JA",
+          "apellidos": "Klappenbach"
+        },
+        {
+          "nombre_completo": "T Coenye",
+          "nombres": "T",
+          "apellidos": "Coenye"
+        },
+        {
+          "nombre_completo": "P Vandamme",
+          "nombres": "P",
+          "apellidos": "Vandamme"
+        },
+        {
+          "nombre_completo": "JM Tiedje",
+          "nombres": "JM",
+          "apellidos": "Tiedje"
+        }
+      ],
+      "pmid": "17220447",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "2007",
+      "volumen": "57",
+      "fpage": "81",
+      "lpage": "91"
+    },
+    {
+      "titulo": "Introducing EzTaxon-e: a prokaryotic 16S rRNA gene sequence database with phylotypes that represent uncultured species",
+      "autores": [
+        {
+          "nombre_completo": "OS Kim",
+          "nombres": "OS",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "YJ Cho",
+          "nombres": "YJ",
+          "apellidos": "Cho"
+        },
+        {
+          "nombre_completo": "K Lee",
+          "nombres": "K",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "SH Yoon",
+          "nombres": "SH",
+          "apellidos": "Yoon"
+        },
+        {
+          "nombre_completo": "M Kim",
+          "nombres": "M",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "H Na",
+          "nombres": "H",
+          "apellidos": "Na"
+        },
+        {
+          "nombre_completo": "SC Park",
+          "nombres": "SC",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "YS Jeon",
+          "nombres": "YS",
+          "apellidos": "Jeon"
+        },
+        {
+          "nombre_completo": "JH Lee",
+          "nombres": "JH",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "H Yi",
+          "nombres": "H",
+          "apellidos": "Yi"
+        }
+      ],
+      "pmid": "22140171",
+      "fuente": "Int J Syst Evol Microbiol",
+      "anio": "2012",
+      "volumen": "62",
+      "fpage": "716",
+      "lpage": "721"
+    },
+    {
+      "titulo": "Genome sequence-based species delimitation with confidence intervals and improved distance functions",
+      "autores": [
+        {
+          "nombre_completo": "JP Meier-Kolthoff",
+          "nombres": "JP",
+          "apellidos": "Meier-Kolthoff"
+        },
+        {
+          "nombre_completo": "AF Auch",
+          "nombres": "AF",
+          "apellidos": "Auch"
+        },
+        {
+          "nombre_completo": "H-P Klenk",
+          "nombres": "H-P",
+          "apellidos": "Klenk"
+        },
+        {
+          "nombre_completo": "M Goker",
+          "nombres": "M",
+          "apellidos": "Goker"
+        }
+      ],
+      "pmid": "23432962",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "60",
+      "lpage": ""
+    },
+    {
+      "titulo": "Basic local alignment search tool",
+      "autores": [
+        {
+          "nombre_completo": "SF Altschul",
+          "nombres": "SF",
+          "apellidos": "Altschul"
+        },
+        {
+          "nombre_completo": "W Gish",
+          "nombres": "W",
+          "apellidos": "Gish"
+        },
+        {
+          "nombre_completo": "W Miller",
+          "nombres": "W",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "EW Myers",
+          "nombres": "EW",
+          "apellidos": "Myers"
+        },
+        {
+          "nombre_completo": "DJ Lipman",
+          "nombres": "DJ",
+          "apellidos": "Lipman"
+        }
+      ],
+      "pmid": "2231712",
+      "fuente": "J Mol Biol",
+      "anio": "1990",
+      "volumen": "215",
+      "fpage": "403",
+      "lpage": "410"
+    },
+    {
+      "titulo": "BLAST ring image generator (BRIG): simple prokaryote genome comparisons",
+      "autores": [
+        {
+          "nombre_completo": "N-F Alikhan",
+          "nombres": "N-F",
+          "apellidos": "Alikhan"
+        },
+        {
+          "nombre_completo": "NK Petty",
+          "nombres": "NK",
+          "apellidos": "Petty"
+        },
+        {
+          "nombre_completo": "NL Ben Zakour",
+          "nombres": "NL",
+          "apellidos": "Ben Zakour"
+        },
+        {
+          "nombre_completo": "SA Beatson",
+          "nombres": "SA",
+          "apellidos": "Beatson"
+        }
+      ],
+      "pmid": "21824423",
+      "fuente": "BMC Genomics",
+      "anio": "2011",
+      "volumen": "12",
+      "fpage": "402",
+      "lpage": ""
+    },
+    {
+      "titulo": "RAxML-III: a fast program for maximum likelihood-based inference of large phylogenetic trees",
+      "autores": [
+        {
+          "nombre_completo": "A Stamatakis",
+          "nombres": "A",
+          "apellidos": "Stamatakis"
+        },
+        {
+          "nombre_completo": "T Ludwig",
+          "nombres": "T",
+          "apellidos": "Ludwig"
+        },
+        {
+          "nombre_completo": "H Meier",
+          "nombres": "H",
+          "apellidos": "Meier"
+        }
+      ],
+      "pmid": "15608047",
+      "fuente": "Bioinformatics",
+      "anio": "2005",
+      "volumen": "21",
+      "fpage": "456",
+      "lpage": "463"
+    },
+    {
+      "titulo": "Burkholderia xenovorans LB400 harbors a multi-replicon, 9.73-Mbp genome shaped for versatility",
+      "autores": [
+        {
+          "nombre_completo": "PSG Chain",
+          "nombres": "PSG",
+          "apellidos": "Chain"
+        },
+        {
+          "nombre_completo": "VJ Denef",
+          "nombres": "VJ",
+          "apellidos": "Denef"
+        },
+        {
+          "nombre_completo": "KT Konstantinidis",
+          "nombres": "KT",
+          "apellidos": "Konstantinidis"
+        },
+        {
+          "nombre_completo": "LM Vergez",
+          "nombres": "LM",
+          "apellidos": "Vergez"
+        },
+        {
+          "nombre_completo": "L Agulló",
+          "nombres": "L",
+          "apellidos": "Agulló"
+        },
+        {
+          "nombre_completo": "VL Reyes",
+          "nombres": "VL",
+          "apellidos": "Reyes"
+        },
+        {
+          "nombre_completo": "L Hauser",
+          "nombres": "L",
+          "apellidos": "Hauser"
+        },
+        {
+          "nombre_completo": "M Córdova",
+          "nombres": "M",
+          "apellidos": "Córdova"
+        },
+        {
+          "nombre_completo": "L Gómez",
+          "nombres": "L",
+          "apellidos": "Gómez"
+        },
+        {
+          "nombre_completo": "M González",
+          "nombres": "M",
+          "apellidos": "González"
+        }
+      ],
+      "pmid": "17030797",
+      "fuente": "Proc Natl Acad Sci",
+      "anio": "2006",
+      "volumen": "103",
+      "fpage": "15280",
+      "lpage": "15287"
+    },
+    {
+      "titulo": "Multidrug resistance mechanisms: drug efflux across two membranes",
+      "autores": [
+        {
+          "nombre_completo": "HI Zgurskaya",
+          "nombres": "HI",
+          "apellidos": "Zgurskaya"
+        },
+        {
+          "nombre_completo": "H Nikaido",
+          "nombres": "H",
+          "apellidos": "Nikaido"
+        }
+      ],
+      "pmid": "10931319",
+      "fuente": "Mol Microbiol",
+      "anio": "2000",
+      "volumen": "37",
+      "fpage": "219",
+      "lpage": "225"
+    },
+    {
+      "titulo": "Tripartite assembly of RND multidrug efflux pumps",
+      "autores": [
+        {
+          "nombre_completo": "L Daury",
+          "nombres": "L",
+          "apellidos": "Daury"
+        },
+        {
+          "nombre_completo": "F Orange",
+          "nombres": "F",
+          "apellidos": "Orange"
+        },
+        {
+          "nombre_completo": "JC Taveau",
+          "nombres": "JC",
+          "apellidos": "Taveau"
+        },
+        {
+          "nombre_completo": "A Verchere",
+          "nombres": "A",
+          "apellidos": "Verchere"
+        },
+        {
+          "nombre_completo": "L Monlezun",
+          "nombres": "L",
+          "apellidos": "Monlezun"
+        },
+        {
+          "nombre_completo": "C Gounou",
+          "nombres": "C",
+          "apellidos": "Gounou"
+        },
+        {
+          "nombre_completo": "RK Marreddy",
+          "nombres": "RK",
+          "apellidos": "Marreddy"
+        },
+        {
+          "nombre_completo": "M Picard",
+          "nombres": "M",
+          "apellidos": "Picard"
+        },
+        {
+          "nombre_completo": "I Broutin",
+          "nombres": "I",
+          "apellidos": "Broutin"
+        },
+        {
+          "nombre_completo": "KM Pos",
+          "nombres": "KM",
+          "apellidos": "Pos"
+        }
+      ],
+      "pmid": "26867482",
+      "fuente": "Nat Commun",
+      "anio": "2016",
+      "volumen": "7",
+      "fpage": "10731",
+      "lpage": ""
+    },
+    {
+      "titulo": "The multiple antibiotic resistance regulator MarR is a copper sensor in Escherichia coli",
+      "autores": [
+        {
+          "nombre_completo": "Z Hao",
+          "nombres": "Z",
+          "apellidos": "Hao"
+        },
+        {
+          "nombre_completo": "H Lou",
+          "nombres": "H",
+          "apellidos": "Lou"
+        },
+        {
+          "nombre_completo": "R Zhu",
+          "nombres": "R",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "J Zhu",
+          "nombres": "J",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "D Zhang",
+          "nombres": "D",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "BS Zhao",
+          "nombres": "BS",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "S Zeng",
+          "nombres": "S",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "X Chen",
+          "nombres": "X",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Chan",
+          "nombres": "J",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "C He",
+          "nombres": "C",
+          "apellidos": "He"
+        }
+      ],
+      "pmid": "24185215",
+      "fuente": "Nat Chem Biol",
+      "anio": "2014",
+      "volumen": "10",
+      "fpage": "21",
+      "lpage": "28"
+    },
+    {
+      "titulo": "Molecular mechanisms of antibiotic resistance",
+      "autores": [
+        {
+          "nombre_completo": "JMA Blair",
+          "nombres": "JMA",
+          "apellidos": "Blair"
+        },
+        {
+          "nombre_completo": "MA Webber",
+          "nombres": "MA",
+          "apellidos": "Webber"
+        },
+        {
+          "nombre_completo": "AJ Baylay",
+          "nombres": "AJ",
+          "apellidos": "Baylay"
+        },
+        {
+          "nombre_completo": "DO Ogbolu",
+          "nombres": "DO",
+          "apellidos": "Ogbolu"
+        },
+        {
+          "nombre_completo": "LJV Piddock",
+          "nombres": "LJV",
+          "apellidos": "Piddock"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nat Rev Micro",
+      "anio": "2015",
+      "volumen": "13",
+      "fpage": "42",
+      "lpage": "51"
+    },
+    {
+      "titulo": "The multiple antibiotic resistance (mar) locus and its significance",
+      "autores": [
+        {
+          "nombre_completo": "LP Randall",
+          "nombres": "LP",
+          "apellidos": "Randall"
+        },
+        {
+          "nombre_completo": "MJ Woodward",
+          "nombres": "MJ",
+          "apellidos": "Woodward"
+        }
+      ],
+      "pmid": "12027588",
+      "fuente": "Res Vet Sci",
+      "anio": "2002",
+      "volumen": "72",
+      "fpage": "87",
+      "lpage": "93"
+    },
+    {
+      "titulo": "Nucleotide sequence of a spectinomycin adenyltransferase AAD(9) determinant from Staphylococcus aureus and its relationship to AAD(3″) (9)",
+      "autores": [
+        {
+          "nombre_completo": "E Murphy",
+          "nombres": "E",
+          "apellidos": "Murphy"
+        }
+      ],
+      "pmid": "2993813",
+      "fuente": "Mol Gen Genet",
+      "anio": "1985",
+      "volumen": "200",
+      "fpage": "33",
+      "lpage": "39"
+    },
+    {
+      "titulo": "Relationship between mutations in the gyrA gene and quinolone resistance in clinical isolates of Corynebacterium striatum and Corynebacterium amycolatum",
+      "autores": [
+        {
+          "nombre_completo": "JM Sierra",
+          "nombres": "JM",
+          "apellidos": "Sierra"
+        },
+        {
+          "nombre_completo": "L Martinez-Martinez",
+          "nombres": "L",
+          "apellidos": "Martinez-Martinez"
+        },
+        {
+          "nombre_completo": "F Vazquez",
+          "nombres": "F",
+          "apellidos": "Vazquez"
+        },
+        {
+          "nombre_completo": "E Giralt",
+          "nombres": "E",
+          "apellidos": "Giralt"
+        },
+        {
+          "nombre_completo": "J Vila",
+          "nombres": "J",
+          "apellidos": "Vila"
+        }
+      ],
+      "pmid": "15855486",
+      "fuente": "Antimicrob Agents Chemother",
+      "anio": "2005",
+      "volumen": "49",
+      "fpage": "1714",
+      "lpage": "1719"
+    },
+    {
+      "titulo": "Fosfomycin resistance proteins: a nexus of glutathione transferases and epoxide hydrolases in a metalloenzyme superfamily",
+      "autores": [
+        {
+          "nombre_completo": "RE Rigsby",
+          "nombres": "RE",
+          "apellidos": "Rigsby"
+        },
+        {
+          "nombre_completo": "KL Fillgrove",
+          "nombres": "KL",
+          "apellidos": "Fillgrove"
+        },
+        {
+          "nombre_completo": "LA Beihoffer",
+          "nombres": "LA",
+          "apellidos": "Beihoffer"
+        },
+        {
+          "nombre_completo": "RN Armstrong",
+          "nombres": "RN",
+          "apellidos": "Armstrong"
+        }
+      ],
+      "pmid": "16399398",
+      "fuente": "Methods Enzymol",
+      "anio": "2005",
+      "volumen": "401",
+      "fpage": "367",
+      "lpage": "379"
+    },
+    {
+      "titulo": "PathogenFinder - distinguishing friend from foe using bacterial whole genome sequence data",
+      "autores": [
+        {
+          "nombre_completo": "S Cosentino",
+          "nombres": "S",
+          "apellidos": "Cosentino"
+        },
+        {
+          "nombre_completo": "M Voldby Larsen",
+          "nombres": "M",
+          "apellidos": "Voldby Larsen"
+        },
+        {
+          "nombre_completo": "F Møller Aarestrup",
+          "nombres": "F",
+          "apellidos": "Møller Aarestrup"
+        },
+        {
+          "nombre_completo": "O Lund",
+          "nombres": "O",
+          "apellidos": "Lund"
+        }
+      ],
+      "pmid": "24204795",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e77302",
+      "lpage": ""
+    },
+    {
+      "titulo": "Complete genome sequence of Enterobacter cloacae subsp. cloacae type strain ATCC 13047",
+      "autores": [
+        {
+          "nombre_completo": "Y Ren",
+          "nombres": "Y",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "Z Zhou",
+          "nombres": "Z",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "X Guo",
+          "nombres": "X",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "Y Li",
+          "nombres": "Y",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "L Feng",
+          "nombres": "L",
+          "apellidos": "Feng"
+        },
+        {
+          "nombre_completo": "L Wang",
+          "nombres": "L",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "20207761",
+      "fuente": "J Bacteriol",
+      "anio": "2010",
+      "volumen": "192",
+      "fpage": "2463",
+      "lpage": "2464"
+    },
+    {
+      "titulo": "Review of antimicrobial resistance in the environment and its relevance to environmental regulators",
+      "autores": [
+        {
+          "nombre_completo": "AC Singer",
+          "nombres": "AC",
+          "apellidos": "Singer"
+        },
+        {
+          "nombre_completo": "H Shaw",
+          "nombres": "H",
+          "apellidos": "Shaw"
+        },
+        {
+          "nombre_completo": "V Rhodes",
+          "nombres": "V",
+          "apellidos": "Rhodes"
+        },
+        {
+          "nombre_completo": "A Hart",
+          "nombres": "A",
+          "apellidos": "Hart"
+        }
+      ],
+      "pmid": "27847505",
+      "fuente": "Front Microbiol",
+      "anio": "2016",
+      "volumen": "7",
+      "fpage": "1728",
+      "lpage": ""
+    },
+    {
+      "titulo": "Oves M. Antibiotics and heavy metal resistance emergence in water borne Bacteria. J Investig Genomics. 2016;3(2).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Landscape of resistance-nodulation-cell division (RND)-type efflux pumps in Enterobacter cloacae Complex",
+      "autores": [
+        {
+          "nombre_completo": "F Guérin",
+          "nombres": "F",
+          "apellidos": "Guérin"
+        },
+        {
+          "nombre_completo": "C Lallement",
+          "nombres": "C",
+          "apellidos": "Lallement"
+        },
+        {
+          "nombre_completo": "C Isnard",
+          "nombres": "C",
+          "apellidos": "Isnard"
+        },
+        {
+          "nombre_completo": "A Dhalluin",
+          "nombres": "A",
+          "apellidos": "Dhalluin"
+        },
+        {
+          "nombre_completo": "V Cattoir",
+          "nombres": "V",
+          "apellidos": "Cattoir"
+        },
+        {
+          "nombre_completo": "J-C Giard",
+          "nombres": "J-C",
+          "apellidos": "Giard"
+        }
+      ],
+      "pmid": "26856831",
+      "fuente": "Antimicrob Agents Chemother",
+      "anio": "2016",
+      "volumen": "60",
+      "fpage": "2373",
+      "lpage": "2382"
+    },
+    {
+      "titulo": "Bacterial multidrug efflux pumps: mechanisms, physiology and pharmacological exploitations",
+      "autores": [
+        {
+          "nombre_completo": "J Sun",
+          "nombres": "J",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "Z Deng",
+          "nombres": "Z",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "A Yan",
+          "nombres": "A",
+          "apellidos": "Yan"
+        }
+      ],
+      "pmid": "24878531",
+      "fuente": "Biochem Biophys Res Commun",
+      "anio": "2014",
+      "volumen": "453",
+      "fpage": "254",
+      "lpage": "267"
+    },
+    {
+      "titulo": "Nanopore DNA sequencing and genome assembly on the international Space Station",
+      "autores": [
+        {
+          "nombre_completo": "SL Castro-Wallace",
+          "nombres": "SL",
+          "apellidos": "Castro-Wallace"
+        },
+        {
+          "nombre_completo": "CY Chiu",
+          "nombres": "CY",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "KK John",
+          "nombres": "KK",
+          "apellidos": "John"
+        },
+        {
+          "nombre_completo": "SE Stahl",
+          "nombres": "SE",
+          "apellidos": "Stahl"
+        },
+        {
+          "nombre_completo": "KH Rubins",
+          "nombres": "KH",
+          "apellidos": "Rubins"
+        },
+        {
+          "nombre_completo": "ABR McIntyre",
+          "nombres": "ABR",
+          "apellidos": "McIntyre"
+        },
+        {
+          "nombre_completo": "JP Dworkin",
+          "nombres": "JP",
+          "apellidos": "Dworkin"
+        },
+        {
+          "nombre_completo": "ML Lupisella",
+          "nombres": "ML",
+          "apellidos": "Lupisella"
+        },
+        {
+          "nombre_completo": "DJ Smith",
+          "nombres": "DJ",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "DJ Botkin",
+          "nombres": "DJ",
+          "apellidos": "Botkin"
+        }
+      ],
+      "pmid": "29269933",
+      "fuente": "Sci Rep",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "18022",
+      "lpage": ""
+    }
+  ]
+}

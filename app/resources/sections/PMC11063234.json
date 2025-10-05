@@ -1,0 +1,1588 @@
+{
+  "TITLE": [
+    "Proteomic and phosphoproteomic characterization of cardiovascular tissues after long term exposure to simulated space radiation"
+  ],
+  "ABSTRACT": [
+    "Introduction: It may take decades to develop cardiovascular dysfunction following exposure to high doses of ionizing radiation from medical therapy or from nuclear accidents. Since astronauts may be exposed continually to a complex space radiation environment unlike that experienced on Earth, it is unresolved whether there is a risk to cardiovascular health during long-term space exploration missions. Previously, we have described that mice exposed to a single dose of simplified Galactic Cosmic Ray (GCR5-ion) develop cardiovascular dysfunction by 12 months post-radiation.",
+    "Methods: To investigate the biological basis of this dysfunction, here we performed a quantitative mass spectrometry-based proteomics analysis of heart tissue (proteome and phosphoproteome) and plasma (proteome only) from these mice at 8 months post-radiation.",
+    "Results: Differentially expressed proteins (DEPs) for irradiated versus sham irradiated samples (fold-change ≥1.2 and an adjusted p-value of ≤0.05) were identified for each proteomics data set. For the heart proteome, there were 87 significant DEPs (11 upregulated and 76 downregulated); for the heart phosphoproteome, there were 60 significant differentially phosphorylated peptides (17 upregulated and 43 downregulated); and for the plasma proteome, there was only one upregulated protein. A Gene Set Enrichment Analysis (GSEA) technique that assesses canonical pathways from BIOCARTA, KEGG, PID, REACTOME, and WikiPathways revealed significant perturbation in pathways in each data set. For the heart proteome, 166 pathways were significantly altered (36 upregulated and 130 downregulated); for the plasma proteome, there were 73 pathways significantly altered (25 upregulated and 48 downregulated); and for the phosphoproteome, there were 223 pathways significantly affected at 0.1 adjusted p-value cutoff. Pathways related to inflammation were the most highly perturbed in the heart and plasma. In line with sustained inflammation, neutrophil extracellular traps (NETs) were demonstrated to be increased in GCR5-ion irradiated hearts at 12-month post irradiation. NETs play a fundamental role in combating bacterial pathogens, modulating inflammatory responses, inflicting damage on healthy tissues, and escalating vascular thrombosis.",
+    "Discussion: These findings suggest that a single exposure to GCR5-ion results in long-lasting changes in the proteome and that these proteomic changes can potentiate acute and chronic health issues for astronauts, such as what we have previously described with late cardiac dysfunction in these mice."
+  ],
+  "INTRO": [
+    "Introduction",
+    "We recently reported on long term functional changes to the heart following a single dose of GCR5-ion. Physiologically, this dysfunction was manifested as changes in arterial elastance, and histologically, there was evidence of elastin fragmentation in the aorta. Of the protein markers we evaluated (Fibulin-4, Fibulin-5, TGF-beta1, and EGFR), EGFR was the only marker that showed a statistically significant decrease in hearts from GCR-irradiated animals compared to age-matched sham irradiated controls.",
+    "Other investigations have also examined the levels of individual cardiac protein markers in studies where rodents or rabbits were exposed to components of GCR (reviewed in). These studies have indicated that a number of proteins and pathways and biological functions are permanently affected in the heart from a single exposure of space relevant radiation. Seawright et al. noted an increase in a 75 kDa peptide of collagen type III in the left ventricle of rats exposed to protons (250 MeV) and 16O (600 MeV/n and 1 GeV/n), suggesting that these components of GCR caused remodeling of existing collagens in the heart. Also noted in this study were increases in the amounts of CD2, CD68, and CD45 proteins at 2 weeks, 3 months, and 9 months after exposure to protons or 16O alone, suggesting immune cell infiltration. In a rabbit model, hearts exposed to 15 Gy of targeted heavy ion irradiation (THIR) exhibited a significant upregulation of connexin 43 (Cx43) protein and mRNA in the ventricular myocardium by immunohistochemistry, Western blotting, and real-time PCR from 2 weeks out to 1 year after a single exposure. Cx43, the major connexin in cardiac gap junction, plays an essential role in the synchronized contraction of the heart and perturbations in Cx43 levels could profoundly influence cardiac function.",
+    "Soucy et al. examined xanthine oxidase (XO) activity in the aortas of rats exposed to whole-body exposure of iron ion radiation (56Fe-ion) at doses of 0, 0.5, or 1 Gy. In vivo aortic stiffness and ex vivo aortic tension responses were measured 6 and 8 months after exposure as indicators of chronic vascular injury. Rats exposed to 1 Gy 56Fe-ion demonstrated significantly increased aortic stiffness, as measured by pulse wave velocity. XO activity was significantly elevated in rat aorta 4 months after whole-body irradiation.",
+    "Recently, Azimzadeh et al. published a comprehensive review of the available omics data (proteomics, transcriptomics, metabolomics, epigenomics, and multi-omics) of radiation-induced cardiovascular disease focusing on gamma and X-ray exposure. Across 27 published proteomics data sets, mitochondrial proteins were the most sensitive protein cluster affected in irradiated hearts across different types and doses of radiation, with many of these mitochondrial proteins being significantly downregulated. In addition, long term downregulation of many anti-oxidant defense proteins was observed in many publication examining mouse models as well as validated in studies of heart autopsies obtained from workers in the nuclear industry.",
+    "While recently have utilized label-free mass spectrometry untargeted quantitative proteomic profiling to characterize the proteome of the prefrontal cortex in rats exposed to 28Si ions, there have been no corresponding studies undertaken to understand the global proteomic changes occurring in the heart following exposure to components of space radiation. As the proteome can provide a better understanding of the structure and the function of the organism than genomics, we have performed a quantitative mass spectrometry-based proteomics analysis of heart tissue (proteome and phosphoproteome) and plasma (proteome only) from mice exposed to GCR5-ion. Integration of these three omics data sets has enabled a more comprehensive understanding of the systemic impact of GCR5-ion and suggests that sustained inflammatory response with neutrophil extracellular trap formation is one of the major pathways driving the biological responses to space radiation in the heart."
+  ],
+  "METHODS": [
+    "Methods",
+    "The overall experimental design is provided in Figure 1.",
+    "Experimental animals",
+    "All animal experiments were approved by the Duke University and Brookhaven National Laboratory (BNL) Institutional Animal Care and Use Committees (IACUCs). Approximately 24-week old male C57BL/6 mice (Jackson Labs) were exposed to 150 cGy GCR5-ion (H 1,000 MeV/n, 28Si 600 MeV/n, 4He 250 MeV/n, 16O 350 MeV/n, 56Fe 600 MeV/n, and H 250 MeV/n) using the beam line at the NASA Space Radiation Laboratory (NSRL) at BNL. Sham irradiated control animals were placed in equitable holders over a schedule which mimicked the experimental groups but were not irradiated. Post-radiation, animals were allowed at least 2 days to recover, and then were returned to Duke University animal facilities. Hearts and plasma for proteomics were obtained from mice at 8 months post radiation (n = 6 for hearts and n = 10 for plasma). An equal number of hearts and plasma samples was obtained from age-matched sham irradiated control animals. Hearts for other evaluations such as Western blot or immunofluorescence studies were obtained from mice at 12 months post radiation and equivalent age-matched sham irradiated control animals were used as comparators.",
+    "Heart tissue (phospho)proteomics",
+    "Frozen tissues were weighed and lysed by tissue tearor in 1.5 mL of 5% sodium docecyl sulfate (SDS)/50 mM triethylammonium bicarbonate, pH 8.5 (TEAB) followed by bicinchoninic acid (BCA) assay. The amount of 250 μg of each sample was normalized to 50 μL with SDS/TEAB buffer followed by the addition of bovine casein (300 fmol and 150 fmol per µg added to irradiated and sham irradiated control samples, respectively) and digestion using an S-trap mini device, followed by Tandem Mass Tag (TMT) labeling (with lot# TK2735U and TL272831), high pH-reversed phase (HPRP) fractionation, and phosphopeptide enrichment as previously described.",
+    "One-dimensional liquid chromatography tandem mass spectrometry (1D-LC-MS/MS) was performed on ∼0.5 μg each of the unenriched fractions, and 2.5 μL of the phosphopeptide-enriched fractions were analyzed using a nanoACQUITY UPLC system (Waters) coupled to a Fusion Lumos high resolution accurate mass tandem mass spectrometer (Thermo) in a time-dependent (3 s) data-dependent acquisition (DDA) mode with a 120,000 resolution (@ m/z 200) full MS scan from m/z 375 to 1,600 with a target automatic gain control (AGC) value of 2e5 ions and 50 ms maximum injection time (IT) and internal calibration (eIC) enabled. Peptides were selected for MS/MS using monoisotopic precursor selection (MIPS) and a dynamic exclusion of 45 s. Peptides with charge state 2 (scan priority 1) were selected for MS/MS using an isolation width of 1.2 and higher energy collision-induced dissociation (HCD) with a stepped normalized collision energy of 36.1, 38, and 39.9 with detection in the orbitrap using a resolution of 50,000, an AGC target of 1e5, and max IT of 105 ms. Peptides with charge states 3–5 (scan priority 2) were selected for MS/MS with an isolation window of 0.7 m/z.",
+    "Phosphoproteome data were analyzed using Thermo Proteome Discoverer 2.3. Re-calibrated.mgf Calibrated .mgf files were created the Spectrum Files RC node and database searching was performed against the Uniprot database with Mus musculus taxonomy (downloaded on 04/22/19; 20,204 entries) appended with bovine casein isoform protein sequences. Searches used Mascot v 2.5 with 5 ppm precursor and 0.02 product ion tolerances, trypsin specificity with up to two missed cleavages, fixed carbamidomethylation (Cys) and TMT10 (Lys and peptide N-terminal), and variable phosphorylation (Ser, Thr, and Tyr). Percolator and imp-ptmRS nodes were used for FDR determination and site localization. The processing node of the reporter ions quantifier used a 10 ppm integration tolerance, and the consensus node used correction for isotope impurity, a co-isolation threshold of 50%, and S/N threshold of 5. Normalization to total peptide amount and imputation using low abundance resampling were applied.",
+    "Proteome data was analyzed in Proteome Discoverer 2.4 using the MS-Fragger and Percolator nodes with default parameters. The mouse database was appended with additional contaminant sequences including human keratins. Imputation used low abundance resampling, and protein quantities were calculated from summed peptide abundances. Normalization used sample loading and trimmed mean in R as previously described.",
+    "Plasma proteomics",
+    "Plasma proteomics utilized sodium deoxycholate (SDC)-assisted in solution digestion followed by microflow liquid chromatography coupled to tandem mass spectrometry using variable window data-independent acquisition (DIA) as previously described with the following modifications. Briefly, 15 μL of plasma was adjusted to 5% SDC in 50 mM ammonium bicarbonate and 10 mM dithiothreitol followed by reduction at 80°C for 20 min and alkylation with 25 mM iodoacetamide at room temp for 30 min. Proteins were digested with 37.5 μg Worthington modified bovine trypsin for 4 h at 37°C followed by the addition of 1.5% (v/v) trifluoracetic acid and 2% (v/v) acetonitrile and Massprep ADH1 peptide standard (Waters; final concentration 30 fmol ADH1/µl). The SDC precipitate was filtered under vacuum using an ISOLUTE Filtration + filter plate (Biotage) and collected in a Deepwell 96/1,000 µL plate (Eppendorf).",
+    "Twelve microliters of peptide digest (∼40 μg) were analyzed per sample in a block-randomized order, interspersed with replicates of a study pool QC (SPQC) sample made from a mixture of all samples. Liquid chromatography used a 1 mm × 150 mm 1.7 µm CSH C18 column (Waters) and a ACQUITY UPLC (Waters) at a flow rate of 100 μL/min and a gradient of 3%–28% acetonitrile over 60 min. The LC was interfaced to a Thermo HF-X MS via a heated electrospray ionization (HESI) source. DIA mass spectrometry analysis used a 120,000 resolution precursor ion (MS1) scan from 375 to 1,500 m/z, an AGC target of 3E6, and maximum injection time (IT) of 20 ms; data were collected in profile mode. MS/MS was performed using 30,000 resolution, an AGC target of 3e6 and maximum IT of 60 ms, and 19 variable DIA windows that spanned 375–1,200 m/z. Data were collected in profile mode.",
+    "In addition, ∼800 μg of the SPQC sample was analyzed using high pH-reversed phase (HPRP) fractionation using a 2.1 mm × 5 cm BEH C18 column (Waters) and Agilent 1100 HPLC as previously described with a mobile phase of 20 mM ammonium formate, pH 10, and a gradient of 3%–35% MeCN over 50 min. Forty-eight equal fractions were collected and concatenated to 12 fractions. After lyophilization, samples were resuspended in 24 μL of 1% (v/v) TFA/2% (v/v) MeCN in H2O, and 12 μL was analyzed by microflow-DDA using the same LC method as previously described and a 120,000 resolution precursor (MS1) scan from 375 to 1,500 m/z, an AGC target of 3e6, and maximum injection time (IT) of 45 ms, followed by MS/MS (MS2) of the top 10 most abundant ions at 45,000 resolution with an AGC target of 5e4 ions and 86 milliseconds (ms) IT, 1.2 m/z isolation window, a stepped normalized collision energy (NCE) of 25, 27.5, and 30, a minimum AGC target of 1e4, and 20 s dynamic exclusion.",
+    "Data analysis used Spectronaut 13 (Biognosys). A “hybrid” spectral library was generated from DDA and direct-DIA searches which used a UniProt database with Mus musculus specificity (downloaded on 04/22/19) appended with sequences for yeast ADH1 and bovine cationic trypsin (17,455 total entries). Default settings were used except for the following: no variable modifications and semitryptic peptide N-termini specificity. DIA files were converted to *.htrms format using a HTRMS converter (Biognosys). Default quantification settings were used except that the workflow used indexed retention time profiling of non-identified precursors; options to carryover peak boundaries and unify peptides were selected. For statistical analysis, single hit proteins were excluded, and quantification was performed at MS2 level using summed precursor areas for the top 20 peptides, Q-value percentile (0.3), and cross-run normalization using q-value complete and median global normalization settings.",
+    "Bioinformatics analysis",
+    "Data filtering",
+    "Twenty-two human keratin proteins were excluded from the heart dataset as they were suspected to be contaminants. In addition, two viral proteins (P31748-Murine leukemia virus and P0C6X9-Murine coronavirus) were removed from the analysis. The list of proteins that were excluded are shown in Supplementary Table S9.",
+    "Statistical analysis of proteomics data",
+    "Proteomics datasets underwent sample loading (SL) and trimmed mean of M values (TMM) normalizations procedures to correct for levels of proteins and compositional bias across samples. In addition, a batch correction was performed for the heart data guided by QC results using the ComBat procedures. Following this, differentially expressed proteins (DEPs) were identified for irradiated versus sham irradiated samples in the heart and plasma data using exact test in edgeR. DEPs were filtered for significance using a fold-change ≥ |1.2| and a p-value of ≤0.05. For the phosphoproteomics data, protocols in PhosR package were used to identify differential phosphosites, kinase-substrate regulatory interactions, and signaling networks.",
+    "Protein orthology mapping, pathway enrichment analysis, and clustering",
+    "Mouse proteins were mapped to their corresponding human orthologs using biomaRt and the Mouse Genome Database. Then, the results of the ortholog mapping were used as an input to the pathway enrichment analysis pipeline. A Gene Set Enrichment Analysis (GSEA) technique was then used to assess the perturbation of canonical pathways from Biocarta (BIC), KEGG, WikiPathways (WP), Reactome (RECT), and the Pathway Interaction Database (PID). Finally, pathway enrichment maps were utilized to identify interacting pathways (modules) that might have broader impact in the two heart and plasma proteomics data sets. Enrichment map in Cytoscape was used for visualizing the network of pathways. For the phosphoproteomics data, phosphosite (or gene) set enrichment analysis was conducted using the Wilcoxon rank sum test as implemented in the PhosR package. Clustering heatmaps were generated using the coolmap function in the Linear Models for Microarray Data (LIMMA) R package.",
+    "Western blot",
+    "Mouse heart tissues were mechanically homogenized in Tris Buffered Saline with Tween 20 (TBST) lysis buffer. Protein concentration was determined using BCA assay (Thermo Fisher Scientific #23227, United States) using BioTek Gene 5 software with a 562 nm wavelength. Then, 7.5% precast polyacrylamide gels (Bio-Rad #4568026, United States) were run at 100 V for 75 min and transferred to 0.2 μm Polyvinylidene difluoride (PVDF) membranes by electrophoretic transfer through a tank transfer system at a constant voltage of 30 V for 30 min at 4°C. The membrane was blocked overnight with TBST with 5% non-fat milk (w/v). Primary antibodies KRT10 (Thermo Fisher: MA5-32183, United States), KRT1 (Thermo Fisher: 16848-1-AP, United States) KRT6a (Thermo Fisher: 10590-1-AP, United States), MRPL49 (Thermo Fisher: PA5-112889, United States), fibrinogen gamma (Thermo Fisher: PA5-21968, United States), fibrinogen beta (16747-1-AP; Thermo Fisher, United States), fibrinogen alpha (20645-1-AP; Thermo Fisher, United States), calmodulin 2 (PA5-121166, Thermo Fisher, United States), alpha 2 macroglobulin (MA5-38211, Thermo Fisher, United States), and CAMK2G (CAMKII-301AP, Thermo Fisher, United States) were incubated for 2 h in TBST with 5% non-fat milk (w/v). The membranes were washed prior to incubation with secondary antibody Anti-Rabbit HRP conjugated Ab from (BioRad: #1706515, United States) for 1 hour and subsequently washed with TBST. Membrane was visualized with Clarity™ Western ECL Substrate (Bio-Rad # 1705060, United States) for 5 min, and chemiluminescent images were taken using a BioRad Chemidoc. Densitometric analysis was conducted with Image Lab 6.1 software (Bio-Rad: #12012931, United States).",
+    "Immunofluorescence staining",
+    "Fresh frozen heart bases were embedded in Tissue-Tek® O.C.T. Compound and sectioned to 10 µm. The sections were then fixed with 4% paraformaldehyde and permeabilized with 0.1% Tween-20 (Sigma Aldrich, United States) in phosphate buffered saline (PBS). They were then blocked with 5% normal goat serum in 0.1% Tween-20. The primary antibodies used were Fibrinogen beta (16747-1-AP; Thermo Fisher, United States), Fibrinogen alpha (20645-1-AP; Thermo Fisher, United States) C4b-BP (PIPA528017; Thermo Fisher, United States), and C4d (HP8033; Hycult Biotech, United States) each at a final dilution of 1:200. After washing, they were incubated with polyclonal goat anti-rabbit IgG Alexa Fluor 594 conjugated antibody (ab150080; Abcam, United States) at a final dilution of 1:400. ProLong Gold Antifade Mountant with DAPI (Invitrogen, United States) was added onto the section and a coverslip was placed. A Leica 780 Upright Microscope (Wetzlar, Germany) was used to acquire the images of the tissue sections.",
+    "Immunofluorescence staining for neutrophil extracellular traps",
+    "Frozen sections of 10 μm, taken from the cardiac apex of mice embedded in OCT, were utilized to investigate the presentation of neutrophil extracellular traps (NETs). To stain the samples, a rabbit anti-elastase antibody (Catalog # PA5-88916, Thermo Fisher, Waltham, MA) diluted 1:100 and a goat anti-myeloperoxidase (MPO) primary antibody (AF 3667, R and D Systems, Minneapolis, MN) diluted to a concentration of 10 μg/mL were employed. Subsequently, the sections were treated with a goat anti-rabbit secondary polyclonal antibody conjugated to Alexa Fluor 594 (Abcam, Cat no. ab150080, Cambridge, United Kingdom) at a dilution of 1:200 and a donkey anti-goat secondary polyclonal antibody conjugated to Alexa Fluor 488 (Catalog # A-11055; Thermo Fisher, Waltham, MA) at a dilution of 1:200. The formation of NETs was examined using a Nikon Ti2 Eclipse inverted confocal microscope.",
+    "Immunohistochemistry for collagen types I and III",
+    "Frozen sections of the cardiac apex were treated with anti-COL1A1 antibody (Catalog 72026; CST; United States) at a dilution of 1:100 and with anti-type III collagen antibody (Catalog # PA5-3478716, Thermo Fisher, Waltham, MA) at a dilution of 1:150. This was done after the sections underwent a sequence of processing steps: fixation in 4% paraformaldehyde, peroxidase blocking, antigen retrieval, and protein blocking. A horse polyclonal anti-rabbit secondary antibody from the ImmPress HRP Polymer Detection Kit was subsequently applied. These sections were then developed using a 3,3′-diaminobenzidine solution, followed by counterstaining with hematoxylin. After dehydration, clearing, and mounting, serial sections stained for collagen I or III were captured using a digital camera on a Zeiss Axio Imager Z2 Upright Microscope. The stained regions were analyzed using ImageJ software, with five different viewpoints taken from each section. Results are presented as the percentage of the total area for both collagen types I and III."
+  ],
+  "FIG": [
+    "Overview of sample preparation, processing, and bioinformatics analysis pipeline.",
+    "Visualization of proteome and phosphoproteome data sets Principal component analysis (PCA) plots of heart proteome (A); plasma proteome (B); and phosphoproteome (C). Heatmap clustering plot of heart proteome (D); plasma proteome (E); and phosphoproteome (F). Clustering of top 20 proteins in each data set. Proteins are selected based on fold-change difference between GCR5-ion vs. control samples.",
+    "Differential expression analysis of proteins in proteome and phosphoproteome data sets Volcano plot representing the overall perturbation significance of proteins based on p-values and fold-change criteria for heart proteome (A); plasma proteomc (B); and phosphoproteome (C). Each dot represents one protein. Log2FC indicates the mean expression level for each protein. Black dots represent non-significant proteins; green dots represent proteins that have a FC ≥ 1.2; blue dots represent proteins that have a p-value ≤0.05; and orange dots represent those proteins with a p-value of ≤0.05 and FC ≥ 1.2. Bar graph showing the number of significantly up- and downregulated proteins for heart proteome (D); plasma proteome (E); and phosphoproteomc (F).",
+    "Pathway enrichment maps for proteome data sets. Pathway interaction plots for upregulated [(A); red] and downregulated [(C); blue] pathways in heart proteome data. Pathway interaction plots for upregulated [(B); red] and downregulated [(D); blue] pathways in plasma proteome data. Each rectangle represents a pathway. The size of the rectangle is proportional to the number of proteins annotated with the pathway. Two interacting pathways are connected by a line. The thickness of the line is proportional to the number of proteins shared between interacting pathways. Pathways are annotated with the source database as Biocarta (BIC), Kyoto Encyclopedia of Genes and Genomes (KEGG), WikiPathways (WP), Reactome (RECT), and the Pathway Interaction Database (PID).",
+    "Enrichment maps for inflammation-related pathways in heart and plasma proteome data sets (A) Lollipop plot showing top ten significantly modulated inflammation pathways in the heart and (C) plasma proteome. (B) Pathway enrichment map showing inflammation pathways that are perturbed in common in the heart and plasma proteome data sets. Each rectangle represents a pathway. The rectangle is split in two. The upper portion of the rectangle represents the heart data and lower half represents the plasma data. The size of the rectangle is proportional to the number of proteins annotated with the pathway. Two interacting pathways are connected by a line. The thickness of the line is proportional to the number of proteins shared between interacting pathways. Pathways are annotated with the source database as Biocarta (BIC), Kyoto Encyclopedia of Genes and Genomes (KEGG), WikiPathways (WP), Reactome (RECT), and the Pathway Interaction Database (PID).",
+    "Pathway enrichment and kinome maps for phosphoproteome data (A) Significantly perturbed pathways in GCR irradiated samples compared to control. Top 20 over-represented pathways from the Kyoto Encyclopedia of Genes and Genomes (KEGG). (B) Heatmap of kinase-substrate interaction (kinome map). (C) Venn diagram showing overlap of differentially expressed proteins among heart proteome and phosphoproteome. (D) Plot of log fold change (FC) of proteome versus log FC of phosphoproteome for 121 overlapping proteins in the two data sets.",
+    "The presence of neutrophil extracellular traps (NETs) within the myocardial tissue was observed in a mouse model exposed to GCR5-ion. Immunofluorescence staining was performed to assess the presence of NETs in the hearts of mice exposed to 150 mGy of GCR5-ion at 12 months post radiation, as compared to sham irradiated control mice hearts. (A) A robust and extensive distribution of NETs was observed in the myocardium of mice exposed to GCR5-ion (upper panel), while no NETs were detected in the control mice hearts (lower panel). (B) The representative images of NETs structure in the hearts of mice exposed to GCR were obtained. The colocalization of extracellular DNA structure (DAPI), MPO, and elastase further confirmed the presence of NET structures (B). The scale bar represents 50 μm."
+  ],
+  "RESULTS": [
+    "Results",
+    "Cardiac and plasma protein abundance and phosphorylation are modestly diminished at 9 months post GCR5-ion exposure",
+    "For the heart proteome, there were 87 significant DEPs (Supplementary Table S1); for the heart phosphoproteome, there were 60 significant differentially phosphorylated peptides (Supplementary Table S3); and for the plasma proteome, there was only one upregulated protein (Supplementary Table S2).",
+    "Principal components analysis (PCA) was performed in order to observe any high-level differences between sample groups (Figures 2A–C). The heart proteome (Figure 2A) and heart phosphoproteome (Figure 2C) were better separated (sham irradiated versus GCR5-ion irradiated) as judged by the two most prominent components (PC1 versus PC2), whereas the plasma proteome from the sham and GCR5-ion irradiated animals were not as well separated by PC1 and PC2 (Figure 2B).",
+    "From the list of significantly changed proteins, we chose the top 20 based on fold change values to create a heatmap as shown in Figures 2D, E (see also Tables 1–3 for more details). The top three DEPs in the cardiac proteome were ATP synthase-coupling factor 6, mitochondrial (ATP5J; AdjPval = 1.53E-28), Troponin C, slow skeletal and cardiac muscles (TNNC1; AdjPval 5.20E-27), and Calmodulin-2 (CALM2; AdjPval = 7.44E-16). The 20 most significant DEPs in the cardiac proteome (Table 1) are involved in the innate and adaptive immune responses, complement activation, calmodulin binding, mitochondrial function, and cardiac contraction. Interestingly, there were two S100 proteins (S100-A6 and S100-A9) in the top cardiac proteome DEPs.",
+    "For the plasma samples, there were three perturbed proteins of note; major urinary protein 20 (MUP20; AdjPval = 2.80E-03), Serum amyloid A-1 protein (SAA1; AdjPval = 9.25E-02), and Glutathione S-transferase theta-3 (GSTT3; AdjPval = 9.25E-02). The top 20 proteins in the plasma proteome are involved in complement activation, innate and adaptive immune responses, biosynthetic and metabolomic processes, and acute phase responses (Table 2).",
+    "Proteins of note in the phosphoprotein data set are: MYH7 (myosin 7); RRBP1 (ribosomal-binding protein 1); SHIP1 (phosphatidylinositol 3, 4, 5-trisphosphate 5-phosphatase 1); PI5PA (phosphatidylinositol 4,5 -bisphosphate 5-phosphotase A); NUCKS (nuclear ubiquitous casein and cyclin-dependent kinase substrate 1); LAPR1 (La-related protein 1); DESM (desmin); and AKTS1 (AKT1 substrate 1). The top 20 proteins in the cardiac phosphoproteome are involved in cardiac function, enzymatic activity, muscle contraction, regulation of transcription and translations, DNA repair, and regulation of neutrophil migration (Table 3).",
+    "For all three proteomics data sets, the majority of the DEPS were diminished in abundance in GCR5-ion irradiated versus sham irradiated control animals (Figure 3). In the proteome of the heart, there were 76 proteins that were significantly diminished in abundance and 11 proteins that were significantly increased in abundance. In the plasma proteome, there was only one protein with increased abundance after radiation. In the phosphopeptide data set, there were 43 phosphopeptides that were decreased in abundance after radiation and 17 phosphopeptides that increased post radiation.",
+    "A single dose of GCR5-ion permanently changed numerous biological pathways in the heart and plasma",
+    "The results from both the abundance and phosphoproteomics data sets indicated that there were a number of proteins significantly changed in abundance in response to GCR5-ion. Each data set was analyzed using a bioinformatics/gene functional-enrichment approach, as outlined in the Materials and Methods, to map these changes to cellular location, protein function, and biological pathways. For the heart proteome, 166 pathways were altered (36 upregulated and 130 downregulated); for the plasma proteome, there were 73 pathways altered (25 upregulated and 48 downregulated); and for the phosphoproteome, there were 223 pathways affected at 0.1 FDR cutoff. See Supplementary Table S4–S8 for details on all pathways emerging from the bioinformatics/gene functional-enrichment approach. For the heart proteome, the major upregulated enriched pathways were: inflammatory processes (including coagulation cascade, complement cascade), elastic fibers, amino acid metabolism, citric acid cycle, extracellular matrix interactions, integrins, cardiovascular disease pathogenesis, urea cycle, HNF-3B/FOXA2 pathway, and metabolism of fat-soluble vitamins (Figure 4A). Major enriched pathways that were downregulated in the heart proteome were: cell cycle/transcription (CCTR), HIV life cycle, iron uptake and transport, reactive oxygen species, apoptosis, insulin glucose pathways, mitochondrial functions (including oxidative phosphorylation and electron transport system), and keratinization/cornification (Figure 4C). The CCTR pathway contained the most proteins and Supplementary Figure S1 shows the complete pathway interaction maps for CCTR. Each of the 72 circles represents a pathway in the interaction map with the size of the circle proportional to the number of proteins annotated with each pathway. Two interacting pathways are connected by a line with the thickness of the line proportional to the number of proteins shared between interacting pathways.",
+    "Major enriched pathways that were upregulated in the plasma samples from mice exposed to GCR5-ion included oxidative damage, and metabolism of amino acids, fatty acids, lipids, toxins, and steroids, toxins (Figure 4B). Major enriched pathways that were downregulated in the plasma include inflammatory processes (complement cascade, coagulation), oxidative damage, and cardiac signaling (GPCR and Hippo) (Figure 4D).",
+    "Inflammatory pathways and processes that were perturbed in both the heart and plasma proteome are examined in more detail in Figure 5. In both the heart and plasma proteome data set, pathways related to inflammatory processes were in the top ten significantly modulated pathways of each (Figures 5A, C). A pathway enrichment map combining both data sets with a focus on the inflammation pathways was generated (Figure 5B). Interestingly, two patterns emerged from this analysis. First, for pathways that were commonly perturbed in the plasma and heart, the pathways were upregulated in the heart and downregulated in the plasma, as shown by the red top half representing the heart and the bottom blue half that representing the plasma. Second, inflammatory pathways that were only perturbed in the plasma were downregulated.",
+    "Major enriched pathways that were significantly modulated in the phosphoproteomics data set of the heart included many pathways and processes involved in cardiac structure and function such as sarcomere, contractile fiber, I band, muscle cell development, contraction, actin binding, cardiac differentiation, and transmembrane transport. Other pathways significantly perturbed involved inflammatory processes such as neutrophil extracellular trap formation and reactive oxygen species (Figure 6A). Kinases responsible for phosphorylation of major substrates are shown in the heatmap of kinase-substrate interaction (Figure 6B). Notably, MTOR, CAMKG2, and PIM3 emerged as the three kinases responsible for phosphorylating most of the major substrates examined in the analysis. There were 121 proteins that are common between the heart proteome and phosphoproteome (Figure 6C). Of these proteins, there were seven phosphopeptides that were significantly affected in only the phosphoprotome data set (Figure 6D), indicating that the differences in phosphopetpide abundance of these seven phosphopepitides were due to differential phosphorylation at these particular sites rather than differences in protein abundance. These proteins are: RTN2 (reticulon 2), LMOD2 (leiomodin 2), PP1R7 (protein phosphatase 1 regulatory subunit 7), MTCH1 (mitochondrial carrier 1), LNP (lunapark), MIC60 (MICOS complex subunit Mic60), and JPH2 (Junctophilin-2).",
+    "Neutrophil extracellular traps were elevated in myocardium of GCR5-ion irradiated mice 12 months post irradiation",
+    "Western blot analysis was performed on mouse myocardium of 150 cGy GCR5-ion irradiated mice at 12 months and age-matched sham irradiation control (Supplementary Figure S2) to evaluate the expression patterns of selected proteins where antibodies were commercially available. Of the 13 protein targets examined by this methodology, only cytokeratin1 and fibrinogen gamma were statistically significantly different between hearts from irradiated and sham irradiated mice (Supplementary Figure S2D).",
+    "Immunofluorescent staining of mouse myocardium for markers of inflammation was also performed. Shown in Supplementary Figure S3 are representative myocardial sections from mice irradiated with 150 cGy GCR5-ion stained for fibrinogen α, fibrinogen β, C4d, and C4b-BP. There was no observed difference in the staining patterns of these protein markers between the GCR5-ion irradiated and sham irradiated mice and there was no significant staining observed in any of the samples.",
+    "To investigate the histologic presentation of neutrophil extracellular traps (NETs) in the hearts of mice exposed to GCR5-ion, immunofluorescent staining was performed using anti-neutrophil elastase and anti-MPO antibodies. The staining patterns were compared between the GCR5-ion -exposed mice hearts and the hearts of control mice (Figure 7A). The colocalization of DAPI, MPO, and neutrophil elastase revealed positive staining for NETs in the myocardial tissue of GCR5-ion -treated mice (Figure 7B). The NETs were found to be diffusely distributed in these heart sections, whereas no NETs were observed in any of the control mice hearts."
+  ],
+  "TABLE": [
+    "Top 20 proteins: cardiac proteome.",
+    "Protein name\tLog fold change\tp-value\tProtein description\tFunction\t \tMYH7\t0.7489\t7.99E-08\tMyosin heavy chain 7\tActin filament binding; calmodulin binding\t \tJCAD\t0.4211\t1.72E-05\tJunctional protein associated with coronary artery disease (JCAD)\tCell adhesin; cell-cell junctions\t \tUCP1\t0.6401\t2.40E-03\tMitochondrial brown fat uncoupling protein 1\tAdaptive thermogenesis; mitochondrial protein\t \tADNP\t1.4620\t2.18E-02\tActivity-dependent neuroprotector homeobox protein\tActivation of protein kinase activity\t \tHM13\t−0.5936\t4.96E-02\tMinor histocompatibility antigen H13\tMembrane protein proteolysis involved in retrograde protein transport\t \tHVM51\t−0.3970\t1.11E-02\tIg heavy chain V region AC38 205.12\tComplement activation, innate immune response\t \tCD151\t−0.5773\t8.84E-03\tCD151 antigen (GP27)\tCell migration; positive regulation of cell migration; T cell proliferation\t \tKV3A3\t−1.0194\t3.52E-02\tIg kappa chain V-III region MOPC 70\tAdaptive immune response; immune response\t \tRTRAF\t−0.4375\t1.39E-14\tRNA transcription, translation, and transport factor protein\tNegative regulation of protein kinase activity\t \tPTMA\t−0.5383\t3.36E-12\tProthymosin alpha\tHistone exchange; negative regulation of apoptosis\t \tCALM2\t−0.4734\t7.44E-16\tCalmodulin-2\tActivation of adenylate cyclase activity\t \tCOXM1\t−0.4160\t2.56E-04\tCOX assembly mitochondrial protein\tMitochondrion\t \tTNNC1\t−0.8406\t5.20E-27\tTroponin C, slow skeletal and cardiac muscles\tCardiac muscle contraction\t \tATP5J\t−0.6049\t1.53E-28\tATP synthase-coupling factor 6, mitochondrial\tATP metabolic process\t \tFRIH\t−0.4268\t7.79E-11\tFerritin heavy chain\tImmune response; intracellular sequestering of iron ion\t \tS10A9\t−0.6228\t1.13E-03\tProtein S100-A9\tActin cytoskeleton reorganization\t \tPP14A\t−0.4267\t1.10E-03\tProtein phosphatase 1 regulatory subunit 14A\tRegulation of phosphorylation\t \tS10A6\t−0.4436\t2.24E-03\tProtein S100-A6\tCalcium-dependent protein binding\t \tMYL4\t−0.4648\t8.34E-03\tMyosin light chain 4\tCardiac muscle contraction\t \tMYL1\t−0.4847\t9.36E-05\tMyosin light chain 1/3\tCardiac muscle contraction",
+    "Top 20 plasma proteome proteins.",
+    "Protein name\tLog fold change\tp-value\tProtein description\tFunction\t \tACOC1\t−1.3977\t3.27E-02\tAconitase\tCellular iron homeostasis\t \tARK72\t−1.5265\t1.82E-02\tAflatoxin B1 aldehyde reductase member 2\tDoxorubicin metabolic processes\t \tGLYC\t−1.6638\t3.79E-02\tSerine hydroxymethyltransferase\tSerine and glycine biosynthetic processes\t \tMUP20\t1.1216\t5.92E-06\tMajor urinary protein 20\tOlfactory learning\t \tSAA1\t1.5990\t6.61E-04\tSerum amyloid A-1 protein\tAcute-phase response; cholesterol metabolic process\t \tHVM34\t2.5801\t2.27E-03\tIg heavy chain V region AMPC1\tComplement activation; innate immune response\t \tKV5A9\t1.5679\t3.18E-03\tIg kappa chain V-V region L7 (Fragment)\tAdaptive immune response\t \tKV3A1\t1.3757\t5.73E-03\tIg kappa chain V-III region PC 2880/PC 1,229\tAdaptive immune response\t \tHYES\t−1.6366\t6.40E-03\tBifunctional epoxide hydrolase 2\tCholesterol homeostasis; production involved in inflammatory response\t \tARLY\t−1.6800\t6.06E-03\tArgininosuccinate lyase (ASAL)\tArginine biosynthetic process via ornithine\t \tAL9A1\t−1.7514\t6.96E-03\t4-trimethylaminobutyraldehyde dehydrogenase\tCarnitine biosynthetic process\t \tFAS\t−1.4609\t7.53E-03\tFatty acid synthase\tAcetyl-CoA metabolic process\t \tBHMT1\t−1.5636\t6.06E-03\tBetaine-homocysteine S-methyltransferase 1\tAmino-acid betaine catabolic process\t \tGPDA\t−1.3218\t3.06E-2\tglycerol-3-phosphate dehydrogenase\tCarbohydrate metabolism; gluconeogenesis\t \tGSTT3\t−1.4132\t4.09E-04\tGlutathione S-transferase theta-3\tGlutathione metabolic process\t \tGSTM6\t−2.1219\t1.51E-02\tGlutathione S-transferase Mu 6\tGlutathione metabolic process\t \tGRHPR\t−1.3113\t2.02E-02\tGlyoxylate reductase\tDicarboxylic acid metabolic process\t \tHEM2\t−1.5299\t1.58E-02\tDelta-aminolevulinic acid dehydratase\tCellular response to ions (lead, aluminum, cadmium)\t \tHUTH\t−1.8821\t9.97E-03\tHistidine ammonia-lyase (Histidase)\tHistidine catabolic process\t \tS14L2\t−1.3317\t1.33E-02\tSEC14-like protein 2\tAcute phase response",
+    "Top 20 phosphopeptides.",
+    "Protein name\tLog fold change\tAdjusted p-value\tPhosphopeptide site; sequence\tProtein function\t \tALPK3; Alpha kinase 3\t0.5840\t2.15E-02\tS1615; GSKSPSAGR\tHypertrophic cardiomyopathy; protein serine kinase\t \tDESM; desmin\t−0.4916\t1.94E-02\tS45; AGFGTKGSSSSMTSR\tInter-connects the Z disks of sarcomeres\t \tGPAT3; Glycerol-3-phosphate acyltransferase 3\t−0.4454\t4.51E-02\tS68; NSASVGIIQR\tEnzymatic activity\t \tKTN1; Kinectin\t−0.4739\t4.03E-02\tS124; QKPSLEEQVIK\tER protein; involved in kinesin-driven motility\t \tMTCH1; Mitochondrial carrier homolog 1\t−0.5770\t4.51E-02\tS61; HPRPAAQPSAR\tMediates insertion of transmembrane proteins into the mitochondrial outer membrane\t \tJPH2; Junctophilin-2\t−0.4402\t1.20E-02\tT621; QATLEPKPIVPK\tProvides structural bridge between plasma membrane and SR; required for excitation-contraction coupling in cardiomyocytes\t \tMYH6; Myosin 6\t−0.5386\t3.44E-02\tS1368; VLSKANSEVAQWR\tMuscle contraction\t \tMYH7; Myosin 7\t−0.5386\t3.44E-02\tS1366; VLSKANSEVAQWR\tMuscle contraction\t \tLARP1; La-related protein 1\t0.4357\t1.29E-02\tS743: SLPTTVPESPNYR\tRegulates translation of specific mRNA downstream of mTORC1 complex\t \tNACAM; Nascent polypeptide-associated complex subunit alpha, muscle-specific form\t−0.4512\t8.19E-03\tS524; ESPSSQSASSLEVLSEDTVTK\tCardiac and muscle specific transcription factor\t \tNUCKS; Nuclear ubiquitous casein and cyclin-dependent kinase substrate 1\t−0.5010\t7.713E-03\tS58; NSQEDSEDSEEKDVK\tDNA repair by promoting homologous recombination\t \tNUCKS; Nuclear ubiquitous casein and cyclin-dependent kinase substrate 1\t−0.5010\t7.713E-03\tS61; NSQEDSEDSEEKDVK\tDNA repair by promoting homologous recombination\t \tOSB11; Oxysterol-binding protein-related protein 11\t−0.4590\t6.85E-03\tS15; VSESEGKLEGLATAVTPNK\tRegulates FABP4 levels in differentiating adipocytes\t \tPERM1; PGC-1 and ERR-induced regulator in muscle protein 1\t−0.5430\t1.09E-02\tS247; EESGLDLSTPILITEQDQIRK\tRegulates expression of selective PPARGC1 A/B and ESRRA/B/G target genes in glucose and lipid metabolism, energy transfer, and contractile function\t \tPI5PA; Phosphatidylinositol 4,5 -bisphosphate 5-phopshatase A\t−0.4498\t4.51E-02\tS885; SRSPGLAR\tModulates function of inositol and phosphatidylinositol polyphosphate-binding proteins that are present in membrane ruffles\t \tRRBP1; Ribosome-binding protein 1\t−0.5006\t2.74E-03\tS191; ASSPATSSQGK\tMediates interaction between the ribosome and the ER membrane\t \tS12A4; Solute carrier family 12 member 4\t−0.4770\t1.34E-02\tS958; DRHSALR\tMediates potassium-chloride cotransport\t \tAKTS1; AKT1 substrate 1\t0.7830\t3.44E-02\tS184; SLPVSVPVWAFK\tSubunit of mTORC1\t \tSHIP1; Phosphatidylinositol 3, 4, 5-trisphosphate 5-phosphatase 1\t0.4719\t8.18E-03\tS1038; KEQESPK\tKey regulator of neutrophil migration\t \tMK14; Mitogen-activated protein 14\t−0.6623\t8.11E-03\tT180; HTDDEMTGYVATR\tSerine/threonine protein kinase"
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Based on data from epidemiological studies, it takes a significant amount of time for cardiovascular disease to develop (up to decades). There is relatively little knowledge regarding the time frame to develop cardiovascular disease from exposure to the space radiation environment. Here, we undertook a multi-proteomics approach to characterize protein and pathway perturbations that occurred in hearts and plasma from mice exposed to a single dose of GCR5-ion 8 months prior.",
+    "One of the most interesting observations was that across the three data sets, the abundance of the majority of the DEPs diminished in the heart and plasma at 8 months post radiation. While one acute effect of radiation is to cause fragmentation and aggregation of protein molecules, it is possible that the effects observed at 8 months post radiation may be due to the inhibition of protein synthesis. We previously reported that microgravity, another stressor of space travel, reduced protein turnover in cardiomyocytes and speculated that this diminishment in protein synthesis could lead to overall reduction in cardiomyocyte protein content.",
+    "Calmodulin 2 (CALM2), a signaling protein involved in the calcium-regulated contraction of cardiac muscle, was one of the most highly perturbed proteins in the heart proteome in this study. We examined the expression levels of CALM2 as well as an associated kinase (CAMKG2) via Western blots but did not see a statistical difference in abundance of either protein in the hearts of GCR5-ion irradiated mice compared to unirradiated controls (Supplementary Figures S2A, S3C). Western blotting and immunohistochemistry were also performed on hearts from irradiated and sham irradiated mice to validate markers of complement activation (C4d and C4b-BP; Supplementary Figure S3) and coagulation/clotting/fibrin formation (fibrinogen alpha, fibrinogen beta, fibrinogen gamma; Supplementary Figures S2C, S3). From this analysis, only fibrinogen gamma was statistically significantly different between hearts from irradiated and sham irradiated mice as observed via Western blot analysis (Supplementary Figure S2H).",
+    "In the plasma proteome, the most significantly regulated protein was major urinary protein 20 (MUP20) which was upregulated in irradiated animals. MUP20 is a male pheromone which promotes aggressive male behavior, stimulates female sexual attraction to male urinary scent, promotes a strong learned attraction to the airborne urinary odor of an individual male, and promotes spatial learning by rapidly conditioning preference for its remembered location among females and competitor males so that animals prefer to spend time in the site even when scent is absent. While this finding may not be translatable since humans are the only placental mammals found not to have any active MUP genes, the finding of MUP20 dysregulation in male mice exposed to GCR5-ion may illuminate behavioral and learning changes following exposures of rodents to various GCR components.",
+    "Other proteins dysregulated in the plasma following GCR irradiation are serum amyloid A1 (SAA1) (upregulated) and glutathione S-transferase theta-3 (GSTT3) (downregulated). SAA1 is a major acute-phase protein mainly produced by hepatocytes in response to infection, tissue injury, and malignancy. SAA has anti-inflammatory properties by inhibiting platelet aggregation and by reducing the oxidative burst in Polymorphonuclear neutrophils. SAA also has proinflammatory effects, such as induction of extracellular matrix degrading enzymes, allowing the repair of tissue damage and inflammatory cytokines such as IL-1B, IL-6, and TNFa. GSTT3 is expressed strongly in the liver (and to a lesser extent in kidney and testis). Glutathione transferases play a significant role in the metabolism/detoxification process of a wide range of electrophilic compounds that include mutagens, carcinogens, reactive oxygen species, and some therapeutic agents.",
+    "The most highly impacted pathways in the heart tissue were inflammation/complement/coagulation, mitochondria, and cell cycle/transcription (CCTR). The downregulation of the mitochondrial pathways is in line with the comprehensive Azimzadeh et al. review of omics data from radiation induced-cardiovascular disease. However, in our study, the CCTR cluster was the most highly affected, as detailed in Supplementary Figure S1, which shows the 72 CCTR processes that are downregulated in the heart 8 months post GCR irradiation. This global downregulation in cell cycle and transcription processes may help explain the overall diminishment in protein abundance noted earlier in the discussion.",
+    "Perhaps the most interesting finding from this study involves neutrophil extracellular traps (NETs). NETs have come to the forefront of immunology for their fundamental role in combating bacterial pathogens. Beyond this defensive capacity, intriguingly, NETs have shown the ability to modulate inflammatory responses, even within sterile environments.",
+    "One remarkable illustration of this involves the role of cholesterol crystals in prompting the formation of NETs, which subsequently stimulate macrophages to unleash IL-1-beta, a process known to expedite the development of atherosclerosis. This process becomes particularly concerning when a plaque rupture transpires. The resulting exposure of endovascular NETs can escalate vascular thrombosis, a factor intimately tied to severe cardiovascular events like acute myocardial infarction and stroke. Our study has unveiled some illuminating findings in this area. Employing proteomic analysis, we discovered that the NETs formation pathway was activated in mice exposed to Galactic Cosmic Radiation (GCR), and myocardium sections exhibited a significant accumulation of NETs in these mice after long-term high-energy GCR exposure.",
+    "Our findings align with previous research wherein, in a mouse bladder cancer model receiving radiation therapy, NETs were found to promote their formation through the protein HMGB1 via a TLR4-dependent pathway both in vitro and in vivo. Notably, the accumulation of NETs and its components in local areas can inflict damage on healthy tissues. Prior research has linked the increased expression of NETs in the inflamed myocardium to gene expression of collagen type I (Col1a1) and increased the heart stiffness in mouse models. This correlation may explain our previous findings, which demonstrated decreased systolic heart function and increased arterial elastance 1 year after GCR exposure, as revealed through cardiac-pressure-volume loop analysis. From our limited tissue samples, we observed an increased presence of type I collagen in the GCR-exposed mice, but no significant difference in type III collagen between the two groups (see Supplementary Figure S4). Evidence for persistent activity, as indicated by markers such as MPO and elastase, was noted 8 months post-exposure. However, this study did not include additional markers such as plasma enrichment, quantification of NETotic neutrophils, cleaved caspases, and condensed nuclei, which could have provided further insights into the sustained nature of NETs activity. The findings underscore the need for a more comprehensive investigation with an expanded sample size, controlled left ventricular mass data, and methodical sampling at regular intervals throughout the study to evaluate this phenomenon more accurately. NETs have also been shown to promote the development of deep vein thrombosis (DVT) in mouse models. A complication associated with cardiovascular degeneration during space flight that was recently brought to light is the occurrence of venous thromboembolisms (VTEs). Approximately 2 months into a mission aboard the International Space Station in 2019, a female astronaut noticed an abnormality during an ultrasound examination. Upon further examination and consultation with physicians on Earth, the astronaut was diagnosed with a left internal jugular venous thrombosis. The astronaut presented with no signs or symptoms, and she had no family or personal history of venous thromboembolisms. A therapeutic regimen was quickly established for the astronaut and she was luckily treated in a timely manner. This incidence exemplifies the unknown health consequences associated with unique stressors of the space environment. Although there are other confounding factors that may have contributed to the astronaut’s hypercoagulable state, there is evidence that her exposure to space radiation was a primary constituent.",
+    "We found NETs presentation in the myocardium, but no significant enrichment of inflammatory cytokines was identified in the plasma. Neutrophils serve as the first-line of innate immunity. The cytokines that trigger NETs formation might be detectable during the acute injury stage. Thus, there is a pressing need for another study that collects samples shortly after GCR exposure to accurately determine what triggers NETs.",
+    "While the exact mechanism behind NET formation following GCR exposure remains elusive in our study and whether NET formation may have played a role in the astronaut’s development of VTE is unknown, we propose a hypothesis involving chronic tissue damage and reactive oxygen species (ROS) activation post-radiation exposure as potential mechanisms, warranting further investigation."
+  ],
+  "SUPPL": [
+    "Data availability statement",
+    "The original contributions presented in the study are publicly available. This data can be found here: massive.ucsd.edu, MSV000092395.",
+    "Ethics statement",
+    "The animal study was approved by the Duke Institutional Animal Care and Use Committee. The study was conducted in accordance with the local legislation and institutional requirements.",
+    "Supplementary material",
+    "The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fphys.2024.1248276/full#supplementary-material"
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "YK, FL, MS, CW, JM, SS, AL, KD, JC, TD, MP, MF, and DB performed methodology, data acquisition and analysis, figures and table draft and data interpretation. YK performed bioinformatics analysis. YK, MF, AL, and MP performed statistical analysis. DB, YK, AL, MP, MF, TD, and JC drafted the final manuscript. All authors contributed to the article and approved the submitted version."
+  ],
+  "COMP_INT": [
+    "Conflict of interest",
+    "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.",
+    "Publisher’s note",
+    "All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher."
+  ],
+  "REF": [
+    "References",
+    "Year-long upregulation of connexin43 in rabbit hearts by heavy ion irradiation",
+    "Venous thrombosis during spaceflight",
+    "Application of radiation omics in the development of adverse outcome pathway networks: an example of radiation induced cardiovascular disease",
+    "Seipin knockout mice develop heart failure with preserved ejection fraction",
+    "Calcium signalling in heart and vessels: role of calmodulin and downstream calmodulin-dependent protein kinases",
+    "Late onset cardiovascular dysfunction in adult mice resulting from galactic cosmic ray exposure",
+    "Mouse genome database (MGD): knowledgebase for mouse-human comparative biology",
+    "Neutrophil extracellular traps promote deep vein thrombosis in mice",
+    "Implementing the MSFragger search engine as a node in proteome discoverer",
+    "Consequences of space radiation on the brain and cardiovascular system",
+    "The pheromone darcin drives a circuit for innate and reinforced behaviours",
+    "Mapping identifiers for the integration of genomic datasets with the R/Bioconductor package biomaRt",
+    "Microgravity induces proteomics changes involved in endoplasmic reticulum stress and mitochondrial protection",
+    "Effect of serum amyloid A on selected in vitro functions of isolated human neutrophils",
+    "Interleukin-13 disrupts type 2 pneumocyte stem cell activity",
+    "Adjusting batch effects in microarray expression data using empirical Bayes methods",
+    "The effect of pathogen inactivation on cryoprecipitate: a functional and quantitative evaluation",
+    "PhosR enables processing and functional analysis of phosphoproteomic data",
+    "Protocol for the processing and downstream analysis of phosphoproteomic data with PhosR",
+    "Neutrophil extracellular traps and their implications in cardiovascular and inflammatory disease",
+    "Radiation damage to proteins",
+    "Quantitative proteomic analytic approaches to identify metabolic changes in the medial prefrontal cortex of rats exposed to space radiation",
+    "Species specificity in major urinary proteins by parallel evolution",
+    "Enrichment map: a network-based method for gene-set enrichment visualization and interpretation",
+    "Surpassing 10 000 identified and quantified proteins in a single run by optimizing current LC-MS instrumentation and data analysis strategy",
+    "Neutrophil extracellular traps in immunity and disease",
+    "Limma powers differential expression analyses for RNA-sequencing and microarray studies",
+    "Darcin: a male pheromone that stimulates female memory and sexual attraction to an individual male's odour",
+    "edgeR: a Bioconductor package for differential expression analysis of digital gene expression data",
+    "A scaling normalization method for differential expression analysis of RNA-seq data",
+    "Effects of low-dose oxygen ions and protons on cardiac function and structure in male C57BL/6J mice",
+    "Role of neutrophil extracellular traps in radiation resistance of invasive bladder cancer",
+    "NASA’s first ground-based Galactic Cosmic Ray Simulator: enabling a new era in space radiobiology research",
+    "HZE Fe-ion irradiation induces endothelial dysfunction in rat aorta: role of xanthine oxidase",
+    "Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles",
+    "Serum amyloid A, the major vertebrate acute-phase reactant",
+    "Identification of PKCα-dependent phosphoproteins in mouse retina",
+    "Branched-chain α-ketoacids are preferentially reaminated and activate protein synthesis in the heart",
+    "Inflammation. Neutrophil extracellular traps license macrophages for cytokine production in atherosclerosis",
+    "Serum amyloid A, an acute phase protein, inhibits platelet activation"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Year-long upregulation of connexin43 in rabbit hearts by heavy ion irradiation",
+      "autores": [
+        {
+          "nombre_completo": "M. Amino",
+          "nombres": "M.",
+          "apellidos": "Amino"
+        },
+        {
+          "nombre_completo": "K. Yoshioka",
+          "nombres": "K.",
+          "apellidos": "Yoshioka"
+        },
+        {
+          "nombre_completo": "D. Fujibayashi",
+          "nombres": "D.",
+          "apellidos": "Fujibayashi"
+        },
+        {
+          "nombre_completo": "T. Hashida",
+          "nombres": "T.",
+          "apellidos": "Hashida"
+        },
+        {
+          "nombre_completo": "Y. Furusawa",
+          "nombres": "Y.",
+          "apellidos": "Furusawa"
+        },
+        {
+          "nombre_completo": "W. Zareba",
+          "nombres": "W.",
+          "apellidos": "Zareba"
+        }
+      ],
+      "pmid": "20061548",
+      "fuente": "Am. J. Physiol. Heart Circ. Physiol.",
+      "anio": "2010",
+      "volumen": "298",
+      "fpage": "H1014",
+      "lpage": "H1021"
+    },
+    {
+      "titulo": "Venous thrombosis during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "S. M. Auñón-Chancellor",
+          "nombres": "S. M.",
+          "apellidos": "Auñón-Chancellor"
+        },
+        {
+          "nombre_completo": "J. M. Pattarini",
+          "nombres": "J. M.",
+          "apellidos": "Pattarini"
+        },
+        {
+          "nombre_completo": "S. Moll",
+          "nombres": "S.",
+          "apellidos": "Moll"
+        },
+        {
+          "nombre_completo": "A. Sargsyan",
+          "nombres": "A.",
+          "apellidos": "Sargsyan"
+        }
+      ],
+      "pmid": "31893522",
+      "fuente": "N. Engl. J. Med.",
+      "anio": "2020",
+      "volumen": "382",
+      "fpage": "89",
+      "lpage": "90"
+    },
+    {
+      "titulo": "Application of radiation omics in the development of adverse outcome pathway networks: an example of radiation induced cardiovascular disease",
+      "autores": [
+        {
+          "nombre_completo": "O. Azimzadeh",
+          "nombres": "O.",
+          "apellidos": "Azimzadeh"
+        },
+        {
+          "nombre_completo": "S. Moertl",
+          "nombres": "S.",
+          "apellidos": "Moertl"
+        },
+        {
+          "nombre_completo": "R. Ramadan",
+          "nombres": "R.",
+          "apellidos": "Ramadan"
+        },
+        {
+          "nombre_completo": "B. Baselet",
+          "nombres": "B.",
+          "apellidos": "Baselet"
+        },
+        {
+          "nombre_completo": "E. C. Laiakis",
+          "nombres": "E. C.",
+          "apellidos": "Laiakis"
+        },
+        {
+          "nombre_completo": "S. Sebastian",
+          "nombres": "S.",
+          "apellidos": "Sebastian"
+        }
+      ],
+      "pmid": "35976069",
+      "fuente": "Int. J. Radiat. Biol.",
+      "anio": "2022",
+      "volumen": "98",
+      "fpage": "1722",
+      "lpage": "1751"
+    },
+    {
+      "titulo": "Seipin knockout mice develop heart failure with preserved ejection fraction",
+      "autores": [
+        {
+          "nombre_completo": "B. Bai",
+          "nombres": "B.",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "W. Yang",
+          "nombres": "W.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y. Fu",
+          "nombres": "Y.",
+          "apellidos": "Fu"
+        },
+        {
+          "nombre_completo": "H. L. Foon",
+          "nombres": "H. L.",
+          "apellidos": "Foon"
+        },
+        {
+          "nombre_completo": "W. T. Tay",
+          "nombres": "W. T.",
+          "apellidos": "Tay"
+        },
+        {
+          "nombre_completo": "K. Yang",
+          "nombres": "K.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "31909301",
+      "fuente": "JACC Basic Transl. Sci.",
+      "anio": "2019",
+      "volumen": "4",
+      "fpage": "924",
+      "lpage": "937"
+    },
+    {
+      "titulo": "Calcium signalling in heart and vessels: role of calmodulin and downstream calmodulin-dependent protein kinases",
+      "autores": [
+        {
+          "nombre_completo": "S. Beghi",
+          "nombres": "S.",
+          "apellidos": "Beghi"
+        },
+        {
+          "nombre_completo": "M. Furmanik",
+          "nombres": "M.",
+          "apellidos": "Furmanik"
+        },
+        {
+          "nombre_completo": "A. Jaminon",
+          "nombres": "A.",
+          "apellidos": "Jaminon"
+        },
+        {
+          "nombre_completo": "R. Veltrop",
+          "nombres": "R.",
+          "apellidos": "Veltrop"
+        },
+        {
+          "nombre_completo": "N. Rapp",
+          "nombres": "N.",
+          "apellidos": "Rapp"
+        },
+        {
+          "nombre_completo": "K. Wichapong",
+          "nombres": "K.",
+          "apellidos": "Wichapong"
+        }
+      ],
+      "pmid": "36555778",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "16139",
+      "lpage": ""
+    },
+    {
+      "titulo": "Late onset cardiovascular dysfunction in adult mice resulting from galactic cosmic ray exposure",
+      "autores": [
+        {
+          "nombre_completo": "M. Bishawi",
+          "nombres": "M.",
+          "apellidos": "Bishawi"
+        },
+        {
+          "nombre_completo": "F. H. Lee",
+          "nombres": "F. H.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "D. M. Abraham",
+          "nombres": "D. M.",
+          "apellidos": "Abraham"
+        },
+        {
+          "nombre_completo": "C. Glass",
+          "nombres": "C.",
+          "apellidos": "Glass"
+        },
+        {
+          "nombre_completo": "S. J. Blocker",
+          "nombres": "S. J.",
+          "apellidos": "Blocker"
+        },
+        {
+          "nombre_completo": "D. J. Cox",
+          "nombres": "D. J.",
+          "apellidos": "Cox"
+        }
+      ],
+      "pmid": "35378858",
+      "fuente": "iScience",
+      "anio": "2022",
+      "volumen": "25",
+      "fpage": "104086",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mouse genome database (MGD): knowledgebase for mouse-human comparative biology",
+      "autores": [
+        {
+          "nombre_completo": "J. A. Blake",
+          "nombres": "J. A.",
+          "apellidos": "Blake"
+        },
+        {
+          "nombre_completo": "R. Baldarelli",
+          "nombres": "R.",
+          "apellidos": "Baldarelli"
+        },
+        {
+          "nombre_completo": "J. A. Kadin",
+          "nombres": "J. A.",
+          "apellidos": "Kadin"
+        },
+        {
+          "nombre_completo": "J. E. Richardson",
+          "nombres": "J. E.",
+          "apellidos": "Richardson"
+        },
+        {
+          "nombre_completo": "C. L. Smith",
+          "nombres": "C. L.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "C. J. Bult",
+          "nombres": "C. J.",
+          "apellidos": "Bult"
+        }
+      ],
+      "pmid": "33231642",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2021",
+      "volumen": "49",
+      "fpage": "D981",
+      "lpage": "D987"
+    },
+    {
+      "titulo": "Neutrophil extracellular traps promote deep vein thrombosis in mice",
+      "autores": [
+        {
+          "nombre_completo": "A. Brill",
+          "nombres": "A.",
+          "apellidos": "Brill"
+        },
+        {
+          "nombre_completo": "T. A. Fuchs",
+          "nombres": "T. A.",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "A. S. Savchenko",
+          "nombres": "A. S.",
+          "apellidos": "Savchenko"
+        },
+        {
+          "nombre_completo": "G. M. Thomas",
+          "nombres": "G. M.",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "K. Martinod",
+          "nombres": "K.",
+          "apellidos": "Martinod"
+        },
+        {
+          "nombre_completo": "S. F. De Meyer",
+          "nombres": "S. F.",
+          "apellidos": "De Meyer"
+        }
+      ],
+      "pmid": "22044575",
+      "fuente": "J. Thromb. Haemost.",
+      "anio": "2012",
+      "volumen": "10",
+      "fpage": "136",
+      "lpage": "144"
+    },
+    {
+      "titulo": "Implementing the MSFragger search engine as a node in proteome discoverer",
+      "autores": [
+        {
+          "nombre_completo": "H. Y. Chang",
+          "nombres": "H. Y.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "S. E. Haynes",
+          "nombres": "S. E.",
+          "apellidos": "Haynes"
+        },
+        {
+          "nombre_completo": "F. Yu",
+          "nombres": "F.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "A. I. Nesvizhskii",
+          "nombres": "A. I.",
+          "apellidos": "Nesvizhskii"
+        }
+      ],
+      "pmid": "36475762",
+      "fuente": "J. Proteome Res.",
+      "anio": "2023",
+      "volumen": "22",
+      "fpage": "520",
+      "lpage": "525"
+    },
+    {
+      "titulo": "Consequences of space radiation on the brain and cardiovascular system",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Davis",
+          "nombres": "C. M.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "A. R. Allen",
+          "nombres": "A. R.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "D. E. Bowles",
+          "nombres": "D. E.",
+          "apellidos": "Bowles"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Environ. Sci. Health, Part C",
+      "anio": "2021",
+      "volumen": "39",
+      "fpage": "180",
+      "lpage": "218"
+    },
+    {
+      "titulo": "The pheromone darcin drives a circuit for innate and reinforced behaviours",
+      "autores": [
+        {
+          "nombre_completo": "E. Demir",
+          "nombres": "E.",
+          "apellidos": "Demir"
+        },
+        {
+          "nombre_completo": "K. Li",
+          "nombres": "K.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "N. Bobrowski-Khoury",
+          "nombres": "N.",
+          "apellidos": "Bobrowski-Khoury"
+        },
+        {
+          "nombre_completo": "J. I. Sanders",
+          "nombres": "J. I.",
+          "apellidos": "Sanders"
+        },
+        {
+          "nombre_completo": "R. J. Beynon",
+          "nombres": "R. J.",
+          "apellidos": "Beynon"
+        },
+        {
+          "nombre_completo": "J. L. Hurst",
+          "nombres": "J. L.",
+          "apellidos": "Hurst"
+        }
+      ],
+      "pmid": "31996852",
+      "fuente": "Nature",
+      "anio": "2020",
+      "volumen": "578",
+      "fpage": "137",
+      "lpage": "141"
+    },
+    {
+      "titulo": "Mapping identifiers for the integration of genomic datasets with the R/Bioconductor package biomaRt",
+      "autores": [
+        {
+          "nombre_completo": "S. Durinck",
+          "nombres": "S.",
+          "apellidos": "Durinck"
+        },
+        {
+          "nombre_completo": "P. T. Spellman",
+          "nombres": "P. T.",
+          "apellidos": "Spellman"
+        },
+        {
+          "nombre_completo": "E. Birney",
+          "nombres": "E.",
+          "apellidos": "Birney"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        }
+      ],
+      "pmid": "19617889",
+      "fuente": "Nat. Protoc.",
+      "anio": "2009",
+      "volumen": "4",
+      "fpage": "1184",
+      "lpage": "1191"
+    },
+    {
+      "titulo": "Microgravity induces proteomics changes involved in endoplasmic reticulum stress and mitochondrial protection",
+      "autores": [
+        {
+          "nombre_completo": "B. J. Feger",
+          "nombres": "B. J.",
+          "apellidos": "Feger"
+        },
+        {
+          "nombre_completo": "J. W. Thompson",
+          "nombres": "J. W.",
+          "apellidos": "Thompson"
+        },
+        {
+          "nombre_completo": "L. G. Dubois",
+          "nombres": "L. G.",
+          "apellidos": "Dubois"
+        },
+        {
+          "nombre_completo": "R. P. Kommaddi",
+          "nombres": "R. P.",
+          "apellidos": "Kommaddi"
+        },
+        {
+          "nombre_completo": "M. W. Foster",
+          "nombres": "M. W.",
+          "apellidos": "Foster"
+        },
+        {
+          "nombre_completo": "R. Mishra",
+          "nombres": "R.",
+          "apellidos": "Mishra"
+        }
+      ],
+      "pmid": "27670941",
+      "fuente": "Sci. Rep.",
+      "anio": "2016",
+      "volumen": "6",
+      "fpage": "34091",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effect of serum amyloid A on selected in vitro functions of isolated human neutrophils",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Gatt",
+          "nombres": "M. E.",
+          "apellidos": "Gatt"
+        },
+        {
+          "nombre_completo": "S. Urieli-Shoval",
+          "nombres": "S.",
+          "apellidos": "Urieli-Shoval"
+        },
+        {
+          "nombre_completo": "L. Preciado-Patt",
+          "nombres": "L.",
+          "apellidos": "Preciado-Patt"
+        },
+        {
+          "nombre_completo": "M. Fridkin",
+          "nombres": "M.",
+          "apellidos": "Fridkin"
+        },
+        {
+          "nombre_completo": "S. Calco",
+          "nombres": "S.",
+          "apellidos": "Calco"
+        },
+        {
+          "nombre_completo": "Y. Azar",
+          "nombres": "Y.",
+          "apellidos": "Azar"
+        }
+      ],
+      "pmid": "9823935",
+      "fuente": "J. Lab. Clin. Med.",
+      "anio": "1998",
+      "volumen": "132",
+      "fpage": "414",
+      "lpage": "420"
+    },
+    {
+      "titulo": "Interleukin-13 disrupts type 2 pneumocyte stem cell activity",
+      "autores": [
+        {
+          "nombre_completo": "K. M. Glisinski",
+          "nombres": "K. M.",
+          "apellidos": "Glisinski"
+        },
+        {
+          "nombre_completo": "A. J. Schlobohm",
+          "nombres": "A. J.",
+          "apellidos": "Schlobohm"
+        },
+        {
+          "nombre_completo": "S. V. Paramore",
+          "nombres": "S. V.",
+          "apellidos": "Paramore"
+        },
+        {
+          "nombre_completo": "A. Birukova",
+          "nombres": "A.",
+          "apellidos": "Birukova"
+        },
+        {
+          "nombre_completo": "M. A. Moseley",
+          "nombres": "M. A.",
+          "apellidos": "Moseley"
+        },
+        {
+          "nombre_completo": "M. W. Foster",
+          "nombres": "M. W.",
+          "apellidos": "Foster"
+        }
+      ],
+      "pmid": "31941839",
+      "fuente": "JCI Insight",
+      "anio": "2020",
+      "volumen": "5",
+      "fpage": "e131232",
+      "lpage": ""
+    },
+    {
+      "titulo": "Adjusting batch effects in microarray expression data using empirical Bayes methods",
+      "autores": [
+        {
+          "nombre_completo": "W. E. Johnson",
+          "nombres": "W. E.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "C. Li",
+          "nombres": "C.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "A. Rabinovic",
+          "nombres": "A.",
+          "apellidos": "Rabinovic"
+        }
+      ],
+      "pmid": "16632515",
+      "fuente": "Biostatistics",
+      "anio": "2007",
+      "volumen": "8",
+      "fpage": "118",
+      "lpage": "127"
+    },
+    {
+      "titulo": "The effect of pathogen inactivation on cryoprecipitate: a functional and quantitative evaluation",
+      "autores": [
+        {
+          "nombre_completo": "R. W. Kamyszek",
+          "nombres": "R. W.",
+          "apellidos": "Kamyszek"
+        },
+        {
+          "nombre_completo": "M. W. Foster",
+          "nombres": "M. W.",
+          "apellidos": "Foster"
+        },
+        {
+          "nombre_completo": "B. A. Evans",
+          "nombres": "B. A.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "K. Stoner",
+          "nombres": "K.",
+          "apellidos": "Stoner"
+        },
+        {
+          "nombre_completo": "J. Poisson",
+          "nombres": "J.",
+          "apellidos": "Poisson"
+        },
+        {
+          "nombre_completo": "A. J. Srinivasan",
+          "nombres": "A. J.",
+          "apellidos": "Srinivasan"
+        }
+      ],
+      "pmid": "33000752",
+      "fuente": "Blood Transfus.",
+      "anio": "2020",
+      "volumen": "18",
+      "fpage": "454",
+      "lpage": "464"
+    },
+    {
+      "titulo": "PhosR enables processing and functional analysis of phosphoproteomic data",
+      "autores": [
+        {
+          "nombre_completo": "H. J. Kim",
+          "nombres": "H. J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "T. Kim",
+          "nombres": "T.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "N. J. Hoffman",
+          "nombres": "N. J.",
+          "apellidos": "Hoffman"
+        },
+        {
+          "nombre_completo": "D. Xiao",
+          "nombres": "D.",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "D. E. James",
+          "nombres": "D. E.",
+          "apellidos": "James"
+        },
+        {
+          "nombre_completo": "S. J. Humphrey",
+          "nombres": "S. J.",
+          "apellidos": "Humphrey"
+        }
+      ],
+      "pmid": "33626354",
+      "fuente": "Cell Rep.",
+      "anio": "2021",
+      "volumen": "34",
+      "fpage": "108771",
+      "lpage": ""
+    },
+    {
+      "titulo": "Protocol for the processing and downstream analysis of phosphoproteomic data with PhosR",
+      "autores": [
+        {
+          "nombre_completo": "H. J. Kim",
+          "nombres": "H. J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "T. Kim",
+          "nombres": "T.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "D. Xiao",
+          "nombres": "D.",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "P. Yang",
+          "nombres": "P.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "34151303",
+      "fuente": "Star. Protoc.",
+      "anio": "2021",
+      "volumen": "2",
+      "fpage": "100585",
+      "lpage": ""
+    },
+    {
+      "titulo": "Neutrophil extracellular traps and their implications in cardiovascular and inflammatory disease",
+      "autores": [
+        {
+          "nombre_completo": "J. Klopf",
+          "nombres": "J.",
+          "apellidos": "Klopf"
+        },
+        {
+          "nombre_completo": "C. Brostjan",
+          "nombres": "C.",
+          "apellidos": "Brostjan"
+        },
+        {
+          "nombre_completo": "W. Eilenberg",
+          "nombres": "W.",
+          "apellidos": "Eilenberg"
+        },
+        {
+          "nombre_completo": "C. Neumayer",
+          "nombres": "C.",
+          "apellidos": "Neumayer"
+        }
+      ],
+      "pmid": "33429925",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "559",
+      "lpage": ""
+    },
+    {
+      "titulo": "Radiation damage to proteins",
+      "autores": [
+        {
+          "nombre_completo": "U. Kumta",
+          "nombres": "U.",
+          "apellidos": "Kumta"
+        },
+        {
+          "nombre_completo": "A. Tappel",
+          "nombres": "A.",
+          "apellidos": "Tappel"
+        }
+      ],
+      "pmid": "14460526",
+      "fuente": "Nature",
+      "anio": "1961",
+      "volumen": "191",
+      "fpage": "1304",
+      "lpage": "1305"
+    },
+    {
+      "titulo": "Quantitative proteomic analytic approaches to identify metabolic changes in the medial prefrontal cortex of rats exposed to space radiation",
+      "autores": [
+        {
+          "nombre_completo": "E. C. Laiakis",
+          "nombres": "E. C.",
+          "apellidos": "Laiakis"
+        },
+        {
+          "nombre_completo": "M. Pinheiro",
+          "nombres": "M.",
+          "apellidos": "Pinheiro"
+        },
+        {
+          "nombre_completo": "T. Nguyen",
+          "nombres": "T.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "H. Nguyen",
+          "nombres": "H.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "S. M. Dutta",
+          "nombres": "S. M.",
+          "apellidos": "Dutta"
+        }
+      ],
+      "pmid": "36091373",
+      "fuente": "Front. Physiol.",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "971282",
+      "lpage": ""
+    },
+    {
+      "titulo": "Species specificity in major urinary proteins by parallel evolution",
+      "autores": [
+        {
+          "nombre_completo": "D. W. Logan",
+          "nombres": "D. W.",
+          "apellidos": "Logan"
+        },
+        {
+          "nombre_completo": "T. F. Marton",
+          "nombres": "T. F.",
+          "apellidos": "Marton"
+        },
+        {
+          "nombre_completo": "L. Stowers",
+          "nombres": "L.",
+          "apellidos": "Stowers"
+        }
+      ],
+      "pmid": "18815613",
+      "fuente": "PLoS One",
+      "anio": "2008",
+      "volumen": "3",
+      "fpage": "e3280",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enrichment map: a network-based method for gene-set enrichment visualization and interpretation",
+      "autores": [
+        {
+          "nombre_completo": "D. Merico",
+          "nombres": "D.",
+          "apellidos": "Merico"
+        },
+        {
+          "nombre_completo": "R. Isserlin",
+          "nombres": "R.",
+          "apellidos": "Isserlin"
+        },
+        {
+          "nombre_completo": "O. Stueker",
+          "nombres": "O.",
+          "apellidos": "Stueker"
+        },
+        {
+          "nombre_completo": "A. Emili",
+          "nombres": "A.",
+          "apellidos": "Emili"
+        },
+        {
+          "nombre_completo": "G. D. Bader",
+          "nombres": "G. D.",
+          "apellidos": "Bader"
+        }
+      ],
+      "pmid": "21085593",
+      "fuente": "PLoS One",
+      "anio": "2010",
+      "volumen": "5",
+      "fpage": "e13984",
+      "lpage": ""
+    },
+    {
+      "titulo": "Surpassing 10 000 identified and quantified proteins in a single run by optimizing current LC-MS instrumentation and data analysis strategy",
+      "autores": [
+        {
+          "nombre_completo": "J. Muntel",
+          "nombres": "J.",
+          "apellidos": "Muntel"
+        },
+        {
+          "nombre_completo": "T. Gandhi",
+          "nombres": "T.",
+          "apellidos": "Gandhi"
+        },
+        {
+          "nombre_completo": "L. Verbeke",
+          "nombres": "L.",
+          "apellidos": "Verbeke"
+        },
+        {
+          "nombre_completo": "O. M. Bernhardt",
+          "nombres": "O. M.",
+          "apellidos": "Bernhardt"
+        },
+        {
+          "nombre_completo": "T. Treiber",
+          "nombres": "T.",
+          "apellidos": "Treiber"
+        },
+        {
+          "nombre_completo": "R. Bruderer",
+          "nombres": "R.",
+          "apellidos": "Bruderer"
+        }
+      ],
+      "pmid": "31465043",
+      "fuente": "Mol. Omics",
+      "anio": "2019",
+      "volumen": "15",
+      "fpage": "348",
+      "lpage": "360"
+    },
+    {
+      "titulo": "Neutrophil extracellular traps in immunity and disease",
+      "autores": [
+        {
+          "nombre_completo": "V. Papayannopoulos",
+          "nombres": "V.",
+          "apellidos": "Papayannopoulos"
+        }
+      ],
+      "pmid": "28990587",
+      "fuente": "Nat. Rev. Immunol.",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "134",
+      "lpage": "147"
+    },
+    {
+      "titulo": "Limma powers differential expression analyses for RNA-sequencing and microarray studies",
+      "autores": [
+        {
+          "nombre_completo": "M. E. Ritchie",
+          "nombres": "M. E.",
+          "apellidos": "Ritchie"
+        },
+        {
+          "nombre_completo": "B. Phipson",
+          "nombres": "B.",
+          "apellidos": "Phipson"
+        },
+        {
+          "nombre_completo": "D. Wu",
+          "nombres": "D.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "Y. Hu",
+          "nombres": "Y.",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "C. W. Law",
+          "nombres": "C. W.",
+          "apellidos": "Law"
+        },
+        {
+          "nombre_completo": "W. Shi",
+          "nombres": "W.",
+          "apellidos": "Shi"
+        }
+      ],
+      "pmid": "25605792",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "e47",
+      "lpage": ""
+    },
+    {
+      "titulo": "Darcin: a male pheromone that stimulates female memory and sexual attraction to an individual male's odour",
+      "autores": [
+        {
+          "nombre_completo": "S. A. Roberts",
+          "nombres": "S. A.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "D. M. Simpson",
+          "nombres": "D. M.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "S. D. Armstrong",
+          "nombres": "S. D.",
+          "apellidos": "Armstrong"
+        },
+        {
+          "nombre_completo": "A. J. Davidson",
+          "nombres": "A. J.",
+          "apellidos": "Davidson"
+        },
+        {
+          "nombre_completo": "D. H. Robertson",
+          "nombres": "D. H.",
+          "apellidos": "Robertson"
+        },
+        {
+          "nombre_completo": "L. McLean",
+          "nombres": "L.",
+          "apellidos": "McLean"
+        }
+      ],
+      "pmid": "20525243",
+      "fuente": "BMC Biol.",
+      "anio": "2010",
+      "volumen": "8",
+      "fpage": "75",
+      "lpage": ""
+    },
+    {
+      "titulo": "edgeR: a Bioconductor package for differential expression analysis of digital gene expression data",
+      "autores": [
+        {
+          "nombre_completo": "M. D. Robinson",
+          "nombres": "M. D.",
+          "apellidos": "Robinson"
+        },
+        {
+          "nombre_completo": "D. J. McCarthy",
+          "nombres": "D. J.",
+          "apellidos": "McCarthy"
+        },
+        {
+          "nombre_completo": "G. K. Smyth",
+          "nombres": "G. K.",
+          "apellidos": "Smyth"
+        }
+      ],
+      "pmid": "19910308",
+      "fuente": "Bioinformatics",
+      "anio": "2010",
+      "volumen": "26",
+      "fpage": "139",
+      "lpage": "140"
+    },
+    {
+      "titulo": "A scaling normalization method for differential expression analysis of RNA-seq data",
+      "autores": [
+        {
+          "nombre_completo": "M. D. Robinson",
+          "nombres": "M. D.",
+          "apellidos": "Robinson"
+        },
+        {
+          "nombre_completo": "A. Oshlack",
+          "nombres": "A.",
+          "apellidos": "Oshlack"
+        }
+      ],
+      "pmid": "20196867",
+      "fuente": "Genome Biol.",
+      "anio": "2010",
+      "volumen": "11",
+      "fpage": "R25",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of low-dose oxygen ions and protons on cardiac function and structure in male C57BL/6J mice",
+      "autores": [
+        {
+          "nombre_completo": "J. W. Seawright",
+          "nombres": "J. W.",
+          "apellidos": "Seawright"
+        },
+        {
+          "nombre_completo": "V. Sridharan",
+          "nombres": "V.",
+          "apellidos": "Sridharan"
+        },
+        {
+          "nombre_completo": "R. D. Landes",
+          "nombres": "R. D.",
+          "apellidos": "Landes"
+        },
+        {
+          "nombre_completo": "M. Cao",
+          "nombres": "M.",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "P. Singh",
+          "nombres": "P.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "I. Koturbash",
+          "nombres": "I.",
+          "apellidos": "Koturbash"
+        }
+      ],
+      "pmid": "30797436",
+      "fuente": "Life Sci. Space Res. (Amst)",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "72",
+      "lpage": "84"
+    },
+    {
+      "titulo": "Role of neutrophil extracellular traps in radiation resistance of invasive bladder cancer",
+      "autores": [
+        {
+          "nombre_completo": "S. Shinde-Jadhav",
+          "nombres": "S.",
+          "apellidos": "Shinde-Jadhav"
+        },
+        {
+          "nombre_completo": "J. J. Mansure",
+          "nombres": "J. J.",
+          "apellidos": "Mansure"
+        },
+        {
+          "nombre_completo": "R. F. Rayes",
+          "nombres": "R. F.",
+          "apellidos": "Rayes"
+        },
+        {
+          "nombre_completo": "G. Marcq",
+          "nombres": "G.",
+          "apellidos": "Marcq"
+        },
+        {
+          "nombre_completo": "M. Ayoub",
+          "nombres": "M.",
+          "apellidos": "Ayoub"
+        },
+        {
+          "nombre_completo": "R. Skowronski",
+          "nombres": "R.",
+          "apellidos": "Skowronski"
+        }
+      ],
+      "pmid": "33986291",
+      "fuente": "Nat. Commun.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "2776",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA’s first ground-based Galactic Cosmic Ray Simulator: enabling a new era in space radiobiology research",
+      "autores": [
+        {
+          "nombre_completo": "L. C. Simonsen",
+          "nombres": "L. C.",
+          "apellidos": "Simonsen"
+        },
+        {
+          "nombre_completo": "T. C. Slaba",
+          "nombres": "T. C.",
+          "apellidos": "Slaba"
+        },
+        {
+          "nombre_completo": "P. Guida",
+          "nombres": "P.",
+          "apellidos": "Guida"
+        },
+        {
+          "nombre_completo": "A. Rusek",
+          "nombres": "A.",
+          "apellidos": "Rusek"
+        }
+      ],
+      "pmid": "32428004",
+      "fuente": "PLoS Biol.",
+      "anio": "2020",
+      "volumen": "18",
+      "fpage": "e3000669",
+      "lpage": ""
+    },
+    {
+      "titulo": "HZE Fe-ion irradiation induces endothelial dysfunction in rat aorta: role of xanthine oxidase",
+      "autores": [
+        {
+          "nombre_completo": "K. G. Soucy",
+          "nombres": "K. G.",
+          "apellidos": "Soucy"
+        },
+        {
+          "nombre_completo": "H. K. Lim",
+          "nombres": "H. K.",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "J. H. Kim",
+          "nombres": "J. H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "Y. Oh",
+          "nombres": "Y.",
+          "apellidos": "Oh"
+        },
+        {
+          "nombre_completo": "D. O. Attarzadeh",
+          "nombres": "D. O.",
+          "apellidos": "Attarzadeh"
+        },
+        {
+          "nombre_completo": "B. Sevinc",
+          "nombres": "B.",
+          "apellidos": "Sevinc"
+        }
+      ],
+      "pmid": "21787183",
+      "fuente": "Radiat. Res.",
+      "anio": "2011",
+      "volumen": "176",
+      "fpage": "474",
+      "lpage": "485"
+    },
+    {
+      "titulo": "Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles",
+      "autores": [
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "P. Tamayo",
+          "nombres": "P.",
+          "apellidos": "Tamayo"
+        },
+        {
+          "nombre_completo": "V. K. Mootha",
+          "nombres": "V. K.",
+          "apellidos": "Mootha"
+        },
+        {
+          "nombre_completo": "S. Mukherjee",
+          "nombres": "S.",
+          "apellidos": "Mukherjee"
+        },
+        {
+          "nombre_completo": "B. L. Ebert",
+          "nombres": "B. L.",
+          "apellidos": "Ebert"
+        },
+        {
+          "nombre_completo": "M. A. Gillette",
+          "nombres": "M. A.",
+          "apellidos": "Gillette"
+        }
+      ],
+      "pmid": "16199517",
+      "fuente": "Proc. Natl. Acad. Sci. U. S. A.",
+      "anio": "2005",
+      "volumen": "102",
+      "fpage": "15545",
+      "lpage": "15550"
+    },
+    {
+      "titulo": "Serum amyloid A, the major vertebrate acute-phase reactant",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Uhlar",
+          "nombres": "C. M.",
+          "apellidos": "Uhlar"
+        },
+        {
+          "nombre_completo": "A. S. Whitehead",
+          "nombres": "A. S.",
+          "apellidos": "Whitehead"
+        }
+      ],
+      "pmid": "10504381",
+      "fuente": "Eur. J. Biochem.",
+      "anio": "1999",
+      "volumen": "265",
+      "fpage": "501",
+      "lpage": "523"
+    },
+    {
+      "titulo": "Identification of PKCα-dependent phosphoproteins in mouse retina",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Wakeham",
+          "nombres": "C. M.",
+          "apellidos": "Wakeham"
+        },
+        {
+          "nombre_completo": "P. A. Wilmarth",
+          "nombres": "P. A.",
+          "apellidos": "Wilmarth"
+        },
+        {
+          "nombre_completo": "J. M. Cunliffe",
+          "nombres": "J. M.",
+          "apellidos": "Cunliffe"
+        },
+        {
+          "nombre_completo": "J. E. Klimek",
+          "nombres": "J. E.",
+          "apellidos": "Klimek"
+        },
+        {
+          "nombre_completo": "G. Ren",
+          "nombres": "G.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "L. L. David",
+          "nombres": "L. L.",
+          "apellidos": "David"
+        }
+      ],
+      "pmid": "31255707",
+      "fuente": "J. Proteomics",
+      "anio": "2019",
+      "volumen": "206",
+      "fpage": "103423",
+      "lpage": ""
+    },
+    {
+      "titulo": "Branched-chain α-ketoacids are preferentially reaminated and activate protein synthesis in the heart",
+      "autores": [
+        {
+          "nombre_completo": "J. M. Walejko",
+          "nombres": "J. M.",
+          "apellidos": "Walejko"
+        },
+        {
+          "nombre_completo": "B. A. Christopher",
+          "nombres": "B. A.",
+          "apellidos": "Christopher"
+        },
+        {
+          "nombre_completo": "S. B. Crown",
+          "nombres": "S. B.",
+          "apellidos": "Crown"
+        },
+        {
+          "nombre_completo": "G. F. Zhang",
+          "nombres": "G. F.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "A. Pickar-Oliver",
+          "nombres": "A.",
+          "apellidos": "Pickar-Oliver"
+        },
+        {
+          "nombre_completo": "T. Yoneshiro",
+          "nombres": "T.",
+          "apellidos": "Yoneshiro"
+        }
+      ],
+      "pmid": "33723250",
+      "fuente": "Nat. Commun.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "1680",
+      "lpage": ""
+    },
+    {
+      "titulo": "Inflammation. Neutrophil extracellular traps license macrophages for cytokine production in atherosclerosis",
+      "autores": [
+        {
+          "nombre_completo": "A. Warnatsch",
+          "nombres": "A.",
+          "apellidos": "Warnatsch"
+        },
+        {
+          "nombre_completo": "M. Ioannou",
+          "nombres": "M.",
+          "apellidos": "Ioannou"
+        },
+        {
+          "nombre_completo": "Q. Wang",
+          "nombres": "Q.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "V. Papayannopoulos",
+          "nombres": "V.",
+          "apellidos": "Papayannopoulos"
+        }
+      ],
+      "pmid": "26185250",
+      "fuente": "Science",
+      "anio": "2015",
+      "volumen": "349",
+      "fpage": "316",
+      "lpage": "320"
+    },
+    {
+      "titulo": "Serum amyloid A, an acute phase protein, inhibits platelet activation",
+      "autores": [
+        {
+          "nombre_completo": "S. Zimlichman",
+          "nombres": "S.",
+          "apellidos": "Zimlichman"
+        },
+        {
+          "nombre_completo": "A. Danon",
+          "nombres": "A.",
+          "apellidos": "Danon"
+        },
+        {
+          "nombre_completo": "I. Nathan",
+          "nombres": "I.",
+          "apellidos": "Nathan"
+        },
+        {
+          "nombre_completo": "G. Mozes",
+          "nombres": "G.",
+          "apellidos": "Mozes"
+        },
+        {
+          "nombre_completo": "R. Shainkin-Kestenbaum",
+          "nombres": "R.",
+          "apellidos": "Shainkin-Kestenbaum"
+        }
+      ],
+      "pmid": "1697614",
+      "fuente": "J. Lab. Clin. Med.",
+      "anio": "1990",
+      "volumen": "116",
+      "fpage": "180",
+      "lpage": "186"
+    }
+  ]
+}

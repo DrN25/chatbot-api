@@ -1,0 +1,2344 @@
+{
+  "TITLE": [
+    "Designing a Novel Monitoring Approach for the Effects of Space Travel on Astronauts’ Health"
+  ],
+  "ABSTRACT": [
+    "Space exploration and extraterrestrial civilization have fascinated humankind since the earliest days of human history. It was only in the last century that humankind finally began taking significant steps towards these goals by sending astronauts into space, landing on the moon, and building the International Space Station. However, space voyage is very challenging and dangerous, and astronauts are under constant space radiation and microgravity. It has been shown that astronauts are at a high risk of developing a broad range of diseases/disorders. Thus, it is critical to develop a rapid and effective assay to monitor astronauts’ health in space. In this study, gene expression and correlation patterns were analyzed for 10 astronauts (8 male and 2 female) using the publicly available microarray dataset E-GEOD-74708. We identified 218 differentially expressed genes between In-flight and Pre-flight and noticed that space travel decreased genome regulation and gene correlations across the entire genome, as well as individual signaling pathways. Furthermore, we systematically developed a shortlist of 32 genes that could be used to monitor astronauts’ health during space travel. Further studies, including microgravity experiments, are warranted to optimize and validate the proposed assay."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "“Space: the final frontier.”. Every fan of the American science fiction TV series Star Trek is likely to remember this cardinal line of the opening monologue. Indeed, space exploration and extraterrestrial civilization have continually fascinated humankind; however, it was only in the last century that humankind finally took a solid step forward by sending astronauts into space and landing on the moon. In the 21st century, humankind has made another great leap forward in space exploration: expediting the International Space Station (ISS) program, sending unmanned rovers to seek signs of life on Mars, and starting private space ventures. In addition, NASA (The National Aeronautics and Space Administration) is planning to send astronauts back to the moon in 2024 and to Mars in the 2030s. Through all these endeavors, we have seen the twilight of crewed space missions going beyond our harbor (Earth) and into deep space.",
+    "Space travel is challenging, dangerous, and full of uncertainty. Astronauts are under sustained microgravity and cosmic radiation. Prolonged exposure to microgravity and cosmic radiation has been shown to cause a series of health problems, including loss of muscle mass, reduced bone density, compromised immune responses, impaired renal functions, neurological system irresponsiveness, and development of cardiovascular diseases. Furthermore, microgravity and cosmic radiation can cause several types of cancer, such as leukemia, likely due to compromised immunity. However, studies under simulated microgravity also show that microgravity affects cell proliferation and apoptosis and can change cancer cells into less malignant phenotypes. These studies indicate that the impact of microgravity and cosmic radiation on human health is profound, and it is unlikely that this impact is due to changes in one gene or a small group of genes. Therefore, genomic, transcriptomic, and/or proteomic studies are crucial to fully understand the effects of microgravity and cosmic radiation on human health. These studies can lead to the development of effective strategies to monitor, prevent, and/or alleviate the effects on human health caused by space travel.",
+    "Approximately 12 years ago, NASA and JAXA (Japan Aerospace Exploration Agency) undertook a microarray study on 10 astronauts (8 male and 2 female) who had a six-month mission at the ISS. Terada et al. used qPCR to confirm that space flight changed gene expression in astronauts. Several genes, including FGF18, ANGPTL7, and COMP, were upregulated and might play a role in inhibiting cell proliferation in hair follicles. However, they neither discussed the potential effects of the differentially expressed genes on the astronauts’ health nor provided any strategy to monitor these effects. Thus, in the current study, we reanalyzed this microarray dataset, conceptualized a method that could monitor the effects of space travel on astronauts’ health, and searched for potential intervention options."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. Data Acquisition",
+    "Microarray dataset E-GEOD-74708, which is the largest publicly available space gene expression dataset, was downloaded from the NASA GeneLab Database (, accessed on 15 March 2021). It contains gene expression profiles for 10 astronauts (8 male and 2 female) that stayed in the ISS between July 2009 and February 2013. For each astronaut, 2 profiles were collected at each of the three time points, Pre-flight (prior to departing for the ISS), In-flight (while staying at the ISS), and Post-flight (after return to the ground).",
+    "2.2. Data Processing",
+    "Individual gene expression profiles were combined into three DataFrames: Pre-flight, In-flight, and Post-flight using the Pandas package (version 1.3.0) in Python. These DataFrames were analyzed for possible outliers and verified for accuracy. Gene expression readings with null values were removed. Then, Agilent IDs in the data were mapped to gene names using the Ensembl BioMart database (, accessed on 15 March 2021).",
+    "2.3. DEG Identification and Signaling Pathway Analysis",
+    "Differentially expressed genes (DEGs: ∣log2FC∣ ≥ 3.00 and p < 0.05) were identified between the In-flight and the Pre-flight DataFrames using the DEGseq package (version 1.42.0) in R. The Likelihood Ratio Test (LRT) function was applied in the calculation. No DEGs were identified between the Post-flight and the In-flight DataFrames. The DEGs between In-flight and Pre-flight were then subjected to signaling pathway analysis using the InnateDB tool.",
+    "2.4. Calculation of Gene Pair Correlation Matrices",
+    "Pairwise Pearson correlation coefficient matrices for the 3 gene expression DataFrames were calculated using formula . The correlation matrices were subsequently transferred to be visualized using an R platform. To analyze gene pair correlations for the signaling pathways, the expression profiles of the genes for the pathways were extracted from the DataFrames to produce the DataFrame subsets. For each signaling pathway, pairwise Pearson correlation coefficients were calculated and visualized as outlined above between the In-flight and Pre-flight subsets and between the Post-flight and In-flight subsets. Positive and negative correlations were represented in blue and red, respectively. Additionally, gene pair correlation coefficient differentials, ΔCC (In-Pre) = CCIn-flight – CCPre-flight and ΔCC (Post-In) = CCPost-flight – CCIn-flight were calculated by matrix subtraction between the In-flight and Pre-flight subsets and between the Post-flight and In-flight subsets. These were subsequently visualized with correlation difference plots with positive and negative ΔCCs shown in green and red, respectively.",
+    "2.5. Protein–Protein Interaction Network and Disease Network Constructions",
+    "The BioGrid database and DisGeNET database were downloaded in March 2021 to create a protein–protein interaction (PPI) network and extract the disease interaction information, respectively, for the DEGs. The networks were then constructed using Python and visualized using Cytoscape.",
+    "2.6. Drug and miRNA Screenings",
+    "The Drugbank and miRTARBase databases were also downloaded in March 2021 to extract the drug and miRNA interaction information for the DEGs. The networks were subsequently constructed using Python and visualized using Cytoscape. From these two networks, we identified potential drugs and miRNAs targeting the 32 genes that were identified to be used in a rapid RT2-PCR assay for space travel."
+  ],
+  "RESULTS": [
+    "3. Results and Discussion",
+    "3.1. Differentially Expressed Genes (DEGs)",
+    "NASA and JAXA undertook Study GLDS-174: “Effects of a closed space environment on gene expression in hair follicles of astronauts in the International Space Station” between 2009 and 2013. Hair follicles were chosen for this study because they are the easiest attainable and noninvasive samples that are understood to be representative of most large-scale changes in the body. However, Terada et al. only reported the expression of selected genes in this study and did not undertake further analysis. To better understand how space travel affects astronauts’ health, we downloaded the microarray dataset (E-GEOD-74708) from the NASA GeneLab open data repository. The microarray dataset includes gene expression information for three stages: Pre-flight (6 months to 2 weeks before launch), In-flight (while staying in the ISS), and Post-flight (2 days to 3 months after returning from the ISS). We then analyzed the dataset for gene expression and gene pair correlation. Using cut-off criteria of ∣log2FC∣ ≥ 3.00 and p < 0.05, 218 DEGs were identified between In-flight and Pre-flight (Supplementary File S1: DEG_list.xls). The top 20 up- and downregulated genes are summarized in Table 1. However, no DEGs were detected between Post-flight and In-flight, suggesting that the astronauts may need a longer time than current guidelines for the body to adjust to the ground environment. Furthermore, astronauts have a much higher risk of developing various types of diseases than normal people and precautionary measures are critical to protect their health after returning to ground.",
+    "As expected, the DEGs between In-flight and Pre-flight regulate a broad spectrum of biological and physiological functions. For example, the most up-regulated gene LIMCH1, encoding LIM and calponin-homology domains 1, activates the non-muscle myosin Iia complex, stabilizes focal adhesion, and inhibits cell migration. Thus, the upregulation of LIMCH1 may explain observations that microgravity exposure can change cancer cells into less malignant phenotypes. The second most up-regulated gene IER3 encodes Immediate Early Response 3 and regulates cell apoptosis, inflammation, and tumorigenesis. Upregulation of IER3 has been observed in several types of cancer and may regulate cancer progression. This implies another possible reason, other than radiation exposure, that increases the risk of astronauts developing cancer during a prolonged period of space travel. The most down-regulated gene, NFATC1, encodes Nuclear Factor of Activated T Cells 1 and plays an important role in osteoblast differentiation, osteoclastogenesis, T-cell differentiation, lymphatic endothelial development, cardiac valve morphogenesis, and tumorigenesis. The downregulation of NFATC1 may result in osteoporosis, immunocompromised conditions, and prostate cancer in astronauts during a prolonged space stay. The second most down-regulated gene, KIDINS220, encoding Kinase D Interacting Substrate 220, modulates the development and function of the nerve and cardiovascular systems. The downregulation of KIDINS220 may contribute to the development of neurological disorders and cardiovascular diseases in astronauts. In summary, the large variation of the biological processes regulated by the DEGs provides a valuable resource of genes for us to develop a rapid assay kit (~20–30 genes) to monitor astronauts’ health conditions in space. However, it is noteworthy that the three genes reported by Terada et al., FGF18, ANGPTL7, and COMP, are not in the aforementioned DEG list because they failed to meet the cut-off criteria.",
+    "3.2. Gene Pair Correlations",
+    "As mentioned above, the effect of space travel on an astronaut’s health is comprehensive and involves the regulation of many genes. It is also well-known that any biological, physiological, or pathophysiological change requires a delicate coordination of multiple genes. Therefore, we decided to carry out a gene pair correlation analysis for the whole genome (30,645 transcripts for 23,115 genes) among the Pre-flight, In-flight, and Post-flight expression profiles. As shown in Figure 1A, the genes are highly correlated in the Pre-flight, which is consistent with previous studies showing that gene expressions are correlated in normal human tissues. Upon staying in the ISS for an extended period of 6 months, the genome significantly lost its regulation of the gene expression and gene coordination was scrambled (Figure 1B). Our previous studies have shown that loss of gene pair correlations is a hallmark of carcinogenesis and/or cancer progression. Therefore, loss of coordination of gene expression, other than cosmic radiation and compromised immune system, is likely to be another factor that increases the risk of cancer development in astronauts. Analysis of the Post-flight dataset showed that returning to ground did not significantly improve genome regulation and coordination of gene expression (Figure 1C), implying that the effect of space travel on human health is more profound and longer lasting than currently thought. Extended care is necessary for astronauts to minimize the risk of disease development. As we progress towards crewed missions into outer space (for example, to the Moon and Mars) and other prolonged space stays, it is critical to develop rapid approaches to monitor genome regulation and establish corresponding protocols to alleviate the effects of space travel on human health. Another important question that needs to be addressed is whether the human body could establish a new “routine” for prolonged space stays and what this would look like in terms of astronauts’ health. We speculate that loss of gene expression coordination might also be responsible for other diseases/conditions astronauts experience, such as muscle loss and compromised immune system. Extensive further studies in space biomedicine and space pharmacology are warranted to prepare us for longer-term outer space exploration.",
+    "3.3. Signaling Pathway and Disease Network of the DEGs",
+    "Because DEGs are the most altered genes during a biological process, we conducted a signaling pathway analysis of the 218 DEGs between In-flight and Pre-flight to figure out which biological functions are regulated by these genes. The top 11 signaling pathways were identified to be signal transduction, immune system, gene expression, metabolism, metabolism of proteins, generic transcription pathway, developmental biology, metabolism of lipids and lipoproteins, axon guidance, innate immune system, and disease (Table 2). In total, 48 genes were found to be involved in the regulation of these top 11 signaling pathways. Moreover, it is obvious that most of these DEGs are involved in the regulation of multiple signaling pathways, and that these signaling pathways regulate a broad range of biological, physiological, and/or pathophysiological processes. This analysis reconfirms that space travel imposes comprehensive effects on the human system rather than affecting an individual organ or tissue.",
+    "We further analyzed the disease network for the 218 DEGs between the In-flight and Pre-flight expression profiles to identify the major disease/disorder conditions associated with space travel (Supplementary File S2: Disease_DEG.xls). As shown in Table 3, the top 20 disease/disorder conditions can broadly be divided into three categories: neoplasia/carcinoma, neurological disorder, and liver function, with the top three conditions being malignant neoplasm of the breast, colorectal carcinoma, and malignant neoplasm of the prostate. More DEGs were associated with tumor development than other diseases/disorders. In 2019, Reynolds et al. reported the effect of space radiation on astronauts’ death using a statistical analysis. Of the astronauts who traveled to space between 1960 and 2018, 53 NASA astronauts have died, with 16 of those deaths (30.2%) being caused by cancer. Nevertheless, their study indicates that space radiation does not strongly impact the mortality of astronauts. This implies that weakened genome regulation (i.e., reduced gene expression correlation) is likely to be another key factor, in addition to compromised immune function, in causing tumor development in astronauts. However, these tumors may be less malignant or even benign. Moreover, consistent with previous studies, our results showed that space travel significantly affects astronauts’ liver function and liver metabolism. Key genes identified from our analysis, such as GPT and UBA5, might serve as valuable monitoring biomarkers of astronauts’ liver function and even possible medical intervention points to protect astronauts’ health. Because liver is a major organ for drug metabolism, a systematic space pharmacology study is needed to establish drug profiles—including dosing, ADMET (absorption, distribution, metabolism, excretion, and toxicity), and even formulation—in preparation for future voyages into outer space. Space drug usage based on current information may be less effective or even detrimental to astronauts’ health.",
+    "3.4. Design of a Rapid Assay for Space Travel",
+    "Any biological or physiological process requires a delicate regulation of genes, including gene expression levels, interactions, and correlations. However, most genomics/genetic studies are focused on gene expression level rather than gene pair correlation. Although gene co-expressions and protein co-localizations are commonly studied in biomedical research, our research laboratory, to the best of our knowledge, is the first to apply gene pair correlation coefficient (a mathematical term) to describe and explain biological and medical questions. Thus, to design a rapid assay to monitor astronauts’ health, we selected a set of genes with expression levels and gene pair correlations significantly altered by space travel.",
+    "We calculated gene pair correlation coefficients (designated as CC) of the DEGs associated with the top 11 signaling pathways for the Pre-flight, In-flight, and Post-flight datasets, and analyzed the gene pair correlation coefficient differentials (designated as ΔCC) between the In-flight and Pre-flight and between the Post-flight and In-flight (Figure 2). The changes in gene pair CCs between the In-flight and Pre-flight datasets were obvious for every signaling pathway, except the generic transcription pathway. However, the changes between Post-flight and In-flight CCs were minimal. Thus, using ∣ΔCC∣ > 0.70 as a cut-off, we identified gene pairs with their correlation coefficients significantly altered between the In-flight and Pre-flight datasets and summarized them in Table 4. These gene pairs were then classified into four categories based on changes in correlation coefficients: Category 1—positive to more/less positive (highlighted in blue), Category 2—positive to negative (highlighted in green), Category 3—negative to positive (highlighted in brown), and Category 4—negative to more/less negative (highlighted in red). It is noteworthy that Categories 2 and 3 contained more gene pairs than Categories 1 and 4, implying that many genes lost their coordination and even started counteractive processes in space. This observation supports previous studies that found that spaceflight significantly affects gene expression and homeostasis. This dramatic change in gene expression coordination is thought to affect normal biological and physiological functions in the human body and is likely detrimental to astronauts’ health.",
+    "In a previous study, correlation was classified into three categories based on correlation coefficients: strong (0.68 ≤ ∣CC∣ ≤ 1.00), moderate (0.36 ≤ ∣CC∣ ≤ 0.67), and weak (∣CC∣ ≤ 0.35). To increase the sensitivity of the assay for space travel, it is rational to only include gene pairs with correlations changing from strong to weak, weak to strong, or strong to opposite strong with ∣ΔCC∣ > 0.70. Using this guideline, we identified the following gene pairs: 12 gene pairs from signal transduction, 11 gene pairs from immune system, 2 gene pairs from gene expression, 5 gene pairs from metabolism, 6 gene pairs from metabolism of proteins, 1 gene pair from developmental biology, 2 gene pairs from metabolism of lipids and lipoprotein, 1 gene pair from axon guidance, 2 gene pairs from innate immune system, and 1 gene pair from disease (Table 5). In total, 32 genes were selected, and they are AARS2, ACSL4, ATF2, BIRC2, CCL2, CCNC, CHMP4C, COL4A4, CREB1, CRHR1, CTNNBIP1, DPP4, EIF4E2, GNE, GPT, IL7, KIDINS220, MAGT1, NDUFA1, NFATC1, PCSK1, PDPK1, PIKFYVE, PSAT1, RRN3, SOS2, SPON2, THBS3, UBR4, XAF1, YES1, and ZNF606.",
+    "To get a global view of the 32 genes regulating biological functions, we constructed the protein–protein interaction (PPI), disease-gene, drug-gene, and miRNA-gene networks for the 218 DEGs and labelled the 32 genes in the networks (Supplementary Figure S1). Genes that were present in the 32-gene list but not in the networks were not labelled. Most of the 32 identified genes have high degrees of connectivity and are likely to be biological hubs. Thus, we propose that an RT2-PCR assay of these 32 genes could be a novel, effective, and comparatively cheap way to continuously monitor astronauts’ health in space. Validation of this assay under microgravity simulation conditions is warranted for further optimization of the gene list before sending an assay kit for practical tests in space. Finally, we extracted the drug molecules (both approved and experimental, listed in Supplementary File S3: Drug_list.xls) and miRNAs (listed in Supplementary File S4: miRNA_list.xls) that potentially target these 32 genes from the drug-gene and miRNA-gene networks. These drugs and miRNAs could be applied as possible medical interventions for health conditions associated with space travel."
+  ],
+  "CONCL": [
+    "4. Conclusions",
+    "In this study, we analyzed the effects of space travel on gene expression and correlation using the publicly available microarray dataset E-GEOD-74708, and systematically developed a shortlist of genes for a novel rapid assay that could be used to monitor astronauts’ health in space. However, this study faces a few limitations. First, the sample size (10 astronauts) is small due to the nature of space travel and unstandardized space biology research. More sample collection is needed to optimize the monitoring assay. Secondly, there were only two female astronauts in the microarray dataset. To get better representation and higher accuracy in the analysis, more gene expression profiles from a diverse population of astronauts should be obtained. Future studies in simulated microgravity conditions will allow for the optimization and validation of the proposed assay. It is noteworthy that this assay may address only one facet of a complete monitoring and treatment approach for astronauts’ health in space. In practice, other factors such as biomarkers and physiological metrics should also be included in the approach. Despite these drawbacks, our current study proposes a new strategy to develop genome-based rapid assays. This strategy could also be applied to other research fields such as cancer diagnostic assays.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following supporting information can be downloaded at: , File S1: DEG_list.xls; File S2: Disease_DEG.xls; File S3: Drug_list.xls; File S4: miRNA_list.xls; Supplementary Figure S1: Protein-protein interaction (A), disease-gene (B), drug-gene (C) and miRNA-gene (D) networks for the 218 differentially expressed genes (DEGs) between Pre-flight and In-flight gene expression datasets collected from 10 astronauts (8 males and 2 females). Nodes with higher degrees of connectivity were shown in larger size and darker color. Genes identified for the rapid RT2-PCR assay kit were labelled in the networks. Genes CCNC, CTNNBIP1, EIF4E2 and RRN3 are not present in the disease-gene network; genes BIRC2, CCNC, CHMP4C, CTNNBIP1, EIF4E2, IL7, KIDINS220, MAGT1, PIKFYVE, RRN3, SOS2, SPON2, THBS3, XAF1 and ZNF606 are not present in the drug-gene network; and genes CRHR1, DPP4, GPT and SPON2 are not present in the miRNA-gene network, respectively.",
+    "Data Availability Statement",
+    "Not applicable."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, J.Y.; methodology, A.S. and J.Y.; software, A.S.; validation, A.S. and J.Y.; formal analysis, A.S. and J.Y.; investigation, A.S. and J.Y.; resources, J.Y.; data curation, A.S. and J.Y.; writing—original draft preparation, A.S.; writing—review and editing, J.Y.; visualization, A.S. and J.Y.; supervision, J.Y.; project administration, J.Y.; funding acquisition, J.Y. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Star Trek: The Next Generation 1; 1987",
+    "Apollo 11 Mission Overview, NASA",
+    "International Space Station. NASA",
+    "Mars Perseverance Rover. NASA",
+    "Mars Exploration Program. Mars Curiosity Rover. NASA",
+    "Commercial Space Transportation. NASA",
+    "Low-Earth Orbit Economy. NASA",
+    "Gateway, NASA",
+    "Muscle volume, strength, endurance, and exercise loads during 6-month missions in space",
+    "Exercise in space: Human skeletal muscle after 6 months aboard the International Space Station",
+    "Proceedings: Bone mineral content changes in the Skylab astronauts",
+    "Skeletal changes during and after spaceflight",
+    "How does spaceflight affect the acquired immune system?",
+    "Immune System Dysregulation During Spaceflight: Potential Countermeasures for Deep Space Exploration Missions",
+    "Bone metabolism and renal stone risk during International Space Station missions",
+    "A review of alterations to the brain during spaceflight and the potential relevance to crew in long-duration space exploration",
+    "Space exploration, Mars, and the nervous system",
+    "Long-term spaceflight and the cardiovascular system",
+    "Heart in space: Effect of the extraterrestrial environment on the cardiovascular system",
+    "Space radiation cancer risks and uncertainties for Mars missions",
+    "Simulated microgravity with floating environment promotes migration of non-small cell lung cancers",
+    "Spaceflight alters microtubules and increases apoptosis in human lymphocytes (Jurkat)",
+    "Fighting Thyroid Cancer with Microgravity Research",
+    "Effects of a Closed Space Environment on Gene Expression in Hair Follicles of Astronauts in the International Space Station",
+    "Data Structures for Statistical Computing in python",
+    "DEGseq: An R package for identifying differentially expressed genes from RNA-seq data",
+    "InnateDB: Facilitating systems-level analyses of the mammalian innate immune response",
+    "BioGRID: A general repository for interaction datasets",
+    "The DisGeNET knowledge platform for disease genomics: 2019 update",
+    "Cytoscape: A software environment for integrated models of biomolecular interaction networks",
+    "DrugBank: A comprehensive resource for in silico drug discovery and exploration",
+    "miRTarBase 2020: Updates to the experimentally validated microRNA-target interaction database",
+    "LIMCH1 regulates nonmuscle myosin-II activity and suppresses cell migration",
+    "Myosin II in mechanotransduction: Master and commander of cell migration, morphogenesis, and cancer",
+    "IEX-1, an immediate early gene, increases the rate of apoptosis in keratinocytes",
+    "Role of the immediate early response 3 (IER3) gene in cellular stress response, inflammation and tumorigenesis",
+    "IEX-1 deficiency protects against colonic cancer",
+    "Resistance of Sézary cells to TNF-α-induced apoptosis is mediated in part by a loss of TNFR1 and a high level of the IER3 expression",
+    "Prolactin and oestrogen synergistically regulate gene expression and proliferation of breast cancer cells",
+    "Expression and function of the P2X7 receptor in human osteoblasts: The role of NFATc1 transcription factor",
+    "Calcineurin/NFAT signaling in osteoblasts regulates bone mass",
+    "NFATc1 controls the cytotoxicity of CD8+ T cells",
+    "NFATc1 regulates lymphatic endothelial development",
+    "A field of myocardial-endocardial NFAT signaling underlies heart valve morphogenesis",
+    "NFATC1 promotes cell growth and tumorigenesis in ovarian cancer up-regulating c-Myc through ERK1/2/p38 MAPK signal pathway",
+    "Kidins220/ARMS is an essential modulator of cardiovascular and nervous system development",
+    "Kidins220/ARMS mediates the integration of the neurotrophin and VEGF pathways in the vascular and nervous systems",
+    "Gene co-expression analysis for functional classification and gene-disease predictions",
+    "Gene Pair Correlation Coefficients in Sphingolipid Metabolic Pathway as a Potential Prognostic Biomarker for Breast Cancer",
+    "Alteration in Gene Pair Correlations in Tryptophan Metabolism as a Hallmark in Cancer Diagnosis",
+    "Pairwise correlation of genes involved in glucose metabolism: A potential diagnostic marker of cancer?",
+    "Contrapositive logic suggests space radiation not having a strong impact on mortality of US astronauts and Soviet and Russian cosmonauts",
+    "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver",
+    "Impact of spaceflight and artificial gravity on sulfur metabolism in mouse liver: Sulfur metabolomic and transcriptomic analysis",
+    "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+    "Interpretation of the correlation coefficient: A basic review"
+  ],
+  "FIG": [
+    "Gene pair correlations of the whole genome (30,645 transcripts for 23,115 genes) for 10 astronauts during Pre-flight (A), In-flight (B), and Post-flight (C). Positive and negative correlations are represented in blue and red, respectively.",
+    "Gene pair correlations ((1): Pre-flight, (2): In-flight, and (3): Post-flight) and differentials of gene pair correlations (4): between In-flight and Pre-flight and (5): between Post-flight and In-flight for the differentially expressed genes (DEGs) in the top 11 signaling pathways. The top 11 signaling pathways are signal transduction, immune system, gene expression, metabolism, metabolism of proteins, generic transcription pathway, developmental biology, metabolism of lipids and lipoproteins, axon guidance, innate immune system, and disease. The top 11 signaling pathways were identified from InnateDB analysis of the 218 DEGs (∣log2FC∣ ≥ 3.00 and p < 0.05). Positive and negative gene pair correlations are represented in blue and red, respectively; and positive and negative differentials of gene pair correlations are represented in green and red, respectively."
+  ],
+  "TABLE": [
+    "Top 20 up- and down-regulated DEGs (differentially expressed genes) between In-flight and Pre-flight. The cut-off criteria for DEGs are ∣log2FC∣ ≥ 3.00 and p < 0.05.",
+    "Up-Regulated Genes\tDown-Regulated Genes\t \tGene Name\tLog2FC\tp-Value\tGene Name\tLog2FC\tp-Value\t \tLIMCH1\t7.59\t0.03\tNFATC1\t−10.40\t0.00\t \tIER3\t7.45\t0.03\tKIDINS220\t−10.35\t0.03\t \tZNF664\t6.57\t0.03\tZCCHC9\t−7.82\t0.00\t \tNDUFA1\t6.27\t0.03\tIGSF9\t−6.08\t0.03\t \tAL391650.1\t5.28\t0.03\tHSD11B1L\t−5.76\t0.00\t \tTUBGCP5\t5.07\t0.03\tCLTB\t−5.69\t0.00\t \tGAPVD1\t5.03\t0.03\tYIPF2\t−5.68\t0.03\t \tAARS2\t4.81\t0.03\tBTBD9\t−5.49\t0.00\t \tAC004080.5\t4.77\t0.03\tLINC00668\t−5.41\t0.00\t \tNAA60\t4.72\t0.03\tAL096711.2\t−4.97\t0.03\t \tIGBP1P1\t4.41\t0.03\tEIF4E2\t−4.97\t0.03\t \tFANCD2\t4.28\t0.03\tSHE\t−4.41\t0.03\t \tAMT\t4.20\t0.03\tHOXC4\t−4.27\t0.00\t \tPNPLA4\t4.11\t0.03\tTHBS3\t−4.17\t0.00\t \tRABGAP1\t4.10\t0.03\tPGM2L1\t−3.95\t0.00\t \tMAPKAPK5\t3.89\t0.03\tTCEANC\t−3.93\t0.03\t \tDFFBP1\t3.83\t0.03\tARHGAP9\t−3.91\t0.00\t \tSTAG1\t3.71\t0.03\tZNF451\t−3.80\t0.03\t \tSPON2\t3.62\t0.04\tNCEH1\t−3.73\t0.00\t \tCHN1\t3.59\t0.04\tAC010531.1\t−3.71\t0.03",
+    "Differentially expressed genes (DEGs) present in the top 11 signaling pathways.",
+    "Signaling Pathways\tGene Names\t \tSignal transduction\tARHGAP9, CCL2, CCNC, CHN1, CLTB, COL4A4, CREB1, CRHR1, CTNNBIP1, HIF1A, KIDINS220, NFATC1, PDPK1, SOS2, THBS3, YES1\t \tImmune system\tATF2, BIRC2, CREB1, EIF4E2, IL7, NFATC1, PDPK1, UBA5, UBR4, XAF1, YES1\t \tGene expression\tAARS2, CCNC, RRN3, ZNF184, ZNF253, ZNF529, ZNF606, ZNF664, ZNF699, ZNF711\t \tMetabolism\tACSL4, ARSK, CCNC, GM2A, GPT, HACL1, NDUFA1, PIKFYVE, PSAT1\t \tMetabolism of proteins\tARSK, CCL2, DPP4, GNE, MAGT1, PCSK1, SPON2, XRN2\t \tGeneric transcription pathway\tCCNC, ZNF184, ZNF253, ZNF529, ZNF606, ZNF664, ZNF699, ZNF711\t \tDevelopmental biology\tCCNC, CLTB, COL4A4, CREB1, SCN2B, SOS2, YES1\t \tMetabolism of lipids and lipoproteins\tACSL4, ARSK, CCNC, GM2A, HACL1, PIKFYVE\t \tAxon guidance\tCLTB, COL4A4, CREB1, SCN2B, SOS2, YES1\t \tInnate immune system\tATF2, BIRC2, CREB1, NFATC1, PDPK1, YES1\t \tDisease\tCCNC, CHMP4C, CREB1, CTNNBIP1, HIF1A, PDPK1",
+    "Top 20 disease/disorder conditions and their respectively associated DEGs based on disease network analysis of 218 DEGs between In-flight and Pre-flight.",
+    "Disease/Disorder\tGenes\t \tMalignant Neoplasm of Breast\tTHBS3, UBR4, ATF2, NBN, CRHR1, AREG, HIF1A, PDPK1, COL7A1, ZNF404, BIRC2\t \tColorectal Carcinoma\tPOSTN, SACS, FANCG, XAF1, ACSL4, INTS13, COL7A1, NFATC1, C12ORF76, NDUFA1\t \tMalignant Neoplasm of Prostate\tGREB1, HMGN5, SPON2, HIF1A, CRYL1, CASZ1, ACSL4, NBN\t \tProstatic Neoplasms\tCASZ1, NBN, GREB1, HIF1A, CRYL1, ACSL4, SPON2, HMGN5\t \tSchizophrenia\tPSAT1, BTBD9, CFAP65, CREB1, CCL2, HSPA12A, DKK3, VRK2\t \tBreast Carcinoma\tBIRC2, COL7A1, ZNF404, HIF1A, AREG, CRHR1, PDPK1\t \tMammary Carcinoma, Human\tAREG, COL7A1, HIF1A, CRHR1, ZNF404, PDPK1, BIRC2\t \tMammary Neoplasms\tAREG, COL7A1, PDPK1, ZNF404, CRHR1, HIF1A, BIRC2\t \tMammary Neoplasms, Human\tZNF404, COL7A1, PDPK1, CRHR1, BIRC2, HIF1A, AREG\t \tUnipolar Depression\tCCL2, PEA15, HIF1A, CRHR1, CREB1, ACSL4\t \tLiver Cirrhosis, Experimental\tGPT, TM6SF1, SGCB, ARHGAP9, CCL2\t \tMajor Depressive Disorder\tHIF1A, CRHR1, PEA15, CCL2, CREB1\t \tNon-small Cell Lung Carcinoma\tE2F8, PSAT1, AREG, HIF1A, COL7A1\t \tBipolar Disorder\tHIF1A, CRHR1, CREB1, HMGXB4\t \tChemical And Drug Induced Liver Injury\tHACL1, GPT, UBA5, CCL2\t \tChemical-induced Liver Toxicity\tHACL1, UBA5, GPT, CCL2\t \tDepressive Disorder\tCREB1, CRHR1, DPP4, ACSL4\t \tDisease Exacerbation\tCOL7A1, E2F8, ATF2, HIF1A\t \tDrug-induced Acute Liver Injury\tGPT, HACL1, CCL2, UBA5\t \tDrug-induced Liver Disease\tHACL1, GPT, CCL2, UBA5",
+    "Gene pairs with significantly altered correlation coefficients between In-flight and Pre-flight (i.e., ∣ΔCC (CCIn-flight – CCPre-flight)∣ > 0.70) in the top 11 signaling pathways identified from signaling pathway analysis of the 218 DEGs between In-flight and Pre-flight. Gene pairs with correlation coefficients changed from positive to less/more positive (Category 1), positive to negative (Category 2), negative to positive (Category 3), and negative to less/more negative (Category 4) were highlighted in blue, green, brown, and red, respectively.",
+    "GENE PAIRS\tCCPre-flight\tCCIn-flight\tΔCC\t \tSignal transduction\t \tARHGAP9–COL4A4\t−0.51\t0.28\t0.79\t \tARHGAP9–THBS3\t0.39\t−0.48\t−0.87\t \tCCL2–COL4A4\t−0.95\t−0.07\t0.88\t \tCCL2–CREB1\t0.93\t−0.09\t−1.02\t \tCCL2–CRHR1\t0.68\t−0.11\t−0.79\t \tCCL2–THBS3\t0.68\t−0.19\t−0.87\t \tCCNC–COL4A4\t0.46\t−0.65\t−1.11\t \tCCNC–CRHR1\t−0.58\t0.65\t1.23\t \tCCNC–THBS3\t−0.41\t0.34\t0.75\t \tCHN1–CRHR1\t0.43\t−0.59\t−1.02\t \tCHN1–HIF1A\t−0.36\t0.34\t0.70\t \tCOL4A4–CREB1\t−0.93\t−0.03\t0.90\t \tCOL4A4–NFATC1\t−0.77\t0.50\t1.27\t \tCOL4A4–PDPK1\t0.41\t−0.50\t−0.91\t \tCREB1–CRHR1\t0.80\t−0.03\t−0.83\t \tCREB1–THBS3\t0.79\t0.05\t−0.74\t \tCRHR1–KIDINS220\t0.59\t−0.14\t−0.73\t \tCRHR1–NFATC1\t0.83\t−0.47\t−1.30\t \tCRHR1–PDPK1\t−0.57\t0.34\t0.91\t \tCRHR1–YES1\t0.40\t−0.71\t−1.11\t \tCTNNBIP1–NFATC1\t0.07\t0.85\t0.78\t \tKIDINS220–PDPK1\t−0.74\t0.30\t1.04\t \tKIDINS220–SOS2\t−0.86\t0.29\t1.15\t \tKIDINS220–YES1\t0.70\t0.00\t−0.70\t \tNFATC1–THBS3\t0.72\t−0.34\t−1.06\t \tPDPK1–SOS2\t0.63\t−0.22\t−0.85\t \tSOS2–YES1\t−0.61\t0.17\t0.78\t \tImmune system\t \tATF2–NFATC1\t−0.03\t−0.75\t−0.72\t \tBIRC2–PDPK1\t−0.73\t0.13\t0.86\t \tCREB1–EIF4E2\t−0.94\t0.07\t1.01\t \tCREB1–IL7\t0.91\t−0.03\t−0.94\t \tCREB1–UBR4\t0.90\t−0.28\t−1.18\t \tCREB1–XAF1\t0.71\t−0.03\t−0.74\t \tEIF4E2–IL7\t−0.87\t0.10\t0.97\t \tEIF4E2–NFATC1\t−0.87\t0.46\t1.33\t \tEIF4E2–UBR4\t−0.95\t0.40\t1.35\t \tEIF4E2–XAF1\t−0.72\t0.10\t0.82\t \tIL7–UBR4\t0.88\t−0.34\t−1.22\t \tNFATC1–UBR4\t0.85\t−0.18\t−1.03\t \tPDPK1–UBR4\t−0.55\t0.34\t0.89\t \tUBA5–UBR4\t0.59\t−0.27\t−0.86\t \tUBR4–XAF1\t0.88\t−0.16\t−1.04\t \tUBR4–YES1\t0.35\t−0.59\t−0.94\t \tGene expression\t \tAARS2–ZNF253\t−0.57\t0.23\t0.80\t \tAARS2–ZNF606\t−0.91\t0.21\t1.12\t \tAARS2–ZNF711\t−0.60\t0.31\t0.91\t \tRRN3–ZNF184\t−0.51\t0.34\t0.85\t \tRRN3–ZNF606\t−0.06\t0.87\t0.93\t \tRRN3–ZNF711\t−0.22\t0.50\t0.72\t \tMetabolism\t \tACSL4–ARSK\t0.56\t−0.66\t−1.22\t \tACSL4–CCNC\t0.75\t−0.74\t−1.49\t \tACSL4–GPT\t−0.66\t0.85\t1.61\t \tACSL4–NDUFA1\t0.81\t0.05\t−0.76\t \tACSL4–PIKFYVE\t−0.22\t0.69\t0.91\t \tARSK–GM2A\t0.48\t−0.34\t−0.82\t \tCCNC–GM2A\t0.65\t−0.44\t−1.09\t \tCCNC–PSAT1\t0.88\t−0.23\t−1.11\t \tGPT–NDUFA1\t−0.59\t0.24\t0.83\t \tGPT–PIKFYVE\t−0.05\t0.79\t0.84\t \tGPT–PSAT1\t−0.65\t0.46\t1.11\t \tMetabolism of proteins\t \tARSK–DPP4\t−0.27\t0.57\t0.84\t \tCCL2–DPP4\t0.79\t−0.26\t−1.05\t \tCCL2–PCSK1\t0.90\t−0.16\t−1.06\t \tCCL2–SPON2\t0.77\t−0.03\t−0.80\t \tDPP4–GNE\t0.74\t−0.21\t−0.95\t \tDPP4–MAGT1\t−0.57\t0.37\t0.94\t \tMAGT1–PCSK1\t−0.85\t0.21\t1.06\t \tPCSK1–SPON2\t0.84\t0.01\t−0.83\t \tDevelopmental biology\t \tCCNC–COL4A4\t0.46\t−0.65\t−1.11\t \tCLTB–SCN2B\t−0.39\t0.37\t0.76\t \tCOL4A4–CREB1\t−0.93\t−0.03\t0.90\t \tSOS2–YES1\t−0.61\t0.17\t0.78\t \tMetabolism of lipids and lipoproteins\t \tACSL4–ARSK\t0.56\t−0.66\t−1.22\t \tACSL4–CCNC\t0.75\t−0.74\t−1.49\t \tACSL4–PIKFYVE\t−0.22\t0.69\t0.91\t \tARSK–GM2A\t0.48\t−0.34\t−0.82\t \tCCNC–GM2A\t0.65\t−0.44\t−1.09\t \tAxon guidance\t \tCLTB–SCN2B\t−0.39\t0.37\t0.76\t \tCOL4A4–CREB1\t−0.93\t−0.03\t0.90\t \tSOS2–YES1\t−0.61\t0.17\t0.78\t \tInnate immune system\t \tATF2–NFATC1\t−0.03\t−0.75\t−0.72\t \tBIRC2–PDPK1\t−0.73\t0.13\t0.86\t \tDisease\t \tCCNC–CHMP4C\t0.60\t−0.38\t−0.98\t \tCHMP4C–CREB1\t−0.85\t0.31\t1.16\t \tCHMP4C–PDPK1\t0.44\t−0.63\t−1.07",
+    "Gene pairs with criteria of ∣ΔCC∣ > 0.70 and correlation changing from strong to weak, weak to strong, or strong to opposite strong from the top 11 signaling pathways.",
+    "Signaling Pathways\tGene Pairs\t \tSignal transduction\tCCL2–COL4A4, CCL2–CREB1, CCL2–CRHR1, CCL2–THBS3, COL4A4–CREB1, CREB1–CRHR1, CREB1–THBS3, CTNNBIP1–NFATC1, KIDINS220–PDPK1, KIDINS220–SOS2, KIDINS220–YES1, NFATC1–THBS3\t \tImmune system\tATF2–NFATC1, BIRC2–PDPK1, CREB1–EIF4E2, CREB1–IL7, CREB1–UBR4, CREB1–XAF1, EIF4E2–IL7, EIF4E2–XAF1, IL7–UBR4, NFATC1–UBR4, UBR4–XAF1\t \tGene expression\tAARS2–ZNF606, RRN3–ZNF606\t \tMetabolism\tACSL4–CCNC, ACSL4–NDUFA1, ACSL4–PIKFYVE, CCNC–PSAT1, GPT–PIKFYVE\t \tMetabolism of proteins\tCCL2–DPP4, CCL2–PCSK1, CCL2–SPON2, DPP4–GNE, MAGT1–PCSK1, PCSK1–SPON2\t \tDevelopmental biology\tCOL4A4–CREB1\t \tMetabolism of lipids and lipoproteins\tACSL4–CCNC, ACSL4–PIKFYVE\t \tAxon guidance\tCOL4A4–CREB1\t \tInnate immune system\tATF2–NFATC1, BIRC2–PDPK1\t \tDisease\tCHMP4C–CREB1"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Star Trek: The Next Generation 1; 1987",
+      "autores": [
+        {
+          "nombre_completo": "D.C. Fontana",
+          "nombres": "D.C.",
+          "apellidos": "Fontana"
+        },
+        {
+          "nombre_completo": "G. Roddenberry",
+          "nombres": "G.",
+          "apellidos": "Roddenberry"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Apollo 11 Mission Overview, NASA",
+      "autores": [
+        {
+          "nombre_completo": "S. Loff",
+          "nombres": "S.",
+          "apellidos": "Loff"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "International Space Station. NASA",
+      "autores": [
+        {
+          "nombre_completo": "M. Garcia",
+          "nombres": "M.",
+          "apellidos": "Garcia"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mars Perseverance Rover. NASA",
+      "autores": [
+        {
+          "nombre_completo": "T. Greicius",
+          "nombres": "T.",
+          "apellidos": "Greicius"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mars Exploration Program. Mars Curiosity Rover. NASA",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2021",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Commercial Space Transportation. NASA",
+      "autores": [
+        {
+          "nombre_completo": "S. Loff",
+          "nombres": "S.",
+          "apellidos": "Loff"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Low-Earth Orbit Economy. NASA",
+      "autores": [
+        {
+          "nombre_completo": "A. Guzman",
+          "nombres": "A.",
+          "apellidos": "Guzman"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2021",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gateway, NASA",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Muscle volume, strength, endurance, and exercise loads during 6-month missions in space",
+      "autores": [
+        {
+          "nombre_completo": "R. Gopalakrishnan",
+          "nombres": "R.",
+          "apellidos": "Gopalakrishnan"
+        },
+        {
+          "nombre_completo": "K.O. Genc",
+          "nombres": "K.O.",
+          "apellidos": "Genc"
+        },
+        {
+          "nombre_completo": "A.J. Rice",
+          "nombres": "A.J.",
+          "apellidos": "Rice"
+        },
+        {
+          "nombre_completo": "S.M. Lee",
+          "nombres": "S.M.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "H.J. Evans",
+          "nombres": "H.J.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "C.C. Maender",
+          "nombres": "C.C.",
+          "apellidos": "Maender"
+        },
+        {
+          "nombre_completo": "H. Ilaslan",
+          "nombres": "H.",
+          "apellidos": "Ilaslan"
+        },
+        {
+          "nombre_completo": "P.R. Cavanagh",
+          "nombres": "P.R.",
+          "apellidos": "Cavanagh"
+        }
+      ],
+      "pmid": "20131648",
+      "fuente": "Aviat. Space Environ. Med.",
+      "anio": "2010",
+      "volumen": "81",
+      "fpage": "91",
+      "lpage": "102"
+    },
+    {
+      "titulo": "Exercise in space: Human skeletal muscle after 6 months aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S. Trappe",
+          "nombres": "S.",
+          "apellidos": "Trappe"
+        },
+        {
+          "nombre_completo": "D. Costill",
+          "nombres": "D.",
+          "apellidos": "Costill"
+        },
+        {
+          "nombre_completo": "P. Gallagher",
+          "nombres": "P.",
+          "apellidos": "Gallagher"
+        },
+        {
+          "nombre_completo": "A. Creer",
+          "nombres": "A.",
+          "apellidos": "Creer"
+        },
+        {
+          "nombre_completo": "J.R. Peters",
+          "nombres": "J.R.",
+          "apellidos": "Peters"
+        },
+        {
+          "nombre_completo": "H. Evans",
+          "nombres": "H.",
+          "apellidos": "Evans"
+        },
+        {
+          "nombre_completo": "D.A. Riley",
+          "nombres": "D.A.",
+          "apellidos": "Riley"
+        },
+        {
+          "nombre_completo": "R.H. Fitts",
+          "nombres": "R.H.",
+          "apellidos": "Fitts"
+        }
+      ],
+      "pmid": "19150852",
+      "fuente": "J. Appl. Physiol.",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "1159",
+      "lpage": "1168"
+    },
+    {
+      "titulo": "Proceedings: Bone mineral content changes in the Skylab astronauts",
+      "autores": [
+        {
+          "nombre_completo": "J.M. Vogel",
+          "nombres": "J.M.",
+          "apellidos": "Vogel"
+        },
+        {
+          "nombre_completo": "M.W. Whittle",
+          "nombres": "M.W.",
+          "apellidos": "Whittle"
+        }
+      ],
+      "pmid": "179415",
+      "fuente": "Am. J. Roentgenol.",
+      "anio": "1976",
+      "volumen": "126",
+      "fpage": "1296",
+      "lpage": "1297"
+    },
+    {
+      "titulo": "Skeletal changes during and after spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "L. Vico",
+          "nombres": "L.",
+          "apellidos": "Vico"
+        },
+        {
+          "nombre_completo": "A. Hargens",
+          "nombres": "A.",
+          "apellidos": "Hargens"
+        }
+      ],
+      "pmid": "29559713",
+      "fuente": "Nat. Rev. Rheumatol.",
+      "anio": "2018",
+      "volumen": "14",
+      "fpage": "229",
+      "lpage": "245"
+    },
+    {
+      "titulo": "How does spaceflight affect the acquired immune system?",
+      "autores": [
+        {
+          "nombre_completo": "T. Akiyama",
+          "nombres": "T.",
+          "apellidos": "Akiyama"
+        },
+        {
+          "nombre_completo": "K. Horie",
+          "nombres": "K.",
+          "apellidos": "Horie"
+        },
+        {
+          "nombre_completo": "E. Hinoi",
+          "nombres": "E.",
+          "apellidos": "Hinoi"
+        },
+        {
+          "nombre_completo": "M. Hiraiwa",
+          "nombres": "M.",
+          "apellidos": "Hiraiwa"
+        },
+        {
+          "nombre_completo": "A. Kato",
+          "nombres": "A.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "Y. Maekawa",
+          "nombres": "Y.",
+          "apellidos": "Maekawa"
+        },
+        {
+          "nombre_completo": "A. Takahashi",
+          "nombres": "A.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "S. Furukawa",
+          "nombres": "S.",
+          "apellidos": "Furukawa"
+        }
+      ],
+      "pmid": "32411817",
+      "fuente": "NPJ Microgravity",
+      "anio": "2020",
+      "volumen": "6",
+      "fpage": "14",
+      "lpage": ""
+    },
+    {
+      "titulo": "Immune System Dysregulation During Spaceflight: Potential Countermeasures for Deep Space Exploration Missions",
+      "autores": [
+        {
+          "nombre_completo": "B.E. Crucian",
+          "nombres": "B.E.",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "A. Choukèr",
+          "nombres": "A.",
+          "apellidos": "Choukèr"
+        },
+        {
+          "nombre_completo": "R.J. Simpson",
+          "nombres": "R.J.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "S. Mehta",
+          "nombres": "S.",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "G. Marshall",
+          "nombres": "G.",
+          "apellidos": "Marshall"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "M. Heer",
+          "nombres": "M.",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "S. Ponomarev",
+          "nombres": "S.",
+          "apellidos": "Ponomarev"
+        },
+        {
+          "nombre_completo": "A. Whitmire",
+          "nombres": "A.",
+          "apellidos": "Whitmire"
+        }
+      ],
+      "pmid": "30018614",
+      "fuente": "Front. Immunol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1437",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bone metabolism and renal stone risk during International Space Station missions",
+      "autores": [
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "M. Heer",
+          "nombres": "M.",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "L.C. Shackelford",
+          "nombres": "L.C.",
+          "apellidos": "Shackelford"
+        },
+        {
+          "nombre_completo": "J.D. Sibonga",
+          "nombres": "J.D.",
+          "apellidos": "Sibonga"
+        },
+        {
+          "nombre_completo": "J. Spatz",
+          "nombres": "J.",
+          "apellidos": "Spatz"
+        },
+        {
+          "nombre_completo": "R.A. Pietrzyk",
+          "nombres": "R.A.",
+          "apellidos": "Pietrzyk"
+        },
+        {
+          "nombre_completo": "E.K. Hudson",
+          "nombres": "E.K.",
+          "apellidos": "Hudson"
+        },
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        }
+      ],
+      "pmid": "26456109",
+      "fuente": "Bone",
+      "anio": "2015",
+      "volumen": "81",
+      "fpage": "712",
+      "lpage": "720"
+    },
+    {
+      "titulo": "A review of alterations to the brain during spaceflight and the potential relevance to crew in long-duration space exploration",
+      "autores": [
+        {
+          "nombre_completo": "M. Roy-O’Reilly",
+          "nombres": "M.",
+          "apellidos": "Roy-O’Reilly"
+        },
+        {
+          "nombre_completo": "A. Mulavara",
+          "nombres": "A.",
+          "apellidos": "Mulavara"
+        },
+        {
+          "nombre_completo": "T. Williams",
+          "nombres": "T.",
+          "apellidos": "Williams"
+        }
+      ],
+      "pmid": "33594073",
+      "fuente": "NPJ Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "5",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space exploration, Mars, and the nervous system",
+      "autores": [
+        {
+          "nombre_completo": "R. Kalb",
+          "nombres": "R.",
+          "apellidos": "Kalb"
+        },
+        {
+          "nombre_completo": "D. Solomon",
+          "nombres": "D.",
+          "apellidos": "Solomon"
+        }
+      ],
+      "pmid": "17420309",
+      "fuente": "Arch. Neurol.",
+      "anio": "2007",
+      "volumen": "64",
+      "fpage": "485",
+      "lpage": "490"
+    },
+    {
+      "titulo": "Long-term spaceflight and the cardiovascular system",
+      "autores": [
+        {
+          "nombre_completo": "N.A. Vernice",
+          "nombres": "N.A.",
+          "apellidos": "Vernice"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "E. Afshinnekoo",
+          "nombres": "E.",
+          "apellidos": "Afshinnekoo"
+        },
+        {
+          "nombre_completo": "C.E. Mason",
+          "nombres": "C.E.",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "33391848",
+      "fuente": "Precis. Clin. Med.",
+      "anio": "2020",
+      "volumen": "3",
+      "fpage": "284",
+      "lpage": "291"
+    },
+    {
+      "titulo": "Heart in space: Effect of the extraterrestrial environment on the cardiovascular system",
+      "autores": [
+        {
+          "nombre_completo": "R.L. Hughson",
+          "nombres": "R.L.",
+          "apellidos": "Hughson"
+        },
+        {
+          "nombre_completo": "A. Helm",
+          "nombres": "A.",
+          "apellidos": "Helm"
+        },
+        {
+          "nombre_completo": "M. Durante",
+          "nombres": "M.",
+          "apellidos": "Durante"
+        }
+      ],
+      "pmid": "29053152",
+      "fuente": "Nat. Rev. Cardiol.",
+      "anio": "2018",
+      "volumen": "15",
+      "fpage": "167",
+      "lpage": "180"
+    },
+    {
+      "titulo": "Space radiation cancer risks and uncertainties for Mars missions",
+      "autores": [
+        {
+          "nombre_completo": "F.A. Cucinotta",
+          "nombres": "F.A.",
+          "apellidos": "Cucinotta"
+        },
+        {
+          "nombre_completo": "W. Schimmerling",
+          "nombres": "W.",
+          "apellidos": "Schimmerling"
+        },
+        {
+          "nombre_completo": "J.W. Wilson",
+          "nombres": "J.W.",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "L.E. Peterson",
+          "nombres": "L.E.",
+          "apellidos": "Peterson"
+        },
+        {
+          "nombre_completo": "G.D. Badhwar",
+          "nombres": "G.D.",
+          "apellidos": "Badhwar"
+        },
+        {
+          "nombre_completo": "P.B. Saganti",
+          "nombres": "P.B.",
+          "apellidos": "Saganti"
+        },
+        {
+          "nombre_completo": "J.F. Dicello",
+          "nombres": "J.F.",
+          "apellidos": "Dicello"
+        }
+      ],
+      "pmid": "11604093",
+      "fuente": "Radiat. Res.",
+      "anio": "2001",
+      "volumen": "156",
+      "fpage": "682",
+      "lpage": "688"
+    },
+    {
+      "titulo": "Simulated microgravity with floating environment promotes migration of non-small cell lung cancers",
+      "autores": [
+        {
+          "nombre_completo": "C.B. Ahn",
+          "nombres": "C.B.",
+          "apellidos": "Ahn"
+        },
+        {
+          "nombre_completo": "J.H. Lee",
+          "nombres": "J.H.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "D.G. Han",
+          "nombres": "D.G.",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "H.W. Kang",
+          "nombres": "H.W.",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "S.H. Lee",
+          "nombres": "S.H.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J.I. Lee",
+          "nombres": "J.I.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "K.H. Son",
+          "nombres": "K.H.",
+          "apellidos": "Son"
+        },
+        {
+          "nombre_completo": "J.W. Lee",
+          "nombres": "J.W.",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "31601869",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "14553",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight alters microtubules and increases apoptosis in human lymphocytes (Jurkat)",
+      "autores": [
+        {
+          "nombre_completo": "M.L. Lewis",
+          "nombres": "M.L.",
+          "apellidos": "Lewis"
+        },
+        {
+          "nombre_completo": "J.L. Reynolds",
+          "nombres": "J.L.",
+          "apellidos": "Reynolds"
+        },
+        {
+          "nombre_completo": "L.A. Cubano",
+          "nombres": "L.A.",
+          "apellidos": "Cubano"
+        },
+        {
+          "nombre_completo": "J.P. Hatton",
+          "nombres": "J.P.",
+          "apellidos": "Hatton"
+        },
+        {
+          "nombre_completo": "B.D. Lawless",
+          "nombres": "B.D.",
+          "apellidos": "Lawless"
+        },
+        {
+          "nombre_completo": "E.H. Piepmeier",
+          "nombres": "E.H.",
+          "apellidos": "Piepmeier"
+        }
+      ],
+      "pmid": "9707173",
+      "fuente": "FASEB J.",
+      "anio": "1998",
+      "volumen": "12",
+      "fpage": "1007",
+      "lpage": "1018"
+    },
+    {
+      "titulo": "Fighting Thyroid Cancer with Microgravity Research",
+      "autores": [
+        {
+          "nombre_completo": "M. Krüger",
+          "nombres": "M.",
+          "apellidos": "Krüger"
+        },
+        {
+          "nombre_completo": "D. Melnik",
+          "nombres": "D.",
+          "apellidos": "Melnik"
+        },
+        {
+          "nombre_completo": "S. Kopp",
+          "nombres": "S.",
+          "apellidos": "Kopp"
+        },
+        {
+          "nombre_completo": "C. Buken",
+          "nombres": "C.",
+          "apellidos": "Buken"
+        },
+        {
+          "nombre_completo": "J. Sahana",
+          "nombres": "J.",
+          "apellidos": "Sahana"
+        },
+        {
+          "nombre_completo": "J. Bauer",
+          "nombres": "J.",
+          "apellidos": "Bauer"
+        },
+        {
+          "nombre_completo": "M. Wehland",
+          "nombres": "M.",
+          "apellidos": "Wehland"
+        },
+        {
+          "nombre_completo": "R. Hemmersbach",
+          "nombres": "R.",
+          "apellidos": "Hemmersbach"
+        },
+        {
+          "nombre_completo": "T.J. Corydon",
+          "nombres": "T.J.",
+          "apellidos": "Corydon"
+        },
+        {
+          "nombre_completo": "M. Infanger",
+          "nombres": "M.",
+          "apellidos": "Infanger"
+        }
+      ],
+      "pmid": "31137658",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of a Closed Space Environment on Gene Expression in Hair Follicles of Astronauts in the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "M. Terada",
+          "nombres": "M.",
+          "apellidos": "Terada"
+        },
+        {
+          "nombre_completo": "M. Seki",
+          "nombres": "M.",
+          "apellidos": "Seki"
+        },
+        {
+          "nombre_completo": "R. Takahashi",
+          "nombres": "R.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "S. Yamada",
+          "nombres": "S.",
+          "apellidos": "Yamada"
+        },
+        {
+          "nombre_completo": "A. Higashibata",
+          "nombres": "A.",
+          "apellidos": "Higashibata"
+        },
+        {
+          "nombre_completo": "H.J. Majima",
+          "nombres": "H.J.",
+          "apellidos": "Majima"
+        },
+        {
+          "nombre_completo": "M. Sudoh",
+          "nombres": "M.",
+          "apellidos": "Sudoh"
+        },
+        {
+          "nombre_completo": "C. Mukai",
+          "nombres": "C.",
+          "apellidos": "Mukai"
+        },
+        {
+          "nombre_completo": "N. Ishioka",
+          "nombres": "N.",
+          "apellidos": "Ishioka"
+        }
+      ],
+      "pmid": "27029003",
+      "fuente": "PloS one",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Data Structures for Statistical Computing in python",
+      "autores": [
+        {
+          "nombre_completo": "W. McKinney",
+          "nombres": "W.",
+          "apellidos": "McKinney"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the Python in Science Conference",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "DEGseq: An R package for identifying differentially expressed genes from RNA-seq data",
+      "autores": [
+        {
+          "nombre_completo": "L. Wang",
+          "nombres": "L.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z. Feng",
+          "nombres": "Z.",
+          "apellidos": "Feng"
+        },
+        {
+          "nombre_completo": "X. Wang",
+          "nombres": "X.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "X. Zhang",
+          "nombres": "X.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "19855105",
+      "fuente": "Bioinformatics",
+      "anio": "2010",
+      "volumen": "26",
+      "fpage": "136",
+      "lpage": "138"
+    },
+    {
+      "titulo": "InnateDB: Facilitating systems-level analyses of the mammalian innate immune response",
+      "autores": [
+        {
+          "nombre_completo": "D.J. Lynn",
+          "nombres": "D.J.",
+          "apellidos": "Lynn"
+        },
+        {
+          "nombre_completo": "G.L. Winsor",
+          "nombres": "G.L.",
+          "apellidos": "Winsor"
+        },
+        {
+          "nombre_completo": "C. Chan",
+          "nombres": "C.",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "N. Richard",
+          "nombres": "N.",
+          "apellidos": "Richard"
+        },
+        {
+          "nombre_completo": "M.R. Laird",
+          "nombres": "M.R.",
+          "apellidos": "Laird"
+        },
+        {
+          "nombre_completo": "A. Barsky",
+          "nombres": "A.",
+          "apellidos": "Barsky"
+        },
+        {
+          "nombre_completo": "J.L. Gardy",
+          "nombres": "J.L.",
+          "apellidos": "Gardy"
+        },
+        {
+          "nombre_completo": "F.M. Roche",
+          "nombres": "F.M.",
+          "apellidos": "Roche"
+        },
+        {
+          "nombre_completo": "T.H. Chan",
+          "nombres": "T.H.",
+          "apellidos": "Chan"
+        },
+        {
+          "nombre_completo": "N. Shah",
+          "nombres": "N.",
+          "apellidos": "Shah"
+        }
+      ],
+      "pmid": "18766178",
+      "fuente": "Mol. Syst. Biol.",
+      "anio": "2008",
+      "volumen": "4",
+      "fpage": "218",
+      "lpage": ""
+    },
+    {
+      "titulo": "BioGRID: A general repository for interaction datasets",
+      "autores": [
+        {
+          "nombre_completo": "C. Stark",
+          "nombres": "C.",
+          "apellidos": "Stark"
+        },
+        {
+          "nombre_completo": "B.J. Breitkreutz",
+          "nombres": "B.J.",
+          "apellidos": "Breitkreutz"
+        },
+        {
+          "nombre_completo": "T. Reguly",
+          "nombres": "T.",
+          "apellidos": "Reguly"
+        },
+        {
+          "nombre_completo": "L. Boucher",
+          "nombres": "L.",
+          "apellidos": "Boucher"
+        },
+        {
+          "nombre_completo": "A. Breitkreutz",
+          "nombres": "A.",
+          "apellidos": "Breitkreutz"
+        },
+        {
+          "nombre_completo": "M. Tyers",
+          "nombres": "M.",
+          "apellidos": "Tyers"
+        }
+      ],
+      "pmid": "16381927",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2006",
+      "volumen": "34",
+      "fpage": "D535",
+      "lpage": "D539"
+    },
+    {
+      "titulo": "The DisGeNET knowledge platform for disease genomics: 2019 update",
+      "autores": [
+        {
+          "nombre_completo": "J. Piñero",
+          "nombres": "J.",
+          "apellidos": "Piñero"
+        },
+        {
+          "nombre_completo": "J.M. Ramírez-Anguita",
+          "nombres": "J.M.",
+          "apellidos": "Ramírez-Anguita"
+        },
+        {
+          "nombre_completo": "J. Saüch-Pitarch",
+          "nombres": "J.",
+          "apellidos": "Saüch-Pitarch"
+        },
+        {
+          "nombre_completo": "F. Ronzano",
+          "nombres": "F.",
+          "apellidos": "Ronzano"
+        },
+        {
+          "nombre_completo": "E. Centeno",
+          "nombres": "E.",
+          "apellidos": "Centeno"
+        },
+        {
+          "nombre_completo": "F. Sanz",
+          "nombres": "F.",
+          "apellidos": "Sanz"
+        },
+        {
+          "nombre_completo": "L.I. Furlong",
+          "nombres": "L.I.",
+          "apellidos": "Furlong"
+        }
+      ],
+      "pmid": "31680165",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "D845",
+      "lpage": "D855"
+    },
+    {
+      "titulo": "Cytoscape: A software environment for integrated models of biomolecular interaction networks",
+      "autores": [
+        {
+          "nombre_completo": "P. Shannon",
+          "nombres": "P.",
+          "apellidos": "Shannon"
+        },
+        {
+          "nombre_completo": "A. Markiel",
+          "nombres": "A.",
+          "apellidos": "Markiel"
+        },
+        {
+          "nombre_completo": "O. Ozier",
+          "nombres": "O.",
+          "apellidos": "Ozier"
+        },
+        {
+          "nombre_completo": "N.S. Baliga",
+          "nombres": "N.S.",
+          "apellidos": "Baliga"
+        },
+        {
+          "nombre_completo": "J.T. Wang",
+          "nombres": "J.T.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "D. Ramage",
+          "nombres": "D.",
+          "apellidos": "Ramage"
+        },
+        {
+          "nombre_completo": "N. Amin",
+          "nombres": "N.",
+          "apellidos": "Amin"
+        },
+        {
+          "nombre_completo": "B. Schwikowski",
+          "nombres": "B.",
+          "apellidos": "Schwikowski"
+        },
+        {
+          "nombre_completo": "T. Ideker",
+          "nombres": "T.",
+          "apellidos": "Ideker"
+        }
+      ],
+      "pmid": "14597658",
+      "fuente": "Genome Res.",
+      "anio": "2003",
+      "volumen": "13",
+      "fpage": "2498",
+      "lpage": "2504"
+    },
+    {
+      "titulo": "DrugBank: A comprehensive resource for in silico drug discovery and exploration",
+      "autores": [
+        {
+          "nombre_completo": "D.S. Wishart",
+          "nombres": "D.S.",
+          "apellidos": "Wishart"
+        },
+        {
+          "nombre_completo": "C. Knox",
+          "nombres": "C.",
+          "apellidos": "Knox"
+        },
+        {
+          "nombre_completo": "A.C. Guo",
+          "nombres": "A.C.",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "S. Shrivastava",
+          "nombres": "S.",
+          "apellidos": "Shrivastava"
+        },
+        {
+          "nombre_completo": "M. Hassanali",
+          "nombres": "M.",
+          "apellidos": "Hassanali"
+        },
+        {
+          "nombre_completo": "P. Stothard",
+          "nombres": "P.",
+          "apellidos": "Stothard"
+        },
+        {
+          "nombre_completo": "Z. Chang",
+          "nombres": "Z.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "J. Woolsey",
+          "nombres": "J.",
+          "apellidos": "Woolsey"
+        }
+      ],
+      "pmid": "16381955",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2006",
+      "volumen": "34",
+      "fpage": "D668",
+      "lpage": "D672"
+    },
+    {
+      "titulo": "miRTarBase 2020: Updates to the experimentally validated microRNA-target interaction database",
+      "autores": [
+        {
+          "nombre_completo": "H.Y. Huang",
+          "nombres": "H.Y.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "Y.C. Lin",
+          "nombres": "Y.C.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "J. Li",
+          "nombres": "J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "K.Y. Huang",
+          "nombres": "K.Y.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "S. Shrestha",
+          "nombres": "S.",
+          "apellidos": "Shrestha"
+        },
+        {
+          "nombre_completo": "H.C. Hong",
+          "nombres": "H.C.",
+          "apellidos": "Hong"
+        },
+        {
+          "nombre_completo": "Y. Tang",
+          "nombres": "Y.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "Y.G. Chen",
+          "nombres": "Y.G.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "C.N. Jin",
+          "nombres": "C.N.",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "Y. Yu",
+          "nombres": "Y.",
+          "apellidos": "Yu"
+        }
+      ],
+      "pmid": "31647101",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "D148",
+      "lpage": "D154"
+    },
+    {
+      "titulo": "LIMCH1 regulates nonmuscle myosin-II activity and suppresses cell migration",
+      "autores": [
+        {
+          "nombre_completo": "Y.H. Lin",
+          "nombres": "Y.H.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "Y.Y. Zhen",
+          "nombres": "Y.Y.",
+          "apellidos": "Zhen"
+        },
+        {
+          "nombre_completo": "K.Y. Chien",
+          "nombres": "K.Y.",
+          "apellidos": "Chien"
+        },
+        {
+          "nombre_completo": "I.C. Lee",
+          "nombres": "I.C.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "W.C. Lin",
+          "nombres": "W.C.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "M.Y. Chen",
+          "nombres": "M.Y.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L.M. Pai",
+          "nombres": "L.M.",
+          "apellidos": "Pai"
+        }
+      ],
+      "pmid": "28228547",
+      "fuente": "Mol. Bio. Cell",
+      "anio": "2017",
+      "volumen": "28",
+      "fpage": "1054",
+      "lpage": "1065"
+    },
+    {
+      "titulo": "Myosin II in mechanotransduction: Master and commander of cell migration, morphogenesis, and cancer",
+      "autores": [
+        {
+          "nombre_completo": "R. Aguilar-Cuenca",
+          "nombres": "R.",
+          "apellidos": "Aguilar-Cuenca"
+        },
+        {
+          "nombre_completo": "A. Juanes-García",
+          "nombres": "A.",
+          "apellidos": "Juanes-García"
+        },
+        {
+          "nombre_completo": "M. Vicente-Manzanares",
+          "nombres": "M.",
+          "apellidos": "Vicente-Manzanares"
+        }
+      ],
+      "pmid": "23934154",
+      "fuente": "Cell Mol. Life Sci.",
+      "anio": "2013",
+      "volumen": "71",
+      "fpage": "479",
+      "lpage": "492"
+    },
+    {
+      "titulo": "IEX-1, an immediate early gene, increases the rate of apoptosis in keratinocytes",
+      "autores": [
+        {
+          "nombre_completo": "D. Schilling",
+          "nombres": "D.",
+          "apellidos": "Schilling"
+        },
+        {
+          "nombre_completo": "M.R. Pittelkow",
+          "nombres": "M.R.",
+          "apellidos": "Pittelkow"
+        },
+        {
+          "nombre_completo": "R. Kumar",
+          "nombres": "R.",
+          "apellidos": "Kumar"
+        }
+      ],
+      "pmid": "11753682",
+      "fuente": "Oncogene",
+      "anio": "2001",
+      "volumen": "20",
+      "fpage": "7992",
+      "lpage": "7997"
+    },
+    {
+      "titulo": "Role of the immediate early response 3 (IER3) gene in cellular stress response, inflammation and tumorigenesis",
+      "autores": [
+        {
+          "nombre_completo": "A. Arlt",
+          "nombres": "A.",
+          "apellidos": "Arlt"
+        },
+        {
+          "nombre_completo": "H. Schäfer",
+          "nombres": "H.",
+          "apellidos": "Schäfer"
+        }
+      ],
+      "pmid": "21112119",
+      "fuente": "Eur. J. Cell Biol.",
+      "anio": "2011",
+      "volumen": "90",
+      "fpage": "545",
+      "lpage": "552"
+    },
+    {
+      "titulo": "IEX-1 deficiency protects against colonic cancer",
+      "autores": [
+        {
+          "nombre_completo": "I.V. Ustyugova",
+          "nombres": "I.V.",
+          "apellidos": "Ustyugova"
+        },
+        {
+          "nombre_completo": "L. Zhi",
+          "nombres": "L.",
+          "apellidos": "Zhi"
+        },
+        {
+          "nombre_completo": "J. Abramowitz",
+          "nombres": "J.",
+          "apellidos": "Abramowitz"
+        },
+        {
+          "nombre_completo": "L. Birnbaumer",
+          "nombres": "L.",
+          "apellidos": "Birnbaumer"
+        },
+        {
+          "nombre_completo": "M.X. Wu",
+          "nombres": "M.X.",
+          "apellidos": "Wu"
+        }
+      ],
+      "pmid": "22550081",
+      "fuente": "Mol. Cancer Res.",
+      "anio": "2012",
+      "volumen": "10",
+      "fpage": "760",
+      "lpage": "767"
+    },
+    {
+      "titulo": "Resistance of Sézary cells to TNF-α-induced apoptosis is mediated in part by a loss of TNFR1 and a high level of the IER3 expression",
+      "autores": [
+        {
+          "nombre_completo": "O.E. Akilov",
+          "nombres": "O.E.",
+          "apellidos": "Akilov"
+        },
+        {
+          "nombre_completo": "M.X. Wu",
+          "nombres": "M.X.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "I.V. Ustyugova",
+          "nombres": "I.V.",
+          "apellidos": "Ustyugova"
+        },
+        {
+          "nombre_completo": "L.D. Falo",
+          "nombres": "L.D.",
+          "apellidos": "Falo"
+        },
+        {
+          "nombre_completo": "L.J. Geskin",
+          "nombres": "L.J.",
+          "apellidos": "Geskin"
+        }
+      ],
+      "pmid": "22417305",
+      "fuente": "Exp. Dermatol.",
+      "anio": "2012",
+      "volumen": "21",
+      "fpage": "287",
+      "lpage": "292"
+    },
+    {
+      "titulo": "Prolactin and oestrogen synergistically regulate gene expression and proliferation of breast cancer cells",
+      "autores": [
+        {
+          "nombre_completo": "L.M. Rasmussen",
+          "nombres": "L.M.",
+          "apellidos": "Rasmussen"
+        },
+        {
+          "nombre_completo": "K.S. Frederiksen",
+          "nombres": "K.S.",
+          "apellidos": "Frederiksen"
+        },
+        {
+          "nombre_completo": "N. Din",
+          "nombres": "N.",
+          "apellidos": "Din"
+        },
+        {
+          "nombre_completo": "E. Galsgaard",
+          "nombres": "E.",
+          "apellidos": "Galsgaard"
+        },
+        {
+          "nombre_completo": "L. Christensen",
+          "nombres": "L.",
+          "apellidos": "Christensen"
+        },
+        {
+          "nombre_completo": "M.W. Berchtold",
+          "nombres": "M.W.",
+          "apellidos": "Berchtold"
+        },
+        {
+          "nombre_completo": "S. Panina",
+          "nombres": "S.",
+          "apellidos": "Panina"
+        }
+      ],
+      "pmid": "20601496",
+      "fuente": "Endocr. Relat. Cancer",
+      "anio": "2010",
+      "volumen": "17",
+      "fpage": "809",
+      "lpage": "822"
+    },
+    {
+      "titulo": "Expression and function of the P2X7 receptor in human osteoblasts: The role of NFATc1 transcription factor",
+      "autores": [
+        {
+          "nombre_completo": "L.S. Bergamin",
+          "nombres": "L.S.",
+          "apellidos": "Bergamin"
+        },
+        {
+          "nombre_completo": "L. Penolazzi",
+          "nombres": "L.",
+          "apellidos": "Penolazzi"
+        },
+        {
+          "nombre_completo": "E. Lambertini",
+          "nombres": "E.",
+          "apellidos": "Lambertini"
+        },
+        {
+          "nombre_completo": "S. Falzoni",
+          "nombres": "S.",
+          "apellidos": "Falzoni"
+        },
+        {
+          "nombre_completo": "A.C. Sarti",
+          "nombres": "A.C.",
+          "apellidos": "Sarti"
+        },
+        {
+          "nombre_completo": "C.M. Molle",
+          "nombres": "C.M.",
+          "apellidos": "Molle"
+        },
+        {
+          "nombre_completo": "F.P. Gendron",
+          "nombres": "F.P.",
+          "apellidos": "Gendron"
+        },
+        {
+          "nombre_completo": "P. De Bonis",
+          "nombres": "P.",
+          "apellidos": "De Bonis"
+        },
+        {
+          "nombre_completo": "F. Di Virgilio",
+          "nombres": "F.",
+          "apellidos": "Di Virgilio"
+        },
+        {
+          "nombre_completo": "R. Piva",
+          "nombres": "R.",
+          "apellidos": "Piva"
+        }
+      ],
+      "pmid": "32583512",
+      "fuente": "J. Cell Physiol.",
+      "anio": "2021",
+      "volumen": "236",
+      "fpage": "641",
+      "lpage": "652"
+    },
+    {
+      "titulo": "Calcineurin/NFAT signaling in osteoblasts regulates bone mass",
+      "autores": [
+        {
+          "nombre_completo": "M.M. Winslow",
+          "nombres": "M.M.",
+          "apellidos": "Winslow"
+        },
+        {
+          "nombre_completo": "M. Pan",
+          "nombres": "M.",
+          "apellidos": "Pan"
+        },
+        {
+          "nombre_completo": "M. Starbuck",
+          "nombres": "M.",
+          "apellidos": "Starbuck"
+        },
+        {
+          "nombre_completo": "E.M. Gallo",
+          "nombres": "E.M.",
+          "apellidos": "Gallo"
+        },
+        {
+          "nombre_completo": "L. Deng",
+          "nombres": "L.",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "G. Karsenty",
+          "nombres": "G.",
+          "apellidos": "Karsenty"
+        },
+        {
+          "nombre_completo": "G.R. Crabtree",
+          "nombres": "G.R.",
+          "apellidos": "Crabtree"
+        }
+      ],
+      "pmid": "16740479",
+      "fuente": "Dev. Cell",
+      "anio": "2006",
+      "volumen": "10",
+      "fpage": "771",
+      "lpage": "782"
+    },
+    {
+      "titulo": "NFATc1 controls the cytotoxicity of CD8+ T cells",
+      "autores": [
+        {
+          "nombre_completo": "S. Klein-Hessling",
+          "nombres": "S.",
+          "apellidos": "Klein-Hessling"
+        },
+        {
+          "nombre_completo": "K. Muhammad",
+          "nombres": "K.",
+          "apellidos": "Muhammad"
+        },
+        {
+          "nombre_completo": "M. Klein",
+          "nombres": "M.",
+          "apellidos": "Klein"
+        },
+        {
+          "nombre_completo": "T. Pusch",
+          "nombres": "T.",
+          "apellidos": "Pusch"
+        },
+        {
+          "nombre_completo": "R. Rudolf",
+          "nombres": "R.",
+          "apellidos": "Rudolf"
+        },
+        {
+          "nombre_completo": "J. Flöter",
+          "nombres": "J.",
+          "apellidos": "Flöter"
+        },
+        {
+          "nombre_completo": "M. Qureischi",
+          "nombres": "M.",
+          "apellidos": "Qureischi"
+        },
+        {
+          "nombre_completo": "A. Beilhack",
+          "nombres": "A.",
+          "apellidos": "Beilhack"
+        },
+        {
+          "nombre_completo": "M. Vaeth",
+          "nombres": "M.",
+          "apellidos": "Vaeth"
+        },
+        {
+          "nombre_completo": "C. Kummerow",
+          "nombres": "C.",
+          "apellidos": "Kummerow"
+        }
+      ],
+      "pmid": "28894104",
+      "fuente": "Nat. Commun.",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "511",
+      "lpage": ""
+    },
+    {
+      "titulo": "NFATc1 regulates lymphatic endothelial development",
+      "autores": [
+        {
+          "nombre_completo": "R.M. Kulkarni",
+          "nombres": "R.M.",
+          "apellidos": "Kulkarni"
+        },
+        {
+          "nombre_completo": "J.M. Greenberg",
+          "nombres": "J.M.",
+          "apellidos": "Greenberg"
+        },
+        {
+          "nombre_completo": "A.L. Akeson",
+          "nombres": "A.L.",
+          "apellidos": "Akeson"
+        }
+      ],
+      "pmid": "19233265",
+      "fuente": "Mech. Dev.",
+      "anio": "2009",
+      "volumen": "126",
+      "fpage": "350",
+      "lpage": "365"
+    },
+    {
+      "titulo": "A field of myocardial-endocardial NFAT signaling underlies heart valve morphogenesis",
+      "autores": [
+        {
+          "nombre_completo": "C.P. Chang",
+          "nombres": "C.P.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "J.R. Neilson",
+          "nombres": "J.R.",
+          "apellidos": "Neilson"
+        },
+        {
+          "nombre_completo": "J.H. Bayle",
+          "nombres": "J.H.",
+          "apellidos": "Bayle"
+        },
+        {
+          "nombre_completo": "J.E. Gestwicki",
+          "nombres": "J.E.",
+          "apellidos": "Gestwicki"
+        },
+        {
+          "nombre_completo": "A. Kuo",
+          "nombres": "A.",
+          "apellidos": "Kuo"
+        },
+        {
+          "nombre_completo": "K. Stankunas",
+          "nombres": "K.",
+          "apellidos": "Stankunas"
+        },
+        {
+          "nombre_completo": "I.A. Graef",
+          "nombres": "I.A.",
+          "apellidos": "Graef"
+        },
+        {
+          "nombre_completo": "G.R. Crabtree",
+          "nombres": "G.R.",
+          "apellidos": "Crabtree"
+        }
+      ],
+      "pmid": "15339668",
+      "fuente": "Cell",
+      "anio": "2004",
+      "volumen": "118",
+      "fpage": "649",
+      "lpage": "663"
+    },
+    {
+      "titulo": "NFATC1 promotes cell growth and tumorigenesis in ovarian cancer up-regulating c-Myc through ERK1/2/p38 MAPK signal pathway",
+      "autores": [
+        {
+          "nombre_completo": "W. Xu",
+          "nombres": "W.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "J. Gu",
+          "nombres": "J.",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "Q. Ren",
+          "nombres": "Q.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "Y. Shi",
+          "nombres": "Y.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "Q. Xia",
+          "nombres": "Q.",
+          "apellidos": "Xia"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "S. Wang",
+          "nombres": "S.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "26501422",
+      "fuente": "Tumour Biol.",
+      "anio": "2016",
+      "volumen": "37",
+      "fpage": "4493",
+      "lpage": "4500"
+    },
+    {
+      "titulo": "Kidins220/ARMS is an essential modulator of cardiovascular and nervous system development",
+      "autores": [
+        {
+          "nombre_completo": "F. Cesca",
+          "nombres": "F.",
+          "apellidos": "Cesca"
+        },
+        {
+          "nombre_completo": "A. Yabe",
+          "nombres": "A.",
+          "apellidos": "Yabe"
+        },
+        {
+          "nombre_completo": "B. Spencer-Dene",
+          "nombres": "B.",
+          "apellidos": "Spencer-Dene"
+        },
+        {
+          "nombre_completo": "A. Arrigoni",
+          "nombres": "A.",
+          "apellidos": "Arrigoni"
+        },
+        {
+          "nombre_completo": "M. Al-Qatari",
+          "nombres": "M.",
+          "apellidos": "Al-Qatari"
+        },
+        {
+          "nombre_completo": "D. Henderson",
+          "nombres": "D.",
+          "apellidos": "Henderson"
+        },
+        {
+          "nombre_completo": "H. Phillips",
+          "nombres": "H.",
+          "apellidos": "Phillips"
+        },
+        {
+          "nombre_completo": "M. Koltzenburg",
+          "nombres": "M.",
+          "apellidos": "Koltzenburg"
+        },
+        {
+          "nombre_completo": "F. Benfenati",
+          "nombres": "F.",
+          "apellidos": "Benfenati"
+        },
+        {
+          "nombre_completo": "G. Schiavo",
+          "nombres": "G.",
+          "apellidos": "Schiavo"
+        }
+      ],
+      "pmid": "22048169",
+      "fuente": "Cell Death Dis.",
+      "anio": "2011",
+      "volumen": "2",
+      "fpage": "e226",
+      "lpage": ""
+    },
+    {
+      "titulo": "Kidins220/ARMS mediates the integration of the neurotrophin and VEGF pathways in the vascular and nervous systems",
+      "autores": [
+        {
+          "nombre_completo": "F. Cesca",
+          "nombres": "F.",
+          "apellidos": "Cesca"
+        },
+        {
+          "nombre_completo": "A. Yabe",
+          "nombres": "A.",
+          "apellidos": "Yabe"
+        },
+        {
+          "nombre_completo": "B. Spencer-Dene",
+          "nombres": "B.",
+          "apellidos": "Spencer-Dene"
+        },
+        {
+          "nombre_completo": "J. Scholz-Starke",
+          "nombres": "J.",
+          "apellidos": "Scholz-Starke"
+        },
+        {
+          "nombre_completo": "L. Medrihan",
+          "nombres": "L.",
+          "apellidos": "Medrihan"
+        },
+        {
+          "nombre_completo": "C.H. Maden",
+          "nombres": "C.H.",
+          "apellidos": "Maden"
+        },
+        {
+          "nombre_completo": "H. Gerhardt",
+          "nombres": "H.",
+          "apellidos": "Gerhardt"
+        },
+        {
+          "nombre_completo": "I.R. Orriss",
+          "nombres": "I.R.",
+          "apellidos": "Orriss"
+        },
+        {
+          "nombre_completo": "P. Baldelli",
+          "nombres": "P.",
+          "apellidos": "Baldelli"
+        },
+        {
+          "nombre_completo": "M. Al-Qatari",
+          "nombres": "M.",
+          "apellidos": "Al-Qatari"
+        }
+      ],
+      "pmid": "22048155",
+      "fuente": "Cell Death Differ.",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "194",
+      "lpage": "208"
+    },
+    {
+      "titulo": "Gene co-expression analysis for functional classification and gene-disease predictions",
+      "autores": [
+        {
+          "nombre_completo": "S. van Dam",
+          "nombres": "S.",
+          "apellidos": "van Dam"
+        },
+        {
+          "nombre_completo": "U. Võsa",
+          "nombres": "U.",
+          "apellidos": "Võsa"
+        },
+        {
+          "nombre_completo": "A. van der Graaf",
+          "nombres": "A.",
+          "apellidos": "van der Graaf"
+        },
+        {
+          "nombre_completo": "L. Franke",
+          "nombres": "L.",
+          "apellidos": "Franke"
+        },
+        {
+          "nombre_completo": "J.P. de Magalhães",
+          "nombres": "J.P.",
+          "apellidos": "de Magalhães"
+        }
+      ],
+      "pmid": "28077403",
+      "fuente": "Brief. Bioinform.",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "575",
+      "lpage": "592"
+    },
+    {
+      "titulo": "Gene Pair Correlation Coefficients in Sphingolipid Metabolic Pathway as a Potential Prognostic Biomarker for Breast Cancer",
+      "autores": [
+        {
+          "nombre_completo": "M.K. Sakharkar",
+          "nombres": "M.K.",
+          "apellidos": "Sakharkar"
+        },
+        {
+          "nombre_completo": "S.K. Dhillon",
+          "nombres": "S.K.",
+          "apellidos": "Dhillon"
+        },
+        {
+          "nombre_completo": "S.B. Chidambaram",
+          "nombres": "S.B.",
+          "apellidos": "Chidambaram"
+        },
+        {
+          "nombre_completo": "M.M. Essa",
+          "nombres": "M.M.",
+          "apellidos": "Essa"
+        },
+        {
+          "nombre_completo": "J. Yang",
+          "nombres": "J.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "32630169",
+      "fuente": "Cancers",
+      "anio": "2020",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Alteration in Gene Pair Correlations in Tryptophan Metabolism as a Hallmark in Cancer Diagnosis",
+      "autores": [
+        {
+          "nombre_completo": "M.K. Sakharkar",
+          "nombres": "M.K.",
+          "apellidos": "Sakharkar"
+        },
+        {
+          "nombre_completo": "S.K. Dhillon",
+          "nombres": "S.K.",
+          "apellidos": "Dhillon"
+        },
+        {
+          "nombre_completo": "K. Rajamanickam",
+          "nombres": "K.",
+          "apellidos": "Rajamanickam"
+        },
+        {
+          "nombre_completo": "B. Heng",
+          "nombres": "B.",
+          "apellidos": "Heng"
+        },
+        {
+          "nombre_completo": "N. Braidy",
+          "nombres": "N.",
+          "apellidos": "Braidy"
+        },
+        {
+          "nombre_completo": "G.J. Guillemin",
+          "nombres": "G.J.",
+          "apellidos": "Guillemin"
+        },
+        {
+          "nombre_completo": "J. Yang",
+          "nombres": "J.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "33354111",
+      "fuente": "Int. J. Tryptophan Res.",
+      "anio": "2020",
+      "volumen": "13",
+      "fpage": "1178646920977013",
+      "lpage": ""
+    },
+    {
+      "titulo": "Pairwise correlation of genes involved in glucose metabolism: A potential diagnostic marker of cancer?",
+      "autores": [
+        {
+          "nombre_completo": "M.K. Sakharkar",
+          "nombres": "M.K.",
+          "apellidos": "Sakharkar"
+        },
+        {
+          "nombre_completo": "K. Rajamanickam",
+          "nombres": "K.",
+          "apellidos": "Rajamanickam"
+        },
+        {
+          "nombre_completo": "S. Ji",
+          "nombres": "S.",
+          "apellidos": "Ji"
+        },
+        {
+          "nombre_completo": "S.K. Dhillon",
+          "nombres": "S.K.",
+          "apellidos": "Dhillon"
+        },
+        {
+          "nombre_completo": "J. Yang",
+          "nombres": "J.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "34163562",
+      "fuente": "Genes Cancer",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "69",
+      "lpage": "76"
+    },
+    {
+      "titulo": "Contrapositive logic suggests space radiation not having a strong impact on mortality of US astronauts and Soviet and Russian cosmonauts",
+      "autores": [
+        {
+          "nombre_completo": "R.J. Reynolds",
+          "nombres": "R.J.",
+          "apellidos": "Reynolds"
+        },
+        {
+          "nombre_completo": "I.V. Bukhtiyarov",
+          "nombres": "I.V.",
+          "apellidos": "Bukhtiyarov"
+        },
+        {
+          "nombre_completo": "G.I. Tikhonova",
+          "nombres": "G.I.",
+          "apellidos": "Tikhonova"
+        },
+        {
+          "nombre_completo": "S.M. Day",
+          "nombres": "S.M.",
+          "apellidos": "Day"
+        },
+        {
+          "nombre_completo": "I.B. Ushakov",
+          "nombres": "I.B.",
+          "apellidos": "Ushakov"
+        },
+        {
+          "nombre_completo": "T. Gorchakova",
+          "nombres": "T.",
+          "apellidos": "Gorchakova"
+        }
+      ],
+      "pmid": "31273231",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "8583",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "K. Chakravarty",
+          "nombres": "K.",
+          "apellidos": "Chakravarty"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "H. Fazelinia",
+          "nombres": "H.",
+          "apellidos": "Fazelinia"
+        },
+        {
+          "nombre_completo": "W. Silveira",
+          "nombres": "W.",
+          "apellidos": "Silveira"
+        },
+        {
+          "nombre_completo": "V. Boyko",
+          "nombres": "V.",
+          "apellidos": "Boyko"
+        },
+        {
+          "nombre_completo": "S.L. Polo",
+          "nombres": "S.L.",
+          "apellidos": "Polo"
+        },
+        {
+          "nombre_completo": "A.M. Saravia-Butler",
+          "nombres": "A.M.",
+          "apellidos": "Saravia-Butler"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "D. Taylor",
+          "nombres": "D.",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "31844325",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "19195",
+      "lpage": ""
+    },
+    {
+      "titulo": "Impact of spaceflight and artificial gravity on sulfur metabolism in mouse liver: Sulfur metabolomic and transcriptomic analysis",
+      "autores": [
+        {
+          "nombre_completo": "R. Kurosawa",
+          "nombres": "R.",
+          "apellidos": "Kurosawa"
+        },
+        {
+          "nombre_completo": "R. Sugimoto",
+          "nombres": "R.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "H. Imai",
+          "nombres": "H.",
+          "apellidos": "Imai"
+        },
+        {
+          "nombre_completo": "K. Atsuji",
+          "nombres": "K.",
+          "apellidos": "Atsuji"
+        },
+        {
+          "nombre_completo": "K. Yamada",
+          "nombres": "K.",
+          "apellidos": "Yamada"
+        },
+        {
+          "nombre_completo": "Y. Kawano",
+          "nombres": "Y.",
+          "apellidos": "Kawano"
+        },
+        {
+          "nombre_completo": "I. Ohtsu",
+          "nombres": "I.",
+          "apellidos": "Ohtsu"
+        },
+        {
+          "nombre_completo": "K. Suzuki",
+          "nombres": "K.",
+          "apellidos": "Suzuki"
+        }
+      ],
+      "pmid": "34750416",
+      "fuente": "Sci. Rep.",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "21786",
+      "lpage": ""
+    },
+    {
+      "titulo": "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F.E. Garrett-Bakelman",
+          "nombres": "F.E.",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M. Darshi",
+          "nombres": "M.",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "S.J. Green",
+          "nombres": "S.J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "R.C. Gur",
+          "nombres": "R.C.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L. Lin",
+          "nombres": "L.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "M.J. McKenna",
+          "nombres": "M.J.",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J. Nasrini",
+          "nombres": "J.",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "Interpretation of the correlation coefficient: A basic review",
+      "autores": [
+        {
+          "nombre_completo": "R. Taylor",
+          "nombres": "R.",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Diagn. Med. Sonogr.",
+      "anio": "1990",
+      "volumen": "6",
+      "fpage": "35",
+      "lpage": "39"
+    }
+  ]
+}

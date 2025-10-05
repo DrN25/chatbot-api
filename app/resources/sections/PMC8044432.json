@@ -1,0 +1,1939 @@
+{
+  "TITLE": [
+    "NASA GeneLab RNA-seq consensus pipeline: standardized processing of short-read RNA-seq data"
+  ],
+  "ABSTRACT": [
+    "Summary",
+    "With the development of transcriptomic technologies, we are able to quantify precise changes in gene expression profiles from astronauts and other organisms exposed to spaceflight. Members of NASA GeneLab and GeneLab-associated analysis working groups (AWGs) have developed a consensus pipeline for analyzing short-read RNA-sequencing data from spaceflight-associated experiments. The pipeline includes quality control, read trimming, mapping, and gene quantification steps, culminating in the detection of differentially expressed genes. This data analysis pipeline and the results of its execution using data submitted to GeneLab are now all publicly available through the GeneLab database. We present here the full details and rationale for the construction of this pipeline in order to promote transparency, reproducibility, and reusability of pipeline data; to provide a template for data processing of future spaceflight-relevant datasets; and to encourage cross-analysis of data from other databases with the data available in GeneLab.",
+    "Graphical abstract",
+    "Highlights",
+    "Analysis of omics data from different spaceflight studies presents unique challenges",
+    "A standardized pipeline for RNA-seq analysis eliminates data processing variation",
+    "The GeneLab RNA-seq pipeline includes QC, trimming, mapping, quantification, and DGE",
+    "Space-relevant data processed with this pipeline are available at genelab.nasa.gov",
+    "Omics; Space Sciences"
+  ],
+  "INTRO": [
+    "Introduction",
+    "Opportunities to perform biological studies in space are rare due to high costs and a limited number of funding sources, rocket launches, and spaceflight crew hours for experimental procedures. In addition, spaceflight research is decentralized and distributed across numerous laboratories in the United States and abroad. As a result, studies performed in different laboratories often utilize different organisms, strains, cell lines, and experimental procedures. Adding to this complexity are variance in spaceflight factors and/or confounders within each study, such as degree of radiation exposure, experiment duration, CO2 concentration, light cycle, and water availability, all of which can have effects on an organism's health and gene expression profiles during spaceflight. In order to optimize the integration of data from this diverse array of spaceflight experiments, it is paramount that variations in data processing are minimized.",
+    "There is presently no consensus on how best to analyze RNA-seq data, and the impact of analysis tool selection on results is an active field of research. Indeed, selections of trimming parameters, read aligner, quantification tool, and differential expression detection algorithm all affect results. Because of such challenges, groups such as ENCODE and MINSEQE have developed standardized analysis pipelines for better comparison of RNA-seq datasets.",
+    "The NASA GeneLab database (https://genelab-data.ndc.nasa.gov/genelab/projects) was created as a central repository for spaceflight-related omics-data. The repository includes data from experiments that profile transcription (RNA-seq, microarray), DNA/RNA methylation, protein expression, metabolite pools, and metagenomes. The most prevalent data type in this repository is RNA-seq from organisms exposed to spaceflight conditions. As of August 2020, the NASA GeneLab database has over eighty datasets with RNA-sequencing data (Table S1). These datasets include Homo sapiens (human), Mus musculus (mouse), Drosophila melanogaster (fruit fly), Arabidopsis thaliana (model higher plant), Oryzias latipes (Japanese rice fish), Helix lucorum (land snail), Brassica rapa (Fast Plant), Eruca vesicaria (arugula/edible plant), Euprymna scolopes (Hawaiian bobtail squid), Ceratopteris richardii (aquatic fern), and the bacterium, Bacillus subtilis from experiments performed during true spaceflight on various orbital platforms such as the Space Shuttle and International Space Station (ISS), as well as spaceflight-analog studies, such as hindlimb unloading and bed rest studies.",
+    "NASA's GeneLab and Ames Life Sciences Data Archive (ALSDA) projects have put forward an ambitious strategy focused on integrating data, metadata, and biospecimens to fully utilize the 40+ years of archived NASA Life Sciences data. One of the first steps in this effort is the ability to analyze how experimental factors common to multiple datasets impact molecular signaling. Such meta-analysis can only occur if metadata, data, and processed data are harmonized. As part of this strategy, GeneLab engaged with the scientific community and held its first Analysis Working Group (AWG) workshop in 2018. Spaceflight researchers from universities and organizations across the United States and abroad met to begin the creation of a standardized, consensus data-processing pipeline for one of the most common types of spaceflight datasets: transcription profiling via RNA-sequencing. Scientists at this workshop met to discuss the merits of various bioinformatic software tools for processing RNA-sequencing data and ultimately agreed on a single pipeline of these tools.",
+    "The main driver for developing the consensus pipeline was to present consistently processed data to the public, therefore making space-relevant multi-omics data more accessible and reusable. The overall goals were (1) to get more consistently processed data to the public; (2) to provide output data from every step of the consensus pipeline so users can download and use these “intermediate” data; (3) to support easier and more consistent analysis of space-relevant data by users including those in the NASA AWGs; and (4) to allow easier cross-analysis of experiments to identify effects that result from the spaceflight environment, independent of confounding factors. In addition, many of these data in the GeneLab database have not been previously analyzed, as their generation was relatively recent. Therefore, providing new and processed datasets to the public allows biologists and others to more easily interpret these data and contributes significantly to our collective knowledge of the effects of spaceflight on terrestrial organisms.",
+    "Here we present the RNA-seq consensus pipeline (RCP) developed by the GeneLab AWG along with the rationale behind the tool settings and options selected. The RCP includes three distinct steps: data pre-processing, data processing, and differential gene expression computation/annotation (Figure 1A). These steps use tools for quality control (FastQC, MultiQC), read trimming (TrimGalore), mapping (STAR), quantification (RSEM), and differential gene expression calculation/annotation (DESeq2) (Figure 1B). The RCP has been integrated into the GeneLab database, and files produced by the RCP for each RNA-seq dataset hosted in GeneLab are and will continue to be publicly available for download."
+  ],
+  "FIG": [
+    "GeneLab RNA-seq Consensus Pipeline (RCP)",
+    "(A) The three broad steps of the RCP. The RCP handles (1) data preprocessing to trim sequencing adapters and to provide quality control metrics; (2) data processing to map reads to the reference genome and quantify the number of read counts per gene; and (3) differential gene expression calculation, which will provide a list of differentially expressed genes that can be sorted by adjusted p value and log fold-change.",
+    "(B) The full RCP annotated with tools, input files, and output files.",
+    "Data preprocessing (pipeline step 1): quality control and trimming",
+    "(A) Data preprocessing pipeline. FastQ files from Illumina base-calling software are quality checked using FastQC and MultiQC. Data are then trimmed using TrimGalore and are re-checked for quality; (B) flags used for FastQC program; (C) flags used for MultiQC program; (D) flags used for TrimGalore program; trimmed reads (∗fastq.gz) are then used as input data for FastQC (B) followed by MultiQC (C) to generate trimmed read quality metrics. Tool versions used to process each dataset are included in the RNA-seq processing protocol in the GLDS Repository.",
+    "Data processing (pipeline step 2A): read mapping",
+    "(A) Data processing pipeline. Trimmed reads are mapped to their reference genome and transcriptome with STAR. Gene counts are then quantified with RSEM; (B) flags used for generating the indexed STAR reference files; (C) flags used for mapping reads with STAR. Tool versions used to process each dataset are included in the RNA-seq processing protocol in the GLDS Repository.",
+    "Data processing (pipeline step 2B): gene quantification",
+    "(A) Data processing pipeline. Mapping results from STAR are quantified by RSEM; (B) parameters for RSEM indexed reference files generation; (C) parameters for quantifying gene and isoform counts with RSEM. Tool versions used to process each dataset are included in the RNA-seq processing protocol in the GLDS repository.",
+    "Differential gene expression calculation (pipeline step 3)",
+    "(A) Data processing pipeline. The R program DESeq2 is run in order to determine which genes are differentially expressed between experimental conditions using gene count files from RSEM.",
+    "(B) Output files generated. The table columns distinguish which script produces each output. The columns distinguish how those output files are used.",
+    "Global and differential gene expression in spaceflight versus ground control liver samples from GeneLab datasets",
+    "(A and B) Principal component analysis of global gene expression in spaceflight (FLT) and respective ground control (GC) liver samples from the (A) Rodent Research 1 (RR-1) NASA Validation mission (GLDS-168) and (B) RR-6 ISS-terminal mission (GLDS-245). Plots were generated using data in the normalized counts tables for each respective dataset on the NASA GeneLab Data Repository.",
+    "(C and D) Heatmaps showing the top 30 differentially expressed genes in spaceflight (FLT) versus ground control (GC) liver samples from the (C) Rodent Research 1 (RR-1) NASA Validation mission (GLDS-168) and (D) RR-6 ISS-terminal mission (GLDS-245). Heatmaps were generated using data in the differential expression tables for each respective dataset on the NASA GeneLab Data Repository and are colored by relative expression. Adj. p value < 0.05 and |log2FC| > 1. All samples included were derived from frozen carcasses post-mission and utilized the ribo-depletion library preparation method."
+  ],
+  "RESULTS": [
+    "Results",
+    "Data pre-processing: quality control and trimming",
+    "There are three distinct steps to the RCP, the first of which is data preprocessing (Figure 2A). The pipeline begins with quality control (QC) of raw FASTQ files from a short-read Illumina sequencer using the FastQC software (Figure 2B). FastQC is one of the most widely used QC programs for short-read sequencing data. It provides information that can be used to assess sample and sequencing quality, including base statistics, per base sequencing quality, per sequence quality scores, per base sequence content, per base GC content, per sequence GC content, per base N content, sequence length distributions, sequence duplication levels, overrepresented sequences, and k-mer content.",
+    "The FastQC program is run on each individual sample file. However, reviewing the FastQC results for each sample file can be tedious and time consuming. Experiments typically have many sample files (biological and/or technical replicates) for multiple experimental conditions (spaceflight, ground control, etc.). For this reason, we also use the MultiQC package (Figure 2C) to create a summary statistics report that includes the same quality control result categories from FastQC across all experiment samples.",
+    "After performing quality control on the raw FASTQ data, reads are trimmed using TrimGalore to remove sequencing adapters and low-quality bases that would disrupt read mapping during the data processing pipeline step (Figure 2D). TrimGalore is a wrapper program that uses the cutadapt program for read trimming. TrimGalore was selected for the RCP due to its simplified command line interface, thorough output of trimming metrics, and ability to automatically detect adapters. In this step, bases that are part of a sequencing adapter or of low quality are removed from each read, and reads that become too short are subsequently removed. After trimming, the quality control programs, FastQC and MultiQC, are again run on the trimmed FASTQ files for viewing the quality control metrics of the reads that will be used for data processing. Once the data have been preprocessed, the sequenced reads are ready for mapping and quantification.",
+    "Data processing: read mapping and sample quantification",
+    "In the data processing step (Figure 1; Step 2A), the trimmed reads are first aligned to the reference genome (Figure 3A) with STAR, a splice-aware aligner. STAR must be run in two steps. The first step is to create indexed genome files (Figure 3B). These files are used to assist read mapping and only need to be generated once for each reference genome file. This step requires reference FASTA and GTF files (Table S2). Some datasets include the External RNA Control Consortium (ERCC) spike-in control—a pool of 96 synthetic RNAs with various lengths and GC content covering a 220 concentration range. If ERCC spike-ins were included, the spike-in FASTA and GTF files are appended to the reference FASTA and GTF files, respectively. The second step of STAR mapping is to use the indexed reference genome and the trimmed reads from the preprocessing step in order to map the reads to the genome and the transcriptome (Figure 3C). STAR will also produce genome mapped data, which can optionally be used to find reads that map outside of annotated reference transcripts. STAR mapping output data are in Binary Alignment Map (BAM) format, which has a separate entry for each mapped read and states which transcript each read is mapped to. In order to improve the detection and quantification of splice sites, STAR is run in “two-pass mode.” Here, splice sites are detected in the initial mapping to the reference and used to build a new reference that includes these splice sites. Reads are then re-mapped to this dynamically generated reference to improve the quantification of splice isoforms. Users are provided with these results (as per sample SJ.out files) for further analysis of differential splicing.",
+    "The second part of processing is quantifying the number of reads mapped to each annotated transcript and gene (Figure 1A; Step 2B, Figure 4A). For this task, the RCP uses RSEM. The main reasons for using RSEM are its ability to account for reads that map to multiple transcripts and distinguish gene isoforms. In short-read sequencing experiments it is likely that some number of reads will map to multiple regions in the genome. RSEM computes maximum likelihood abundance estimates to split the read count across multiple genes. Similar to STAR, RSEM is run in two distinct phases (Figure 4A). The first phase uses the reference genome and GTF files (with or without ERCC as appropriate) (Table S2) to prepare indexed genome files (Figure 4B). The second phase uses the indexed files and the mapped reads from STAR to assign counts to each gene (Figure 4C). There are two output files generated for each sample: counts assigned to genes and counts assigned to isoforms. Gene counts are used to calculate differential gene expression. Isoform counts are also generated as an option to look at differential isoform expression but are not used during differential gene expression calculation in the RCP. Once the RSEM count files are generated, the data are used to compute differentially expressed genes. A list of the reference genomes used in the GeneLab pipeline is available in Table S2 . These reference genomes were the most recent releases at the time each STAR and RSEM indexed references were created. Although it is possible to run STAR mapping through the RSEM toolkit, we elected not to do this because the alignment parameters used in this case are from ENCODE's STAR-RSEM pipeline and are not customizable. Thus, we would have been precluded from using the precise mapping parameters agreed to by the GeneLab AWG.",
+    "We elected to adopt a mapping-based approach rather than rapidly quantifying the reads via a k-mer-based counting algorithm, pseudo-aligners, or a quasi-mapping method that utilizes RNA-seq inference procedures such as Kallisto or Salmon despite their speed advantages. This is because alignment-free quantification tools do not accurately quantify low-abundant and small RNAs especially when biological variation is present. Furthermore, alignment of reads allows for additional analyses beyond transcript and gene quantification such as measurement of gene body coverage and detection of novel transcripts.",
+    "There are several alignment-based mapping tools available and each has advantages and disadvantages. An alignment tool that is sensitive to splice-isoforms is critical to accurately identify how expression of splice-isoforms is affected by the spaceflight environment. DNA-specific aligners such as BWA and Bowtie cannot handle intron-sized gaps and thus an RNA-seq-specific aligner is needed. In addition to splice-awareness, when selecting an aligner the following criteria were also considered: ability to input both single- and paired-end reads, handle strand-specific data, applicability to a variety of different model organisms with both low- and high-complexity genomic regions, efficient runtime and memory usage, ability to identify chimeric reads, high sensitivity, low rate of false discovery, and ability to output both genome and transcriptome alignments. Several studies have been conducted to compare the wide variety of available RNA-seq specific alignment tools, and of these, the STAR aligner consistently performs better than or on par with the tools tested for the indicated criteria.",
+    "Differential gene expression calculations and addition of gene annotations",
+    "Once reads have been mapped and quantified, differential expression analysis is performed using the DESeq2 R package (Figure 1; Step 3, Figure 5A). Unlike the previous steps, a custom R script (GeneLab_DGE_wERCC.R or GeneLab_DGE_noERCC.R) (Data S1and S2) is used to run DESeq2; to create both unnormalized and normalized counts tables; and to generate a differential gene expression (DGE) output table containing normalized counts for each sample, DGE results, and gene annotations (Figure 5B). The GeneLab DGE R script also creates computer-readable tables that are used by the GeneLab visualization portal to generate various plots so users can easily view and begin interpreting the processed data. These scripts are provided in the NASA GeneLab_Data_Processing Github repository (https://github.com/nasa/GeneLab_Data_Processing). In the following sections we describe each step of these scripts in order.",
+    "The GeneLab DGE R script requires three inputs: the quantified count data from the previous (RSEM) step; sample metadata from the Investigation, Study, and Assay (ISA) tables in the ISA.zip file (provided in the GeneLab repository with each dataset); and the organisms.csv file (Table S3), which is used to specify the organism used in the study and relevant gene annotations to load. Because samples from some GeneLab RNA-seq datasets contain ERCC spike-in and others do not, there are two versions of the GeneLab DGE R script, one for datasets with ERCC spike-in (GeneLab_DGE_wERCC.R, Data S1) and one for those without (GeneLab_DGE_noERCC.R, Data S2). Prior to running either script, paths to directories containing the input data and the output data location must be defined. Each script starts by defining the organism used in the study, which should be consistent with the name in the organisms.csv file so that it matches the abbreviations used in the PANTHER database for that organism. Next, the metadata from the ISA.zip file are imported and formatted for use with the DESeq2 package. During metadata formatting, groups for comparison are defined based on experimental factors, and a sample table is created to specify the group to which each sample belongs. Next, a contrasts matrix is generated, which specifies the groups that will be compared during DGE analysis; each group is compared with every other group in a pairwise manner in both directions (i.e. spaceflight versus ground and ground versus spaceflight). This approach provides the user with the results for all possible group comparisons, allowing each user to select the most relevant comparisons for their particular scientific questions. After metadata formatting, the RSEM gene count data files from each sample are listed and re-ordered (to match the order the samples appear in the metadata), then imported with the R package, tximport, and sample names are assigned. Prior to running DESeq2, a value of 1 is added to genes with lengths of zero, which is necessary to make a DESeqDataSet object. A DESeqDataSet object is then created using the formatted metadata and the count data that was imported with tximport.",
+    "For datasets that contain samples with ERCC spike-in, we use the GeneLab_DGE_wERCC.R script (Data S1). To reduce the possibility of skewing the data during DESeq2 normalization, all genes that have a sum of less than 10 counts across all samples are removed. The cutoff value of 10 is a best practice recommended by the DESeq2 tutorial on Bioconductor. These filtered data are then prepared for normalization and DGE analysis with DESeq2. Because there is no consensus for whether or not ERCC-normalization improves the accuracy of the results, the GeneLab project and its AWG members decided to perform the DGE analysis both with and without ERCC-normalization (for datasets with samples containing ERCC spike-in).",
+    "To enable DESeq2 analysis with and without considering ERCC reads, the DESeqDataSet object is used to create a DESeqDataSet object containing only ERCC reads. Because all samples must contain ERCC spike-in for ERCC-normalization, the DESeqDataSet object containing only ERCC reads is used to identify and remove any samples that do not contain ERCC reads. Next, a DESeqDataSet object containing only non-ERCC reads is created by removing rows containing ERCC reads. These data are then used for DESeq2 analysis.",
+    "For DESeq2 analysis with ERCC-normalization (Data S2), the size factor object of the non-ERCC data is replaced with group B ERCC size factors for re-scaling in the first DESeq2 step. Group B ERCC genes contain the same concentration in both mix1 and mix 2. Therefore, only group B ERCC genes are used for generating the size factors for re-scaling duirng ERCC-normalization. For DESeq2 analysis without ERCC-normalization, the DESeq2 default algorithm is applied to the DESeqDataSet object containing only non-ERCC reads. The unnormalized and DESeq2-normalized count data as well as the sample table are then outputted as CSV files. The “Unnormalized_Counts.csv,” “Normalized_Counts.csv,” and “ERCC_Normalized_Counts.csv” files for each RNA-seq dataset are available in the GeneLab Data Repository; the “SampleTable.csv” file is used internally for verifying and validating the processed data prior to publication.",
+    "There are two types of hypothesis tests that can be run with DESeq2, the likelihood ratio test (LRT), which is similar to an analysis of variance (ANOVA) calculation in linear regression and allows for comparison across all groups, and the Wald test, in which the estimated standard error of a log2 fold change is used to compare differences between two groups. The DGE step of the RCP performs both of these analyses. After normalization, the DESeq2 likelihood ratio test design is applied to the normalized data (both ERCC- and nonERCC-normalized data) to generate the F statistic p value, which is similar to an ANOVA p value and reveals genes that are changed in any number of combinations of all factors defined in the experiment.",
+    "To prepare for building a gene/pathway annotation database, the STRINGdb and PANTHER.db libraries are loaded, and the organisms.csv file is read and used to indicate the Bioconductor AnnotationData Package needed. The current gene annotation database for the organism specified at the beginning of the R script is then loaded.",
+    "Next, DGE tables containing normalized counts for each sample, pairwise DGE results, and current gene annotations as well as computer-readable DGE tables (that will be used for visualization) are created first with nonERCC-normalized data and then with ERCC-normalized data. For pairwise DGE analysis, first normalized count data are used to create two output tables: one that is used to create the human-readable DGE output table provided to users with processed data for each dataset and the other respective computer-readable DGE output table that contains additional columns and is used to visualize the data. Next, normalized count data are iterated through Wald Tests to generate pairwise comparisons of all groups based on the contrasts matrix that was generated during metadata formatting. The pairwise DGE analysis results are then added as columns to both DGE output tables.",
+    "Then an annotation database is built by first defining the “keytype,” which indicates the primary type of annotation used (for most GeneLab datasets this is ENSEMBL). The keytype is then used to map to annotations in the organism-specific Bioconductor AnnotationData Package, and the following annotation columns are added to the annotation database: SYMBOL, GENENAME, ENSEMBL (if not the primary), REFSEQ, and ENTREZID. STRING and GOSLIM annotation columns are also added to the annotation database using the STRINGdb and PANTHER.db R packages, respectively. All of the aforementioned annotation columns are added to the annotation database to enable users to perform downstream analyses without having to map gene IDs themselves. Once the annotation database is complete, additional calculations are performed on the normalized count data before assembling the final DGE output tables.",
+    "Means and standard deviations of normalized count data for each gene across all samples, and for samples within each respective group, are calculated and added as columns to the DGE output tables. A column containing the F statistic p value, calculated previously, is also added to the DGE output tables. The following columns are added only to the computer-readable DGE output table (used for visualization): a column to indicate whether each gene (or pathway) is up- or downregulated for each pairwise comparison, a column to indicate genes that are differentially expressed using a p value cutoff of ≤0.1 and another column using a p value cutoff of ≤0.05, a column indicating the log2 of the p value for each pairwise comparison and another column indicating the log2 of the adjusted p value, both of which are used to create Volcano plots. After all columns are added to the DGE tables, both the human- and computer-readable DGE tables are combined with the current annotation database to create the complete human- and computer-readable DGE tables. An example of the complete human readable DGE tables provided with processed RNAseq datasets in the GeneLab Data Repository is shown in Tables 1 and 2. Principal component analysis (PCA) is also performed on the normalized count data and used to create PCA plots for the GeneLab data visualization portal. DGE analysis of datasets without ERCC spike-in is performed exactly the same way as the nonERCC-normalized approach described above, except that no ERCC reads have to be removed from the DESeqDataSet object prior to DESeq analysis.",
+    "Both the GeneLab_DGE_wERCC.R and the GeneLab_DGE_noERCC.R scripts produce the following output files: Unnormalized_Counts.csv (∗), Normalized_Counts.csv (∗), SampleTable.csv (#), contrasts.csv (∗), differential_expression.csv (∗), visualization_output_table.csv (∗∗), visualization_PCA_table.csv (∗∗) (Figure 5B). The GeneLab_DGE_wERCC.R script will also produce the following additional output files: ERCC_rawCounts_unfiltered.csv (#), ERCC_rawCounts_filtered.csv (#), ERCCnorm_contrasts.csv (∗), ERCC_Normalized_Counts.csv (∗), ERCCnorm_differential_expression.csv (∗), visualization_output_table_ERCCnorm.csv (∗∗), visualization_PCA_table_ERCCnorm.csv (∗∗) (Tables 1 and 2).",
+    "To showcase the value of using a consensus pipeline and publishing the processed data from each step of the pipeline, downstream analyses were performed using processed data from select samples from RNAseq datasets hosted on GeneLab. One of the advantages of providing expression data of all samples in each dataset as well as all possible pairwise DGE comparisons is to allow users the flexibility to pick and choose which samples and which comparisons they would like to focus on. Thus, when selecting samples for downstream analysis, we exercised this flexibility and searched the GeneLab Data Repository for datasets/samples that met a specific set of criteria. These criteria were as follows: (1) datasets that evaluated the same tissue (liver) from the same mouse strain (C57BL/6) and sex (female), (2) only samples derived from animals flown in space and respective ground control samples, (3) studies that used the same preservation protocol (liver samples extracted from frozen carcasses post-mission) and library preparation method (ribo-depletion), and (4) samples that contained ERCC spike-in to evaluate outputs with and without ERCC normalization. Select samples from two GeneLab datasets, GLDS-168 and GLDS-245, met these criteria, and processed data including the Normalized_Counts.csv, differential_expression.csv, ERCC_Normalized_Counts.csv, and the ERCCnorm_differential_expression.csv files from these two datasets were used for downstream analyses.",
+    "Prior to downstream analysis, the processed data files were filtered so that only samples that met the criteria listed above were included. Because GLDS-168 contains samples from both the Rodent Research 1 (RR-1) and RR-3 missions and only the RR-1 mission met our first criteria of using the C57BL/6 mouse strain, RR-3 samples were removed from the process data files. GLDS-168 processed data files were subsequently filtered to remove all samples, except spaceflight (FLT) and respective ground control (GC) samples, to meet the second criteria listed above. Lastly, because GLDS-168 contains a set of FLT and GC samples that were spiked with ERCC and another set in which ERCC was not added, the later set of samples were removed to meet the fourth criteria. GLDS-245 contains liver samples from the RR-6 mission, which included a set of animals that were returned to earth alive after ∼30 days of spaceflight and another set of animals that remained in space (aboard the ISS) for a total of ∼60 days before being sacrificed aboard the ISS (note that there were respective control samples for each set of spaceflight animals described). The former set of animals had their livers dissected immediately after euthanasia, whereas livers from the latter set of animals were frozen in situ and dissected from frozen carcasses after return to earth. Thus, only the later (ISS-terminal) set of FLT and respective GC samples met criteria 2 and 3, so the GLDS-245 processed data files were filtered to remove all other samples. In addition, because the downstream analyses focused on the differences between FLT and GC samples in these two datasets, all other comparisons were removed from the differential_expression.csv and ERCCnorm_differential_expression.csv files prior to analysis.",
+    "The filtered processed data files (available in Mendeley Data, Mendeley Data: https://doi.org/10.17632/fv3kd6h7k4.1) were then used to create Principal Component Analysis (PCA) plots (Figures 6A, 6B, S1A, and S1B), heatmaps containing the top 30 most significant FLT versus GC differentially expressed (and annotated) genes (adj. p value <0.05 and |log2FC| > 1) (Figures 6C, 6D, S1C, and S1D), and to evaluate FLT versus GC gene ontology (GO) differences using Gene Set Enrichment (GSEA) analysis (Tables 3 and S5). These results can then be further evaluated to identify similarities and differences in gene expression between these two studies and draw novel conclusions about the effects of spaceflight that are consistent across spaceflight experiments."
+  ],
+  "TABLE": [
+    "Differential gene expression output table—annotations",
+    "TAIR\tSYMBOL\tGENENAME\tREFSEQ\tENTREZID\tSTRING_id\tGOSLIM_IDS\t \tAT1G01010\tANAC001\tNA\tNM_099983\t839580\t3702.AT1G01010.1\tNA\t \tAT1G01020\tARV1\tNA\tNM_001035846\t839569\t3702.AT1G01020.1\tGO:0005622, GO:0005737, …\t \tAT1G01030\tNGA3\tNA\tNM_001331244\t839321\t3702.AT1G01030.1\tNA\t \tAT1G01040\tASU1\tEncodes a Dicer homolog …\tNM_001197952\t839574\t3702.AT1G01040.2\tNA",
+    "Truncated version of the differential_expression.csv file provided as GeneLab processed data for GLDS-251. The first 7 columns of the differential gene expression output table contain gene IDs and annotations (for remainder of columns, refer to Table 2).",
+    "Differential gene expression output table—statistics",
+    "Norm. expr. (sample A)\tLog2fc (comparison A)\tP value (comparison A)\tAdj p value (comparison A)\tMean (all samples)\tStdev (all samples)\tLRT p value\tMean (group A)\tStdev (group A)\t \t263.864\t−0.078\t0.648\t0.848\t198.735\t31.756\t0.484\t225.550\t36.759\t \t200.493\t0.341\t0.033\t0.198\t147.061\t19.197\t0.740\t174.839\t24.073\t \t19.040\t0.691\t0.137\tNA\t11.035\t3.121\tNA\t15.706\t2.889\t \t644.811\t0.126\t0.366\t0.655\t669.586\t68.327\t1.000\t688.123\t76.969",
+    "Truncated version of the differential_expression.csv file provided as GeneLab processed data for GLDS-251. Following the seven columns of gene IDs and annotations (Table 1) are normalized gene expression data for each sample (Norm. expr. (sample A)) then results from all possible pairwise comparisons, including log2 fold change (Log2fc (comparison A)), p values (P.value (comparison A)), and adjusted p values (Adj.p.value (comparison A)) calculated from the Wald Tests. Next are the average gene expression (Mean (all samples)) and standard deviation (Stdev (all samples)) of all samples followed by the F-statistic p value generated from the likelihood ratio test (LRT.p.value), and the last set of columns are the average gene expressions (Group.Mean) and standard deviations (Group.Stdev) of samples within each group.",
+    "Comparison of gene ontology in spaceflight versus ground control liver samples from GeneLab datasets",
+    "GeneLab dataset\t# Enriched GO terms (NOM p < 0.01)\t# Enriched GO terms (NOM p < 0.01 & FDR<0.5)\t# Enriched GO terms (NOM p < 0.01 & FDR<0.25)\t \tGLDS-168\t71, 135\t0, 132\t0, 0\t \tGLDS-245\t21, 24\t2, 6\t1, 0",
+    "The number of enriched gene ontology (GO) terms identified by Gene Set Enrichment Analysis (GSEA, phenotype permutation) was evaluated in spaceflight (FLT) versus ground control (GC) liver samples from the Rodent Research 1 (RR-1) NASA Validation mission (GLDS-168), and RR-6 ISS-terminal mission (GLDS-245). For GO terms, the number on the left corresponds to GO terms enriched in FLT samples and the number on the right corresponds to GO terms enriched in GC samples. These data were generated using the normalized counts for each respective dataset on the NASA GeneLab Data Repository. All samples included were derived from frozen carcasses post-mission and utilized the ribo-depletion library preparation method. GLDS-168, FLT n = 5 and GC n = 5; GLDS-245, FLT n = 10 and GC n = 10. p values and FDR values are indicated."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "The differentially expressed genes calculated by the RCP can be further explored with a variety of tools designed for higher-order analysis. For example, there are tools that can look for enriched pathways, gene ontology terms, or protein and/or metabolite networks. Popular software tools among the GeneLab working group members include WebGestalt, STRING, GSEA, PIANO, Reactome, and ToppFun. There is no universal consensus on which tools are the most useful for higher-order analysis. RCP users are encouraged to try multiple tools in order to analyze their data from a variety of perspectives.",
+    "The RCP has been designed to handle sequencing experiments that either lack or include the ERCC RNA spike-in mix—a set of 96 polyadenylated RNAs that can be used during differential gene expression calculation to normalize read counts across samples. However, the use of normalization according to ERCC spike-ins remains controversial among AWG members, and Munro et al. suggested its usage only for determining limit of detection of ratio (LODR), expression ratio variability, and measurement bias. For this reason, ERCC normalization remains optional in the GeneLab pipeline, and both kinds of DGE outputs are provided in the GeneLab database. In addition, ERCC spike-in could have two other usages. First, it allows us to evaluate whether normalization succeeded in removing systemic bias between libraries by using methods such as Rlog and VST when normalizing the spike-in RNAs along with all other genes. Second, most normalization methods of RNA-seq data assume that most genes are not differentially expressed toward one direction. Comparing spike-in measurements between libraries will help us to estimate the validity of this assumption.",
+    "A high number of biological replicates can increase certainty in the differentially expressed genes determined by the RCP. However, conducting experiments in spaceflight often limits the number of biological replicates that a researcher can include. Therefore, it is important to note that at least three biological replicates are required for the pipeline, specifically for DESeq2, to perform its statistical methods. However, at least six replicates are suggested in order to minimize the false discovery rate (FDR). Finally, RNA-seq datasets hosted on GeneLab that do not contain biological replicates are only processed up until unnormalized (raw) counts are obtained, the step right before DESeq2 is used for DGE calculation.",
+    "More advanced RCP users might have additional data inquiries that fall beyond the scope of this pipeline. For this reason, there are two parts of the pipeline that include additional output that are not used in our differential gene expression computation. The first is in the output from STAR, mapping output is also provided in genomic coordinates. This is useful for obtaining reads that are mapped outside of the reference transcriptome. For example, this may be used to find novel genes, transcripts, or exons that have not yet been annotated by consortiums. The second part of the pipeline with alternative output files is RSEM. This also provides transcript-level counts that can be used to investigate differential isoform expression. Moreover, intermediate files are provided as outputs to allow users to use components of the pipeline that they find useful.",
+    "The GeneLab database also includes other types of transcriptomic data. As discussed in this article, the RCP is not used for microarray data that are fundamentally different, and the AWG is still debating the best approach for cross-dataset comparisons between microarrays. GeneLab also accepts data from long read experiments, such as those produced by Pacific Biosciences' (PacBio) single-molecule real-time (SMRT) sequencing and Oxford Nanopore Technologies' (ONT) nanopore sequencing. Long-read data would be processed with similar steps to the RCP but will require tools specifically designed for the intricacies of long-read data, such as reads that contain multiple splice junctions and reads that currently have a higher base-calling error rate. Currently, long-reads are typically used for DNA sequencing and were recently highlighted on board of the ISS using ONT for de novo assembly of the Escherichia coli genome from raw reads. However, even though throughput and accuracy remain far inferior to short-reads, long-reads offer some advantages for RNA-seq as well, with less ambiguity for genes and isoforms detection, much faster mapping, potential identification of genes not yet known from reference genomes, and eventually less bias in DGE.",
+    "To conclude, the RCP is specifically designed for RNA-seq data from short-read sequencers and has been developed in order to encourage and facilitate analysis of spaceflight multi-omic data. The creation of the RCP by a large community of scientists (GeneLab AWG: https://genelab.nasa.gov/awg) and the sharing of pipeline details in a peer-reviewed article provide analysis transparency and enable data reproducibility.",
+    "Limitations of the study",
+    "The results of this study are limited to short-read RNA-seq and are not applicable to other transcriptomic profiling methods (e.g. microarray, long-read RNA-seq). In addition, the pipeline cannot compensate for poor library preparation technique or inadequate sample size. Sample preservation protocols between datasets need to also be evaluated, because variations in sample preservation protocol could lead to poor correlation between studies that are otherwise identical. The number of sequenced reads may also be a limiting factor in the usefulness and accuracy of the differentially expressed genes calculated by DESeq2 and, similarly, during splice isoform analysis.",
+    "Note that this article does not discuss strategies and pipelines regarding older transcriptomics data in GeneLab (i.e. more than 100 microarray datasets), as it is much more challenging to provide meta-analysis with microarrays, which are prone to strong batch effects and gene lists that are platform dependent. Future efforts of GeneLab and the AWG will address microarray pipelines.",
+    "In the future, we will add functionality to process unique molecular identifiers (UMIs) that can identify PCR duplicates using tools such as UMI tools. This will allow PCR duplicates to be removed after mapping and before quantification.",
+    "In addition, transcriptomic data will be integrated with proteomic and metabolomics data; this will help further understand the significance of gene expression changes to metabolic “fitness” in the spaceflight environment.",
+    "Resource availability",
+    "Lead contact",
+    "Jonathan M. Galazka.",
+    "Materials availability",
+    "No unique reagents were generated in this study.",
+    "Data and code availability",
+    "Spaceflight-relevant RNA-seq data are located in the GeneLab database (https://genelab-data.ndc.nasa.gov/genelab/projects). All software packages are open source and are linked in the methods section. Instructions for installing packages using Conda are provided on Github (https://github.com/nasa/GeneLab_Data_Processing/tree/master/RNAseq/RNAseq_Tool_Instal). Custom R scripts for DESeq2 are included as supplemental information and are available in the Github repository GeneLab_Data_Processing (https://github.com/nasa/GeneLab_Data_Processing). Original data have been deposited to Mendeley Data: https://doi.org/10.17632/fv3kd6h7k4.1)."
+  ],
+  "METHODS": [
+    "Methods",
+    "All methods can be found in the accompanying transparent methods supplemental file."
+  ],
+  "REF": [
+    "References",
+    "Simulation-based comprehensive benchmarking of RNA-seq aligners",
+    "NASA GeneLab: interfaces for the exploration of space omics data",
+    "Near-optimal probabilistic RNA-seq quantification",
+    "Nanopore DNA sequencing and genome assembly on the International space station",
+    "ToppGene suite for gene list enrichment analysis and candidate gene prioritization",
+    "A survey of best practices for RNA-seq data analysis",
+    "RNA-seq differential expression analysis: an extended review and a software tool",
+    "STAR: ultrafast universal RNA-seq aligner",
+    "Perspectives on ENCODE",
+    "MultiQC: Summarize analysis results for multiple tools and samples in a single report",
+    "Bioconductor: open software development for computational Biology and bioinformatics",
+    "Orchestrating high-throughput genomic analysis with bioconductor",
+    "Erratum to: the Oxford nanopore MinION: delivery of nanopore sequencing to the genomics community",
+    "Trim Galore: a wrapper around cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data (version 0.6.5)",
+    "RNAseq analysis of rodent spaceflight experiments is confounded by sample collection techniques",
+    "Ultrafast and memory-efficient alignment of short DNA sequences to the human genome",
+    "RNA-seq analysis is easy as 1-2-3 with Limma, Glimma and edgeR",
+    "WebGestalt 2019: gene set analysis toolkit with revamped UIs and APIs",
+    "RSEM: accurate transcript quantification from RNA-seq data with or without a reference genome",
+    "Fast and accurate short read alignment with burrows-wheeler transform",
+    "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+    "Cutadapt removes adapter sequences from high-throughput sequencing reads",
+    "RNA-seq: technical variability and sampling",
+    "PANTHER in 2013: modeling the evolution of gene function, and other gene attributes, in the context of phylogenetic trees",
+    "Assessing technical performance in differential gene expression experiments with external spike-in RNA control ratio mixtures",
+    "Identifying significantly impacted pathways: a comprehensive review and assessment",
+    "Salmon provides fast and bias-aware quantification of transcript expression",
+    "Aligning the aligners: comparison of RNA sequencing data alignment and gene expression quantification tools for clinical breast cancer research",
+    "Normalization of RNA-seq data using factor Analysis of control genes or samples",
+    "GC-content normalization for RNA-seq data",
+    "The advantages of SMRT sequencing",
+    "ISA software suite: supporting standards-compliant experimental annotation and enabling curation at the community level",
+    "A new era for space Life science: International standards for space omics processing (ISSOP)",
+    "Toward interoperable bioscience data",
+    "Evaluation of seven different RNA-seq alignment tools based on experimental data from the model plant Arabidopsis thaliana",
+    "How many biological replicates are needed in an RNA-seq experiment and which differential expression tool should you use?",
+    "UMI-tools: modeling sequencing errors in unique molecular identifiers to improve quantification accuracy",
+    "Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences",
+    "Gene set Enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles",
+    "A benchmark for RNA-seq quantification pipelines",
+    "PANTHER: a library of protein families and subfamilies indexed by function",
+    "Enriching the gene set analysis of genome-wide data by incorporating directionality of gene expression and combining statistical hypotheses and methods",
+    "Trimming of sequence reads alters RNA-seq gene expression estimates",
+    "Limitations of alignment-free tools in total RNA-seq quantification",
+    "The impact of RNA-seq aligners on gene expression estimation"
+  ],
+  "SUPPL": [
+    "Supplemental information",
+    "Supplemental information can be found online at https://doi.org/10.1016/j.isci.2021.102361."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simulation-based comprehensive benchmarking of RNA-seq aligners",
+      "autores": [
+        {
+          "nombre_completo": "G. Baruzzo",
+          "nombres": "G.",
+          "apellidos": "Baruzzo"
+        },
+        {
+          "nombre_completo": "K.E. Hayer",
+          "nombres": "K.E.",
+          "apellidos": "Hayer"
+        },
+        {
+          "nombre_completo": "E.J. Kim",
+          "nombres": "E.J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "B. Di Camillo",
+          "nombres": "B.",
+          "apellidos": "Di Camillo"
+        },
+        {
+          "nombre_completo": "G.A. FitzGerald",
+          "nombres": "G.A.",
+          "apellidos": "FitzGerald"
+        },
+        {
+          "nombre_completo": "G.R. Grant",
+          "nombres": "G.R.",
+          "apellidos": "Grant"
+        }
+      ],
+      "pmid": "27941783",
+      "fuente": "Nat. Methods",
+      "anio": "2017",
+      "volumen": "14",
+      "fpage": "135",
+      "lpage": "139"
+    },
+    {
+      "titulo": "NASA GeneLab: interfaces for the exploration of space omics data",
+      "autores": [
+        {
+          "nombre_completo": "D.C. Berrios",
+          "nombres": "D.C.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "J. Galazka",
+          "nombres": "J.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "K. Grigorev",
+          "nombres": "K.",
+          "apellidos": "Grigorev"
+        },
+        {
+          "nombre_completo": "S. Gebre",
+          "nombres": "S.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Near-optimal probabilistic RNA-seq quantification",
+      "autores": [
+        {
+          "nombre_completo": "N.L. Bray",
+          "nombres": "N.L.",
+          "apellidos": "Bray"
+        },
+        {
+          "nombre_completo": "H. Pimentel",
+          "nombres": "H.",
+          "apellidos": "Pimentel"
+        },
+        {
+          "nombre_completo": "P. Melsted",
+          "nombres": "P.",
+          "apellidos": "Melsted"
+        },
+        {
+          "nombre_completo": "L. Pachter",
+          "nombres": "L.",
+          "apellidos": "Pachter"
+        }
+      ],
+      "pmid": "27043002",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2016",
+      "volumen": "34",
+      "fpage": "525",
+      "lpage": "527"
+    },
+    {
+      "titulo": "Nanopore DNA sequencing and genome assembly on the International space station",
+      "autores": [
+        {
+          "nombre_completo": "S.L. Castro-Wallace",
+          "nombres": "S.L.",
+          "apellidos": "Castro-Wallace"
+        },
+        {
+          "nombre_completo": "C.Y. Chiu",
+          "nombres": "C.Y.",
+          "apellidos": "Chiu"
+        },
+        {
+          "nombre_completo": "K.K. John",
+          "nombres": "K.K.",
+          "apellidos": "John"
+        },
+        {
+          "nombre_completo": "S.E. Stahl",
+          "nombres": "S.E.",
+          "apellidos": "Stahl"
+        },
+        {
+          "nombre_completo": "K.H. Rubins",
+          "nombres": "K.H.",
+          "apellidos": "Rubins"
+        },
+        {
+          "nombre_completo": "A.B.R. McIntyre",
+          "nombres": "A.B.R.",
+          "apellidos": "McIntyre"
+        },
+        {
+          "nombre_completo": "J.P. Dworkin",
+          "nombres": "J.P.",
+          "apellidos": "Dworkin"
+        },
+        {
+          "nombre_completo": "M.L. Lupisella",
+          "nombres": "M.L.",
+          "apellidos": "Lupisella"
+        },
+        {
+          "nombre_completo": "D.J. Smith",
+          "nombres": "D.J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "D.J. Botkin",
+          "nombres": "D.J.",
+          "apellidos": "Botkin"
+        }
+      ],
+      "pmid": "29269933",
+      "fuente": "Sci. Rep.",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "18022",
+      "lpage": ""
+    },
+    {
+      "titulo": "ToppGene suite for gene list enrichment analysis and candidate gene prioritization",
+      "autores": [
+        {
+          "nombre_completo": "J. Chen",
+          "nombres": "J.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "E.E. Bardes",
+          "nombres": "E.E.",
+          "apellidos": "Bardes"
+        },
+        {
+          "nombre_completo": "B.J. Aronow",
+          "nombres": "B.J.",
+          "apellidos": "Aronow"
+        },
+        {
+          "nombre_completo": "A.G. Jegga",
+          "nombres": "A.G.",
+          "apellidos": "Jegga"
+        }
+      ],
+      "pmid": "19465376",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2009",
+      "volumen": "37",
+      "fpage": "W305",
+      "lpage": "W311"
+    },
+    {
+      "titulo": "A survey of best practices for RNA-seq data analysis",
+      "autores": [
+        {
+          "nombre_completo": "A. Conesa",
+          "nombres": "A.",
+          "apellidos": "Conesa"
+        },
+        {
+          "nombre_completo": "P. Madrigal",
+          "nombres": "P.",
+          "apellidos": "Madrigal"
+        },
+        {
+          "nombre_completo": "S. Tarazona",
+          "nombres": "S.",
+          "apellidos": "Tarazona"
+        },
+        {
+          "nombre_completo": "D. Gomez-Cabrero",
+          "nombres": "D.",
+          "apellidos": "Gomez-Cabrero"
+        },
+        {
+          "nombre_completo": "A. Cervera",
+          "nombres": "A.",
+          "apellidos": "Cervera"
+        },
+        {
+          "nombre_completo": "A. McPherson",
+          "nombres": "A.",
+          "apellidos": "McPherson"
+        },
+        {
+          "nombre_completo": "M.W. Szcześniak",
+          "nombres": "M.W.",
+          "apellidos": "Szcześniak"
+        },
+        {
+          "nombre_completo": "D.J. Gaffney",
+          "nombres": "D.J.",
+          "apellidos": "Gaffney"
+        },
+        {
+          "nombre_completo": "L.L. Elo",
+          "nombres": "L.L.",
+          "apellidos": "Elo"
+        },
+        {
+          "nombre_completo": "X. Zhang",
+          "nombres": "X.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "26813401",
+      "fuente": "Genome Biol.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "13",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNA-seq differential expression analysis: an extended review and a software tool",
+      "autores": [
+        {
+          "nombre_completo": "J. Costa-Silva",
+          "nombres": "J.",
+          "apellidos": "Costa-Silva"
+        },
+        {
+          "nombre_completo": "D. Domingues",
+          "nombres": "D.",
+          "apellidos": "Domingues"
+        },
+        {
+          "nombre_completo": "F.M. Lopes",
+          "nombres": "F.M.",
+          "apellidos": "Lopes"
+        }
+      ],
+      "pmid": "29267363",
+      "fuente": "PLoS One",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0190152",
+      "lpage": ""
+    },
+    {
+      "titulo": "STAR: ultrafast universal RNA-seq aligner",
+      "autores": [
+        {
+          "nombre_completo": "A. Dobin",
+          "nombres": "A.",
+          "apellidos": "Dobin"
+        },
+        {
+          "nombre_completo": "C.A. Davis",
+          "nombres": "C.A.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "F. Schlesinger",
+          "nombres": "F.",
+          "apellidos": "Schlesinger"
+        },
+        {
+          "nombre_completo": "J. Drenkow",
+          "nombres": "J.",
+          "apellidos": "Drenkow"
+        },
+        {
+          "nombre_completo": "C. Zaleski",
+          "nombres": "C.",
+          "apellidos": "Zaleski"
+        },
+        {
+          "nombre_completo": "S. Jha",
+          "nombres": "S.",
+          "apellidos": "Jha"
+        },
+        {
+          "nombre_completo": "P. Batut",
+          "nombres": "P.",
+          "apellidos": "Batut"
+        },
+        {
+          "nombre_completo": "M. Chaisson",
+          "nombres": "M.",
+          "apellidos": "Chaisson"
+        },
+        {
+          "nombre_completo": "T.R. Gingeras",
+          "nombres": "T.R.",
+          "apellidos": "Gingeras"
+        }
+      ],
+      "pmid": "23104886",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "15",
+      "lpage": "21"
+    },
+    {
+      "titulo": "Perspectives on ENCODE",
+      "autores": [
+        {
+          "nombre_completo": "surname:ENCODE Project Consortium",
+          "nombres": "surname:ENCODE Project Consortium",
+          "apellidos": ""
+        },
+        {
+          "nombre_completo": "M.P. Snyder",
+          "nombres": "M.P.",
+          "apellidos": "Snyder"
+        },
+        {
+          "nombre_completo": "T.R. Gingeras",
+          "nombres": "T.R.",
+          "apellidos": "Gingeras"
+        },
+        {
+          "nombre_completo": "J.E. Moore",
+          "nombres": "J.E.",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "Z. Weng",
+          "nombres": "Z.",
+          "apellidos": "Weng"
+        },
+        {
+          "nombre_completo": "M.B. Gerstein",
+          "nombres": "M.B.",
+          "apellidos": "Gerstein"
+        },
+        {
+          "nombre_completo": "B. Ren",
+          "nombres": "B.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "R.C. Hardison",
+          "nombres": "R.C.",
+          "apellidos": "Hardison"
+        },
+        {
+          "nombre_completo": "J.A. Stamatoyannopoulos",
+          "nombres": "J.A.",
+          "apellidos": "Stamatoyannopoulos"
+        },
+        {
+          "nombre_completo": "B.R. Graveley",
+          "nombres": "B.R.",
+          "apellidos": "Graveley"
+        }
+      ],
+      "pmid": "32728248",
+      "fuente": "Nature",
+      "anio": "2020",
+      "volumen": "583",
+      "fpage": "693",
+      "lpage": "698"
+    },
+    {
+      "titulo": "MultiQC: Summarize analysis results for multiple tools and samples in a single report",
+      "autores": [
+        {
+          "nombre_completo": "P. Ewels",
+          "nombres": "P.",
+          "apellidos": "Ewels"
+        },
+        {
+          "nombre_completo": "M. Magnusson",
+          "nombres": "M.",
+          "apellidos": "Magnusson"
+        },
+        {
+          "nombre_completo": "S. Lundin",
+          "nombres": "S.",
+          "apellidos": "Lundin"
+        },
+        {
+          "nombre_completo": "M. Käller",
+          "nombres": "M.",
+          "apellidos": "Käller"
+        }
+      ],
+      "pmid": "27312411",
+      "fuente": "Bioinformatics",
+      "anio": "2016",
+      "volumen": "32",
+      "fpage": "3047",
+      "lpage": "3048"
+    },
+    {
+      "titulo": "Bioconductor: open software development for computational Biology and bioinformatics",
+      "autores": [
+        {
+          "nombre_completo": "R.C. Gentleman",
+          "nombres": "R.C.",
+          "apellidos": "Gentleman"
+        },
+        {
+          "nombre_completo": "V.J. Carey",
+          "nombres": "V.J.",
+          "apellidos": "Carey"
+        },
+        {
+          "nombre_completo": "D.M. Bates",
+          "nombres": "D.M.",
+          "apellidos": "Bates"
+        },
+        {
+          "nombre_completo": "B. Ben",
+          "nombres": "B.",
+          "apellidos": "Ben"
+        },
+        {
+          "nombre_completo": "M. Dettling",
+          "nombres": "M.",
+          "apellidos": "Dettling"
+        },
+        {
+          "nombre_completo": "S. Dudoit",
+          "nombres": "S.",
+          "apellidos": "Dudoit"
+        },
+        {
+          "nombre_completo": "B. Ellis",
+          "nombres": "B.",
+          "apellidos": "Ellis"
+        },
+        {
+          "nombre_completo": "L. Gautier",
+          "nombres": "L.",
+          "apellidos": "Gautier"
+        },
+        {
+          "nombre_completo": "Y. Ge",
+          "nombres": "Y.",
+          "apellidos": "Ge"
+        },
+        {
+          "nombre_completo": "J. Gentry",
+          "nombres": "J.",
+          "apellidos": "Gentry"
+        }
+      ],
+      "pmid": "15461798",
+      "fuente": "Genome Biol.",
+      "anio": "2004",
+      "volumen": "5",
+      "fpage": "R80",
+      "lpage": ""
+    },
+    {
+      "titulo": "Orchestrating high-throughput genomic analysis with bioconductor",
+      "autores": [
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "V.J. Carey",
+          "nombres": "V.J.",
+          "apellidos": "Carey"
+        },
+        {
+          "nombre_completo": "R. Gentleman",
+          "nombres": "R.",
+          "apellidos": "Gentleman"
+        },
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        },
+        {
+          "nombre_completo": "M. Carlson",
+          "nombres": "M.",
+          "apellidos": "Carlson"
+        },
+        {
+          "nombre_completo": "B.S. Carvalho",
+          "nombres": "B.S.",
+          "apellidos": "Carvalho"
+        },
+        {
+          "nombre_completo": "H.C. Bravo",
+          "nombres": "H.C.",
+          "apellidos": "Bravo"
+        },
+        {
+          "nombre_completo": "S. Davis",
+          "nombres": "S.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "L. Gatto",
+          "nombres": "L.",
+          "apellidos": "Gatto"
+        },
+        {
+          "nombre_completo": "T. Girke",
+          "nombres": "T.",
+          "apellidos": "Girke"
+        }
+      ],
+      "pmid": "25633503",
+      "fuente": "Nat. Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "115",
+      "lpage": "121"
+    },
+    {
+      "titulo": "Erratum to: the Oxford nanopore MinION: delivery of nanopore sequencing to the genomics community",
+      "autores": [
+        {
+          "nombre_completo": "M. Jain",
+          "nombres": "M.",
+          "apellidos": "Jain"
+        },
+        {
+          "nombre_completo": "H.E. Olsen",
+          "nombres": "H.E.",
+          "apellidos": "Olsen"
+        },
+        {
+          "nombre_completo": "B. Paten",
+          "nombres": "B.",
+          "apellidos": "Paten"
+        },
+        {
+          "nombre_completo": "M. Akeson",
+          "nombres": "M.",
+          "apellidos": "Akeson"
+        }
+      ],
+      "pmid": "27964738",
+      "fuente": "Genome Biol.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "256",
+      "lpage": ""
+    },
+    {
+      "titulo": "Trim Galore: a wrapper around cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data (version 0.6.5)",
+      "autores": [
+        {
+          "nombre_completo": "F. Krueger",
+          "nombres": "F.",
+          "apellidos": "Krueger"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNAseq analysis of rodent spaceflight experiments is confounded by sample collection techniques",
+      "autores": [
+        {
+          "nombre_completo": "S.-H. Lai Polo",
+          "nombres": "S.-H.",
+          "apellidos": "Lai Polo"
+        },
+        {
+          "nombre_completo": "A.M. Saravia-Butler",
+          "nombres": "A.M.",
+          "apellidos": "Saravia-Butler"
+        },
+        {
+          "nombre_completo": "V. Boyko",
+          "nombres": "V.",
+          "apellidos": "Boyko"
+        },
+        {
+          "nombre_completo": "M.T. Dinh",
+          "nombres": "M.T.",
+          "apellidos": "Dinh"
+        },
+        {
+          "nombre_completo": "Y.-C. Chen",
+          "nombres": "Y.-C.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "S.S. Reinsch",
+          "nombres": "S.S.",
+          "apellidos": "Reinsch"
+        },
+        {
+          "nombre_completo": "S. Ray",
+          "nombres": "S.",
+          "apellidos": "Ray"
+        },
+        {
+          "nombre_completo": "K. Chakravarty",
+          "nombres": "K.",
+          "apellidos": "Chakravarty"
+        },
+        {
+          "nombre_completo": "O. Marcu",
+          "nombres": "O.",
+          "apellidos": "Marcu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "iScience",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ultrafast and memory-efficient alignment of short DNA sequences to the human genome",
+      "autores": [
+        {
+          "nombre_completo": "B. Langmead",
+          "nombres": "B.",
+          "apellidos": "Langmead"
+        },
+        {
+          "nombre_completo": "T. Cole",
+          "nombres": "T.",
+          "apellidos": "Cole"
+        },
+        {
+          "nombre_completo": "M. Pop",
+          "nombres": "M.",
+          "apellidos": "Pop"
+        },
+        {
+          "nombre_completo": "S.L. Salzberg",
+          "nombres": "S.L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "19261174",
+      "fuente": "Genome Biol.",
+      "anio": "2009",
+      "volumen": "10",
+      "fpage": "R25",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNA-seq analysis is easy as 1-2-3 with Limma, Glimma and edgeR",
+      "autores": [
+        {
+          "nombre_completo": "C.W. Law",
+          "nombres": "C.W.",
+          "apellidos": "Law"
+        },
+        {
+          "nombre_completo": "M. Alhamdoosh",
+          "nombres": "M.",
+          "apellidos": "Alhamdoosh"
+        },
+        {
+          "nombre_completo": "S. Su",
+          "nombres": "S.",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "X. Dong",
+          "nombres": "X.",
+          "apellidos": "Dong"
+        },
+        {
+          "nombre_completo": "L. Tian",
+          "nombres": "L.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "G.K. Smyth",
+          "nombres": "G.K.",
+          "apellidos": "Smyth"
+        },
+        {
+          "nombre_completo": "M.E. Ritchie",
+          "nombres": "M.E.",
+          "apellidos": "Ritchie"
+        }
+      ],
+      "pmid": "",
+      "fuente": "F1000Res.",
+      "anio": "2016",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "WebGestalt 2019: gene set analysis toolkit with revamped UIs and APIs",
+      "autores": [
+        {
+          "nombre_completo": "Y. Liao",
+          "nombres": "Y.",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "E.J. Jaehnig",
+          "nombres": "E.J.",
+          "apellidos": "Jaehnig"
+        },
+        {
+          "nombre_completo": "Z. Shi",
+          "nombres": "Z.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "B. Zhang",
+          "nombres": "B.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "31114916",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "W199",
+      "lpage": "W205"
+    },
+    {
+      "titulo": "RSEM: accurate transcript quantification from RNA-seq data with or without a reference genome",
+      "autores": [
+        {
+          "nombre_completo": "B. Li",
+          "nombres": "B.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "C.N. Dewey",
+          "nombres": "C.N.",
+          "apellidos": "Dewey"
+        }
+      ],
+      "pmid": "21816040",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2011",
+      "volumen": "12",
+      "fpage": "323",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fast and accurate short read alignment with burrows-wheeler transform",
+      "autores": [
+        {
+          "nombre_completo": "H. Li",
+          "nombres": "H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "R. Durbin",
+          "nombres": "R.",
+          "apellidos": "Durbin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+      "autores": [
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        }
+      ],
+      "pmid": "25516281",
+      "fuente": "Genome Biol.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "550",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cutadapt removes adapter sequences from high-throughput sequencing reads",
+      "autores": [
+        {
+          "nombre_completo": "M. Martin",
+          "nombres": "M.",
+          "apellidos": "Martin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "EMBnet. J.",
+      "anio": "2011",
+      "volumen": "17",
+      "fpage": "10",
+      "lpage": "12"
+    },
+    {
+      "titulo": "RNA-seq: technical variability and sampling",
+      "autores": [
+        {
+          "nombre_completo": "L.M. McIntyre",
+          "nombres": "L.M.",
+          "apellidos": "McIntyre"
+        },
+        {
+          "nombre_completo": "K.K. Lopiano",
+          "nombres": "K.K.",
+          "apellidos": "Lopiano"
+        },
+        {
+          "nombre_completo": "A.M. Morse",
+          "nombres": "A.M.",
+          "apellidos": "Morse"
+        },
+        {
+          "nombre_completo": "V. Amin",
+          "nombres": "V.",
+          "apellidos": "Amin"
+        },
+        {
+          "nombre_completo": "A.L. Oberg",
+          "nombres": "A.L.",
+          "apellidos": "Oberg"
+        },
+        {
+          "nombre_completo": "L.J. Young",
+          "nombres": "L.J.",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "S.V. Nuzhdin",
+          "nombres": "S.V.",
+          "apellidos": "Nuzhdin"
+        }
+      ],
+      "pmid": "21645359",
+      "fuente": "BMC Genomics",
+      "anio": "2011",
+      "volumen": "12",
+      "fpage": "293",
+      "lpage": ""
+    },
+    {
+      "titulo": "PANTHER in 2013: modeling the evolution of gene function, and other gene attributes, in the context of phylogenetic trees",
+      "autores": [
+        {
+          "nombre_completo": "H. Mi",
+          "nombres": "H.",
+          "apellidos": "Mi"
+        },
+        {
+          "nombre_completo": "A. Muruganujan",
+          "nombres": "A.",
+          "apellidos": "Muruganujan"
+        },
+        {
+          "nombre_completo": "P.D. Thomas",
+          "nombres": "P.D.",
+          "apellidos": "Thomas"
+        }
+      ],
+      "pmid": "23193289",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "D377",
+      "lpage": "D386"
+    },
+    {
+      "titulo": "Assessing technical performance in differential gene expression experiments with external spike-in RNA control ratio mixtures",
+      "autores": [
+        {
+          "nombre_completo": "S.A. Munro",
+          "nombres": "S.A.",
+          "apellidos": "Munro"
+        },
+        {
+          "nombre_completo": "S.P. Lund",
+          "nombres": "S.P.",
+          "apellidos": "Lund"
+        },
+        {
+          "nombre_completo": "P.S. Pine",
+          "nombres": "P.S.",
+          "apellidos": "Pine"
+        },
+        {
+          "nombre_completo": "H. Binder",
+          "nombres": "H.",
+          "apellidos": "Binder"
+        },
+        {
+          "nombre_completo": "D.-A. Clevert",
+          "nombres": "D.-A.",
+          "apellidos": "Clevert"
+        },
+        {
+          "nombre_completo": "A. Conesa",
+          "nombres": "A.",
+          "apellidos": "Conesa"
+        },
+        {
+          "nombre_completo": "J. Dopazo",
+          "nombres": "J.",
+          "apellidos": "Dopazo"
+        },
+        {
+          "nombre_completo": "M. Fasold",
+          "nombres": "M.",
+          "apellidos": "Fasold"
+        },
+        {
+          "nombre_completo": "S. Hochreiter",
+          "nombres": "S.",
+          "apellidos": "Hochreiter"
+        },
+        {
+          "nombre_completo": "H. Hong",
+          "nombres": "H.",
+          "apellidos": "Hong"
+        }
+      ],
+      "pmid": "25254650",
+      "fuente": "Nat. Commun.",
+      "anio": "2014",
+      "volumen": "5",
+      "fpage": "5125",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identifying significantly impacted pathways: a comprehensive review and assessment",
+      "autores": [
+        {
+          "nombre_completo": "T.-M. Nguyen",
+          "nombres": "T.-M.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "A. Shafi",
+          "nombres": "A.",
+          "apellidos": "Shafi"
+        },
+        {
+          "nombre_completo": "T. Nguyen",
+          "nombres": "T.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "S. Draghici",
+          "nombres": "S.",
+          "apellidos": "Draghici"
+        }
+      ],
+      "pmid": "31597578",
+      "fuente": "Genome Biol.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "203",
+      "lpage": ""
+    },
+    {
+      "titulo": "Salmon provides fast and bias-aware quantification of transcript expression",
+      "autores": [
+        {
+          "nombre_completo": "R. Patro",
+          "nombres": "R.",
+          "apellidos": "Patro"
+        },
+        {
+          "nombre_completo": "G. Duggal",
+          "nombres": "G.",
+          "apellidos": "Duggal"
+        },
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "R.A. Irizarry",
+          "nombres": "R.A.",
+          "apellidos": "Irizarry"
+        },
+        {
+          "nombre_completo": "C. Kingsford",
+          "nombres": "C.",
+          "apellidos": "Kingsford"
+        }
+      ],
+      "pmid": "28263959",
+      "fuente": "Nat. Methods",
+      "anio": "2017",
+      "volumen": "14",
+      "fpage": "417",
+      "lpage": "419"
+    },
+    {
+      "titulo": "Aligning the aligners: comparison of RNA sequencing data alignment and gene expression quantification tools for clinical breast cancer research",
+      "autores": [
+        {
+          "nombre_completo": "I.D. Raplee",
+          "nombres": "I.D.",
+          "apellidos": "Raplee"
+        },
+        {
+          "nombre_completo": "A.V. Evsikov",
+          "nombres": "A.V.",
+          "apellidos": "Evsikov"
+        },
+        {
+          "nombre_completo": "C. Marín de Evsikova",
+          "nombres": "C.",
+          "apellidos": "Marín de Evsikova"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Personalized Med.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Normalization of RNA-seq data using factor Analysis of control genes or samples",
+      "autores": [
+        {
+          "nombre_completo": "D. Risso",
+          "nombres": "D.",
+          "apellidos": "Risso"
+        },
+        {
+          "nombre_completo": "J. Ngai",
+          "nombres": "J.",
+          "apellidos": "Ngai"
+        },
+        {
+          "nombre_completo": "T.P. Speed",
+          "nombres": "T.P.",
+          "apellidos": "Speed"
+        },
+        {
+          "nombre_completo": "S. Dudoit",
+          "nombres": "S.",
+          "apellidos": "Dudoit"
+        }
+      ],
+      "pmid": "25150836",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2014",
+      "volumen": "32",
+      "fpage": "896",
+      "lpage": "902"
+    },
+    {
+      "titulo": "GC-content normalization for RNA-seq data",
+      "autores": [
+        {
+          "nombre_completo": "D. Risso",
+          "nombres": "D.",
+          "apellidos": "Risso"
+        },
+        {
+          "nombre_completo": "K. Schwartz",
+          "nombres": "K.",
+          "apellidos": "Schwartz"
+        },
+        {
+          "nombre_completo": "G. Sherlock",
+          "nombres": "G.",
+          "apellidos": "Sherlock"
+        },
+        {
+          "nombre_completo": "S. Dudoit",
+          "nombres": "S.",
+          "apellidos": "Dudoit"
+        }
+      ],
+      "pmid": "22177264",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2011",
+      "volumen": "12",
+      "fpage": "480",
+      "lpage": ""
+    },
+    {
+      "titulo": "The advantages of SMRT sequencing",
+      "autores": [
+        {
+          "nombre_completo": "R.J. Roberts",
+          "nombres": "R.J.",
+          "apellidos": "Roberts"
+        },
+        {
+          "nombre_completo": "M.O. Carneiro",
+          "nombres": "M.O.",
+          "apellidos": "Carneiro"
+        },
+        {
+          "nombre_completo": "M.C. Schatz",
+          "nombres": "M.C.",
+          "apellidos": "Schatz"
+        }
+      ],
+      "pmid": "23822731",
+      "fuente": "Genome Biol.",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "405",
+      "lpage": ""
+    },
+    {
+      "titulo": "ISA software suite: supporting standards-compliant experimental annotation and enabling curation at the community level",
+      "autores": [
+        {
+          "nombre_completo": "P. Rocca-Serra",
+          "nombres": "P.",
+          "apellidos": "Rocca-Serra"
+        },
+        {
+          "nombre_completo": "M. Brandizi",
+          "nombres": "M.",
+          "apellidos": "Brandizi"
+        },
+        {
+          "nombre_completo": "E. Maguire",
+          "nombres": "E.",
+          "apellidos": "Maguire"
+        },
+        {
+          "nombre_completo": "N. Sklyar",
+          "nombres": "N.",
+          "apellidos": "Sklyar"
+        },
+        {
+          "nombre_completo": "C. Taylor",
+          "nombres": "C.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "K. Begley",
+          "nombres": "K.",
+          "apellidos": "Begley"
+        },
+        {
+          "nombre_completo": "D. Field",
+          "nombres": "D.",
+          "apellidos": "Field"
+        },
+        {
+          "nombre_completo": "S. Harris",
+          "nombres": "S.",
+          "apellidos": "Harris"
+        },
+        {
+          "nombre_completo": "W. Hide",
+          "nombres": "W.",
+          "apellidos": "Hide"
+        },
+        {
+          "nombre_completo": "O. Hofmann",
+          "nombres": "O.",
+          "apellidos": "Hofmann"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Bioinformatics",
+      "anio": "2010",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A new era for space Life science: International standards for space omics processing (ISSOP)",
+      "autores": [
+        {
+          "nombre_completo": "L. Rutter",
+          "nombres": "L.",
+          "apellidos": "Rutter"
+        },
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "D. Bezdan",
+          "nombres": "D.",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "H. Cope",
+          "nombres": "H.",
+          "apellidos": "Cope"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "L. Degoricija",
+          "nombres": "L.",
+          "apellidos": "Degoricija"
+        },
+        {
+          "nombre_completo": "K.M. Fisch",
+          "nombres": "K.M.",
+          "apellidos": "Fisch"
+        },
+        {
+          "nombre_completo": "M. Gabitto",
+          "nombres": "M.",
+          "apellidos": "Gabitto"
+        },
+        {
+          "nombre_completo": "S. Gebre",
+          "nombres": "S.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "S. Giacomello",
+          "nombres": "S.",
+          "apellidos": "Giacomello"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Patterns",
+      "anio": "2020",
+      "volumen": "1",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Toward interoperable bioscience data",
+      "autores": [
+        {
+          "nombre_completo": "S.A. Sansone",
+          "nombres": "S.A.",
+          "apellidos": "Sansone"
+        },
+        {
+          "nombre_completo": "P. Rocca-Serra",
+          "nombres": "P.",
+          "apellidos": "Rocca-Serra"
+        },
+        {
+          "nombre_completo": "D. Field",
+          "nombres": "D.",
+          "apellidos": "Field"
+        },
+        {
+          "nombre_completo": "E. Maguire",
+          "nombres": "E.",
+          "apellidos": "Maguire"
+        },
+        {
+          "nombre_completo": "C. Taylor",
+          "nombres": "C.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "O. Hofmann",
+          "nombres": "O.",
+          "apellidos": "Hofmann"
+        },
+        {
+          "nombre_completo": "H. Fang",
+          "nombres": "H.",
+          "apellidos": "Fang"
+        },
+        {
+          "nombre_completo": "S. Neumann",
+          "nombres": "S.",
+          "apellidos": "Neumann"
+        },
+        {
+          "nombre_completo": "W. Tong",
+          "nombres": "W.",
+          "apellidos": "Tong"
+        },
+        {
+          "nombre_completo": "L. Amaral-Zettler",
+          "nombres": "L.",
+          "apellidos": "Amaral-Zettler"
+        }
+      ],
+      "pmid": "22281772",
+      "fuente": "Nat. Genet.",
+      "anio": "2012",
+      "volumen": "44",
+      "fpage": "121",
+      "lpage": "126"
+    },
+    {
+      "titulo": "Evaluation of seven different RNA-seq alignment tools based on experimental data from the model plant Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "S. Schaarschmidt",
+          "nombres": "S.",
+          "apellidos": "Schaarschmidt"
+        },
+        {
+          "nombre_completo": "A. Fischer",
+          "nombres": "A.",
+          "apellidos": "Fischer"
+        },
+        {
+          "nombre_completo": "E. Zuther",
+          "nombres": "E.",
+          "apellidos": "Zuther"
+        },
+        {
+          "nombre_completo": "D.K. Hincha",
+          "nombres": "D.K.",
+          "apellidos": "Hincha"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2020",
+      "volumen": "21",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "How many biological replicates are needed in an RNA-seq experiment and which differential expression tool should you use?",
+      "autores": [
+        {
+          "nombre_completo": "N.J. Schurch",
+          "nombres": "N.J.",
+          "apellidos": "Schurch"
+        },
+        {
+          "nombre_completo": "P. Schofield",
+          "nombres": "P.",
+          "apellidos": "Schofield"
+        },
+        {
+          "nombre_completo": "M. Gierliński",
+          "nombres": "M.",
+          "apellidos": "Gierliński"
+        },
+        {
+          "nombre_completo": "C. Cole",
+          "nombres": "C.",
+          "apellidos": "Cole"
+        },
+        {
+          "nombre_completo": "A. Sherstnev",
+          "nombres": "A.",
+          "apellidos": "Sherstnev"
+        },
+        {
+          "nombre_completo": "V. Singh",
+          "nombres": "V.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "N. Wrobel",
+          "nombres": "N.",
+          "apellidos": "Wrobel"
+        },
+        {
+          "nombre_completo": "K. Gharbi",
+          "nombres": "K.",
+          "apellidos": "Gharbi"
+        },
+        {
+          "nombre_completo": "G. Simpson",
+          "nombres": "G.",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "T. Owen-Hughes",
+          "nombres": "T.",
+          "apellidos": "Owen-Hughes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "RNA",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "UMI-tools: modeling sequencing errors in unique molecular identifiers to improve quantification accuracy",
+      "autores": [
+        {
+          "nombre_completo": "T. Smith",
+          "nombres": "T.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "A. Heger",
+          "nombres": "A.",
+          "apellidos": "Heger"
+        },
+        {
+          "nombre_completo": "I. Sudbery",
+          "nombres": "I.",
+          "apellidos": "Sudbery"
+        }
+      ],
+      "pmid": "28100584",
+      "fuente": "Genome Res.",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "491",
+      "lpage": "499"
+    },
+    {
+      "titulo": "Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences",
+      "autores": [
+        {
+          "nombre_completo": "C. Soneson",
+          "nombres": "C.",
+          "apellidos": "Soneson"
+        },
+        {
+          "nombre_completo": "M. Love",
+          "nombres": "M.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "M. Robinson",
+          "nombres": "M.",
+          "apellidos": "Robinson"
+        }
+      ],
+      "pmid": "26925227",
+      "fuente": "F1000Res.",
+      "anio": "2015",
+      "volumen": "4",
+      "fpage": "1521",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gene set Enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles",
+      "autores": [
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "P. Tamayo",
+          "nombres": "P.",
+          "apellidos": "Tamayo"
+        },
+        {
+          "nombre_completo": "V.K. Mootha",
+          "nombres": "V.K.",
+          "apellidos": "Mootha"
+        },
+        {
+          "nombre_completo": "S. Mukherjee",
+          "nombres": "S.",
+          "apellidos": "Mukherjee"
+        },
+        {
+          "nombre_completo": "B.L. Ebert",
+          "nombres": "B.L.",
+          "apellidos": "Ebert"
+        },
+        {
+          "nombre_completo": "M.A. Gillette",
+          "nombres": "M.A.",
+          "apellidos": "Gillette"
+        },
+        {
+          "nombre_completo": "A. Paulovich",
+          "nombres": "A.",
+          "apellidos": "Paulovich"
+        },
+        {
+          "nombre_completo": "S.L. Pomeroy",
+          "nombres": "S.L.",
+          "apellidos": "Pomeroy"
+        },
+        {
+          "nombre_completo": "T.R. Golub",
+          "nombres": "T.R.",
+          "apellidos": "Golub"
+        },
+        {
+          "nombre_completo": "E.S. Lander",
+          "nombres": "E.S.",
+          "apellidos": "Lander"
+        }
+      ],
+      "pmid": "16199517",
+      "fuente": "Proc. Natl. Acad. Sci. U S A",
+      "anio": "2005",
+      "volumen": "102",
+      "fpage": "15545",
+      "lpage": "15550"
+    },
+    {
+      "titulo": "A benchmark for RNA-seq quantification pipelines",
+      "autores": [
+        {
+          "nombre_completo": "M. Teng",
+          "nombres": "M.",
+          "apellidos": "Teng"
+        },
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "C.A. Davis",
+          "nombres": "C.A.",
+          "apellidos": "Davis"
+        },
+        {
+          "nombre_completo": "S. Djebali",
+          "nombres": "S.",
+          "apellidos": "Djebali"
+        },
+        {
+          "nombre_completo": "A. Dobin",
+          "nombres": "A.",
+          "apellidos": "Dobin"
+        },
+        {
+          "nombre_completo": "B.R. Graveley",
+          "nombres": "B.R.",
+          "apellidos": "Graveley"
+        },
+        {
+          "nombre_completo": "S. Li",
+          "nombres": "S.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "C.E. Mason",
+          "nombres": "C.E.",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "S. Olson",
+          "nombres": "S.",
+          "apellidos": "Olson"
+        },
+        {
+          "nombre_completo": "D. Pervouchine",
+          "nombres": "D.",
+          "apellidos": "Pervouchine"
+        }
+      ],
+      "pmid": "27107712",
+      "fuente": "Genome Biol.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "74",
+      "lpage": ""
+    },
+    {
+      "titulo": "PANTHER: a library of protein families and subfamilies indexed by function",
+      "autores": [
+        {
+          "nombre_completo": "P.D. Thomas",
+          "nombres": "P.D.",
+          "apellidos": "Thomas"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genome Res.",
+      "anio": "2003",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enriching the gene set analysis of genome-wide data by incorporating directionality of gene expression and combining statistical hypotheses and methods",
+      "autores": [
+        {
+          "nombre_completo": "L. Väremo",
+          "nombres": "L.",
+          "apellidos": "Väremo"
+        },
+        {
+          "nombre_completo": "J. Nielsen",
+          "nombres": "J.",
+          "apellidos": "Nielsen"
+        },
+        {
+          "nombre_completo": "I. Nookaew",
+          "nombres": "I.",
+          "apellidos": "Nookaew"
+        }
+      ],
+      "pmid": "23444143",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "4378",
+      "lpage": "4391"
+    },
+    {
+      "titulo": "Trimming of sequence reads alters RNA-seq gene expression estimates",
+      "autores": [
+        {
+          "nombre_completo": "C.R. Williams",
+          "nombres": "C.R.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "A. Baccarella",
+          "nombres": "A.",
+          "apellidos": "Baccarella"
+        },
+        {
+          "nombre_completo": "J.Z. Parrish",
+          "nombres": "J.Z.",
+          "apellidos": "Parrish"
+        },
+        {
+          "nombre_completo": "C.C. Kim",
+          "nombres": "C.C.",
+          "apellidos": "Kim"
+        }
+      ],
+      "pmid": "26911985",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "103",
+      "lpage": ""
+    },
+    {
+      "titulo": "Limitations of alignment-free tools in total RNA-seq quantification",
+      "autores": [
+        {
+          "nombre_completo": "D.C. Wu",
+          "nombres": "D.C.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "J. Yao",
+          "nombres": "J.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "K.S. Ho",
+          "nombres": "K.S.",
+          "apellidos": "Ho"
+        },
+        {
+          "nombre_completo": "A.M. Lambowitz",
+          "nombres": "A.M.",
+          "apellidos": "Lambowitz"
+        },
+        {
+          "nombre_completo": "C.O. Wilke",
+          "nombres": "C.O.",
+          "apellidos": "Wilke"
+        }
+      ],
+      "pmid": "29969991",
+      "fuente": "BMC Genomics",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "510",
+      "lpage": ""
+    },
+    {
+      "titulo": "The impact of RNA-seq aligners on gene expression estimation",
+      "autores": [
+        {
+          "nombre_completo": "C. Yang",
+          "nombres": "C.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "P.-Y. Wu",
+          "nombres": "P.-Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "L. Tong",
+          "nombres": "L.",
+          "apellidos": "Tong"
+        },
+        {
+          "nombre_completo": "J.H. Phan",
+          "nombres": "J.H.",
+          "apellidos": "Phan"
+        },
+        {
+          "nombre_completo": "M.D. Wang",
+          "nombres": "M.D.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "",
+      "fuente": "ACM BCM",
+      "anio": "2015",
+      "volumen": "2015",
+      "fpage": "462",
+      "lpage": "471"
+    }
+  ]
+}

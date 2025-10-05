@@ -1,0 +1,2337 @@
+{
+  "TITLE": [
+    "CAMDLES: CFD-DEM Simulation of Microbial Communities in Spaceflight and Artificial Microgravity"
+  ],
+  "ABSTRACT": [
+    "We present CAMDLES (CFD-DEM Artificial Microgravity Developments for Living Ecosystem Simulation), an extension of CFDEM®Coupling to model biological flows, growth, and mass transfer in artificial microgravity devices. For microbes that accompany humans into space, microgravity-induced alterations in the fluid environment are likely to be a major factor in the microbial experience of spaceflight. Computational modeling is needed to investigate how well ground-based microgravity simulation methods replicate that experience. CAMDLES incorporates agent-based modeling to study inter-species metabolite transport within microbial communities in rotating wall vessel bioreactors (RWVs). Preexisting CFD modeling of RWVs has not yet incorporated growth; CAMDLES employs the simultaneous modeling of biological, chemical, and mechanical processes in a micro-scale rotating reference frame environment. Simulation mass transfer calculations were correlated with Monod dynamic parameters to predict relative growth rates between artificial microgravity, spaceflight microgravity, and 1 g conditions. By simulating a microbial model community of metabolically cooperative strains of Escherichia coli and Salmonella enterica, we found that the greatest difference between microgravity and an RWV or 1 g gravity was when species colocalized in dense aggregates. We also investigated the influence of other features of the system on growth, such as spatial distribution, product yields, and diffusivity. Our simulation provides a basis for future laboratory experiments using this community for investigation in artificial microgravity and spaceflight microgravity. More broadly, our development of these models creates a framework for novel hypothesis generation and design of biological experiments with RWVs, coupling the effects of RWV size, rotation rate, and mass transport directly to bacterial growth in microbial communities."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "1.1. Microbial Communities in Space",
+    "Microbial communities are an integral part of space exploration: they accompany human crew in habitats such as the International Space Station and they will ultimately be used for bioregenerative life support, food and pharmaceuticals production, and in situ resource utilization. Like all organisms, microbes experience stress in the space environment: studies have documented changes in virulence, antimicrobial resistance, and population diversity. However, the mechanisms by which spaceflight induces these responses remain poorly understood. Many of the processes documented for multicellular organisms, such as mitochondrial dysregulation and mechanical unloading, do not apply to single-celled organisms; moreover, microorganisms almost invariably live in communities, but few studies of any organisms at any scale have investigated the effects of space conditions on interspecies interactions. Understanding the microbial space response requires an approach that considers the interactions between microbial cells and their environments at relevant spatial scales.",
+    "1.2. Validating Clinostats for Accurate Artificial Microgravity Conditions",
+    "Of the stressors present in the spaceflight environment, altered gravity is the feature most likely to affect microorganisms in habitable environments, such as a spacecraft. It is also the feature most difficult to replicate in ground studies. Since spaceflight experiments are costly, logistically difficult, and inaccessible to many researchers, artificial microgravity devices, such as clinostats and rotating wall vessel (RWV) bioreactors, are commonly used to replicate microgravity conditions. An RWV is a type of clinostat that is used for cell culture: they are cylindrical culture vessels filled with liquid culture medium that constantly rotate the fluid environment, keeping cells in suspension by continuously changing the orientation of the gravity vector. However, there is a fundamental difference between microbial cells and larger organisms in the way that rotation is used to simulate microgravity. For plants grown in clinostats, the constant rotation of the gravity vector results in an average gravity vector of zero over time. For microbial cells, which are believed to be unable to sense gravity directly, it is the ability of the RWV to mimic the unique fluid environment of microgravity that is likely its most important feature. Understanding the fluid dynamics of the RWV is therefore critical for conducting rigorous research into the effects of spaceflight on microorganisms.",
+    "1.3. The Microgravity Fluid Environment",
+    "The loss of natural convection in microgravity causes the fluid environment to be quiescent. Likewise, the idealized RWV fluid environment is under solid-body rotation, with minimal fluid shear and turbulence. However, a disparity is observed in the cellular response when comparing RWV and microgravity conditions, which may be caused by a complex set of factors, including hardware effects, mechanotransduction, and nutrient stress. RWVs also exhibit centrifugal sedimentation of cell aggregates, resulting in localization that is different from that found in true microgravity. There are very few commercially available bioreactors; therefore, they are often custom-designed by researchers and unique to each researcher’s experiment. A general lack of knowledge about accurate RWV conditions is a problem that may be one of the sources of contradictory conclusions about the effect of microgravity among cell biological circles, assuming there even is a unified microgravity response on bacterial cells at all.",
+    "1.4. The Effect of Microgravity on Microbial Ecology",
+    "The interaction between the phases—that is, how microbial cells alter their fluid environment and vice versa—is especially important for understanding the behavior of multispecies microbial communities in space. No microbial species lives in isolation. Microorganisms form communities in which different species interact in numerous ways, and one of the interactions most commonly documented is the exchange of metabolites used for growth, often called cross-feeding. In a quiescent microgravity fluid environment, reduced mixing could lead to a reduced exchange of metabolites, which, in turn, would shift community dynamics. Although a few microbial community experiments have been done in artificial microgravity, there are no previous studies that attempt to validate computational models for a quantitative understanding of microbial community dynamics in these devices. Numerous computational fluid dynamics studies on the macro-scale have been done to validate the ability of clinostats and RWV’s to produce the desired quiescent fluidic environment, but the scope of these studies often includes the fluid phase only, or solid parcel fractions, without metabolite scalar transport. We sought to fill this gap by building a computational model that integrates both fluid and particle dynamics with biological metabolism and growth to generate predictions of microbial community dynamics in 1 g, microgravity, and RWV conditions. As an initial demonstration, we modeled a community composed of two obligately cross-feeding bacterial species that were previously studied and modeled extensively.",
+    "1.5. Agent-Based Models for Microbial Communities",
+    "Agent-based models, also known as individual-based models, operate at the resolution of the individual cell. Each agent, i.e., bacterial cell, is given certain rules to follow, placed in an environment, and expected to interact with that environment as well as with other agents. Complex interactions between agents, distributions, and patterns arise from these models, and they are essential for the modeling of microbial communities. Computational agent-based models in the microbial ecology field are actively being developed; one of the latest scientific agent-based simulations is NUFEB, which features biological growth kinetics and coupled fluid–solid interaction, but not solute scalar transport.",
+    "To apply the principles of agent-based modeling to spaceflight and artificial microgravity, we present CAMDLES (CFD-DEM Artificial Microgravity Developments for Living Ecosystem Simulation), which is an additional package for established, non-biological CFD-DEM software. It is based on the open-source software CFDEM®Coupling and LIGGGHTS®, and it brings CFD-DEM modeling capability to RWVs. CAMDLES features include a rotating reference frame simulation environment, the buoyant Boussinesq approximation for natural convective flows, and Monod kinetic metabolic models for calculation of biological growth rates. CAMDLES is also the first agent-based model that directly couples metabolism to mass transfer."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. Software Development",
+    "CAMDLES is dependent on parent software packages to run simulations. Installation involves the addition of the package into the source code of the packages LIGGGHTS® and CFDEM®Coupling. CAMDLES-specific scripts are provided in Supplementary File S1. Table 1 and Figure 1 describe the parent software and relevant software packages. The parent packages are all written in the C++ programming language. Related software was used as guidance for CAMDLES development. All described software is open source and is distributed under the terms of the GNU Public License.",
+    "2.2. An Engineered Cross-Feeding Microbial Community",
+    "We simulated a previously described (Figure 2) engineered model microbial community involving two bacterial strains, Escherichia coli K12 ΔmetB and Salmonella enterica ser. Typhimurium, that were extensively studied in 1 g but not in space conditions. The E. coli strain is auxotrophic for the amino acid methionine and secretes acetate as a secondary metabolic product. The S. enterica depends on the secreted acetate for growth, and the strain was experimentally evolved to secrete methionine to support the E. coli. The coculture is therefore dependent upon cross-feeding when grown in a minimal medium containing lactose as the sole carbon source for growth.",
+    "Because of the organisms’ dependence on the flux of exchanged metabolites, the population dynamics of this model microbial community were found to depend on the spatial structure of the community. For instance, colonies growing on agar medium achieve smaller sizes when located further away from each other, and a third colony blocking the exchange of metabolites between an E. coli colony and an S. enterica colony can cause a complex “metabolic eclipse” effect.",
+    "We hypothesized that in cross-feeding cocultures, reduced mixing in a quiescent microgravity fluid environment will enable high growth rates when the two species are colocalized in cooperative colonies, but only low growth rates when the species are located distantly from one another. We further hypothesized that in an RWV that simulates microgravity imperfectly, a variety of mechanical and fluid interactions will reduce the impact of colony localization on the growth rate.",
+    "2.3. Simulation Domain",
+    "In our simulations, we designed cooperative colonies with varying degrees of population density and localization. Limits in computing power necessarily made simulation timespans much shorter than the generation time of the species; we, therefore, considered the growth rate in terms of the cell mass increase rather than replication, in addition to metabolite production and consumption rates, to assess whether relative growth rates and mass transfer rates were sustainable in our prescribed cocultures. Additionally, CAMDLES does not support changes in diffusion based on solutes or solids, such as an extracellular matrix (ECM); therefore, to simulate the effect of such features, we were constrained to choosing a constant diffusion rate for each solute. We compared three diffusion rates: low diffusion seen in solid biofilms/ECM, intermediate diffusion, and high diffusion seen in liquid media (Table S1). When the distinction is not stated, we set all solute diffusivities to an intermediate 5 × 10−6 cm2/s.",
+    "We chose our computational domain to be a box that was 300 μm × 100 μm × 300 μm in size, which is the smallest box that can host two cells at an inoculation cell density of 105 cells/mL per species. A fluid parcel was 5 μm × 20 μm × 5 μm with a volume equal to that of ~430 bacterial cells when randomly packed. For some case studies, we varied the cell densities between 105 and 108 cells/mL, exploring a range of microbial population densities commonly achieved with this system in laboratory culture. During simulation initialization, cells were placed in colony-like formations: either a dense spherical mass of cells, or a mass with Gaussian random distributions around a sphere. We also tested random cell placements distributed throughout the computational domain, as well as a cylindrical colony formation as an approximation of a biofilm shape in the case of 1 g gravity. Periodic boundary conditions were set for the non-radial boundaries. In the radial direction, the outer wall was set as an inlet with zero velocity, and the inner wall was a freestream outlet. Cell metabolism was kickstarted by giving each species cell equivalents of product for the other species, i.e., E. coli was given acetate, and S. enterica was given methionine. This is similar to previous studies with this system using modeling with ordinary differential equations and is necessary to enable growth at initial timepoints. In simulations with higher initial cell populations, we gave less starting product, ranging from 10−2 cell equivalents during inoculation, to 10−8 at maximum population. After initialization, each case study ran for two to five minutes, assuming cell growth to be exponential during this time.",
+    "2.4. Mechanical Models",
+    "We assumed the volume and density of a bacterial cell to be the same for both species, namely, E. coli and S. enterica. The volume was calculated as if the cell was a spherocylinder, but was converted to an equivalent Stokes radius (1) and approximated as a sphere in silico.",
+    "The Stokes drag for a very low Reynolds number was applied to each bacterial cell (2).  and  are the solid and fluid velocities, respectively. In this study,  in (2) was assumed to be negligible. Because of the low inertia, the solid–fluid momentum coupling caused by the Stokes drag was also assumed to be negligible.",
+    "In the case of artificial microgravity, the simulation box was placed in a rotating reference frame that matched the rotation rate of the RWV (see Figure 3). Solid-body fluid rotation was enforced at the beginning of the artificial microgravity simulation. The net body frame acceleration  was derived (3) using centrifugal, Coriolis, gravity, and drag accelerations for the cells in the rotating frame. Archimedean buoyancy was also accounted for in the centrifugal and gravity terms by use of specific gravity. The last term is the viscous drag, with  being the fluid–solid density ratio and  being the kinematic liquid viscosity.",
+    "Because  spans the range of only ±1.5%,  was set to a constant extending to the center of the simulation box. The centrifugal acceleration term was approximated as a uniform body force . In this study, we set the radius of rotation to be 1 cm, positioning the computational domain within an imagined culture vessel with a rotation rate of 10 R.P.M. (common for bacteria in artificial microgravity experiments).",
+    "The rotating reference frame acceleration was also applied to the fluid as a modification of the left-hand side of the incompressible Navier–Stokes Equation (4). The Boussinesq approximation for natural, solutal, and convective flows was applied to the right-hand side of the equation; this assumed that solutal changes in fluid density were small enough to affect buoyancy force only and neither the inertia nor viscosity. For this study, this approximation was included three times, once for each metabolite in the media: acetate, methionine, and lactose.  is the local fluid volume fraction.",
+    "Here,  is the modified pressure , with  as the height of the fluid. The scalar  linearly interpolates the difference in the ith solute concentration—compared to a reference concentration —to a difference in fluid density.",
+    "The cells were assumed to be non-motile strains for simplicity. Non-motile strains show an increased response to microgravity effects compared to motile strains, which may be due to their inability to migrate in their fluid environment. Moreover, for simplicity, Brownian motion was not incorporated because the phenomenon is independent of the microgravity environment and can be approximated as negligible in solid biofilms and adherent cultures; however, Brownian motion can be incorporated in future implementations of the model since it is a built-in LAMMPS feature. Brownian motion-based diffusion is about one thousand times smaller than solute diffusion and was accounted for long-term in the creation of initial cell Gaussian distributions at the start of the simulations.",
+    "2.5. Chemical Models",
+    "We assumed the chemical concentrations within the cell to be uniform at the chemical timestep, making the following Equation (6) suitable for mass transport into the cell. The rate of substrate intake is dependent on the cell surface area , the mass transfer coefficient , and the substrate concentration difference from the fluid parcel outside of the cell to the inside of the cell.",
+    "The mass transfer coefficient  is related to the local fluid parcel Sherwood number (6). A Sherwood number correlation for CFD-DEM flows that were empirically determined was provided by Deen et al..",
+    "is the fluid parcel volume fraction,  is the Schmidt number, and the particle Reynolds number  is between 0 and 100.",
+    "We assumed that the growth was directly dependent on one substrate only. For E. coli, the rate-limiting substrate was methionine, and for S. enterica, acetate. Because we assumed their growth was rate-limited as a phenomenon of mass transfer, and not of internal cell metabolism, we assumed zero-order kinetics for each cell to convert the substrate into a product once the substrate was transported into the cell. Using biomass yield ratios (Table S1), quantities of substrate were scaled to cell biomass equivalents and then nondimensionalized using the standard cell mass. For S. enterica: compared to E. coli:",
+    "2.6. Biological Models",
+    "We set up all simulations to occur during the exponential growth phase, and thus all cells were actively growing during the simulation. The Monod kinetic model for single-cell growth, where  is the media bulk substrate concentration, is commonly used in agent-based and metabolic cell models.",
+    "CAMDLES uses an altered Monod kinetic model that directly ties Monod kinetics to rate-limiting mass transfer. Here (10),  and  are the concentrations of the local fluid parcel surrounding the cell and within the cell, respectively. Thus,  differs from that seen in (9) and those seen in empirical growth data.",
+    "In Equation (11), the Monod half-velocity constant  is related to the heat transfer coefficient, the biomass density, the diameter of a spherical cell, the maximal growth rate, the biomass–substrate yield ratio, and the mass transfer coefficient.",
+    "At the simulation timescale of a few minutes only, we expected no cell division to occur. Thus, we refer to the growth rate as the individual cell increase in mass. Because we focused on relative growth rates in comparing RWV and microgravity environments, we assumed the metabolism to cause anabolic growth only, with no maintenance or decay terms like those found in NUFEB. This assumption is valid for the mass transfer-based Monod kinetic model (10)."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "Experiment inputs for all simulations described in this manuscript are given in Supplementary Table S2 and input files are available at the Zenodo data repository (doi: 10.5281/zenodo.6369617). In all simulations, we found that E. coli and S. enterica growth were directly coupled. As one grew, so did the other at a rate based on the ratio of their cell yield ratios: . To simplify the presentation, we depict only one species or metabolite at a time in figures, choosing to represent the species with more growth. Mean growth rates across a species are presented only when the simulation ran to steady-state growth. We report relative growth rates as a percentage of the maximum growth rate: μmax = 1.82 × 10−5 s−1 for E. coli and μmax = 9.09 × 10−6 s−1 for S. enterica.",
+    "3.1. Microgravity",
+    "For the first set of CAMDLES simulations, we tested the hypothesis that co-localization is necessary to enable high growth rates in the simplest environment: no gravity force. We sought to characterize how, in this condition, the spatial arrangement of the microbial community members influenced their ability to exchange metabolites and grow.",
+    "3.1.1. Colocalization or Starting Metabolites Could Initiate Growth after Inoculation",
+    "Laboratory experiments are often initiated with a low population density. We tested an inoculation cell count of one cell per species in the simulation (equivalent to ~105 cells/mL in a larger volume) and assessed the dependence of growth on spatial organization. In a typical experiment inoculated at low density, we can expect some E. coli and S. enterica cells to colocalize via random chance. We compared three levels of spatial organization with the placement of two cells ranging from as close as possible (1 μm) to as far away as possible (218 μm). We observed that at this cell count, the steady-state growth rate depended on the spatial organization under normal conditions (μ = 1.2 × 10−6 s−1, 4.9% of maximum growth rate when close together, compared to 0.8% when far apart). However, we also tested the effect of starting cells with high intracellular levels of the opposite species’ metabolite (0.01 cell equivalents of acetate or methionine, as compared to a nominal 0.00001 cell equivalents), and found that in this situation, the dependence of growth on spatial organization was mostly lost; cells grew at μ = 2.9 × 10−6 s−1 when closest together and at μ = 2.7 × 10−6 s−1 when farthest apart.",
+    "3.1.2. Early-Phase Growth Rates Increased with Time and Population Density",
+    "In the early, low-density growth phase (100–283 cells in the simulation, ~106 cells/mL), we assumed that cells randomly divide and distribute throughout liquid media. Thus, we set diffusion rates in the early growth phase to be that of the liquid culture. We tested a counterexample with both 100-cell and 283-cell spherical-Gaussian-packed colonies and found their steady growth rate to be hindered by ~10% compared to a randomly distributed simulation placement (Table S2), likely due to spatial interference for diffusion or Monod competition for metabolites. In contrast, at higher population counts (2000 cells in the simulation, ~108 cells/mL), the exchange of metabolites was most rapid in a compact clump of cells (Figure 4). Overall, we found that for the configuration with random spatial distributions, larger populations reached higher growth rates but with diminishing returns as populations approach densities on the order of ~107 cells/mL, and never reached the growth rates achieved by densely packed cells (Figure 4).",
+    "At low cell counts, growth did not reach a steady-state rate, and it may likely never be reached within simulation timescales. Thus, we interpreted non-steady growth as a marker for a growth regime: the only way for average culture growth rates to increase in the early phase is for cells to divide and spread out.",
+    "3.1.3. Growth Rate Was Limited by Diffusion Rate with Increasing Colony Size",
+    "In a cross-feeding community, the growth rate is non-linearly dependent on the total number and density of cells: as described above, there are some regimes in which more cells lead to faster growth, but in colonies of many densely packed cells, the biomass and extracellular matrix (ECM) may limit the diffusion rate of metabolites. In an experiment, colonies may densely or loosely pack depending on the gravity platform: microgravity alone may result in the formation of loose cell aggregates or colonies suspended in a liquid medium simply because there is insufficient mixing to separate the cells as they replicate.",
+    "To investigate these different colony-like scenarios, we compared growth rates in two different diffusion situations: solid biofilms and loose liquid aggregates. We kept all other product yield and cell ratio parameters at baseline (1.86 E. coli:1 S. enterica). We sought to find the population size at which a microbial community growth rate was optimal by measuring growth rates in colonies with different numbers of cells using diffusion parameters seen in liquid culture compared to those seen in a solid biofilm with an ECM (Table S1).",
+    "We found that if the multispecies community formed an ECM (solid colony case), the growth rate was limited by diffusion as colonies increased in size: it increased with increasing colony size up to about 500 cells and then plateaued (Figure 5). Thus, we can expect that if colonies form solid aggregates, we will see them most commonly at this size in microgravity and RWVs. However, if the multispecies community does not form an ECM (liquid colony case), but rather is held together only by the quiescent fluid environment of microgravity, product yield ratios, rather than diffusion, become the limiting growth factor (see Section 3.2.3 below). Thus, for small population sizes, the growth rate in low diffusivity biofilm-like colonies is higher than in high-diffusivity liquid colonies, but the effect is reversed for large populations. In our simulations, the solid–liquid transition occurred with a colony size of about 500 cells.",
+    "3.1.4. Spatial Dependence Maintained Species Ratios and High Populations",
+    "The spatial structure becomes more significant with higher populations (~108 cells/mL) and more challenging growth conditions. We made growth harder by increasing the E. coli:S. enterica population ratio, achieving a methionine deficiency and thus having the overall effect of amplifying the dependence on the spatial structure. We visualized the concentration field for acetate after three minutes of simulation (Figure 6). The multispecies colony exhibited growth, while the cells that were random-uniformly distributed grew at a much lower rate.",
+    "3.2. Rotating Wall Vessel",
+    "3.2.1. Rotating Wall Vessel Increased the Metabolite Utilization Rate",
+    "To evaluate the effect of RWV-like rotation on metabolite exchange and cell growth rates, we ran simulations using the same parameters as previously tested for microgravity with 108 cells/mL (Section 3.1.2) but implemented gravity and a rotation rate of 10 R.P.M. at a distance of 1 cm from the center of rotation. We found that when the cells were randomly distributed, hydrodynamics only slightly affected RWV growth rates (29% of μmax) relative to true microgravity (27% of μmax). The slight increase was caused by metabolite convective transfer coefficients increasing to 1.17 × 10−3 m/s from 1.06 × 10−3 m/s. However, when the cells were clumped, complicated hydrodynamic effects modulated the growth dynamics and resulted in very different growth between true microgravity and an RWV. We tested a tightly packed colony in RWV conditions (Figure 7) and found that the direction of the acetate gradient was reversed compared to microgravity. In microgravity, the radial diffusion gradient from the colony was negative, which indicated that the colony was producing excess metabolites. In comparison, the gradient from a colony in RWV conditions was positive, which we interpreted to show that growth was not sustainable.",
+    "In an RWV, the growth rates decreased with time (Figure 8b); in this condition there was higher substrate utilization at initialization, but overall, lower growth rates in a steady state.",
+    "3.2.2. Separated Colonies Grew Slowly in Both the RWV and Microgravity",
+    "For this obligately cross-feeding consortium, separated single-species colonies—which may form from adherent cells—are unfavorable for growth compared to multispecies colonies. Because the spatial distribution of the two species in this case was intermediate compared to randomly distributed or densely packed cases, it could provide insight into the dominating growth-limiting mechanism (diffusion vs. convection vs. production), while controlling for population density. We tested the interaction between two single-species colonies in a regime with our baseline intermediate level of diffusion (Table S1) and like the randomly distributed case (Section 3.1.4), found very little difference between community growth rates in microgravity and RWV (Figure 8). This is unlike other cases, such as a single multispecies colony and a 1 g gravity biofilm (Figure 8b). In the separate-species case, the diffusion between colonies was the limiting factor; therefore, the complex dynamics of rotation did not influence the cross-feeding community growth rates.",
+    "3.2.3. Product Yield Affected Growth Differently in RWV versus Microgravity",
+    "During a late-stage culture, multispecies colonies allow for the most rapid growth. We returned to simulating a multispecies colony and controlled for the population to measure the growth rate modulation by the balance of diffusion, convection, and production. We probed this relationship by testing the effect of the RWV hydrodynamic environment in simulations with various product yield rates λS (S. enterica) and λE (E. coli). The product yield parameter λx expresses the amount, in cell equivalents, of resource x produced during the growth of the producing species, and the ratio between λS and λE influences both the species ratio and the growth rate of the consortium. We found that the advantage of an RWV over microgravity in terms of growth rate decreased as the product yields increased (Figure 9). However, when using baseline λS and λE values, the overall effect of the RWV hydrodynamic environment was unclear, as it depended on diffusion parameters. We tested two sets of diffusion parameters—those found in biofilms/ECM (Figure 9a) and those found in liquid media (Figure 9b)—and found that the RWV overall increased the growth rates when we assumed low diffusion but decreased growth rates when we assumed high diffusion.",
+    "3.3. In 1 g Gravity",
+    "3.3.1. Gravity Induced the Spatial Structure",
+    "The reduced sedimentation exhibited by RWV and microgravity may itself change the spatial structure of colonies. To compare the 1 g gravity effect of sedimentation, we placed either a 2D circular biofilm (growth trajectory depicted in Figure 8b) or a spherical biofilm (Figure 10) on the bottom floor of the simulation box. We found that the two conformations had different growth rates, indicating that reduced growth in 1 g gravity could be caused by the geometry of the colony or by its localization on the floor. When cells sediment to the floor, diffusion was restricted upward, where the overall impact depended on the colony geometry.",
+    "3.3.2. Natural Convective Flow Was Negligible",
+    "Our simulations also showed that in 1 g, natural convection in a biofilm could result in up to a 20% increased growth rate relative to microgravity. Yet, when the diffusivity was increased to that of liquid media, the growth rate only increased by 3% as the metabolite convective plume diffused. However, it is worth acknowledging that the effect of convection in 1 g (and thus RWV) in our simulation conditions was negligible when compared to particle Brownian convection (Brownian diffusivity ~10−9). When multiplied by a maximum simulation Péclet number of ~0.05, the realistic convective effect was ~0.1–1%. A natural convective flow is displayed (Figure 10) in 1 g gravity."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "In this study, we used CFD-DEM modeling to investigate the relationship between the physical environment and the ecological interactions in a microbial community. We chose to simulate a community for which similar research questions were addressed using a very different form of modeling, namely, dynamic flux balance analysis and metabolite diffusion on a lattice, using the COMETS platform. Several contrasts are worth noting. CAMDLES assumes that the internal metabolism time is negligible compared to the time for metabolites to transfer throughout liquid media, and thus we effectively linearized the Monod kinetics equation. Importantly, this approximation is more accurate the lower the diffusivity of metabolites. When simulating low diffusivity, we observed growth rates around 10–20% of μmax, but with high diffusivity, we observed up to 35% of μmax. Accordingly, the general growth results of this study agreed with the ~35% relative growth rate seen in vitro in 1 g gravity.",
+    "Diffusivity affects the extent to which community growth is dependent on the spatial distribution of cells. Unfortunately, in CAMDLES, we could not model the effects of non-cellular solids, such as an extracellular matrix (ECM), on diffusivity. In vitro and in silico effective diffusivities decrease in solid biofilms, limiting mass transfer overall. Baseline diffusivities for each metabolite were set as constant in CAMDLES; we were able to change these values to explore differences between biofilm-like and non-biofilm situations, but such changes were global and, therefore, unable to reflect far-field effects outside of colonies within a larger liquid culture vessel. Moreover, the metabolic state of the cells within the biofilm was not resolved, as we assumed all cells to be actively growing.",
+    "The specific goal of this work was to compare the conditions of artificial microgravity and spaceflight microgravity and assess which factors led to the most similar results between the two conditions. When solid biofilms form in RWVs, bigger spherical aggregates and more growth are favored relative to those in microgravity. In addition, the ECM effect on diffusion may also increase growth rates compared to those in microgravity. However, if colonies are loose, liquid aggregates, RWVs may reduce the spatial structure of non-motile cells. In summary, RWVs generally amplify the spatial importance of this multispecies microbial community, leading to different aggregation sizes and population ratios. This may change, however, depending on the product yield rates and population proportions of the species.",
+    "A specific insight that CAMDLES provides is its ability to predict when optimal community growth conditions vary between RWV and microgravity. We found that in the low-population stage of metabolite exchange, planktonic growth was favorable. In our simulations, low-population growth rates increased over time. Later, as cross-feeding metabolites accumulated, planktonic growth rates approached a maximum level. Higher growth rates then only occurred when cells aggregated into either a densely packed biofilm or a loose spherical aggregate. These results parallel observations showing that bacteria can exhibit a planktonic/biofilm transition at a critical point, and hint that future CAMDLES studies could offer insight into growth strategies underlying multispecies biofilm formation. In 1 g and RWV cases, forces will likely break apart spherical aggregates and, thus, we would expect to observe mostly spherical, solid-biofilm formation, but organisms might evolve different strategies in microgravity.",
+    "More work is necessary to determine whether our simulation domain size was large enough to capture the diffusion dynamics of metabolites; although it is large enough to contain a single colony, it did not consider all possible interactions with multiple colonies, except for the simplest, uniform interaction from choosing periodic boundary conditions. Additionally, since we had to prescribe the population size, aggregation, and colocalization of species during the start of the simulation, we were only able to compare relative growth rates in specific conditions. While this gave us the advantage of fine-tuning the experiments to compare diverse culture conditions, it limited the conclusions we could make about long-term growth dynamics. Because of the difference in biological and hydrodynamic timescales, CAMDLES simulations did not run long enough to encounter cell division. However, the timespan was large enough that, except for low population levels, steady-state growth (cell mass accumulation) rates were achieved.",
+    "At the evolutionary scale, one predictor of the potential size of biofilms or cell aggregates could be the point at which the optimal spatial arrangement transitions from planktonic to aggregated according to different diffusivities. At a certain point, an ECM reduces diffusion and limits growth rates, and thus the colony size, of solid-spherical biofilms. In CAMDLES, this occurs at a colony size of around 500–1000 cells. Thus, we expect that if colonies form solid aggregates, we will see them most commonly at this size in microgravity and RWVs.",
+    "We underscore that these results hold only for multi-species aggregates and not for single-species aggregates. In contrast to agar plates, where single-species colonies can support each other at a distance, multi-species colonies are necessary for metabolite exchange in liquid media in all three conditions tested (RWV, microgravity, 1 g). One potential explanation concerned two disadvantages: single-species colonies exhibit both the poor diffusive transport that cells in a planktonic culture experience and the intra-colony competition for metabolites that cells in dense communities experience. Yet, CAMDLES simulations do not resolve the long-term spatiotemporal effects of an RWV and 1 g for these scenarios. The long-term effect is simplest in a quiescent environment of microgravity, but interactions between multiple colonies would be more complicated in an RWV sedimenting environment.",
+    "Overall, we observed that the differences between microgravity and artificial microgravity originated primarily from increased mass transfer caused by RWV convective flows and sedimentation. Even though convection fluid currents may be negligible in 1 g and RWVs, the increased mass transfer coefficient of cells  resulted in a 9% reduction in the Monod half-saturation constant . The spatiotemporal dynamics and substrate utilization of the colony itself were changed by the  change in both species. However, these mass transfer coefficient increases were minor in comparison to those that would result from Brownian motion if it were implemented, which is significantly more rapid than RWV sedimentation. On the other hand, it is limited in the case of solid biofilms; therefore, we can assert that solid biofilms are more accurately simulated in CAMDLES. Generally, if Brownian motion and cell motility were included in the simulation, we would likely observe a reduction in the relative difference between microgravity and RWV growth rates, and an overall reduction in growth rates due to long-term biomass dispersion throughout the simulation domain."
+  ],
+  "CONCL": [
+    "5. Conclusions",
+    "CAMDLES is designed to be easily modifiable and extendable. It retains the modularity and support that is featured in the open-source software LAMMPS and OpenFOAM. Further functionality with CAMDLES includes exploring the effect of motility, Brownian motion, cell–cell adhesion, or multisphere support for rod-shaped bacteria on microbial cell dynamics. These general features are already included in LIGGGHTS®/LAMMPS. Additionally, CAMDLES retains the functionality of ParScale, which can model transport and chemical reactions within a spherical particle. This multiscale simulation functionality provides new avenues for microbial agent-based modeling in RWVs.",
+    "The greatest limitations of CAMDLES stem from size and timespan constraints. The simultaneous fluid, particle, and chemical models incorporated in CAMDLES limit the timescale of simulation to only a few minutes on a personal computer. Performance has yet to be analyzed on high-performance computing clusters. However, CAMDLES retains the highly efficient parallelization found in LIGGGHTS® and CFDEM®Coupling. Added features, such as Brownian motion, bacterial motility, and more complex metabolic cell models, would also add computational overhead. In the future, computational cost can be relieved by developing coarse-grained models for CAMDLES. In conjunction with agent-based models, employing a computationally efficient, coarse-grained modeling approach can provide detailed conclusions regarding the multigenerational evolution and population dynamics of microbial communities.",
+    "Based on our simulations, we found artificial microgravity to have an amplifying effect on mass transfer and metabolite uptake compared to microgravity and a diminishing effect on sedimentation compared to 1 g gravity. Although not tested in this study, the size and rotation rate of the RWV balance these two factors, and in future work, CAMDLES could be used to explore these experimental variables. Ultimately, the RWV effect on population growth rate is unclear and specific to the microbial community of study. Thus, our package has the potential to serve as a basis to demystify the inconsistencies seen in microbial communities between RWVs and microgravity. This first implementation of CAMDLES serves to demonstrate the importance of a microbial cell’s immediate physical environment on population- and community-level behaviors, especially in the space environment, and in experiments meant to simulate the space environment. CAMDLES represents the type of computational tool capable of providing biologists with unprecedented insight into those interacting physical, chemical, and biological processes.",
+    "Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following supporting information can be downloaded at , Table S1: Physical, Chemical, and Biological Parameters. Table S2: Simulation Details and Results. File S1: CAMDLES software files.",
+    "Data Availability Statement",
+    "The data presented in this study are available within the article and Supplementary Material, and/or can be reproduced using the code in File S1 and experiment input files available at the Zenodo data repository (doi:10.5281/zenodo.6369617)."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "R.A.: investigation, methodology, software, data curation, formal analysis, visualization, and writing—original draft. J.A.L.: conceptualization, project administration, resources, supervision, and writing—review and editing. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Succession and Persistence of Microbial Communities and Antimicrobial Resistance Genes Associated with International Space Station Environmental Surfaces",
+    "Bioregenerative Life Support Systems in Space Research",
+    "Evaluating the Cost of Pharmaceutical Purification for a Long-Duration Space Exploration Medical Foundry",
+    "Potential Biofilm Control Strategies for Extended Spaceflight Missions",
+    "Space Station Conditions Are Selective but Do Not Alter Microbial Characteristics Relevant to Human Health",
+    "Multimicrobial Kombucha Culture Tolerates Mars-like Conditions Simulated on Low Earth Orbit",
+    "Fundamental Biological Features of Spaceflight: Advancing the Field to Enable Deep-Space Exploration",
+    "Optimized Suspension Culture: The Rotating-Wall Vessel",
+    "Clinostats and Bioreactors",
+    "No Effect of Microgravity and Simulated Mars Gravity on Final Bacterial Cell Concentrations on the International Space Station: Applications to Space Bioproduction",
+    "Novel Quantitative Biosystem for Modeling Physiological Fluid Shear Stress on Cells",
+    "Space Microbiology",
+    "A Molecular Genetic Basis Explaining Altered Bacterial Behavior in Space",
+    "Effects of Spaceflight and Simulated Microgravity on Microbial Growth and Secondary Metabolism",
+    "Spaceflight Modifies Escherichia Coli Gene Expression in Response to Antibiotic Exposure and Reveals Role of Oxidative Stress Response",
+    "Comparisons of Transcriptome Profiles from Bacillus Subtilis Cells Grown in Space versus High Aspect Ratio Vessel (HARV) Clinostats Reveal a Low Degree of Concordance",
+    "Mechanotransduction in Prokaryotes: A Possible Mechanism of Spaceflight Adaptation",
+    "Ground-Based Facilities for Simulation of Microgravity: Organism-Specific Recommendations for Their Use, and Recommended Terminology",
+    "Meta-Analysis of Data from Spaceflight Transcriptome Experiments Does Not Support the Idea of a Common Bacterial “Spaceflight Response",
+    "Novel Cooperation Experimentally Evolved Between Species",
+    "Media Optimization, Strain Compatibility, and Low-Shear Modeled Microgravity Exposure of Synthetic Microbial Communities for Urine Nitrification in Regenerative Life-Support Systems",
+    "Validation of Random Positioning Versus Clinorotation Using a Macrophage Model System",
+    "Effect of Rotation on Scaffold Motion and Cell Growth in Rotating Bioreactors",
+    "An Air Bubble-Isolating Rotating Wall Vessel Bioreactor for Improved Spheroid/Organoid Formation",
+    "Numerical Simulation of Microcarrier Motion in a Rotating Wall Vessel Bioreactor",
+    "Escherichia Coli Biofilms Formed under Low-Shear Modeled Microgravity in a Ground-Based System",
+    "Numerical Simulation of Coupled Cell Motion and Nutrient Transport in NASA’s Rotating Bioreactor",
+    "Metabolic Resource Allocation in Individual Microbes Determines Ecosystem Interactions and Spatial Dynamics",
+    "A Shared Limiting Resource Leads to Competitive Exclusion in a Cross-Feeding System",
+    "Limitation by a Shared Mutualist Promotes Coexistence of Multiple Competing Partners",
+    "NUFEB: A Massively Parallel Simulator for Individual-Based Modelling of Microbial Communities",
+    "Models, Algorithms and Validation for Opensource DEM and CFD–DEM",
+    "Influence of Rolling Friction on Single Spout Fluidized Bed Simulation",
+    "Fast Parallel Algorithms for Short-Range Molecular Dynamics",
+    "A Tensorial Approach to Computational Continuum Mechanics Using Object-Oriented Techniques",
+    "CFD-DEM Coupling for Systems of Fluid and Non-Spherical Particles",
+    "SediFoam: A General-Purpose, Open-Source CFD–DEM Solver for Particle-Laden Flow with Emphasis on Sediment Transport",
+    "Heat Transfer to a Gas from Densely Packed Beds of Monodisperse Spherical Particles",
+    "A Metabolic Modeling Platform for the Computation of Microbial Ecosystems in Time and Space (COMETS)",
+    "Identification of the Potentiating Mutations and Synergistic Epistasis That Enabled the Evolution of Inter-Species Cooperation",
+    "Cross-Feeding Modulates Antibiotic Tolerance in Bacterial Communities",
+    "Evolution of Bidirectional Costly Mutualism from Byproduct Consumption",
+    "Lytic Bacteriophage Have Diverse Indirect Effects in a Synthetic Cross-Feeding Community",
+    "Life at Low Reynolds Number",
+    "Computer Simulation Study of Early Bacterial Biofilm Development",
+    "Measuring the Stiffness of Bacterial Cells from Growth Rates in Hydrogels of Tunable Elasticity",
+    "Review of Direct Numerical Simulation of Fluid–Particle Mass, Momentum and Heat Transfer in Dense Gas–Solid Flows",
+    "The Monod Equation and Mass Transfer",
+    "The Growth of Bacterial Cultures",
+    "Overview of Some Theoretical Approaches for Derivation of the Monod Equation",
+    "Diffusion in Biofilms",
+    "The Influence of the Crowding Assumptions in Biofilm Simulations",
+    "Investigation of Space Flight Effects on Escherichia Coli and a Proposed Model of Underlying Physical Mechanisms",
+    "Factors Implicating the Validity and Interpretation of Mechanobiology Studies in Simulated Microgravity Environments",
+    "Microgravity, Bacteria, and the Influence of Motility",
+    "Modeling and CFD Simulation of Nutrient Distribution in Picoliter Bioreactors for Bacterial Growth Studies on Single-Cell Level",
+    "Density of Aqueous Solutions of Organic Substances as Sugars and Alcohols",
+    "Volumetric, Compressibility, Taste Behavior and Viscometric Studies of Methionine with Some Saccharides in Aqueous Medium at Different Temperatures",
+    "Temperature and Concentration Dependence of Density of Model Liquid Foods",
+    "Phenotypic Changes Exhibited by E. Coli Cultured in Space",
+    "Salmonella Typhimurium and Escherichia Coli Dissimilarity: Closely Related Bacteria with Distinct Metabolic Profiles",
+    "Adaptation of a Methionine Auxotroph Escherichia Coli Growth Assay to Microtiter Plates for Quantitating Methionine"
+  ],
+  "FIG": [
+    "Software technology tree. CAMDLES relates to parent software via black arrows and related software via green arrows.",
+    "Model microbial community simulated in this study. Adapted with permission from; published by Cell Reports, 2014. When grown in minimal media with lactose, Escherichia coli K12 with a metB gene knockout (E. coli ΔmetB) provides acetate as the carbon growth substrate necessary for a methionine-secreting mutant of Salmonella enterica ser. Typhimurium (S. enterica) to grow. In exchange, the S. enterica provides the methionine necessary for the E. coli to grow.",
+    "Free body diagram of a particle immersed in an RWV. Acceleration terms are described in Equation (3). The simulation domain is a rectangular box in a rotating reference frame.",
+    "Average E. coli Fold Change in Mass vs. Colony Population in Microgravity. Solid lines represent statistical means, while transparent wedges represent inner quartiles. Either densely packed spherical or randomly distributed colonies were generated at various sizes. Only one colony was generated per simulation. Note: as the population density increased, the standard deviation of growth rates increased, which was likely caused by local spatial heterogeneity within the simulation domain, increasing the likelihood of resource competition.",
+    "E. coli Percent Maximum Growth Rate vs. Colony Population in Microgravity. Densely packed multispecies spherical colonies were generated at various sizes. Only one colony was generated per simulation. In solid colonies, self-insulation limited the growth rate beyond a colony of 500 cells. The effect was reduced in liquid colonies.",
+    "Acetate diffusion. The symbol C represents the acetate concentration in units of cell equivalents/μm3; note that the color scale is different between the two panels. Compared to other simulations, the E. coli:S. enterica population ratio was increased to a 1956:44 count. Diffusion parameters were set to be equal in (a,b) at a nominal 5 × 10−6 cm2/s. (a) Two-species spherical colony; (b) random uniformly distributed cells.",
+    "Acetate diffusion in RWV conditions. The color scale (symbol C) represents acetate concentration in units of cell equivalents/μm3. Note that the direction of the diffusion gradient was reversed in this case compared to that found in microgravity (Figure 6a) and that the acetate concentrations decreased. The reversed gradient indicated that the growth rates were unsustainable.",
+    "Single-species Colonies Distanced Far apart. The E. coli:S. enterica population ratio was adjusted to optimal conditions (1895 count:105 count). (a) Coculture colonies of E. coli (green) and S. enterica (red). The symbol C represents acetate concentration in units of cell equivalents/μm3. Colonies were generated as spherical Gaussian distributions placed as far away as possible within the computational domain. The microgravity case is displayed, but the RWV case was near-identical. (b) Collection of S. enterica growth over time in tightly packed colonies. The centerline plots the average cell mass. The dark shaded region shows the inner quartiles, and the light shaded region shows the outer quartiles. The growth trajectories for the cases depicted in Figure 6a and Figure 7 are graphed here.",
+    "E. coli Percent Maximum Growth Rate with Various Product Yield Parameters λ. If not specified, λ was set to 100% as the default. Densely packed multispecies spherical colonies were generated with a colony size of 2000 cells. Only one colony was generated per simulation. In an RWV, gravity caused the colonies to move as either a rigid unit (regarded as a solid) or each cell moved individually (regarded as liquid). This was not important to the growth rates and was only tested in: (a) an RWV vs. microgravity with low diffusion parameters like those in biofilms. * S. Enterica growth is displayed as it was the faster-growing species, and the diffusion was at an intermediate level. (b) An RWV vs. microgravity with high diffusion parameters like those in liquid media.",
+    "Natural Convective Flow. A spherical biofilm placed on the simulation floor exhibited solute convective flows in a 1 g gravity condition. Red velocity arrows, in units of s−1, are scaled up by 1000×. The concentration field of acetate is depicted from high to low as red to blue. Fluid simulation boundaries are periodic except on the floor and ceiling of the box."
+  ],
+  "TABLE": [
+    "Parent and related software. Parent software includes CAMDLES dependencies or packages derived from dependencies and related software includes packages that indirectly inspire CAMDLES development.",
+    "Name\tPublication Year\tDescription and Relevant Features\tReferences\t \tParent Software\t \tLAMMPS(Large-Scale Atomic/Molecular Massively Parallel Simulator)\t1995\tClassical molecular dynamics simulatorBrownian motionGravity\t\t \tLIGGGHTS® (LAMMPS Improved for General Granular and Granular Heat Transfer Simulations)\t2012\tEnhanced support for larger granular particlesHeat and mass transfer\t\t \tOpenFOAM (Field Operation and Manipulation)\t1998\tComputational fluid dynamics packageSingle reference frameHeat convection buoyant Boussinesq approximation\t\t \tCFDEM®Coupling\t2012\tCouples LIGGGHTS® and OpenFOAMScalar transportRobust coupling models \t\t \tRelated Software\t \tSediFOAM\t2017\tAlternative solid–fluid coupling approach of LAMMPS and OpenFOAM\t\t \tNUFEB (Newcastle University Frontiers in Engineering Biology)\t2019\tAgent-based biological extension of SediFOAMEnergy-based and diffusion-based Monod KineticsBiological growth\t\t \tParScale (Particle Scale Models)\t2017\tIntra-particle transport models coupled to LIGGGHTS® and CFDEM®CouplingSingle chemical reaction\t\t \tCOMETS (Computation of Microbial Ecosystems in Time and Space)\t2021\tPopulation-based flux balance analysis with spatial growth and diffusionEvolutionMultiple species/genotypes"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Succession and Persistence of Microbial Communities and Antimicrobial Resistance Genes Associated with International Space Station Environmental Surfaces",
+      "autores": [
+        {
+          "nombre_completo": "N.K. Singh",
+          "nombres": "N.K.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "J.M. Wood",
+          "nombres": "J.M.",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F. Karouia",
+          "nombres": "F.",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K. Venkateswaran",
+          "nombres": "K.",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30424821",
+      "fuente": "Microbiome",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "204",
+      "lpage": ""
+    },
+    {
+      "titulo": "Bioregenerative Life Support Systems in Space Research",
+      "autores": [
+        {
+          "nombre_completo": "D.-P. Häder",
+          "nombres": "D.-P.",
+          "apellidos": "Häder"
+        },
+        {
+          "nombre_completo": "M. Braun",
+          "nombres": "M.",
+          "apellidos": "Braun"
+        },
+        {
+          "nombre_completo": "R. Hemmersbach",
+          "nombres": "R.",
+          "apellidos": "Hemmersbach"
+        },
+        {
+          "nombre_completo": "M. Böhmer",
+          "nombres": "M.",
+          "apellidos": "Böhmer"
+        },
+        {
+          "nombre_completo": "K. Palme",
+          "nombres": "K.",
+          "apellidos": "Palme"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravitational Biology I: Gravity Sensing and Graviorientation in Microorganisms and Plants",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "113",
+      "lpage": "122"
+    },
+    {
+      "titulo": "Evaluating the Cost of Pharmaceutical Purification for a Long-Duration Space Exploration Medical Foundry",
+      "autores": [
+        {
+          "nombre_completo": "M.J. McNulty",
+          "nombres": "M.J.",
+          "apellidos": "McNulty"
+        },
+        {
+          "nombre_completo": "A.J. Berliner",
+          "nombres": "A.J.",
+          "apellidos": "Berliner"
+        },
+        {
+          "nombre_completo": "P.G. Negulescu",
+          "nombres": "P.G.",
+          "apellidos": "Negulescu"
+        },
+        {
+          "nombre_completo": "L. McKee",
+          "nombres": "L.",
+          "apellidos": "McKee"
+        },
+        {
+          "nombre_completo": "O. Hart",
+          "nombres": "O.",
+          "apellidos": "Hart"
+        },
+        {
+          "nombre_completo": "K. Yates",
+          "nombres": "K.",
+          "apellidos": "Yates"
+        },
+        {
+          "nombre_completo": "A.P. Arkin",
+          "nombres": "A.P.",
+          "apellidos": "Arkin"
+        },
+        {
+          "nombre_completo": "S. Nandi",
+          "nombres": "S.",
+          "apellidos": "Nandi"
+        },
+        {
+          "nombre_completo": "K.A. McDonald",
+          "nombres": "K.A.",
+          "apellidos": "McDonald"
+        }
+      ],
+      "pmid": "34707576",
+      "fuente": "Front. Microbiol.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "700863",
+      "lpage": ""
+    },
+    {
+      "titulo": "Potential Biofilm Control Strategies for Extended Spaceflight Missions",
+      "autores": [
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "R.J.C. McLean",
+          "nombres": "R.J.C.",
+          "apellidos": "McLean"
+        },
+        {
+          "nombre_completo": "T.A. Rook",
+          "nombres": "T.A.",
+          "apellidos": "Rook"
+        },
+        {
+          "nombre_completo": "G. Angle",
+          "nombres": "G.",
+          "apellidos": "Angle"
+        },
+        {
+          "nombre_completo": "D.L. Carter",
+          "nombres": "D.L.",
+          "apellidos": "Carter"
+        },
+        {
+          "nombre_completo": "A. Delegard",
+          "nombres": "A.",
+          "apellidos": "Delegard"
+        },
+        {
+          "nombre_completo": "A. Denvir",
+          "nombres": "A.",
+          "apellidos": "Denvir"
+        },
+        {
+          "nombre_completo": "R. Gerlach",
+          "nombres": "R.",
+          "apellidos": "Gerlach"
+        },
+        {
+          "nombre_completo": "S. Gorti",
+          "nombres": "S.",
+          "apellidos": "Gorti"
+        },
+        {
+          "nombre_completo": "D. McIlwaine",
+          "nombres": "D.",
+          "apellidos": "McIlwaine"
+        }
+      ],
+      "pmid": "33447811",
+      "fuente": "Biofilm",
+      "anio": "2020",
+      "volumen": "2",
+      "fpage": "100026",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space Station Conditions Are Selective but Do Not Alter Microbial Characteristics Relevant to Human Health",
+      "autores": [
+        {
+          "nombre_completo": "M. Mora",
+          "nombres": "M.",
+          "apellidos": "Mora"
+        },
+        {
+          "nombre_completo": "L. Wink",
+          "nombres": "L.",
+          "apellidos": "Wink"
+        },
+        {
+          "nombre_completo": "I. Kögler",
+          "nombres": "I.",
+          "apellidos": "Kögler"
+        },
+        {
+          "nombre_completo": "A. Mahnert",
+          "nombres": "A.",
+          "apellidos": "Mahnert"
+        },
+        {
+          "nombre_completo": "P. Rettberg",
+          "nombres": "P.",
+          "apellidos": "Rettberg"
+        },
+        {
+          "nombre_completo": "P. Schwendner",
+          "nombres": "P.",
+          "apellidos": "Schwendner"
+        },
+        {
+          "nombre_completo": "R. Demets",
+          "nombres": "R.",
+          "apellidos": "Demets"
+        },
+        {
+          "nombre_completo": "C. Cockell",
+          "nombres": "C.",
+          "apellidos": "Cockell"
+        },
+        {
+          "nombre_completo": "T. Alekhova",
+          "nombres": "T.",
+          "apellidos": "Alekhova"
+        },
+        {
+          "nombre_completo": "A. Klingl",
+          "nombres": "A.",
+          "apellidos": "Klingl"
+        }
+      ],
+      "pmid": "31488812",
+      "fuente": "Nat. Commun.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "3990",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multimicrobial Kombucha Culture Tolerates Mars-like Conditions Simulated on Low Earth Orbit",
+      "autores": [
+        {
+          "nombre_completo": "O. Podolich",
+          "nombres": "O.",
+          "apellidos": "Podolich"
+        },
+        {
+          "nombre_completo": "O. Kukharenko",
+          "nombres": "O.",
+          "apellidos": "Kukharenko"
+        },
+        {
+          "nombre_completo": "A. Haidak",
+          "nombres": "A.",
+          "apellidos": "Haidak"
+        },
+        {
+          "nombre_completo": "I. Zaets",
+          "nombres": "I.",
+          "apellidos": "Zaets"
+        },
+        {
+          "nombre_completo": "L. Zaika",
+          "nombres": "L.",
+          "apellidos": "Zaika"
+        },
+        {
+          "nombre_completo": "O. Storozhuk",
+          "nombres": "O.",
+          "apellidos": "Storozhuk"
+        },
+        {
+          "nombre_completo": "L. Palchikovska",
+          "nombres": "L.",
+          "apellidos": "Palchikovska"
+        },
+        {
+          "nombre_completo": "I. Orlovska",
+          "nombres": "I.",
+          "apellidos": "Orlovska"
+        },
+        {
+          "nombre_completo": "O. Reva",
+          "nombres": "O.",
+          "apellidos": "Reva"
+        },
+        {
+          "nombre_completo": "T. Borisova",
+          "nombres": "T.",
+          "apellidos": "Borisova"
+        }
+      ],
+      "pmid": "30484685",
+      "fuente": "Astrobiology",
+      "anio": "2019",
+      "volumen": "19",
+      "fpage": "183",
+      "lpage": "196"
+    },
+    {
+      "titulo": "Fundamental Biological Features of Spaceflight: Advancing the Field to Enable Deep-Space Exploration",
+      "autores": [
+        {
+          "nombre_completo": "E. Afshinnekoo",
+          "nombres": "E.",
+          "apellidos": "Afshinnekoo"
+        },
+        {
+          "nombre_completo": "R.T. Scott",
+          "nombres": "R.T.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "M.J. MacKay",
+          "nombres": "M.J.",
+          "apellidos": "MacKay"
+        },
+        {
+          "nombre_completo": "E. Pariset",
+          "nombres": "E.",
+          "apellidos": "Pariset"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        },
+        {
+          "nombre_completo": "D. Hassane",
+          "nombres": "D.",
+          "apellidos": "Hassane"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S.R. Zwart",
+          "nombres": "S.R.",
+          "apellidos": "Zwart"
+        }
+      ],
+      "pmid": "33242416",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1162",
+      "lpage": "1184"
+    },
+    {
+      "titulo": "Optimized Suspension Culture: The Rotating-Wall Vessel",
+      "autores": [
+        {
+          "nombre_completo": "T.G. Hammond",
+          "nombres": "T.G.",
+          "apellidos": "Hammond"
+        },
+        {
+          "nombre_completo": "J.M. Hammond",
+          "nombres": "J.M.",
+          "apellidos": "Hammond"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Am. J. Physiol.-Ren. Physiol.",
+      "anio": "2001",
+      "volumen": "281",
+      "fpage": "F12",
+      "lpage": "F25"
+    },
+    {
+      "titulo": "Clinostats and Bioreactors",
+      "autores": [
+        {
+          "nombre_completo": "D.M. Klaus",
+          "nombres": "D.M.",
+          "apellidos": "Klaus"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Gravit. Space Res.",
+      "anio": "2001",
+      "volumen": "14",
+      "fpage": "55",
+      "lpage": "64"
+    },
+    {
+      "titulo": "No Effect of Microgravity and Simulated Mars Gravity on Final Bacterial Cell Concentrations on the International Space Station: Applications to Space Bioproduction",
+      "autores": [
+        {
+          "nombre_completo": "R. Santomartino",
+          "nombres": "R.",
+          "apellidos": "Santomartino"
+        },
+        {
+          "nombre_completo": "A.C. Waajen",
+          "nombres": "A.C.",
+          "apellidos": "Waajen"
+        },
+        {
+          "nombre_completo": "W. de Wit",
+          "nombres": "W.",
+          "apellidos": "de Wit"
+        },
+        {
+          "nombre_completo": "N. Nicholson",
+          "nombres": "N.",
+          "apellidos": "Nicholson"
+        },
+        {
+          "nombre_completo": "L. Parmitano",
+          "nombres": "L.",
+          "apellidos": "Parmitano"
+        },
+        {
+          "nombre_completo": "C.-M. Loudon",
+          "nombres": "C.-M.",
+          "apellidos": "Loudon"
+        },
+        {
+          "nombre_completo": "R. Moeller",
+          "nombres": "R.",
+          "apellidos": "Moeller"
+        },
+        {
+          "nombre_completo": "P. Rettberg",
+          "nombres": "P.",
+          "apellidos": "Rettberg"
+        },
+        {
+          "nombre_completo": "F.M. Fuchs",
+          "nombres": "F.M.",
+          "apellidos": "Fuchs"
+        },
+        {
+          "nombre_completo": "R. Van Houdt",
+          "nombres": "R.",
+          "apellidos": "Van Houdt"
+        }
+      ],
+      "pmid": "33154740",
+      "fuente": "Front. Microbiol.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "579156",
+      "lpage": ""
+    },
+    {
+      "titulo": "Novel Quantitative Biosystem for Modeling Physiological Fluid Shear Stress on Cells",
+      "autores": [
+        {
+          "nombre_completo": "E.A. Nauman",
+          "nombres": "E.A.",
+          "apellidos": "Nauman"
+        },
+        {
+          "nombre_completo": "C.M. Ott",
+          "nombres": "C.M.",
+          "apellidos": "Ott"
+        },
+        {
+          "nombre_completo": "E. Sander",
+          "nombres": "E.",
+          "apellidos": "Sander"
+        },
+        {
+          "nombre_completo": "D.L. Tucker",
+          "nombres": "D.L.",
+          "apellidos": "Tucker"
+        },
+        {
+          "nombre_completo": "D. Pierson",
+          "nombres": "D.",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "J.W. Wilson",
+          "nombres": "J.W.",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "C.A. Nickerson",
+          "nombres": "C.A.",
+          "apellidos": "Nickerson"
+        }
+      ],
+      "pmid": "17142365",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2007",
+      "volumen": "73",
+      "fpage": "699",
+      "lpage": "705"
+    },
+    {
+      "titulo": "Space Microbiology",
+      "autores": [
+        {
+          "nombre_completo": "G. Horneck",
+          "nombres": "G.",
+          "apellidos": "Horneck"
+        },
+        {
+          "nombre_completo": "D.M. Klaus",
+          "nombres": "D.M.",
+          "apellidos": "Klaus"
+        },
+        {
+          "nombre_completo": "R.L. Mancinelli",
+          "nombres": "R.L.",
+          "apellidos": "Mancinelli"
+        }
+      ],
+      "pmid": "20197502",
+      "fuente": "Microbiol. Mol. Biol. Rev.",
+      "anio": "2010",
+      "volumen": "74",
+      "fpage": "121",
+      "lpage": "156"
+    },
+    {
+      "titulo": "A Molecular Genetic Basis Explaining Altered Bacterial Behavior in Space",
+      "autores": [
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "N. Prasad",
+          "nombres": "N.",
+          "apellidos": "Prasad"
+        },
+        {
+          "nombre_completo": "S.E. Levy",
+          "nombres": "S.E.",
+          "apellidos": "Levy"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "A. Jones",
+          "nombres": "A.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "S. Shrestha",
+          "nombres": "S.",
+          "apellidos": "Shrestha"
+        },
+        {
+          "nombre_completo": "D. Klaus",
+          "nombres": "D.",
+          "apellidos": "Klaus"
+        }
+      ],
+      "pmid": "27806055",
+      "fuente": "PLoS ONE",
+      "anio": "2016",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of Spaceflight and Simulated Microgravity on Microbial Growth and Secondary Metabolism",
+      "autores": [
+        {
+          "nombre_completo": "B. Huang",
+          "nombres": "B.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "D.-G. Li",
+          "nombres": "D.-G.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y. Huang",
+          "nombres": "Y.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "C.-T. Liu",
+          "nombres": "C.-T.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "29807538",
+      "fuente": "Mil. Med. Res.",
+      "anio": "2018",
+      "volumen": "5",
+      "fpage": "18",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight Modifies Escherichia Coli Gene Expression in Response to Antibiotic Exposure and Reveals Role of Oxidative Stress Response",
+      "autores": [
+        {
+          "nombre_completo": "T.R. Aunins",
+          "nombres": "T.R.",
+          "apellidos": "Aunins"
+        },
+        {
+          "nombre_completo": "K.E. Erickson",
+          "nombres": "K.E.",
+          "apellidos": "Erickson"
+        },
+        {
+          "nombre_completo": "N. Prasad",
+          "nombres": "N.",
+          "apellidos": "Prasad"
+        },
+        {
+          "nombre_completo": "S.E. Levy",
+          "nombres": "S.E.",
+          "apellidos": "Levy"
+        },
+        {
+          "nombre_completo": "A. Jones",
+          "nombres": "A.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "S. Shrestha",
+          "nombres": "S.",
+          "apellidos": "Shrestha"
+        },
+        {
+          "nombre_completo": "R. Mastracchio",
+          "nombres": "R.",
+          "apellidos": "Mastracchio"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "D. Klaus",
+          "nombres": "D.",
+          "apellidos": "Klaus"
+        },
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        }
+      ],
+      "pmid": "29615983",
+      "fuente": "Front. Microbiol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "310",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparisons of Transcriptome Profiles from Bacillus Subtilis Cells Grown in Space versus High Aspect Ratio Vessel (HARV) Clinostats Reveal a Low Degree of Concordance",
+      "autores": [
+        {
+          "nombre_completo": "M.D. Morrison",
+          "nombres": "M.D.",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "W.L. Nicholson",
+          "nombres": "W.L.",
+          "apellidos": "Nicholson"
+        }
+      ],
+      "pmid": "33074712",
+      "fuente": "Astrobiology",
+      "anio": "2020",
+      "volumen": "20",
+      "fpage": "1498",
+      "lpage": "1509"
+    },
+    {
+      "titulo": "Mechanotransduction in Prokaryotes: A Possible Mechanism of Spaceflight Adaptation",
+      "autores": [
+        {
+          "nombre_completo": "P. Fajardo-Cavazos",
+          "nombres": "P.",
+          "apellidos": "Fajardo-Cavazos"
+        },
+        {
+          "nombre_completo": "W.L. Nicholson",
+          "nombres": "W.L.",
+          "apellidos": "Nicholson"
+        }
+      ],
+      "pmid": "33430182",
+      "fuente": "Life",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Ground-Based Facilities for Simulation of Microgravity: Organism-Specific Recommendations for Their Use, and Recommended Terminology",
+      "autores": [
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "R. Anken",
+          "nombres": "R.",
+          "apellidos": "Anken"
+        },
+        {
+          "nombre_completo": "J. Boonstra",
+          "nombres": "J.",
+          "apellidos": "Boonstra"
+        },
+        {
+          "nombre_completo": "M. Braun",
+          "nombres": "M.",
+          "apellidos": "Braun"
+        },
+        {
+          "nombre_completo": "P.C.M. Christianen",
+          "nombres": "P.C.M.",
+          "apellidos": "Christianen"
+        },
+        {
+          "nombre_completo": "M. de Geest",
+          "nombres": "M.",
+          "apellidos": "de Geest"
+        },
+        {
+          "nombre_completo": "J. Hauslage",
+          "nombres": "J.",
+          "apellidos": "Hauslage"
+        },
+        {
+          "nombre_completo": "R. Hilbig",
+          "nombres": "R.",
+          "apellidos": "Hilbig"
+        },
+        {
+          "nombre_completo": "R.J.A. Hill",
+          "nombres": "R.J.A.",
+          "apellidos": "Hill"
+        },
+        {
+          "nombre_completo": "M. Lebert",
+          "nombres": "M.",
+          "apellidos": "Lebert"
+        }
+      ],
+      "pmid": "23252378",
+      "fuente": "Astrobiology",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1",
+      "lpage": "17"
+    },
+    {
+      "titulo": "Meta-Analysis of Data from Spaceflight Transcriptome Experiments Does Not Support the Idea of a Common Bacterial “Spaceflight Response",
+      "autores": [
+        {
+          "nombre_completo": "M.D. Morrison",
+          "nombres": "M.D.",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "W.L. Nicholson",
+          "nombres": "W.L.",
+          "apellidos": "Nicholson"
+        }
+      ],
+      "pmid": "30258082",
+      "fuente": "” Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "14403",
+      "lpage": ""
+    },
+    {
+      "titulo": "Novel Cooperation Experimentally Evolved Between Species",
+      "autores": [
+        {
+          "nombre_completo": "W. Harcombe",
+          "nombres": "W.",
+          "apellidos": "Harcombe"
+        }
+      ],
+      "pmid": "20100214",
+      "fuente": "Evolution",
+      "anio": "2010",
+      "volumen": "64",
+      "fpage": "2166",
+      "lpage": "2172"
+    },
+    {
+      "titulo": "Media Optimization, Strain Compatibility, and Low-Shear Modeled Microgravity Exposure of Synthetic Microbial Communities for Urine Nitrification in Regenerative Life-Support Systems",
+      "autores": [
+        {
+          "nombre_completo": "C. Ilgrande",
+          "nombres": "C.",
+          "apellidos": "Ilgrande"
+        },
+        {
+          "nombre_completo": "T. Defoirdt",
+          "nombres": "T.",
+          "apellidos": "Defoirdt"
+        },
+        {
+          "nombre_completo": "S.E. Vlaeminck",
+          "nombres": "S.E.",
+          "apellidos": "Vlaeminck"
+        },
+        {
+          "nombre_completo": "N. Boon",
+          "nombres": "N.",
+          "apellidos": "Boon"
+        },
+        {
+          "nombre_completo": "P. Clauwaert",
+          "nombres": "P.",
+          "apellidos": "Clauwaert"
+        }
+      ],
+      "pmid": "31657947",
+      "fuente": "Astrobiology",
+      "anio": "2019",
+      "volumen": "19",
+      "fpage": "1353",
+      "lpage": "1362"
+    },
+    {
+      "titulo": "Validation of Random Positioning Versus Clinorotation Using a Macrophage Model System",
+      "autores": [
+        {
+          "nombre_completo": "S. Brungs",
+          "nombres": "S.",
+          "apellidos": "Brungs"
+        },
+        {
+          "nombre_completo": "J. Hauslage",
+          "nombres": "J.",
+          "apellidos": "Hauslage"
+        },
+        {
+          "nombre_completo": "R. Hemmersbach",
+          "nombres": "R.",
+          "apellidos": "Hemmersbach"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microgravity Sci. Technol.",
+      "anio": "2019",
+      "volumen": "31",
+      "fpage": "223",
+      "lpage": "230"
+    },
+    {
+      "titulo": "Effect of Rotation on Scaffold Motion and Cell Growth in Rotating Bioreactors",
+      "autores": [
+        {
+          "nombre_completo": "M.C. Varley",
+          "nombres": "M.C.",
+          "apellidos": "Varley"
+        },
+        {
+          "nombre_completo": "A.E. Markaki",
+          "nombres": "A.E.",
+          "apellidos": "Markaki"
+        },
+        {
+          "nombre_completo": "R.A. Brooks",
+          "nombres": "R.A.",
+          "apellidos": "Brooks"
+        }
+      ],
+      "pmid": "28125920",
+      "fuente": "Tissue Eng. Part A",
+      "anio": "2017",
+      "volumen": "23",
+      "fpage": "522",
+      "lpage": "534"
+    },
+    {
+      "titulo": "An Air Bubble-Isolating Rotating Wall Vessel Bioreactor for Improved Spheroid/Organoid Formation",
+      "autores": [
+        {
+          "nombre_completo": "M.A. Phelan",
+          "nombres": "M.A.",
+          "apellidos": "Phelan"
+        },
+        {
+          "nombre_completo": "A.L. Gianforcaro",
+          "nombres": "A.L.",
+          "apellidos": "Gianforcaro"
+        },
+        {
+          "nombre_completo": "J.A. Gerstenhaber",
+          "nombres": "J.A.",
+          "apellidos": "Gerstenhaber"
+        },
+        {
+          "nombre_completo": "P.I. Lelkes",
+          "nombres": "P.I.",
+          "apellidos": "Lelkes"
+        }
+      ],
+      "pmid": "31328683",
+      "fuente": "Tissue Eng. Part C Methods",
+      "anio": "2019",
+      "volumen": "25",
+      "fpage": "479",
+      "lpage": "488"
+    },
+    {
+      "titulo": "Numerical Simulation of Microcarrier Motion in a Rotating Wall Vessel Bioreactor",
+      "autores": [
+        {
+          "nombre_completo": "Z.-H. Ju",
+          "nombres": "Z.-H.",
+          "apellidos": "Ju"
+        },
+        {
+          "nombre_completo": "T.-Q. Liu",
+          "nombres": "T.-Q.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "X.-H. Ma",
+          "nombres": "X.-H.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "Z.-F. Cui",
+          "nombres": "Z.-F.",
+          "apellidos": "Cui"
+        }
+      ],
+      "pmid": "16944770",
+      "fuente": "Biomed. Environ. Sci.",
+      "anio": "2006",
+      "volumen": "19",
+      "fpage": "163",
+      "lpage": "168"
+    },
+    {
+      "titulo": "Escherichia Coli Biofilms Formed under Low-Shear Modeled Microgravity in a Ground-Based System",
+      "autores": [
+        {
+          "nombre_completo": "S.V. Lynch",
+          "nombres": "S.V.",
+          "apellidos": "Lynch"
+        },
+        {
+          "nombre_completo": "K. Mukundakrishnan",
+          "nombres": "K.",
+          "apellidos": "Mukundakrishnan"
+        },
+        {
+          "nombre_completo": "M.R. Benoit",
+          "nombres": "M.R.",
+          "apellidos": "Benoit"
+        },
+        {
+          "nombre_completo": "P.S. Ayyaswamy",
+          "nombres": "P.S.",
+          "apellidos": "Ayyaswamy"
+        },
+        {
+          "nombre_completo": "A. Matin",
+          "nombres": "A.",
+          "apellidos": "Matin"
+        }
+      ],
+      "pmid": "17028231",
+      "fuente": "Appl. Environ. Microbiol.",
+      "anio": "2006",
+      "volumen": "72",
+      "fpage": "7701",
+      "lpage": "7710"
+    },
+    {
+      "titulo": "Numerical Simulation of Coupled Cell Motion and Nutrient Transport in NASA’s Rotating Bioreactor",
+      "autores": [
+        {
+          "nombre_completo": "T.-C. Chao",
+          "nombres": "T.-C.",
+          "apellidos": "Chao"
+        },
+        {
+          "nombre_completo": "D.B. Das",
+          "nombres": "D.B.",
+          "apellidos": "Das"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Chem. Eng. J.",
+      "anio": "2015",
+      "volumen": "259",
+      "fpage": "961",
+      "lpage": "971"
+    },
+    {
+      "titulo": "Metabolic Resource Allocation in Individual Microbes Determines Ecosystem Interactions and Spatial Dynamics",
+      "autores": [
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        },
+        {
+          "nombre_completo": "W.J. Riehl",
+          "nombres": "W.J.",
+          "apellidos": "Riehl"
+        },
+        {
+          "nombre_completo": "I. Dukovski",
+          "nombres": "I.",
+          "apellidos": "Dukovski"
+        },
+        {
+          "nombre_completo": "B.R. Granger",
+          "nombres": "B.R.",
+          "apellidos": "Granger"
+        },
+        {
+          "nombre_completo": "A. Betts",
+          "nombres": "A.",
+          "apellidos": "Betts"
+        },
+        {
+          "nombre_completo": "A.H. Lang",
+          "nombres": "A.H.",
+          "apellidos": "Lang"
+        },
+        {
+          "nombre_completo": "G. Bonilla",
+          "nombres": "G.",
+          "apellidos": "Bonilla"
+        },
+        {
+          "nombre_completo": "A. Kar",
+          "nombres": "A.",
+          "apellidos": "Kar"
+        },
+        {
+          "nombre_completo": "N. Leiby",
+          "nombres": "N.",
+          "apellidos": "Leiby"
+        },
+        {
+          "nombre_completo": "P. Mehta",
+          "nombres": "P.",
+          "apellidos": "Mehta"
+        }
+      ],
+      "pmid": "24794435",
+      "fuente": "Cell Rep.",
+      "anio": "2014",
+      "volumen": "7",
+      "fpage": "1104",
+      "lpage": "1115"
+    },
+    {
+      "titulo": "A Shared Limiting Resource Leads to Competitive Exclusion in a Cross-Feeding System",
+      "autores": [
+        {
+          "nombre_completo": "S.P. Hammarlund",
+          "nombres": "S.P.",
+          "apellidos": "Hammarlund"
+        },
+        {
+          "nombre_completo": "J.M. Chacón",
+          "nombres": "J.M.",
+          "apellidos": "Chacón"
+        },
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        }
+      ],
+      "pmid": "30507059",
+      "fuente": "Environ. Microbiol.",
+      "anio": "2019",
+      "volumen": "21",
+      "fpage": "759",
+      "lpage": "771"
+    },
+    {
+      "titulo": "Limitation by a Shared Mutualist Promotes Coexistence of Multiple Competing Partners",
+      "autores": [
+        {
+          "nombre_completo": "S.P. Hammarlund",
+          "nombres": "S.P.",
+          "apellidos": "Hammarlund"
+        },
+        {
+          "nombre_completo": "T. Gedeon",
+          "nombres": "T.",
+          "apellidos": "Gedeon"
+        },
+        {
+          "nombre_completo": "R.P. Carlson",
+          "nombres": "R.P.",
+          "apellidos": "Carlson"
+        },
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        }
+      ],
+      "pmid": "33504808",
+      "fuente": "Nat. Commun.",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "619",
+      "lpage": ""
+    },
+    {
+      "titulo": "NUFEB: A Massively Parallel Simulator for Individual-Based Modelling of Microbial Communities",
+      "autores": [
+        {
+          "nombre_completo": "B. Li",
+          "nombres": "B.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "D. Taniguchi",
+          "nombres": "D.",
+          "apellidos": "Taniguchi"
+        },
+        {
+          "nombre_completo": "J.P. Gedara",
+          "nombres": "J.P.",
+          "apellidos": "Gedara"
+        },
+        {
+          "nombre_completo": "V. Gogulancea",
+          "nombres": "V.",
+          "apellidos": "Gogulancea"
+        },
+        {
+          "nombre_completo": "R. Gonzalez-Cabaleiro",
+          "nombres": "R.",
+          "apellidos": "Gonzalez-Cabaleiro"
+        },
+        {
+          "nombre_completo": "J. Chen",
+          "nombres": "J.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "A.S. McGough",
+          "nombres": "A.S.",
+          "apellidos": "McGough"
+        },
+        {
+          "nombre_completo": "I.D. Ofiteru",
+          "nombres": "I.D.",
+          "apellidos": "Ofiteru"
+        },
+        {
+          "nombre_completo": "T.P. Curtis",
+          "nombres": "T.P.",
+          "apellidos": "Curtis"
+        },
+        {
+          "nombre_completo": "P. Zuliani",
+          "nombres": "P.",
+          "apellidos": "Zuliani"
+        }
+      ],
+      "pmid": "31830032",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2019",
+      "volumen": "15",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Models, Algorithms and Validation for Opensource DEM and CFD–DEM",
+      "autores": [
+        {
+          "nombre_completo": "C. Kloss",
+          "nombres": "C.",
+          "apellidos": "Kloss"
+        },
+        {
+          "nombre_completo": "C. Goniva",
+          "nombres": "C.",
+          "apellidos": "Goniva"
+        },
+        {
+          "nombre_completo": "A. Hager",
+          "nombres": "A.",
+          "apellidos": "Hager"
+        },
+        {
+          "nombre_completo": "S. Amberger",
+          "nombres": "S.",
+          "apellidos": "Amberger"
+        },
+        {
+          "nombre_completo": "S. Pirker",
+          "nombres": "S.",
+          "apellidos": "Pirker"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Prog. Comput. Fluid Dyn. Int. J.",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "140",
+      "lpage": "152"
+    },
+    {
+      "titulo": "Influence of Rolling Friction on Single Spout Fluidized Bed Simulation",
+      "autores": [
+        {
+          "nombre_completo": "C. Goniva",
+          "nombres": "C.",
+          "apellidos": "Goniva"
+        },
+        {
+          "nombre_completo": "C. Kloss",
+          "nombres": "C.",
+          "apellidos": "Kloss"
+        },
+        {
+          "nombre_completo": "N.G. Deen",
+          "nombres": "N.G.",
+          "apellidos": "Deen"
+        },
+        {
+          "nombre_completo": "J.A.M. Kuipers",
+          "nombres": "J.A.M.",
+          "apellidos": "Kuipers"
+        },
+        {
+          "nombre_completo": "S. Pirker",
+          "nombres": "S.",
+          "apellidos": "Pirker"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Particuology",
+      "anio": "2012",
+      "volumen": "10",
+      "fpage": "582",
+      "lpage": "591"
+    },
+    {
+      "titulo": "Fast Parallel Algorithms for Short-Range Molecular Dynamics",
+      "autores": [
+        {
+          "nombre_completo": "S. Plimpton",
+          "nombres": "S.",
+          "apellidos": "Plimpton"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Comput. Phys.",
+      "anio": "1995",
+      "volumen": "117",
+      "fpage": "1",
+      "lpage": "19"
+    },
+    {
+      "titulo": "A Tensorial Approach to Computational Continuum Mechanics Using Object-Oriented Techniques",
+      "autores": [
+        {
+          "nombre_completo": "H.G. Weller",
+          "nombres": "H.G.",
+          "apellidos": "Weller"
+        },
+        {
+          "nombre_completo": "G. Tabor",
+          "nombres": "G.",
+          "apellidos": "Tabor"
+        },
+        {
+          "nombre_completo": "H. Jasak",
+          "nombres": "H.",
+          "apellidos": "Jasak"
+        },
+        {
+          "nombre_completo": "C. Fureby",
+          "nombres": "C.",
+          "apellidos": "Fureby"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Comput. Phys.",
+      "anio": "1998",
+      "volumen": "12",
+      "fpage": "620",
+      "lpage": "631"
+    },
+    {
+      "titulo": "CFD-DEM Coupling for Systems of Fluid and Non-Spherical Particles",
+      "autores": [
+        {
+          "nombre_completo": "D. Fantin",
+          "nombres": "D.",
+          "apellidos": "Fantin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Master’s Thesis",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "SediFoam: A General-Purpose, Open-Source CFD–DEM Solver for Particle-Laden Flow with Emphasis on Sediment Transport",
+      "autores": [
+        {
+          "nombre_completo": "R. Sun",
+          "nombres": "R.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "H. Xiao",
+          "nombres": "H.",
+          "apellidos": "Xiao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Comput. Geosci.",
+      "anio": "2016",
+      "volumen": "89",
+      "fpage": "207",
+      "lpage": "219"
+    },
+    {
+      "titulo": "Heat Transfer to a Gas from Densely Packed Beds of Monodisperse Spherical Particles",
+      "autores": [
+        {
+          "nombre_completo": "A. Singhal",
+          "nombres": "A.",
+          "apellidos": "Singhal"
+        },
+        {
+          "nombre_completo": "S. Cloete",
+          "nombres": "S.",
+          "apellidos": "Cloete"
+        },
+        {
+          "nombre_completo": "S. Radl",
+          "nombres": "S.",
+          "apellidos": "Radl"
+        },
+        {
+          "nombre_completo": "R. Quinta-Ferreira",
+          "nombres": "R.",
+          "apellidos": "Quinta-Ferreira"
+        },
+        {
+          "nombre_completo": "S. Amini",
+          "nombres": "S.",
+          "apellidos": "Amini"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Chem. Eng. J.",
+      "anio": "2017",
+      "volumen": "314",
+      "fpage": "27",
+      "lpage": "37"
+    },
+    {
+      "titulo": "A Metabolic Modeling Platform for the Computation of Microbial Ecosystems in Time and Space (COMETS)",
+      "autores": [
+        {
+          "nombre_completo": "I. Dukovski",
+          "nombres": "I.",
+          "apellidos": "Dukovski"
+        },
+        {
+          "nombre_completo": "D. Bajić",
+          "nombres": "D.",
+          "apellidos": "Bajić"
+        },
+        {
+          "nombre_completo": "J.M. Chacón",
+          "nombres": "J.M.",
+          "apellidos": "Chacón"
+        },
+        {
+          "nombre_completo": "M. Quintin",
+          "nombres": "M.",
+          "apellidos": "Quintin"
+        },
+        {
+          "nombre_completo": "J.C.C. Vila",
+          "nombres": "J.C.C.",
+          "apellidos": "Vila"
+        },
+        {
+          "nombre_completo": "S. Sulheim",
+          "nombres": "S.",
+          "apellidos": "Sulheim"
+        },
+        {
+          "nombre_completo": "A.R. Pacheco",
+          "nombres": "A.R.",
+          "apellidos": "Pacheco"
+        },
+        {
+          "nombre_completo": "D.B. Bernstein",
+          "nombres": "D.B.",
+          "apellidos": "Bernstein"
+        },
+        {
+          "nombre_completo": "W.J. Riehl",
+          "nombres": "W.J.",
+          "apellidos": "Riehl"
+        },
+        {
+          "nombre_completo": "K.S. Korolev",
+          "nombres": "K.S.",
+          "apellidos": "Korolev"
+        }
+      ],
+      "pmid": "34635859",
+      "fuente": "Nat. Protoc.",
+      "anio": "2021",
+      "volumen": "16",
+      "fpage": "5030",
+      "lpage": "5082"
+    },
+    {
+      "titulo": "Identification of the Potentiating Mutations and Synergistic Epistasis That Enabled the Evolution of Inter-Species Cooperation",
+      "autores": [
+        {
+          "nombre_completo": "S.M. Douglas",
+          "nombres": "S.M.",
+          "apellidos": "Douglas"
+        },
+        {
+          "nombre_completo": "L.M. Chubiz",
+          "nombres": "L.M.",
+          "apellidos": "Chubiz"
+        },
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        },
+        {
+          "nombre_completo": "C.J. Marx",
+          "nombres": "C.J.",
+          "apellidos": "Marx"
+        }
+      ],
+      "pmid": "28493869",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cross-Feeding Modulates Antibiotic Tolerance in Bacterial Communities",
+      "autores": [
+        {
+          "nombre_completo": "E.M. Adamowicz",
+          "nombres": "E.M.",
+          "apellidos": "Adamowicz"
+        },
+        {
+          "nombre_completo": "J. Flynn",
+          "nombres": "J.",
+          "apellidos": "Flynn"
+        },
+        {
+          "nombre_completo": "R.C. Hunter",
+          "nombres": "R.C.",
+          "apellidos": "Hunter"
+        },
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        }
+      ],
+      "pmid": "29991761",
+      "fuente": "ISME J.",
+      "anio": "2018",
+      "volumen": "12",
+      "fpage": "2723",
+      "lpage": "2735"
+    },
+    {
+      "titulo": "Evolution of Bidirectional Costly Mutualism from Byproduct Consumption",
+      "autores": [
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        },
+        {
+          "nombre_completo": "J.M. Chacón",
+          "nombres": "J.M.",
+          "apellidos": "Chacón"
+        },
+        {
+          "nombre_completo": "E.M. Adamowicz",
+          "nombres": "E.M.",
+          "apellidos": "Adamowicz"
+        },
+        {
+          "nombre_completo": "L.M. Chubiz",
+          "nombres": "L.M.",
+          "apellidos": "Chubiz"
+        },
+        {
+          "nombre_completo": "C.J. Marx",
+          "nombres": "C.J.",
+          "apellidos": "Marx"
+        }
+      ],
+      "pmid": "30348787",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2018",
+      "volumen": "115",
+      "fpage": "12000",
+      "lpage": "12004"
+    },
+    {
+      "titulo": "Lytic Bacteriophage Have Diverse Indirect Effects in a Synthetic Cross-Feeding Community",
+      "autores": [
+        {
+          "nombre_completo": "L. Fazzino",
+          "nombres": "L.",
+          "apellidos": "Fazzino"
+        },
+        {
+          "nombre_completo": "J. Anisman",
+          "nombres": "J.",
+          "apellidos": "Anisman"
+        },
+        {
+          "nombre_completo": "J.M. Chacón",
+          "nombres": "J.M.",
+          "apellidos": "Chacón"
+        },
+        {
+          "nombre_completo": "R.H. Heineman",
+          "nombres": "R.H.",
+          "apellidos": "Heineman"
+        },
+        {
+          "nombre_completo": "W.R. Harcombe",
+          "nombres": "W.R.",
+          "apellidos": "Harcombe"
+        }
+      ],
+      "pmid": "31578469",
+      "fuente": "ISME J.",
+      "anio": "2020",
+      "volumen": "14",
+      "fpage": "123",
+      "lpage": "134"
+    },
+    {
+      "titulo": "Life at Low Reynolds Number",
+      "autores": [
+        {
+          "nombre_completo": "E.M. Purcell",
+          "nombres": "E.M.",
+          "apellidos": "Purcell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Am. J. Phys.",
+      "anio": "1977",
+      "volumen": "45",
+      "fpage": "3",
+      "lpage": "11"
+    },
+    {
+      "titulo": "Computer Simulation Study of Early Bacterial Biofilm Development",
+      "autores": [
+        {
+          "nombre_completo": "R.D. Acemel",
+          "nombres": "R.D.",
+          "apellidos": "Acemel"
+        },
+        {
+          "nombre_completo": "F. Govantes",
+          "nombres": "F.",
+          "apellidos": "Govantes"
+        },
+        {
+          "nombre_completo": "A. Cuetos",
+          "nombres": "A.",
+          "apellidos": "Cuetos"
+        }
+      ],
+      "pmid": "29593289",
+      "fuente": "Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "5340",
+      "lpage": ""
+    },
+    {
+      "titulo": "Measuring the Stiffness of Bacterial Cells from Growth Rates in Hydrogels of Tunable Elasticity",
+      "autores": [
+        {
+          "nombre_completo": "H.H. Tuson",
+          "nombres": "H.H.",
+          "apellidos": "Tuson"
+        },
+        {
+          "nombre_completo": "G.K. Auer",
+          "nombres": "G.K.",
+          "apellidos": "Auer"
+        },
+        {
+          "nombre_completo": "L.D. Renner",
+          "nombres": "L.D.",
+          "apellidos": "Renner"
+        },
+        {
+          "nombre_completo": "M. Hasebe",
+          "nombres": "M.",
+          "apellidos": "Hasebe"
+        },
+        {
+          "nombre_completo": "C. Tropini",
+          "nombres": "C.",
+          "apellidos": "Tropini"
+        },
+        {
+          "nombre_completo": "M. Salick",
+          "nombres": "M.",
+          "apellidos": "Salick"
+        },
+        {
+          "nombre_completo": "W.C. Crone",
+          "nombres": "W.C.",
+          "apellidos": "Crone"
+        },
+        {
+          "nombre_completo": "A. Gopinathan",
+          "nombres": "A.",
+          "apellidos": "Gopinathan"
+        },
+        {
+          "nombre_completo": "K.C. Huang",
+          "nombres": "K.C.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "D.B. Weibel",
+          "nombres": "D.B.",
+          "apellidos": "Weibel"
+        }
+      ],
+      "pmid": "22548341",
+      "fuente": "Mol. Microbiol.",
+      "anio": "2012",
+      "volumen": "84",
+      "fpage": "874",
+      "lpage": "891"
+    },
+    {
+      "titulo": "Review of Direct Numerical Simulation of Fluid–Particle Mass, Momentum and Heat Transfer in Dense Gas–Solid Flows",
+      "autores": [
+        {
+          "nombre_completo": "N.G. Deen",
+          "nombres": "N.G.",
+          "apellidos": "Deen"
+        },
+        {
+          "nombre_completo": "E.A.J.F. Peters",
+          "nombres": "E.A.J.F.",
+          "apellidos": "Peters"
+        },
+        {
+          "nombre_completo": "J.T. Padding",
+          "nombres": "J.T.",
+          "apellidos": "Padding"
+        },
+        {
+          "nombre_completo": "J.A.M. Kuipers",
+          "nombres": "J.A.M.",
+          "apellidos": "Kuipers"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Chem. Eng. Sci.",
+      "anio": "2014",
+      "volumen": "116",
+      "fpage": "710",
+      "lpage": "724"
+    },
+    {
+      "titulo": "The Monod Equation and Mass Transfer",
+      "autores": [
+        {
+          "nombre_completo": "J.C. Merchuk",
+          "nombres": "J.C.",
+          "apellidos": "Merchuk"
+        },
+        {
+          "nombre_completo": "J.A. Asenjo",
+          "nombres": "J.A.",
+          "apellidos": "Asenjo"
+        }
+      ],
+      "pmid": "18623056",
+      "fuente": "Biotechnol. Bioeng.",
+      "anio": "1995",
+      "volumen": "45",
+      "fpage": "91",
+      "lpage": "94"
+    },
+    {
+      "titulo": "The Growth of Bacterial Cultures",
+      "autores": [
+        {
+          "nombre_completo": "J. Monod",
+          "nombres": "J.",
+          "apellidos": "Monod"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Annu. Rev. Microbiol.",
+      "anio": "1949",
+      "volumen": "3",
+      "fpage": "371",
+      "lpage": "394"
+    },
+    {
+      "titulo": "Overview of Some Theoretical Approaches for Derivation of the Monod Equation",
+      "autores": [
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "17119956",
+      "fuente": "Appl. Microbiol. Biotechnol.",
+      "anio": "2007",
+      "volumen": "73",
+      "fpage": "1241",
+      "lpage": "1250"
+    },
+    {
+      "titulo": "Diffusion in Biofilms",
+      "autores": [
+        {
+          "nombre_completo": "P.S. Stewart",
+          "nombres": "P.S.",
+          "apellidos": "Stewart"
+        }
+      ],
+      "pmid": "12591863",
+      "fuente": "J. Bacteriol.",
+      "anio": "2003",
+      "volumen": "185",
+      "fpage": "1485",
+      "lpage": "1491"
+    },
+    {
+      "titulo": "The Influence of the Crowding Assumptions in Biofilm Simulations",
+      "autores": [
+        {
+          "nombre_completo": "L. Angeles-Martinez",
+          "nombres": "L.",
+          "apellidos": "Angeles-Martinez"
+        },
+        {
+          "nombre_completo": "V. Hatzimanikatis",
+          "nombres": "V.",
+          "apellidos": "Hatzimanikatis"
+        }
+      ],
+      "pmid": "34292941",
+      "fuente": "PLoS Comput. Biol.",
+      "anio": "2021",
+      "volumen": "17",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Investigation of Space Flight Effects on Escherichia Coli and a Proposed Model of Underlying Physical Mechanisms",
+      "autores": [
+        {
+          "nombre_completo": "D. Klaus",
+          "nombres": "D.",
+          "apellidos": "Klaus"
+        },
+        {
+          "nombre_completo": "S. Simske",
+          "nombres": "S.",
+          "apellidos": "Simske"
+        },
+        {
+          "nombre_completo": "P. Todd",
+          "nombres": "P.",
+          "apellidos": "Todd"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        }
+      ],
+      "pmid": "9043122",
+      "fuente": "Microbiology",
+      "anio": "1997",
+      "volumen": "143",
+      "fpage": "449",
+      "lpage": "455"
+    },
+    {
+      "titulo": "Factors Implicating the Validity and Interpretation of Mechanobiology Studies in Simulated Microgravity Environments",
+      "autores": [
+        {
+          "nombre_completo": "C. Poon",
+          "nombres": "C.",
+          "apellidos": "Poon"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Eng. Rep.",
+      "anio": "2020",
+      "volumen": "2",
+      "fpage": "e12242",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microgravity, Bacteria, and the Influence of Motility",
+      "autores": [
+        {
+          "nombre_completo": "M.R. Benoit",
+          "nombres": "M.R.",
+          "apellidos": "Benoit"
+        },
+        {
+          "nombre_completo": "D.M. Klaus",
+          "nombres": "D.M.",
+          "apellidos": "Klaus"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Space Res.",
+      "anio": "2007",
+      "volumen": "39",
+      "fpage": "1225",
+      "lpage": "1232"
+    },
+    {
+      "titulo": "Modeling and CFD Simulation of Nutrient Distribution in Picoliter Bioreactors for Bacterial Growth Studies on Single-Cell Level",
+      "autores": [
+        {
+          "nombre_completo": "C. Westerwalbesloh",
+          "nombres": "C.",
+          "apellidos": "Westerwalbesloh"
+        },
+        {
+          "nombre_completo": "A. Grünberger",
+          "nombres": "A.",
+          "apellidos": "Grünberger"
+        },
+        {
+          "nombre_completo": "B. Stute",
+          "nombres": "B.",
+          "apellidos": "Stute"
+        },
+        {
+          "nombre_completo": "S. Weber",
+          "nombres": "S.",
+          "apellidos": "Weber"
+        },
+        {
+          "nombre_completo": "W. Wiechert",
+          "nombres": "W.",
+          "apellidos": "Wiechert"
+        },
+        {
+          "nombre_completo": "D. Kohlheyer",
+          "nombres": "D.",
+          "apellidos": "Kohlheyer"
+        },
+        {
+          "nombre_completo": "E. von Lieres",
+          "nombres": "E.",
+          "apellidos": "von Lieres"
+        }
+      ],
+      "pmid": "26345659",
+      "fuente": "Lab A Chip",
+      "anio": "2015",
+      "volumen": "15",
+      "fpage": "4177",
+      "lpage": "4186"
+    },
+    {
+      "titulo": "Density of Aqueous Solutions of Organic Substances as Sugars and Alcohols",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Volumetric, Compressibility, Taste Behavior and Viscometric Studies of Methionine with Some Saccharides in Aqueous Medium at Different Temperatures",
+      "autores": [
+        {
+          "nombre_completo": "A. Kumar",
+          "nombres": "A.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "R. Rani",
+          "nombres": "R.",
+          "apellidos": "Rani"
+        },
+        {
+          "nombre_completo": "B. Saini",
+          "nombres": "B.",
+          "apellidos": "Saini"
+        },
+        {
+          "nombre_completo": "R.K. Bamezai",
+          "nombres": "R.K.",
+          "apellidos": "Bamezai"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Solution. Chem.",
+      "anio": "2017",
+      "volumen": "46",
+      "fpage": "931",
+      "lpage": "956"
+    },
+    {
+      "titulo": "Temperature and Concentration Dependence of Density of Model Liquid Foods",
+      "autores": [
+        {
+          "nombre_completo": "R. Darros-Barbosa",
+          "nombres": "R.",
+          "apellidos": "Darros-Barbosa"
+        },
+        {
+          "nombre_completo": "M.O. Balaban",
+          "nombres": "M.O.",
+          "apellidos": "Balaban"
+        },
+        {
+          "nombre_completo": "A.A. Teixeira",
+          "nombres": "A.A.",
+          "apellidos": "Teixeira"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Food Prop.",
+      "anio": "2003",
+      "volumen": "6",
+      "fpage": "195",
+      "lpage": "214"
+    },
+    {
+      "titulo": "Phenotypic Changes Exhibited by E. Coli Cultured in Space",
+      "autores": [
+        {
+          "nombre_completo": "L. Zea",
+          "nombres": "L.",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "M. Larsen",
+          "nombres": "M.",
+          "apellidos": "Larsen"
+        },
+        {
+          "nombre_completo": "F. Estante",
+          "nombres": "F.",
+          "apellidos": "Estante"
+        },
+        {
+          "nombre_completo": "K. Qvortrup",
+          "nombres": "K.",
+          "apellidos": "Qvortrup"
+        },
+        {
+          "nombre_completo": "R. Moeller",
+          "nombres": "R.",
+          "apellidos": "Moeller"
+        },
+        {
+          "nombre_completo": "S. Dias de Oliveira",
+          "nombres": "S.",
+          "apellidos": "Dias de Oliveira"
+        },
+        {
+          "nombre_completo": "L. Stodieck",
+          "nombres": "L.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "D. Klaus",
+          "nombres": "D.",
+          "apellidos": "Klaus"
+        }
+      ],
+      "pmid": "28894439",
+      "fuente": "Front. Microbiol.",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "1598",
+      "lpage": ""
+    },
+    {
+      "titulo": "Salmonella Typhimurium and Escherichia Coli Dissimilarity: Closely Related Bacteria with Distinct Metabolic Profiles",
+      "autores": [
+        {
+          "nombre_completo": "C.R. Sargo",
+          "nombres": "C.R.",
+          "apellidos": "Sargo"
+        },
+        {
+          "nombre_completo": "G. Campani",
+          "nombres": "G.",
+          "apellidos": "Campani"
+        },
+        {
+          "nombre_completo": "G.G. Silva",
+          "nombres": "G.G.",
+          "apellidos": "Silva"
+        },
+        {
+          "nombre_completo": "R.C. Giordano",
+          "nombres": "R.C.",
+          "apellidos": "Giordano"
+        },
+        {
+          "nombre_completo": "A.J. Da Silva",
+          "nombres": "A.J.",
+          "apellidos": "Da Silva"
+        },
+        {
+          "nombre_completo": "T.C. Zangirolami",
+          "nombres": "T.C.",
+          "apellidos": "Zangirolami"
+        },
+        {
+          "nombre_completo": "D.M. Correia",
+          "nombres": "D.M.",
+          "apellidos": "Correia"
+        },
+        {
+          "nombre_completo": "E.C. Ferreira",
+          "nombres": "E.C.",
+          "apellidos": "Ferreira"
+        },
+        {
+          "nombre_completo": "I. Rocha",
+          "nombres": "I.",
+          "apellidos": "Rocha"
+        }
+      ],
+      "pmid": "26097206",
+      "fuente": "Biotechnol. Prog.",
+      "anio": "2015",
+      "volumen": "31",
+      "fpage": "1217",
+      "lpage": "1225"
+    },
+    {
+      "titulo": "Adaptation of a Methionine Auxotroph Escherichia Coli Growth Assay to Microtiter Plates for Quantitating Methionine",
+      "autores": [
+        {
+          "nombre_completo": "I.B.Z. Díaz",
+          "nombres": "I.B.Z.",
+          "apellidos": "Díaz"
+        },
+        {
+          "nombre_completo": "C.A. Froelich",
+          "nombres": "C.A.",
+          "apellidos": "Froelich"
+        },
+        {
+          "nombre_completo": "S.C. Ricke",
+          "nombres": "S.C.",
+          "apellidos": "Ricke"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Rapid Methods Autom. Microbiol.",
+      "anio": "2002",
+      "volumen": "10",
+      "fpage": "217",
+      "lpage": "229"
+    }
+  ]
+}

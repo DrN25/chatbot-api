@@ -1,0 +1,3290 @@
+{
+  "TITLE": [
+    "Machine learning algorithm to characterize antimicrobial resistance associated with the International Space Station surface microbiome"
+  ],
+  "ABSTRACT": [
+    "Background",
+    "Antimicrobial resistance (AMR) has a detrimental impact on human health on Earth and it is equally concerning in other environments such as space habitat due to microgravity, radiation and confinement, especially for long-distance space travel. The International Space Station (ISS) is ideal for investigating microbial diversity and virulence associated with spaceflight. The shotgun metagenomics data of the ISS generated during the Microbial Tracking–1 (MT-1) project and resulting metagenome-assembled genomes (MAGs) across three flights in eight different locations during 12 months were used in this study. The objective of this study was to identify the AMR genes associated with whole genomes of 226 cultivable strains, 21 shotgun metagenome sequences, and 24 MAGs retrieved from the ISS environmental samples that were treated with propidium monoazide (PMA; viable microbes).",
+    "Results",
+    "We have analyzed the data using a deep learning model, allowing us to go beyond traditional cut-offs based only on high DNA sequence similarity and extending the catalog of AMR genes. Our results in PMA treated samples revealed AMR dominance in the last flight for Kalamiella piersonii, a bacteria related to urinary tract infection in humans. The analysis of 226 pure strains isolated from the MT-1 project revealed hundreds of antibiotic resistance genes from many isolates, including two top-ranking species that corresponded to strains of Enterobacter bugandensis and Bacillus cereus. Computational predictions were experimentally validated by antibiotic resistance profiles in these two species, showing a high degree of concordance. Specifically, disc assay data confirmed the high resistance of these two pathogens to various beta-lactam antibiotics.",
+    "Conclusion",
+    "Overall, our computational predictions and validation analyses demonstrate the advantages of machine learning to uncover concealed AMR determinants in metagenomics datasets, expanding the understanding of the ISS environmental microbiomes and their pathogenic potential in humans.",
+    "Video Abstract",
+    "Supplementary Information",
+    "The online version contains supplementary material available at 10.1186/s40168-022-01332-w."
+  ],
+  "INTRO": [
+    "Background",
+    "According to the World Health Organization, the widespread use of antibiotics worldwide and the slow discovery of major types on antibiotics in the last thirty years has made antibiotic resistance one of the biggest threats to human health, food security, and development. Accordingly, with NASA setting the course to return to the Moon with the Artemis mission and eventually venture out to Mars, maintaining the health of astronauts during long-term spaceflight is of paramount importance. One area of particular concern is the reported increase in virulence and antibiotic resistance of microorganisms in space experiments. Combined with a depressed or altered immune response in astronauts, there is an increased risk of opportunistic microbial infection. Spaceflight promotes biofilm formation, and bacteria cultured from astronauts during flight were more resistant than isolates obtained from the same individual either pre- or post-flight. Mutations also occurred more frequently in long-term spaceflights. An alternative non-mutually exclusive hypothesis to increased virulence or microbial resistance to antibiotics is that spaceflight conditions might alter the stability of pharmaceuticals. In any case, bacterial infections might be more challenging to treat in space.",
+    "The International Space Station (ISS) is a closed-built environment with its own environmental microbiome shaped by microgravity, radiation, and limited human presence. We and others have shown that microbiomes are dynamic, diverse and sometimes intertwined at the ISS. Be et al. analyzed antibiotic resistance and virulence genes from dust and vacuum filter samples of ISS (treated with propidium monoazide, or PMA), demonstrating that human skin-associated microbes impact the ISS microbiome. Indeed, the skin and intestinal microbiomes of astronauts that spent 6 to 12 months in the ISS have been shown to be altered. In addition, the salivary microbiome of astronauts changed as a result of spaceflight, potentially activating microbes that promote viral replication and altering the abundance of some antimicrobial resistance (AMR) genes. The ISS itself also presents specific core microbiome signatures on its surfaces that we characterized recently using shotgun metagenome and amplicon sequencing, analogous to microbiome signatures found in specific geographies on Earth.",
+    "Further analyses across several missions have revealed that the microbiome of the crew's skin resembled those of the surfaces inside the ISS collected by the crewmember on the same flight. To better understand the composition of these bacterial populations we and others have characterized shotgun whole-genome sequencing (WGS) of several ISS microorganisms. Although most of them have been found to be non-pathogenic to humans, there are exceptions such as antibiotic-resistant Enterobacter bugandensis strains that could have an increased chance of pathogenicity.",
+    "Computational analyses of microbiome data collected in Earth have shown that AMR can be predicted from genomic sequence of pure cultures alone, but a consensus approach on the best way to detect AMRs in metagenomic datasets has yet to be established. Generally, predictions are restricted to high identity (high sequence similarity to databases) cut-offs, requiring a ‘best-hit’ on an appropriate AMR database with a sequence identity greater than 80% by many programs such as ResFinder. Although the ‘best-hit’ approach has a low false-positive rate, the false-negative rate can be very high, and a large number of actual Antibiotic Resistance Genes (ARGs) are predicted as non-ARGs, thus concealing the identification of potentially functional ARGs. Another method of identification is to link the immune repertoire of the astronaut to the peptides of the microbes on the ISS, but this requires complex coordination with crew sampling and is rare. However, it has been shown recently that deep learning, a class of machine learning algorithms, can expand the catalog of AMR genes and increase the accuracy of the predictions based on metagenomic data. We then hypothesized that the characterization of AMR from sequencing data at the ISS could be investigated from an artificial intelligence perspective using a robust deep learning framework. For that, we analyzed whole-genome sequences of 226 pure strains (cultivable microbes), metagenome sequences of 21 environmental samples, and 24 MAGs retrieved from PMA treated samples (Fig. 1) using the supervised deep learning approach proposed by Arango-Argoty et al., which has shown high sensitivity for detection of AMR genes in an independent benchmark."
+  ],
+  "FIG": [
+    "Overview of sample collection and data analysis for the characterization of antibiotic resistance at the ISS using deep learning. The data are processed in a step-wise fashion including data QC, mapping, quantification, and matching to time of collection and mission. The figure has been generated using BioRender (http://biorender.com)",
+    "Prediction of ARGs using a pre-trained DeepARG-SS model. a Distribution of ARG read counts across antibiotic classes for the three flights (F1, F2, F3). b Correlation of read counts found by DeepARG-SS and those in Singh et al.. Pearson's product-moment correlation r = 0.86, (p = 6.879e−07) for the three flights and their locations. c Read counts of ARG class across flights for each location for PMA-treated samples in Singh et al.. The antibiotic class (multi-drug) is not shown. Results are for ARGs with probability > 0.8",
+    "ARGs detected in ORFs in metagenome-assembled genomes (MAGs) from PMA-treated samples. a Distribution of DeepARG classification probability and best-hit identity in MAGs retrieved from the ISS. b Total number of ARGs predicted for each flight and location. c Number of ARGs precited for each MAG. Most common antibiotic class (multi-drug) not shown. The black arrows indicate Kalamiella piersonii",
+    "Heatmap and clustering of ARG counts detected in MT-1 pure strains isolated from the ISS and AST validations. a Heatmap with ARG count. The barplots illustrate the number of ARGs across rows and across columns. Species were identified using BLAST. Only ARGs with probability > 0.8 were considered, as recommended. b Antibacterial susceptibility tests (AST) on E. bugandensis and B cereus strains for several antibiotics (top), and comparison with machine learning predictions shown in (a) (bottom). c Scatterplot of zone of inhibition value (in mm.) and ARG count shown in (b), together with a linear model fit. Pearson's product-moment correlation values are indicated"
+  ],
+  "RESULTS": [
+    "Results",
+    "Predictions based on short metagenomics sequences and ORFs partly overlap with previous analyses and reveal new AMR determinants at the ISS surface microbiome",
+    "The first shotgun metagenome sequencing of intact microbial cells (Propidium monoazide-PMA treated) without whole-genome amplification was performed by Singh et al.. There, samples were taken in 8 locations across three flights (F1, F2, F3) during a period of 12 months. A detailed description of sampling procedures and locations, species diversity and functional characterization can be found in Singh et al.. To deploy a deep learning approach for predicting antibiotic resistance genes from metagenomic data, we used DeepARG, a computational resource proven to be more accurate than traditional approaches. We first run DeepARG-SS (DeepARG for short reads) using the recommended prediction probability cut-off of 0.8 to obtain read counts of AMR genes (Fig. 2a). As in the seminal paper, quantification of antibiotics associated with AMR revealed ‘beta lactams’ ranking first and ‘peptide’ second, and generally more AMR reads counts observed in Flight 3 (F3) than in previous two flights (Fig. 2a). However, reads counts in certain antibiotics such as pleuromutilin, mupirocin and rifamycin were found largely in Flight 2 (Fig. 2a). Our read counts correlate (r = 0.86, p = 6.879e−7; Pearson’s product-moment correlation) with read counts obtained for antimicrobial resistance by Singh et al. (Fig. 2b). Taken together, these suggest a partial overlap with results obtained in Singh et al. analyzed using the traditional approach.",
+    "While more AMR reads counts were found in Flight 3, we also observed variability between the different locations and flights, and an increasing number of read counts associated with time. For instance, location 4 (L4, surface of the dining table) increased the number of AMR reads counts with successive flights (Fig. 2b, c). While resistance to ‘beta lactams’ was evenly distributed across flights and locations, resistance to ‘polymyxin’ and especially ‘peptide’ represents a more significant proportion of AMR counts in locations of Flight 3 (Fig. 2c). In addition, we also observed the widespread presence of reads related to Macrolides, Lincosamides, Streptogamines (MLS), and tetracycline resistance.",
+    "To investigate the possible association between AMR patterns and specific microbes, we assembled the short reads into Metagenome-Assembled Genomes (MAGs; see Methods), identified their Open Reading Frames (ORFs), and repeated the prediction of ARGs using DeepARG-LS. Figure 3a shows the distribution of DeepARG classification probabilities and best-hit identity of ARGs in MAGs from the ISS. As we can retrieve highly probable ARGs (probability > 0.8) presenting low sequence identity (for many ARGs, identity is < 40%), this method is likely more advantageous than using the ‘best-hit’ approach only. Compared to DeepARG-SS results obtained previously, the analysis of MAGs did not reveal significant differences in the number of ARGs predicted in the ORFs for the different flights (Fig. 3b). However, interestingly the results show a smaller number bacterial species having ARGs in Flight #1 (F1) when compared to Flights #2 and #3 (Fig. 3b, c) (data is shown for MAGs with at least 1 predicted ARG; the total number of MAGs analyzed is 24). Specifically, the number of locations is smaller in Flight 1 (n = 3) than in F2 (n = 6) and F3 (n = 7) (Fig. 3b). Many ARGs were identified in Kalamiella piersonii MAGs in multiple locations during F3, showing AMR patterns related to (glyco)peptide, fluoroquinolone and MLS (Fig. 3c). Of note, the K. piersonii strain closely related to one found at the ISS has been associated to human urinary tract infection. The potentially very pathogenic microbe E. bugandensis was found in location 2 (forward side panel wall of the Waste and Hygiene Compartment) in Flight 1, presenting more than 40 ARGs. In addition, in the original study, Pantoea species were found to be the dominant genus in samples in 5 out of 7 locations sampled from Flight 3, especially at location 5 (surface rack). In our re-analysis, we observed Pantoea brenneri and Pantoea dispersa having ARGs related to beta-lactams and peptide, as well as to triclosan and polymyxin resistance.",
+    "Overall, our results partially agree with earlier findings while providing new insights into previously unobserved antibiotic resistance classes (of the 30 antibiotic resistance categories included in the model). Specifically, the re-analysis of short sequences and MAGs from the ISS reveals dominance of K. piersonii antibiotic resistance in different locations of Flight 3 (Fig. 3c).",
+    "Distribution of antibiotic resistance genes in scaffolds of Microbial Tracking-1 strains isolated from the ISS",
+    "We then applied DeepARG-LS to 226 Microbial Tracking-1 (MT-1) isolates (Mason and Venkateswaran labs, published and unpublished WGS of MT-1 pure strains isolated from ISS environment). We found a range of 2 to 92 ARGs in 184 out of 226 isolates (Fig. 4a; Table S1). This machine learning approach allowed us to go beyond the traditional cut-off based only on high sequence DNA similarity (Figure S1). These results suggest a widespread presence of potential ARGs in the isolates, with ‘multi-drug’ class being first, followed by glycopeptides, beta-lactams, bacitracin, and tetracyclines. The ‘multi-drug’ antibiotic class was defined by aggregating several antibiotic names from the CARD and ARDB databases (efflux, multi-drug and na_antimicrobials). We then used BLAST to match isolates showing AMR sequences predicted by DeepARG to microbial species (Fig. 4a) and identified Bacillus cereus and E. bugandensis, which were previously profiled organisms on the ISS as the top 2 ranking species with a high number of ARGs. We have previously shown that five E. bugandensis isolates were almost equivalent to nosocomial earth isolates showing resistance to multi-drug antibiotic compounds, fluoroquinolones, and fosfomycin. In addition, E. bugandensis strains were shown to be resistant to 9 antibiotics. Our results reinforce the potential pathogenicity of this microbe. Nonetheless, antimicrobial resistance was not examined for B. cereus strains in Venkateswaran et al.. B. cereus is a food poisoning microorganism that might be a concern for crew members' health. In addition, we found novel ARGs associated with other species such as K. pneumoniae, Pantoea, Paenibacillus polymyxa, Bacillus velezensis, Enterococcus faecalis, Sphingomonas, and, with a lower number of ARGs, several species of Staphylococcus. E. faecalis virulence was previously shown to be affected by microgravity. We then used the tool Prokka to fully annotate the bacterial isolates, finding as expected that the number of coding sequences, but not the number of ARGs, increased in proportion to genome sizes (Figure S2a). Then, we ran the pan-genome analysis tool Roary to compare isolates of E. bugandensis (10) and B. cereus (10) finding that the core set of genes was highly conserved among strains of the same species (Figure S2b).",
+    "To experimentally validate machine learning predictions on previously unobserved AMR patterns above, we performed Antibacterial Susceptibility Tests (AST) for the species found to be potentially most pathogenic, in our case E. bugandensis and B. cereus as they have a higher number of ARGs (Table S1; Fig. 4a). For that, we use disc diffusion on strains isolated at the ISS for the following antimicrobials: Cefazolin (beta−lactam), Cefoxitin (beta−lactam), Ciprofloxacin (quinolone), Erythromycin (MLS), Gentamycin (aminoglycoside), Oxacillin (beta−lactam), Penicillin (beta−lactam), Rifampin (rifamycin), and Tobramycin (aminoglycoside) (Fig. 4b). The prediction patterns closely matched the AST results (Fig. 4b), although DeepARG failed to detect Rifampin resistance, especially for E. bugandensis.",
+    "Although different antibiotics have different inhibitory zone cut-offs for a strain to be considered as resistant (Table S2), remarkably we found an inverse correlation between the zone of inhibition and ARG count for B. cereus (r = − 0.637, Pearson's product-moment correlation, p = 2.2e−7) and E. bugandensis (r = − 0.517; p = 0.0002765) (Fig. 4c), demonstrating the applicability and high accuracy of computational prediction of AMR for microbiome data obtained in space."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "Many ARGs that present high probability but low sequence identity to known sequences will be missed using traditional ‘best-hit’ approaches that require a high degree of sequence identity. To solve this, computational methods have been developed to identify AMR in genomes and metagenomes. Despite these developments, a consensus approach to detect AMR in metagenomics datasets is yet to be defined. The objective of this study was to identify the AMR genes associated with cultivated strains and metagenomes generated from the ISS environmental surfaces using an accurate deep learning approach (Fig. 1).",
+    "Firstly, we re-analyzed shotgun metagenome sequences of 21 environmental samples that were treated with PMA (viable microbes), and their associated 24 MAGs retrieved from the PMA-treated samples. The re-analysis showed increased read counts associated with AMR and in more locations for flight 3 when considering MAGs (Fig. 2). This could be explained due to the ISS crew being replaced during Flight 3. The abundance of Enterobacteriaceae in Flight 3 was discussed in Singh et al.. We have not observed any differences between early vs. late ISS microbiome cultures. For example, Enterobacter bugandansis strains were isolated from F2 and F3 sample sets, but the genome comparison and phenotype analyses revealed limited change, with a maximum of 15 SNPs among ISS isolates. In addition, K. piersonii spread across four different locations (L1, L5, L7, L8) at Flight 3, presenting resistance to specific antibiotics (glyco/peptide, fluoroquinolone and MLS) (Fig. 3c). We have previously isolated strains from Locations 1, 2, 5, 6, and 7, defining a novel bacterial genus from the ISS samples. While K. piersonii do have virulence genes in the genome, a dichotomy was found as disc diffusion tests revealed multi-drug resistance, while the PathogenFinder algorithm predicted K. piersonii strains as non-human pathogens. All seven K. piersonii isolates were resistant to cefoxitin (beta_lactam class in DeepARG), erythromycin (MLS), oxacillin (beta_lactam), penicillin (beta_lactam), and rifampin. At the same time, all strains were susceptible to cefazolin, ciprofloxacin (quinolone), and tobramycin (aminoglycoside). The DeepARG database does not include some of these antibiotics, but we found AMR sequences related to resistance to (glyco)peptide, fluoroquinolone, and MLS, validating some previous results. Therefore, PathogenFinder results in Singh et al. suggesting K. piersonii as a non-human pathogen should be treated with caution. Furthermore, the strain YU22 (closest match is IIIF1SW-P2T detected as ISS) isolated in urine microbiome of a kidney stone patient has shown to be an uropathogenic bacteria, showing many virulence factors that are needed for host cell invasion and colonization.",
+    "Secondly, the whole-genome sequences (WGS) of 226 pure strains (cultivable microbes) were analyzed to identify AMR genes (Fig. 4a). We found the human pathogens E. bugandensis and B. cereus presenting many potential ARGs in the MT-1 scaffolds. Up to five strains isolated from the ISS have been closely related to the type strain EB-247T and two clinical isolates (153_ECLO and MBRL 1077) and share similar AMR patterns. One hundred twelve genes were found to be involved in virulence, disease, and defence in the ISS strains. Our re-analysis confirms the multi-drug resistance (MDR) to antibiotics for the ISS isolates, which is the highest among all the isolates. Our previous research uncovered the presence of genes associated with MDR efflux pump, belonging to RND (resistance, nodulation and cell division) protein family, which are reported to be the major contributors of resistance to antibiotic and other toxic compounds to the bacteria. MDR has been reported to play role in the physiological function and confer resistance to substances like host defense molecule and bile, which can lead to pathogenicity in humans. Unlike in Singh et al., we found fluoroquinolone resistance low, and null for fosfomycin. Conversely, B. cereus is a gram-positive bacterium commonly found in food. After infection, most emetic patients recover within 24 hours, but in some cases, the toxin can be fatal via a fulminant hepatic failure. Overall, multi-drug resistance was found widespread in many microbes.",
+    "Third, phenotypic antibiotic resistance testing data obtained from traditional antibiotic tests generated for biosafety level 2 strains were compared with the computational approaches that predicted the presence of the AMR genes, showing an excellent agreement for the antibiotics tested (Fig. 4b, c). A disadvantage of the deep learning model developed by Arango-Argoty et al. is that the prediction can disentangle the family of antibiotics but not specific compounds.",
+    "Many studies have shown the association between several microorganisms (bacterial, as well as phage and non-phase viral sequences) and several cancer features. Although it is unclear whether this corresponds to correlation or causation, the microbiome can undoubtedly be used as a cancer biomarker. For instance, certain strains of Fusobacterium sp. can be utilized as an independent diagnostic assay for colon cancer. Therefore, a better understanding of the microbial communities and their degree of pathogenicity in surface-human microbiomes in space could also be useful for human health monitorization with detection and prognostic values in long term space travel. Rather than the gather-and-return sampling model currently used for the ISS, new developments in sequencing technologies in combination with Artificial Intelligence will allow for efficient analysis onboard the ISS and in long-duration space missions.",
+    "We are currently collecting more data for Microbial Tracking-2 (MT-2) and MT-3 missions. We plan to extend the AMR catalog, characterize microbial diversity, and monitor the evolution of AMR in longer time periods to discover new factors involved in pathogenicity of microorganisms exposed to space conditions."
+  ],
+  "METHODS": [
+    "Methods",
+    "Metagenome-Assembled Genomes (MAGs) methodology",
+    "The paired-end 100-bp metagenomic reads from NCBI Short Read Archive (SRA) under the bio-project number PRJNA438545 were processed with Trimmomatic to trim adapter sequences and low-quality ends, with a minimum Phred score of 20 across the entire length of the read used as a quality cut-off. Reads shorter than 80 bp were removed after trimming. Remaining high-quality reads were subsequently assembled using metaSPAdes. Contigs were binned using Metabat2 v2.11.3. Recovered genomes were evaluated with CheckM, and a recovered genome was considered good with at least 90% completeness and at most 10% contamination. Each genome was subsequently annotated with the help of Rapid Annotations using Subsystems Technology (RAST), and near identifications were predicted.",
+    "Sample collection for Microbial Tracking 1 mission",
+    "During the microbial tracking investigation to characterize airborne and surface-associated microbial population aboard the International Space Station, samples were collected from ISS locations, and ground samples were collected from the Crew resupply vehicle. A sterile polyester wipe premoistened with Phosphate buffered saline (PBS) was used to collect the samples from various areas across these ISS locations, and the details and description of the sample collection and cultivation have already been reported in Checinska Sielaff et al. and Singh et al.. Pure isolates were selected and sub-cultured, and the sub-cultures were sequenced.",
+    "Isolates from Microbial Tracking 1 mission",
+    "To create the whole-genome sequences (WGS) of these strains, shotgun libraries were prepared using the Illumina Nextera Flex protocol, using NovaSeq 6000 S4 flow cell 2150 paired-end (PE) sequencing. Verification of the quality of the raw sequencing data was carried out using FastQC v0.11.7. Quality control for adapter trimming and quality filtering were performed using fastp v0.20.0, and then SPAdes v3.11.1 was used to assemble all the cleaned sequences. Fastp quality control was based on the following three parameters: (i) correction of mismatches in overlapped regions of paired-end reads, (ii) trimming of autodetected adapter sequences, and (iii) quality trimming at the 59 and 39 ends. To determine the quality of the assembled sequences, the number of contigs, the N50 value, and the total length were calculated using QUAST v5.0.2. Default parameters were used for all software. The average nucleotide identity (ANI) was calculated using OrthoANIu by comparing each of the scaffolds to the WGS of the respective type strains.",
+    "Identification of ORFs in microbial DNA sequences",
+    "Glimmer (Gene Locator and Interpolated Markov ModelER) v3.02 was used with default parameters to identify the coding regions and distinguish them from non-coding DNA in MAGs and MT-1 scaffolds that could be used as an input in DeepARG-LS. Minimum gene length was indicated as 50 bp (‘glimmer3 -g50’). Glimmer reads DNA sequences in a FASTA file format and predicts genes in them using an Interpolated Context Model.",
+    "Prediction of antibiotic resistance genes in short reads and full-gene length sequences",
+    "DeepARG version 2, a deep learning-based approach for predicting ARGs and annotation, was run with the ‘--reads’ option (DeepARG-SS) for NGS reads and the ‘--genes’ option (DeepRG-LS) for longer gene-like sequences obtained with Glimmer. The DeepARG model consists of four dense hidden layers of 2000, 1000, 500, and 100 units that propagate a bit score distribution. The output layer of the deep neural network consists of 30 units that correspond to the antibiotic resistance categories (102 antibiotics consolidated into 30 antibiotic categories). The model was trained with a curated database of 14,933 genes from three databases (CARD, ARDB, and UNIPROT). Default options were used: 50% minimum percentage of identity to consider, significance of the prediction probability cut-off of 0.8 as recommended, and E-value of alignments (default 1e−10). The software was downloaded from https://bitbucket.org/gusphdproj/deeparg-ss.",
+    "Microbial nucleotide BLAST",
+    "Nucleotide-Nucleotide BLAST 2.10.1+ (https://blast.ncbi.nlm.nih.gov/Blast.cgi) was used to identify microbial species associated to MT-1 scaffolds. Sequences producing significant alignments were ranked and the species associated to maximum Score (bits) and minimum E value was deemed as the closest match.",
+    "Gene annotations and pan-genome analysis of MT-1 scaffolds",
+    "A Docker image with the software tool Prokka v1.14.5 was pulled and used with default parameters to annotate bacterial isolates. The master annotations in GFF3 format for the 226 isolates have been deposited at the Zenodo platform [DOI: 10.5281/zenodo.6518836]. Using the annotated assemblies in GFF3 format for E. bugandensis and B. cereus strains, Roary v3.13.0 was run with default parameters to compare isolates based on genes and the number of isolates they are present in.",
+    "Phenotypic antibiotic resistance testing",
+    "Disc assays experiments were performed and reported in Urbaniak et al.. The isolates were streaked from glycerol stocks onto R2A plates. A single colony was inoculated into 5 mL Tryptic Soy Broth (TSB) and grown overnight at 30°C. Aliquots of 100 μL were plated on TSA. Agar diffusion discs (BD BBLTM Sensi-DiscTM, Franklin Lakes, NJ) were placed aseptically on a plate and the strains were incubated at 37 °C for 24 h. The tested antibiotics included: 30-μg cefazolin (CZ-30); 30-μg cefoxitin (FOX-30), 5 μg ciprofloxacin (CIP-5), 15 μg erythromycin (E-15), 10-μg gentamicin (GM-10), 1-μg oxacillin (OX), 10-μg penicillin (P-10), 5-μg rifampin (RA-5), and 10 μg tobramycin (NN-10). The diameter of inhibition zones was measured for each antibiotic disk and recorded in millimeters. The resistance results were compared with the zone diameter interpretive charts provided by the manufacturer. When the spontaneous mutants were present in response to some antibiotics, they were isolated, subcultured and tested for the specific antibiotic resistance.",
+    "Data availability",
+    "Raw metagenomics reads from three flights on multiple locations were downloaded from NASA GeneLab repository https://genelab.nasa.gov (GLDS-69). The ISS MAGs datasets are available at the SRA database under the accession number: PRJNA438545 [https://www.ncbi.nlm.nih.gov/bioproject/PRJNA438545/]. Microbial tracking-1 (MT-1) datasets (raw sequencing data and sequence assembly files) were obtained from GLDS-67, GLDS-302, GLDS-303, GLDS-309, GLDS-311 and GLDS-350. The rest of the samples are deposited at DDBJ/ ENA/GenBank or are unpublished.",
+    "Availability of data and materials",
+    "The code use for the analysis is available at https://github.com/pmb59/AMRISS.",
+    "Declarations",
+    "Ethics approval and consent to participate",
+    "Not applicable.",
+    "Consent for publication",
+    "All authors have read and agreed with the manuscript."
+  ],
+  "SUPPL": [
+    "Supplementary Information"
+  ],
+  "ABBR": [
+    "Abbreviations",
+    "AMR",
+    "Antimicrobial resistance",
+    "ARG",
+    "Antibiotic resistance gene",
+    "AST",
+    "Antibacterial susceptibility test",
+    "ISS",
+    "International Space Station",
+    "MAG",
+    "Metagenome-assembled genome",
+    "MDR",
+    "Multi-drug resistance",
+    "MT-1",
+    "Microbial Tracking–1",
+    "PMA",
+    "Propidium monoazide",
+    "WGS",
+    "Whole-genome sequencing",
+    "Publisher’s Note",
+    "Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+    "Kasthuri Venkateswaran and Afshin Beheshti are joint senior authors."
+  ],
+  "AUTH_CONT": [
+    "Authors’ contributions",
+    "PM performed the computational analyses and led the writing. NKS, KV, JMW, and CEM provided data, exchange of ideas, and edits to the manuscript. EG and FHdO contributed to machine learning aspects. AB supervised and supported the study, wrote and provided final approval of the manuscript. All authors provided feedback and contributed to the research and final manuscript. All authors read and approved the final manuscript."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "AB was supported and funded by NASA grant 16-ROSBFP_GL-0005: NNH16ZTT001N-FG Appendix G: Solicitation of Proposals for Flight and Ground Space Biology Research (Award Number: 80NSSC19K0883) and The Translational Research Institute for Space Health through NASA Cooperative Agreement NNX16AO69A (T-0404). This work was partially supported by the ESA Space Omics Topical Team, funded by the ESA grant/contract 4000131202/20/NL/PG/pt “Space Omics: Towards an integrated ESA/NASA –omics database for spaceflight and ground facilities experiments”. CEM was supported by NASA grants (NNX16AO69A, NNX14AH50G, NNX17AB26G), the NIH (R01AI151059, U01DA053941) and Igor Tulchinsky and the WorldQuant Foundation. This research was funded by a 2012 Space Biology NNH12ZTT001N grant no. 19-12829-26 under Task Order NNN13D111T award to KV, which also funded the post-doctoral fellowships for NKS."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "The authors declare that they have no competing interests."
+  ],
+  "REF": [
+    "References",
+    "Fundamental Biological Features of Spaceflight: Advancing the Field to Enable Deep-Space Exploration",
+    "DeepARG: a deep learning approach for predicting antibiotic resistance genes from metagenomic data",
+    "Spaceflight modifies escherichia coli gene expression in response to antibiotic exposure and reveals role of oxidative stress response",
+    "Crewmember microbiome may influence microbial composition of ISS habitable surfaces",
+    "The RAST Server: rapid annotations using subsystems technology",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "Whole metagenome profiles of particulates collected from the International Space Station",
+    "Identification and reconstruction of novel antibiotic resistance genes from metagenomes",
+    "Draft Genome Sequences of Sphingomonas Species Associated with the International Space Station",
+    "Draft Genome Sequences of Tremellomycetes Strains Isolated from the International Space Station",
+    "Trimmomatic: a flexible trimmer for Illumina sequence data",
+    "Sequencing-based methods and resources to study antimicrobial resistance",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "Antimicrobial resistance prediction for gram-negative bacteria via game theory-based feature evaluation [published correction appears in Sci Rep. 2020 Jan 30;10(1):1846]",
+    "PathogenFinder--distinguishing friend from foe using bacterial whole genome sequence data [published correction appears in PLoS One. 2013;8(12). doi:10.1371/annotation/b84e1af7-c127-45c3-be22-76abd977600f]",
+    "International MetaSUB Consortium. A global metagenomic map of urban microbiomes and antimicrobial resistance",
+    "Danko DC, Singh N, Butler DJ, Mozsary C, Jiang P, Keshavarzian A, et al. Genetic and immunological evidence for microbial transfer between the international space station and an astronaut. bioRxiv. 2020. 11.10.376954. 10.1101/2020.11.10.376954.",
+    "Tripartite assembly of RND multidrug efflux pumps",
+    "Identifying bacterial genes and endosymbiont DNA with Glimmer",
+    "Fatal family outbreak of Bacillus cereus-associated food poisoning",
+    "Evaluation of physical and chemical changes in pharmaceuticals flown on space missions",
+    "Analysis of deletion mutations of the rpsL gene in the yeast Saccharomyces cerevisiae detected after long-term flight on the Russian space station Mir",
+    "The NASA twins study: a multidimensional analysis of a year-long human spaceflight",
+    "QUAST: quality assessment tool for genome assemblies",
+    "How to discover new antibiotic resistance genes?",
+    "Effects of microgravity on the virulence of Listeria monocytogenes, Enterococcus faecalis, Candida albicans, and methicillin-resistant Staphylococcus aureus",
+    "Using Genomics to Track Global Antimicrobial Resistance",
+    "Long-term exposure to spaceflight conditions affects bacterial response to antibiotics",
+    "MetaBAT, an efficient tool for accurately reconstructing single genomes from complex microbial communities",
+    "Spaceflight promotes biofilm formation by Pseudomonas aeruginosa",
+    "Hierarchical Hidden Markov models enable accurate and diverse detection of antimicrobial resistance sequences",
+    "Fulminant liver failure in association with the emetic toxin of Bacillus cereus",
+    "Investigation of Spaceflight Induced Changes to Astronaut Microbiomes",
+    "Microbial responses to microgravity and other low-shear environments",
+    "metaSPAdes: a new versatile metagenomic assembler",
+    "Roary: rapid large-scale prokaryote pan genome analysis",
+    "CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes",
+    "First Report of Pathogenic Bacterium Kalamiella piersonii Isolated from Urine of a Kidney Stone Patient: Draft Genome and Evidence for Role in Struvite Crystallization",
+    "Prediction of the intestinal resistome by a three-dimensional structure-based method",
+    "Prokka: rapid prokaryotic genome annotation",
+    "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+    "Immune function during space flight",
+    "Genome-based prediction of bacterial antibiotic resistance",
+    "Bacterial multidrug efflux pumps: mechanisms, physiology and pharmacological exploitations",
+    "Impact of space flight on bacterial virulence and antibiotic susceptibility",
+    "Study of minimal inhibitory concentration of antibiotics on bacteria cultivated in vitro in space (Cytos 2 experiment)",
+    "Detection of antimicrobial resistance genes associated with the International Space Station environmental surfaces",
+    "The influence of spaceflight on the astronaut salivary microbiome and the search for a microbiome biomarker for viral reactivation",
+    "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+    "Non-Toxin-Producing Bacillus cereus Strains Belonging to the B. anthracis Clade Isolated from the International Space Station",
+    "Study of the impact of long-duration space missions at the International Space Station on the astronaut microbiome",
+    "Space flight alters bacterial gene expression and virulence and reveals a role for global regulator Hfq",
+    "Wissel EF, Talbot BM, Johnson BA, Petit RA, Hertzberg V, Dunlop A, et al. Benchmarking software to predict antibiotic resistance phenotypes in shotgun metagenomes using simulated data. bioRxiv. 2022.01.13.476279. 10.1101/2022.01.13.476279.",
+    "A large-scale evaluation of algorithms to calculate average nucleotide identity",
+    "Identification of acquired antimicrobial resistance genes",
+    "Phenotypic Changes Exhibited by E. coli Cultured in Space",
+    "Fecal fusobacterium nucleatum for the diagnosis of colorectal tumor: a systematic review and meta-analysis"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fundamental Biological Features of Spaceflight: Advancing the Field to Enable Deep-Space Exploration",
+      "autores": [
+        {
+          "nombre_completo": "E Afshinnekoo",
+          "nombres": "E",
+          "apellidos": "Afshinnekoo"
+        },
+        {
+          "nombre_completo": "RT Scott",
+          "nombres": "RT",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "M Nelman-Gonzalez",
+          "nombres": "M",
+          "apellidos": "Nelman-Gonzalez"
+        },
+        {
+          "nombre_completo": "BE Crucian",
+          "nombres": "BE",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "SA Ponomarev",
+          "nombres": "SA",
+          "apellidos": "Ponomarev"
+        },
+        {
+          "nombre_completo": "OI Orlov",
+          "nombres": "OI",
+          "apellidos": "Orlov"
+        },
+        {
+          "nombre_completo": "D Shiba",
+          "nombres": "D",
+          "apellidos": "Shiba"
+        },
+        {
+          "nombre_completo": "M Muratani",
+          "nombres": "M",
+          "apellidos": "Muratani"
+        },
+        {
+          "nombre_completo": "M Yamamoto",
+          "nombres": "M",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "SE Richards",
+          "nombres": "SE",
+          "apellidos": "Richards"
+        },
+        {
+          "nombre_completo": "PA Vaishampayan",
+          "nombres": "PA",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "MJ MacKay",
+          "nombres": "MJ",
+          "apellidos": "MacKay"
+        },
+        {
+          "nombre_completo": "J Foox",
+          "nombres": "J",
+          "apellidos": "Foox"
+        },
+        {
+          "nombre_completo": "J Myrrhe",
+          "nombres": "J",
+          "apellidos": "Myrrhe"
+        },
+        {
+          "nombre_completo": "E Istasse",
+          "nombres": "E",
+          "apellidos": "Istasse"
+        },
+        {
+          "nombre_completo": "N Singh",
+          "nombres": "N",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "JA Keune",
+          "nombres": "JA",
+          "apellidos": "Keune"
+        },
+        {
+          "nombre_completo": "HE Ray",
+          "nombres": "HE",
+          "apellidos": "Ray"
+        },
+        {
+          "nombre_completo": "M Basner",
+          "nombres": "M",
+          "apellidos": "Basner"
+        },
+        {
+          "nombre_completo": "J Miller",
+          "nombres": "J",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "MH Vitaterna",
+          "nombres": "MH",
+          "apellidos": "Vitaterna"
+        },
+        {
+          "nombre_completo": "E Pariset",
+          "nombres": "E",
+          "apellidos": "Pariset"
+        },
+        {
+          "nombre_completo": "DM Taylor",
+          "nombres": "DM",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "D Wallace",
+          "nombres": "D",
+          "apellidos": "Wallace"
+        },
+        {
+          "nombre_completo": "K Rubins",
+          "nombres": "K",
+          "apellidos": "Rubins"
+        },
+        {
+          "nombre_completo": "SM Bailey",
+          "nombres": "SM",
+          "apellidos": "Bailey"
+        },
+        {
+          "nombre_completo": "P Grabham",
+          "nombres": "P",
+          "apellidos": "Grabham"
+        },
+        {
+          "nombre_completo": "SV Costes",
+          "nombres": "SV",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "A Beheshti",
+          "nombres": "A",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "E Cekanaviciute",
+          "nombres": "E",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "R Barker",
+          "nombres": "R",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S Gilroy",
+          "nombres": "S",
+          "apellidos": "Gilroy"
+        },
+        {
+          "nombre_completo": "D Hassane",
+          "nombres": "D",
+          "apellidos": "Hassane"
+        },
+        {
+          "nombre_completo": "SM Smith",
+          "nombres": "SM",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "SR Zwart",
+          "nombres": "SR",
+          "apellidos": "Zwart"
+        }
+      ],
+      "pmid": "33242416",
+      "fuente": "Cell.",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1162",
+      "lpage": "1184"
+    },
+    {
+      "titulo": "DeepARG: a deep learning approach for predicting antibiotic resistance genes from metagenomic data",
+      "autores": [
+        {
+          "nombre_completo": "G Arango-Argoty",
+          "nombres": "G",
+          "apellidos": "Arango-Argoty"
+        },
+        {
+          "nombre_completo": "E Garner",
+          "nombres": "E",
+          "apellidos": "Garner"
+        },
+        {
+          "nombre_completo": "A Pruden",
+          "nombres": "A",
+          "apellidos": "Pruden"
+        },
+        {
+          "nombre_completo": "LS Heath",
+          "nombres": "LS",
+          "apellidos": "Heath"
+        },
+        {
+          "nombre_completo": "P Vikesland",
+          "nombres": "P",
+          "apellidos": "Vikesland"
+        },
+        {
+          "nombre_completo": "L Zhang",
+          "nombres": "L",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "29391044",
+      "fuente": "Microbiome.",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "23",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight modifies escherichia coli gene expression in response to antibiotic exposure and reveals role of oxidative stress response",
+      "autores": [
+        {
+          "nombre_completo": "TR Aunins",
+          "nombres": "TR",
+          "apellidos": "Aunins"
+        },
+        {
+          "nombre_completo": "KE Erickson",
+          "nombres": "KE",
+          "apellidos": "Erickson"
+        },
+        {
+          "nombre_completo": "N Prasad",
+          "nombres": "N",
+          "apellidos": "Prasad"
+        }
+      ],
+      "pmid": "29615983",
+      "fuente": "Front Microbiol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "310",
+      "lpage": ""
+    },
+    {
+      "titulo": "Crewmember microbiome may influence microbial composition of ISS habitable surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Avila-Herrera",
+          "nombres": "A",
+          "apellidos": "Avila-Herrera"
+        },
+        {
+          "nombre_completo": "J Thissen",
+          "nombres": "J",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        }
+      ],
+      "pmid": "32348348",
+      "fuente": "PLoS One",
+      "anio": "2020",
+      "volumen": "15",
+      "fpage": "e0231838",
+      "lpage": ""
+    },
+    {
+      "titulo": "The RAST Server: rapid annotations using subsystems technology",
+      "autores": [
+        {
+          "nombre_completo": "RK Aziz",
+          "nombres": "RK",
+          "apellidos": "Aziz"
+        },
+        {
+          "nombre_completo": "D Bartels",
+          "nombres": "D",
+          "apellidos": "Bartels"
+        },
+        {
+          "nombre_completo": "F Meyer",
+          "nombres": "F",
+          "apellidos": "Meyer"
+        },
+        {
+          "nombre_completo": "GJ Olsen",
+          "nombres": "GJ",
+          "apellidos": "Olsen"
+        },
+        {
+          "nombre_completo": "R Olson",
+          "nombres": "R",
+          "apellidos": "Olson"
+        },
+        {
+          "nombre_completo": "AL Osterman",
+          "nombres": "AL",
+          "apellidos": "Osterman"
+        },
+        {
+          "nombre_completo": "RA Overbeek",
+          "nombres": "RA",
+          "apellidos": "Overbeek"
+        },
+        {
+          "nombre_completo": "LK Mcneil",
+          "nombres": "LK",
+          "apellidos": "Mcneil"
+        },
+        {
+          "nombre_completo": "D Paarmann",
+          "nombres": "D",
+          "apellidos": "Paarmann"
+        },
+        {
+          "nombre_completo": "T Paczian",
+          "nombres": "T",
+          "apellidos": "Paczian"
+        },
+        {
+          "nombre_completo": "B Parrello",
+          "nombres": "B",
+          "apellidos": "Parrello"
+        },
+        {
+          "nombre_completo": "GD Pusch",
+          "nombres": "GD",
+          "apellidos": "Pusch"
+        },
+        {
+          "nombre_completo": "AA Best",
+          "nombres": "AA",
+          "apellidos": "Best"
+        },
+        {
+          "nombre_completo": "C Reich",
+          "nombres": "C",
+          "apellidos": "Reich"
+        },
+        {
+          "nombre_completo": "R Stevens",
+          "nombres": "R",
+          "apellidos": "Stevens"
+        },
+        {
+          "nombre_completo": "O Vassieva",
+          "nombres": "O",
+          "apellidos": "Vassieva"
+        },
+        {
+          "nombre_completo": "V Vonstein",
+          "nombres": "V",
+          "apellidos": "Vonstein"
+        },
+        {
+          "nombre_completo": "A Wilke",
+          "nombres": "A",
+          "apellidos": "Wilke"
+        },
+        {
+          "nombre_completo": "O Zagnitko",
+          "nombres": "O",
+          "apellidos": "Zagnitko"
+        },
+        {
+          "nombre_completo": "M Dejongh",
+          "nombres": "M",
+          "apellidos": "Dejongh"
+        },
+        {
+          "nombre_completo": "T Disz",
+          "nombres": "T",
+          "apellidos": "Disz"
+        },
+        {
+          "nombre_completo": "RA Edwards",
+          "nombres": "RA",
+          "apellidos": "Edwards"
+        },
+        {
+          "nombre_completo": "K Formsma",
+          "nombres": "K",
+          "apellidos": "Formsma"
+        },
+        {
+          "nombre_completo": "S Gerdes",
+          "nombres": "S",
+          "apellidos": "Gerdes"
+        },
+        {
+          "nombre_completo": "EM Glass",
+          "nombres": "EM",
+          "apellidos": "Glass"
+        },
+        {
+          "nombre_completo": "M Kubal",
+          "nombres": "M",
+          "apellidos": "Kubal"
+        }
+      ],
+      "pmid": "18261238",
+      "fuente": "BMC Genomics",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "75",
+      "lpage": ""
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "Whole metagenome profiles of particulates collected from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NA Be",
+          "nombres": "NA",
+          "apellidos": "Be"
+        },
+        {
+          "nombre_completo": "A Avila-Herrera",
+          "nombres": "A",
+          "apellidos": "Avila-Herrera"
+        },
+        {
+          "nombre_completo": "JE Allen",
+          "nombres": "JE",
+          "apellidos": "Allen"
+        }
+      ],
+      "pmid": "28716113",
+      "fuente": "Microbiome",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "81",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identification and reconstruction of novel antibiotic resistance genes from metagenomes",
+      "autores": [
+        {
+          "nombre_completo": "F Berglund",
+          "nombres": "F",
+          "apellidos": "Berglund"
+        },
+        {
+          "nombre_completo": "T Österlund",
+          "nombres": "T",
+          "apellidos": "Österlund"
+        },
+        {
+          "nombre_completo": "F Boulund",
+          "nombres": "F",
+          "apellidos": "Boulund"
+        },
+        {
+          "nombre_completo": "NP Marathe",
+          "nombres": "NP",
+          "apellidos": "Marathe"
+        },
+        {
+          "nombre_completo": "DGJ Larsson",
+          "nombres": "DGJ",
+          "apellidos": "Larsson"
+        },
+        {
+          "nombre_completo": "E Kristiansson",
+          "nombres": "E",
+          "apellidos": "Kristiansson"
+        }
+      ],
+      "pmid": "30935407",
+      "fuente": "Microbiome.",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "52",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft Genome Sequences of Sphingomonas Species Associated with the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S Bijlani",
+          "nombres": "S",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "CCC Wang",
+          "nombres": "CCC",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "32554796",
+      "fuente": "Microbiol Resour Announc",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00578",
+      "lpage": "e00520"
+    },
+    {
+      "titulo": "Draft Genome Sequences of Tremellomycetes Strains Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "S Bijlani",
+          "nombres": "S",
+          "apellidos": "Bijlani"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "CCC Wang",
+          "nombres": "CCC",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "32586865",
+      "fuente": "Microbiol Resour Announc",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "e00504",
+      "lpage": "e00520"
+    },
+    {
+      "titulo": "Trimmomatic: a flexible trimmer for Illumina sequence data",
+      "autores": [
+        {
+          "nombre_completo": "AM Bolger",
+          "nombres": "AM",
+          "apellidos": "Bolger"
+        },
+        {
+          "nombre_completo": "M Lohse",
+          "nombres": "M",
+          "apellidos": "Lohse"
+        },
+        {
+          "nombre_completo": "B Usadel",
+          "nombres": "B",
+          "apellidos": "Usadel"
+        }
+      ],
+      "pmid": "24695404",
+      "fuente": "Bioinformatics",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "2114",
+      "lpage": "2120"
+    },
+    {
+      "titulo": "Sequencing-based methods and resources to study antimicrobial resistance",
+      "autores": [
+        {
+          "nombre_completo": "M Boolchandani",
+          "nombres": "M",
+          "apellidos": "Boolchandani"
+        },
+        {
+          "nombre_completo": "AW D'Souza",
+          "nombres": "AW",
+          "apellidos": "D'Souza"
+        },
+        {
+          "nombre_completo": "G Dantas",
+          "nombres": "G",
+          "apellidos": "Dantas"
+        }
+      ],
+      "pmid": "30886350",
+      "fuente": "Nat Rev Genet",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "356",
+      "lpage": "370"
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "J Minich",
+          "nombres": "J",
+          "apellidos": "Minich"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome.",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "Antimicrobial resistance prediction for gram-negative bacteria via game theory-based feature evaluation [published correction appears in Sci Rep. 2020 Jan 30;10(1):1846]",
+      "autores": [
+        {
+          "nombre_completo": "AS Chowdhury",
+          "nombres": "AS",
+          "apellidos": "Chowdhury"
+        },
+        {
+          "nombre_completo": "DR Call",
+          "nombres": "DR",
+          "apellidos": "Call"
+        },
+        {
+          "nombre_completo": "SL Broschat",
+          "nombres": "SL",
+          "apellidos": "Broschat"
+        }
+      ],
+      "pmid": "31597945",
+      "fuente": "Sci Rep",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "14487",
+      "lpage": ""
+    },
+    {
+      "titulo": "PathogenFinder--distinguishing friend from foe using bacterial whole genome sequence data [published correction appears in PLoS One. 2013;8(12). doi:10.1371/annotation/b84e1af7-c127-45c3-be22-76abd977600f]",
+      "autores": [
+        {
+          "nombre_completo": "S Cosentino",
+          "nombres": "S",
+          "apellidos": "Cosentino"
+        },
+        {
+          "nombre_completo": "M Voldby Larsen",
+          "nombres": "M",
+          "apellidos": "Voldby Larsen"
+        },
+        {
+          "nombre_completo": "F Møller Aarestrup",
+          "nombres": "F",
+          "apellidos": "Møller Aarestrup"
+        },
+        {
+          "nombre_completo": "O Lund",
+          "nombres": "O",
+          "apellidos": "Lund"
+        }
+      ],
+      "pmid": "24204795",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e77302",
+      "lpage": ""
+    },
+    {
+      "titulo": "International MetaSUB Consortium. A global metagenomic map of urban microbiomes and antimicrobial resistance",
+      "autores": [
+        {
+          "nombre_completo": "D Danko",
+          "nombres": "D",
+          "apellidos": "Danko"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "K Kuchin",
+          "nombres": "K",
+          "apellidos": "Kuchin"
+        },
+        {
+          "nombre_completo": "M Karasikov",
+          "nombres": "M",
+          "apellidos": "Karasikov"
+        },
+        {
+          "nombre_completo": "A Lyons",
+          "nombres": "A",
+          "apellidos": "Lyons"
+        },
+        {
+          "nombre_completo": "L Mak",
+          "nombres": "L",
+          "apellidos": "Mak"
+        },
+        {
+          "nombre_completo": "D Meleshko",
+          "nombres": "D",
+          "apellidos": "Meleshko"
+        },
+        {
+          "nombre_completo": "H Mustafa",
+          "nombres": "H",
+          "apellidos": "Mustafa"
+        },
+        {
+          "nombre_completo": "B Mutai",
+          "nombres": "B",
+          "apellidos": "Mutai"
+        },
+        {
+          "nombre_completo": "RY Neches",
+          "nombres": "RY",
+          "apellidos": "Neches"
+        },
+        {
+          "nombre_completo": "A Ng",
+          "nombres": "A",
+          "apellidos": "Ng"
+        },
+        {
+          "nombre_completo": "O Nikolayeva",
+          "nombres": "O",
+          "apellidos": "Nikolayeva"
+        },
+        {
+          "nombre_completo": "EE Afshin",
+          "nombres": "EE",
+          "apellidos": "Afshin"
+        },
+        {
+          "nombre_completo": "T Nikolayeva",
+          "nombres": "T",
+          "apellidos": "Nikolayeva"
+        },
+        {
+          "nombre_completo": "E Png",
+          "nombres": "E",
+          "apellidos": "Png"
+        },
+        {
+          "nombre_completo": "KA Ryon",
+          "nombres": "KA",
+          "apellidos": "Ryon"
+        },
+        {
+          "nombre_completo": "JL Sanchez",
+          "nombres": "JL",
+          "apellidos": "Sanchez"
+        },
+        {
+          "nombre_completo": "H Shaaban",
+          "nombres": "H",
+          "apellidos": "Shaaban"
+        },
+        {
+          "nombre_completo": "MA Sierra",
+          "nombres": "MA",
+          "apellidos": "Sierra"
+        },
+        {
+          "nombre_completo": "D Thomas",
+          "nombres": "D",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "B Young",
+          "nombres": "B",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "OO Abudayyeh",
+          "nombres": "OO",
+          "apellidos": "Abudayyeh"
+        },
+        {
+          "nombre_completo": "J Alicea",
+          "nombres": "J",
+          "apellidos": "Alicea"
+        },
+        {
+          "nombre_completo": "S Ahsanuddin",
+          "nombres": "S",
+          "apellidos": "Ahsanuddin"
+        },
+        {
+          "nombre_completo": "M Bhattacharyya",
+          "nombres": "M",
+          "apellidos": "Bhattacharyya"
+        },
+        {
+          "nombre_completo": "R Blekhman",
+          "nombres": "R",
+          "apellidos": "Blekhman"
+        },
+        {
+          "nombre_completo": "E Castro-Nallar",
+          "nombres": "E",
+          "apellidos": "Castro-Nallar"
+        },
+        {
+          "nombre_completo": "AM Cañas",
+          "nombres": "AM",
+          "apellidos": "Cañas"
+        },
+        {
+          "nombre_completo": "AD Chatziefthimiou",
+          "nombres": "AD",
+          "apellidos": "Chatziefthimiou"
+        },
+        {
+          "nombre_completo": "RW Crawford",
+          "nombres": "RW",
+          "apellidos": "Crawford"
+        },
+        {
+          "nombre_completo": "F De Filippis",
+          "nombres": "F",
+          "apellidos": "De Filippis"
+        },
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "C Desnues",
+          "nombres": "C",
+          "apellidos": "Desnues"
+        },
+        {
+          "nombre_completo": "E Dias-Neto",
+          "nombres": "E",
+          "apellidos": "Dias-Neto"
+        },
+        {
+          "nombre_completo": "C Bhattacharya",
+          "nombres": "C",
+          "apellidos": "Bhattacharya"
+        },
+        {
+          "nombre_completo": "M Dybwad",
+          "nombres": "M",
+          "apellidos": "Dybwad"
+        },
+        {
+          "nombre_completo": "E Elhaik",
+          "nombres": "E",
+          "apellidos": "Elhaik"
+        },
+        {
+          "nombre_completo": "D Ercolini",
+          "nombres": "D",
+          "apellidos": "Ercolini"
+        },
+        {
+          "nombre_completo": "A Frolova",
+          "nombres": "A",
+          "apellidos": "Frolova"
+        },
+        {
+          "nombre_completo": "D Gankin",
+          "nombres": "D",
+          "apellidos": "Gankin"
+        },
+        {
+          "nombre_completo": "JS Gootenberg",
+          "nombres": "JS",
+          "apellidos": "Gootenberg"
+        },
+        {
+          "nombre_completo": "AB Graf",
+          "nombres": "AB",
+          "apellidos": "Graf"
+        },
+        {
+          "nombre_completo": "DC Green",
+          "nombres": "DC",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "I Hajirasouliha",
+          "nombres": "I",
+          "apellidos": "Hajirasouliha"
+        },
+        {
+          "nombre_completo": "JJA Hastings",
+          "nombres": "JJA",
+          "apellidos": "Hastings"
+        },
+        {
+          "nombre_completo": "DJ Butler",
+          "nombres": "DJ",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "M Hernandez",
+          "nombres": "M",
+          "apellidos": "Hernandez"
+        },
+        {
+          "nombre_completo": "G Iraola",
+          "nombres": "G",
+          "apellidos": "Iraola"
+        },
+        {
+          "nombre_completo": "S Jang",
+          "nombres": "S",
+          "apellidos": "Jang"
+        },
+        {
+          "nombre_completo": "A Kahles",
+          "nombres": "A",
+          "apellidos": "Kahles"
+        },
+        {
+          "nombre_completo": "FJ Kelly",
+          "nombres": "FJ",
+          "apellidos": "Kelly"
+        },
+        {
+          "nombre_completo": "K Knights",
+          "nombres": "K",
+          "apellidos": "Knights"
+        },
+        {
+          "nombre_completo": "NC Kyrpides",
+          "nombres": "NC",
+          "apellidos": "Kyrpides"
+        },
+        {
+          "nombre_completo": "PP Łabaj",
+          "nombres": "PP",
+          "apellidos": "Łabaj"
+        },
+        {
+          "nombre_completo": "PKH Lee",
+          "nombres": "PKH",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "MHY Leung",
+          "nombres": "MHY",
+          "apellidos": "Leung"
+        },
+        {
+          "nombre_completo": "KR Chng",
+          "nombres": "KR",
+          "apellidos": "Chng"
+        },
+        {
+          "nombre_completo": "PO Ljungdahl",
+          "nombres": "PO",
+          "apellidos": "Ljungdahl"
+        },
+        {
+          "nombre_completo": "G Mason-Buck",
+          "nombres": "G",
+          "apellidos": "Mason-Buck"
+        },
+        {
+          "nombre_completo": "K McGrath",
+          "nombres": "K",
+          "apellidos": "McGrath"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "EF Mongodin",
+          "nombres": "EF",
+          "apellidos": "Mongodin"
+        },
+        {
+          "nombre_completo": "MO Moraes",
+          "nombres": "MO",
+          "apellidos": "Moraes"
+        },
+        {
+          "nombre_completo": "N Nagarajan",
+          "nombres": "N",
+          "apellidos": "Nagarajan"
+        },
+        {
+          "nombre_completo": "M Nieto-Caballero",
+          "nombres": "M",
+          "apellidos": "Nieto-Caballero"
+        },
+        {
+          "nombre_completo": "H Noushmehr",
+          "nombres": "H",
+          "apellidos": "Noushmehr"
+        },
+        {
+          "nombre_completo": "M Oliveira",
+          "nombres": "M",
+          "apellidos": "Oliveira"
+        },
+        {
+          "nombre_completo": "D Donnellan",
+          "nombres": "D",
+          "apellidos": "Donnellan"
+        },
+        {
+          "nombre_completo": "S Ossowski",
+          "nombres": "S",
+          "apellidos": "Ossowski"
+        },
+        {
+          "nombre_completo": "OO Osuolale",
+          "nombres": "OO",
+          "apellidos": "Osuolale"
+        },
+        {
+          "nombre_completo": "O Özcan",
+          "nombres": "O",
+          "apellidos": "Özcan"
+        },
+        {
+          "nombre_completo": "D Paez-Espino",
+          "nombres": "D",
+          "apellidos": "Paez-Espino"
+        },
+        {
+          "nombre_completo": "N Rascovan",
+          "nombres": "N",
+          "apellidos": "Rascovan"
+        },
+        {
+          "nombre_completo": "H Richard",
+          "nombres": "H",
+          "apellidos": "Richard"
+        },
+        {
+          "nombre_completo": "G Rätsch",
+          "nombres": "G",
+          "apellidos": "Rätsch"
+        },
+        {
+          "nombre_completo": "LM Schriml",
+          "nombres": "LM",
+          "apellidos": "Schriml"
+        },
+        {
+          "nombre_completo": "T Semmler",
+          "nombres": "T",
+          "apellidos": "Semmler"
+        },
+        {
+          "nombre_completo": "OU Sezerman",
+          "nombres": "OU",
+          "apellidos": "Sezerman"
+        },
+        {
+          "nombre_completo": "J Hecht",
+          "nombres": "J",
+          "apellidos": "Hecht"
+        },
+        {
+          "nombre_completo": "L Shi",
+          "nombres": "L",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "T Shi",
+          "nombres": "T",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "R Siam",
+          "nombres": "R",
+          "apellidos": "Siam"
+        },
+        {
+          "nombre_completo": "LH Song",
+          "nombres": "LH",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "H Suzuki",
+          "nombres": "H",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "DS Court",
+          "nombres": "DS",
+          "apellidos": "Court"
+        },
+        {
+          "nombre_completo": "SW Tighe",
+          "nombres": "SW",
+          "apellidos": "Tighe"
+        },
+        {
+          "nombre_completo": "X Tong",
+          "nombres": "X",
+          "apellidos": "Tong"
+        },
+        {
+          "nombre_completo": "KI Udekwu",
+          "nombres": "KI",
+          "apellidos": "Udekwu"
+        },
+        {
+          "nombre_completo": "JA Ugalde",
+          "nombres": "JA",
+          "apellidos": "Ugalde"
+        },
+        {
+          "nombre_completo": "K Jackson",
+          "nombres": "K",
+          "apellidos": "Jackson"
+        },
+        {
+          "nombre_completo": "B Valentine",
+          "nombres": "B",
+          "apellidos": "Valentine"
+        },
+        {
+          "nombre_completo": "DI Vassilev",
+          "nombres": "DI",
+          "apellidos": "Vassilev"
+        },
+        {
+          "nombre_completo": "EM Vayndorf",
+          "nombres": "EM",
+          "apellidos": "Vayndorf"
+        },
+        {
+          "nombre_completo": "TP Velavan",
+          "nombres": "TP",
+          "apellidos": "Velavan"
+        },
+        {
+          "nombre_completo": "J Wu",
+          "nombres": "J",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "MM Zambrano",
+          "nombres": "MM",
+          "apellidos": "Zambrano"
+        },
+        {
+          "nombre_completo": "J Zhu",
+          "nombres": "J",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "S Zhu",
+          "nombres": "S",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "34043940",
+      "fuente": "Cell.",
+      "anio": "2021",
+      "volumen": "184",
+      "fpage": "3376",
+      "lpage": "3393"
+    },
+    {
+      "titulo": "Danko DC, Singh N, Butler DJ, Mozsary C, Jiang P, Keshavarzian A, et al. Genetic and immunological evidence for microbial transfer between the international space station and an astronaut. bioRxiv. 2020. 11.10.376954. 10.1101/2020.11.10.376954.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Tripartite assembly of RND multidrug efflux pumps",
+      "autores": [
+        {
+          "nombre_completo": "L Daury",
+          "nombres": "L",
+          "apellidos": "Daury"
+        },
+        {
+          "nombre_completo": "F Orange",
+          "nombres": "F",
+          "apellidos": "Orange"
+        },
+        {
+          "nombre_completo": "JC Taveau",
+          "nombres": "JC",
+          "apellidos": "Taveau"
+        },
+        {
+          "nombre_completo": "A Verchere",
+          "nombres": "A",
+          "apellidos": "Verchere"
+        },
+        {
+          "nombre_completo": "L Monlezun",
+          "nombres": "L",
+          "apellidos": "Monlezun"
+        },
+        {
+          "nombre_completo": "C Gounou",
+          "nombres": "C",
+          "apellidos": "Gounou"
+        },
+        {
+          "nombre_completo": "RK Marreddy",
+          "nombres": "RK",
+          "apellidos": "Marreddy"
+        },
+        {
+          "nombre_completo": "M Picard",
+          "nombres": "M",
+          "apellidos": "Picard"
+        },
+        {
+          "nombre_completo": "I Broutin",
+          "nombres": "I",
+          "apellidos": "Broutin"
+        },
+        {
+          "nombre_completo": "KM Pos",
+          "nombres": "KM",
+          "apellidos": "Pos"
+        }
+      ],
+      "pmid": "26867482",
+      "fuente": "Nat Commun",
+      "anio": "2016",
+      "volumen": "7",
+      "fpage": "10731",
+      "lpage": ""
+    },
+    {
+      "titulo": "Identifying bacterial genes and endosymbiont DNA with Glimmer",
+      "autores": [
+        {
+          "nombre_completo": "AL Delcher",
+          "nombres": "AL",
+          "apellidos": "Delcher"
+        },
+        {
+          "nombre_completo": "KA Bratke",
+          "nombres": "KA",
+          "apellidos": "Bratke"
+        },
+        {
+          "nombre_completo": "EC Powers",
+          "nombres": "EC",
+          "apellidos": "Powers"
+        },
+        {
+          "nombre_completo": "SL Salzberg",
+          "nombres": "SL",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "17237039",
+      "fuente": "Bioinformatics.",
+      "anio": "2007",
+      "volumen": "23",
+      "fpage": "673",
+      "lpage": "679"
+    },
+    {
+      "titulo": "Fatal family outbreak of Bacillus cereus-associated food poisoning",
+      "autores": [
+        {
+          "nombre_completo": "K Dierick",
+          "nombres": "K",
+          "apellidos": "Dierick"
+        },
+        {
+          "nombre_completo": "E Van Coillie",
+          "nombres": "E",
+          "apellidos": "Van Coillie"
+        },
+        {
+          "nombre_completo": "I Swiecicka",
+          "nombres": "I",
+          "apellidos": "Swiecicka"
+        },
+        {
+          "nombre_completo": "G Meyfroidt",
+          "nombres": "G",
+          "apellidos": "Meyfroidt"
+        }
+      ],
+      "pmid": "16082000",
+      "fuente": "J Clin Microbiol",
+      "anio": "2005",
+      "volumen": "43",
+      "fpage": "4277",
+      "lpage": "4279"
+    },
+    {
+      "titulo": "Evaluation of physical and chemical changes in pharmaceuticals flown on space missions",
+      "autores": [
+        {
+          "nombre_completo": "B Du",
+          "nombres": "B",
+          "apellidos": "Du"
+        },
+        {
+          "nombre_completo": "VR Daniels",
+          "nombres": "VR",
+          "apellidos": "Daniels"
+        },
+        {
+          "nombre_completo": "Z Vaksman",
+          "nombres": "Z",
+          "apellidos": "Vaksman"
+        },
+        {
+          "nombre_completo": "JL Boyd",
+          "nombres": "JL",
+          "apellidos": "Boyd"
+        },
+        {
+          "nombre_completo": "C Crady",
+          "nombres": "C",
+          "apellidos": "Crady"
+        },
+        {
+          "nombre_completo": "L Putcha",
+          "nombres": "L",
+          "apellidos": "Putcha"
+        }
+      ],
+      "pmid": "21479701",
+      "fuente": "AAPS J",
+      "anio": "2011",
+      "volumen": "13",
+      "fpage": "299",
+      "lpage": "308"
+    },
+    {
+      "titulo": "Analysis of deletion mutations of the rpsL gene in the yeast Saccharomyces cerevisiae detected after long-term flight on the Russian space station Mir",
+      "autores": [
+        {
+          "nombre_completo": "T Fukuda",
+          "nombres": "T",
+          "apellidos": "Fukuda"
+        },
+        {
+          "nombre_completo": "K Fukuda",
+          "nombres": "K",
+          "apellidos": "Fukuda"
+        },
+        {
+          "nombre_completo": "A Takahashi",
+          "nombres": "A",
+          "apellidos": "Takahashi"
+        }
+      ],
+      "pmid": "11027966",
+      "fuente": "Mutat Res",
+      "anio": "2000",
+      "volumen": "470",
+      "fpage": "125",
+      "lpage": "132"
+    },
+    {
+      "titulo": "The NASA twins study: a multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "FE Garrett-Bakelman",
+          "nombres": "FE",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M Darshi",
+          "nombres": "M",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "BD Piening",
+          "nombres": "BD",
+          "apellidos": "Piening"
+        },
+        {
+          "nombre_completo": "LF Rizzardi",
+          "nombres": "LF",
+          "apellidos": "Rizzardi"
+        },
+        {
+          "nombre_completo": "K Sharma",
+          "nombres": "K",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "JH Siamwala",
+          "nombres": "JH",
+          "apellidos": "Siamwala"
+        },
+        {
+          "nombre_completo": "L Taylor",
+          "nombres": "L",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "MH Vitaterna",
+          "nombres": "MH",
+          "apellidos": "Vitaterna"
+        },
+        {
+          "nombre_completo": "M Afkarian",
+          "nombres": "M",
+          "apellidos": "Afkarian"
+        },
+        {
+          "nombre_completo": "E Afshinnekoo",
+          "nombres": "E",
+          "apellidos": "Afshinnekoo"
+        },
+        {
+          "nombre_completo": "S Ahadi",
+          "nombres": "S",
+          "apellidos": "Ahadi"
+        },
+        {
+          "nombre_completo": "A Ambati",
+          "nombres": "A",
+          "apellidos": "Ambati"
+        },
+        {
+          "nombre_completo": "SJ Green",
+          "nombres": "SJ",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "M Arya",
+          "nombres": "M",
+          "apellidos": "Arya"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "CM Callahan",
+          "nombres": "CM",
+          "apellidos": "Callahan"
+        },
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "AMK Choi",
+          "nombres": "AMK",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "GE Chlipala",
+          "nombres": "GE",
+          "apellidos": "Chlipala"
+        },
+        {
+          "nombre_completo": "K Contrepois",
+          "nombres": "K",
+          "apellidos": "Contrepois"
+        },
+        {
+          "nombre_completo": "M Covington",
+          "nombres": "M",
+          "apellidos": "Covington"
+        },
+        {
+          "nombre_completo": "BE Crucian",
+          "nombres": "BE",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "I De Vivo",
+          "nombres": "I",
+          "apellidos": "De Vivo"
+        },
+        {
+          "nombre_completo": "RC Gur",
+          "nombres": "RC",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "DF Dinges",
+          "nombres": "DF",
+          "apellidos": "Dinges"
+        },
+        {
+          "nombre_completo": "DJ Ebert",
+          "nombres": "DJ",
+          "apellidos": "Ebert"
+        },
+        {
+          "nombre_completo": "JI Feinberg",
+          "nombres": "JI",
+          "apellidos": "Feinberg"
+        },
+        {
+          "nombre_completo": "JA Gandara",
+          "nombres": "JA",
+          "apellidos": "Gandara"
+        },
+        {
+          "nombre_completo": "KA George",
+          "nombres": "KA",
+          "apellidos": "George"
+        },
+        {
+          "nombre_completo": "J Goutsias",
+          "nombres": "J",
+          "apellidos": "Goutsias"
+        },
+        {
+          "nombre_completo": "GS Grills",
+          "nombres": "GS",
+          "apellidos": "Grills"
+        },
+        {
+          "nombre_completo": "AR Hargens",
+          "nombres": "AR",
+          "apellidos": "Hargens"
+        },
+        {
+          "nombre_completo": "M Heer",
+          "nombres": "M",
+          "apellidos": "Heer"
+        },
+        {
+          "nombre_completo": "RP Hillary",
+          "nombres": "RP",
+          "apellidos": "Hillary"
+        },
+        {
+          "nombre_completo": "L Lin",
+          "nombres": "L",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "AN Hoofnagle",
+          "nombres": "AN",
+          "apellidos": "Hoofnagle"
+        },
+        {
+          "nombre_completo": "VYH Hook",
+          "nombres": "VYH",
+          "apellidos": "Hook"
+        },
+        {
+          "nombre_completo": "G Jenkinson",
+          "nombres": "G",
+          "apellidos": "Jenkinson"
+        },
+        {
+          "nombre_completo": "P Jiang",
+          "nombres": "P",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "A Keshavarzian",
+          "nombres": "A",
+          "apellidos": "Keshavarzian"
+        },
+        {
+          "nombre_completo": "SS Laurie",
+          "nombres": "SS",
+          "apellidos": "Laurie"
+        },
+        {
+          "nombre_completo": "B Lee-McMullen",
+          "nombres": "B",
+          "apellidos": "Lee-McMullen"
+        },
+        {
+          "nombre_completo": "SB Lumpkins",
+          "nombres": "SB",
+          "apellidos": "Lumpkins"
+        },
+        {
+          "nombre_completo": "M MacKay",
+          "nombres": "M",
+          "apellidos": "MacKay"
+        },
+        {
+          "nombre_completo": "MG Maienschein-Cline",
+          "nombres": "MG",
+          "apellidos": "Maienschein-Cline"
+        },
+        {
+          "nombre_completo": "BR Macias",
+          "nombres": "BR",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "AM Melnick",
+          "nombres": "AM",
+          "apellidos": "Melnick"
+        },
+        {
+          "nombre_completo": "TM Moore",
+          "nombres": "TM",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "K Nakahira",
+          "nombres": "K",
+          "apellidos": "Nakahira"
+        },
+        {
+          "nombre_completo": "HH Patel",
+          "nombres": "HH",
+          "apellidos": "Patel"
+        },
+        {
+          "nombre_completo": "R Pietrzyk",
+          "nombres": "R",
+          "apellidos": "Pietrzyk"
+        },
+        {
+          "nombre_completo": "V Rao",
+          "nombres": "V",
+          "apellidos": "Rao"
+        },
+        {
+          "nombre_completo": "R Saito",
+          "nombres": "R",
+          "apellidos": "Saito"
+        },
+        {
+          "nombre_completo": "DN Salins",
+          "nombres": "DN",
+          "apellidos": "Salins"
+        },
+        {
+          "nombre_completo": "JM Schilling",
+          "nombres": "JM",
+          "apellidos": "Schilling"
+        },
+        {
+          "nombre_completo": "DD Sears",
+          "nombres": "DD",
+          "apellidos": "Sears"
+        },
+        {
+          "nombre_completo": "MJ McKenna",
+          "nombres": "MJ",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "CK Sheridan",
+          "nombres": "CK",
+          "apellidos": "Sheridan"
+        },
+        {
+          "nombre_completo": "MB Stenger",
+          "nombres": "MB",
+          "apellidos": "Stenger"
+        },
+        {
+          "nombre_completo": "R Tryggvadottir",
+          "nombres": "R",
+          "apellidos": "Tryggvadottir"
+        },
+        {
+          "nombre_completo": "AE Urban",
+          "nombres": "AE",
+          "apellidos": "Urban"
+        },
+        {
+          "nombre_completo": "T Vaisar",
+          "nombres": "T",
+          "apellidos": "Vaisar"
+        },
+        {
+          "nombre_completo": "B Van Espen",
+          "nombres": "B",
+          "apellidos": "Van Espen"
+        },
+        {
+          "nombre_completo": "J Zhang",
+          "nombres": "J",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "MG Ziegler",
+          "nombres": "MG",
+          "apellidos": "Ziegler"
+        },
+        {
+          "nombre_completo": "SR Zwart",
+          "nombres": "SR",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "JB Charles",
+          "nombres": "JB",
+          "apellidos": "Charles"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "CE Kundrot",
+          "nombres": "CE",
+          "apellidos": "Kundrot"
+        },
+        {
+          "nombre_completo": "GBI Scott",
+          "nombres": "GBI",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "SM Bailey",
+          "nombres": "SM",
+          "apellidos": "Bailey"
+        },
+        {
+          "nombre_completo": "M Basner",
+          "nombres": "M",
+          "apellidos": "Basner"
+        },
+        {
+          "nombre_completo": "AP Feinberg",
+          "nombres": "AP",
+          "apellidos": "Feinberg"
+        },
+        {
+          "nombre_completo": "SMC Lee",
+          "nombres": "SMC",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "E Mignot",
+          "nombres": "E",
+          "apellidos": "Mignot"
+        },
+        {
+          "nombre_completo": "BK Rana",
+          "nombres": "BK",
+          "apellidos": "Rana"
+        },
+        {
+          "nombre_completo": "SM Smith",
+          "nombres": "SM",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "T Mishra",
+          "nombres": "T",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "MP Snyder",
+          "nombres": "MP",
+          "apellidos": "Snyder"
+        },
+        {
+          "nombre_completo": "FW Turek",
+          "nombres": "FW",
+          "apellidos": "Turek"
+        },
+        {
+          "nombre_completo": "J Nasrini",
+          "nombres": "J",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science.",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V Saveliev",
+          "nombres": "V",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "How to discover new antibiotic resistance genes?",
+      "autores": [
+        {
+          "nombre_completo": "L Hadjadj",
+          "nombres": "L",
+          "apellidos": "Hadjadj"
+        },
+        {
+          "nombre_completo": "SA Baron",
+          "nombres": "SA",
+          "apellidos": "Baron"
+        },
+        {
+          "nombre_completo": "SM Diene",
+          "nombres": "SM",
+          "apellidos": "Diene"
+        },
+        {
+          "nombre_completo": "JM Rolain",
+          "nombres": "JM",
+          "apellidos": "Rolain"
+        }
+      ],
+      "pmid": "30895843",
+      "fuente": "Expert Rev Mol Diagn",
+      "anio": "2019",
+      "volumen": "19",
+      "fpage": "349",
+      "lpage": "362"
+    },
+    {
+      "titulo": "Effects of microgravity on the virulence of Listeria monocytogenes, Enterococcus faecalis, Candida albicans, and methicillin-resistant Staphylococcus aureus",
+      "autores": [
+        {
+          "nombre_completo": "TG Hammond",
+          "nombres": "TG",
+          "apellidos": "Hammond"
+        },
+        {
+          "nombre_completo": "L Stodieck",
+          "nombres": "L",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "HH Birdsall",
+          "nombres": "HH",
+          "apellidos": "Birdsall"
+        }
+      ],
+      "pmid": "24283929",
+      "fuente": "Astrobiology.",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "1081",
+      "lpage": "1090"
+    },
+    {
+      "titulo": "Using Genomics to Track Global Antimicrobial Resistance",
+      "autores": [
+        {
+          "nombre_completo": "RS Hendriksen",
+          "nombres": "RS",
+          "apellidos": "Hendriksen"
+        },
+        {
+          "nombre_completo": "V Bortolaia",
+          "nombres": "V",
+          "apellidos": "Bortolaia"
+        },
+        {
+          "nombre_completo": "H Tate",
+          "nombres": "H",
+          "apellidos": "Tate"
+        },
+        {
+          "nombre_completo": "GH Tyson",
+          "nombres": "GH",
+          "apellidos": "Tyson"
+        },
+        {
+          "nombre_completo": "FM Aarestrup",
+          "nombres": "FM",
+          "apellidos": "Aarestrup"
+        },
+        {
+          "nombre_completo": "PF McDermott",
+          "nombres": "PF",
+          "apellidos": "McDermott"
+        }
+      ],
+      "pmid": "31552211",
+      "fuente": "Front Public Health",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "242",
+      "lpage": ""
+    },
+    {
+      "titulo": "Long-term exposure to spaceflight conditions affects bacterial response to antibiotics",
+      "autores": [
+        {
+          "nombre_completo": "MA Juergensmeyer",
+          "nombres": "MA",
+          "apellidos": "Juergensmeyer"
+        },
+        {
+          "nombre_completo": "EA Juergensmeyer",
+          "nombres": "EA",
+          "apellidos": "Juergensmeyer"
+        },
+        {
+          "nombre_completo": "JA Guikema",
+          "nombres": "JA",
+          "apellidos": "Guikema"
+        }
+      ],
+      "pmid": "11543359",
+      "fuente": "Microgravity Sci Technol",
+      "anio": "1999",
+      "volumen": "12",
+      "fpage": "41",
+      "lpage": ""
+    },
+    {
+      "titulo": "MetaBAT, an efficient tool for accurately reconstructing single genomes from complex microbial communities",
+      "autores": [
+        {
+          "nombre_completo": "DD Kang",
+          "nombres": "DD",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "J Froula",
+          "nombres": "J",
+          "apellidos": "Froula"
+        },
+        {
+          "nombre_completo": "R Egan",
+          "nombres": "R",
+          "apellidos": "Egan"
+        },
+        {
+          "nombre_completo": "Z Wang",
+          "nombres": "Z",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "26336640",
+      "fuente": "PeerJ",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "e1165",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight promotes biofilm formation by Pseudomonas aeruginosa",
+      "autores": [
+        {
+          "nombre_completo": "W Kim",
+          "nombres": "W",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "FK Tengra",
+          "nombres": "FK",
+          "apellidos": "Tengra"
+        },
+        {
+          "nombre_completo": "Z Young",
+          "nombres": "Z",
+          "apellidos": "Young"
+        }
+      ],
+      "pmid": "23658630",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e62437",
+      "lpage": ""
+    },
+    {
+      "titulo": "Hierarchical Hidden Markov models enable accurate and diverse detection of antimicrobial resistance sequences",
+      "autores": [
+        {
+          "nombre_completo": "SM Lakin",
+          "nombres": "SM",
+          "apellidos": "Lakin"
+        },
+        {
+          "nombre_completo": "A Kuhnle",
+          "nombres": "A",
+          "apellidos": "Kuhnle"
+        },
+        {
+          "nombre_completo": "B Alipanahi",
+          "nombres": "B",
+          "apellidos": "Alipanahi"
+        }
+      ],
+      "pmid": "31396574",
+      "fuente": "Commun Biol",
+      "anio": "2019",
+      "volumen": "2",
+      "fpage": "294",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fulminant liver failure in association with the emetic toxin of Bacillus cereus",
+      "autores": [
+        {
+          "nombre_completo": "H Mahler",
+          "nombres": "H",
+          "apellidos": "Mahler"
+        },
+        {
+          "nombre_completo": "A Pasi",
+          "nombres": "A",
+          "apellidos": "Pasi"
+        },
+        {
+          "nombre_completo": "JM Kramer",
+          "nombres": "JM",
+          "apellidos": "Kramer"
+        },
+        {
+          "nombre_completo": "P Schulte",
+          "nombres": "P",
+          "apellidos": "Schulte"
+        }
+      ],
+      "pmid": "9099658",
+      "fuente": "N Engl J Med",
+      "anio": "1997",
+      "volumen": "336",
+      "fpage": "1142",
+      "lpage": "1148"
+    },
+    {
+      "titulo": "Investigation of Spaceflight Induced Changes to Astronaut Microbiomes",
+      "autores": [
+        {
+          "nombre_completo": "MD Morrison",
+          "nombres": "MD",
+          "apellidos": "Morrison"
+        },
+        {
+          "nombre_completo": "JB Thissen",
+          "nombres": "JB",
+          "apellidos": "Thissen"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "S Mehta",
+          "nombres": "S",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "DJ Smith",
+          "nombres": "DJ",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "C Jaing",
+          "nombres": "C",
+          "apellidos": "Jaing"
+        }
+      ],
+      "pmid": "34149649",
+      "fuente": "Front Microbiol",
+      "anio": "2021",
+      "volumen": "12",
+      "fpage": "659179",
+      "lpage": ""
+    },
+    {
+      "titulo": "Microbial responses to microgravity and other low-shear environments",
+      "autores": [
+        {
+          "nombre_completo": "CA Nickerson",
+          "nombres": "CA",
+          "apellidos": "Nickerson"
+        },
+        {
+          "nombre_completo": "CM Ott",
+          "nombres": "CM",
+          "apellidos": "Ott"
+        },
+        {
+          "nombre_completo": "JW Wilson",
+          "nombres": "JW",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "R Ramamurthy",
+          "nombres": "R",
+          "apellidos": "Ramamurthy"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        }
+      ],
+      "pmid": "15187188",
+      "fuente": "Microbiol Mol Biol Rev",
+      "anio": "2004",
+      "volumen": "68",
+      "fpage": "345",
+      "lpage": "361"
+    },
+    {
+      "titulo": "metaSPAdes: a new versatile metagenomic assembler",
+      "autores": [
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "D Meleshko",
+          "nombres": "D",
+          "apellidos": "Meleshko"
+        },
+        {
+          "nombre_completo": "A Korobeynikov",
+          "nombres": "A",
+          "apellidos": "Korobeynikov"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        }
+      ],
+      "pmid": "28298430",
+      "fuente": "Genome Res",
+      "anio": "2017",
+      "volumen": "27",
+      "fpage": "824",
+      "lpage": "834"
+    },
+    {
+      "titulo": "Roary: rapid large-scale prokaryote pan genome analysis",
+      "autores": [
+        {
+          "nombre_completo": "AJ Page",
+          "nombres": "AJ",
+          "apellidos": "Page"
+        },
+        {
+          "nombre_completo": "CA Cummins",
+          "nombres": "CA",
+          "apellidos": "Cummins"
+        },
+        {
+          "nombre_completo": "M Hunt",
+          "nombres": "M",
+          "apellidos": "Hunt"
+        },
+        {
+          "nombre_completo": "VK Wong",
+          "nombres": "VK",
+          "apellidos": "Wong"
+        },
+        {
+          "nombre_completo": "S Reuter",
+          "nombres": "S",
+          "apellidos": "Reuter"
+        },
+        {
+          "nombre_completo": "MT Holden",
+          "nombres": "MT",
+          "apellidos": "Holden"
+        },
+        {
+          "nombre_completo": "M Fookes",
+          "nombres": "M",
+          "apellidos": "Fookes"
+        },
+        {
+          "nombre_completo": "D Falush",
+          "nombres": "D",
+          "apellidos": "Falush"
+        },
+        {
+          "nombre_completo": "JA Keane",
+          "nombres": "JA",
+          "apellidos": "Keane"
+        },
+        {
+          "nombre_completo": "J Parkhill",
+          "nombres": "J",
+          "apellidos": "Parkhill"
+        }
+      ],
+      "pmid": "26198102",
+      "fuente": "Bioinformatics.",
+      "anio": "2015",
+      "volumen": "31",
+      "fpage": "3691",
+      "lpage": "3693"
+    },
+    {
+      "titulo": "CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes",
+      "autores": [
+        {
+          "nombre_completo": "DH Parks",
+          "nombres": "DH",
+          "apellidos": "Parks"
+        },
+        {
+          "nombre_completo": "M Imelfort",
+          "nombres": "M",
+          "apellidos": "Imelfort"
+        },
+        {
+          "nombre_completo": "CT Skennerton",
+          "nombres": "CT",
+          "apellidos": "Skennerton"
+        },
+        {
+          "nombre_completo": "P Hugenholtz",
+          "nombres": "P",
+          "apellidos": "Hugenholtz"
+        },
+        {
+          "nombre_completo": "GW Tyson",
+          "nombres": "GW",
+          "apellidos": "Tyson"
+        }
+      ],
+      "pmid": "25977477",
+      "fuente": "Genome Res",
+      "anio": "2015",
+      "volumen": "25",
+      "fpage": "1043",
+      "lpage": "1055"
+    },
+    {
+      "titulo": "First Report of Pathogenic Bacterium Kalamiella piersonii Isolated from Urine of a Kidney Stone Patient: Draft Genome and Evidence for Role in Struvite Crystallization",
+      "autores": [
+        {
+          "nombre_completo": "PD Rekha",
+          "nombres": "PD",
+          "apellidos": "Rekha"
+        },
+        {
+          "nombre_completo": "A Hameed",
+          "nombres": "A",
+          "apellidos": "Hameed"
+        },
+        {
+          "nombre_completo": "MAP Manzoor",
+          "nombres": "MAP",
+          "apellidos": "Manzoor"
+        },
+        {
+          "nombre_completo": "MV Suryavanshi",
+          "nombres": "MV",
+          "apellidos": "Suryavanshi"
+        },
+        {
+          "nombre_completo": "SD Ghate",
+          "nombres": "SD",
+          "apellidos": "Ghate"
+        },
+        {
+          "nombre_completo": "AB Arun",
+          "nombres": "AB",
+          "apellidos": "Arun"
+        },
+        {
+          "nombre_completo": "SS Rao",
+          "nombres": "SS",
+          "apellidos": "Rao"
+        },
+        {
+          "nombre_completo": "SK Bajire",
+          "nombres": "SK",
+          "apellidos": "Bajire"
+        },
+        {
+          "nombre_completo": "M Mujeeburahiman",
+          "nombres": "M",
+          "apellidos": "Mujeeburahiman"
+        },
+        {
+          "nombre_completo": "CC Young",
+          "nombres": "CC",
+          "apellidos": "Young"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Pathogens",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "711",
+      "lpage": ""
+    },
+    {
+      "titulo": "Prediction of the intestinal resistome by a three-dimensional structure-based method",
+      "autores": [
+        {
+          "nombre_completo": "E Ruppé",
+          "nombres": "E",
+          "apellidos": "Ruppé"
+        },
+        {
+          "nombre_completo": "A Ghozlane",
+          "nombres": "A",
+          "apellidos": "Ghozlane"
+        },
+        {
+          "nombre_completo": "J Tap",
+          "nombres": "J",
+          "apellidos": "Tap"
+        }
+      ],
+      "pmid": "30478291",
+      "fuente": "Nat Microbiol",
+      "anio": "2019",
+      "volumen": "4",
+      "fpage": "112",
+      "lpage": "123"
+    },
+    {
+      "titulo": "Prokka: rapid prokaryotic genome annotation",
+      "autores": [
+        {
+          "nombre_completo": "T Seemann",
+          "nombres": "T",
+          "apellidos": "Seemann"
+        }
+      ],
+      "pmid": "24642063",
+      "fuente": "Bioinformatics.",
+      "anio": "2014",
+      "volumen": "30",
+      "fpage": "2068",
+      "lpage": "2069"
+    },
+    {
+      "titulo": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30424821",
+      "fuente": "Microbiome.",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "204",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "K Wheeler",
+          "nombres": "K",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "Metagenome to phenome approach enables isolation and genomics characterization of Kalamiella piersonii gen. nov., sp. nov. from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "SS Mhatre",
+          "nombres": "SS",
+          "apellidos": "Mhatre"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "31011775",
+      "fuente": "Appl Microbiol Biotechnol",
+      "anio": "2019",
+      "volumen": "103",
+      "fpage": "4483",
+      "lpage": "4497"
+    },
+    {
+      "titulo": "Immune function during space flight",
+      "autores": [
+        {
+          "nombre_completo": "G Sonnenfeld",
+          "nombres": "G",
+          "apellidos": "Sonnenfeld"
+        },
+        {
+          "nombre_completo": "WT Shearer",
+          "nombres": "WT",
+          "apellidos": "Shearer"
+        }
+      ],
+      "pmid": "12361785",
+      "fuente": "Nutrition.",
+      "anio": "2002",
+      "volumen": "18",
+      "fpage": "899",
+      "lpage": "903"
+    },
+    {
+      "titulo": "Genome-based prediction of bacterial antibiotic resistance",
+      "autores": [
+        {
+          "nombre_completo": "M Su",
+          "nombres": "M",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "SW Satola",
+          "nombres": "SW",
+          "apellidos": "Satola"
+        },
+        {
+          "nombre_completo": "TD Read",
+          "nombres": "TD",
+          "apellidos": "Read"
+        }
+      ],
+      "pmid": "30381421",
+      "fuente": "J Clin Microbiol",
+      "anio": "2019",
+      "volumen": "57",
+      "fpage": "e01405",
+      "lpage": "e01418"
+    },
+    {
+      "titulo": "Bacterial multidrug efflux pumps: mechanisms, physiology and pharmacological exploitations",
+      "autores": [
+        {
+          "nombre_completo": "J Sun",
+          "nombres": "J",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "Z Deng",
+          "nombres": "Z",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "A Yan",
+          "nombres": "A",
+          "apellidos": "Yan"
+        }
+      ],
+      "pmid": "24878531",
+      "fuente": "Biochem Biophys Res Commun",
+      "anio": "2014",
+      "volumen": "453",
+      "fpage": "254",
+      "lpage": "267"
+    },
+    {
+      "titulo": "Impact of space flight on bacterial virulence and antibiotic susceptibility",
+      "autores": [
+        {
+          "nombre_completo": "PW Taylor",
+          "nombres": "PW",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "26251622",
+      "fuente": "Infect Drug Resist",
+      "anio": "2015",
+      "volumen": "8",
+      "fpage": "249",
+      "lpage": "262"
+    },
+    {
+      "titulo": "Study of minimal inhibitory concentration of antibiotics on bacteria cultivated in vitro in space (Cytos 2 experiment)",
+      "autores": [
+        {
+          "nombre_completo": "R Tixador",
+          "nombres": "R",
+          "apellidos": "Tixador"
+        },
+        {
+          "nombre_completo": "G Richoilley",
+          "nombres": "G",
+          "apellidos": "Richoilley"
+        },
+        {
+          "nombre_completo": "G Gasset",
+          "nombres": "G",
+          "apellidos": "Gasset"
+        }
+      ],
+      "pmid": "3899095",
+      "fuente": "Aviat Space Environ Med",
+      "anio": "1985",
+      "volumen": "56",
+      "fpage": "748",
+      "lpage": "751"
+    },
+    {
+      "titulo": "Detection of antimicrobial resistance genes associated with the International Space Station environmental surfaces",
+      "autores": [
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "AC Sielaff",
+          "nombres": "AC",
+          "apellidos": "Sielaff"
+        },
+        {
+          "nombre_completo": "KG Frey",
+          "nombres": "KG",
+          "apellidos": "Frey"
+        }
+      ],
+      "pmid": "29339831",
+      "fuente": "Sci Rep",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "814",
+      "lpage": ""
+    },
+    {
+      "titulo": "The influence of spaceflight on the astronaut salivary microbiome and the search for a microbiome biomarker for viral reactivation",
+      "autores": [
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "H Lorenzi",
+          "nombres": "H",
+          "apellidos": "Lorenzi"
+        },
+        {
+          "nombre_completo": "J Thissen",
+          "nombres": "J",
+          "apellidos": "Thissen"
+        }
+      ],
+      "pmid": "32312311",
+      "fuente": "Microbiome.",
+      "anio": "2020",
+      "volumen": "8",
+      "fpage": "56",
+      "lpage": ""
+    },
+    {
+      "titulo": "International Space Station environmental microbiome - microbial inventories of ISS filter debris",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "J Cisneros",
+          "nombres": "J",
+          "apellidos": "Cisneros"
+        },
+        {
+          "nombre_completo": "DL Pierson",
+          "nombres": "DL",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "SO Rogers",
+          "nombres": "SO",
+          "apellidos": "Rogers"
+        },
+        {
+          "nombre_completo": "J Perry",
+          "nombres": "J",
+          "apellidos": "Perry"
+        }
+      ],
+      "pmid": "24695826",
+      "fuente": "Appl Microbiol Biotechnol",
+      "anio": "2014",
+      "volumen": "98",
+      "fpage": "6453",
+      "lpage": "6466"
+    },
+    {
+      "titulo": "Non-Toxin-Producing Bacillus cereus Strains Belonging to the B. anthracis Clade Isolated from the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        }
+      ],
+      "pmid": "28680972",
+      "fuente": "mSystems",
+      "anio": "2017",
+      "volumen": "2",
+      "fpage": "e00021",
+      "lpage": "e00017"
+    },
+    {
+      "titulo": "Study of the impact of long-duration space missions at the International Space Station on the astronaut microbiome",
+      "autores": [
+        {
+          "nombre_completo": "AA Voorhies",
+          "nombres": "AA",
+          "apellidos": "Voorhies"
+        },
+        {
+          "nombre_completo": "C Mark Ott",
+          "nombres": "C",
+          "apellidos": "Mark Ott"
+        },
+        {
+          "nombre_completo": "S Mehta",
+          "nombres": "S",
+          "apellidos": "Mehta"
+        }
+      ],
+      "pmid": "31289321",
+      "fuente": "Sci Rep",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "9911",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space flight alters bacterial gene expression and virulence and reveals a role for global regulator Hfq",
+      "autores": [
+        {
+          "nombre_completo": "JW Wilson",
+          "nombres": "JW",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "CM Ott",
+          "nombres": "CM",
+          "apellidos": "Ott"
+        },
+        {
+          "nombre_completo": "K Höner zu Bentrup",
+          "nombres": "K",
+          "apellidos": "Höner zu Bentrup"
+        }
+      ],
+      "pmid": "17901201",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2007",
+      "volumen": "104",
+      "fpage": "16299",
+      "lpage": "16304"
+    },
+    {
+      "titulo": "Wissel EF, Talbot BM, Johnson BA, Petit RA, Hertzberg V, Dunlop A, et al. Benchmarking software to predict antibiotic resistance phenotypes in shotgun metagenomes using simulated data. bioRxiv. 2022.01.13.476279. 10.1101/2022.01.13.476279.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A large-scale evaluation of algorithms to calculate average nucleotide identity",
+      "autores": [
+        {
+          "nombre_completo": "S-H Yoon",
+          "nombres": "S-H",
+          "apellidos": "Yoon"
+        },
+        {
+          "nombre_completo": "S-M Ha",
+          "nombres": "S-M",
+          "apellidos": "Ha"
+        },
+        {
+          "nombre_completo": "J Lim",
+          "nombres": "J",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "S Kwon",
+          "nombres": "S",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J Chun",
+          "nombres": "J",
+          "apellidos": "Chun"
+        }
+      ],
+      "pmid": "28204908",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2017",
+      "volumen": "110",
+      "fpage": "1281",
+      "lpage": "1286"
+    },
+    {
+      "titulo": "Identification of acquired antimicrobial resistance genes",
+      "autores": [
+        {
+          "nombre_completo": "E Zankari",
+          "nombres": "E",
+          "apellidos": "Zankari"
+        },
+        {
+          "nombre_completo": "H Hasman",
+          "nombres": "H",
+          "apellidos": "Hasman"
+        },
+        {
+          "nombre_completo": "S Cosentino",
+          "nombres": "S",
+          "apellidos": "Cosentino"
+        }
+      ],
+      "pmid": "22782487",
+      "fuente": "J Antimicrob Chemother",
+      "anio": "2012",
+      "volumen": "67",
+      "fpage": "2640",
+      "lpage": "2644"
+    },
+    {
+      "titulo": "Phenotypic Changes Exhibited by E. coli Cultured in Space",
+      "autores": [
+        {
+          "nombre_completo": "L Zea",
+          "nombres": "L",
+          "apellidos": "Zea"
+        },
+        {
+          "nombre_completo": "M Larsen",
+          "nombres": "M",
+          "apellidos": "Larsen"
+        },
+        {
+          "nombre_completo": "F Estante",
+          "nombres": "F",
+          "apellidos": "Estante"
+        }
+      ],
+      "pmid": "28894439",
+      "fuente": "Front Microbiol",
+      "anio": "2017",
+      "volumen": "8",
+      "fpage": "1598",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fecal fusobacterium nucleatum for the diagnosis of colorectal tumor: a systematic review and meta-analysis",
+      "autores": [
+        {
+          "nombre_completo": "X Zhang",
+          "nombres": "X",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "30636375",
+      "fuente": "Cancer Med",
+      "anio": "2019",
+      "volumen": "8",
+      "fpage": "480",
+      "lpage": "491"
+    }
+  ]
+}

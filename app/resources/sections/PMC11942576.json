@@ -1,0 +1,2549 @@
+{
+  "TITLE": [
+    "Genome-Wide Analysis of the PERK Gene Family in Brassica napus L. and Their Potential Roles in Clubroot Disease"
+  ],
+  "ABSTRACT": [
+    "The proline-rich extensin-like receptor kinase (PERK) gene family is crucial to various molecular and cellular processes in plants. We identified 50 PERK genes in Brassica napus to explore their evolutionary dynamics, structural diversity, and functional roles. These genes were grouped into four classes and unevenly distributed across 18 chromosomes. Phylogenetic studies and Ka/Ks ratios revealed purifying selection during the evolution process. They exhibited significant diversification in gene length, molecular weight, and isoelectric points, suggesting specialized function. Gene structure and motif analyses revealed variations among the BnPERK family members, with conserved tyrosine kinase domains suggesting functional importance. Cis-element analysis predicted the involvement in hormone signaling and stress responses. Expression profiling showed diverse patterns across tissues and hormone treatments, highlighting potential roles in growth regulation and hormone signaling. Protein–protein interaction networks suggested BnPERK proteins interact with a wide array of proteins, implicating them in multiple biological processes. The transcriptional downregulation of four BnPERK genes upon Plasmodiophora brassicae infection implied a role in clubroot disease response. Furthermore, the Arabidopsis perk9 mutant displayed relieved disease severity and enhanced basal immune response, suggesting the negative role of PERK9 in plant immunity. The study highlighted the potential role of BnPERKs in crop improvement strategies against clubroot disease."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "Receptor-like kinases (RLKs) constitute the largest plant receptor family and are located on the cell surface to perceive and transduce a wide range of signals. By initiating intracellular signaling cascades, RLKs play pivotal roles in various molecular and cellular processes, including plant development, stress response, and signal transduction. These versatile receptors are capable of sensing plant hormones, secreted peptides, and molecules derived from pathogens involved in plant defense response. For example, RLKs recognize pathogen-associated molecular patterns (PAMPs), which trigger the Pattern-Triggered Immunity (PTI) response, activating signaling pathways that defend against pathogen invasion.",
+    "RLKs typically consist of three key domains: an extracellular domain, a transmembrane domain, and an intracellular kinase domain. The extracellular domain, characterized by significant structural diversity, forms the basis for classifying RLKs into different subclasses based on their motif structures. Among these, the proline-rich extensin-like receptor kinases (PERKs) represent a distinct group characterized by a proline-rich extracellular domain. Interestingly, while some PERKs like BnPERK1 and AtPERK4 locate on the plasma membrane, AtPERK13 has been demonstrated to anchor to the cell wall. Functionally, the intracellular kinase domain of RLKs contains conserved motifs that exhibit kinase activity, which has been observed in BnPERK1 and AtPERK4.",
+    "In Arabidopsis thaliana, the PERK gene family consists of 15 members, some of which show specific expression patterns in roots and floral organs. However, some AtPERK genes exhibit broad expression patterns across various tissues, such as AtPERK1, which is ubiquitously expressed, suggesting its involvement in diverse molecular and cellular processes. Recent studies have elucidated the regulation of PERKs in response to different stress conditions. For example, the expression of TaPERKs in wheat and GhPERKs in cotton is significantly influenced by abiotic stresses such as heat, drought, and salinity. In A. thaliana, AtPERK13 has been shown to respond to nutrient deficiencies such as phosphate, nitrogen, and iron deprivation, highlighting the role of PERKs in maintaining nutrient homeostasis and adaptation. In rice, the PERK gene Z15 is activated by moderately low temperatures, emphasizing the adaptability of PERKs to diverse environmental cues. Additionally, PERKs have been implicated in plant defense against pathogens. For example, the expression of TaPERKs is influenced by fungal pathogens, and BnPERK1 has been shown to respond to the pathogen Sclerotinia sclerotiorum. In summary, PERKs are versatile players in response to various stresses.",
+    "PERKs also play essential roles in plant hormone signaling. Several studies have highlighted the involvement of PERKs in the regulation of growth and development in response to hormonal signals. For instance, AtPERK4 has been implicated in abscisic acid (ABA) signaling during root cell elongation. Furthermore, the expression profiles of OsPERKs and GhPERKs have shown differential expression patterns under different plant hormone treatments, including ABA, methyl jasmona (MeJA), gibberellin (GA), salicylic acid (SA), and auxin. The intricate regulation of PERKs by different plant hormones suggests their pivotal role in integrating hormonal signaling pathways to coordinate plant growth and stress responses.",
+    "In summary, PERK genes are known to be critical to plant growth, development, and stress responses. Despite the essential roles of PERKs in various processes across various plant species, comprehensive studies on the PERK gene family in Brassica napus (oilseed rape), an economically important crop serving as both an edible oil source and animal feed, are still limited. This allopolyploid species (AACC, 2n = 38), formed by the hybridization between two diploid ancestors, B. rapa (AA = 20) and B. oleracea (CC = 18), emerged approximately 6800 to 12,500 years ago. While a comprehensive study of BrPERK genes has been completed in male-sterile B. rapa plants, identifying 25 BrPERK genes and exploring their potential role in male sterility, studies in B. napus remain scarce.",
+    "This study aimed to provide a comprehensive study of BnPERK genes to include the exploration of its evolutionary history, chromosome location, and gene structure through various computational approaches. Tissue-specific and hormone treatment gene expression patterns were examined using available transcriptome datasets. Additionally, the study also investigated the role of BnPERKs in response to the obligate pathogen Plasmodiophora brassicae, which causes clubroot disease in Brassica species. By providing insights into the molecular and functional roles of BnPERKs, this study will contribute to a deeper understanding of this often-overlooked plant receptor subfamily and its potential applications in crop improvement."
+  ],
+  "RESULTS": [
+    "2. Results",
+    "2.1. Identification and Phylogenetic Analysis of BnPERKs in Brassica napus",
+    "Fifty PERK genes were identified within the B. napus ‘ZS11’ genome (Supplementary Tables S2 and S3). Identification was accomplished through an extensive BLAST search using 15 AtPERK sequences, revealing a higher number of BnPERK genes compared with those reported in Arabidopsis, Chinese cabbage, soybean, rice, sorghum, maize, cotton, and wheat (Supplementary Table S4). The BnPERK family of proteins exhibited varying lengths, ranging from 187 to 921 amino acids. Their molecular weights (MWs) spanned from 20.63 to 102.21 kDa, with BnPERK15C2 and BnPERK15A2 representing the extremes. Additionally, the isoelectric points (pIs) ranged from 5.26 to 8.59 (Supplementary Table S5). The data plots illustrated that BnPERK proteins exhibit a broad spectrum of MW and pI. Moreover, predictions of subcellular localization suggested that most BnPERK proteins were located on the plasma membrane and endomembrane system, while others were associated with the nucleus and chloroplast (Supplementary Table S5).",
+    "To investigate the phylogenetic distribution and evolutionary relationships of the PERK gene family, a phylogenetic tree was constructed using 50 BnPERK protein sequences and 15 AtPERK protein sequences by MEGA11 using the maximum likelihood (ML) method (Supplementary Table S6). The BnPERK genes were categorized into four groups (I–IV) based on sequence similarity and functional domain analysis. Group III, being the largest group, included 5 paralogs with 24 BnPERK genes. Group I followed, containing 6 paralogs with 21 BnPERK genes. Group II included 3 paralogs, with 3 BnPERK genes, while Group IV contained only 1 paralog, with 3 BnPERK genes (Figure 1). All AtPERK genes, with the exception of AtPERK2, exhibited a close syntenic association with the 50 BnPERK genes. Most AtPERK genes corresponded to 2–6 orthologous genes in B. napus, each comprising orthologous genes from both the A and C subgenomes of B. napus. Notably, AtPERK3 was associated with a single ortholog, BnPERK03A1, as its counterpart in the C subgenome appeared to have been lost. These results suggest that genome rearrangement and gene loss occurred during the polyploidization of B. napus.",
+    "2.2. Chromosomal Distribution and Collinearity Analysis of BnPERK Genes",
+    "The 50 BnPERK genes were evenly distributed across the A and C subgenomes of B. napus, with 25 genes in each (Figure 2 and Supplementary Figure S1). These genes were dispersed among all chromosomes, except for A10. The highest concentration of genes was on the chromosome A1, which harbored seven genes, followed by six genes on C6 and five genes on A7. Single BnPERK genes were identified on chromosomes A2, A3, A4, A5, C4, and C9. The results indicated an irregular arrangement of the PERK gene family across the rapeseed chromosomes (Figure 2).",
+    "The collinear gene pairs in the B. napus genome were analyzed to explore syntenic relationships among BnPERKs (Figure 2). We identified 81 collinear gene pairs, including 49 pairs resulting from segmental duplication between the A and C subgenomes and 32 pairs occurring within a subgenome. The result indicated a high conservation between the A and C subgenomes. Additionally, we assessed the selective pressure exerted on duplicated BnPERK genes by calculating the ratios of nonsynonymous to synonymous substitutions (Ka/Ks) for the paralogous gene pairs (Supplementary Table S7). The Ka/Ks ratios ranged from 0.1409 to 0.2518 for 17 gene pairs in the A subgenome and from 0.1682 to 0.2519 for 15 gene pairs in the C subgenome. Furthermore, the Ka/Ks ratios for 49 gene pairs between the A and C subgenomes varied from 0.0482 to 0.5148. Notably, the Ka/Ks ratios for all paralogous gene pairs were found to be less than 1, indicating purifying selection acting on BnPERK genes.",
+    "2.3. Gene Structure, Conserved Motifs, and Cis-Elements Analysis of BnPERK Genes",
+    "To elucidate the functional characteristics of BnPERKs, the conserved motif, protein domain, and exon–intron organization were analyzed together with the phylogenetic tree (Figure 3). Ten conserved motifs were identified across the BnPERK proteins (Figure 3A and Supplementary Figure S2). These motifs exhibited consistent distribution patterns within the BnPERK proteins, with the exceptions of BnPERK15C2, BnPERK15A1, BnPERK15A3, and BnPERK10C1. Moreover, all BnPERK genes shared conserved tyrosine kinase domains, highlighting their functional significance (Figure 3B). Exon–intron analysis revealed structural diversity within the BnPERK gene family, though orthologous genes generally shared similar gene structures (Figure 3C). Most BnPERK genes harbored 5–9 introns, with the number of introns ranging from 3 (BnPERK15C2) to 16 (BnPERK15A2).",
+    "Cis-elements analysis is crucial for understanding gene regulation and function. Accordingly, upstream 2 kb sequences from BnPERKs transcription start sites were analyzed (Supplementary Tables S2 and S8). The results revealed that 75% of the identified cis-elements were core promoter and enhancer region elements. The remaining cis-elements were associated with hormonal responses, various stresses, and developmental processes (Figure 4A and Supplementary Figure S3). Cis-elements regulated responses to diverse hormones, including methyl jasmona (MeJA), abscisic acid (ABA), gibberellin (GA), auxin, ethylene (ET), and salicylic acid (SA), which were calculated (Figure 4B). The ABA and MeJA responsive elements were abundantly detected, and the auxin responsive elements were secondarily enriched (Figure 4B). These cis-elements relate to various biotic and abiotic stresses, such as light, anaerobic conditions, drought, low temperature, defense, and wounds (Figure 4C). Notably, there were light-responsive elements in all of the BnPERK genes (Supplementary Figure S3). In addition, there was a small part of the cis-elements that were categorized according to their roles in diverse developmental processes, including zein metabolism, endosperm expression, meristem expression, cell cycle regulation, and circadian control (Figure 4D). The presence of such diverse cis-elements suggests potential regulatory roles of BnPERKs in diverse biological processes.",
+    "2.4. Expression Pattern of BnPERK Gene Family Across Various Tissues",
+    "The expression pattern of the BnPERK genes was analyzed across 14 tissues at various developmental stages through RNA-Seq analysis (Figure 5). The results exhibited diverse expression patterns across these tissues. There were 13 genes showing constitutive expression in multiple tissues, among which BnPERK01A1 and BnPERK01C1 exhibited the highest expression levels. In contrast, certain genes displayed specific expression patterns. For example, BnPERK03A1 showed highly specific but relatively low expression in the sepal, and BnPERK15A3 specifically expressed in the leaf and silique. Moreover, 18 orthologous genes of AtPERK5, AtPERK6, AtPERK7, and AtPERK12 in B. napus were highly expressed in pollen. BnPERK15C2, which encoded the shortest protein, was not expressed in any tissues, suggesting a potential loss of function. These differential expression patterns of BnPERK genes point to their diverse roles in plant growth and development.",
+    "Furthermore, some paralogous gene pairs, such as BnPERK01A1/BnPERK01C1 and BnPERK09A1/BnPERK09C1, showed similar expression patterns, being constitutively and highly expressed across all tested tissues. In contrast, other paralogous gene pairs, like BnPERK06A1/BnPERK06A2 and BnPERK06C1/BnPERK06C2, showed specific high expression in floral organs. Additionally, BnPERK15A4/BnPERK15C3 showed high expression levels in different tissues, except for pollen. However, some paralogous gene pairs exhibited distinct patterns, indicating functional divergence.",
+    "2.5. Expression Pattern of BnPERK Gene Family in Response to Hormone Treatments",
+    "In order to further explore the function of BnPERKs during hormone responses, we investigated their expression patterns in both leaves and roots after different hormone treatments (Figure 6). Among the 50 identified BnPERK genes, only a small subset was expressed in leaves and roots. Most of these expressed genes were strongly induced in leaves within 0.5 h after indole acetic acid (IAA), l-aminocyclopropane-l-carboxylic acid (ACC), gibberellin acid (GA), trans-zeatin (TZ), or brassinolide (BL) treatments (Figure 6A). Additionally, four genes—BnPERK15A4, BnPERK15C3, BnPERK08A1, and BnPERK08C1—showed enhanced transcript levels at different time points after methyl jasmonate (MeJA) treatment in leaves. In contrast, their expression patterns in roots were distinct. Most genes showed enhanced expression levels after GA and ABA treatments but decreased expression levels after MeJA treatment (Figure 6B). Notably, BnPERK15A1 was strongly induced after MeJA treatment. Furthermore, three genes, BnPERK09A1, BnPERK09C1, and BnPERK04C1, which showed increased expression in leaves after IAA treatment, were also induced in roots.",
+    "2.6. Protein–Protein Interaction Network Analysis of BnPERK Genes",
+    "Predictive interaction networks were employed to explore the biological mechanisms of BnPERK proteins. The analysis revealed that the BnPERK proteins putatively interact with 1133 proteins in B. napus. The results showed that most PERK proteins serve as core nodes in these networks, interacting with various proteins participating in different biological processes (Figure 7A and Supplementary Table S9).",
+    "KEGG enrichment analysis indicated that the interacting proteins were primarily involved in processes such as pentose and glucuronate interconversions, plant–pathogen interaction, starch and sucrose metabolism, cyanoamino acid metabolism, the biosynthesis of secondary metabolites, endoplasmic reticulum processing, and the MAPK signaling pathway (Figure 7B and Supplementary Table S10). Similarly, GO enrichment analysis revealed significant enrichment of terms like integral components of the membrane and plasma membrane in the cellular component category (Figure 7C and Supplementary Table S11). ATP binding and kinase activity were prominently enriched in the molecular function category. Biological process category terms such as protein phosphorylation, pectin catalytic activity, and cell wall modification were enriched. Protein interactions analysis provided a comprehensive view of the BnPERK proteins interaction network in B. napus, underscoring their central role and broad involvement in different biological processes, including sugar metabolism and plant–pathogen interaction.",
+    "2.7. Root Gall Formation and BnPERK Gene Expression in B. napus upon Plasmodiophora brassicae Inoculation",
+    "Galls were observed on the roots of B. napus at 28 days after inoculation with P. brassicae (Figure 8A). Cross-sections of the inoculated roots revealed the changes in the vascular system. Resting spores that stained blue formed in the diseased roots. Furthermore, diseased root cells exhibited hypertrophy and disorder, accompanied by thickened cell walls, while control roots grew normally (Figure 8B). To better understand the response of BnPERK genes to clubroot disease, we analyzed the expression of BnPERK at 14 days after P. brassicae inoculation by RNA-Seq (Figure 8C). Among the 50 identified BnPERK genes, 23 were expressed in either inoculated or control roots. Notably, four genes, namely BnPERK09A1, BnPERK09C1, BnPERK14A1, and BnPERK06C2, showed downregulated expression in response to P. brassicae, among which BnPERK06C2 was completely inhibited after inoculation. Additionally, the paralogous gene pair BnPERK09A1/BnPERK09C1 also exhibited consistent expression patterns across different tissues. These four downregulated BnPERK genes were implicated in the response to P. brassicae.",
+    "2.8. Function of AtPERK9 in Clubroot Disease",
+    "To explore the putative role of BnPERK09A1 and BnPERK09C1 in clubroot disease, the mutant of the orthologous gene AtPERK9 (At1g68690) was used for clubroot disease investigation. Both the Col-0 and perk9 showed disease symptoms on the main roots and the lateral roots (Figure 9A). The percentage of severely diseased plants (disease grade 3) in Col-0 was much higher than that in perk9, which resulted in a significantly higher disease index in Col-0 (Figure 9B,C). It indicated that perk9 showed decreased severity of the clubroot disease.",
+    "Furthermore, the expression levels of PERK9, PR2, PR5, and RBOHD were evaluated in Col-0 and perk9 lines at 14 days after P. brassicae inoculation. PERK9 also showed downregulated expression in response to P. brassicae in Col-0, while it was totally inhibited in perk9. The expressions of PR2, PR5, and RBOHD genes were greatly enhanced in perk9. PR2 and RBOHD not only could be induced in Col-0 after P. brassicae inoculation, but also in perk9. Enhanced disease resistance to clubroot disease and increased expression of these genes in perk9 indicated that the basal immune response was triggered by the knockout of PERK9."
+  ],
+  "DISCUSS": [
+    "3. Discussion",
+    "PERKs constitute a crucial subfamily of RLKs that play important roles in various molecular and cellular processes in plants, including development, signaling, and stress responses. Despite their significance, there remains a lack of comprehensive study on the molecular functions of PERKs, particularly when compared with other RLKs. While genome-wide analyses of PERK genes have been conducted in some species, a thorough study of the BnPERK gene family has yet to be published. Therefore, this study systematically analyzed BnPERK genes, covering various aspects.",
+    "3.1. Deciphering the Evolutionary Dynamics of the BnPERK Genes",
+    "There were 50 PERK genes identified in the rapeseed cultivar ‘ZS11’ genome, highlighting an increased number of BnPERK genes compared with previous studies (Supplementary Table S3). This expansion of BnPERK genes was attributed to the evolutionary path of the Brassica genus, which experienced a genome triplication following its divergence from the Arabidopsis lineage. Through interspecific hybridization between B. rapa (AA) and B. oleracea (CC), the allotetraploid B. napus (AACC) arose. This complex evolutionary process contributed to the expansion of the BnPERK gene family. Studies have consistently demonstrated that whole-genome duplication and segmental duplications are crucial mechanisms driving gene duplication and the expansion of gene families. The prevalence of paralogous gene pairs resulting from segmental duplication highlights the role of genome duplication events in this expansion.",
+    "Initially, it was expected that each Arabidopsis gene would have six homologs in B. napus due to two recent duplication events. However, only 50 BnPERK genes were identified, suggesting a loss of duplicated BnPERK genes following Brassica genome triplication and hybridization. This indicated that gene loss was a crucial process during genomic arrangements and chromosome doubling. This also implied a selective process, where functionally redundant BnPERK copies may have been lost, while the retained 50 BnPERK genes may be crucial for plant development, hormone signaling, and stress response.",
+    "Phylogenetic analysis revealed that most AtPERK genes corresponded to 2–6 orthologous genes in B. napus, each of which included orthologs from both the A and C subgenomes. However, some AtPERK genes showed variations in the number of corresponding orthologous genes from the A and C subgenomes, suggesting extensive chromosomal rearrangements and asymmetric gene loss within duplicated genomic blocks. Analysis of Ka/Ks ratios of paralogous gene pairs indicated purifying selection on duplicated BnPERK genes, implying their functional conservation and evolutionary constraint at these loci.",
+    "Understanding the evolutionary dynamics of the BnPERK gene family not only enriches our knowledge of rapeseed genetics but also has broader implications for research in plant biology and stress-response mechanisms.",
+    "3.2. Exploring the Structural Diversity and Functional Roles of BnPERKs",
+    "The BnPERK gene family exhibited significant structural diversity, including variations in gene length, molecular weight, and isoelectric points. These variations suggested potential functional specialization within the gene family.",
+    "Although functional studies of BnPERKs are limited, expression profiling can still provide valuable insights about the gene’s function and its role in different biological processes. In accordance with the result in A. thaliana, BnPERK family members exhibited two distinct expression patterns: some were highly expressed in pollen, while others had broader expression patterns. Constitutive expression of certain BnPERK genes indicated their essential roles in fundamental cellular functions, while some BnPERKs exhibited higher expression levels in floral organs, which is consistent with findings in other species like A. thaliana, B. rapa, Triticum aestivum, and Oryza sativa and indicates their importance in floral development. Specifically, 18 orthologs of AtPERK5, AtPERK6, AtPERK7, and AtPERK12 were notably expressed in pollen, among which AtPERK5 and AtPERK12 were shown to be essential for pollen tube growth. Furthermore, certain B. rapa genes (orthologs of AtPERK6 and AtPERK12) were associated with male sterility, as they were downregulated in male-sterile mutants. BnPERK01A1 and BnPERK01C1 (orthologs of AtPERK1) showed constitutively high expression, suggesting essential roles in fundamental cellular functions. Functional analysis of BnPERK1 indicated its role in regulating cell wall integrity, signaling in stress responses, and facilitating growth and development in Arabidopsis.",
+    "Phylogenetic analysis indicated that the BnPERK genes originated through segmental duplication. Structural examination confirmed the phylogenetic arrangement, with most BnPERK genes sharing conserved motifs and tyrosine kinase domains. Differences in gene structure and cis-acting regulatory elements in promoters suggested evolutionary divergence, which may contribute to functional diversity and evolutionary mechanisms. Analysis of the cis-element indicated that BnPERK genes were responsive to various stresses and hormone signaling pathways, with MeJA- and ABA-responsive elements being particularly abundant. This suggests that BnPERK genes could mediate diverse gene expression patterns and provide flexibility in stress responses.",
+    "Further study on the expression patterns of BnPERK genes in response to hormone treatments provided insights into their potential roles in hormone signaling and plant development. This rapid and robust response to IAA, ET, GA, CK, and BL suggested that BnPERK genes might play a crucial role in the early stages of hormonal signal transduction in leaves, possibly by mediating the downstream effects of these hormones. In contrast, the expression profiles in roots exhibited totally different expression patterns, which highlights the complexity and specificity of hormonal regulation in different tissues. Enhanced expression levels after GA and ABA treatments in roots suggest involvements in root growth and stress adaptation. The contrasting expression patterns after MeJA treatment in roots and leaves imply distinct roles in different tissues. Additionally, the observation that genes such as BnPERK09A1, BnPERK09C1, and BnPERK04C1 were induced in both leaves and roots after IAA treatment implies a role in auxin signaling, which is central to various developmental processes, including cell elongation and differentiation. These genes may act as intermediaries in auxin signal transduction pathways, influencing growth and development in a tissue-specific manner.",
+    "In summary, the comprehensive examination illuminates the structural diversity and functional implications of the BnPERK gene family. The differential expression patterns of BnPERK genes in response to various hormone treatments highlight their potential involvement in diverse physiological processes, including growth regulation, stress responses, and defense mechanisms.",
+    "3.3. Revealing the Role of BnPERK in Clubroot Disease",
+    "Recent studies have suggested that receptor-like kinases (RLKs) including PERKs are involved in plant–pathogen interactions and immune responses. Analysis of cis-elements and expression profiles suggested that BnPERKs may act as novel sensors for various stresses, particularly plant pathogen infections. Protein–protein interaction network analysis supported this result, revealing the multifunctionality of BnPERK proteins and emphasizing their broad participation in plant physiological processes specific to plant disease response. The interactions involved cell wall organization, plant–pathogen interactions, plasma membrane dynamics, endomembrane activities, MAPK signaling pathways, and starch/sucrose metabolism. Given that pathogen-induced changes in cell walls affected disease resistance, it is possible that BnPERKs detect these alterations and initiate responses to maintain cell wall integrity. The membrane localization of BnPERKs suggested they might perceive infection signals at the cell’s surface. Upon activation by cell wall components, BnPERKs likely trigger downstream signaling cascades, including MAPK pathways. Otherwise, MAPK pathways also acted as downstream signaling components of hormones and played important roles in plant responses to different stresses. Despite these insights, the exact role of BnPERKs in plant immunity remains largely unknown, and their interactions with RLKs or coreceptors remain largely unexplored.",
+    "Clubroot disease, caused by the obligate parasite P. brassicae, poses a significant threat to Brassicaceae plants. The parasite is dependent on plant-derived sugars as a carbon source for colonization. The enriched sugar metabolism reflects the altered homeostasis and increased demand for sugar in infected plants. However, the downstream signaling components and their regulation in response to P. brassicae infection are not yet clear. The PERK gene family, with its known functions in cell wall integrity and stress responses, may contribute to reinforcing the plant cell wall during pathogen infection or modulating defense-related signaling pathways. Given the role of PERKs in disease response, the involvement of the PERK gene family in B. napus in clubroot disease was as expected. The transcriptional downregulation of BnPERK09A1, BnPERK09C1, BnPERK14A1, and BnPERK06C2 upon P. brassicae infection suggests their putative roles in clubroot disease response. In accordance with the result in B. napus, the expression of AtPERK9 was also downregulated in response to P. brassicae. The perk9 mutant was used for clubroot disease investigation, indicating the roles of BnPERK09A1 and BnPERK09C1 in the disease resistance. Pathogenesis-related proteins including enzymes like β-1,3-glucanase (PR2) and thionins (PR5), which have antimicrobial activity and are involved in the basal immune response. The RBOHD (Respiratory burst oxidase homolog D) gene is crucial in generating reactive oxygen species (ROS) as part of the plant immune system. The increased expression of these genes suggested that the knockout of AtPERK9 triggered the basal immune response, resulting in increased disease resistance in perk9. The induction of PR2 and RBOHD in both Col-0 and perk9 after inoculation suggested that basal immune response occurred in susceptible Col-0. Furthermore, the induction of BnPERK09A1 and BnPERK09C1 by IAA treatment was also particularly intriguing, as IAA is known to act as a signaling molecule potentially involved in the response to P. brassicae infection. However, the exact roles of BnPERK09A1 and BnPERK09C1 need further function study. The predicted interaction proteins associated with these pathways implied their roles in mediating the interaction between B. napus and P. brassicae, providing targets for further functional characterization.",
+    "In summary, uncovering the role of BnPERKs in clubroot disease response provided valuable insights into plant–pathogen interactions and potential strategies for disease management."
+  ],
+  "METHODS": [
+    "4. Materials and Methods",
+    "4.1. Identification of BnPERK Genes in Brassica napus",
+    "The BnPERK gene family was selected in this study due to its critical role in plant growth, development, and stress responses. It has not been extensively studied in B. napus, making it a valuable target for genome-wide analysis. The genomic data and annotation for the B. napus cultivar ‘ZS11’ were sourced from B. napus multi-omics information resource (BnIR) (, accessed on 1 March 2024). The PERK genes in B. napus were identified using BLASTp () with an E-value threshold of 10−5, employing the protein sequence of 15 AtPERKs as queries. The BnPERK gene family members were named based on their orthologous relationships and chromosomal location. By searching the conserved domain in InterPro (, accessed on 5 March 2024) and the NCBI Conserved Domain Database (, accessed on 5 March 2024), the tyrosine kinase domain-containing protein sequences were verified for candidate BnPERK genes. Additionally, Expasy (, accessed on 8 March 2024) was utilized to assess the isoelectric points (pIs) and the molecular weights (MWs) of BnPERK proteins. Subcellular locations of these proteins were predicted using Euk-mPLoc (, accessed on8 March 2024).",
+    "4.2. Chromosomal Location, Gene Duplication, and Phylogenetic Analysis",
+    "The positions of the BnPERK genes on the chromosomes were obtained from the annotation of the B. napus genome. McScanX () was employed to detect the duplication patterns, including segmental and tandem duplication. Visualization of chromosomal distribution and duplication events was represented using Circos (Vers. 0.69-9) software. The Ka/Ks (nonsynonymous substitution rate to synonymous substitution rate) ratio was calculated for the paralogous gene pairs using ParaAT2.0. Collinearity analysis of BnPERK genes was conducted and displayed using TBtools (Vers. 2.056). A phylogenetic tree was generated using MEGA 11 through neighbor-joining method with 1000 bootstrap replications and visualized using iTol (, accessed on 11 March 2024).",
+    "4.3. Gene Structure, Conserved Motifs, and Cis-Elements Analysis",
+    "The exon–intron structure of PERK genes was examined using Gene Structure Display Server 2.0 ( accessed on 14 March 2024). Conserved motifs were predicted using Multiple Expectation Maximization for Motif Elicitation (, accessed on 14 March 2024). The sequences of 2 Kb upstream from the start codon of 50 BnPERK genes were extracted from the B. napus ‘ZS11’ genome and analyzed for cis-elements using PlantCARE (, accessed on 14 March 2024) to predict cis-elements. The data were visualized using TBtools (Vers. 2.056).",
+    "4.4. Expression Profiles of BnPERK Genes in Different Tissues and Under Hormone Treatments",
+    "To display different expression profiles, RNA-Seq data from various tissues and the hormone response of B. napus cultivar ‘ZS11’ were obtained from BnIR. A total of 14 tissues at different development stages included seed, leaf, bud, root, petal, sepal, pollen, silique, filament, cotyledon, lower stem peel, middle stem peel, upper stem peel, and vegetative rosette stages. The roots and leaves were treated with hormones (IAA, auxin; ACC, l-aminocyclopropane-l-carboxylic acid; GA, gibberellin acid; ABA, abscisic acid; TZ, trans-zeatin; JA, methyl jasmonate; BL, brassinolide) and sampled at 0.5, 1, 3, and 6 h after treatment. Heatmaps were generated using these expression values after logarithmic transformed RPKM values and displayed using TBtools (Vers. 2.056).",
+    "4.5. Network-Based Prediction of Protein Interactions",
+    "Analysis of the protein–protein interaction network in B. napus was predicted using STRING (, accessed on 15 March 2024), and the interactions were displayed using Cytoscape (Vers. 3.9.1). In order to investigate the biological process involving B. napus genes, the putative interacted genes based on Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) enrichment analyses were conducted by BnaOmics (, accessed on 15 March 2024).",
+    "4.6. Plasmodiophora Brassicae Inoculation, Clubroot Disease Investigation, and Histocytological Analysis",
+    "A collection of Plasmodiophora brassicae isolate from Zhijiang, Hubei, was used for inoculation in greenhouse. The seeds of B. napus cultivar ‘ZS11’, wild-type A. thaliana (Col-0), and AtPERK9 mutant were germinated in a greenhouse maintained at 24 °C under a 16/8 h light/dark photoperiod. Seven-day-old rapeseed seedlings were inoculated with resting spores of P. brassicae at a concentration of 10−6 spores/mL. Two-week-old Arabidopsis seedlings were inoculated at a concentration of 10−5 spores/mL. The clubroot disease was investigated and photographed at 28–35 days after inoculation. The disease index was assessed using the following 0–3 scoring system: 0 refers to healthy roots; 1 refers to small galls on lateral roots only; 2 refers to small and medium galls covering the main root and a few lateral roots; 3 indicates large galls on the main root. The disease index (DI) was calculated according to the following formula: DI = 100 × (1 × N1 + 2 × N2 + 3 × N3)/3 × Nt. N1 to N3 refer to the number of plants in the indicated class, and Nt is the total number of plants tested.",
+    "The progression of cortex infection by P. brassicae was studied. Approximately 0.5 cm long root segments were excised from the upper of the primary root. Following standard protocols for fixation and dehydration, the samples were embedded in paraffin and sectioned at a thickness of 5–8 μM. Sections were analyzed and photographed using an optical microscope.",
+    "4.7. Transcriptome Analysis of BnPERK Genes in B. napus During Clubroot Disease",
+    "Root samples of B. napus infected with P. brassicae and uninfected controls were harvested at 14 days after treatment for RNA-Seq analysis. After sequencing and quality control, bioinformatics pipelines were using to clean raw sequencing data by removing adapters and low-quality reads. Then, the clean reads were aligned to the genome of ‘ZS11’. Gene expression levels were estimated using logarithmic transformed FPKM values. The differentially expressed genes (DEGs) between infected and control samples were determined with the DEGseq2 (adjusted p < 0.05 and |log2(fold-change)| ≥ 1) and displayed using TBtools (Vers. 2.056).",
+    "4.8. qRT-PCR Analysis of Pathogenesis-Related (PR) Genes in A. thaliana",
+    "Root samples from Arabidopsis Col-0 and perk9 infected with P. brassicae and uninfected controls were harvested at 14 days after inoculation for qRT-PCR study. Total RNA was extracted from control and inoculated roots using the FastPure Universal Plant Total RNA Isolation Kit (Vazyme, Nanjing, China). First-strand cDNA was synthesized with HiScript IV RT SuperMix for qPCR (Vazyme). Gene-specific primers are listed in Supplementary Table S1. Actin2 was used as reference gene. After running the qRT-PCR reactions, Ct (cycle threshold) values were obtained for each sample. The relative expression level was determined using the 2−ΔΔCt method. The data were presented as the mean ± standard error (SE) based on three technical replicates of three biological replicates. Significant difference was determined at a p-value < 0.05."
+  ],
+  "CONCL": [
+    "5. Conclusions",
+    "The study emphasized the evolutionary dynamics, structural diversity, and functional roles of the BnPERK gene family. It suggested that BnPERK genes are involved in various physiological processes, including growth regulation, stress responses, and the defense against pathogens. The transcriptional downregulation of BnPERK09A1 and BnPERK09C1 upon P. brassicae infection and the potential involvement of these genes in clubroot disease response further emphasize their significance in plant immunity. The identification of BnPERK09A1 and BnPERK09C1 as potential targets for disease management strategies and their putative role in signaling networks could contribute to the resistance improvement of Brassicaceae crops.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "SUPPL": [
+    "Supplementary Materials",
+    "The following supporting information can be downloaded at: .",
+    "Data Availability Statement",
+    "Data are contained within the article and Supplementary Materials."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Validation, L.R.; Investigation, Z.Z., T.F. and C.Z.; Resources, L.Z.; Data curation, Z.Z.; Writing–original draft, Z.Z. and L.X.; Writing–review & editing, L.X.; Visualization, Z.Z. and T.F.; Supervision, C.T. and L.L.; Project administration, F.L.; Funding acquisition, C.T. and L.X. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "Not applicable.",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Receptor-like protein kinases: The keys to response",
+    "Receptor-like protein kinases in plant reproduction: Current understanding and future perspectives",
+    "Receptor-like kinases in plant innate immunity",
+    "Origin and Diversity of Plant Receptor-Like Kinases",
+    "PERKing up our understanding of the proline-rich extensin-like receptor kinases, a forgotten plant receptor kinase family",
+    "Arabidopsis proline-rich extensin-like receptor kinase 4 modulates the early event toward abscisic acid response in root tip growth",
+    "The proline-rich, extensin-like receptor kinase-1 (PERK1) gene is rapidly induced by wounding",
+    "Soy and Arabidopsis receptor-like kinases respond to polysaccharide signals from Spodoptera species and mediate herbivore resistance",
+    "PERK13 modulates phosphate deficiencyinduced root hair elongation in Arabidopsis",
+    "Plasma membrane-associated proline-rich extensin-like receptor kinase 4, a novel regulator of Ca signalling, is required for abscisic acid responses in",
+    "A comprehensive expression analysis of the Arabidopsis proline-rich extensin-like receptor kinase gene family using bioinformatic and experimental approaches",
+    "Genome-wide analysis and characterization of the proline-rich extensin-like receptor kinases (PERKs) gene family reveals their role in different developmental stages and stress conditions in wheat (Triticum aestivum L.)",
+    "Genome-wide identification and characterization of the PERK gene family in Gossypium hirsutum reveals gene duplication and functional divergence",
+    "Zebra leaf 15, a receptor-like protein kinase involved in moderate low temperature signaling pathway in rice",
+    "Altered expression of PERK receptor kinases in leads to changes in Arabidopsis growth and floral organ formation",
+    "Genome-wide analysis of proline-rich extensin-like receptor kinases (PERKs) gene family reveals their roles in plant development and stress conditions in Oryza sativa L.",
+    "Early allopolyploid evolution in the post-Neolithic Brassica napus oilseed genome",
+    "Genome characterization clarifies U’s triangle model of evolution and polyploidy in Brassica",
+    "Genome-wide analysis of proline-rich extension-like receptor protein kinase (PERK) in Brassica rapa and its association with the pollen development",
+    "Genome-wide evolution and expression analysis of the MYB-CC gene family in Brassica spp.",
+    "Genome-wide analysis of glutamate receptor gene family in allopolyploid Brassica napus and its diploid progenitors",
+    "Genome-wide characterization of serine/arginine-rich gene family and its genetic effects on agronomic traits of Brassica napus",
+    "Evolution by gene loss",
+    "Natural selection of protein structural and functional properties: A single nucleotide polymorphism perspective",
+    "Protein subcellular localization prediction",
+    "COFACTOR: Improved protein function prediction by combining structure, sequence and protein-protein interaction information",
+    "Proline-rich extensin-like receptor kinases PERK5 and PERK12 are involved in pollen tube growth",
+    "Segmental structure of the genome based on comparative analysis with Arabidopsis thaliana",
+    "Genome redundancy and plasticity within ancient and recent Brassica crop species",
+    "Cis-regulatory elements: Molecular mechanisms and evolutionary processes underlying divergence",
+    "Coordination of ABA and chaperone signaling in plant stress responses",
+    "New insights into gibberellin signaling in regulating plant growth-metabolic coordination",
+    "Auxin and its role in plant development: Structure, signalling, regulation and response mechanisms",
+    "Protein-protein interaction (PPI) network analysis reveals important hub proteins and sub-network modules for root development in rice (Oryza sativa)",
+    "An update on cell surface proteins containing extensin-motifs",
+    "Plant cell wall-mediated immunity: Cell wall changes trigger disease resistance responses",
+    "Abiotic stress: Interplay between ROS, hormones and MAPKs",
+    "SnRK1.1-mediated resistance of Arabidopsis thaliana to clubroot disease is inhibited by the novel Plasmodiophora brassicae effector PBZF1",
+    "Obligate biotroph parasitism: Can we link genomes to lifestyles?",
+    "Sugar transporters in Plasmodiophora brassicae: Genome-wide identification and functional verification",
+    "Pathogenesis-related proteins and peptides as promising tools for engineering plants with multiple stress tolerance",
+    "Regulation of reactive oxygen species during plant immunity through phosphorylation and ubiquitination of RBOHD",
+    "Auxin homeostasis, signaling, and interaction with other growth hormones during the clubroot disease of Brassicaceae",
+    "Putative role of IAA during the early response of Brassica napus L. to Plasmodiophora brassicae",
+    "Integrative transcriptome, miRNAs, degradome, and phytohormone analysis of Brassica rapa L. in response to Plasmodiophora brassicae",
+    "BnIR: A multi-omics database with various tools for research and breeding",
+    "A new method for predicting the subcellular localization of eukaryotic proteins with both single and multiple sites: Euk-mPLoc 2.0",
+    "Detection of colinear blocks and synteny and evolutionary analyses based on utilization of MCScanX",
+    "Circos: An information aesthetic for comparative genomics",
+    "ParaAT: A parallel tool for constructing multiple protein-coding DNA alignments",
+    "TBtools-II: A “one for all, all for one” bioinformatics platform for biological big-data mining",
+    "MEGA11 Molecular Evolutionary Genetics Analysis Version 11",
+    "PlantCARE, a database of plant cis-acting regulatory elements and a portal to tools for in silico analysis of promoter sequences",
+    "Cytoscape Automation: Empowering workflow-based network analysis",
+    "BnaOmics: A comprehensive platform combining pan-genome and multi-omics data from Brassica napus",
+    "Jasmonic acid-mediated aliphatic glucosinolate metabolism is involved in clubroot disease development in Brassica napus L.",
+    "A new mathematical model for relative quantification in real-time RT-PCR"
+  ],
+  "FIG": [
+    "Phylogenetic tree of the PERK gene family in B. napus and A. thaliana. The phylogenetic tree was constructed with 50 BnPERK protein sequences and 15 AtPERK protein sequences by MEGA11 using the maximum likelihood (ML) method. A total of 15 paralogs were identified, grouped into 15 distinct clusters, each represented by a different color (PERK1 to PERK15). Based on sequence similarity and functional domain analysis, the 15 paralogs were further categorized into four major groups, which are indicated by distinct colors (outer lane). Group I, light steel blue; Group II, cornflower blue; Group III, royal blue; Group IV, black.",
+    "Chromosomal distribution and collinearity relationships of BnPERK genes. The locations of all the chromosomal BnPERK genes are shown in different chromosomes. The light green boxes stand for A subgenomes and dark green boxes stand for C subgenomes in Brassica napus. The light brown lines represent collinearity in BnPERK gene pairs.",
+    "Phylogenetic tree, conserved motifs, and gene structure analysis of BnPERK gene family. A total of 14 paralogs were identified based on the phylogenetic tree, each represented by a different color. (A) Motif composition of BnPERK proteins, with motifs 1–10 displayed in different colored boxes. (B) Identification of the protein kinase domain in BnPERK proteins. (C) Exon–intron analysis of BnPERK genes, with yellow boxes representing un-translated regions (UTRs) and orange boxes represented coding sequences (CDSs).",
+    "Cis-elements analysis of the BnPERK promoters. The cis-elements were predicted by analysis of 2 Kb upstream regions of BnPERK genes. They were categorized into four groups (A), including hormonal responses (B), biotic and abiotic stress (C), developmental processes (D), and promoter and enhancer regions, which are represented by different colors and further categorized.",
+    "Expression profiles of the BnPERK gene family in various tissues of Brassica napus. The heatmap shows the expression of 50 BnPERK genes across 14 different tissues, processed with log2 normalization. The color gradient ranges from blue (indicating lower expression levels) to red (indicating higher expression levels), while the gray spots represent no detectable expression.",
+    "Expression patterns of BnPERKs under hormone treatments in leaves (A) and roots (B). The heatmap displays the relative expression of BnPERKs at 0.5, 1, 3, and 6 h after treatment, derived from RNA-Seq analysis. IAA, indole acetic acid; GA, gibberellin acid; ABA, abscisic acid; ACC, l-aminocyclopropane-l-carboxylic acid; TZ, trans-zeatin; JA, methyl jasmonate; BL, brassinolide. Different dot colors represent different relative expression levels: red dot indicates up-regulated expression, blue dot indicates down-regulated expression, and the larger the dot, the greater the fold change.",
+    "Proteins interacting with BnPERK proteins in Brassica napus. (A) Protein–protein interaction network of BnPERK proteins. Dark brown spots represent BnPERK proteins, blue spots represent proteins that interact with BnPERK proteins, and gray lines indicate the interaction between BnPERK proteins and other proteins. (B) KEGG enrichment analysis of proteins that interacted with BnPERK proteins. (C) GO enrichment analysis of proteins that interacted with BnPERK proteins.",
+    "Disease symptoms, histocytological analysis, and PERK gene expression analysis in control and inoculated B. napus. (A) Symptoms of clubroot disease in control and inoculated roots at 28 days after inoculation. (B,C) Histocytological analysis of cross-sections of control and inoculated roots at 28 days after inoculation. (D) Expression patterns of 23 PERK genes at 14 days after inoculation with Plasmodiophora brassicae. Error bars represent the standard error of the means of the three replicates. Stars indicate significant differences in expression between control and inoculated roots (|log2 (fold-change)| > 1). *, p < 0.05; **, p < 0.01.",
+    "Enhanced disease severity of clubroot disease in the mutant of AtPERK9. (A) Root phenotypes of wild-type A. thaliana (Col-0) and perk9 at 28 days after inoculation. (B) The occurrence of clubroot disease in Col-0 and perk9 was investigated according to the 0–3 scoring system. (C) Disease index of Col-0 and perk9. (D) Expression patterns of PERK9, PR2, PR5, and RBOHD genes in Col-0 and perk9 lines. Different letters represent significant differences (p < 0.05)."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Receptor-like protein kinases: The keys to response",
+      "autores": [
+        {
+          "nombre_completo": "E.R. Morris",
+          "nombres": "E.R.",
+          "apellidos": "Morris"
+        },
+        {
+          "nombre_completo": "J.C. Walker",
+          "nombres": "J.C.",
+          "apellidos": "Walker"
+        }
+      ],
+      "pmid": "12873528",
+      "fuente": "Curr. Opin. Plant Biol.",
+      "anio": "2003",
+      "volumen": "6",
+      "fpage": "339",
+      "lpage": "342"
+    },
+    {
+      "titulo": "Receptor-like protein kinases in plant reproduction: Current understanding and future perspectives",
+      "autores": [
+        {
+          "nombre_completo": "Y.W. Cui",
+          "nombres": "Y.W.",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "X.T. Lu",
+          "nombres": "X.T.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "X.P. Gou",
+          "nombres": "X.P.",
+          "apellidos": "Gou"
+        }
+      ],
+      "pmid": "35059634",
+      "fuente": "Plant Commun.",
+      "anio": "2022",
+      "volumen": "3",
+      "fpage": "100273",
+      "lpage": ""
+    },
+    {
+      "titulo": "Receptor-like kinases in plant innate immunity",
+      "autores": [
+        {
+          "nombre_completo": "Y. Wu",
+          "nombres": "Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "J.M. Zhou",
+          "nombres": "J.M.",
+          "apellidos": "Zhou"
+        }
+      ],
+      "pmid": "24308571",
+      "fuente": "J. Integr. Plant Biol.",
+      "anio": "2013",
+      "volumen": "55",
+      "fpage": "1271",
+      "lpage": "1286"
+    },
+    {
+      "titulo": "Origin and Diversity of Plant Receptor-Like Kinases",
+      "autores": [
+        {
+          "nombre_completo": "A. Dievart",
+          "nombres": "A.",
+          "apellidos": "Dievart"
+        },
+        {
+          "nombre_completo": "C. Gottin",
+          "nombres": "C.",
+          "apellidos": "Gottin"
+        },
+        {
+          "nombre_completo": "C. Périn",
+          "nombres": "C.",
+          "apellidos": "Périn"
+        },
+        {
+          "nombre_completo": "V. Ranwez",
+          "nombres": "V.",
+          "apellidos": "Ranwez"
+        },
+        {
+          "nombre_completo": "N. Chantret",
+          "nombres": "N.",
+          "apellidos": "Chantret"
+        }
+      ],
+      "pmid": "32186895",
+      "fuente": "Annu. Rev. Plant Biol.",
+      "anio": "2020",
+      "volumen": "71",
+      "fpage": "131",
+      "lpage": "156"
+    },
+    {
+      "titulo": "PERKing up our understanding of the proline-rich extensin-like receptor kinases, a forgotten plant receptor kinase family",
+      "autores": [
+        {
+          "nombre_completo": "M. Invernizzi",
+          "nombres": "M.",
+          "apellidos": "Invernizzi"
+        },
+        {
+          "nombre_completo": "M. Hanemian",
+          "nombres": "M.",
+          "apellidos": "Hanemian"
+        },
+        {
+          "nombre_completo": "J. Keller",
+          "nombres": "J.",
+          "apellidos": "Keller"
+        },
+        {
+          "nombre_completo": "C. Libourel",
+          "nombres": "C.",
+          "apellidos": "Libourel"
+        },
+        {
+          "nombre_completo": "D. Roby",
+          "nombres": "D.",
+          "apellidos": "Roby"
+        }
+      ],
+      "pmid": "35451507",
+      "fuente": "New Phytol.",
+      "anio": "2022",
+      "volumen": "235",
+      "fpage": "875",
+      "lpage": "884"
+    },
+    {
+      "titulo": "Arabidopsis proline-rich extensin-like receptor kinase 4 modulates the early event toward abscisic acid response in root tip growth",
+      "autores": [
+        {
+          "nombre_completo": "L. Bai",
+          "nombres": "L.",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "Y. Zhou",
+          "nombres": "Y.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "C.P. Song",
+          "nombres": "C.P.",
+          "apellidos": "Song"
+        }
+      ],
+      "pmid": "20009554",
+      "fuente": "Plant Signal. Behav.",
+      "anio": "2009",
+      "volumen": "4",
+      "fpage": "1075",
+      "lpage": "1077"
+    },
+    {
+      "titulo": "The proline-rich, extensin-like receptor kinase-1 (PERK1) gene is rapidly induced by wounding",
+      "autores": [
+        {
+          "nombre_completo": "N.F. Silva",
+          "nombres": "N.F.",
+          "apellidos": "Silva"
+        },
+        {
+          "nombre_completo": "D.R. Goring",
+          "nombres": "D.R.",
+          "apellidos": "Goring"
+        }
+      ],
+      "pmid": "12374299",
+      "fuente": "Plant Mol. Biol.",
+      "anio": "2002",
+      "volumen": "50",
+      "fpage": "667",
+      "lpage": "685"
+    },
+    {
+      "titulo": "Soy and Arabidopsis receptor-like kinases respond to polysaccharide signals from Spodoptera species and mediate herbivore resistance",
+      "autores": [
+        {
+          "nombre_completo": "T. Uemura",
+          "nombres": "T.",
+          "apellidos": "Uemura"
+        },
+        {
+          "nombre_completo": "M. Hachisu",
+          "nombres": "M.",
+          "apellidos": "Hachisu"
+        },
+        {
+          "nombre_completo": "Y. Desaki",
+          "nombres": "Y.",
+          "apellidos": "Desaki"
+        },
+        {
+          "nombre_completo": "A. Ito",
+          "nombres": "A.",
+          "apellidos": "Ito"
+        },
+        {
+          "nombre_completo": "R. Hoshino",
+          "nombres": "R.",
+          "apellidos": "Hoshino"
+        },
+        {
+          "nombre_completo": "Y. Sano",
+          "nombres": "Y.",
+          "apellidos": "Sano"
+        },
+        {
+          "nombre_completo": "A. Nozawa",
+          "nombres": "A.",
+          "apellidos": "Nozawa"
+        },
+        {
+          "nombre_completo": "K. Mujiono",
+          "nombres": "K.",
+          "apellidos": "Mujiono"
+        },
+        {
+          "nombre_completo": "I. Galis",
+          "nombres": "I.",
+          "apellidos": "Galis"
+        },
+        {
+          "nombre_completo": "A. Yoshida",
+          "nombres": "A.",
+          "apellidos": "Yoshida"
+        }
+      ],
+      "pmid": "32385340",
+      "fuente": "Commun. Biol.",
+      "anio": "2020",
+      "volumen": "3",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "PERK13 modulates phosphate deficiencyinduced root hair elongation in Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "C.W. Xue",
+          "nombres": "C.W.",
+          "apellidos": "Xue"
+        },
+        {
+          "nombre_completo": "W.F. Li",
+          "nombres": "W.F.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "R.F. Shen",
+          "nombres": "R.F.",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "P. Lan",
+          "nombres": "P.",
+          "apellidos": "Lan"
+        }
+      ],
+      "pmid": "34620427",
+      "fuente": "Plant Sci.",
+      "anio": "2021",
+      "volumen": "312",
+      "fpage": "111060",
+      "lpage": ""
+    },
+    {
+      "titulo": "Plasma membrane-associated proline-rich extensin-like receptor kinase 4, a novel regulator of Ca signalling, is required for abscisic acid responses in",
+      "autores": [
+        {
+          "nombre_completo": "L. Bai",
+          "nombres": "L.",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "G.Z. Zhang",
+          "nombres": "G.Z.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Zhou",
+          "nombres": "Y.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Z.P. Zhang",
+          "nombres": "Z.P.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "W. Wang",
+          "nombres": "W.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y.Y. Du",
+          "nombres": "Y.Y.",
+          "apellidos": "Du"
+        },
+        {
+          "nombre_completo": "Z.Y. Wu",
+          "nombres": "Z.Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "C.P. Song",
+          "nombres": "C.P.",
+          "apellidos": "Song"
+        }
+      ],
+      "pmid": "19566594",
+      "fuente": "Plant J.",
+      "anio": "2009",
+      "volumen": "60",
+      "fpage": "314",
+      "lpage": "327"
+    },
+    {
+      "titulo": "A comprehensive expression analysis of the Arabidopsis proline-rich extensin-like receptor kinase gene family using bioinformatic and experimental approaches",
+      "autores": [
+        {
+          "nombre_completo": "A. Nakhamchik",
+          "nombres": "A.",
+          "apellidos": "Nakhamchik"
+        },
+        {
+          "nombre_completo": "Z.Y. Zhao",
+          "nombres": "Z.Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "N.J. Provart",
+          "nombres": "N.J.",
+          "apellidos": "Provart"
+        },
+        {
+          "nombre_completo": "S.H. Shiu",
+          "nombres": "S.H.",
+          "apellidos": "Shiu"
+        },
+        {
+          "nombre_completo": "S.K. Keatley",
+          "nombres": "S.K.",
+          "apellidos": "Keatley"
+        },
+        {
+          "nombre_completo": "R.K. Cameron",
+          "nombres": "R.K.",
+          "apellidos": "Cameron"
+        },
+        {
+          "nombre_completo": "D.R. Goring",
+          "nombres": "D.R.",
+          "apellidos": "Goring"
+        }
+      ],
+      "pmid": "15653807",
+      "fuente": "Plant Cell Physiol.",
+      "anio": "2004",
+      "volumen": "45",
+      "fpage": "1875",
+      "lpage": "1881"
+    },
+    {
+      "titulo": "Genome-wide analysis and characterization of the proline-rich extensin-like receptor kinases (PERKs) gene family reveals their role in different developmental stages and stress conditions in wheat (Triticum aestivum L.)",
+      "autores": [
+        {
+          "nombre_completo": "M.S. Kesawat",
+          "nombres": "M.S.",
+          "apellidos": "Kesawat"
+        },
+        {
+          "nombre_completo": "B.S. Kherawat",
+          "nombres": "B.S.",
+          "apellidos": "Kherawat"
+        },
+        {
+          "nombre_completo": "A. Singh",
+          "nombres": "A.",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "P. Dey",
+          "nombres": "P.",
+          "apellidos": "Dey"
+        },
+        {
+          "nombre_completo": "S. Routray",
+          "nombres": "S.",
+          "apellidos": "Routray"
+        },
+        {
+          "nombre_completo": "C. Mohapatra",
+          "nombres": "C.",
+          "apellidos": "Mohapatra"
+        },
+        {
+          "nombre_completo": "D. Saha",
+          "nombres": "D.",
+          "apellidos": "Saha"
+        },
+        {
+          "nombre_completo": "C. Ram",
+          "nombres": "C.",
+          "apellidos": "Ram"
+        },
+        {
+          "nombre_completo": "K.H.M. Siddique",
+          "nombres": "K.H.M.",
+          "apellidos": "Siddique"
+        },
+        {
+          "nombre_completo": "A. Kumar",
+          "nombres": "A.",
+          "apellidos": "Kumar"
+        }
+      ],
+      "pmid": "35214830",
+      "fuente": "Plants",
+      "anio": "2022",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-wide identification and characterization of the PERK gene family in Gossypium hirsutum reveals gene duplication and functional divergence",
+      "autores": [
+        {
+          "nombre_completo": "G. Qanmber",
+          "nombres": "G.",
+          "apellidos": "Qanmber"
+        },
+        {
+          "nombre_completo": "J. Liu",
+          "nombres": "J.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "D.Q. Yu",
+          "nombres": "D.Q.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "Z. Liu",
+          "nombres": "Z.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "L.L. Lu",
+          "nombres": "L.L.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "H.J. Mo",
+          "nombres": "H.J.",
+          "apellidos": "Mo"
+        },
+        {
+          "nombre_completo": "S.Y. Ma",
+          "nombres": "S.Y.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "Z. Wang",
+          "nombres": "Z.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z.R. Yang",
+          "nombres": "Z.R.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "30970629",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Zebra leaf 15, a receptor-like protein kinase involved in moderate low temperature signaling pathway in rice",
+      "autores": [
+        {
+          "nombre_completo": "P. Feng",
+          "nombres": "P.",
+          "apellidos": "Feng"
+        },
+        {
+          "nombre_completo": "J.Q. Shi",
+          "nombres": "J.Q.",
+          "apellidos": "Shi"
+        },
+        {
+          "nombre_completo": "T. Zhang",
+          "nombres": "T.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y.Q. Zhong",
+          "nombres": "Y.Q.",
+          "apellidos": "Zhong"
+        },
+        {
+          "nombre_completo": "L.S. Zhang",
+          "nombres": "L.S.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G.L. Yu",
+          "nombres": "G.L.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "T.Q. Zhang",
+          "nombres": "T.Q.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "X.Y. Zhu",
+          "nombres": "X.Y.",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "Y.D. Xing",
+          "nombres": "Y.D.",
+          "apellidos": "Xing"
+        },
+        {
+          "nombre_completo": "W.Z. Yin",
+          "nombres": "W.Z.",
+          "apellidos": "Yin"
+        }
+      ],
+      "pmid": "31732821",
+      "fuente": "Rice",
+      "anio": "2019",
+      "volumen": "12",
+      "fpage": "83",
+      "lpage": ""
+    },
+    {
+      "titulo": "Altered expression of PERK receptor kinases in leads to changes in Arabidopsis growth and floral organ formation",
+      "autores": [
+        {
+          "nombre_completo": "Y.Z. Haffani",
+          "nombres": "Y.Z.",
+          "apellidos": "Haffani"
+        },
+        {
+          "nombre_completo": "N.F. Silva-Gagliardi",
+          "nombres": "N.F.",
+          "apellidos": "Silva-Gagliardi"
+        },
+        {
+          "nombre_completo": "S.K. Sewter",
+          "nombres": "S.K.",
+          "apellidos": "Sewter"
+        },
+        {
+          "nombre_completo": "M.G. Aldea",
+          "nombres": "M.G.",
+          "apellidos": "Aldea"
+        },
+        {
+          "nombre_completo": "Z.Y. Zhao",
+          "nombres": "Z.Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "A. Nakhamchik",
+          "nombres": "A.",
+          "apellidos": "Nakhamchik"
+        },
+        {
+          "nombre_completo": "R.K. Cameron",
+          "nombres": "R.K.",
+          "apellidos": "Cameron"
+        },
+        {
+          "nombre_completo": "D.R. Goring",
+          "nombres": "D.R.",
+          "apellidos": "Goring"
+        }
+      ],
+      "pmid": "19516986",
+      "fuente": "Plant Signal. Behav.",
+      "anio": "2006",
+      "volumen": "1",
+      "fpage": "251",
+      "lpage": "260"
+    },
+    {
+      "titulo": "Genome-wide analysis of proline-rich extensin-like receptor kinases (PERKs) gene family reveals their roles in plant development and stress conditions in Oryza sativa L.",
+      "autores": [
+        {
+          "nombre_completo": "M.S. Kesawat",
+          "nombres": "M.S.",
+          "apellidos": "Kesawat"
+        },
+        {
+          "nombre_completo": "B.S. Kherawat",
+          "nombres": "B.S.",
+          "apellidos": "Kherawat"
+        },
+        {
+          "nombre_completo": "J.L. Katara",
+          "nombres": "J.L.",
+          "apellidos": "Katara"
+        },
+        {
+          "nombre_completo": "C. Parameswaran",
+          "nombres": "C.",
+          "apellidos": "Parameswaran"
+        },
+        {
+          "nombre_completo": "N. Misra",
+          "nombres": "N.",
+          "apellidos": "Misra"
+        },
+        {
+          "nombre_completo": "M. Kumar",
+          "nombres": "M.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "S.M. Chung",
+          "nombres": "S.M.",
+          "apellidos": "Chung"
+        },
+        {
+          "nombre_completo": "S. Alamri",
+          "nombres": "S.",
+          "apellidos": "Alamri"
+        },
+        {
+          "nombre_completo": "M.H. Siddiqui",
+          "nombres": "M.H.",
+          "apellidos": "Siddiqui"
+        }
+      ],
+      "pmid": "37244501",
+      "fuente": "Plant Sci.",
+      "anio": "2023",
+      "volumen": "334",
+      "fpage": "111749",
+      "lpage": ""
+    },
+    {
+      "titulo": "Early allopolyploid evolution in the post-Neolithic Brassica napus oilseed genome",
+      "autores": [
+        {
+          "nombre_completo": "B. Chalhoub",
+          "nombres": "B.",
+          "apellidos": "Chalhoub"
+        },
+        {
+          "nombre_completo": "F. Denoeud",
+          "nombres": "F.",
+          "apellidos": "Denoeud"
+        },
+        {
+          "nombre_completo": "S.Y. Liu",
+          "nombres": "S.Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "I.A.P. Parkin",
+          "nombres": "I.A.P.",
+          "apellidos": "Parkin"
+        },
+        {
+          "nombre_completo": "H.B. Tang",
+          "nombres": "H.B.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "X.Y. Wang",
+          "nombres": "X.Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. Chiquet",
+          "nombres": "J.",
+          "apellidos": "Chiquet"
+        },
+        {
+          "nombre_completo": "H. Belcram",
+          "nombres": "H.",
+          "apellidos": "Belcram"
+        },
+        {
+          "nombre_completo": "C.B. Tong",
+          "nombres": "C.B.",
+          "apellidos": "Tong"
+        },
+        {
+          "nombre_completo": "B. Samans",
+          "nombres": "B.",
+          "apellidos": "Samans"
+        }
+      ],
+      "pmid": "25146293",
+      "fuente": "Science",
+      "anio": "2014",
+      "volumen": "345",
+      "fpage": "950",
+      "lpage": "953"
+    },
+    {
+      "titulo": "Genome characterization clarifies U’s triangle model of evolution and polyploidy in Brassica",
+      "autores": [
+        {
+          "nombre_completo": "X.M. Song",
+          "nombres": "X.M.",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "Y.P. Wei",
+          "nombres": "Y.P.",
+          "apellidos": "Wei"
+        },
+        {
+          "nombre_completo": "D. Xiao",
+          "nombres": "D.",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "K. Gong",
+          "nombres": "K.",
+          "apellidos": "Gong"
+        },
+        {
+          "nombre_completo": "P.C. Sun",
+          "nombres": "P.C.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "Y.M. Ren",
+          "nombres": "Y.M.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "J.Q. Yuan",
+          "nombres": "J.Q.",
+          "apellidos": "Yuan"
+        },
+        {
+          "nombre_completo": "T. Wu",
+          "nombres": "T.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "Q.H. Yang",
+          "nombres": "Q.H.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "X.Y. Li",
+          "nombres": "X.Y.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "33599732",
+      "fuente": "Plant Physiol.",
+      "anio": "2021",
+      "volumen": "186",
+      "fpage": "388",
+      "lpage": "406"
+    },
+    {
+      "titulo": "Genome-wide analysis of proline-rich extension-like receptor protein kinase (PERK) in Brassica rapa and its association with the pollen development",
+      "autores": [
+        {
+          "nombre_completo": "G.H. Chen",
+          "nombres": "G.H.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J. Wang",
+          "nombres": "J.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "H. Wang",
+          "nombres": "H.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "C.G. Wang",
+          "nombres": "C.G.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "X.Y. Tang",
+          "nombres": "X.Y.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "J. Li",
+          "nombres": "J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "J.H. Song",
+          "nombres": "J.H.",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "J.F. Hou",
+          "nombres": "J.F.",
+          "apellidos": "Hou"
+        },
+        {
+          "nombre_completo": "L.Y. Yuan",
+          "nombres": "L.Y.",
+          "apellidos": "Yuan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Genom.",
+      "anio": "2020",
+      "volumen": "21",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-wide evolution and expression analysis of the MYB-CC gene family in Brassica spp.",
+      "autores": [
+        {
+          "nombre_completo": "B.J. Gu",
+          "nombres": "B.J.",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "Y.K. Tong",
+          "nombres": "Y.K.",
+          "apellidos": "Tong"
+        },
+        {
+          "nombre_completo": "Y.Y. Wang",
+          "nombres": "Y.Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "M.L. Zhang",
+          "nombres": "M.L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G.J. Ma",
+          "nombres": "G.J.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "X.Q. Wu",
+          "nombres": "X.Q.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "J.F. Zhang",
+          "nombres": "J.F.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "F. Xu",
+          "nombres": "F.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "J. Li",
+          "nombres": "J.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "F. Ren",
+          "nombres": "F.",
+          "apellidos": "Ren"
+        }
+      ],
+      "pmid": "35237467",
+      "fuente": "PeerJ",
+      "anio": "2022",
+      "volumen": "10",
+      "fpage": "e12882",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-wide analysis of glutamate receptor gene family in allopolyploid Brassica napus and its diploid progenitors",
+      "autores": [
+        {
+          "nombre_completo": "B.C. Roy",
+          "nombres": "B.C.",
+          "apellidos": "Roy"
+        },
+        {
+          "nombre_completo": "N. Shukla",
+          "nombres": "N.",
+          "apellidos": "Shukla"
+        },
+        {
+          "nombre_completo": "R. Gachhui",
+          "nombres": "R.",
+          "apellidos": "Gachhui"
+        },
+        {
+          "nombre_completo": "A. Mukherjee",
+          "nombres": "A.",
+          "apellidos": "Mukherjee"
+        }
+      ],
+      "pmid": "37624443",
+      "fuente": "Genetica",
+      "anio": "2023",
+      "volumen": "151",
+      "fpage": "293",
+      "lpage": "310"
+    },
+    {
+      "titulo": "Genome-wide characterization of serine/arginine-rich gene family and its genetic effects on agronomic traits of Brassica napus",
+      "autores": [
+        {
+          "nombre_completo": "M.L. Xie",
+          "nombres": "M.L.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "R. Zuo",
+          "nombres": "R.",
+          "apellidos": "Zuo"
+        },
+        {
+          "nombre_completo": "Z.T. Bai",
+          "nombres": "Z.T.",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "L.L. Yang",
+          "nombres": "L.L.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "C.J. Zhao",
+          "nombres": "C.J.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "F. Gao",
+          "nombres": "F.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "X.H. Cheng",
+          "nombres": "X.H.",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "J.Y. Huang",
+          "nombres": "J.Y.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "Y.Y. Liu",
+          "nombres": "Y.Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y. Li",
+          "nombres": "Y.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "35251101",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Evolution by gene loss",
+      "autores": [
+        {
+          "nombre_completo": "R. Albalat",
+          "nombres": "R.",
+          "apellidos": "Albalat"
+        },
+        {
+          "nombre_completo": "C. Cañestro",
+          "nombres": "C.",
+          "apellidos": "Cañestro"
+        }
+      ],
+      "pmid": "27087500",
+      "fuente": "Nat. Rev. Genet.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "379",
+      "lpage": "391"
+    },
+    {
+      "titulo": "Natural selection of protein structural and functional properties: A single nucleotide polymorphism perspective",
+      "autores": [
+        {
+          "nombre_completo": "J.F. Liu",
+          "nombres": "J.F.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "X.Y. Lei",
+          "nombres": "X.Y.",
+          "apellidos": "Lei"
+        },
+        {
+          "nombre_completo": "Z.M. Zhang",
+          "nombres": "Z.M.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "18397526",
+      "fuente": "Genome Biol.",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Protein subcellular localization prediction",
+      "autores": [
+        {
+          "nombre_completo": "E. Barberis",
+          "nombres": "E.",
+          "apellidos": "Barberis"
+        },
+        {
+          "nombre_completo": "E. Marengo",
+          "nombres": "E.",
+          "apellidos": "Marengo"
+        },
+        {
+          "nombre_completo": "M. Manfredi",
+          "nombres": "M.",
+          "apellidos": "Manfredi"
+        }
+      ],
+      "pmid": "34236663",
+      "fuente": "Methods Mol. Biol.",
+      "anio": "2021",
+      "volumen": "2361",
+      "fpage": "197",
+      "lpage": "212"
+    },
+    {
+      "titulo": "COFACTOR: Improved protein function prediction by combining structure, sequence and protein-protein interaction information",
+      "autores": [
+        {
+          "nombre_completo": "C.X. Zhang",
+          "nombres": "C.X.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "P.L. Freddolino",
+          "nombres": "P.L.",
+          "apellidos": "Freddolino"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "291",
+      "lpage": "299"
+    },
+    {
+      "titulo": "Proline-rich extensin-like receptor kinases PERK5 and PERK12 are involved in pollen tube growth",
+      "autores": [
+        {
+          "nombre_completo": "C. Borassi",
+          "nombres": "C.",
+          "apellidos": "Borassi"
+        },
+        {
+          "nombre_completo": "A.R. Sede",
+          "nombres": "A.R.",
+          "apellidos": "Sede"
+        },
+        {
+          "nombre_completo": "M.A. Mecchia",
+          "nombres": "M.A.",
+          "apellidos": "Mecchia"
+        },
+        {
+          "nombre_completo": "S. Mangano",
+          "nombres": "S.",
+          "apellidos": "Mangano"
+        },
+        {
+          "nombre_completo": "E. Marzol",
+          "nombres": "E.",
+          "apellidos": "Marzol"
+        },
+        {
+          "nombre_completo": "S.P. Denita-Juarez",
+          "nombres": "S.P.",
+          "apellidos": "Denita-Juarez"
+        },
+        {
+          "nombre_completo": "J.D.S. Salter",
+          "nombres": "J.D.S.",
+          "apellidos": "Salter"
+        },
+        {
+          "nombre_completo": "S.M. Velasquez",
+          "nombres": "S.M.",
+          "apellidos": "Velasquez"
+        },
+        {
+          "nombre_completo": "J.P. Muschietti",
+          "nombres": "J.P.",
+          "apellidos": "Muschietti"
+        },
+        {
+          "nombre_completo": "J.M. Estevez",
+          "nombres": "J.M.",
+          "apellidos": "Estevez"
+        }
+      ],
+      "pmid": "34427925",
+      "fuente": "FEBS Lett.",
+      "anio": "2021",
+      "volumen": "595",
+      "fpage": "2593",
+      "lpage": "2607"
+    },
+    {
+      "titulo": "Segmental structure of the genome based on comparative analysis with Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "I.A.P. Parkin",
+          "nombres": "I.A.P.",
+          "apellidos": "Parkin"
+        },
+        {
+          "nombre_completo": "S.M. Gulden",
+          "nombres": "S.M.",
+          "apellidos": "Gulden"
+        },
+        {
+          "nombre_completo": "A.G. Sharpe",
+          "nombres": "A.G.",
+          "apellidos": "Sharpe"
+        },
+        {
+          "nombre_completo": "L. Lukens",
+          "nombres": "L.",
+          "apellidos": "Lukens"
+        },
+        {
+          "nombre_completo": "M. Trick",
+          "nombres": "M.",
+          "apellidos": "Trick"
+        },
+        {
+          "nombre_completo": "T.C. Osborn",
+          "nombres": "T.C.",
+          "apellidos": "Osborn"
+        },
+        {
+          "nombre_completo": "D.J. Lydiate",
+          "nombres": "D.J.",
+          "apellidos": "Lydiate"
+        }
+      ],
+      "pmid": "16020789",
+      "fuente": "Genetics",
+      "anio": "2005",
+      "volumen": "171",
+      "fpage": "765",
+      "lpage": "781"
+    },
+    {
+      "titulo": "Genome redundancy and plasticity within ancient and recent Brassica crop species",
+      "autores": [
+        {
+          "nombre_completo": "L.N. Lukens",
+          "nombres": "L.N.",
+          "apellidos": "Lukens"
+        },
+        {
+          "nombre_completo": "P.A. Quijada",
+          "nombres": "P.A.",
+          "apellidos": "Quijada"
+        },
+        {
+          "nombre_completo": "J. Udall",
+          "nombres": "J.",
+          "apellidos": "Udall"
+        },
+        {
+          "nombre_completo": "J.C. Pires",
+          "nombres": "J.C.",
+          "apellidos": "Pires"
+        },
+        {
+          "nombre_completo": "M.E. Schranz",
+          "nombres": "M.E.",
+          "apellidos": "Schranz"
+        },
+        {
+          "nombre_completo": "T.C. Osborn",
+          "nombres": "T.C.",
+          "apellidos": "Osborn"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biol. J. Linn. Soc.",
+      "anio": "2004",
+      "volumen": "82",
+      "fpage": "665",
+      "lpage": "674"
+    },
+    {
+      "titulo": "Cis-regulatory elements: Molecular mechanisms and evolutionary processes underlying divergence",
+      "autores": [
+        {
+          "nombre_completo": "P.J. Wittkopp",
+          "nombres": "P.J.",
+          "apellidos": "Wittkopp"
+        },
+        {
+          "nombre_completo": "G. Kalay",
+          "nombres": "G.",
+          "apellidos": "Kalay"
+        }
+      ],
+      "pmid": "22143240",
+      "fuente": "Nat. Rev. Genet.",
+      "anio": "2012",
+      "volumen": "13",
+      "fpage": "59",
+      "lpage": "69"
+    },
+    {
+      "titulo": "Coordination of ABA and chaperone signaling in plant stress responses",
+      "autores": [
+        {
+          "nombre_completo": "V.P. Bulgakov",
+          "nombres": "V.P.",
+          "apellidos": "Bulgakov"
+        },
+        {
+          "nombre_completo": "H.C. Wu",
+          "nombres": "H.C.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "T.L. Jinn",
+          "nombres": "T.L.",
+          "apellidos": "Jinn"
+        }
+      ],
+      "pmid": "31085125",
+      "fuente": "Trends Plant Sci.",
+      "anio": "2019",
+      "volumen": "24",
+      "fpage": "636",
+      "lpage": "651"
+    },
+    {
+      "titulo": "New insights into gibberellin signaling in regulating plant growth-metabolic coordination",
+      "autores": [
+        {
+          "nombre_completo": "K. Wu",
+          "nombres": "K.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "H. Xu",
+          "nombres": "H.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "X.H. Gao",
+          "nombres": "X.H.",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "X.D. Fu",
+          "nombres": "X.D.",
+          "apellidos": "Fu"
+        }
+      ],
+      "pmid": "34217918",
+      "fuente": "Curr. Opin. Plant Biol.",
+      "anio": "2021",
+      "volumen": "63",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Auxin and its role in plant development: Structure, signalling, regulation and response mechanisms",
+      "autores": [
+        {
+          "nombre_completo": "G.L.B. Gomes",
+          "nombres": "G.L.B.",
+          "apellidos": "Gomes"
+        },
+        {
+          "nombre_completo": "K.C. Scortecci",
+          "nombres": "K.C.",
+          "apellidos": "Scortecci"
+        }
+      ],
+      "pmid": "34396657",
+      "fuente": "Plant Biol.",
+      "anio": "2021",
+      "volumen": "23",
+      "fpage": "894",
+      "lpage": "904"
+    },
+    {
+      "titulo": "Protein-protein interaction (PPI) network analysis reveals important hub proteins and sub-network modules for root development in rice (Oryza sativa)",
+      "autores": [
+        {
+          "nombre_completo": "S.S. Wimalagunasekara",
+          "nombres": "S.S.",
+          "apellidos": "Wimalagunasekara"
+        },
+        {
+          "nombre_completo": "J.W.J.K. Weeraman",
+          "nombres": "J.W.J.K.",
+          "apellidos": "Weeraman"
+        },
+        {
+          "nombre_completo": "S. Tirimanne",
+          "nombres": "S.",
+          "apellidos": "Tirimanne"
+        },
+        {
+          "nombre_completo": "P.C. Fernando",
+          "nombres": "P.C.",
+          "apellidos": "Fernando"
+        }
+      ],
+      "pmid": "37246172",
+      "fuente": "J. Genet. Eng. Biotechnol.",
+      "anio": "2023",
+      "volumen": "21",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "An update on cell surface proteins containing extensin-motifs",
+      "autores": [
+        {
+          "nombre_completo": "C. Borassi",
+          "nombres": "C.",
+          "apellidos": "Borassi"
+        },
+        {
+          "nombre_completo": "A.R. Sede",
+          "nombres": "A.R.",
+          "apellidos": "Sede"
+        },
+        {
+          "nombre_completo": "M.A. Mecchia",
+          "nombres": "M.A.",
+          "apellidos": "Mecchia"
+        },
+        {
+          "nombre_completo": "J.D.S. Salter",
+          "nombres": "J.D.S.",
+          "apellidos": "Salter"
+        },
+        {
+          "nombre_completo": "E. Marzol",
+          "nombres": "E.",
+          "apellidos": "Marzol"
+        },
+        {
+          "nombre_completo": "J.P. Muschietti",
+          "nombres": "J.P.",
+          "apellidos": "Muschietti"
+        },
+        {
+          "nombre_completo": "J.M. Estevez",
+          "nombres": "J.M.",
+          "apellidos": "Estevez"
+        }
+      ],
+      "pmid": "26475923",
+      "fuente": "J. Exp. Bot.",
+      "anio": "2016",
+      "volumen": "67",
+      "fpage": "477",
+      "lpage": "487"
+    },
+    {
+      "titulo": "Plant cell wall-mediated immunity: Cell wall changes trigger disease resistance responses",
+      "autores": [
+        {
+          "nombre_completo": "L. Bacete",
+          "nombres": "L.",
+          "apellidos": "Bacete"
+        },
+        {
+          "nombre_completo": "H. Mélida",
+          "nombres": "H.",
+          "apellidos": "Mélida"
+        },
+        {
+          "nombre_completo": "E. Miedes",
+          "nombres": "E.",
+          "apellidos": "Miedes"
+        },
+        {
+          "nombre_completo": "A. Molina",
+          "nombres": "A.",
+          "apellidos": "Molina"
+        }
+      ],
+      "pmid": "29266460",
+      "fuente": "Plant J.",
+      "anio": "2018",
+      "volumen": "93",
+      "fpage": "614",
+      "lpage": "636"
+    },
+    {
+      "titulo": "Abiotic stress: Interplay between ROS, hormones and MAPKs",
+      "autores": [
+        {
+          "nombre_completo": "V. Raja",
+          "nombres": "V.",
+          "apellidos": "Raja"
+        },
+        {
+          "nombre_completo": "U. Majeed",
+          "nombres": "U.",
+          "apellidos": "Majeed"
+        },
+        {
+          "nombre_completo": "H. Kang",
+          "nombres": "H.",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "K.I. Andrabi",
+          "nombres": "K.I.",
+          "apellidos": "Andrabi"
+        },
+        {
+          "nombre_completo": "R. John",
+          "nombres": "R.",
+          "apellidos": "John"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Environ. Exp. Bot.",
+      "anio": "2017",
+      "volumen": "137",
+      "fpage": "142",
+      "lpage": "157"
+    },
+    {
+      "titulo": "SnRK1.1-mediated resistance of Arabidopsis thaliana to clubroot disease is inhibited by the novel Plasmodiophora brassicae effector PBZF1",
+      "autores": [
+        {
+          "nombre_completo": "W. Chen",
+          "nombres": "W.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y. Li",
+          "nombres": "Y.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "R.B. Yan",
+          "nombres": "R.B.",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "L. Ren",
+          "nombres": "L.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "F. Liu",
+          "nombres": "F.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "L.Y. Zeng",
+          "nombres": "L.Y.",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "S.N. Sun",
+          "nombres": "S.N.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "H.H. Yang",
+          "nombres": "H.H.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "K.R. Chen",
+          "nombres": "K.R.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L. Xu",
+          "nombres": "L.",
+          "apellidos": "Xu"
+        }
+      ],
+      "pmid": "34165877",
+      "fuente": "Mol. Plant Pathol.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "1057",
+      "lpage": "1069"
+    },
+    {
+      "titulo": "Obligate biotroph parasitism: Can we link genomes to lifestyles?",
+      "autores": [
+        {
+          "nombre_completo": "E. Kemen",
+          "nombres": "E.",
+          "apellidos": "Kemen"
+        },
+        {
+          "nombre_completo": "J.D.G. Jones",
+          "nombres": "J.D.G.",
+          "apellidos": "Jones"
+        }
+      ],
+      "pmid": "22613788",
+      "fuente": "Trends Plant Sci.",
+      "anio": "2012",
+      "volumen": "17",
+      "fpage": "448",
+      "lpage": "457"
+    },
+    {
+      "titulo": "Sugar transporters in Plasmodiophora brassicae: Genome-wide identification and functional verification",
+      "autores": [
+        {
+          "nombre_completo": "L. Kong",
+          "nombres": "L.",
+          "apellidos": "Kong"
+        },
+        {
+          "nombre_completo": "X. Li",
+          "nombres": "X.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Z. Zhan",
+          "nombres": "Z.",
+          "apellidos": "Zhan"
+        },
+        {
+          "nombre_completo": "Z. Piao",
+          "nombres": "Z.",
+          "apellidos": "Piao"
+        }
+      ],
+      "pmid": "35563657",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Pathogenesis-related proteins and peptides as promising tools for engineering plants with multiple stress tolerance",
+      "autores": [
+        {
+          "nombre_completo": "S. Ali",
+          "nombres": "S.",
+          "apellidos": "Ali"
+        },
+        {
+          "nombre_completo": "B.A. Ganai",
+          "nombres": "B.A.",
+          "apellidos": "Ganai"
+        },
+        {
+          "nombre_completo": "A.N. Kamili",
+          "nombres": "A.N.",
+          "apellidos": "Kamili"
+        },
+        {
+          "nombre_completo": "A.A. Bhat",
+          "nombres": "A.A.",
+          "apellidos": "Bhat"
+        },
+        {
+          "nombre_completo": "Z.A. Mir",
+          "nombres": "Z.A.",
+          "apellidos": "Mir"
+        },
+        {
+          "nombre_completo": "J.A. Bhat",
+          "nombres": "J.A.",
+          "apellidos": "Bhat"
+        },
+        {
+          "nombre_completo": "A. Tyagi",
+          "nombres": "A.",
+          "apellidos": "Tyagi"
+        },
+        {
+          "nombre_completo": "S.T. Islam",
+          "nombres": "S.T.",
+          "apellidos": "Islam"
+        },
+        {
+          "nombre_completo": "M. Mushtaq",
+          "nombres": "M.",
+          "apellidos": "Mushtaq"
+        },
+        {
+          "nombre_completo": "P. Yadav",
+          "nombres": "P.",
+          "apellidos": "Yadav"
+        }
+      ],
+      "pmid": "29853166",
+      "fuente": "Microbiol. Res.",
+      "anio": "2018",
+      "volumen": "212",
+      "fpage": "29",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Regulation of reactive oxygen species during plant immunity through phosphorylation and ubiquitination of RBOHD",
+      "autores": [
+        {
+          "nombre_completo": "D. Lee",
+          "nombres": "D.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "N.K. Lal",
+          "nombres": "N.K.",
+          "apellidos": "Lal"
+        },
+        {
+          "nombre_completo": "Z.J.D. Lin",
+          "nombres": "Z.J.D.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "S.S. Ma",
+          "nombres": "S.S.",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "J. Liu",
+          "nombres": "J.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "B. Castro",
+          "nombres": "B.",
+          "apellidos": "Castro"
+        },
+        {
+          "nombre_completo": "T. Toruño",
+          "nombres": "T.",
+          "apellidos": "Toruño"
+        },
+        {
+          "nombre_completo": "S.P. Dinesh-Kumar",
+          "nombres": "S.P.",
+          "apellidos": "Dinesh-Kumar"
+        },
+        {
+          "nombre_completo": "G. Coaker",
+          "nombres": "G.",
+          "apellidos": "Coaker"
+        }
+      ],
+      "pmid": "32296066",
+      "fuente": "Nat. Commun.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "1838",
+      "lpage": ""
+    },
+    {
+      "titulo": "Auxin homeostasis, signaling, and interaction with other growth hormones during the clubroot disease of Brassicaceae",
+      "autores": [
+        {
+          "nombre_completo": "J. Ludwig-Muller",
+          "nombres": "J.",
+          "apellidos": "Ludwig-Muller"
+        }
+      ],
+      "pmid": "24699875",
+      "fuente": "Plant Signal. Behav.",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e28593",
+      "lpage": ""
+    },
+    {
+      "titulo": "Putative role of IAA during the early response of Brassica napus L. to Plasmodiophora brassicae",
+      "autores": [
+        {
+          "nombre_completo": "L. Xu",
+          "nombres": "L.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "L. Ren",
+          "nombres": "L.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "K.R. Chen",
+          "nombres": "K.R.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "F. Liu",
+          "nombres": "F.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "X.P. Fang",
+          "nombres": "X.P.",
+          "apellidos": "Fang"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Eur. J. Plant Pathol.",
+      "anio": "2016",
+      "volumen": "145",
+      "fpage": "601",
+      "lpage": "613"
+    },
+    {
+      "titulo": "Integrative transcriptome, miRNAs, degradome, and phytohormone analysis of Brassica rapa L. in response to Plasmodiophora brassicae",
+      "autores": [
+        {
+          "nombre_completo": "X.C. Wei",
+          "nombres": "X.C.",
+          "apellidos": "Wei"
+        },
+        {
+          "nombre_completo": "R.J. Liao",
+          "nombres": "R.J.",
+          "apellidos": "Liao"
+        },
+        {
+          "nombre_completo": "X.W. Zhang",
+          "nombres": "X.W.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y.Y. Zhao",
+          "nombres": "Y.Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Z.Q. Xie",
+          "nombres": "Z.Q.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "S.J. Yang",
+          "nombres": "S.J.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "H.A. Su",
+          "nombres": "H.A.",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "Z.Y. Wang",
+          "nombres": "Z.Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "L.Y. Zhang",
+          "nombres": "L.Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "B.M. Tian",
+          "nombres": "B.M.",
+          "apellidos": "Tian"
+        }
+      ],
+      "pmid": "36768977",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2023",
+      "volumen": "24",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "BnIR: A multi-omics database with various tools for research and breeding",
+      "autores": [
+        {
+          "nombre_completo": "Z.Q. Yang",
+          "nombres": "Z.Q.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "S.B. Wang",
+          "nombres": "S.B.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "L.L. Wei",
+          "nombres": "L.L.",
+          "apellidos": "Wei"
+        },
+        {
+          "nombre_completo": "Y.M. Huang",
+          "nombres": "Y.M.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "D.X. Liu",
+          "nombres": "D.X.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y.P. Jia",
+          "nombres": "Y.P.",
+          "apellidos": "Jia"
+        },
+        {
+          "nombre_completo": "C.F. Luo",
+          "nombres": "C.F.",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "Y.C. Lin",
+          "nombres": "Y.C.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "C.Y. Liang",
+          "nombres": "C.Y.",
+          "apellidos": "Liang"
+        },
+        {
+          "nombre_completo": "Y. Hu",
+          "nombres": "Y.",
+          "apellidos": "Hu"
+        }
+      ],
+      "pmid": "36919242",
+      "fuente": "Mol. Plant",
+      "anio": "2023",
+      "volumen": "16",
+      "fpage": "775",
+      "lpage": "789"
+    },
+    {
+      "titulo": "A new method for predicting the subcellular localization of eukaryotic proteins with both single and multiple sites: Euk-mPLoc 2.0",
+      "autores": [
+        {
+          "nombre_completo": "K.C. Chou",
+          "nombres": "K.C.",
+          "apellidos": "Chou"
+        },
+        {
+          "nombre_completo": "H.B. Shen",
+          "nombres": "H.B.",
+          "apellidos": "Shen"
+        }
+      ],
+      "pmid": "20368981",
+      "fuente": "PLoS ONE",
+      "anio": "2010",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Detection of colinear blocks and synteny and evolutionary analyses based on utilization of MCScanX",
+      "autores": [
+        {
+          "nombre_completo": "Y.P. Wang",
+          "nombres": "Y.P.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "H.B. Tang",
+          "nombres": "H.B.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "X.Y. Wang",
+          "nombres": "X.Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "P.V. Joseph",
+          "nombres": "P.V.",
+          "apellidos": "Joseph"
+        },
+        {
+          "nombre_completo": "A.H. Paterson",
+          "nombres": "A.H.",
+          "apellidos": "Paterson"
+        }
+      ],
+      "pmid": "38491145",
+      "fuente": "Nat. Protoc.",
+      "anio": "2024",
+      "volumen": "19",
+      "fpage": "2206",
+      "lpage": "2229"
+    },
+    {
+      "titulo": "Circos: An information aesthetic for comparative genomics",
+      "autores": [
+        {
+          "nombre_completo": "M. Krzywinski",
+          "nombres": "M.",
+          "apellidos": "Krzywinski"
+        },
+        {
+          "nombre_completo": "J. Schein",
+          "nombres": "J.",
+          "apellidos": "Schein"
+        },
+        {
+          "nombre_completo": "I. Birol",
+          "nombres": "I.",
+          "apellidos": "Birol"
+        },
+        {
+          "nombre_completo": "J. Connors",
+          "nombres": "J.",
+          "apellidos": "Connors"
+        },
+        {
+          "nombre_completo": "R. Gascoyne",
+          "nombres": "R.",
+          "apellidos": "Gascoyne"
+        },
+        {
+          "nombre_completo": "D. Horsman",
+          "nombres": "D.",
+          "apellidos": "Horsman"
+        },
+        {
+          "nombre_completo": "S.J. Jones",
+          "nombres": "S.J.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "M.A. Marra",
+          "nombres": "M.A.",
+          "apellidos": "Marra"
+        }
+      ],
+      "pmid": "19541911",
+      "fuente": "Genome Res.",
+      "anio": "2009",
+      "volumen": "19",
+      "fpage": "1639",
+      "lpage": "1645"
+    },
+    {
+      "titulo": "ParaAT: A parallel tool for constructing multiple protein-coding DNA alignments",
+      "autores": [
+        {
+          "nombre_completo": "Z. Zhang",
+          "nombres": "Z.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "J.F. Xiao",
+          "nombres": "J.F.",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "J.Y. Wu",
+          "nombres": "J.Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "H.Y. Zhang",
+          "nombres": "H.Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "G.M. Liu",
+          "nombres": "G.M.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "X.M. Wang",
+          "nombres": "X.M.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "L. Dai",
+          "nombres": "L.",
+          "apellidos": "Dai"
+        }
+      ],
+      "pmid": "22390928",
+      "fuente": "Biochem. Biophys. Res. Commun.",
+      "anio": "2012",
+      "volumen": "419",
+      "fpage": "779",
+      "lpage": "781"
+    },
+    {
+      "titulo": "TBtools-II: A “one for all, all for one” bioinformatics platform for biological big-data mining",
+      "autores": [
+        {
+          "nombre_completo": "C.J. Chen",
+          "nombres": "C.J.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y. Wu",
+          "nombres": "Y.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "J.W. Li",
+          "nombres": "J.W.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "X. Wang",
+          "nombres": "X.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Z.H. Zeng",
+          "nombres": "Z.H.",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "J. Xu",
+          "nombres": "J.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "Y.L. Liu",
+          "nombres": "Y.L.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "J.T. Feng",
+          "nombres": "J.T.",
+          "apellidos": "Feng"
+        },
+        {
+          "nombre_completo": "H. Chen",
+          "nombres": "H.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y.H. He",
+          "nombres": "Y.H.",
+          "apellidos": "He"
+        }
+      ],
+      "pmid": "37740491",
+      "fuente": "Mol. Plant",
+      "anio": "2023",
+      "volumen": "16",
+      "fpage": "1733",
+      "lpage": "1742"
+    },
+    {
+      "titulo": "MEGA11 Molecular Evolutionary Genetics Analysis Version 11",
+      "autores": [
+        {
+          "nombre_completo": "K. Tamura",
+          "nombres": "K.",
+          "apellidos": "Tamura"
+        },
+        {
+          "nombre_completo": "G. Stecher",
+          "nombres": "G.",
+          "apellidos": "Stecher"
+        },
+        {
+          "nombre_completo": "S. Kumar",
+          "nombres": "S.",
+          "apellidos": "Kumar"
+        }
+      ],
+      "pmid": "33892491",
+      "fuente": "Mol. Biol. Evol.",
+      "anio": "2021",
+      "volumen": "38",
+      "fpage": "3022",
+      "lpage": "3027"
+    },
+    {
+      "titulo": "PlantCARE, a database of plant cis-acting regulatory elements and a portal to tools for in silico analysis of promoter sequences",
+      "autores": [
+        {
+          "nombre_completo": "M. Lescot",
+          "nombres": "M.",
+          "apellidos": "Lescot"
+        },
+        {
+          "nombre_completo": "P. Déhais",
+          "nombres": "P.",
+          "apellidos": "Déhais"
+        },
+        {
+          "nombre_completo": "G. Thijs",
+          "nombres": "G.",
+          "apellidos": "Thijs"
+        },
+        {
+          "nombre_completo": "K. Marchal",
+          "nombres": "K.",
+          "apellidos": "Marchal"
+        },
+        {
+          "nombre_completo": "Y. Moreau",
+          "nombres": "Y.",
+          "apellidos": "Moreau"
+        },
+        {
+          "nombre_completo": "Y. Van de Peer",
+          "nombres": "Y.",
+          "apellidos": "Van de Peer"
+        },
+        {
+          "nombre_completo": "P. Rouzé",
+          "nombres": "P.",
+          "apellidos": "Rouzé"
+        },
+        {
+          "nombre_completo": "S. Rombauts",
+          "nombres": "S.",
+          "apellidos": "Rombauts"
+        }
+      ],
+      "pmid": "11752327",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2002",
+      "volumen": "30",
+      "fpage": "325",
+      "lpage": "327"
+    },
+    {
+      "titulo": "Cytoscape Automation: Empowering workflow-based network analysis",
+      "autores": [
+        {
+          "nombre_completo": "D. Otasek",
+          "nombres": "D.",
+          "apellidos": "Otasek"
+        },
+        {
+          "nombre_completo": "J.H. Morris",
+          "nombres": "J.H.",
+          "apellidos": "Morris"
+        },
+        {
+          "nombre_completo": "J. Bouças",
+          "nombres": "J.",
+          "apellidos": "Bouças"
+        },
+        {
+          "nombre_completo": "A.R. Pico",
+          "nombres": "A.R.",
+          "apellidos": "Pico"
+        },
+        {
+          "nombre_completo": "B. Demchak",
+          "nombres": "B.",
+          "apellidos": "Demchak"
+        }
+      ],
+      "pmid": "31477170",
+      "fuente": "Genome Biol.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "BnaOmics: A comprehensive platform combining pan-genome and multi-omics data from Brassica napus",
+      "autores": [
+        {
+          "nombre_completo": "X.B. Cui",
+          "nombres": "X.B.",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "M. Hu",
+          "nombres": "M.",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "S.L. Yao",
+          "nombres": "S.L.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "Y.Y. Zhang",
+          "nombres": "Y.Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "M.Q. Tang",
+          "nombres": "M.Q.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "L.J. Liu",
+          "nombres": "L.J.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "X.H. Cheng",
+          "nombres": "X.H.",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "C.B. Tong",
+          "nombres": "C.B.",
+          "apellidos": "Tong"
+        },
+        {
+          "nombre_completo": "S.Y. Liu",
+          "nombres": "S.Y.",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "37098652",
+      "fuente": "Plant Commun.",
+      "anio": "2023",
+      "volumen": "4",
+      "fpage": "100609",
+      "lpage": ""
+    },
+    {
+      "titulo": "Jasmonic acid-mediated aliphatic glucosinolate metabolism is involved in clubroot disease development in Brassica napus L.",
+      "autores": [
+        {
+          "nombre_completo": "L. Xu",
+          "nombres": "L.",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "H. Yang",
+          "nombres": "H.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "L. Ren",
+          "nombres": "L.",
+          "apellidos": "Ren"
+        },
+        {
+          "nombre_completo": "W. Chen",
+          "nombres": "W.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L.J. Liu",
+          "nombres": "L.J.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "F. Liu",
+          "nombres": "F.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "L.Y. Zeng",
+          "nombres": "L.Y.",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "R.B. Yan",
+          "nombres": "R.B.",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "K.R. Chen",
+          "nombres": "K.R.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "X.P. Fang",
+          "nombres": "X.P.",
+          "apellidos": "Fang"
+        }
+      ],
+      "pmid": "29922320",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "A new mathematical model for relative quantification in real-time RT-PCR",
+      "autores": [
+        {
+          "nombre_completo": "M.W. Pfaffl",
+          "nombres": "M.W.",
+          "apellidos": "Pfaffl"
+        }
+      ],
+      "pmid": "11328886",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2001",
+      "volumen": "29",
+      "fpage": "e45",
+      "lpage": ""
+    }
+  ]
+}

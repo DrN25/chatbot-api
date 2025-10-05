@@ -1,0 +1,591 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Bacillaceae Strains Isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "The draft genome sequences of 29 bacterial isolates belonging to the family Bacillaceae were collected from the International Space Station, assembled, and identified. Further analysis of these sequences will enable us to understand their roles for space and biotechnological applications.",
+    "ABSTRACT",
+    "The draft genome sequences of 29 bacterial isolates belonging to the family Bacillaceae were collected from the International Space Station, assembled, and identified. Further analysis of these sequences will enable us to understand their roles for space and biotechnological applications."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "The family Bacillaceae is composed of mostly aerobic or facultatively anaerobic rods with a Gram-positive cell wall. Members of this group are ubiquitous in nature, found in soil, sediments, air, freshwater, marine ecosystems, and foods and in extreme environments with high temperatures. Bacillaceae groups are reported to produce a wide range of valuable and thermostable extracellular enzymes. The majority of Bacillaceae can form endospores that are crucial for survival in harsh environments. This spore-forming property makes it important for NASA planetary protection purposes because spore-forming bacteria are more likely to survive sterilization procedures and the harsh environments of outer space, making them a potential threat for forward contamination.",
+    "This report presents the draft genome sequences of three species (Bacillus amyloliquefaciens, Bacillus cereus, and Paenibacillus polymyxa) belonging to the family Bacillaceae, isolated from predefined surfaces at various locations on the International Space Station. The samples were collected using premoistened polyester wipes, brought back to Earth, aseptically transferred to a 500-ml bottle containing 200 ml of phosphate-buffered saline, mixed by vigorously shaking, and concentrated via a filtration system. An appropriate aliquot of each sample was inoculated onto either Reasoner’s 2A (R2A) (25°C; 7 days) or blood (37°C; 2 days) agar. A single colony from each incubated plate was used for genomic DNA extraction using the ZymoBIOMICS MagBead DNA kit according to the manufacturer’s instructions (Zymo Research, USA). All isolates were identified by 16S rRNA sequencing based on similarity to their type strain 16S rRNA, as previously reported. To create the whole-genome sequences (WGS) of these strains, shotgun libraries were prepared using the Illumina Nextera Flex protocol, using NovaSeq 6000 S4 flow cell 2 × 150 paired-end (PE) sequencing. Verification of the quality of the raw sequencing data was carried out using FastQC v0.11.7. Quality control for adapter trimming and quality filtering were performed using fastp v0.20.0, and then SPAdes v3.11.1 was used to assemble all the cleaned sequences. Fastp quality control was based on the following three parameters: (i) correction of mismatches in overlapped regions of paired-end reads, (ii) trimming of autodetected adapter sequences, and (iii) quality trimming at the 5′ and 3′ ends. To determine the quality of the assembled sequences, the number of contigs, the N 50 value, and the total length were calculated using QUAST v5.0.2. Default parameters were used for all software. The average nucleotide identity (ANI) was calculated using OrthoANIu by comparing each of the 29 Bacillaceae scaffolds to the WGS of the respective type strains. The ANI range was 93.98% to 94.17% for B. amyloliquefaciens, and the ANI was 98% for both B. cereus and P. polymyxa. All other genomic statistics are given in Table 1.",
+    "Data availability.",
+    "The WGS and raw data have been deposited in GenBank under the BioProject accession number PRJNA637984 and also in the NASA GeneLab system (https://genelab-data.ndc.nasa.gov/genelab/accession/GLDS-303/). The version described in this paper is the final version."
+  ],
+  "TABLE": [
+    "Summary of draft whole-genome sequences of Bacillaceae strains isolated from various International Space Station environmental surfaces",
+    "Sample name\tBacterial species\tWGS accession no.\tSRA accession no.\tIsolation locationa\tNo. of contigs\tGenome size (bp)\tN50 (bp)\tDepth of coverage (×)\tG+C content (%)\tNo. of filtered reads\t \tIIF7SW-P1\tBacillus amyloliquefaciens\tJABVDW000000000\tSRR11948426\tOverhead 3\t33\t3,908,309\t234,631\t745.98\t46.42\t26,708,590\t \tIIF7SW-P2\tBacillus amyloliquefaciens\tJABVDS000000000\tSRR11948402\tOverhead 3\t34\t3,906,939\t268,709\t866.52\t46.43\t33,191,426\t \tIIF7SW-P3\tBacillus amyloliquefaciens\tJABVDR000000000\tSRR11948401\tOverhead 3\t33\t3,908,243\t234,631\t743.30\t46.42\t27,127,172\t \tIIF7SW-P4\tBacillus amyloliquefaciens\tJABVDP000000000\tSRR11948399\tOverhead 3\t31\t3,906,699\t268,709\t571.88\t46.43\t21,235,408\t \tIIF7SW-P5\tBacillus amyloliquefaciens\tJABVDV000000000\tSRR11948415\tOverhead 3\t36\t3,907,462\t268,709\t495.54\t46.43\t18,131,724\t \tIIF7SW-B1\tBacillus amyloliquefaciens\tJABVDX000000000\tSRR11948427\tOverhead 3\t32\t3,907,264\t268,709\t542.41\t46.42\t20,063,358\t \tIIF7SW-B4\tBacillus amyloliquefaciens\tJABVDQ000000000\tSRR11948400\tOverhead 3\t22\t4,214,765\t1,035,357\t358.93\t45.76\t16,420,634\t \tIIF7SC-B1\tBacillus amyloliquefaciens\tJABVDT000000000\tSRR11948403\tField control\t36\t3,907,040\t268,709\t577.23\t46.42\t21,558,310\t \tIIF7SC-B4\tBacillus amyloliquefaciens\tJABVDU000000000\tSRR11948404\tField control\t35\t3,907,001\t268,702\t480.80\t46.42\t18,065,320\t \tIIF4SW-P2\tBacillus thuringiensis\tJABVDN000000000\tSRR11948425\tDining table\t18\t5,303,558\t2,681,506\t381.70\t35.08\t24,097,822\t \tIIF4SW-P3\tBacillus thuringiensis\tJABVDI000000000\tSRR11948420\tDining table\t18\t5,302,927\t2,862,962\t354.91\t35.07\t21,342,744\t \tIIF4SW-P4\tBacillus thuringiensis\tJABVDH000000000\tSRR11948419\tDining table\t17\t5,303,162\t3,967,155\t416.52\t35.07\t24,652,908\t \tIIF4SW-P5\tBacillus thuringiensis\tJABVDM000000000\tSRR11948424\tDining table\t18\t5,303,374\t2,863,400\t377.68\t35.08\t24,892,178\t \tIIF4SW-B1\tBacillus thuringiensis\tJABVDJ000000000\tSRR11948421\tDining table\t17\t5,302,884\t3,967,588\t452.68\t35.07\t25,835,874\t \tIIF4SW-B2\tBacillus thuringiensis\tJABVDG000000000\tSRR11948418\tDining table\t18\t5,303,293\t2,863,295\t450\t35.08\t25,806,770\t \tIIF4SW-B3\tBacillus thuringiensis\tJABVDK000000000\tSRR11948422\tDining table\t18\t5,303,485\t2,863,488\t399.11\t35.08\t22,970,622\t \tIIF2SG-B1\tBacillus thuringiensis\tJABVDL000000000\tSRR11948423\tCRV2-L2\t19\t5,303,842\t2,682,377\t388.39\t35.08\t20,471,002\t \tIIF3SG-B3\tBacillus thuringiensis\tJABVDF000000000\tSRR11948417\tCRV2-L3\t18\t5,303,031\t2,863,399\t291.96\t35.07\t18,136,072\t \tIIF7SG-B4\tBacillus thuringiensis\tJABVDO000000000\tSRR11948398\tCRV2-L7\t17\t5,302,496\t3,967,299\t349.55\t35.08\t20,338,930\t \tIIF1SG-B5\tBacillus thuringiensis\tJABVDE000000000\tSRR11948416\tCRV2-L1\t18\t5,303,272\t2,864,997\t162.05\t35.07\t11,404,858\t \tIIF2*SW-P2\tPaenibacillus polymyxa\tJABVCY000000000\tSRR11948409\tWHC\t34\t5,788,525\t1,496,248\t298.66\t45.51\t18,337,554\t \tIIF2*SW-P4\tPaenibacillus polymyxa\tJABVCV000000000\tSRR11948406\tWHC\t30\t5,790,156\t1,573,833\t416.52\t45.51\t25,137,632\t \tIIF2SW-B2\tPaenibacillus polymyxa\tJABVDB000000000\tSRR11948412\tWHC\t35\t5,788,707\t1,496,248\t412.5\t45.51\t24,747,812\t \tIIF5SW-B3\tPaenibacillus polymyxa\tJABVDC000000000\tSRR11948413\tOverhead 4\t34\t5,789,544\t1,497,677\t443.30\t45.51\t26,964,124\t \tIIF5SW-B4\tPaenibacillus polymyxa\tJABVDA000000000\tSRR11948411\tOverhead 4\t36\t5,789,252\t1,496,248\t310.71\t45.51\t18,843,168\t \tIIF8SW-P3\tPaenibacillus polymyxa\tJABVCW000000000\tSRR11948407\tCrew quarters\t34\t5,790,736\t670,850\t424.55\t45.51\t26,480,032\t \tIIF8SW-P4\tPaenibacillus polymyxa\tJABVCZ000000000\tSRR11948410\tCrew quarters\t32\t5,790,548\t1,573,833\t364.29\t45.51\t22,062,790\t \tIIF8SW-P5\tPaenibacillus polymyxa\tJABVCU000000000\tSRR11948405\tCrew quarters\t33\t5,789,239\t1,496,161\t354.91\t45.51\t21,821,506\t \tIIF8SW-B4\tPaenibacillus polymyxa\tJABVCX000000000\tSRR11948408\tCrew quarters\t37\t5,789,049\t670,850\t362.95\t45.51\t22,771,816",
+    "WHC, waste and hygiene compartment; CRV, commercial resupply vehicle. Hyphenated designations indicate the CRV number followed by the location."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Life from the ashes: survival of dry bacterial spores after very high temperature exposure",
+    "Ecology of Bacillaceae",
+    "The prevalence and control of Bacillus and related spore-forming bacteria in the dairy industry",
+    "Experimental studies addressing the longevity of Bacillus subtilis spores—the first data from a 500-year experiment",
+    "Resistance of bacterial endospores to outer space for planetary protection purposes—experiment PROTECT of the EXPOSE-E mission",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+    "FastQC: a quality tool for high throughput sequence data",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "QUAST: quality assessment tool for genome assemblies",
+    "A large-scale evaluation of algorithms to calculate average nucleotide identity"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Life from the ashes: survival of dry bacterial spores after very high temperature exposure",
+      "autores": [
+        {
+          "nombre_completo": "L Beladjal",
+          "nombres": "L",
+          "apellidos": "Beladjal"
+        },
+        {
+          "nombre_completo": "T Gheysens",
+          "nombres": "T",
+          "apellidos": "Gheysens"
+        },
+        {
+          "nombre_completo": "JS Clegg",
+          "nombres": "JS",
+          "apellidos": "Clegg"
+        },
+        {
+          "nombre_completo": "M Amar",
+          "nombres": "M",
+          "apellidos": "Amar"
+        },
+        {
+          "nombre_completo": "J Mertens",
+          "nombres": "J",
+          "apellidos": "Mertens"
+        }
+      ],
+      "pmid": "29869718",
+      "fuente": "Extremophiles",
+      "anio": "2018",
+      "volumen": "22",
+      "fpage": "751",
+      "lpage": "759"
+    },
+    {
+      "titulo": "Ecology of Bacillaceae",
+      "autores": [
+        {
+          "nombre_completo": "I Mandic-Mulec",
+          "nombres": "I",
+          "apellidos": "Mandic-Mulec"
+        },
+        {
+          "nombre_completo": "P Stefanic",
+          "nombres": "P",
+          "apellidos": "Stefanic"
+        },
+        {
+          "nombre_completo": "JD van Elsas",
+          "nombres": "JD",
+          "apellidos": "van Elsas"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microbiol Spectr",
+      "anio": "2015",
+      "volumen": "3",
+      "fpage": "TBS-0017-2013",
+      "lpage": ""
+    },
+    {
+      "titulo": "The prevalence and control of Bacillus and related spore-forming bacteria in the dairy industry",
+      "autores": [
+        {
+          "nombre_completo": "N Gopal",
+          "nombres": "N",
+          "apellidos": "Gopal"
+        },
+        {
+          "nombre_completo": "C Hill",
+          "nombres": "C",
+          "apellidos": "Hill"
+        },
+        {
+          "nombre_completo": "PR Ross",
+          "nombres": "PR",
+          "apellidos": "Ross"
+        },
+        {
+          "nombre_completo": "TP Beresford",
+          "nombres": "TP",
+          "apellidos": "Beresford"
+        },
+        {
+          "nombre_completo": "MA Fenelon",
+          "nombres": "MA",
+          "apellidos": "Fenelon"
+        },
+        {
+          "nombre_completo": "PD Cotter",
+          "nombres": "PD",
+          "apellidos": "Cotter"
+        }
+      ],
+      "pmid": "26733963",
+      "fuente": "Front Microbiol",
+      "anio": "2015",
+      "volumen": "6",
+      "fpage": "1418",
+      "lpage": ""
+    },
+    {
+      "titulo": "Experimental studies addressing the longevity of Bacillus subtilis spores—the first data from a 500-year experiment",
+      "autores": [
+        {
+          "nombre_completo": "N Ulrich",
+          "nombres": "N",
+          "apellidos": "Ulrich"
+        },
+        {
+          "nombre_completo": "K Nagler",
+          "nombres": "K",
+          "apellidos": "Nagler"
+        },
+        {
+          "nombre_completo": "M Laue",
+          "nombres": "M",
+          "apellidos": "Laue"
+        },
+        {
+          "nombre_completo": "CS Cockell",
+          "nombres": "CS",
+          "apellidos": "Cockell"
+        },
+        {
+          "nombre_completo": "P Setlow",
+          "nombres": "P",
+          "apellidos": "Setlow"
+        },
+        {
+          "nombre_completo": "R Moeller",
+          "nombres": "R",
+          "apellidos": "Moeller"
+        }
+      ],
+      "pmid": "30513104",
+      "fuente": "PLoS One",
+      "anio": "2018",
+      "volumen": "13",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Resistance of bacterial endospores to outer space for planetary protection purposes—experiment PROTECT of the EXPOSE-E mission",
+      "autores": [
+        {
+          "nombre_completo": "G Horneck",
+          "nombres": "G",
+          "apellidos": "Horneck"
+        },
+        {
+          "nombre_completo": "R Moeller",
+          "nombres": "R",
+          "apellidos": "Moeller"
+        },
+        {
+          "nombre_completo": "E Stackebrandt",
+          "nombres": "E",
+          "apellidos": "Stackebrandt"
+        },
+        {
+          "nombre_completo": "P Vaishampayan",
+          "nombres": "P",
+          "apellidos": "Vaishampayan"
+        },
+        {
+          "nombre_completo": "KJ Venkateswaran",
+          "nombres": "KJ",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "J Cadet",
+          "nombres": "J",
+          "apellidos": "Cadet"
+        },
+        {
+          "nombre_completo": "T Douki",
+          "nombres": "T",
+          "apellidos": "Douki"
+        },
+        {
+          "nombre_completo": "RL Mancinelli",
+          "nombres": "RL",
+          "apellidos": "Mancinelli"
+        },
+        {
+          "nombre_completo": "WL Nicholson",
+          "nombres": "WL",
+          "apellidos": "Nicholson"
+        },
+        {
+          "nombre_completo": "C Panitz",
+          "nombres": "C",
+          "apellidos": "Panitz"
+        },
+        {
+          "nombre_completo": "E Rabbow",
+          "nombres": "E",
+          "apellidos": "Rabbow"
+        },
+        {
+          "nombre_completo": "P Rettberg",
+          "nombres": "P",
+          "apellidos": "Rettberg"
+        },
+        {
+          "nombre_completo": "A Spry",
+          "nombres": "A",
+          "apellidos": "Spry"
+        }
+      ],
+      "pmid": "22680691",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "445",
+      "lpage": "456"
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "J Minich",
+          "nombres": "J",
+          "apellidos": "Minich"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains",
+      "autores": [
+        {
+          "nombre_completo": "NK Singh",
+          "nombres": "NK",
+          "apellidos": "Singh"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "K Wheeler",
+          "nombres": "K",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        }
+      ],
+      "pmid": "30466389",
+      "fuente": "BMC Microbiol",
+      "anio": "2018",
+      "volumen": "18",
+      "fpage": "175",
+      "lpage": ""
+    },
+    {
+      "titulo": "FastQC: a quality tool for high throughput sequence data",
+      "autores": [
+        {
+          "nombre_completo": "S Andrews",
+          "nombres": "S",
+          "apellidos": "Andrews"
+        }
+      ],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [
+        {
+          "nombre_completo": "S Chen",
+          "nombres": "S",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Y Zhou",
+          "nombres": "Y",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "J Gu",
+          "nombres": "J",
+          "apellidos": "Gu"
+        }
+      ],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [
+        {
+          "nombre_completo": "A Gurevich",
+          "nombres": "A",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "V Saveliev",
+          "nombres": "V",
+          "apellidos": "Saveliev"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        }
+      ],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "A large-scale evaluation of algorithms to calculate average nucleotide identity",
+      "autores": [
+        {
+          "nombre_completo": "S-H Yoon",
+          "nombres": "S-H",
+          "apellidos": "Yoon"
+        },
+        {
+          "nombre_completo": "S-M Ha",
+          "nombres": "S-M",
+          "apellidos": "Ha"
+        },
+        {
+          "nombre_completo": "J Lim",
+          "nombres": "J",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "S Kwon",
+          "nombres": "S",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J Chun",
+          "nombres": "J",
+          "apellidos": "Chun"
+        }
+      ],
+      "pmid": "28204908",
+      "fuente": "Antonie Van Leeuwenhoek",
+      "anio": "2017",
+      "volumen": "110",
+      "fpage": "1281",
+      "lpage": "1286"
+    }
+  ]
+}

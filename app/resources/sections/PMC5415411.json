@@ -1,0 +1,5011 @@
+{
+  "TITLE": [
+    "Maintaining the Factory: The Roles of the Unfolded Protein Response in Cellular Homeostasis in Plants"
+  ],
+  "ABSTRACT": [
+    "Summary",
+    "Much like a factory, the endoplasmic reticulum assembles simple cellular building blocks into complex molecular machines known as proteins. In order to protect the delicate protein folding process and ensure the proper cellular delivery of protein products under environmental stresses, eukaryotes have evolved a set of signaling mechanisms known as the unfolded protein response (UPR) to increase the folding capacity of the endoplasmic reticulum. This process is particularly important in plants, because their sessile nature commands adaptation for survival rather than escape from stress. As such, plants make special use of the UPR, and evidence indicates that the master regulators and downstream effectors of the UPR have distinct roles in mediating cellular processes that affect organism growth and development as well as stress responses. In this review we outline recent developments in this field that support a strong relevance of the UPR to many areas of plant life."
+  ],
+  "INTRO": [
+    "Introduction",
+    "As the endoplasmic reticulum (ER) is the entry point to secretory pathway, the primary site of phospholipid synthesis, a hub for critical stress and growth signaling molecules, and the assembly plant for a third of a cell's total proteome, interruptions in its functions can have vast consequences in cellular health. Under physiological conditions of growth, a dedicated battery of ER-resident proteins can prevent misfolding of nascent polypeptides and facilitate acquisition of the proper tertiary structure through post-translational modification (e.g., covalent addition of oligosaccharide chains or catalysis of disulfide bond formation). In plants affected by environmental stress (e.g. heat stress), proper folding of secretory proteins can be impaired and misfolded proteins can accumulate in the ER igniting a potentially lethal condition known as ER stress. Indeed, under prolonged or severe levels of stress, the accumulation and aggregation of unfolded proteins can become cytotoxic and lead to death of the plant cell in a manner akin to the effect of misfolded proteins that aggregate and cause human neurodegenerative diseases such as Alzheimer's. The unfolded protein response (UPR) is a set of signaling mechanisms designed to prevent accumulation of misfolded proteins in the ER. Specialized ER-localized membrane proteins are able to detect the buildup of unfolded proteins and activate signaling cascades that modulate the abundance of the proteins dedicated to the folding of nascent polypeptides within the ER to maintain homeostasis. In metazoans the ER-localized stress sensor array consists of the Inositol Requiring Enzyme 1 (IRE1), Activating Transcription Factor 6 (ATF6) and Protein kinase R-like Endoplasmic Reticulum Kinase (PERK). In plants, the functional homologs of IRE1 and ATF6 (termed IRE1a, IRE1b and bZIP28 in Arabidopsis thaliana) have been identified to date. In yeast, only the IRE1-dependent UPR pathway has been identified. A number of comparative reviews have highlighted the similarities between UPR components shared among plants, metazoans and yeast, and should be referred to for greater contexts on the depth of gene conservation shared by all eukaryotes in regards to UPR-related mechanisms.",
+    "The study of the UPR in human and animal models largely centers on genetic defects that allow the buildup of misfolded proteins, and mitigating the cytotoxic effects of the resulting aggregates. In plants, UPR research also focuses on improving crop yield under adverse environmental conditions. There is a large potential for biotechnological applications for UPR-related mechanisms in ensuring plant productivity. However, considerable work must be done to understand how the UPR is integrated into intra and intercellular signaling mechanisms that are plant specific. Even though there is considerable evidence to suggest that the UPR components are required for many different aspects of plant physiology, from seed germination to meristematic maintenance, we are only beginning to connect the molecular activities of IRE1 and bZIP28 to the modulation of organism growth and development.",
+    "In this review, we provide a summary of causative ER stress conditions followed by an examination of UPR signaling pathways through a discussion of recent advancements in the field. Given space constraints, this review focuses mainly on UPR studies in the model dicot Arabidopsis thaliana. Throughout, we draw attention of the reader to new developments in the context of plant growth, development, and metabolic functioning. This is done in an attempt to move beyond a classical linear signal transduction paradigm, and visualize the plant UPR as a network that incorporates energy availability, plant production needs, and environmental conditions into a cohesive output governing plant life.",
+    "ER Quality Control and Important ER Client Proteins Mediate both Programmed Cell Death and Cell Cycle Control",
+    "If the plant cell was reimagined as a city, it would be easy to see how the ER could be described as the town's central factory. At the ER, shipments of raw materials in the form of amino acids and carbohydrates are reshaped and assembled into fully-functional molecular machines in the form of proteins. Properly folded proteins are then shipped out and utilized for a variety of different purposes in different places throughout or outside the cell. In order to prevent the production of faulty goods, the ER has specific machinery, collectively called ER quality control (ERQC), to survey the protein folding status, facilitate folding and ensure quality of the produced protein. The production of most secretory proteins begins with the co-translational introduction of the protein into the ER. In this process, specific peptide sequences target nascent polypeptide chains to the ER and are translocated across the membrane as they are synthesized via the Sec translocon, which is largely conserved between yeast and plants. As the polypeptide enters the ER lumen, molecular chaperones such as the luminal binding proteins (BiPs), bind to the chain of the nascent polypeptides and prevent premature folding. The oligosaccharyltransferase (OST) complex recognizes specific amino acid sequences and transfers N-linked glycans to the peptides. In some cases, this post translational modification adds to the intrinsic stability or solubility of a protein, and importantly, it functions as a recognition beacon for major ER luminal foldase complexes. Nascent polypeptides undergo iterative folding cycles where they are passed between the calnexin/calreticulin complex, and UDP-glucose glycoprotein-glucosyltransferase (UGGT), which monitor protein folding and retains unfolded proteins in the ER as a part of the ERQC. Other proteins participate in folding cycles under the purview of these central ER foldase complexes, such as thioredoxins (e.g protein disulfide isomerases (PDIs)), which catalyze the reduction and reformation of disulfide bonds (Bottomley et al. 2001,). Properly folded proteins are then transported to the Golgi apparatus, while the unfolded or irremediably misfolded proteins are picked up by proteins like OS9 of the ER-associated protein degradation (ERAD) system, dislocated out of the ER, ubiquitinated, and finally degraded by the 26S proteasome. The process is conserved across eukaryotes and, for example, it mediates the proper folding of critical client plasma membrane receptor proteins in plants, including the Arabidopsis elongation factor Tu (EF-Tu) receptor which mediates pathogen associated molecular pattern based immunity and brassinosteroid insensitive 1 (BRI1) receptor.",
+    "Although not directly related to the activation of the UPR, the essential physiological relevance of these folding processes, which are monitored by the UPR regulators (via unfolded protein accumulation), are continuously being demonstrated. Beyond enabling proper function of cellular signaling pathways with receptors at the plasma membrane (like EF-Tu and BRI1), the specificity of N-linked glycosylation-bearing proteins has recently been shown to play important roles in regulating cell death. The Arabidopsis BAK1 (BRI1-associated receptor kinase 1) and SERK4 (somatic embryo receptor kinase 4) both interact with immune receptors and BRI1 and negatively regulate hypersensitive response-like programmed cell death (PCD) through yet-unknown mechanisms. Intriguingly, loss of STT3a (staurosporin and temperature sensitive 3), one of the two catalytic subunits of the OST complex involved in N-glycosylation of ER proteins, is linked to the cell death phenotype observed in BAK1/SERK4 silenced plants. However, UPR deficient mutants did not respond differently to BAK1/SERK1 silencing, which led to the conclusion that UPR regulators IRE1a, IRE1b and bZIP28 may not modulate this specific type of PCD.",
+    "When examined under salt stress conditions, a stt3a knockout line showed UPR activation and halted cell cycle progression in a similar manner to that described in yeast and mammalian cells after being subjected to ER stress-inducing conditions. This may suggest a possible antagonistic role between STT3a and the UPR components, or may simply indicate that the proteins needed to adapt to salt stress may be glycosylated in order to fold or function properly. In both cases, although the UPR may not directly regulate the expression of BAK1/SERK4 or N-glycosylated salt protective genes, these examples underscore the importance of maintaining the ER as a fully-functional protein folding factory so a plant may adapt to various sources of stresses.",
+    "The Causes of ER Stress: Unavoidable Exogenous Threats",
+    "Enhancing the UPR appears potentially critical to efforts to maintain crop productivity by priming plants to survive under adverse environmental conditions ( ). One of the most thoroughly described environmental UPR inducer is heat stress. More conveniently than heat conditions in the lab, chemical UPR inducers such as tunicamycin, which inhibits the N-linked glycosylation in the ER lumen, are often used to investigate the UPR in many eukaryotic model organisms by mimicking the conditions associated with environmental stresses that cause the buildup of unfolded proteins. Extreme osmotic stress and heavy metals such as selenium have also shown to induce the UPR. The UPR also plays a role in response to pathogens and other biotic stresses. Through an unknown mechanism, treatment of Arabidopsis plants with the biotic stress-hormone salicylic acid (SA) was shown to activate both arms of the UPR controlled by IRE1 and bZIP28. This SA-induced UPR activation was also given context by, which showed that the SA-accumulating cpr5 (Constitutive Expression of PR genes 5) mutant is dependent on the UPR to suppress growth. Other studies have demonstrated the interesting effect of organelle sourced reactive oxygen species (ROS) (e.g. plastids and mitochondria) on the induction of the UPR suggesting a possible functional connection between the UPR and non-secretory organelles. It was demonstrated that plastid-originated ROS production induced UPR activation suggesting that plastidial stress may be intimately linked with, and responded to, through the ER stress signal transduction mechanisms. Given the close connections between SA and ROS signaling, these observations may indicate a functional link between the two UPR activating conditions.",
+    "The Canonical Response to Unfolded Proteins: New Look at the Master Regulators IRE1, bZIP60, and bZIP28",
+    "IRE1",
+    "In environmentally stressful conditions, the accumulation of unfolded and irremediably misfolded proteins leads to the activation of the UPR via IRE1 and bZIP28 (Figure 1). Although the activation mechanism of IRE1 has yet to be established in plants, studies of IRE1 in yeast have indicated that BiP binds the IRE1 luminal domain in non-stressful conditions. However, upon stress, BiP chaperones preferentially bind unfolded proteins thereby freeing the ER luminal domains of IRE1. Unfolded proteins then bind to IRE1 which oligomerizes; as a consequence, the kinase domain in the cytosolic portion of the protein is autophosphorylated. These steps lead to activation of the IRE1 ribonuclease domain. In mammalian cells misfolded proteins bind to BiP chaperones which keep IRE1 in an inactive monomeric state under normal conditions. After dissociation from BiP, interactions between the freed luminal domains of IRE1 bring cytoplasmic domains together allowing the necessary autophosphorylation. Although the underlying mechanisms for activation of plant IRE1 are not known, it is certain that activation of IRE1 results in the unconventional cytosolic splicing of the mRNA transcripts of bZIP60, the only UPR target of plant IRE1 known to date (, Nagashima et al. 2011, Hayashi et al. 2012, Lu et al. 2012, Li et al. 2012). In Arabidopsis, the tRNA ligase RLG1 was recently shown to complete the splicing of bZIP60 in vitro by ligating the fragments derived from IRE1 cleavage. Whether the ligation of bZIP60 spliced transcripts is mediated by RLG1 in vivo, while likely, has yet to be experimentally demonstrated, partly due to the lethality of complete RLG1 loss-of-function mutations. In yeast and mammalian cells, the ligation of the functional equivalents of bZIP60, Hac1 and XbpI, respectively, occurs via tRNA ligases that operate in opposite fashion. In detail, the ligation of Hac1 mediated by RLG1p in yeast is completed in a 5’-3’ fashion followed by removal of 2` phosphate group by a phosphatase. In mammalian cells, the ligation is mediated by RTCB, which operates in a 3’-5’ ligation. Evidence suggests that plants have evolved a 5’-3’ ligation mechanism similar to that found in yeast, and this finding is supported by observations that Arabidopsis RLG1 can also ligate the Hac1 mRNA in yeast cells. However, the resulting Hac1 transcripts are not efficiently translated indicating that functional differences between yeast and Arabidopsis catalytic mechanisms remain. The splicing of bZIP60 leads to a frameshift that removes a transmembrane domain from the translated transcription factor. Spliced bZIP60 subsequently translocated to the nucleus for transcriptional modulation of the downstream UPR target genes. Intriguingly, the activity of IRE1 is not limited to unconventional splicing of a transcription factor. Regulated IRE1 dependent decay (RIDD) is a process which regulates mRNA abundance and it is active during ER stress. Such IRE1 mediated cleavage of cytosolic and ER-associated mRNAs has been implicated in promoting cell death in yeast. In metazoans, RIDD activity under prolonged or severe ER stress also has proapoptotic effects, and can be associated with human diseases such as diabetes. RIDD activity was also described for the Arabidopsis IRE1 homolog, although the implications related to stress outcomes are yet to be tested in vivo.",
+    "Evidence that plant IRE1 assumes other roles besides the splicing of bZIP60, including RIDD and/or other yet-unknown activities of IRE1, can be found when comparing the stress responsive and vegetative phenotypic differences between IRE1 and bZIP60 loss-of-function mutants in Arabidopsis. Although no other direct splicing substrate has been found for IRE1 activity other that bZIP60 in plants, bzip60 knockout mutants are not nearly as sensitive as the ire1a/ire1b mutant to prolonged ER stress, implying diverse roles of IRE1 during the UPR. Whether these may depend on the ability of IRE1 to phosphorylate other substrates as opposed to its ribonuclease domain is a tantalizing idea that is yet to be experimentally tested. Furthermore, bzip60 plants are apparently indistinguishable from wild-type plants under normal conditions of growth, while IRE1 partial loss of function mutants (ire1a/ire1b) display shorter root growth as developmental defects, and ire1 null mutations are lethal. Comparative analyses between bzip60 and ire1a/ire1b mutants under stressed and unstressed conditions may yet yield information that could potentially explain these physiological differences and provide a better understanding of the molecular mechanisms which tie IRE1 specifically to the control of plant health and cell fate decisions.",
+    "bZIP60",
+    "Although seemingly unimportant when compared with IRE1 or redundant when compared with other UPR signal transducers like bZIP28 in conditions tested thus far, bZIP60 appears to have unique contributions to the UPR management. Indeed, a close examination of the ER molecular phenotypes associated with bzip60 knockouts and expression patterns of bZIP60 yields some interesting information. The unspliced version of bZIP60 encodes a membrane bound transcription factor, and while it is found to be transcribed under normal conditions, the accumulation of the protein encoded by unspliced bZIP60 has been debated. Although methods of detection between studies have been different, it has been shown that the product of the unspliced bZIP60 isoform accumulates to higher levels in seedlings treated with a proteasome inhibitor compared to untreated seedlings. When this is taken into context with the observation that a cellular recycling process known as macroautophagy (hereafter termed autophagy) is constitutively active in the bzip60 knockout, it could be hypothesized that the dynamic levels of unspliced bZIP60 products are post-translationally subject to selective protein degradation and may regulate aspects of ER homeostasis, including protection of the ER against autophagy.",
+    "bZIP60 has also been shown to be transcriptionally regulated in conditions outside of the canonical UPR as well. In chloroplasts, reductive potential is funneled into carbon fixation and the synthesis of long carbon chains through the plastid isoprenoid metabolic pathway, collectively known as the methylerythritol 4-phosphate (MEP) pathway. This biosynthetic track produces numerous molecular-end products, which range in function from growth and development (e.g., gibberellin precursors) to synthesis of isoprene gas, which protects chloroplast under heat stress. Retrograde stress signaling mechanisms from chloroplasts to nucleus utilize the buildup of the MEP pathway intermediate methylerythritol cyclodiphosphate (MEcPP) in an abiotic stress dependent manner. The CEH1 (1-hydroxy-2-methyl-2-(E)-butenyl4-diphosphate synthase) enzyme, which catalyzes the conversion of MEcPP to hydroxymethylbutenyl diphosphate (HMBPP) is dependent upon reductive potential of NADPH from the light reactions and, as a result, the activity of CEH1 is known to be oxidative stress sensitive. Fascinatingly, the MEcPP retrograde signal, transmitted in a calcium-dependent way via the calmodulin binding transcription activator 3 (CAMTA3), leads directly to transcriptional induction of bZIP60. The possibility that the UPR responds to plastid metabolic dysfunction may also indicate that, like in humans, the UPR may have tissue-specific metabolic reprogramming functions that have gone unnoticed in plants. This intracellular organelle bridge deserves further scrutiny, and its connection to the observations made by in their study of UPR activation under oxidative stress cannot be understated. When sourced from different organelles, ROS had highly variable effects in stimulating expression of some UPR genes while repressing others (e.g. methyl viologen induces BiP3 expression but heavily repressed BiP2 expression). Although bZIP60 expression and splicing have yet to be tracked under these conditions, this information could help identify mechanisms for selective upregulation or downregulation of UPR genes. This is especially valuable given that current studies of the two arms of the plant UPR are most often considered in the context of coordinated upregulation of UPR genes.",
+    "bZIP28",
+    "The ER transmembrane transcription factor bZIP28 is released from binding to BiP chaperones and is trafficked to the Golgi apparatus where putative site 1 and site 2 protease (S1P and S2P)-mediated proteolytic mechanisms split the active transcription factor from its transmembrane domain and allow its relocation to the nucleus (, Liu et al. 2013,). Once in the nucleus the activated bZIP28 forms protein complexes with NF-Y transcription factors, and together bind specific ER stress related cis-elements (ERSE), which consist of two consensus sequences separated by 10 nucleotides (CCAAT-N10-CACG) and are commonly found in UPR upregulated gene promoter regions (Liu et al. 2010).",
+    "Looking beyond the functions of bZIP28 in the nucleus, recent work has elucidated the mechanisms by which bZIP28 is shuttled to the Golgi apparatus in an ER stress dependent fashion. In exploring the functional diversity of the COPII components involved in ER export, mapped the biochemical interactions necessary for proper transfer of bZIP28 to the Golgi apparatus under ER stress. ER-to-Golgi transport is mediated by a specialized protein machinery collectively known COPII (Brandizzi and Barlowe, 2014). Assembly of this machinery requires SAR1, a GTPase that in the active form recruits the COPII coat components, SEC23/Sec24 and SEC13/SEC31. These components are required for cargo selection at the ER and shuttling to the Golgi. Although SAR1a shares high sequence identity to other secretion associated RAS-related GTPase homologs of the SAR1-family in Arabidopsis, a single cysteine residue substitution at the amino acid position 84 was found to be required for interaction with SEC23a. A dominant negative allele of SAR1a impaired the export of bZIP28 from the ER to the Golgi under tunicamycin-induced stress in Arabidopsis protoplasts. In contrast with other SAR1 and SEC23 homologs in Arabidopsis, the SAR1a/SEC23a pair is transcriptionally induced under ER stress conditions (Song et al. 2013). As such they may play an important role in promoting and sustaining the activity of bZIP28 during ER stress. This also opens up avenues to explore other conditions which could promote condition-specific trafficking of bZIP28, and subsequently potential activation of bZIP28 in developmental or growth contexts without activation of the canonical UPR cascade. This may be especially impactful with respect to bZIP28 functions in promoting brassinosteroid (BR) sensitivity. S1P-S2P mediated cleavage of bZIP28 and another bZIP-transcription factor (bZIP17) under ER stress promote active BR signaling in adaptation to abiotic stress responses. Although this phenomenon is presumed to be result of ERQC upregulation and increased delivery of functional client protein BRI1 sensor to the cell surface, the exact mechanism through which bZIP28 and bZIP17 positively impact BR signaling remains to be discovered.",
+    "Future Exploration: bZIP60 and bZIP28 mediate Epigenetic Modifications with the COMPASS like Complex",
+    "In contrast with the single bzip60 and bzip28 mutants, the bzip60 bzip28 double mutant shows enhanced susceptibility to prolonged ER stress, indicating both functional redundancy and potential cooperativity. Under ER stress conditions both bZIP60 and bZIP28 localize to the nucleus and have been shown to interact with each other to modulate the expression of UPR genes. The recent findings implicating bZIP60 and bZIP28 in the direction of histone methylation activities of the COMPASS complex presents interesting opportunities for further study. In plants the COMPASS complex is responsible for increasing the frequency of trimethylation of histone 3 in the promoter region of actively expressed genes through association with an unidentified histone methyltransferase. Previously, although there was strong evidence supporting the correlation between H3K4 histone trimethylation and gene transcription, no mechanisms were known to direct these epigenetic modifications in sequence-specific ways in plants. However, showed that bZIP60 and bZIP28 interact with the proteins Ash2 (absent, small, homeotic like factor 2) and WDR5a (WD40 containing repeat 5a), which form the core elements of the COMPASS complex in plants. Furthermore, the inducible expression of a subset of UPR responsive genes during ER stress was dramatically compromised in the wdr5a and ash2 mutants. The lasting effects of these epigenetic marks after ER stress are not clear, but H3K4 trimethylation marks accumulate on genes involved in heat stress memory. This may indicate that the UPR plays an important role in priming plants against future environmental stresses. Furthermore, H3K4 methylation and the COMPASS complex also play important roles in mediating temperature sensitive transitions in plant development. Exploring how UPR stress signaling and the constitutive functions of UPR related genes integrate with these epigenetic regulating mechanisms through bZIP28 and particularly bZIP60 might also provide useful insights into the developmental phenotypes found in ire1a/ire1b, which are deficient in bZIP60 splicing.",
+    "Send in the Cavalry: Downstream Effectors during ER Stress",
+    "Nuclear translocation of spliced bZIP60 and cleaved bZIP28 leads to an increase in the transcription of genes coding for ER luminal proteins (BiP/Hsp70, ERdj/HSP40, HSP90), which (i) prevent aggregation of misfolded protein and newly translated polypeptides (Gupta et al. 2011), (ii) limit uncontrolled folding of nascent polypeptides through ERQC, and (iii) translocate terminally misfolded proteins across the ER membrane to the 26S proteasome by a group of membrane bound complexes in a processes collectively termed ER associated degradation (ERAD-L, -M and –C for luminal, membrane, and cytoplasmic ERAD, respectively. These downstream effectors, although largely conserved across eukaryotes, have been found to have specific significance in plants during normal growth and in response to ER stress. A noteworthy example of this is provided in the study of the plant specific properties of the conserved ER luminal chaperone HSP90.7, also known in Arabidopsis as SHEPHERD (SHD). When compared to the non-selective foldase activities of its mammalian counterpart GRP94, the designation of HSP90.7 as a general ER chaperone in plants (like BiP/HSP70) has been questioned. In particular, Arabidopsis HSP90.7 which is highly upregulated under ER stress conditions was also found to have specific functions in proliferating tissues. The shd (hsp90.7) knockout mutant is phenotypically identical to clv a mutant defective in CLAVATA signaling, a critical negative modulator of shoot apical meristem activity, indicating it may be required for plant specific production of the CLAVATA peptide. Additional plant specific activities of HSP90.7 were demonstrated by who found that a short sequence of highly charged amino acids present only in plant ER-localized homologs drastically affected the survival rates of Arabidopsis seedlings under tunicamycin - and high calcium- induced ER stress. As expected overexpression of the HSP90.7 chaperone conferred significant resistance to tunicamycin, heat and high calcium induced ER stress; conversely overexpression of an HSP90.7 mutant with the highly charged 22 residue sequence deleted (HSP90.7Δ22 ), while still more resistant to heat stress than wild type, showed a marked increase in lethality in response to tunicamicyn compared to both native HSP90.7 overexpressor plants and even wild-type plants. These observations beyond illustrating plant specific chaperone functions also provide an important example which implies that in plants tunicamycin-induced stress may be responded to in a manner that is separate from heat induced ER stresses. Furthermore, it may be possible that the UPR directly mediates meristematic growth within undifferentiated tissues themselves through the HSP90.7/ CLAVATA relationship, perhaps in combination with transmission of signals through secondary messengers from distant tissues.",
+    "Further examples of UPR effectors which have plant-specific roles in growth and development can also be found with respect to ERdj3 (ER resident J domain 3) protein function during gametophyte development. J domain proteins (Hsp40) found in the ER lumen bind BiP proteins and stabilize their interactions with client unfolded proteins. ERdj3A, which is induced under ER stress, contains a C-terminal protein disulfide isomerase domain that has reductive capabilities on substrates in vitro, in addition to a HSP40 ATPase activity. This suggests that ERdj3A may act on a specific subset of client proteins. Further in vivo analysis of ERdj3A and its homologs ERdj3B and P58IPK support this possibility by demonstrating their importance in development. Indeed, genetic analysis of the mutant Thermosensitive male sterile 1 (tms1) revealed a nonfunctional allele of ERdj3A that under elevated temperatures was defective in pollen tube growth. Under normal conditions, in conjunction with P58IPK and ERdj3b, ERdj3A was also shown to mediate polar haploid nuclei fusion in female gametophytes prior to double fertilization. During this nuclear fusion process, the perinuclear ER fuses with the outer nuclear envelope and creates a continuous outer membrane around the two haploid nuclei, and it is followed by a second fusion of the inner nuclear membranes. Recently it was demonstrated that ERdj3A and P58IPK are required for the fusion of the ER membrane with the outer nuclear membranes. A double knockout (erdj3a p58IPK) resulted in seed abortion after fertilization due to aberrant endosperm proliferation, similar to that found in bip1 bip2 double mutants. The inner membrane fusion requires the ERdj3B/ P58IPK pair, and although the erdj3b p58 IPK double mutants had unfused haploid nuclei in close proximity, unlike erdj3a p58IPK no aborted seeds were found. The developmental defects found in plants with mutant alleles of UPR induced ER resident proteins (e.g., ERdj, BiP, SHD) are consistent with the evidence that pollen development in an ire1a ire1b double mutant is highly vulnerable to heat stress. However, the observed rescue of male fertility through the overexpression of a single COPII coat component SEC31a is intriguing given the large gene list shown to be regulated by IRE1 in these conditions. This underscores the need to fully understand the detailed functional mechanisms of downstream UPR components. Although studies exploring the similarities between yeast, mammalian, and plant UPR have led to significant advances in plant ER stress research, in order to fully understand the mechanisms connecting the UPR to plant specific physiology it will also be important to look at the contrasting characteristics. These plant specific cases, such as the single amino acid substitution in the case of SAR1a important for bZIP28 shuttling, or the small charged region in the case of HSP90.7, which drastically alters stress responsive phenotypes compared to the deletion mutant, are potent reminders to expect the unexpected, even in evolutionarily conserved contexts.",
+    "NAC Membrane Transcription Factors: A Second Set of UPR activators?",
+    "In addition to the transcriptional activities of bZIP60 and bZIP28, a veritable menagerie of plant-specific transcription factors is involved in the response to ER stress (Figure 2). Thus far however, their mechanistic involvement in the UPR is yet to be fully elucidated. ANAC062 a plasma membrane-bound transcription factor, which is proteolytically cleaved and nuclear localized in response to cold stress, has been linked to the expression of multiple pathogenesis-related genes in a salicylic acid independent fashion and has also been shown to be upregulated under ER stress. Overexpression of a truncated form lacking the C-terminal membrane domain was shown to induce canonical UPR responsive chaperones and improve prolonged ER stress outcomes, supporting a functional connection between ANAC062 and the UPR. Furthermore, ANAC103, a soluble nuclear transcription factor was shown to be transcriptionally induced under ER stress. Overexpression of ANAC103 with a small C-terminal deletion to enhance stability of the expressed protein was also shown to induce UPR genes, although true knockouts showed no appreciable ER stress phenotype suggesting a functional redundancy between ANAC103 and other UPR related transcription factors in response to tunicamycin. A third transcription factor, the membrane bound ANAC089, has been implicated in promoting programmed cell death in Arabidopsis. Inducible overexpression of truncated ANAC089 ignited mammalian apoptotic-like symptoms in roots. RNAi lines targeting ANAC089 also displayed resistance to tunicamycin induced ER stress. These results support earlier findings implicating ANAC089 in the control of ER-related homeostatic mechanisms. in their study of a conserved immunophilin peptidylprolyl cis-trans-isomerase PASTICCINO1 (PAS1) demonstrated through a series of biochemical experiments that PAS1 and ANAC089 (which they termed FAN, for FKBP associated NAC) interact in vivo and in vitro. PAS1 is important in maintaining proper morphology during embryo development in Arabidopsis. Expressed in response to cytokinin, ER-localized PAS1 associates with the VLCFA (very long chain fatty acid) synthesis complex and promotes sphingolipid biosynthesis and subsequently organ polarity through the lipids effect on the localization of the PIN1 efflux carrier. A C-terminal domain of PAS1 is required for interaction and co-localization with ANAC089. That same domain is also required for nuclear exclusion of the PAS1. Interestingly, both PAS1 and ANAC089 are highly expressed in the mature embryo and were found to relocate from ER to the nucleus dependent upon exogenous 1-naphthaleneacetic acid treatment during cellular dedifferentiation in Arabidopsis root tips. When overexpressed in the pas1 loss of function allele, the full-length ANAC089 resulted in partial complementation of the deformed growth phenotype. When this is taken into account in the context of the RNAi knockdowns of ANAC089 under ER stress, it may be possible that the reduction of endogenous ANAC89 may perturb cytokinin-auxin balance in a manner that promotes cell divisions in spite of continued stress signals. Taken together, these ANAC transcription factors may indeed play important roles in the secondary activation of the UPR cascade; they might also play important roles in activation of the UPR in response to other stress or hormone signaling mechanisms. For example, in a manner opposite STT3a which seems to prevent the activation of the UPR in salt stress conditions, perhaps plants treated with tunicamycin in cold conditions may require NAC062 for full UPR gene expression regulation as cold signaling mechanisms may interfere with canonical activation of IRE1 or bZIP28. Expansion of combinatorial stress experiments incorporating tunicamycin-induced stress with other environmental stressors may give a more accurate picture of regulation, and downstream targets of these transcription factors. This may consequently lead to more information regarding the in vivo function of the unmodified transcription factors in relation to the unfolded protein response."
+  ],
+  "CONCL": [
+    "Concluding Remarks: The Case for an Expanding UPR",
+    "The molecular products assembled inside the ER have an ever expanding relevance to plants under environmental stress. Although many open questions still plague the study of the UPR in plants, including the identity of the molecular mechanisms for the activation and de-activation of the master regulator IRE1, the general relevance of the UPR maintaining ER homeostasis is clear. The ERQC and UPR maintain the folding capacity of the ER, and in doing so, enable a wide range of downstream processes from proper heat stress adaptation to defense against pathogens. Specifically, the downstream effectors of the UPR have been implicated in transcriptional and post transcriptional regulation of both ER homeostatic genes, and developmental processes. However, new oddities arising in research focusing upstream and downstream of the UPR offer ever expanding possibilities where the UPR may play a defining role in plant physiology. UPR activation in response to plastid metabolic dysfunction, and oxidative stress implicates the potential for the UPR to respond in many different signal transduction cascades that utilize reactive oxygen species as a secondary messenger. Further inquiry exploring the canonical UPR, in non-canonical and tissue-specific contexts may help elucidate hidden functions and better integrate our understanding of UPR functionality in plant life."
+  ],
+  "REF": [
+    "References",
+    "Plant stem cell niches.",
+    "Signal recognition particle: An essential protein targeting machine.",
+    "Structure of the Ire1 autophosphorylation complex and implications for the unfolded protein response.",
+    "An obligatory role of protein glycosylation in the life cycle of yeast cells.",
+    "Methylerythritol 4-phosphate (MEP) pathway metabolic regulation.",
+    "Gibberellic acid-induced aleurone layers responding to heat shock or tunicamycin provide insight into the N-glycoproteome, protein secretion, and endoplasmic reticulum stress.",
+    "Plastidial metabolite MEcPP induces a transcriptionally centered stress-response hub via the transcription factor CAMTA3.",
+    "Dynamic interaction of BiP and ER stress transducers in the unfolded-protein response.",
+    "Organization of the ER–Golgi interface for membrane traffic control.",
+    "Mammalian unfolded protein response inhibits cyclin D1 translation and cell-cycle progression.",
+    "Protein quality control in the cytosol and the endoplasmic reticulum: brothers in arms.",
+    "The endoplasmic reticulum binding protein BiP displays dual function in modulating cell death events.",
+    "Signaling from the endoplasmic reticulum activates brassinosteroid signaling and promotes acclimation to stress in Arabidopsis.",
+    "AtIRE1A/AtIRE1B and AGB1 independently control two essential unfolded protein response pathways in Arabidopsis.",
+    "IRE1: ER stress sensor and cell fate executor.",
+    "Inter-regulation of the unfolded protein response and auxin signaling.",
+    "A highly charged region in the middle domain of plant endoplasmic reticulum (ER)-localized heat-shock protein 90 is required for resistance to tunicamycin or high calcium-induced ER stresses.",
+    "A novel mechanism for regulating activity of a transcription factor that controls the unfolded protein response.",
+    "On the mechanism of sensing unfolded protein in the endoplasmic reticulum.",
+    "Specific control of Arabidopsis BAK1/SERK4-regulated cell death by protein glycosylation.",
+    "Plant and mammalian sorting signals for protein retention in the endoplasmic reticulum contain a conserved epitope.",
+    "Analysis of sorting signals responsible for the accumulation of soluble reticuloplasmins in the plant endoplasmic reticulum.",
+    "Heat induces the splicing by IRE1 of a mRNA encoding a transcription factor involved in the unfolded protein response in Arabidopsis.",
+    "Protein kinase and ribonuclease domains of IRE1 confer stress tolerance, vegetative growth, and reproductive development in Arabidopsis.",
+    "IRE1, a component of the unfolded protein response signaling pathway, protects pollen development in Arabidopsis from heat stress.",
+    "Protein folding and misfolding.",
+    "Effects of heat stress on enzyme activities and transcript levels in developing maize kernels grown in culture.",
+    "A phaseolin domain involved directly in trimer assembly is a determinant for binding by the chaperone BiP.",
+    "Unfolded protein response in pollen development and heat stress tolerance.",
+    "A membrane-tethered transcription factor defines a branch of the heat stress response in Arabidopsis thaliana.",
+    "Unfolded proteins are Ire1-activating ligands that directly induce the unfolded protein response.",
+    "Multiple mechanisms modulate brassinosteroid signaling.",
+    "The stress of protein misfolding: from single cells to multicellular organisms.",
+    "Genetic evidence for an indispensable role of somatic embryogenesis receptor kinases in brassinosteroid signaling.",
+    "Chaperones and foldases in endoplasmic reticulum stress signaling in plants.",
+    "Plant Sar1 isoforms with near-identical protein sequences exhibit different localisations and effects on secretion.",
+    "Protein translation and folding are coupled by an endoplasmic-reticulum-resident kinase.",
+    "Converging concepts of protein folding in vitro and in vivo.",
+    "Gibberellin biosynthesis and its regulation.",
+    "Protein homeostasis networks in physiology and disease.",
+    "Multiple mechanism–mediated retention of a defective brassinosteroid receptor in the endoplasmic reticulum of Arabidopsis.",
+    "The unfolded protein response is activated in Alzheimer's disease.",
+    "Unraveling the function of Arabidopsis thaliana OS9 in the endoplasmic reticulum-associated degradation of glycoproteins.",
+    "SHEPHERD is the Arabidopsis GRP94 responsible for the formation of functional CLAVATA proteins.",
+    "Arabidopsis bZIP60 is a proteolysis-activated transcription factor involved in the endoplasmic reticulum stress response.",
+    "The Arabidopsis membrane-bound transcription factor AtbZIP60 is a novel plant-specific endoplasmic reticulum stress transducer.",
+    "Plant transducers of the endoplasmic reticulum unfolded protein response.",
+    "Observations on the fusion of nuclei in plants.",
+    "Arabidopsis COMPASS-like complexes mediate histone H3 lysine-4 trimethylation to control floral transition and plant development.",
+    "A plant-specific calreticulin is a key retention factor for a defective brassinosteroid receptor in the endoplasmic reticulum.",
+    "Allele-specific suppression of a defective brassinosteroid receptor reveals a physiological role of UGGT in ER quality control.",
+    "The mammalian tRNA ligase complex mediates splicing of XBP1 mRNA and controls antibody secretion in plasma cells.",
+    "Plant endoplasmin supports the protein secretory pathway and has a role in proliferating tissues.",
+    "The STT3a subunit isoform of the Arabidopsis oligosaccharyltransferase controls adaptive responses to salt/osmotic stress.",
+    "Molecular characterization of two Arabidopsis Ire1 homologs, endoplasmic reticulum-located transmembrane protein kinases.",
+    "H2A.Z-containing nucleosomes mediate the thermosensory response in Arabidopsis.",
+    "A hit-and-run heat shock factor governs sustained histone methylation and transcriptional stress memory.",
+    "Mutants in DEFECTIVE GLYCOSYLATION, an Arabidopsis homolog of an oligosaccharyltransferase complex subunit, show protein underglycosylation and defects in cell differentiation and growth.",
+    "A putative leucine-rich repeat receptor kinase involved in brassinosteroid signal transduction.",
+    "BAK1, an Arabidopsis LRR receptor-like protein kinase, interacts with BRI1 and modulates brassinosteroid signaling.",
+    "Specific ER quality control components required for biogenesis of the plant innate immune receptor EFR.",
+    "High-resolution mapping of epigenetic modifications of the rice genome uncovers interplay between DNA methylation, histone methylation, and gene expression.",
+    "Perception of the plant hormone ethylene: known-knowns and known-unknowns.",
+    "Managing the protein folding demands in the endoplasmic reticulum of plants.",
+    "Salt stress responses in Arabidopsis utilize a signal transduction pathway related to endoplasmic reticulum stress signaling.",
+    "Degradation of the endoplasmic reticulum by autophagy during endoplasmic reticulum stress in Arabidopsis.",
+    "EBS7 is a plant-specific component of a highly conserved endoplasmic reticulum-associated degradation system in Arabidopsis.",
+    "Endoplasmic reticulum stress activates the expression of a sub-group of protein disulfide isomerase genes and AtbZIP60 modulates the response in Arabidopsis thaliana.",
+    "The potyviral P3 protein targets EF1A to promote the unfolded protein response and viral pathogenesis.",
+    "The THERMOSENSITIVE MALE STERILE 1 Interacts with the BiPs via DnaJ Domain and Stimulates Their ATPase Enzyme Activities in Arabidopsis.",
+    "BiP-mediated polar nuclei fusion is essential for the regulation of endosperm nuclei proliferation in Arabidopsis thaliana.",
+    "Multiple BiP genes of Arabidopsis thaliana are required for male gametogenesis and pollen competitiveness.",
+    "Different Sets of ER-Resident J-Proteins Regulate Distinct Polar Nuclear-Membrane Fusion Events in Arabidopsis thaliana.",
+    "GRP94: An HSP90-like protein specialized for protein folding and quality control in the endoplasmic reticulum.",
+    "Getting RIDD of RNA: IRE1 in cell fate regulation.",
+    "CPR5 modulates salicylic acid and unfolded protein response to manage tradeoffs between plant growth and stress responses.",
+    "Defects in IRE1 enhance cell death and fail to degrade mRNAs encoding secretory pathway proteins in the Arabidopsis unfolded protein response.",
+    "J proteins catalytically activate Hsp70 molecules to trap a wide range of peptide sequences.",
+    "Plant meristems: CLAVATA3/ESR-related signaling in the shoot apical meristem and the root apical meristem.",
+    "IRE1/bZIP60-mediated unfolded protein response plays distinct roles in plant immunity and abiotic stress responses.",
+    "Signalling pathways in the unfolded protein response: development from yeast to mammals.",
+    "Dual functions of yeast tRNA ligase in the unfolded protein response: unconventional cytoplasmic splicing of HAC1 pre-mRNA is not sufficient to release translational attenuation.",
+    "Inducers of plant systemic acquired resistance regulate NPR1 function through redox changes.",
+    "Exogenous salicylic acid activates two signaling arms of the unfolded protein response in Arabidopsis.",
+    "Arabidopsis tRNA ligase completes the cytoplasmic splicing of bZIP60 mRNA in the unfolded protein response.",
+    "BRI1/BAK1, a receptor kinase pair mediating brassinosteroid signaling.",
+    "Lipid biosynthesis.",
+    "The mammalian endoplasmic reticulum-associated degradation system.",
+    "Effect of oxidative stress on the biosynthesis of 2-C-methyl-D-erythritol-2, 4-cyclopyrophosphate and isoprenoids by several bacterial strains.",
+    "The effects of induced production of reactive oxygen species in organelles on endoplasmic reticulum stress and on the unfolded protein response in arabidopsis.",
+    "The dynamic of the splicing of bZIP60 and the proteins encoded by the spliced and unspliced mRNAs reveals some unique features during the activation of UPR in Arabidopsis thaliana.",
+    "BiP binding to the ER-stress sensor Ire1 tunes the homeostatic behavior of the unfolded protein response.",
+    "Simultaneous application of heat, drought, and virus to Arabidopsis plants reveals significant shifts in signaling networks.",
+    "Misfolded proteins, endoplasmic reticulum stress and neurodegeneration.",
+    "Signal integration in the endoplasmic reticulum unfolded protein response.",
+    "Very-long-chain fatty acids are involved in polar auxin transport and developmental patterning in Arabidopsis.",
+    "The Arabidopsis leucine-rich repeat receptor–like kinases BAK1/SERK3 and BKK1/SERK4 are required for innate immunity to hemibiotrophic and biotrophic pathogens.",
+    "Conserved and plant-unique strategies for overcoming endoplasmic reticulum stress.",
+    "Unfolded protein response in plants: one master, many questions.",
+    "Genetic and biochemical analysis of the functional domains of yeast tRNA ligase.",
+    "Dissecting the heat stress response in Chlamydomonas by pharmaceutical and RNAi approaches reveals conserved and novel aspects.",
+    "AtTPR7 as part of the Arabidopsis Sec post-translocon.",
+    "Cold activation of a plasma membrane-tethered NAC transcription factor induces a pathogen resistance response in Arabidopsis.",
+    "Oligomerization and phosphorylation of the Ire1p kinase during intracellular signaling from the endoplasmic reticulum to the nucleus.",
+    "Effects of moderate heat stress on photosynthesis: importance of thylakoid reactions, rubisco deactivation, reactive oxygen species, and thermotolerance provided by isoprene.",
+    "ER stress regulation of ATF6 localization by dissociation of BiP/GRP78 binding and unmasking of Golgi localization signals.",
+    "Signaling cell death from the endoplasmic reticulum stress response.",
+    "Glycoengineering: the effect of glycosylation on the properties of therapeutic proteins.",
+    "The C terminus of the immunophilin PASTICCINO1 is required for plant development and for interaction with a NAC-like transcription factor.",
+    "Transcription factor interaction with COMPASS-like complex regulates histone H3K4 trimethylation for specific gene expression in plants.",
+    "BINDING PROTEIN is a master regulator of the endoplasmic reticulum stress sensor/transducer bZIP28 in Arabidopsis.",
+    "Protein aggregation and aggregate toxicity: new insights into protein folding, misfolding diseases and biological evolution.",
+    "Analysis of 2′-phosphotransferase (Tpt1p) from Saccharomyces cerevisiae: Evidence for a conserved two-step reaction mechanism.",
+    "The lumen-facing domain is important for the biological function and organelle-to-organelle movement of bZIP28 during ER stress in Arabidopsis.",
+    "The plant-specific transcription factor gene NAC103 is induced by bZIP60 through a new cis-regulatory element to modulate the unfolded protein response in Arabidopsis.",
+    "The lumen-facing domain is important for the biological function and organelle-to-organelle movement of bZIP28 during ER stress in Arabidopsis.",
+    "Site-1 protease cleavage site is important for the ER stress-induced activation of membrane-associated transcription factor bZIP28 in Arabidopsis.",
+    "Ire1 has distinct catalytic mechanisms for XBP1/HAC1 splicing and RIDD.",
+    "Reactive oxygen species signaling in response to pathogens.",
+    "The Recognition Motif of the Glycoprotein-Folding Sensor Enzyme UDP-Glc: Glycoprotein Glucosyltransferase†.",
+    "The ER luminal binding protein (BiP) mediates an increase in drought tolerance in soybean and delays drought-induced leaf senescence in soybean and tobacco.",
+    "Defects in endoplasmic reticulum-associated degradation (ERAD) increase selenate sensitivity in Arabidopsis.",
+    "The endoplasmic reticulum—Gateway of the secretory pathway.",
+    "Mutation in the Arabidopsis PASTICCINO1Gene, Which Encodes a New FK506-Binding Protein-Like Protein, Has a Dramatic Effect on Plant Development.",
+    "Genome-wide analysis of integral membrane proteins from eubacterial, archaean, and eukaryotic organisms.",
+    "Cloning of mammalian Ire1 reveals diversity in the ER stress responses.",
+    "The Unfolded Protein Response Pathway in Saccharomyces cerevisiae oligomerization and trans-phosphorylation of Ire1P (Ern1p) are required for kinase activation",
+    "Protein disulfide isomerase.",
+    "Retrograde signaling by the plastidial metabolite MEcPP regulates expression of nuclear stress-response genes.",
+    "Deletion of an endoplasmic reticulum stress response element in a ZmPP2C-A gene facilitates drought tolerance of maize seedlings.",
+    "Arabidopsis thaliana has a set of J proteins in the endoplasmic reticulum that are conserved from yeast to animals and plants.",
+    "A mutation in Thermosensitive Male Sterile 1, encoding a heat shock protein with DnaJ and PDI domains, leads to thermosensitive gametophytic male sterility in Arabidopsis.",
+    "The membrane-associated transcription factor NAC089 controls ER-stress-induced programmed cell death in plants.",
+    "A plasma membrane-tethered transcription factor, NAC062/ANAC062/NTL6, mediates the unfolded protein response in Arabidopsis.",
+    "Unique COPII component AtSar1a/AtSec23a pair is required for the distinct function of protein ER export in Arabidopsis thaliana.",
+    "The UPR branch IRE1-bZIP60 in plants plays an essential role in viral infection and is complementary to the only UPR pathway in yeast.",
+    "Genome-wide analysis of mono-, di-and trimethylation of histone H3 lysine 4 in Arabidopsis thaliana.",
+    "Histone H2A.Z and DNA methylation are mutually antagonistic chromatin marks.",
+    "Significance Statement",
+    "The endoplasmic reticulum (ER) is the entry point to the secretory pathway, the primary site of phospholipid synthesis, a hub for critical stress and growth signaling molecules and for the assembly a third of the proteome. The unfolded protein response (UPR) increases the protein folding capacity of the ER in response to stresses and through unknown means exerts control over plant growth and development. Here we review recent and exciting findings that explore potential molecular mechanisms that support efficient UPR in plants. We visualize the plant UPR as a network that incorporates energy availability, plant production needs, and environmental conditions into a cohesive output governing plant life."
+  ],
+  "FIG": [
+    "Mechanisms of the plant UPR activation",
+    "Environmental stresses (e.g. heat, oxidative stress, selenium, chemical inhibitors) negatively affect the protein folding process, leading to the buildup of unfolded proteins. Plastid stress promotes the buildup of MEcPP (2-C-Methyl-D-erythritol-2,4-cyclopyrophosphate), which through an unknown mechanism, activates CAMTA3 (Calmodulin biding transcriptional activator 3) inducing transcription of bZIP60. 2. BiP ER luminal proteins bind unfolded proteins. The buildup of unfolded proteins leads to activation of IRE1 mediated splicing of bZIP60, which is then potentially ligated by the RNA ligase RLG1. The spliced bZIP60 is a nuclear localized transcription factor which binds to promoters of downstream UPR target genes, Regulated IRE1 dependent decay (RIDD) although not depicted here, regulates mRNA abundance and it is active during ER stress. 3. bZIP28 after being freed from BiPs by the presence of unfolded proteins is trafficked to the Golgi in a SAR1a/SEC23-dependent way. S2P proteases cleave the active transcription factor from its transmembrane domain. bZIP28 enters the nucleus and acts redundantly with bZIP60 to transcriptionally activate the UPR.",
+    "UPR-regulated Transcription Factors may Tailor UPR Activation to Specific Stress Combinations",
+    "Several plant-specific transcription factors are upregulated under ER stress in an IRE1/bZIP28 dependent way. Two membrane-bound transcription factors, ANAC062 and ANAC089, have been shown to relocate to the nucleus under ER stress. ANAC062 also is nuclear localized under cold stress conditions. ANAC089 along with interactor PAS1 (PASTICCINO1) were also shown to relocate to the nucleus in roots treated with 1-naphthaleneacetic acid to induce dedifferentiation. ANAC103, a soluble transcription factor, was also shown to upregulate UPR genes upon over expression. Although truncated forms of these transcription factors were shown to upregulate UPR responsive genes, the molecular mechanisms of action of native transcription factors are still unknown. After upregulation by IRE1/bZIP28 dependent mechanisms, these transcription factors may respond to secondary signals which reinforce or alter UPR gene expression."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Plant stem cell niches.",
+      "autores": [
+        {
+          "nombre_completo": "E Aichinger",
+          "nombres": "E",
+          "apellidos": "Aichinger"
+        },
+        {
+          "nombre_completo": "N Kornet",
+          "nombres": "N",
+          "apellidos": "Kornet"
+        },
+        {
+          "nombre_completo": "T Friedrich",
+          "nombres": "T",
+          "apellidos": "Friedrich"
+        },
+        {
+          "nombre_completo": "T Laux",
+          "nombres": "T",
+          "apellidos": "Laux"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Annual review of plant biology",
+      "anio": "2012",
+      "volumen": "63",
+      "fpage": "615",
+      "lpage": "636"
+    },
+    {
+      "titulo": "Signal recognition particle: An essential protein targeting machine.",
+      "autores": [
+        {
+          "nombre_completo": "D Akopian",
+          "nombres": "D",
+          "apellidos": "Akopian"
+        },
+        {
+          "nombre_completo": "K Shen",
+          "nombres": "K",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "X Zhang",
+          "nombres": "X",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S.-o. Shan",
+          "nombres": "S.-o.",
+          "apellidos": "Shan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Annual review of biochemistry",
+      "anio": "2013",
+      "volumen": "82",
+      "fpage": "693",
+      "lpage": ""
+    },
+    {
+      "titulo": "Structure of the Ire1 autophosphorylation complex and implications for the unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "MM Ali",
+          "nombres": "MM",
+          "apellidos": "Ali"
+        },
+        {
+          "nombre_completo": "T Bagratuni",
+          "nombres": "T",
+          "apellidos": "Bagratuni"
+        },
+        {
+          "nombre_completo": "EL Davenport",
+          "nombres": "EL",
+          "apellidos": "Davenport"
+        },
+        {
+          "nombre_completo": "PR Nowak",
+          "nombres": "PR",
+          "apellidos": "Nowak"
+        },
+        {
+          "nombre_completo": "MC Silva-Santisteban",
+          "nombres": "MC",
+          "apellidos": "Silva-Santisteban"
+        },
+        {
+          "nombre_completo": "A Hardcastle",
+          "nombres": "A",
+          "apellidos": "Hardcastle"
+        },
+        {
+          "nombre_completo": "C McAndrews",
+          "nombres": "C",
+          "apellidos": "McAndrews"
+        },
+        {
+          "nombre_completo": "MG Rowlands",
+          "nombres": "MG",
+          "apellidos": "Rowlands"
+        },
+        {
+          "nombre_completo": "GJ Morgan",
+          "nombres": "GJ",
+          "apellidos": "Morgan"
+        },
+        {
+          "nombre_completo": "W Aherne",
+          "nombres": "W",
+          "apellidos": "Aherne"
+        }
+      ],
+      "pmid": "21317875",
+      "fuente": "The EMBO journal",
+      "anio": "2011",
+      "volumen": "30",
+      "fpage": "894",
+      "lpage": "905"
+    },
+    {
+      "titulo": "An obligatory role of protein glycosylation in the life cycle of yeast cells.",
+      "autores": [
+        {
+          "nombre_completo": "E Arnold",
+          "nombres": "E",
+          "apellidos": "Arnold"
+        },
+        {
+          "nombre_completo": "W Tanner",
+          "nombres": "W",
+          "apellidos": "Tanner"
+        }
+      ],
+      "pmid": "6184248",
+      "fuente": "FEBS letters",
+      "anio": "1982",
+      "volumen": "148",
+      "fpage": "49",
+      "lpage": "53"
+    },
+    {
+      "titulo": "Methylerythritol 4-phosphate (MEP) pathway metabolic regulation.",
+      "autores": [
+        {
+          "nombre_completo": "A Banerjee",
+          "nombres": "A",
+          "apellidos": "Banerjee"
+        },
+        {
+          "nombre_completo": "T Sharkey",
+          "nombres": "T",
+          "apellidos": "Sharkey"
+        }
+      ],
+      "pmid": "24921065",
+      "fuente": "Natural product reports",
+      "anio": "2014",
+      "volumen": "31",
+      "fpage": "1043",
+      "lpage": "1055"
+    },
+    {
+      "titulo": "Gibberellic acid-induced aleurone layers responding to heat shock or tunicamycin provide insight into the N-glycoproteome, protein secretion, and endoplasmic reticulum stress.",
+      "autores": [
+        {
+          "nombre_completo": "G Barba-Espín",
+          "nombres": "G",
+          "apellidos": "Barba-Espín"
+        },
+        {
+          "nombre_completo": "P Dedvisitsakul",
+          "nombres": "P",
+          "apellidos": "Dedvisitsakul"
+        },
+        {
+          "nombre_completo": "P Hägglund",
+          "nombres": "P",
+          "apellidos": "Hägglund"
+        },
+        {
+          "nombre_completo": "B Svensson",
+          "nombres": "B",
+          "apellidos": "Svensson"
+        },
+        {
+          "nombre_completo": "C Finnie",
+          "nombres": "C",
+          "apellidos": "Finnie"
+        }
+      ],
+      "pmid": "24344171",
+      "fuente": "Plant physiology",
+      "anio": "2014",
+      "volumen": "164",
+      "fpage": "951",
+      "lpage": "965"
+    },
+    {
+      "titulo": "Plastidial metabolite MEcPP induces a transcriptionally centered stress-response hub via the transcription factor CAMTA3.",
+      "autores": [
+        {
+          "nombre_completo": "G Benn",
+          "nombres": "G",
+          "apellidos": "Benn"
+        },
+        {
+          "nombre_completo": "M Bjornson",
+          "nombres": "M",
+          "apellidos": "Bjornson"
+        },
+        {
+          "nombre_completo": "H Ke",
+          "nombres": "H",
+          "apellidos": "Ke"
+        },
+        {
+          "nombre_completo": "A De Souza",
+          "nombres": "A",
+          "apellidos": "De Souza"
+        },
+        {
+          "nombre_completo": "EI Balmond",
+          "nombres": "EI",
+          "apellidos": "Balmond"
+        },
+        {
+          "nombre_completo": "JT Shaw",
+          "nombres": "JT",
+          "apellidos": "Shaw"
+        },
+        {
+          "nombre_completo": "K Dehesh",
+          "nombres": "K",
+          "apellidos": "Dehesh"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the National Academy of Sciences",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "201602582",
+      "lpage": ""
+    },
+    {
+      "titulo": "Dynamic interaction of BiP and ER stress transducers in the unfolded-protein response.",
+      "autores": [
+        {
+          "nombre_completo": "A Bertolotti",
+          "nombres": "A",
+          "apellidos": "Bertolotti"
+        },
+        {
+          "nombre_completo": "Y Zhang",
+          "nombres": "Y",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "LM Hendershot",
+          "nombres": "LM",
+          "apellidos": "Hendershot"
+        },
+        {
+          "nombre_completo": "HP Harding",
+          "nombres": "HP",
+          "apellidos": "Harding"
+        },
+        {
+          "nombre_completo": "D Ron",
+          "nombres": "D",
+          "apellidos": "Ron"
+        }
+      ],
+      "pmid": "10854322",
+      "fuente": "Nature cell biology",
+      "anio": "2000",
+      "volumen": "2",
+      "fpage": "326",
+      "lpage": "332"
+    },
+    {
+      "titulo": "Organization of the ER–Golgi interface for membrane traffic control.",
+      "autores": [
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        },
+        {
+          "nombre_completo": "C Barlowe",
+          "nombres": "C",
+          "apellidos": "Barlowe"
+        }
+      ],
+      "pmid": "23698585",
+      "fuente": "Nature reviews Molecular cell biology",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "382",
+      "lpage": "392"
+    },
+    {
+      "titulo": "Mammalian unfolded protein response inhibits cyclin D1 translation and cell-cycle progression.",
+      "autores": [
+        {
+          "nombre_completo": "JW Brewer",
+          "nombres": "JW",
+          "apellidos": "Brewer"
+        },
+        {
+          "nombre_completo": "LM Hendershot",
+          "nombres": "LM",
+          "apellidos": "Hendershot"
+        },
+        {
+          "nombre_completo": "CJ Sherr",
+          "nombres": "CJ",
+          "apellidos": "Sherr"
+        },
+        {
+          "nombre_completo": "JA Diehl",
+          "nombres": "JA",
+          "apellidos": "Diehl"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the National Academy of Sciences",
+      "anio": "1999",
+      "volumen": "96",
+      "fpage": "8505",
+      "lpage": "8510"
+    },
+    {
+      "titulo": "Protein quality control in the cytosol and the endoplasmic reticulum: brothers in arms.",
+      "autores": [
+        {
+          "nombre_completo": "A Buchberger",
+          "nombres": "A",
+          "apellidos": "Buchberger"
+        },
+        {
+          "nombre_completo": "B Bukau",
+          "nombres": "B",
+          "apellidos": "Bukau"
+        },
+        {
+          "nombre_completo": "T Sommer",
+          "nombres": "T",
+          "apellidos": "Sommer"
+        }
+      ],
+      "pmid": "20965419",
+      "fuente": "Molecular cell",
+      "anio": "2010",
+      "volumen": "40",
+      "fpage": "238",
+      "lpage": "252"
+    },
+    {
+      "titulo": "The endoplasmic reticulum binding protein BiP displays dual function in modulating cell death events.",
+      "autores": [
+        {
+          "nombre_completo": "HH Carvalho",
+          "nombres": "HH",
+          "apellidos": "Carvalho"
+        },
+        {
+          "nombre_completo": "PA Silva",
+          "nombres": "PA",
+          "apellidos": "Silva"
+        },
+        {
+          "nombre_completo": "GC Mendes",
+          "nombres": "GC",
+          "apellidos": "Mendes"
+        },
+        {
+          "nombre_completo": "OJ Brustolini",
+          "nombres": "OJ",
+          "apellidos": "Brustolini"
+        },
+        {
+          "nombre_completo": "MR Pimenta",
+          "nombres": "MR",
+          "apellidos": "Pimenta"
+        },
+        {
+          "nombre_completo": "BC Gouveia",
+          "nombres": "BC",
+          "apellidos": "Gouveia"
+        },
+        {
+          "nombre_completo": "MA Valente",
+          "nombres": "MA",
+          "apellidos": "Valente"
+        },
+        {
+          "nombre_completo": "HJ Ramos",
+          "nombres": "HJ",
+          "apellidos": "Ramos"
+        },
+        {
+          "nombre_completo": "JR Soares-Ramos",
+          "nombres": "JR",
+          "apellidos": "Soares-Ramos"
+        },
+        {
+          "nombre_completo": "EP Fontes",
+          "nombres": "EP",
+          "apellidos": "Fontes"
+        }
+      ],
+      "pmid": "24319082",
+      "fuente": "Plant Physiol",
+      "anio": "2014",
+      "volumen": "164",
+      "fpage": "654",
+      "lpage": "670"
+    },
+    {
+      "titulo": "Signaling from the endoplasmic reticulum activates brassinosteroid signaling and promotes acclimation to stress in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "P Che",
+          "nombres": "P",
+          "apellidos": "Che"
+        },
+        {
+          "nombre_completo": "JD Bussell",
+          "nombres": "JD",
+          "apellidos": "Bussell"
+        },
+        {
+          "nombre_completo": "W Zhou",
+          "nombres": "W",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "GM Estavillo",
+          "nombres": "GM",
+          "apellidos": "Estavillo"
+        },
+        {
+          "nombre_completo": "BJ Pogson",
+          "nombres": "BJ",
+          "apellidos": "Pogson"
+        },
+        {
+          "nombre_completo": "SM Smith",
+          "nombres": "SM",
+          "apellidos": "Smith"
+        }
+      ],
+      "pmid": "20876872",
+      "fuente": "Sci. Signal",
+      "anio": "2010",
+      "volumen": "3",
+      "fpage": "ra69",
+      "lpage": "ra69"
+    },
+    {
+      "titulo": "AtIRE1A/AtIRE1B and AGB1 independently control two essential unfolded protein response pathways in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "21914012",
+      "fuente": "Plant J",
+      "anio": "2012",
+      "volumen": "69",
+      "fpage": "266",
+      "lpage": "277"
+    },
+    {
+      "titulo": "IRE1: ER stress sensor and cell fate executor.",
+      "autores": [
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "23880584",
+      "fuente": "Trends Cell Biol",
+      "anio": "2013",
+      "volumen": "23",
+      "fpage": "547",
+      "lpage": "555"
+    },
+    {
+      "titulo": "Inter-regulation of the unfolded protein response and auxin signaling.",
+      "autores": [
+        {
+          "nombre_completo": "Yani Chen",
+          "nombres": "Yani",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "Kyaw Aung",
+          "nombres": "Kyaw",
+          "apellidos": "Aung"
+        },
+        {
+          "nombre_completo": "Jakub Rolčík",
+          "nombres": "Jakub",
+          "apellidos": "Rolčík"
+        },
+        {
+          "nombre_completo": "Kathryn Walicki",
+          "nombres": "Kathryn",
+          "apellidos": "Walicki"
+        },
+        {
+          "nombre_completo": "Jiří Friml",
+          "nombres": "Jiří",
+          "apellidos": "Friml"
+        },
+        {
+          "nombre_completo": "Federica Brandizzi",
+          "nombres": "Federica",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "24180465",
+      "fuente": "The Plant Journal",
+      "anio": "2014",
+      "volumen": "77",
+      "fpage": "97",
+      "lpage": "107"
+    },
+    {
+      "titulo": "A highly charged region in the middle domain of plant endoplasmic reticulum (ER)-localized heat-shock protein 90 is required for resistance to tunicamycin or high calcium-induced ER stresses.",
+      "autores": [
+        {
+          "nombre_completo": "LP Chong",
+          "nombres": "LP",
+          "apellidos": "Chong"
+        },
+        {
+          "nombre_completo": "Y Wang",
+          "nombres": "Y",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "N Gad",
+          "nombres": "N",
+          "apellidos": "Gad"
+        },
+        {
+          "nombre_completo": "N Anderson",
+          "nombres": "N",
+          "apellidos": "Anderson"
+        },
+        {
+          "nombre_completo": "B Shah",
+          "nombres": "B",
+          "apellidos": "Shah"
+        },
+        {
+          "nombre_completo": "R Zhao",
+          "nombres": "R",
+          "apellidos": "Zhao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Journal of experimental botany",
+      "anio": "2014",
+      "volumen": "",
+      "fpage": "eru403",
+      "lpage": ""
+    },
+    {
+      "titulo": "A novel mechanism for regulating activity of a transcription factor that controls the unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "JS Cox",
+          "nombres": "JS",
+          "apellidos": "Cox"
+        },
+        {
+          "nombre_completo": "P Walter",
+          "nombres": "P",
+          "apellidos": "Walter"
+        }
+      ],
+      "pmid": "8898193",
+      "fuente": "Cell",
+      "anio": "1996",
+      "volumen": "87",
+      "fpage": "391",
+      "lpage": "404"
+    },
+    {
+      "titulo": "On the mechanism of sensing unfolded protein in the endoplasmic reticulum.",
+      "autores": [
+        {
+          "nombre_completo": "JJ Credle",
+          "nombres": "JJ",
+          "apellidos": "Credle"
+        },
+        {
+          "nombre_completo": "JS Finer-Moore",
+          "nombres": "JS",
+          "apellidos": "Finer-Moore"
+        },
+        {
+          "nombre_completo": "FR Papa",
+          "nombres": "FR",
+          "apellidos": "Papa"
+        },
+        {
+          "nombre_completo": "RM Stroud",
+          "nombres": "RM",
+          "apellidos": "Stroud"
+        },
+        {
+          "nombre_completo": "P Walter",
+          "nombres": "P",
+          "apellidos": "Walter"
+        }
+      ],
+      "pmid": "16365312",
+      "fuente": "Proceedings of the National Academy of Sciences of the United States of America",
+      "anio": "2005",
+      "volumen": "102",
+      "fpage": "18773",
+      "lpage": "18784"
+    },
+    {
+      "titulo": "Specific control of Arabidopsis BAK1/SERK4-regulated cell death by protein glycosylation.",
+      "autores": [
+        {
+          "nombre_completo": "MV de Oliveira",
+          "nombres": "MV",
+          "apellidos": "de Oliveira"
+        },
+        {
+          "nombre_completo": "G Xu",
+          "nombres": "G",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "AL Musinsky",
+          "nombres": "AL",
+          "apellidos": "Musinsky"
+        },
+        {
+          "nombre_completo": "H Koiwa",
+          "nombres": "H",
+          "apellidos": "Koiwa"
+        },
+        {
+          "nombre_completo": "GA de Souza Filho",
+          "nombres": "GA",
+          "apellidos": "de Souza Filho"
+        },
+        {
+          "nombre_completo": "L Shan",
+          "nombres": "L",
+          "apellidos": "Shan"
+        },
+        {
+          "nombre_completo": "P He",
+          "nombres": "P",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "B Li",
+          "nombres": "B",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "L de Souza Vespoli",
+          "nombres": "L",
+          "apellidos": "de Souza Vespoli"
+        },
+        {
+          "nombre_completo": "X Meng",
+          "nombres": "X",
+          "apellidos": "Meng"
+        },
+        {
+          "nombre_completo": "X Chen",
+          "nombres": "X",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "X Yu",
+          "nombres": "X",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "SA de Souza",
+          "nombres": "SA",
+          "apellidos": "de Souza"
+        },
+        {
+          "nombre_completo": "AC Intorne",
+          "nombres": "AC",
+          "apellidos": "Intorne"
+        },
+        {
+          "nombre_completo": "AMAM de",
+          "nombres": "AMAM",
+          "apellidos": "de"
+        }
+      ],
+      "pmid": "27250875",
+      "fuente": "Nat Plants",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15218",
+      "lpage": ""
+    },
+    {
+      "titulo": "Plant and mammalian sorting signals for protein retention in the endoplasmic reticulum contain a conserved epitope.",
+      "autores": [
+        {
+          "nombre_completo": "J Denecke",
+          "nombres": "J",
+          "apellidos": "Denecke"
+        },
+        {
+          "nombre_completo": "R De Rycke",
+          "nombres": "R",
+          "apellidos": "De Rycke"
+        },
+        {
+          "nombre_completo": "J Botterman",
+          "nombres": "J",
+          "apellidos": "Botterman"
+        }
+      ],
+      "pmid": "1376250",
+      "fuente": "The EMBO journal",
+      "anio": "1992",
+      "volumen": "11",
+      "fpage": "2345",
+      "lpage": ""
+    },
+    {
+      "titulo": "Analysis of sorting signals responsible for the accumulation of soluble reticuloplasmins in the plant endoplasmic reticulum.",
+      "autores": [
+        {
+          "nombre_completo": "J Deneke",
+          "nombres": "J",
+          "apellidos": "Deneke"
+        },
+        {
+          "nombre_completo": "B EK",
+          "nombres": "B",
+          "apellidos": "EK"
+        },
+        {
+          "nombre_completo": "M Caspers",
+          "nombres": "M",
+          "apellidos": "Caspers"
+        },
+        {
+          "nombre_completo": "KM Sinjorgo",
+          "nombres": "KM",
+          "apellidos": "Sinjorgo"
+        },
+        {
+          "nombre_completo": "ET Palva",
+          "nombres": "ET",
+          "apellidos": "Palva"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Journal of experimental botany",
+      "anio": "1993",
+      "volumen": "",
+      "fpage": "213",
+      "lpage": "221"
+    },
+    {
+      "titulo": "Heat induces the splicing by IRE1 of a mRNA encoding a transcription factor involved in the unfolded protein response in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "S Humbert",
+          "nombres": "S",
+          "apellidos": "Humbert"
+        },
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "R Srivastava",
+          "nombres": "R",
+          "apellidos": "Srivastava"
+        },
+        {
+          "nombre_completo": "SJ Rothstein",
+          "nombres": "SJ",
+          "apellidos": "Rothstein"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        }
+      ],
+      "pmid": "21482766",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2011",
+      "volumen": "108",
+      "fpage": "7247",
+      "lpage": "7252"
+    },
+    {
+      "titulo": "Protein kinase and ribonuclease domains of IRE1 confer stress tolerance, vegetative growth, and reproductive development in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "R Srivastava",
+          "nombres": "R",
+          "apellidos": "Srivastava"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        }
+      ],
+      "pmid": "24145452",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2013",
+      "volumen": "110",
+      "fpage": "19633",
+      "lpage": "19638"
+    },
+    {
+      "titulo": "IRE1, a component of the unfolded protein response signaling pathway, protects pollen development in Arabidopsis from heat stress.",
+      "autores": [
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "R Srivastava",
+          "nombres": "R",
+          "apellidos": "Srivastava"
+        },
+        {
+          "nombre_completo": "TD Quilichini",
+          "nombres": "TD",
+          "apellidos": "Quilichini"
+        },
+        {
+          "nombre_completo": "H Dong",
+          "nombres": "H",
+          "apellidos": "Dong"
+        },
+        {
+          "nombre_completo": "Y Bao",
+          "nombres": "Y",
+          "apellidos": "Bao"
+        },
+        {
+          "nombre_completo": "HT Horner",
+          "nombres": "HT",
+          "apellidos": "Horner"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        }
+      ],
+      "pmid": "",
+      "fuente": "The Plant Journal",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Protein folding and misfolding.",
+      "autores": [
+        {
+          "nombre_completo": "CM Dobson",
+          "nombres": "CM",
+          "apellidos": "Dobson"
+        }
+      ],
+      "pmid": "14685248",
+      "fuente": "Nature",
+      "anio": "2003",
+      "volumen": "426",
+      "fpage": "884",
+      "lpage": "890"
+    },
+    {
+      "titulo": "Effects of heat stress on enzyme activities and transcript levels in developing maize kernels grown in culture.",
+      "autores": [
+        {
+          "nombre_completo": "ER Duke",
+          "nombres": "ER",
+          "apellidos": "Duke"
+        },
+        {
+          "nombre_completo": "DC Doehlert",
+          "nombres": "DC",
+          "apellidos": "Doehlert"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Environmental and experimental botany",
+      "anio": "1996",
+      "volumen": "36",
+      "fpage": "199",
+      "lpage": "208"
+    },
+    {
+      "titulo": "A phaseolin domain involved directly in trimer assembly is a determinant for binding by the chaperone BiP.",
+      "autores": [
+        {
+          "nombre_completo": "O Foresti",
+          "nombres": "O",
+          "apellidos": "Foresti"
+        },
+        {
+          "nombre_completo": "L Frigerio",
+          "nombres": "L",
+          "apellidos": "Frigerio"
+        },
+        {
+          "nombre_completo": "H Holkeri",
+          "nombres": "H",
+          "apellidos": "Holkeri"
+        },
+        {
+          "nombre_completo": "M de Virgilio",
+          "nombres": "M",
+          "apellidos": "de Virgilio"
+        },
+        {
+          "nombre_completo": "S Vavassori",
+          "nombres": "S",
+          "apellidos": "Vavassori"
+        },
+        {
+          "nombre_completo": "A Vitale",
+          "nombres": "A",
+          "apellidos": "Vitale"
+        }
+      ],
+      "pmid": "14508011",
+      "fuente": "Plant Cell",
+      "anio": "2003",
+      "volumen": "15",
+      "fpage": "2464",
+      "lpage": "2475"
+    },
+    {
+      "titulo": "Unfolded protein response in pollen development and heat stress tolerance.",
+      "autores": [
+        {
+          "nombre_completo": "S Fragkostefanakis",
+          "nombres": "S",
+          "apellidos": "Fragkostefanakis"
+        },
+        {
+          "nombre_completo": "A Mesihovic",
+          "nombres": "A",
+          "apellidos": "Mesihovic"
+        },
+        {
+          "nombre_completo": "Y Hu",
+          "nombres": "Y",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "E Schleiff",
+          "nombres": "E",
+          "apellidos": "Schleiff"
+        }
+      ],
+      "pmid": "27022919",
+      "fuente": "Plant Reprod",
+      "anio": "2016",
+      "volumen": "29",
+      "fpage": "81",
+      "lpage": "91"
+    },
+    {
+      "titulo": "A membrane-tethered transcription factor defines a branch of the heat stress response in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "H Gao",
+          "nombres": "H",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        },
+        {
+          "nombre_completo": "C Benning",
+          "nombres": "C",
+          "apellidos": "Benning"
+        },
+        {
+          "nombre_completo": "RM Larkin",
+          "nombres": "RM",
+          "apellidos": "Larkin"
+        }
+      ],
+      "pmid": "18849477",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2008",
+      "volumen": "105",
+      "fpage": "16398",
+      "lpage": "16403"
+    },
+    {
+      "titulo": "Unfolded proteins are Ire1-activating ligands that directly induce the unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "BM Gardner",
+          "nombres": "BM",
+          "apellidos": "Gardner"
+        },
+        {
+          "nombre_completo": "P Walter",
+          "nombres": "P",
+          "apellidos": "Walter"
+        }
+      ],
+      "pmid": "21852455",
+      "fuente": "Science",
+      "anio": "2011",
+      "volumen": "333",
+      "fpage": "1891",
+      "lpage": "1894"
+    },
+    {
+      "titulo": "Multiple mechanisms modulate brassinosteroid signaling.",
+      "autores": [
+        {
+          "nombre_completo": "JM Gendron",
+          "nombres": "JM",
+          "apellidos": "Gendron"
+        },
+        {
+          "nombre_completo": "ZY Wang",
+          "nombres": "ZY",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "17904409",
+      "fuente": "Current opinion in plant biology",
+      "anio": "2007",
+      "volumen": "10",
+      "fpage": "436",
+      "lpage": "441"
+    },
+    {
+      "titulo": "The stress of protein misfolding: from single cells to multicellular organisms.",
+      "autores": [
+        {
+          "nombre_completo": "T Gidalevitz",
+          "nombres": "T",
+          "apellidos": "Gidalevitz"
+        },
+        {
+          "nombre_completo": "V Prahlad",
+          "nombres": "V",
+          "apellidos": "Prahlad"
+        },
+        {
+          "nombre_completo": "RI Morimoto",
+          "nombres": "RI",
+          "apellidos": "Morimoto"
+        }
+      ],
+      "pmid": "21536706",
+      "fuente": "Cold Spring Harbor perspectives in biology",
+      "anio": "2011",
+      "volumen": "3",
+      "fpage": "a009704",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genetic evidence for an indispensable role of somatic embryogenesis receptor kinases in brassinosteroid signaling.",
+      "autores": [
+        {
+          "nombre_completo": "X Gou",
+          "nombres": "X",
+          "apellidos": "Gou"
+        },
+        {
+          "nombre_completo": "H Yin",
+          "nombres": "H",
+          "apellidos": "Yin"
+        },
+        {
+          "nombre_completo": "K He",
+          "nombres": "K",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "J Du",
+          "nombres": "J",
+          "apellidos": "Du"
+        },
+        {
+          "nombre_completo": "J Yi",
+          "nombres": "J",
+          "apellidos": "Yi"
+        },
+        {
+          "nombre_completo": "S Xu",
+          "nombres": "S",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "H Lin",
+          "nombres": "H",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "SD Clouse",
+          "nombres": "SD",
+          "apellidos": "Clouse"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "22253607",
+      "fuente": "PLoS Genet",
+      "anio": "2012",
+      "volumen": "8",
+      "fpage": "e1002452",
+      "lpage": ""
+    },
+    {
+      "titulo": "Chaperones and foldases in endoplasmic reticulum stress signaling in plants.",
+      "autores": [
+        {
+          "nombre_completo": "D Gupta",
+          "nombres": "D",
+          "apellidos": "Gupta"
+        },
+        {
+          "nombre_completo": "N Tuteja",
+          "nombres": "N",
+          "apellidos": "Tuteja"
+        }
+      ],
+      "pmid": "21427533",
+      "fuente": "Plant Signal Behav",
+      "anio": "2011",
+      "volumen": "6",
+      "fpage": "232",
+      "lpage": "236"
+    },
+    {
+      "titulo": "Plant Sar1 isoforms with near-identical protein sequences exhibit different localisations and effects on secretion.",
+      "autores": [
+        {
+          "nombre_completo": "SL Hanton",
+          "nombres": "SL",
+          "apellidos": "Hanton"
+        },
+        {
+          "nombre_completo": "L Chatre",
+          "nombres": "L",
+          "apellidos": "Chatre"
+        },
+        {
+          "nombre_completo": "LA Matheson",
+          "nombres": "LA",
+          "apellidos": "Matheson"
+        },
+        {
+          "nombre_completo": "M Rossi",
+          "nombres": "M",
+          "apellidos": "Rossi"
+        },
+        {
+          "nombre_completo": "MA Held",
+          "nombres": "MA",
+          "apellidos": "Held"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "18322804",
+      "fuente": "Plant molecular biology",
+      "anio": "2008",
+      "volumen": "67",
+      "fpage": "283",
+      "lpage": "294"
+    },
+    {
+      "titulo": "Protein translation and folding are coupled by an endoplasmic-reticulum-resident kinase.",
+      "autores": [
+        {
+          "nombre_completo": "HP Harding",
+          "nombres": "HP",
+          "apellidos": "Harding"
+        },
+        {
+          "nombre_completo": "Y Zhang",
+          "nombres": "Y",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "D Ron",
+          "nombres": "D",
+          "apellidos": "Ron"
+        }
+      ],
+      "pmid": "9930704",
+      "fuente": "Nature",
+      "anio": "1999",
+      "volumen": "397",
+      "fpage": "271",
+      "lpage": "274"
+    },
+    {
+      "titulo": "Converging concepts of protein folding in vitro and in vivo.",
+      "autores": [
+        {
+          "nombre_completo": "FU Hartl",
+          "nombres": "FU",
+          "apellidos": "Hartl"
+        },
+        {
+          "nombre_completo": "M Hayer-Hartl",
+          "nombres": "M",
+          "apellidos": "Hayer-Hartl"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nature structural & molecular biology",
+      "anio": "2009",
+      "volumen": "16",
+      "fpage": "574",
+      "lpage": "581"
+    },
+    {
+      "titulo": "Gibberellin biosynthesis and its regulation.",
+      "autores": [
+        {
+          "nombre_completo": "P Hedden",
+          "nombres": "P",
+          "apellidos": "Hedden"
+        },
+        {
+          "nombre_completo": "SG Thomas",
+          "nombres": "SG",
+          "apellidos": "Thomas"
+        }
+      ],
+      "pmid": "22533671",
+      "fuente": "Biochemical Journal",
+      "anio": "2012",
+      "volumen": "444",
+      "fpage": "11",
+      "lpage": "25"
+    },
+    {
+      "titulo": "Protein homeostasis networks in physiology and disease.",
+      "autores": [
+        {
+          "nombre_completo": "C Hetz",
+          "nombres": "C",
+          "apellidos": "Hetz"
+        },
+        {
+          "nombre_completo": "LH Glimcher",
+          "nombres": "LH",
+          "apellidos": "Glimcher"
+        }
+      ],
+      "pmid": "21306885",
+      "fuente": "Current opinion in cell biology",
+      "anio": "2011",
+      "volumen": "23",
+      "fpage": "123",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multiple mechanism–mediated retention of a defective brassinosteroid receptor in the endoplasmic reticulum of Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Z Hong",
+          "nombres": "Z",
+          "apellidos": "Hong"
+        },
+        {
+          "nombre_completo": "H Jin",
+          "nombres": "H",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "T Tzfira",
+          "nombres": "T",
+          "apellidos": "Tzfira"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "19060110",
+      "fuente": "The Plant Cell",
+      "anio": "2008",
+      "volumen": "20",
+      "fpage": "3418",
+      "lpage": "3429"
+    },
+    {
+      "titulo": "The unfolded protein response is activated in Alzheimer's disease.",
+      "autores": [
+        {
+          "nombre_completo": "J Hoozemans",
+          "nombres": "J",
+          "apellidos": "Hoozemans"
+        },
+        {
+          "nombre_completo": "R Veerhuis",
+          "nombres": "R",
+          "apellidos": "Veerhuis"
+        },
+        {
+          "nombre_completo": "E Van Haastert",
+          "nombres": "E",
+          "apellidos": "Van Haastert"
+        },
+        {
+          "nombre_completo": "J Rozemuller",
+          "nombres": "J",
+          "apellidos": "Rozemuller"
+        },
+        {
+          "nombre_completo": "F Baas",
+          "nombres": "F",
+          "apellidos": "Baas"
+        },
+        {
+          "nombre_completo": "P Eikelenboom",
+          "nombres": "P",
+          "apellidos": "Eikelenboom"
+        },
+        {
+          "nombre_completo": "W Scheper",
+          "nombres": "W",
+          "apellidos": "Scheper"
+        }
+      ],
+      "pmid": "15973543",
+      "fuente": "Acta neuropathologica",
+      "anio": "2005",
+      "volumen": "110",
+      "fpage": "165",
+      "lpage": "172"
+    },
+    {
+      "titulo": "Unraveling the function of Arabidopsis thaliana OS9 in the endoplasmic reticulum-associated degradation of glycoproteins.",
+      "autores": [
+        {
+          "nombre_completo": "S Hüttner",
+          "nombres": "S",
+          "apellidos": "Hüttner"
+        },
+        {
+          "nombre_completo": "C Veit",
+          "nombres": "C",
+          "apellidos": "Veit"
+        },
+        {
+          "nombre_completo": "J Schoberer",
+          "nombres": "J",
+          "apellidos": "Schoberer"
+        },
+        {
+          "nombre_completo": "J Grass",
+          "nombres": "J",
+          "apellidos": "Grass"
+        },
+        {
+          "nombre_completo": "R Strasser",
+          "nombres": "R",
+          "apellidos": "Strasser"
+        }
+      ],
+      "pmid": "22328055",
+      "fuente": "Plant molecular biology",
+      "anio": "2012",
+      "volumen": "79",
+      "fpage": "21",
+      "lpage": "33"
+    },
+    {
+      "titulo": "SHEPHERD is the Arabidopsis GRP94 responsible for the formation of functional CLAVATA proteins.",
+      "autores": [
+        {
+          "nombre_completo": "S Ishiguro",
+          "nombres": "S",
+          "apellidos": "Ishiguro"
+        },
+        {
+          "nombre_completo": "Y Watanabe",
+          "nombres": "Y",
+          "apellidos": "Watanabe"
+        },
+        {
+          "nombre_completo": "N Ito",
+          "nombres": "N",
+          "apellidos": "Ito"
+        },
+        {
+          "nombre_completo": "H Nonaka",
+          "nombres": "H",
+          "apellidos": "Nonaka"
+        },
+        {
+          "nombre_completo": "N Takeda",
+          "nombres": "N",
+          "apellidos": "Takeda"
+        },
+        {
+          "nombre_completo": "T Sakai",
+          "nombres": "T",
+          "apellidos": "Sakai"
+        },
+        {
+          "nombre_completo": "H Kanaya",
+          "nombres": "H",
+          "apellidos": "Kanaya"
+        },
+        {
+          "nombre_completo": "K Okada",
+          "nombres": "K",
+          "apellidos": "Okada"
+        }
+      ],
+      "pmid": "11867518",
+      "fuente": "The EMBO Journal",
+      "anio": "2002",
+      "volumen": "21",
+      "fpage": "898",
+      "lpage": "908"
+    },
+    {
+      "titulo": "Arabidopsis bZIP60 is a proteolysis-activated transcription factor involved in the endoplasmic reticulum stress response.",
+      "autores": [
+        {
+          "nombre_completo": "Y Iwata",
+          "nombres": "Y",
+          "apellidos": "Iwata"
+        },
+        {
+          "nombre_completo": "NV Fedoroff",
+          "nombres": "NV",
+          "apellidos": "Fedoroff"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        }
+      ],
+      "pmid": "19017746",
+      "fuente": "The Plant Cell",
+      "anio": "2008",
+      "volumen": "20",
+      "fpage": "3107",
+      "lpage": "3121"
+    },
+    {
+      "titulo": "The Arabidopsis membrane-bound transcription factor AtbZIP60 is a novel plant-specific endoplasmic reticulum stress transducer.",
+      "autores": [
+        {
+          "nombre_completo": "Y Iwata",
+          "nombres": "Y",
+          "apellidos": "Iwata"
+        },
+        {
+          "nombre_completo": "NV Fedoroff",
+          "nombres": "NV",
+          "apellidos": "Fedoroff"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        }
+      ],
+      "pmid": "19816135",
+      "fuente": "Plant signaling & behavior",
+      "anio": "2009",
+      "volumen": "4",
+      "fpage": "514",
+      "lpage": "516"
+    },
+    {
+      "titulo": "Plant transducers of the endoplasmic reticulum unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "Y Iwata",
+          "nombres": "Y",
+          "apellidos": "Iwata"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        }
+      ],
+      "pmid": "22796463",
+      "fuente": "Trends in plant science",
+      "anio": "2012",
+      "volumen": "17",
+      "fpage": "720",
+      "lpage": "727"
+    },
+    {
+      "titulo": "Observations on the fusion of nuclei in plants.",
+      "autores": [
+        {
+          "nombre_completo": "WA Jensen",
+          "nombres": "WA",
+          "apellidos": "Jensen"
+        }
+      ],
+      "pmid": "14245444",
+      "fuente": "The Journal of cell biology",
+      "anio": "1964",
+      "volumen": "23",
+      "fpage": "669",
+      "lpage": "672"
+    },
+    {
+      "titulo": "Arabidopsis COMPASS-like complexes mediate histone H3 lysine-4 trimethylation to control floral transition and plant development.",
+      "autores": [
+        {
+          "nombre_completo": "D Jiang",
+          "nombres": "D",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "NC Kong",
+          "nombres": "NC",
+          "apellidos": "Kong"
+        },
+        {
+          "nombre_completo": "X Gu",
+          "nombres": "X",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "Z Li",
+          "nombres": "Z",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y He",
+          "nombres": "Y",
+          "apellidos": "He"
+        }
+      ],
+      "pmid": "21423667",
+      "fuente": "PLoS Genet",
+      "anio": "2011",
+      "volumen": "7",
+      "fpage": "e1001330",
+      "lpage": ""
+    },
+    {
+      "titulo": "A plant-specific calreticulin is a key retention factor for a defective brassinosteroid receptor in the endoplasmic reticulum.",
+      "autores": [
+        {
+          "nombre_completo": "H Jin",
+          "nombres": "H",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "Z Hong",
+          "nombres": "Z",
+          "apellidos": "Hong"
+        },
+        {
+          "nombre_completo": "W Su",
+          "nombres": "W",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the National Academy of Sciences",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "13612",
+      "lpage": "13617"
+    },
+    {
+      "titulo": "Allele-specific suppression of a defective brassinosteroid receptor reveals a physiological role of UGGT in ER quality control.",
+      "autores": [
+        {
+          "nombre_completo": "H Jin",
+          "nombres": "H",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "Z Yan",
+          "nombres": "Z",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "KH Nam",
+          "nombres": "KH",
+          "apellidos": "Nam"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "17588517",
+      "fuente": "Molecular cell",
+      "anio": "2007",
+      "volumen": "26",
+      "fpage": "821",
+      "lpage": "830"
+    },
+    {
+      "titulo": "The mammalian tRNA ligase complex mediates splicing of XBP1 mRNA and controls antibody secretion in plasma cells.",
+      "autores": [
+        {
+          "nombre_completo": "J Jurkin",
+          "nombres": "J",
+          "apellidos": "Jurkin"
+        },
+        {
+          "nombre_completo": "T Henkel",
+          "nombres": "T",
+          "apellidos": "Henkel"
+        },
+        {
+          "nombre_completo": "AF Nielsen",
+          "nombres": "AF",
+          "apellidos": "Nielsen"
+        },
+        {
+          "nombre_completo": "M Minnich",
+          "nombres": "M",
+          "apellidos": "Minnich"
+        },
+        {
+          "nombre_completo": "J Popow",
+          "nombres": "J",
+          "apellidos": "Popow"
+        },
+        {
+          "nombre_completo": "T Kaufmann",
+          "nombres": "T",
+          "apellidos": "Kaufmann"
+        },
+        {
+          "nombre_completo": "K Heindl",
+          "nombres": "K",
+          "apellidos": "Heindl"
+        },
+        {
+          "nombre_completo": "T Hoffmann",
+          "nombres": "T",
+          "apellidos": "Hoffmann"
+        },
+        {
+          "nombre_completo": "M Busslinger",
+          "nombres": "M",
+          "apellidos": "Busslinger"
+        },
+        {
+          "nombre_completo": "J Martinez",
+          "nombres": "J",
+          "apellidos": "Martinez"
+        }
+      ],
+      "pmid": "25378478",
+      "fuente": "The EMBO journal",
+      "anio": "2014",
+      "volumen": "33",
+      "fpage": "2922",
+      "lpage": "2936"
+    },
+    {
+      "titulo": "Plant endoplasmin supports the protein secretory pathway and has a role in proliferating tissues.",
+      "autores": [
+        {
+          "nombre_completo": "EM Klein",
+          "nombres": "EM",
+          "apellidos": "Klein"
+        },
+        {
+          "nombre_completo": "L Mascheroni",
+          "nombres": "L",
+          "apellidos": "Mascheroni"
+        },
+        {
+          "nombre_completo": "A Pompa",
+          "nombres": "A",
+          "apellidos": "Pompa"
+        },
+        {
+          "nombre_completo": "L Ragni",
+          "nombres": "L",
+          "apellidos": "Ragni"
+        },
+        {
+          "nombre_completo": "T Weimar",
+          "nombres": "T",
+          "apellidos": "Weimar"
+        },
+        {
+          "nombre_completo": "KS Lilley",
+          "nombres": "KS",
+          "apellidos": "Lilley"
+        },
+        {
+          "nombre_completo": "P Dupree",
+          "nombres": "P",
+          "apellidos": "Dupree"
+        },
+        {
+          "nombre_completo": "A Vitale",
+          "nombres": "A",
+          "apellidos": "Vitale"
+        }
+      ],
+      "pmid": "17059403",
+      "fuente": "Plant J",
+      "anio": "2006",
+      "volumen": "48",
+      "fpage": "657",
+      "lpage": "673"
+    },
+    {
+      "titulo": "The STT3a subunit isoform of the Arabidopsis oligosaccharyltransferase controls adaptive responses to salt/osmotic stress.",
+      "autores": [
+        {
+          "nombre_completo": "H Koiwa",
+          "nombres": "H",
+          "apellidos": "Koiwa"
+        },
+        {
+          "nombre_completo": "F Li",
+          "nombres": "F",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "RA Bressan",
+          "nombres": "RA",
+          "apellidos": "Bressan"
+        },
+        {
+          "nombre_completo": "PM Hasegawa",
+          "nombres": "PM",
+          "apellidos": "Hasegawa"
+        },
+        {
+          "nombre_completo": "MG McCully",
+          "nombres": "MG",
+          "apellidos": "McCully"
+        },
+        {
+          "nombre_completo": "I Mendoza",
+          "nombres": "I",
+          "apellidos": "Mendoza"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        },
+        {
+          "nombre_completo": "Y Manabe",
+          "nombres": "Y",
+          "apellidos": "Manabe"
+        },
+        {
+          "nombre_completo": "Y Nakagawa",
+          "nombres": "Y",
+          "apellidos": "Nakagawa"
+        },
+        {
+          "nombre_completo": "J Zhu",
+          "nombres": "J",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "A Rus",
+          "nombres": "A",
+          "apellidos": "Rus"
+        },
+        {
+          "nombre_completo": "JM Pardo",
+          "nombres": "JM",
+          "apellidos": "Pardo"
+        }
+      ],
+      "pmid": "12972670",
+      "fuente": "Plant Cell",
+      "anio": "2003",
+      "volumen": "15",
+      "fpage": "2273",
+      "lpage": "2284"
+    },
+    {
+      "titulo": "Molecular characterization of two Arabidopsis Ire1 homologs, endoplasmic reticulum-located transmembrane protein kinases.",
+      "autores": [
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        },
+        {
+          "nombre_completo": "IM Martinez",
+          "nombres": "IM",
+          "apellidos": "Martinez"
+        },
+        {
+          "nombre_completo": "Y Kimata",
+          "nombres": "Y",
+          "apellidos": "Kimata"
+        },
+        {
+          "nombre_completo": "K Kohno",
+          "nombres": "K",
+          "apellidos": "Kohno"
+        },
+        {
+          "nombre_completo": "H Sano",
+          "nombres": "H",
+          "apellidos": "Sano"
+        },
+        {
+          "nombre_completo": "MJ Chrispeels",
+          "nombres": "MJ",
+          "apellidos": "Chrispeels"
+        }
+      ],
+      "pmid": "11706177",
+      "fuente": "Plant Physiol",
+      "anio": "2001",
+      "volumen": "127",
+      "fpage": "949",
+      "lpage": "962"
+    },
+    {
+      "titulo": "H2A.Z-containing nucleosomes mediate the thermosensory response in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "SV Kumar",
+          "nombres": "SV",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "PA Wigge",
+          "nombres": "PA",
+          "apellidos": "Wigge"
+        }
+      ],
+      "pmid": "20079334",
+      "fuente": "Cell",
+      "anio": "2010",
+      "volumen": "140",
+      "fpage": "136",
+      "lpage": "147"
+    },
+    {
+      "titulo": "A hit-and-run heat shock factor governs sustained histone methylation and transcriptional stress memory.",
+      "autores": [
+        {
+          "nombre_completo": "J Lämke",
+          "nombres": "J",
+          "apellidos": "Lämke"
+        },
+        {
+          "nombre_completo": "K Brzezinka",
+          "nombres": "K",
+          "apellidos": "Brzezinka"
+        },
+        {
+          "nombre_completo": "S Altmann",
+          "nombres": "S",
+          "apellidos": "Altmann"
+        },
+        {
+          "nombre_completo": "I Bäurle",
+          "nombres": "I",
+          "apellidos": "Bäurle"
+        }
+      ],
+      "pmid": "",
+      "fuente": "The EMBO journal",
+      "anio": "2015",
+      "volumen": "",
+      "fpage": "e201592593",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mutants in DEFECTIVE GLYCOSYLATION, an Arabidopsis homolog of an oligosaccharyltransferase complex subunit, show protein underglycosylation and defects in cell differentiation and growth.",
+      "autores": [
+        {
+          "nombre_completo": "O Lerouxel",
+          "nombres": "O",
+          "apellidos": "Lerouxel"
+        },
+        {
+          "nombre_completo": "G Mouille",
+          "nombres": "G",
+          "apellidos": "Mouille"
+        },
+        {
+          "nombre_completo": "C Andème-Onzighi",
+          "nombres": "C",
+          "apellidos": "Andème-Onzighi"
+        },
+        {
+          "nombre_completo": "MP Bruyant",
+          "nombres": "MP",
+          "apellidos": "Bruyant"
+        },
+        {
+          "nombre_completo": "M Séveno",
+          "nombres": "M",
+          "apellidos": "Séveno"
+        },
+        {
+          "nombre_completo": "C Loutelier-Bourhis",
+          "nombres": "C",
+          "apellidos": "Loutelier-Bourhis"
+        },
+        {
+          "nombre_completo": "A Driouich",
+          "nombres": "A",
+          "apellidos": "Driouich"
+        },
+        {
+          "nombre_completo": "H Höfte",
+          "nombres": "H",
+          "apellidos": "Höfte"
+        },
+        {
+          "nombre_completo": "P Lerouge",
+          "nombres": "P",
+          "apellidos": "Lerouge"
+        }
+      ],
+      "pmid": "15860005",
+      "fuente": "The Plant Journal",
+      "anio": "2005",
+      "volumen": "42",
+      "fpage": "455",
+      "lpage": "468"
+    },
+    {
+      "titulo": "A putative leucine-rich repeat receptor kinase involved in brassinosteroid signal transduction.",
+      "autores": [
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "J Chory",
+          "nombres": "J",
+          "apellidos": "Chory"
+        }
+      ],
+      "pmid": "9298904",
+      "fuente": "Cell",
+      "anio": "1997",
+      "volumen": "90",
+      "fpage": "929",
+      "lpage": "938"
+    },
+    {
+      "titulo": "BAK1, an Arabidopsis LRR receptor-like protein kinase, interacts with BRI1 and modulates brassinosteroid signaling.",
+      "autores": [
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "J Wen",
+          "nombres": "J",
+          "apellidos": "Wen"
+        },
+        {
+          "nombre_completo": "KA Lease",
+          "nombres": "KA",
+          "apellidos": "Lease"
+        },
+        {
+          "nombre_completo": "JT Doke",
+          "nombres": "JT",
+          "apellidos": "Doke"
+        },
+        {
+          "nombre_completo": "FE Tax",
+          "nombres": "FE",
+          "apellidos": "Tax"
+        },
+        {
+          "nombre_completo": "JC Walker",
+          "nombres": "JC",
+          "apellidos": "Walker"
+        }
+      ],
+      "pmid": "12150929",
+      "fuente": "Cell",
+      "anio": "2002",
+      "volumen": "110",
+      "fpage": "213",
+      "lpage": "222"
+    },
+    {
+      "titulo": "Specific ER quality control components required for biogenesis of the plant innate immune receptor EFR.",
+      "autores": [
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "C Zhao-Hui",
+          "nombres": "C",
+          "apellidos": "Zhao-Hui"
+        },
+        {
+          "nombre_completo": "M Batoux",
+          "nombres": "M",
+          "apellidos": "Batoux"
+        },
+        {
+          "nombre_completo": "V Nekrasov",
+          "nombres": "V",
+          "apellidos": "Nekrasov"
+        },
+        {
+          "nombre_completo": "M Roux",
+          "nombres": "M",
+          "apellidos": "Roux"
+        },
+        {
+          "nombre_completo": "D Chinchilla",
+          "nombres": "D",
+          "apellidos": "Chinchilla"
+        },
+        {
+          "nombre_completo": "C Zipfel",
+          "nombres": "C",
+          "apellidos": "Zipfel"
+        },
+        {
+          "nombre_completo": "JD Jones",
+          "nombres": "JD",
+          "apellidos": "Jones"
+        }
+      ],
+      "pmid": "19717464",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "15973",
+      "lpage": "15978"
+    },
+    {
+      "titulo": "High-resolution mapping of epigenetic modifications of the rice genome uncovers interplay between DNA methylation, histone methylation, and gene expression.",
+      "autores": [
+        {
+          "nombre_completo": "X Li",
+          "nombres": "X",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "X Wang",
+          "nombres": "X",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "K He",
+          "nombres": "K",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "Y Ma",
+          "nombres": "Y",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "N Su",
+          "nombres": "N",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "H He",
+          "nombres": "H",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "V Stolc",
+          "nombres": "V",
+          "apellidos": "Stolc"
+        },
+        {
+          "nombre_completo": "W Tongprasit",
+          "nombres": "W",
+          "apellidos": "Tongprasit"
+        },
+        {
+          "nombre_completo": "W Jin",
+          "nombres": "W",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "J Jiang",
+          "nombres": "J",
+          "apellidos": "Jiang"
+        }
+      ],
+      "pmid": "18263775",
+      "fuente": "The Plant Cell",
+      "anio": "2008",
+      "volumen": "20",
+      "fpage": "259",
+      "lpage": "276"
+    },
+    {
+      "titulo": "Perception of the plant hormone ethylene: known-knowns and known-unknowns.",
+      "autores": [
+        {
+          "nombre_completo": "KM Light",
+          "nombres": "KM",
+          "apellidos": "Light"
+        },
+        {
+          "nombre_completo": "JA Wisniewski",
+          "nombres": "JA",
+          "apellidos": "Wisniewski"
+        },
+        {
+          "nombre_completo": "WA Vinyard",
+          "nombres": "WA",
+          "apellidos": "Vinyard"
+        },
+        {
+          "nombre_completo": "MT Kieber-Emmons",
+          "nombres": "MT",
+          "apellidos": "Kieber-Emmons"
+        }
+      ],
+      "pmid": "27456611",
+      "fuente": "JBIC Journal of Biological Inorganic Chemistry",
+      "anio": "2016",
+      "volumen": "21",
+      "fpage": "715",
+      "lpage": "728"
+    },
+    {
+      "titulo": "Managing the protein folding demands in the endoplasmic reticulum of plants.",
+      "autores": [
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        }
+      ],
+      "pmid": "26990454",
+      "fuente": "New Phytol",
+      "anio": "2016",
+      "volumen": "211",
+      "fpage": "418",
+      "lpage": "428"
+    },
+    {
+      "titulo": "Salt stress responses in Arabidopsis utilize a signal transduction pathway related to endoplasmic reticulum stress signaling.",
+      "autores": [
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "R Srivastava",
+          "nombres": "R",
+          "apellidos": "Srivastava"
+        },
+        {
+          "nombre_completo": "P Che",
+          "nombres": "P",
+          "apellidos": "Che"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        }
+      ],
+      "pmid": "17662035",
+      "fuente": "The Plant Journal",
+      "anio": "2007",
+      "volumen": "51",
+      "fpage": "897",
+      "lpage": "909"
+    },
+    {
+      "titulo": "Degradation of the endoplasmic reticulum by autophagy during endoplasmic reticulum stress in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Y Liu",
+          "nombres": "Y",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "JS Burgos",
+          "nombres": "JS",
+          "apellidos": "Burgos"
+        },
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "R Srivastava",
+          "nombres": "R",
+          "apellidos": "Srivastava"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        },
+        {
+          "nombre_completo": "DC Bassham",
+          "nombres": "DC",
+          "apellidos": "Bassham"
+        }
+      ],
+      "pmid": "23175745",
+      "fuente": "Plant Cell",
+      "anio": "2012",
+      "volumen": "24",
+      "fpage": "4635",
+      "lpage": "4651"
+    },
+    {
+      "titulo": "EBS7 is a plant-specific component of a highly conserved endoplasmic reticulum-associated degradation system in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Y Liu",
+          "nombres": "Y",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "C Zhang",
+          "nombres": "C",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "D Wang",
+          "nombres": "D",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "W Su",
+          "nombres": "W",
+          "apellidos": "Su"
+        },
+        {
+          "nombre_completo": "L Liu",
+          "nombres": "L",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "M Wang",
+          "nombres": "M",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "26371323",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2015",
+      "volumen": "112",
+      "fpage": "12205",
+      "lpage": "12210"
+    },
+    {
+      "titulo": "Endoplasmic reticulum stress activates the expression of a sub-group of protein disulfide isomerase genes and AtbZIP60 modulates the response in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "DP Lu",
+          "nombres": "DP",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "DA Christopher",
+          "nombres": "DA",
+          "apellidos": "Christopher"
+        }
+      ],
+      "pmid": "18574595",
+      "fuente": "Molecular Genetics and Genomics",
+      "anio": "2008",
+      "volumen": "280",
+      "fpage": "199",
+      "lpage": "210"
+    },
+    {
+      "titulo": "The potyviral P3 protein targets EF1A to promote the unfolded protein response and viral pathogenesis.",
+      "autores": [
+        {
+          "nombre_completo": "H Luan",
+          "nombres": "H",
+          "apellidos": "Luan"
+        },
+        {
+          "nombre_completo": "MB Shine",
+          "nombres": "MB",
+          "apellidos": "Shine"
+        },
+        {
+          "nombre_completo": "X Cui",
+          "nombres": "X",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "X Chen",
+          "nombres": "X",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "N Ma",
+          "nombres": "N",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "P Kachroo",
+          "nombres": "P",
+          "apellidos": "Kachroo"
+        },
+        {
+          "nombre_completo": "H Zhi",
+          "nombres": "H",
+          "apellidos": "Zhi"
+        },
+        {
+          "nombre_completo": "A Kachroo",
+          "nombres": "A",
+          "apellidos": "Kachroo"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant Physiology",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "00505",
+      "lpage": ""
+    },
+    {
+      "titulo": "The THERMOSENSITIVE MALE STERILE 1 Interacts with the BiPs via DnaJ Domain and Stimulates Their ATPase Enzyme Activities in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Z-X Ma",
+          "nombres": "Z-X",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "Y-J Leng",
+          "nombres": "Y-J",
+          "apellidos": "Leng"
+        },
+        {
+          "nombre_completo": "G-X Chen",
+          "nombres": "G-X",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "P-M Zhou",
+          "nombres": "P-M",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "D Ye",
+          "nombres": "D",
+          "apellidos": "Ye"
+        },
+        {
+          "nombre_completo": "L-Q Chen",
+          "nombres": "L-Q",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "26186593",
+      "fuente": "PloS one",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "e0132500",
+      "lpage": ""
+    },
+    {
+      "titulo": "BiP-mediated polar nuclei fusion is essential for the regulation of endosperm nuclei proliferation in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "D Maruyama",
+          "nombres": "D",
+          "apellidos": "Maruyama"
+        },
+        {
+          "nombre_completo": "T Endo",
+          "nombres": "T",
+          "apellidos": "Endo"
+        },
+        {
+          "nombre_completo": "S.-i. Nishikawa",
+          "nombres": "S.-i.",
+          "apellidos": "Nishikawa"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the National Academy of Sciences",
+      "anio": "2010",
+      "volumen": "107",
+      "fpage": "1684",
+      "lpage": "1689"
+    },
+    {
+      "titulo": "Multiple BiP genes of Arabidopsis thaliana are required for male gametogenesis and pollen competitiveness.",
+      "autores": [
+        {
+          "nombre_completo": "D Maruyama",
+          "nombres": "D",
+          "apellidos": "Maruyama"
+        },
+        {
+          "nombre_completo": "T Sugiyama",
+          "nombres": "T",
+          "apellidos": "Sugiyama"
+        },
+        {
+          "nombre_completo": "T Endo",
+          "nombres": "T",
+          "apellidos": "Endo"
+        },
+        {
+          "nombre_completo": "S.-i. Nishikawa",
+          "nombres": "S.-i.",
+          "apellidos": "Nishikawa"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant and Cell Physiology",
+      "anio": "2014a",
+      "volumen": "",
+      "fpage": "pcu018",
+      "lpage": ""
+    },
+    {
+      "titulo": "Different Sets of ER-Resident J-Proteins Regulate Distinct Polar Nuclear-Membrane Fusion Events in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "D Maruyama",
+          "nombres": "D",
+          "apellidos": "Maruyama"
+        },
+        {
+          "nombre_completo": "M Yamamoto",
+          "nombres": "M",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "T Endo",
+          "nombres": "T",
+          "apellidos": "Endo"
+        },
+        {
+          "nombre_completo": "S.-i. Nishikawa",
+          "nombres": "S.-i.",
+          "apellidos": "Nishikawa"
+        }
+      ],
+      "pmid": "25231968",
+      "fuente": "Plant and Cell Physiology",
+      "anio": "2014b",
+      "volumen": "55",
+      "fpage": "1937",
+      "lpage": "1944"
+    },
+    {
+      "titulo": "GRP94: An HSP90-like protein specialized for protein folding and quality control in the endoplasmic reticulum.",
+      "autores": [
+        {
+          "nombre_completo": "M Marzec",
+          "nombres": "M",
+          "apellidos": "Marzec"
+        },
+        {
+          "nombre_completo": "D Eletto",
+          "nombres": "D",
+          "apellidos": "Eletto"
+        },
+        {
+          "nombre_completo": "Y Argon",
+          "nombres": "Y",
+          "apellidos": "Argon"
+        }
+      ],
+      "pmid": "22079671",
+      "fuente": "Biochimica et Biophysica Acta (BBA)-Molecular Cell Research",
+      "anio": "2012",
+      "volumen": "1823",
+      "fpage": "774",
+      "lpage": "787"
+    },
+    {
+      "titulo": "Getting RIDD of RNA: IRE1 in cell fate regulation.",
+      "autores": [
+        {
+          "nombre_completo": "M Maurel",
+          "nombres": "M",
+          "apellidos": "Maurel"
+        },
+        {
+          "nombre_completo": "E Chevet",
+          "nombres": "E",
+          "apellidos": "Chevet"
+        },
+        {
+          "nombre_completo": "J Tavernier",
+          "nombres": "J",
+          "apellidos": "Tavernier"
+        },
+        {
+          "nombre_completo": "S Gerlo",
+          "nombres": "S",
+          "apellidos": "Gerlo"
+        }
+      ],
+      "pmid": "24657016",
+      "fuente": "Trends in biochemical sciences",
+      "anio": "2014",
+      "volumen": "39",
+      "fpage": "245",
+      "lpage": "254"
+    },
+    {
+      "titulo": "CPR5 modulates salicylic acid and unfolded protein response to manage tradeoffs between plant growth and stress responses.",
+      "autores": [
+        {
+          "nombre_completo": "Z Meng",
+          "nombres": "Z",
+          "apellidos": "Meng"
+        },
+        {
+          "nombre_completo": "C Ruberti",
+          "nombres": "C",
+          "apellidos": "Ruberti"
+        },
+        {
+          "nombre_completo": "Z Gong",
+          "nombres": "Z",
+          "apellidos": "Gong"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "The Plant Journal",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Defects in IRE1 enhance cell death and fail to degrade mRNAs encoding secretory pathway proteins in the Arabidopsis unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "K Mishiba",
+          "nombres": "K",
+          "apellidos": "Mishiba"
+        },
+        {
+          "nombre_completo": "Y Nagashima",
+          "nombres": "Y",
+          "apellidos": "Nagashima"
+        },
+        {
+          "nombre_completo": "E Suzuki",
+          "nombres": "E",
+          "apellidos": "Suzuki"
+        },
+        {
+          "nombre_completo": "N Hayashi",
+          "nombres": "N",
+          "apellidos": "Hayashi"
+        },
+        {
+          "nombre_completo": "Y Ogata",
+          "nombres": "Y",
+          "apellidos": "Ogata"
+        },
+        {
+          "nombre_completo": "Y Shimada",
+          "nombres": "Y",
+          "apellidos": "Shimada"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        }
+      ],
+      "pmid": "23509268",
+      "fuente": "Proc Natl Acad Sci U S A",
+      "anio": "2013",
+      "volumen": "110",
+      "fpage": "5713",
+      "lpage": "5718"
+    },
+    {
+      "titulo": "J proteins catalytically activate Hsp70 molecules to trap a wide range of peptide sequences.",
+      "autores": [
+        {
+          "nombre_completo": "B Misselwitz",
+          "nombres": "B",
+          "apellidos": "Misselwitz"
+        },
+        {
+          "nombre_completo": "O Staeck",
+          "nombres": "O",
+          "apellidos": "Staeck"
+        },
+        {
+          "nombre_completo": "TA Rapoport",
+          "nombres": "TA",
+          "apellidos": "Rapoport"
+        }
+      ],
+      "pmid": "9844632",
+      "fuente": "Molecular cell",
+      "anio": "1998",
+      "volumen": "2",
+      "fpage": "593",
+      "lpage": "603"
+    },
+    {
+      "titulo": "Plant meristems: CLAVATA3/ESR-related signaling in the shoot apical meristem and the root apical meristem.",
+      "autores": [
+        {
+          "nombre_completo": "H Miwa",
+          "nombres": "H",
+          "apellidos": "Miwa"
+        },
+        {
+          "nombre_completo": "A Kinoshita",
+          "nombres": "A",
+          "apellidos": "Kinoshita"
+        },
+        {
+          "nombre_completo": "H Fukuda",
+          "nombres": "H",
+          "apellidos": "Fukuda"
+        },
+        {
+          "nombre_completo": "S Sawa",
+          "nombres": "S",
+          "apellidos": "Sawa"
+        }
+      ],
+      "pmid": "19104754",
+      "fuente": "Journal of plant research",
+      "anio": "2009",
+      "volumen": "122",
+      "fpage": "31",
+      "lpage": "39"
+    },
+    {
+      "titulo": "IRE1/bZIP60-mediated unfolded protein response plays distinct roles in plant immunity and abiotic stress responses.",
+      "autores": [
+        {
+          "nombre_completo": "AA Moreno",
+          "nombres": "AA",
+          "apellidos": "Moreno"
+        },
+        {
+          "nombre_completo": "MS Mukhtar",
+          "nombres": "MS",
+          "apellidos": "Mukhtar"
+        },
+        {
+          "nombre_completo": "F Blanco",
+          "nombres": "F",
+          "apellidos": "Blanco"
+        },
+        {
+          "nombre_completo": "JL Boatwright",
+          "nombres": "JL",
+          "apellidos": "Boatwright"
+        },
+        {
+          "nombre_completo": "I Moreno",
+          "nombres": "I",
+          "apellidos": "Moreno"
+        },
+        {
+          "nombre_completo": "MR Jordan",
+          "nombres": "MR",
+          "apellidos": "Jordan"
+        },
+        {
+          "nombre_completo": "Y Chen",
+          "nombres": "Y",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        },
+        {
+          "nombre_completo": "X Dong",
+          "nombres": "X",
+          "apellidos": "Dong"
+        },
+        {
+          "nombre_completo": "A Orellana",
+          "nombres": "A",
+          "apellidos": "Orellana"
+        }
+      ],
+      "pmid": "22359644",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "e31944",
+      "lpage": ""
+    },
+    {
+      "titulo": "Signalling pathways in the unfolded protein response: development from yeast to mammals.",
+      "autores": [
+        {
+          "nombre_completo": "K Mori",
+          "nombres": "K",
+          "apellidos": "Mori"
+        }
+      ],
+      "pmid": "19861400",
+      "fuente": "Journal of biochemistry",
+      "anio": "2009",
+      "volumen": "146",
+      "fpage": "743",
+      "lpage": "750"
+    },
+    {
+      "titulo": "Dual functions of yeast tRNA ligase in the unfolded protein response: unconventional cytoplasmic splicing of HAC1 pre-mRNA is not sufficient to release translational attenuation.",
+      "autores": [
+        {
+          "nombre_completo": "T Mori",
+          "nombres": "T",
+          "apellidos": "Mori"
+        },
+        {
+          "nombre_completo": "C Ogasawara",
+          "nombres": "C",
+          "apellidos": "Ogasawara"
+        },
+        {
+          "nombre_completo": "T Inada",
+          "nombres": "T",
+          "apellidos": "Inada"
+        },
+        {
+          "nombre_completo": "M Englert",
+          "nombres": "M",
+          "apellidos": "Englert"
+        },
+        {
+          "nombre_completo": "H Beier",
+          "nombres": "H",
+          "apellidos": "Beier"
+        },
+        {
+          "nombre_completo": "M Takezawa",
+          "nombres": "M",
+          "apellidos": "Takezawa"
+        },
+        {
+          "nombre_completo": "T Yoshihisa",
+          "nombres": "T",
+          "apellidos": "Yoshihisa"
+        }
+      ],
+      "pmid": "20844078",
+      "fuente": "Molecular biology of the cell",
+      "anio": "2010",
+      "volumen": "21",
+      "fpage": "3722",
+      "lpage": "3734"
+    },
+    {
+      "titulo": "Inducers of plant systemic acquired resistance regulate NPR1 function through redox changes.",
+      "autores": [
+        {
+          "nombre_completo": "Z Mou",
+          "nombres": "Z",
+          "apellidos": "Mou"
+        },
+        {
+          "nombre_completo": "W Fan",
+          "nombres": "W",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "X Dong",
+          "nombres": "X",
+          "apellidos": "Dong"
+        }
+      ],
+      "pmid": "12837250",
+      "fuente": "Cell",
+      "anio": "2003",
+      "volumen": "113",
+      "fpage": "935",
+      "lpage": "944"
+    },
+    {
+      "titulo": "Exogenous salicylic acid activates two signaling arms of the unfolded protein response in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "Y Nagashima",
+          "nombres": "Y",
+          "apellidos": "Nagashima"
+        },
+        {
+          "nombre_completo": "Y Iwata",
+          "nombres": "Y",
+          "apellidos": "Iwata"
+        },
+        {
+          "nombre_completo": "M Ashida",
+          "nombres": "M",
+          "apellidos": "Ashida"
+        },
+        {
+          "nombre_completo": "K.-i. Mishiba",
+          "nombres": "K.-i.",
+          "apellidos": "Mishiba"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        }
+      ],
+      "pmid": "25138441",
+      "fuente": "Plant and Cell Physiology",
+      "anio": "2014",
+      "volumen": "55",
+      "fpage": "1772",
+      "lpage": "1778"
+    },
+    {
+      "titulo": "Arabidopsis tRNA ligase completes the cytoplasmic splicing of bZIP60 mRNA in the unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "Y Nagashima",
+          "nombres": "Y",
+          "apellidos": "Nagashima"
+        },
+        {
+          "nombre_completo": "Y Iwata",
+          "nombres": "Y",
+          "apellidos": "Iwata"
+        },
+        {
+          "nombre_completo": "K.-i. Mishiba",
+          "nombres": "K.-i.",
+          "apellidos": "Mishiba"
+        },
+        {
+          "nombre_completo": "N Koizumi",
+          "nombres": "N",
+          "apellidos": "Koizumi"
+        }
+      ],
+      "pmid": "26820526",
+      "fuente": "Biochemical and biophysical research communications",
+      "anio": "2016",
+      "volumen": "470",
+      "fpage": "941",
+      "lpage": "946"
+    },
+    {
+      "titulo": "BRI1/BAK1, a receptor kinase pair mediating brassinosteroid signaling.",
+      "autores": [
+        {
+          "nombre_completo": "KH Nam",
+          "nombres": "KH",
+          "apellidos": "Nam"
+        },
+        {
+          "nombre_completo": "J Li",
+          "nombres": "J",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "12150928",
+      "fuente": "Cell",
+      "anio": "2002",
+      "volumen": "110",
+      "fpage": "203",
+      "lpage": "212"
+    },
+    {
+      "titulo": "Lipid biosynthesis.",
+      "autores": [
+        {
+          "nombre_completo": "J Ohlrogge",
+          "nombres": "J",
+          "apellidos": "Ohlrogge"
+        },
+        {
+          "nombre_completo": "J Browse",
+          "nombres": "J",
+          "apellidos": "Browse"
+        }
+      ],
+      "pmid": "7640528",
+      "fuente": "The Plant Cell",
+      "anio": "1995",
+      "volumen": "7",
+      "fpage": "957",
+      "lpage": ""
+    },
+    {
+      "titulo": "The mammalian endoplasmic reticulum-associated degradation system.",
+      "autores": [
+        {
+          "nombre_completo": "JA Olzmann",
+          "nombres": "JA",
+          "apellidos": "Olzmann"
+        },
+        {
+          "nombre_completo": "RR Kopito",
+          "nombres": "RR",
+          "apellidos": "Kopito"
+        },
+        {
+          "nombre_completo": "JC Christianson",
+          "nombres": "JC",
+          "apellidos": "Christianson"
+        }
+      ],
+      "pmid": "23232094",
+      "fuente": "Cold Spring Harbor perspectives in biology",
+      "anio": "2013",
+      "volumen": "5",
+      "fpage": "a013185",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effect of oxidative stress on the biosynthesis of 2-C-methyl-D-erythritol-2, 4-cyclopyrophosphate and isoprenoids by several bacterial strains.",
+      "autores": [
+        {
+          "nombre_completo": "D Ostrovsky",
+          "nombres": "D",
+          "apellidos": "Ostrovsky"
+        },
+        {
+          "nombre_completo": "G Diomina",
+          "nombres": "G",
+          "apellidos": "Diomina"
+        },
+        {
+          "nombre_completo": "E Lysak",
+          "nombres": "E",
+          "apellidos": "Lysak"
+        },
+        {
+          "nombre_completo": "E Matveeva",
+          "nombres": "E",
+          "apellidos": "Matveeva"
+        },
+        {
+          "nombre_completo": "O Ogrel",
+          "nombres": "O",
+          "apellidos": "Ogrel"
+        },
+        {
+          "nombre_completo": "S Trutko",
+          "nombres": "S",
+          "apellidos": "Trutko"
+        }
+      ],
+      "pmid": "9871022",
+      "fuente": "Archives of microbiology",
+      "anio": "1998",
+      "volumen": "171",
+      "fpage": "69",
+      "lpage": "72"
+    },
+    {
+      "titulo": "The effects of induced production of reactive oxygen species in organelles on endoplasmic reticulum stress and on the unfolded protein response in arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "R Ozgur",
+          "nombres": "R",
+          "apellidos": "Ozgur"
+        },
+        {
+          "nombre_completo": "B Uzilday",
+          "nombres": "B",
+          "apellidos": "Uzilday"
+        },
+        {
+          "nombre_completo": "AH Sekmen",
+          "nombres": "AH",
+          "apellidos": "Sekmen"
+        },
+        {
+          "nombre_completo": "I Turkan",
+          "nombres": "I",
+          "apellidos": "Turkan"
+        }
+      ],
+      "pmid": "26070642",
+      "fuente": "Ann Bot",
+      "anio": "2015",
+      "volumen": "116",
+      "fpage": "541",
+      "lpage": "553"
+    },
+    {
+      "titulo": "The dynamic of the splicing of bZIP60 and the proteins encoded by the spliced and unspliced mRNAs reveals some unique features during the activation of UPR in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "J Parra-Rojas",
+          "nombres": "J",
+          "apellidos": "Parra-Rojas"
+        },
+        {
+          "nombre_completo": "AA Moreno",
+          "nombres": "AA",
+          "apellidos": "Moreno"
+        },
+        {
+          "nombre_completo": "I Mitina",
+          "nombres": "I",
+          "apellidos": "Mitina"
+        },
+        {
+          "nombre_completo": "A Orellana",
+          "nombres": "A",
+          "apellidos": "Orellana"
+        }
+      ],
+      "pmid": "25860807",
+      "fuente": "PLoS One",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "e0122936",
+      "lpage": ""
+    },
+    {
+      "titulo": "BiP binding to the ER-stress sensor Ire1 tunes the homeostatic behavior of the unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "D Pincus",
+          "nombres": "D",
+          "apellidos": "Pincus"
+        },
+        {
+          "nombre_completo": "MW Chevalier",
+          "nombres": "MW",
+          "apellidos": "Chevalier"
+        },
+        {
+          "nombre_completo": "T Aragón",
+          "nombres": "T",
+          "apellidos": "Aragón"
+        },
+        {
+          "nombre_completo": "E Van Anken",
+          "nombres": "E",
+          "apellidos": "Van Anken"
+        },
+        {
+          "nombre_completo": "SE Vidal",
+          "nombres": "SE",
+          "apellidos": "Vidal"
+        },
+        {
+          "nombre_completo": "H El-Samad",
+          "nombres": "H",
+          "apellidos": "El-Samad"
+        },
+        {
+          "nombre_completo": "P Walter",
+          "nombres": "P",
+          "apellidos": "Walter"
+        }
+      ],
+      "pmid": "20625545",
+      "fuente": "PLoS Biol",
+      "anio": "2010",
+      "volumen": "8",
+      "fpage": "e1000415",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simultaneous application of heat, drought, and virus to Arabidopsis plants reveals significant shifts in signaling networks.",
+      "autores": [
+        {
+          "nombre_completo": "CM Prasch",
+          "nombres": "CM",
+          "apellidos": "Prasch"
+        },
+        {
+          "nombre_completo": "U Sonnewald",
+          "nombres": "U",
+          "apellidos": "Sonnewald"
+        }
+      ],
+      "pmid": "23753177",
+      "fuente": "Plant Physiol",
+      "anio": "2013",
+      "volumen": "162",
+      "fpage": "1849",
+      "lpage": "1866"
+    },
+    {
+      "titulo": "Misfolded proteins, endoplasmic reticulum stress and neurodegeneration.",
+      "autores": [
+        {
+          "nombre_completo": "RV Rao",
+          "nombres": "RV",
+          "apellidos": "Rao"
+        },
+        {
+          "nombre_completo": "DE Bredesen",
+          "nombres": "DE",
+          "apellidos": "Bredesen"
+        }
+      ],
+      "pmid": "15530777",
+      "fuente": "Current opinion in cell biology",
+      "anio": "2004",
+      "volumen": "16",
+      "fpage": "653",
+      "lpage": "662"
+    },
+    {
+      "titulo": "Signal integration in the endoplasmic reticulum unfolded protein response.",
+      "autores": [
+        {
+          "nombre_completo": "D Ron",
+          "nombres": "D",
+          "apellidos": "Ron"
+        },
+        {
+          "nombre_completo": "P Walter",
+          "nombres": "P",
+          "apellidos": "Walter"
+        }
+      ],
+      "pmid": "17565364",
+      "fuente": "Nature reviews Molecular cell biology",
+      "anio": "2007",
+      "volumen": "8",
+      "fpage": "519",
+      "lpage": "529"
+    },
+    {
+      "titulo": "Very-long-chain fatty acids are involved in polar auxin transport and developmental patterning in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "F Roudier",
+          "nombres": "F",
+          "apellidos": "Roudier"
+        },
+        {
+          "nombre_completo": "L Gissot",
+          "nombres": "L",
+          "apellidos": "Gissot"
+        },
+        {
+          "nombre_completo": "F Beaudoin",
+          "nombres": "F",
+          "apellidos": "Beaudoin"
+        },
+        {
+          "nombre_completo": "R Haslam",
+          "nombres": "R",
+          "apellidos": "Haslam"
+        },
+        {
+          "nombre_completo": "L Michaelson",
+          "nombres": "L",
+          "apellidos": "Michaelson"
+        },
+        {
+          "nombre_completo": "J Marion",
+          "nombres": "J",
+          "apellidos": "Marion"
+        },
+        {
+          "nombre_completo": "D Molino",
+          "nombres": "D",
+          "apellidos": "Molino"
+        },
+        {
+          "nombre_completo": "A Lima",
+          "nombres": "A",
+          "apellidos": "Lima"
+        },
+        {
+          "nombre_completo": "L Bach",
+          "nombres": "L",
+          "apellidos": "Bach"
+        },
+        {
+          "nombre_completo": "H Morin",
+          "nombres": "H",
+          "apellidos": "Morin"
+        }
+      ],
+      "pmid": "20145257",
+      "fuente": "The Plant Cell",
+      "anio": "2010",
+      "volumen": "22",
+      "fpage": "364",
+      "lpage": "375"
+    },
+    {
+      "titulo": "The Arabidopsis leucine-rich repeat receptor–like kinases BAK1/SERK3 and BKK1/SERK4 are required for innate immunity to hemibiotrophic and biotrophic pathogens.",
+      "autores": [
+        {
+          "nombre_completo": "M Roux",
+          "nombres": "M",
+          "apellidos": "Roux"
+        },
+        {
+          "nombre_completo": "B Schwessinger",
+          "nombres": "B",
+          "apellidos": "Schwessinger"
+        },
+        {
+          "nombre_completo": "C Albrecht",
+          "nombres": "C",
+          "apellidos": "Albrecht"
+        },
+        {
+          "nombre_completo": "D Chinchilla",
+          "nombres": "D",
+          "apellidos": "Chinchilla"
+        },
+        {
+          "nombre_completo": "A Jones",
+          "nombres": "A",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "N Holton",
+          "nombres": "N",
+          "apellidos": "Holton"
+        },
+        {
+          "nombre_completo": "FG Malinovsky",
+          "nombres": "FG",
+          "apellidos": "Malinovsky"
+        },
+        {
+          "nombre_completo": "M Tör",
+          "nombres": "M",
+          "apellidos": "Tör"
+        },
+        {
+          "nombre_completo": "S de Vries",
+          "nombres": "S",
+          "apellidos": "de Vries"
+        },
+        {
+          "nombre_completo": "C Zipfel",
+          "nombres": "C",
+          "apellidos": "Zipfel"
+        }
+      ],
+      "pmid": "21693696",
+      "fuente": "The Plant Cell",
+      "anio": "2011",
+      "volumen": "23",
+      "fpage": "2440",
+      "lpage": "2455"
+    },
+    {
+      "titulo": "Conserved and plant-unique strategies for overcoming endoplasmic reticulum stress.",
+      "autores": [
+        {
+          "nombre_completo": "C Ruberti",
+          "nombres": "C",
+          "apellidos": "Ruberti"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "24616733",
+      "fuente": "Front Plant Sci",
+      "anio": "2014",
+      "volumen": "5",
+      "fpage": "69",
+      "lpage": ""
+    },
+    {
+      "titulo": "Unfolded protein response in plants: one master, many questions.",
+      "autores": [
+        {
+          "nombre_completo": "C Ruberti",
+          "nombres": "C",
+          "apellidos": "Ruberti"
+        },
+        {
+          "nombre_completo": "SJ Kim",
+          "nombres": "SJ",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "G Stefano",
+          "nombres": "G",
+          "apellidos": "Stefano"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        }
+      ],
+      "pmid": "26149756",
+      "fuente": "Curr Opin Plant Biol",
+      "anio": "2015",
+      "volumen": "27",
+      "fpage": "59",
+      "lpage": "66"
+    },
+    {
+      "titulo": "Genetic and biochemical analysis of the functional domains of yeast tRNA ligase.",
+      "autores": [
+        {
+          "nombre_completo": "R Sawaya",
+          "nombres": "R",
+          "apellidos": "Sawaya"
+        },
+        {
+          "nombre_completo": "B Schwer",
+          "nombres": "B",
+          "apellidos": "Schwer"
+        },
+        {
+          "nombre_completo": "S Shuman",
+          "nombres": "S",
+          "apellidos": "Shuman"
+        }
+      ],
+      "pmid": "12933796",
+      "fuente": "Journal of Biological Chemistry",
+      "anio": "2003",
+      "volumen": "278",
+      "fpage": "43928",
+      "lpage": "43938"
+    },
+    {
+      "titulo": "Dissecting the heat stress response in Chlamydomonas by pharmaceutical and RNAi approaches reveals conserved and novel aspects.",
+      "autores": [
+        {
+          "nombre_completo": "S Schmollinger",
+          "nombres": "S",
+          "apellidos": "Schmollinger"
+        },
+        {
+          "nombre_completo": "M Schulz-Raffelt",
+          "nombres": "M",
+          "apellidos": "Schulz-Raffelt"
+        },
+        {
+          "nombre_completo": "D Strenkert",
+          "nombres": "D",
+          "apellidos": "Strenkert"
+        },
+        {
+          "nombre_completo": "D Veyel",
+          "nombres": "D",
+          "apellidos": "Veyel"
+        },
+        {
+          "nombre_completo": "O Vallon",
+          "nombres": "O",
+          "apellidos": "Vallon"
+        },
+        {
+          "nombre_completo": "M Schroda",
+          "nombres": "M",
+          "apellidos": "Schroda"
+        }
+      ],
+      "pmid": "23713078",
+      "fuente": "Mol Plant",
+      "anio": "2013",
+      "volumen": "6",
+      "fpage": "1795",
+      "lpage": "1813"
+    },
+    {
+      "titulo": "AtTPR7 as part of the Arabidopsis Sec post-translocon.",
+      "autores": [
+        {
+          "nombre_completo": "R Schweiger",
+          "nombres": "R",
+          "apellidos": "Schweiger"
+        },
+        {
+          "nombre_completo": "S Schwenkert",
+          "nombres": "S",
+          "apellidos": "Schwenkert"
+        }
+      ],
+      "pmid": "23759546",
+      "fuente": "Plant signaling & behavior",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e25286",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cold activation of a plasma membrane-tethered NAC transcription factor induces a pathogen resistance response in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "PJ Seo",
+          "nombres": "PJ",
+          "apellidos": "Seo"
+        },
+        {
+          "nombre_completo": "MJ Kim",
+          "nombres": "MJ",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "JY Park",
+          "nombres": "JY",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "SY Kim",
+          "nombres": "SY",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "J Jeon",
+          "nombres": "J",
+          "apellidos": "Jeon"
+        },
+        {
+          "nombre_completo": "YH Lee",
+          "nombres": "YH",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J Kim",
+          "nombres": "J",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "CM Park",
+          "nombres": "CM",
+          "apellidos": "Park"
+        }
+      ],
+      "pmid": "19947982",
+      "fuente": "The Plant Journal",
+      "anio": "2010",
+      "volumen": "61",
+      "fpage": "661",
+      "lpage": "671"
+    },
+    {
+      "titulo": "Oligomerization and phosphorylation of the Ire1p kinase during intracellular signaling from the endoplasmic reticulum to the nucleus.",
+      "autores": [
+        {
+          "nombre_completo": "CE Shamu",
+          "nombres": "CE",
+          "apellidos": "Shamu"
+        },
+        {
+          "nombre_completo": "P Walter",
+          "nombres": "P",
+          "apellidos": "Walter"
+        }
+      ],
+      "pmid": "8670804",
+      "fuente": "The EMBO journal",
+      "anio": "1996",
+      "volumen": "15",
+      "fpage": "3028",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of moderate heat stress on photosynthesis: importance of thylakoid reactions, rubisco deactivation, reactive oxygen species, and thermotolerance provided by isoprene.",
+      "autores": [
+        {
+          "nombre_completo": "TD Sharkey",
+          "nombres": "TD",
+          "apellidos": "Sharkey"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant, Cell & Environment",
+      "anio": "2005",
+      "volumen": "28",
+      "fpage": "269",
+      "lpage": "277"
+    },
+    {
+      "titulo": "ER stress regulation of ATF6 localization by dissociation of BiP/GRP78 binding and unmasking of Golgi localization signals.",
+      "autores": [
+        {
+          "nombre_completo": "J Shen",
+          "nombres": "J",
+          "apellidos": "Shen"
+        },
+        {
+          "nombre_completo": "X Chen",
+          "nombres": "X",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "L Hendershot",
+          "nombres": "L",
+          "apellidos": "Hendershot"
+        },
+        {
+          "nombre_completo": "R Prywes",
+          "nombres": "R",
+          "apellidos": "Prywes"
+        }
+      ],
+      "pmid": "12110171",
+      "fuente": "Developmental cell",
+      "anio": "2002",
+      "volumen": "3",
+      "fpage": "99",
+      "lpage": "111"
+    },
+    {
+      "titulo": "Signaling cell death from the endoplasmic reticulum stress response.",
+      "autores": [
+        {
+          "nombre_completo": "GC Shore",
+          "nombres": "GC",
+          "apellidos": "Shore"
+        },
+        {
+          "nombre_completo": "FR Papa",
+          "nombres": "FR",
+          "apellidos": "Papa"
+        },
+        {
+          "nombre_completo": "SA Oakes",
+          "nombres": "SA",
+          "apellidos": "Oakes"
+        }
+      ],
+      "pmid": "21146390",
+      "fuente": "Current opinion in cell biology",
+      "anio": "2011",
+      "volumen": "23",
+      "fpage": "143",
+      "lpage": "149"
+    },
+    {
+      "titulo": "Glycoengineering: the effect of glycosylation on the properties of therapeutic proteins.",
+      "autores": [
+        {
+          "nombre_completo": "AM Sinclair",
+          "nombres": "AM",
+          "apellidos": "Sinclair"
+        },
+        {
+          "nombre_completo": "S Elliott",
+          "nombres": "S",
+          "apellidos": "Elliott"
+        }
+      ],
+      "pmid": "15959882",
+      "fuente": "Journal of pharmaceutical sciences",
+      "anio": "2005",
+      "volumen": "94",
+      "fpage": "1626",
+      "lpage": "1635"
+    },
+    {
+      "titulo": "The C terminus of the immunophilin PASTICCINO1 is required for plant development and for interaction with a NAC-like transcription factor.",
+      "autores": [
+        {
+          "nombre_completo": "C Smyczynski",
+          "nombres": "C",
+          "apellidos": "Smyczynski"
+        },
+        {
+          "nombre_completo": "F Roudier",
+          "nombres": "F",
+          "apellidos": "Roudier"
+        },
+        {
+          "nombre_completo": "L Gissot",
+          "nombres": "L",
+          "apellidos": "Gissot"
+        },
+        {
+          "nombre_completo": "E Vaillant",
+          "nombres": "E",
+          "apellidos": "Vaillant"
+        },
+        {
+          "nombre_completo": "O Grandjean",
+          "nombres": "O",
+          "apellidos": "Grandjean"
+        },
+        {
+          "nombre_completo": "H Morin",
+          "nombres": "H",
+          "apellidos": "Morin"
+        },
+        {
+          "nombre_completo": "T Masson",
+          "nombres": "T",
+          "apellidos": "Masson"
+        },
+        {
+          "nombre_completo": "Y Bellec",
+          "nombres": "Y",
+          "apellidos": "Bellec"
+        },
+        {
+          "nombre_completo": "D Geelen",
+          "nombres": "D",
+          "apellidos": "Geelen"
+        },
+        {
+          "nombre_completo": "J-D Faure",
+          "nombres": "J-D",
+          "apellidos": "Faure"
+        }
+      ],
+      "pmid": "16803883",
+      "fuente": "Journal of Biological Chemistry",
+      "anio": "2006",
+      "volumen": "281",
+      "fpage": "25475",
+      "lpage": "25484"
+    },
+    {
+      "titulo": "Transcription factor interaction with COMPASS-like complex regulates histone H3K4 trimethylation for specific gene expression in plants.",
+      "autores": [
+        {
+          "nombre_completo": "Z-T Song",
+          "nombres": "Z-T",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "S-J Lu",
+          "nombres": "S-J",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "Y Tian",
+          "nombres": "Y",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "Y Ding",
+          "nombres": "Y",
+          "apellidos": "Ding"
+        },
+        {
+          "nombre_completo": "J-X Liu",
+          "nombres": "J-X",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the National Academy of Sciences",
+      "anio": "2015",
+      "volumen": "112",
+      "fpage": "2900",
+      "lpage": "2905"
+    },
+    {
+      "titulo": "BINDING PROTEIN is a master regulator of the endoplasmic reticulum stress sensor/transducer bZIP28 in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "R Srivastava",
+          "nombres": "R",
+          "apellidos": "Srivastava"
+        },
+        {
+          "nombre_completo": "Y Deng",
+          "nombres": "Y",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "S Shah",
+          "nombres": "S",
+          "apellidos": "Shah"
+        },
+        {
+          "nombre_completo": "AG Rao",
+          "nombres": "AG",
+          "apellidos": "Rao"
+        },
+        {
+          "nombre_completo": "SH Howell",
+          "nombres": "SH",
+          "apellidos": "Howell"
+        }
+      ],
+      "pmid": "23624714",
+      "fuente": "The Plant Cell",
+      "anio": "2013",
+      "volumen": "25",
+      "fpage": "1416",
+      "lpage": "1429"
+    },
+    {
+      "titulo": "Protein aggregation and aggregate toxicity: new insights into protein folding, misfolding diseases and biological evolution.",
+      "autores": [
+        {
+          "nombre_completo": "M Stefani",
+          "nombres": "M",
+          "apellidos": "Stefani"
+        },
+        {
+          "nombre_completo": "CM Dobson",
+          "nombres": "CM",
+          "apellidos": "Dobson"
+        }
+      ],
+      "pmid": "12942175",
+      "fuente": "Journal of molecular medicine",
+      "anio": "2003",
+      "volumen": "81",
+      "fpage": "678",
+      "lpage": "699"
+    },
+    {
+      "titulo": "Analysis of 2′-phosphotransferase (Tpt1p) from Saccharomyces cerevisiae: Evidence for a conserved two-step reaction mechanism.",
+      "autores": [
+        {
+          "nombre_completo": "MA Steiger",
+          "nombres": "MA",
+          "apellidos": "Steiger"
+        },
+        {
+          "nombre_completo": "JE Jackman",
+          "nombres": "JE",
+          "apellidos": "Jackman"
+        },
+        {
+          "nombre_completo": "EM Phizicky",
+          "nombres": "EM",
+          "apellidos": "Phizicky"
+        }
+      ],
+      "pmid": "15611300",
+      "fuente": "RNA",
+      "anio": "2005",
+      "volumen": "11",
+      "fpage": "99",
+      "lpage": "106"
+    },
+    {
+      "titulo": "The lumen-facing domain is important for the biological function and organelle-to-organelle movement of bZIP28 during ER stress in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "S-J Lu",
+          "nombres": "S-J",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "S-S Zhang",
+          "nombres": "S-S",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S-F Zhou",
+          "nombres": "S-F",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "J-X Liu",
+          "nombres": "J-X",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "23558471",
+      "fuente": "Molecular plant",
+      "anio": "2013a",
+      "volumen": "6",
+      "fpage": "1605",
+      "lpage": "1615"
+    },
+    {
+      "titulo": "The plant-specific transcription factor gene NAC103 is induced by bZIP60 through a new cis-regulatory element to modulate the unfolded protein response in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "ZT Yang",
+          "nombres": "ZT",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "ZT Song",
+          "nombres": "ZT",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "MJ Wang",
+          "nombres": "MJ",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "SJ Lu",
+          "nombres": "SJ",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "23869562",
+      "fuente": "The Plant Journal",
+      "anio": "2013b",
+      "volumen": "76",
+      "fpage": "274",
+      "lpage": "286"
+    },
+    {
+      "titulo": "The lumen-facing domain is important for the biological function and organelle-to-organelle movement of bZIP28 during ER stress in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "SJ Lu",
+          "nombres": "SJ",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "SS Zhang",
+          "nombres": "SS",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "SF Zhou",
+          "nombres": "SF",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "23558471",
+      "fuente": "Molecular plant",
+      "anio": "2013c",
+      "volumen": "6",
+      "fpage": "1605",
+      "lpage": "1615"
+    },
+    {
+      "titulo": "Site-1 protease cleavage site is important for the ER stress-induced activation of membrane-associated transcription factor bZIP28 in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "SS Zhang",
+          "nombres": "SS",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "SJ Lu",
+          "nombres": "SJ",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "25634523",
+      "fuente": "Science China Life Sciences",
+      "anio": "2015",
+      "volumen": "58",
+      "fpage": "270",
+      "lpage": "275"
+    },
+    {
+      "titulo": "Ire1 has distinct catalytic mechanisms for XBP1/HAC1 splicing and RIDD.",
+      "autores": [
+        {
+          "nombre_completo": "AB Tam",
+          "nombres": "AB",
+          "apellidos": "Tam"
+        },
+        {
+          "nombre_completo": "AC Koong",
+          "nombres": "AC",
+          "apellidos": "Koong"
+        },
+        {
+          "nombre_completo": "M Niwa",
+          "nombres": "M",
+          "apellidos": "Niwa"
+        }
+      ],
+      "pmid": "25437541",
+      "fuente": "Cell reports",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "850",
+      "lpage": "858"
+    },
+    {
+      "titulo": "Reactive oxygen species signaling in response to pathogens.",
+      "autores": [
+        {
+          "nombre_completo": "MA Torres",
+          "nombres": "MA",
+          "apellidos": "Torres"
+        },
+        {
+          "nombre_completo": "JD Jones",
+          "nombres": "JD",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "JL Dangl",
+          "nombres": "JL",
+          "apellidos": "Dangl"
+        }
+      ],
+      "pmid": "16760490",
+      "fuente": "Plant physiology",
+      "anio": "2006",
+      "volumen": "141",
+      "fpage": "373",
+      "lpage": "378"
+    },
+    {
+      "titulo": "The Recognition Motif of the Glycoprotein-Folding Sensor Enzyme UDP-Glc: Glycoprotein Glucosyltransferase†.",
+      "autores": [
+        {
+          "nombre_completo": "K Totani",
+          "nombres": "K",
+          "apellidos": "Totani"
+        },
+        {
+          "nombre_completo": "Y Ihara",
+          "nombres": "Y",
+          "apellidos": "Ihara"
+        },
+        {
+          "nombre_completo": "T Tsujimoto",
+          "nombres": "T",
+          "apellidos": "Tsujimoto"
+        },
+        {
+          "nombre_completo": "I Matsuo",
+          "nombres": "I",
+          "apellidos": "Matsuo"
+        },
+        {
+          "nombre_completo": "Y Ito",
+          "nombres": "Y",
+          "apellidos": "Ito"
+        }
+      ],
+      "pmid": "19222173",
+      "fuente": "Biochemistry",
+      "anio": "2009",
+      "volumen": "48",
+      "fpage": "2933",
+      "lpage": "2940"
+    },
+    {
+      "titulo": "The ER luminal binding protein (BiP) mediates an increase in drought tolerance in soybean and delays drought-induced leaf senescence in soybean and tobacco.",
+      "autores": [
+        {
+          "nombre_completo": "MAS Valente",
+          "nombres": "MAS",
+          "apellidos": "Valente"
+        },
+        {
+          "nombre_completo": "JA Faria",
+          "nombres": "JA",
+          "apellidos": "Faria"
+        },
+        {
+          "nombre_completo": "ME Loureiro",
+          "nombres": "ME",
+          "apellidos": "Loureiro"
+        },
+        {
+          "nombre_completo": "JR Soares-Ramos",
+          "nombres": "JR",
+          "apellidos": "Soares-Ramos"
+        },
+        {
+          "nombre_completo": "PA Reis",
+          "nombres": "PA",
+          "apellidos": "Reis"
+        },
+        {
+          "nombre_completo": "GL Pinheiro",
+          "nombres": "GL",
+          "apellidos": "Pinheiro"
+        },
+        {
+          "nombre_completo": "ND Piovesan",
+          "nombres": "ND",
+          "apellidos": "Piovesan"
+        },
+        {
+          "nombre_completo": "AT Morais",
+          "nombres": "AT",
+          "apellidos": "Morais"
+        },
+        {
+          "nombre_completo": "CC Menezes",
+          "nombres": "CC",
+          "apellidos": "Menezes"
+        },
+        {
+          "nombre_completo": "MA Cano",
+          "nombres": "MA",
+          "apellidos": "Cano"
+        },
+        {
+          "nombre_completo": "LG Fietto",
+          "nombres": "LG",
+          "apellidos": "Fietto"
+        }
+      ],
+      "pmid": "19052255",
+      "fuente": "Journal of experimental botany",
+      "anio": "2009",
+      "volumen": "60",
+      "fpage": "533",
+      "lpage": "546"
+    },
+    {
+      "titulo": "Defects in endoplasmic reticulum-associated degradation (ERAD) increase selenate sensitivity in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "D Van Hoewyk",
+          "nombres": "D",
+          "apellidos": "Van Hoewyk"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant Signal Behav",
+      "anio": "2016",
+      "volumen": "0",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The endoplasmic reticulum—Gateway of the secretory pathway.",
+      "autores": [
+        {
+          "nombre_completo": "A Vitale",
+          "nombres": "A",
+          "apellidos": "Vitale"
+        },
+        {
+          "nombre_completo": "J Denecke",
+          "nombres": "J",
+          "apellidos": "Denecke"
+        }
+      ],
+      "pmid": "10213782",
+      "fuente": "The Plant Cell",
+      "anio": "1999",
+      "volumen": "11",
+      "fpage": "615",
+      "lpage": "628"
+    },
+    {
+      "titulo": "Mutation in the Arabidopsis PASTICCINO1Gene, Which Encodes a New FK506-Binding Protein-Like Protein, Has a Dramatic Effect on Plant Development.",
+      "autores": [
+        {
+          "nombre_completo": "P Vittorioso",
+          "nombres": "P",
+          "apellidos": "Vittorioso"
+        },
+        {
+          "nombre_completo": "R Cowling",
+          "nombres": "R",
+          "apellidos": "Cowling"
+        },
+        {
+          "nombre_completo": "J-D Faure",
+          "nombres": "J-D",
+          "apellidos": "Faure"
+        },
+        {
+          "nombre_completo": "M Caboche",
+          "nombres": "M",
+          "apellidos": "Caboche"
+        },
+        {
+          "nombre_completo": "C Bellini",
+          "nombres": "C",
+          "apellidos": "Bellini"
+        }
+      ],
+      "pmid": "9566922",
+      "fuente": "Molecular and cellular biology",
+      "anio": "1998",
+      "volumen": "18",
+      "fpage": "3034",
+      "lpage": "3043"
+    },
+    {
+      "titulo": "Genome-wide analysis of integral membrane proteins from eubacterial, archaean, and eukaryotic organisms.",
+      "autores": [
+        {
+          "nombre_completo": "E Wallin",
+          "nombres": "E",
+          "apellidos": "Wallin"
+        },
+        {
+          "nombre_completo": "GV Heijne",
+          "nombres": "GV",
+          "apellidos": "Heijne"
+        }
+      ],
+      "pmid": "9568909",
+      "fuente": "Protein Science",
+      "anio": "1998",
+      "volumen": "7",
+      "fpage": "1029",
+      "lpage": "1038"
+    },
+    {
+      "titulo": "Cloning of mammalian Ire1 reveals diversity in the ER stress responses.",
+      "autores": [
+        {
+          "nombre_completo": "XZ Wang",
+          "nombres": "XZ",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "HP Harding",
+          "nombres": "HP",
+          "apellidos": "Harding"
+        },
+        {
+          "nombre_completo": "Y Zhang",
+          "nombres": "Y",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "EM Jolicoeur",
+          "nombres": "EM",
+          "apellidos": "Jolicoeur"
+        },
+        {
+          "nombre_completo": "M Kuroda",
+          "nombres": "M",
+          "apellidos": "Kuroda"
+        },
+        {
+          "nombre_completo": "D Ron",
+          "nombres": "D",
+          "apellidos": "Ron"
+        }
+      ],
+      "pmid": "9755171",
+      "fuente": "The EMBO journal",
+      "anio": "1998",
+      "volumen": "17",
+      "fpage": "5708",
+      "lpage": "5717"
+    },
+    {
+      "titulo": "The Unfolded Protein Response Pathway in Saccharomyces cerevisiae oligomerization and trans-phosphorylation of Ire1P (Ern1p) are required for kinase activation",
+      "autores": [
+        {
+          "nombre_completo": "AA Welihinda",
+          "nombres": "AA",
+          "apellidos": "Welihinda"
+        },
+        {
+          "nombre_completo": "RJ Kaufman",
+          "nombres": "RJ",
+          "apellidos": "Kaufman"
+        }
+      ],
+      "pmid": "8663458",
+      "fuente": "Journal of Biological Chemistry",
+      "anio": "1996",
+      "volumen": "271",
+      "fpage": "18181",
+      "lpage": "18187"
+    },
+    {
+      "titulo": "Protein disulfide isomerase.",
+      "autores": [
+        {
+          "nombre_completo": "B Wilkinson",
+          "nombres": "B",
+          "apellidos": "Wilkinson"
+        },
+        {
+          "nombre_completo": "HF Gilbert",
+          "nombres": "HF",
+          "apellidos": "Gilbert"
+        }
+      ],
+      "pmid": "15158710",
+      "fuente": "Biochimica et Biophysica Acta (BBA)-Proteins and Proteomics",
+      "anio": "2004",
+      "volumen": "1699",
+      "fpage": "35",
+      "lpage": "44"
+    },
+    {
+      "titulo": "Retrograde signaling by the plastidial metabolite MEcPP regulates expression of nuclear stress-response genes.",
+      "autores": [
+        {
+          "nombre_completo": "Y Xiao",
+          "nombres": "Y",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "T Savchenko",
+          "nombres": "T",
+          "apellidos": "Savchenko"
+        },
+        {
+          "nombre_completo": "EE Baidoo",
+          "nombres": "EE",
+          "apellidos": "Baidoo"
+        },
+        {
+          "nombre_completo": "WE Chehab",
+          "nombres": "WE",
+          "apellidos": "Chehab"
+        },
+        {
+          "nombre_completo": "DM Hayden",
+          "nombres": "DM",
+          "apellidos": "Hayden"
+        },
+        {
+          "nombre_completo": "V Tolstikov",
+          "nombres": "V",
+          "apellidos": "Tolstikov"
+        },
+        {
+          "nombre_completo": "JA Corwin",
+          "nombres": "JA",
+          "apellidos": "Corwin"
+        },
+        {
+          "nombre_completo": "DJ Kliebenstein",
+          "nombres": "DJ",
+          "apellidos": "Kliebenstein"
+        },
+        {
+          "nombre_completo": "JD Keasling",
+          "nombres": "JD",
+          "apellidos": "Keasling"
+        },
+        {
+          "nombre_completo": "K Dehesh",
+          "nombres": "K",
+          "apellidos": "Dehesh"
+        }
+      ],
+      "pmid": "22726439",
+      "fuente": "Cell",
+      "anio": "2012",
+      "volumen": "149",
+      "fpage": "1525",
+      "lpage": "1535"
+    },
+    {
+      "titulo": "Deletion of an endoplasmic reticulum stress response element in a ZmPP2C-A gene facilitates drought tolerance of maize seedlings.",
+      "autores": [
+        {
+          "nombre_completo": "Y Xiang",
+          "nombres": "Y",
+          "apellidos": "Xiang"
+        },
+        {
+          "nombre_completo": "X Sun",
+          "nombres": "X",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "S Gao",
+          "nombres": "S",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "F Qin",
+          "nombres": "F",
+          "apellidos": "Qin"
+        },
+        {
+          "nombre_completo": "M Dai",
+          "nombres": "M",
+          "apellidos": "Dai"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Molecular Plant",
+      "anio": "2016",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Arabidopsis thaliana has a set of J proteins in the endoplasmic reticulum that are conserved from yeast to animals and plants.",
+      "autores": [
+        {
+          "nombre_completo": "M Yamamoto",
+          "nombres": "M",
+          "apellidos": "Yamamoto"
+        },
+        {
+          "nombre_completo": "D Maruyama",
+          "nombres": "D",
+          "apellidos": "Maruyama"
+        },
+        {
+          "nombre_completo": "T Endo",
+          "nombres": "T",
+          "apellidos": "Endo"
+        },
+        {
+          "nombre_completo": "S.-i. Nishikawa",
+          "nombres": "S.-i.",
+          "apellidos": "Nishikawa"
+        }
+      ],
+      "pmid": "18718935",
+      "fuente": "Plant and cell physiology",
+      "anio": "2008",
+      "volumen": "49",
+      "fpage": "1547",
+      "lpage": "1562"
+    },
+    {
+      "titulo": "A mutation in Thermosensitive Male Sterile 1, encoding a heat shock protein with DnaJ and PDI domains, leads to thermosensitive gametophytic male sterility in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "KZ Yang",
+          "nombres": "KZ",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "C Xia",
+          "nombres": "C",
+          "apellidos": "Xia"
+        },
+        {
+          "nombre_completo": "D Ye",
+          "nombres": "D",
+          "apellidos": "Ye"
+        },
+        {
+          "nombre_completo": "XL Liu",
+          "nombres": "XL",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "XY Dou",
+          "nombres": "XY",
+          "apellidos": "Dou"
+        },
+        {
+          "nombre_completo": "W Wang",
+          "nombres": "W",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "LQ Chen",
+          "nombres": "LQ",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "XQ Zhang",
+          "nombres": "XQ",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "LF Xie",
+          "nombres": "LF",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "L He",
+          "nombres": "L",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "X Ma",
+          "nombres": "X",
+          "apellidos": "Ma"
+        }
+      ],
+      "pmid": "18980646",
+      "fuente": "Plant J",
+      "anio": "2009",
+      "volumen": "57",
+      "fpage": "870",
+      "lpage": "882"
+    },
+    {
+      "titulo": "The membrane-associated transcription factor NAC089 controls ER-stress-induced programmed cell death in plants.",
+      "autores": [
+        {
+          "nombre_completo": "Z-T Yang",
+          "nombres": "Z-T",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "M-J Wang",
+          "nombres": "M-J",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "S-J Lu",
+          "nombres": "S-J",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "D-L Bi",
+          "nombres": "D-L",
+          "apellidos": "Bi"
+        },
+        {
+          "nombre_completo": "Z-T Song",
+          "nombres": "Z-T",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "S-S Zhang",
+          "nombres": "S-S",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "S-F Zhou",
+          "nombres": "S-F",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "J-X Liu",
+          "nombres": "J-X",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "24675811",
+      "fuente": "PLoS Genet",
+      "anio": "2014a",
+      "volumen": "10",
+      "fpage": "e1004243",
+      "lpage": ""
+    },
+    {
+      "titulo": "A plasma membrane-tethered transcription factor, NAC062/ANAC062/NTL6, mediates the unfolded protein response in Arabidopsis.",
+      "autores": [
+        {
+          "nombre_completo": "ZT Yang",
+          "nombres": "ZT",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "SJ Lu",
+          "nombres": "SJ",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "MJ Wang",
+          "nombres": "MJ",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "DL Bi",
+          "nombres": "DL",
+          "apellidos": "Bi"
+        },
+        {
+          "nombre_completo": "L Sun",
+          "nombres": "L",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "SF Zhou",
+          "nombres": "SF",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "ZT Song",
+          "nombres": "ZT",
+          "apellidos": "Song"
+        },
+        {
+          "nombre_completo": "JX Liu",
+          "nombres": "JX",
+          "apellidos": "Liu"
+        }
+      ],
+      "pmid": "24961665",
+      "fuente": "The Plant Journal",
+      "anio": "2014b",
+      "volumen": "79",
+      "fpage": "1033",
+      "lpage": "1043"
+    },
+    {
+      "titulo": "Unique COPII component AtSar1a/AtSec23a pair is required for the distinct function of protein ER export in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "Y Zeng",
+          "nombres": "Y",
+          "apellidos": "Zeng"
+        },
+        {
+          "nombre_completo": "KP Chung",
+          "nombres": "KP",
+          "apellidos": "Chung"
+        },
+        {
+          "nombre_completo": "B Li",
+          "nombres": "B",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "CM Lai",
+          "nombres": "CM",
+          "apellidos": "Lai"
+        },
+        {
+          "nombre_completo": "SK Lam",
+          "nombres": "SK",
+          "apellidos": "Lam"
+        },
+        {
+          "nombre_completo": "X Wang",
+          "nombres": "X",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y Cui",
+          "nombres": "Y",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "C Gao",
+          "nombres": "C",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "M Luo",
+          "nombres": "M",
+          "apellidos": "Luo"
+        },
+        {
+          "nombre_completo": "K-B Wong",
+          "nombres": "K-B",
+          "apellidos": "Wong"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the National Academy of Sciences",
+      "anio": "2015",
+      "volumen": "112",
+      "fpage": "14360",
+      "lpage": "14365"
+    },
+    {
+      "titulo": "The UPR branch IRE1-bZIP60 in plants plays an essential role in viral infection and is complementary to the only UPR pathway in yeast.",
+      "autores": [
+        {
+          "nombre_completo": "L Zhang",
+          "nombres": "L",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H Chen",
+          "nombres": "H",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "F Brandizzi",
+          "nombres": "F",
+          "apellidos": "Brandizzi"
+        },
+        {
+          "nombre_completo": "J Verchot",
+          "nombres": "J",
+          "apellidos": "Verchot"
+        },
+        {
+          "nombre_completo": "A Wang",
+          "nombres": "A",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "25875739",
+      "fuente": "PLoS Genet",
+      "anio": "2015",
+      "volumen": "11",
+      "fpage": "e1005164",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-wide analysis of mono-, di-and trimethylation of histone H3 lysine 4 in Arabidopsis thaliana.",
+      "autores": [
+        {
+          "nombre_completo": "X Zhang",
+          "nombres": "X",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "YV Bernatavichute",
+          "nombres": "YV",
+          "apellidos": "Bernatavichute"
+        },
+        {
+          "nombre_completo": "S Cokus",
+          "nombres": "S",
+          "apellidos": "Cokus"
+        },
+        {
+          "nombre_completo": "M Pellegrini",
+          "nombres": "M",
+          "apellidos": "Pellegrini"
+        },
+        {
+          "nombre_completo": "SE Jacobsen",
+          "nombres": "SE",
+          "apellidos": "Jacobsen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genome biology",
+      "anio": "2009",
+      "volumen": "10",
+      "fpage": "1",
+      "lpage": ""
+    },
+    {
+      "titulo": "Histone H2A.Z and DNA methylation are mutually antagonistic chromatin marks.",
+      "autores": [
+        {
+          "nombre_completo": "D Zilberman",
+          "nombres": "D",
+          "apellidos": "Zilberman"
+        },
+        {
+          "nombre_completo": "D Coleman-Derr",
+          "nombres": "D",
+          "apellidos": "Coleman-Derr"
+        },
+        {
+          "nombre_completo": "T Ballinger",
+          "nombres": "T",
+          "apellidos": "Ballinger"
+        },
+        {
+          "nombre_completo": "S Henikoff",
+          "nombres": "S",
+          "apellidos": "Henikoff"
+        }
+      ],
+      "pmid": "18815594",
+      "fuente": "Nature",
+      "anio": "2008",
+      "volumen": "456",
+      "fpage": "125",
+      "lpage": "129"
+    },
+    {
+      "titulo": "Significance Statement",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The endoplasmic reticulum (ER) is the entry point to the secretory pathway, the primary site of phospholipid synthesis, a hub for critical stress and growth signaling molecules and for the assembly a third of the proteome. The unfolded protein response (UPR) increases the protein folding capacity of the ER in response to stresses and through unknown means exerts control over plant growth and development. Here we review recent and exciting findings that explore potential molecular mechanisms that support efficient UPR in plants. We visualize the plant UPR as a network that incorporates energy availability, plant production needs, and environmental conditions into a cohesive output governing plant life.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    }
+  ]
+}

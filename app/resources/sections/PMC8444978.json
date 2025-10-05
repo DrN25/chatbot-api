@@ -1,0 +1,419 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Fungi Isolated from the International Space Station during the Microbial Tracking-2 Experiment"
+  ],
+  "ABSTRACT": [
+    "ABSTRACT",
+    "As part of the Microbial Tracking-2 study, 94 fungal strains were isolated from surfaces on the International Space Station, and whole-genome sequences were assembled. Characterization of these draft genomes will allow evaluation of microgravity adaption, risks to human health and spacecraft functioning, and biotechnological applications of fungi."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "Fungi are potential sources of nutrients and bioactive compounds during long-term spaceflight but also could affect astronaut health through both opportunistic infections and system biofouling. As part of a study characterizing fungal responses to the space environment, we report the draft genomes of 94 fungal strains that were isolated from the International Space Station (ISS), representing 10 ascomycetous and 1 basidiomycetous species.",
+    "Aspergillus species are environmental fungi and opportunistic pathogens. Aspergillus unguis is a member of the ISS microbiome and produces industrially important compounds. Aureobasidium pullulans is a black fungus that was previously isolated from the ISS water filtration system and Mars mission spacecraft-associated surfaces.",
+    "Cladosporium species are dominant fungal contaminants in indoor air. Cladosporium sphaerospermum and Cladosporium cladosporioides were detected multiple time on the ISS, and their properties in microgravity were studied.",
+    "Fusarium veterinarium is a recently described species within the Fusarium oxysporum complex, the species of which are ubiquitous in soil, are known human/plant pathogens, and were isolated both from surfaces and from infected Zinnia hybrida plants aboard the ISS. Fusarium annulatum, which has been isolated from plant and human tissues on Earth, has not been reported previously in space.",
+    "Penicillium species produce important bioactive compounds and can contaminate food and cause secondary infections. Previously detected on the ISS or Mir are Penicillium citrinum, a common soil and indoor species, Penicillium rubens, from which penicillin was isolated, and Penicillium corylophilum, which is commonly found in damp buildings. Penicillium palitans, which has been reported in cheese and also in a wide range of habitats, including Antarctica, has not been reported previously in space.",
+    "Rhodotorula mucilaginosa is a ubiquitous environmental and human commensal yeast and opportunistic pathogen that is found in aquatic and built environments, including bathrooms and dishwashers. It is the most commonly isolated yeast on the ISS.",
+    "Sample collection and fungal isolation steps were described elsewhere. For five flight missions, eight surfaces aboard the ISS were sampled with moistened polyester wipes (Table 1). Upon return to Earth, the wipes were agitated in sterile phosphate-buffered saline, which was concentrated using an InnovaPrep CP150 concentrating pipette, and suitable aliquots were spread onto nutrient media (Table 1). Fungal isolates were restreaked on potato-dextrose agar (PDA), and genomic DNA was extracted using the ZymoBIOMICS MagBead DNA kit according to the manufacturer’s instructions. Whole-genome shotgun sequencing libraries were prepared with an Illumina Nextera DNA Flex library preparation kit and were sequenced on the NovaSeq 6000 paired-end 2 × 150-bp platform with a S4 flow cell. After quality filtering and trimming with FastQC v0.11.7 and fastp v0.20.0, genomes were assembled using SPAdes v3.11.1. Assembly quality was assessed with QUAST v5.0.2. Fastp included screening for 512 adapters; otherwise, default settings were used for all steps.",
+    "Genus-level identification was made via BLAST searches against the UNITE nuclear ribosomal internal transcribed spacer (ITS) database. Species identification was performed using specific loci suitable for species recognition (Table 1). Homology searches were performed with extracted sequences against the NCBI nucleotide database and in-house Westerdijk Fungal Biodiversity Institute databases containing reference sequences; in case of doubt, identification was confirmed by constructing phylograms.",
+    "Data availability.",
+    "The whole-genome sequences (WGSs) and raw data have been deposited in GenBank under BioProject accession number PRJNA723004. This project has also been deposited in the NASA GeneLab system under project number GLDS-400. The version described in this paper is the first version."
+  ],
+  "TABLE": [
+    "Sampling locations, genetic loci used for taxonomic analysis, and WGS assembly quality for fungal species isolated from the ISS during the Microbial Tracking-2 mission",
+    "Sample name\tFungal species\tLoci used for identificationa\tWGS accession no.\tSRA accession no.\tMedium and temperatureb\tFlight no.\tLocation descriptionc\tNo. of contigs\tGenome size (bp)\tN50 (bp)\tCoverage depth (×)\tG+C content (%)\tNo. of filtered reads\t \tF6_8S_P_2A\tAspergillus unguis\tbenA, CaM\tJAGUQD000000000\tSRR14342084\tBA, 37°C\tF6\tCrew quarters\t22\t25,891,216\t2,495,528\t84.28\t50.30\t14,548,376\t \tF6_8S_P_4A\tAspergillus unguis\tbenA, CaM\tJAGUQC000000000\tSRR14342083\tBA, 37°C\tF6\tCrew quarters\t19\t25,892,532\t2,741,542\t179.59\t50.30\t30,999,366\t \tF7_6S_YPD\tAureobasidium pullulans\tITS\tJAGUPW000000000\tSRR14342072\tYPD, 25°C\tF7\tPPM port 1\t105\t28,552,932\t777,727\t77.27\t50.35\t15,555,668\t \tF7_5S_YPD\tAureobasidium pullulans\tITS\tJAGUPX000000000\tSRR14342073\tYPD, 25°C\tF7\tOverhead 4\t96\t28,546,471\t780,810\t91.03\t50.35\t18,326,654\t \tF7_2S_YPD\tAureobasidium pullulans\tITS\tJAGUPY000000000\tSRR14342074\tYPD, 25°C\tF7\tWHC\t110\t28,545,478\t869,212\t112.63\t50.35\t22,675,694\t \tF7_1S_YPD\tAureobasidium pullulans\tITS\tJAGUQA000000000\tSRR14342076\tYPD, 25°C\tF7\tCupola\t103\t28,553,405\t847,007\t148.55\t50.34\t29,906,446\t \tF7_2A_YPD\tAureobasidium pullulans\tITS\tJAGUPZ000000000\tSRR14342075\tYPD, 25°C\tF7\tWHC\t102\t28,545,383\t869,723\t90.19\t50.35\t18,158,278\t \tF7_1A_YPD\tAureobasidium pullulans\tITS\tJAGUQB000000000\tSRR14342077\tYPD, 25°C\tF7\tCupola\t99\t28,555,273\t793,969\t102.69\t50.34\t20,674,178\t \tF6_1S_B_1B\tAureobasidium pullulans\tITS\tJAGUQJ000000000\tSRR14342071\tR2A, 25°C\tF6\tCupola\t162\t28,763,896\t746,636\t72.11\t50.32\t14,517,038\t \tF6_1S_P_3A\tAureobasidium pullulans\tITS\tJAGUQI000000000\tSRR14342125\tBA, 37°C\tF6\tCupola\t142\t28,780,047\t881,182\t177.55\t50.32\t35,744,148\t \tF6_4S_B_1\tAureobasidium pullulans\tITS\tJAGUQE000000000\tSRR14342118\tR2A, 25°C\tF6\tDining table\t140\t28,772,883\t884,258\t97.41\t50.32\t19,610,724\t \tF6_3S_1A_F\tAureobasidium pullulans\tITS\tJAGUQH000000000\tSRR14342124\tPDA, 25°C\tF6\tARED\t156\t28,770,985\t819,420\t133.99\t50.32\t26,975,786\t \tF6_3S_1B_F\tAureobasidium pullulans\tITS\tJAGUQG000000000\tSRR14342123\tPDA, 25°C\tF6\tARED\t184\t28,720,136\t734,664\t106.49\t50.35\t21,439,104\t \tF6_3S_1C_F\tAureobasidium pullulans\tITS\tJAGUQF000000000\tSRR14342122\tPDA, 25°C\tF6\tARED\t188\t28,737,399\t748,713\t78.37\t50.33\t15,778,598\t \tF8_5S_2F\tCladosporium cladosporioides\tTEF\tJAGUPV000000000\tSRR14342051\tPDA, 25°C\tF8\tOverhead 4\t130\t34,025,119\t1,102,510\t120.93\t52.59\t26,786,080\t \tF8_5S_3F\tCladosporium cladosporioides\tTEF\tJAGUPU000000000\tSRR14342048\tPDA, 25°C\tF8\tOverhead 4\t132\t34,027,712\t965,801\t122.78\t52.59\t27,195,854\t \tF8_5S_4F\tCladosporium cladosporioides\tTEF\tJAGUPT000000000\tSRR14342047\tPDA, 25°C\tF8\tOverhead 4\t234\t33,871,387\t634,743\t111.02\t52.67\t24,592,420\t \tF4_7S_F1_F\tCladosporium sphaerospermum\tTEF\tJAHARS000000000\tSRR14342126\tPDA, 25°C\tF4\tLab 3 overhead\t573\t30,616,838\t873,859\t135.80\t53.05\t24,348,718\t \tF8_4S_2B\tFusarium annulatum\tTEF, RPB2\tJAHAPR000000000\tSRR14342059\tR2A, 25°C\tF8\tDining table\t275\t45,009,810\t1,875,762\t42.45d\t48.32\t21,486,110\t \tF8_4S_3B\tFusarium annulatum\tTEF, RPB2\tJAHAPP000000000\tSRR14342057\tR2A, 25°C\tF8\tDining table\t273\t45,012,509\t1,556,966\t51.28d\t48.32\t25,765,430\t \tF8_4S_4P\tFusarium annulatum\tTEF, RPB2\tJAHAPN000000000\tSRR14342055\tBA, 37°C\tF8\tDining table\t283\t45,010,147\t1,599,633\t40.99d\t48.32\t20,595,810\t \tF8_4S_5P\tFusarium annulatum\tTEF, RPB2\tJAHAPL000000000\tSRR14342053\tBA, 37°C\tF8\tDining table\t309\t45,001,499\t1,598,178\t47.32d\t48.33\t23,616,132\t \tF8_4S_1F\tFusarium annulatum\tTEF, RPB2\tJAHAPT000000000\tSRR14342062\tPDA, 25°C\tF8\tDining table\t341\t44,584,936\t1,556,345\t51.36d\t48.62\t25,159,054\t \tF5_8S_1A_F\tFusarium veterinarium\tTEF\tJAHARR000000000\tSRR14342093\tPDA, 25°C\tF5\tCrew quarters\t861\t48,079,010\t325,419\t58.78d\t47.63\t31,171,132\t \tF5_8S_1B_F\tFusarium veterinarium\tTEF\tJAHARQ000000000\tSRR14342082\tPDA, 25°C\tF5\tCrew quarters\t925\t47,312,867\t276,643\t44.14d\t48.09\t23,238,836\t \tF4_1A_F1_F\tPenicillium citrinum\tbenA, CaM\tJAHART000000000\tSRR14342127\tPDA, 25°C\tF4\tCupola\t88\t31,021,730\t1,108,866\t127.62\t46.39\t26,826,262\t \tF5_1S_1A_F\tPenicillium corylophilum\tbenA, CaM\tJAGUQL000000000\tSRR14342115\tPDA, 25°C\tF5\tCupola\t53\t28,229,796\t1,725,911\t104.56d\t50.20\t32,206,152\t \tF5_1S_1B_F\tPenicillium corylophilum\tbenA, CaM\tJAGUQK000000000\tSRR14342104\tPDA, 25°C\tF5\tCupola\t53\t28,231,333\t1,604,566\t80.64d\t50.20\t24,805,488\t \tF6_4S_1A_F\tPenicillium palitans\tbenA, CaM\tJAHARM000000000\tSRR14342121\tPDA, 25°C\tF6\tDining table\t798\t36,471,070\t281,544\t57.4d\t47.70\t23,233,174\t \tF6_4S_1B_F\tPenicillium palitans\tbenA, CaM\tJAHARL000000000\tSRR14342120\tPDA, 25°C\tF6\tDining table\t806\t36,468,364\t273,565\t58.94d\t47.70\t24,107,708\t \tF6_4S_1C_F\tPenicillium palitans\tbenA, CaM\tJAHARK000000000\tSRR14342119\tPDA, 25°C\tF6\tDining table\t802\t36,477,181\t268,530\t61.99d\t47.70\t25,189,046\t \tF6_6S_1_F\tPenicillium palitans\tbenA, CaM\tJAHARA000000000\tSRR14342107\tPDA, 25°C\tF6\tPPM port 1\t808\t36,467,611\t268,531\t64.47d\t47.70\t26,242,930\t \tF6_7S_1A_F\tPenicillium palitans\tbenA, CaM\tJAHAQR000000000\tSRR14342097\tPDA, 25°C\tF6\tLab 3 overhead\t820\t36,439,435\t268,531\t57.88d\t47.70\t23,443,712\t \tF6_7S_1C_F\tPenicillium palitans\tbenA, CaM\tJAHAQQ000000000\tSRR14342096\tPDA, 25°C\tF6\tLab 3 overhead\t794\t36,471,119\t303,786\t69.09d\t47.70\t28,047,394\t \tF6_8S_1A_F\tPenicillium palitans\tbenA, CaM\tJAHAQI000000000\tSRR14342087\tPDA, 25°C\tF6\tCrew quarters\t828\t36,453,009\t268,529\t57.59d\t47.70\t23,229,736\t \tF6_8S_1C_F\tPenicillium palitans\tbenA, CaM\tJAHAQH000000000\tSRR14342086\tPDA, 25°C\tF6\tCrew quarters\t850\t36,588,697\t255,978\t57.23d\t47.70\t22,858,702\t \tF8_6S-1F\tPenicillium palitans\tbenA, CaM\tJAHAOZ000000000\tSRR14342036\tPDA, 25°C\tF8\tPPM port 1\t987\t36,400,448\t262,197\t53.41d\t47.80\t21,366,974\t \tF8_6S_2F\tPenicillium palitans\tbenA, CaM\tJAHAPD000000000\tSRR14342041\tPDA, 25°C\tF8\tPPM port 1\t943\t36,503,579\t273,760\t70.93d\t47.76\t28,334,002\t \tF8_6S-3F\tPenicillium palitans\tbenA, CaM\tJAHAOY000000000\tSRR14342035\tPDA, 25°C\tF8\tPPM port 1\t799\t36,607,893\t290,808\t60.5d\t47.69\t24,779,924\t \tF8_6S-4F\tPenicillium palitans\tbenA, CaM\tJAHAOX000000000\tSRR14342034\tPDA, 25°C\tF8\tPPM port 1\t827\t36,605,405\t290,729\t60.84d\t47.69\t24,966,852\t \tF8_6S_5F\tPenicillium palitans\tbenA, CaM\tJAHAPC000000000\tSRR14342040\tPDA, 25°C\tF8\tPPM port 1\t808\t36,607,101\t281,504\t73.76d\t47.70\t30,172,808\t \tF8_6S_6F\tPenicillium rubens\tbenA, CaM\tJAHAPB000000000\tSRR14342039\tPDA, 25°C\tF8\tPPM port 1\t182\t30,459,701\t858,760\t118.82\t49.00\t26,445,782\t \tF8_6S_7F\tPenicillium rubens\tbenA, CaM\tJAHAPA000000000\tSRR14342037\tPDA, 25°C\tF8\tPPM port 1\t469\t31,558,626\t716,780\t112.63\t48.97\t25,069,320\t \tF6_4S_B_2B\tRhodotorula mucilaginosa\tITS\tJAHARI000000000\tSRR14342116\tR2A, 25°C\tF6\tDining table\t199\t20,171,565\t432,962\t132.05\t60.55\t17,800,488\t \tF6_8S_B_1B\tRhodotorula mucilaginosa\tITS\tJAHAQG000000000\tSRR14342085\tR2A, 25°C\tF6\tCrew quarters\t209\t20,172,702\t367,952\t215.04\t60.55\t28,987,090\t \tF6_8S_P_5A\tRhodotorula mucilaginosa\tITS\tJAHAQF000000000\tSRR14342081\tBA, 37°C\tF6\tCrew quarters\t199\t20,077,383\t389,367\t212.72\t59.99\t28,674,716\t \tF6_8S_P_5B\tRhodotorula mucilaginosa\tITS\tJAHAQE000000000\tSRR14342080\tBA, 37°C\tF6\tCrew quarters\t194\t20,074,587\t329,841\t244.78\t59.99\t32,995,640\t \tF6_8S_P_6A\tRhodotorula mucilaginosa\tITS\tJAHAQD000000000\tSRR14342079\tBA, 37°C\tF6\tCrew quarters\t201\t20,175,089\t436,573\t227.88\t60.55\t30,717,298\t \tF6_8S_P_6B\tRhodotorula mucilaginosa\tITS\tJAHAQC000000000\tSRR14342078\tBA, 37°C\tF6\tCrew quarters\t213\t20,169,473\t376,635\t52.49\t60.55\t7,075,538\t \tF8_5S_4P\tRhodotorula mucilaginosa\tITS\tJAHAPI000000000\tSRR14342046\tBA, 37°C\tF8\tOverhead 4\t202\t20,109,607\t317,098\t232.29\t60.53\t31,313,072\t \tF8_5S_5P\tRhodotorula mucilaginosa\tITS\tJAHAPH000000000\tSRR14342045\tBA, 37°C\tF8\tOverhead 4\t195\t20,116,897\t319,540\t215.19\t60.53\t29,006,980\t \tF8_5S_6P\tRhodotorula mucilaginosa\tITS\tJAHAPG000000000\tSRR14342044\tBA, 37°C\tF8\tOverhead 4\t190\t20,123,419\t354,782\t251.44\t60.53\t33,893,490\t \tF6_1S_P_1A\tRhodotorula mucilaginosa\tITS\tJAHARP000000000\tSRR14342060\tBA, 37°C\tF6\tCupola\t179\t20,117,026\t392,515\t180.21\t60.53\t24,292,752\t \tF6_1S_P_1B\tRhodotorula mucilaginosa\tITS\tJAHARO000000000\tSRR14342049\tBA, 37°C\tF6\tCupola\t182\t20,114,730\t392,620\t225.92\t60.53\t30,453,336\t \tF6_1S_P_1C\tRhodotorula mucilaginosa\tITS\tJAHARN000000000\tSRR14342038\tBA, 37°C\tF6\tCupola\t200\t20,115,701\t322,180\t218.74\t60.53\t29,485,618\t \tF6_4S_B_2A\tRhodotorula mucilaginosa\tITS\tJAHARJ000000000\tSRR14342117\tR2A, 25°C\tF6\tDining table\t172\t19,998,495\t334,411\t207.28\t60.55\t27,941,724\t \tF6_4S_B_2C\tRhodotorula mucilaginosa\tITS\tJAHARH000000000\tSRR14342114\tR2A, 25°C\tF6\tDining table\t200\t20,107,055\t319,541\t200.96\t60.53\t27,089,466\t \tF6_4S_P_3B\tRhodotorula mucilaginosa\tITS\tJAHARG000000000\tSRR14342113\tBA, 37°C\tF6\tDining table\t184\t20,108,582\t331,731\t105.50\t60.53\t14,221,722\t \tF6_4S_P_3C\tRhodotorula mucilaginosa\tITS\tJAHARF000000000\tSRR14342112\tBA, 37°C\tF6\tDining table\t196\t20,111,077\t317,326\t150.66\t60.53\t20,308,150\t \tF6_4S_P_4A\tRhodotorula mucilaginosa\tITS\tJAHARE000000000\tSRR14342111\tBA, 37°C\tF6\tDining table\t175\t20,126,113\t410,825\t121.23\t60.52\t16,341,478\t \tF6_4S_P_4B\tRhodotorula mucilaginosa\tITS\tJAHARD000000000\tSRR14342110\tBA, 37°C\tF6\tDining table\t206\t20,115,791\t297,628\t230.74\t60.53\t31,103,222\t \tF6_4S_P_5A\tRhodotorula mucilaginosa\tITS\tJAHARC000000000\tSRR14342109\tBA, 37°C\tF6\tDining table\t195\t20,113,572\t334,410\t220.75\t60.53\t29,757,146\t \tF6_4S_P_5B\tRhodotorula mucilaginosa\tITS\tJAHARB000000000\tSRR14342108\tBA, 37°C\tF6\tDining table\t210\t20,109,987\t323,162\t141.10\t60.53\t19,019,728\t \tF6_6S_B_1A\tRhodotorula mucilaginosa\tITS\tJAHAQZ000000000\tSRR14342106\tR2A, 25°C\tF6\tPPM port 1\t202\t20,109,799\t329,302\t205.40\t60.53\t27,687,960\t \tF6_6S_B_1B\tRhodotorula mucilaginosa\tITS\tJAHAQY000000000\tSRR14342105\tR2A, 25°C\tF6\tPPM port 1\t199\t20,106,114\t331,797\t130.16\t60.53\t17,545,556\t \tF6_6S_B_1C\tRhodotorula mucilaginosa\tITS\tJAHAQX000000000\tSRR14342103\tR2A, 25°C\tF6\tPPM port 1\t199\t20,115,093\t335,579\t133.73\t60.53\t18,026,650\t \tF6_6S_P_1A\tRhodotorula mucilaginosa\tITS\tJAHAQW000000000\tSRR14342102\tBA, 37°C\tF6\tPPM port 1\t202\t20,108,679\t319,902\t114.06\t60.53\t15,375,556\t \tF6_6S_P_1B\tRhodotorula mucilaginosa\tITS\tJAHAQV000000000\tSRR14342101\tBA, 37°C\tF6\tPPM port 1\t197\t20,116,515\t323,169\t233.47\t60.53\t31,471,482\t \tF6_6S_P_1C\tRhodotorula mucilaginosa\tITS\tJAHAQU000000000\tSRR14342100\tBA, 37°C\tF6\tPPM port 1\t190\t20,114,955\t329,677\t145.50\t60.53\t19,613,002\t \tF6_6S_P_2A\tRhodotorula mucilaginosa\tITS\tJAHAQT000000000\tSRR14342099\tBA, 37°C\tF6\tPPM port 1\t191\t20,108,060\t323,034\t240.93\t60.53\t32,476,452\t \tF6_6S_P_2B\tRhodotorula mucilaginosa\tITS\tJAHAQS000000000\tSRR14342098\tBA, 37°C\tF6\tPPM port 1\t194\t20,117,485\t323,058\t209.85\t60.52\t28,287,446\t \tF6_7S_B_2A\tRhodotorula mucilaginosa\tITS\tJAHAQP000000000\tSRR14342095\tR2A, 25°C\tF6\tLab 3 overhead\t183\t20,055,075\t293,584\t240.80\t60.55\t32,459,440\t \tF6_7S_B_2B\tRhodotorula mucilaginosa\tITS\tJAHAQO000000000\tSRR14342094\tR2A, 25°C\tF6\tLab 3 overhead\t192\t20,049,052\t293,667\t138.13\t60.55\t18,619,460\t \tF6_7S_B_2C\tRhodotorula mucilaginosa\tITS\tJAHAQN000000000\tSRR14342092\tR2A, 25°C\tF6\tLab 3 overhead\t196\t20,050,303\t292,236\t107.06\t60.55\t14,431,658\t \tF6_7S_P_6B\tRhodotorula mucilaginosa\tITS\tJAHAQM000000000\tSRR14342091\tBA, 37°C\tF6\tLab 3 overhead\t164\t20,065,557\t369,724\t234.38\t60.55\t31,594,198\t \tF6_7S_P_7A\tRhodotorula mucilaginosa\tITS\tJAHAQL000000000\tSRR14342090\tBA, 37°C\tF6\tLab 3 overhead\t199\t20,052,658\t311,987\t201.97\t60.55\t27,225,956\t \tF6_7S_P_7B\tRhodotorula mucilaginosa\tITS\tJAHAQK000000000\tSRR14342089\tBA, 37°C\tF6\tLab 3 overhead\t198\t20,056,236\t284,145\t169.60\t60.55\t22,862,414\t \tF6_7S_P_7C\tRhodotorula mucilaginosa\tITS\tJAHAQJ000000000\tSRR14342088\tBA, 37°C\tF6\tLab 3 overhead\t190\t20,058,305\t320,873\t233.38\t60.55\t31,459,534\t \tF8_1S_2B\tRhodotorula mucilaginosa\tITS\tJAHAQB000000000\tSRR14342070\tR2A, 25°C\tF8\tCupola\t172\t19,998,942\t329,308\t180.71\t60.55\t24,358,996\t \tF8_1S_3B\tRhodotorula mucilaginosa\tITS\tJAHAQA000000000\tSRR14342069\tR2A, 25°C\tF8\tCupola\t197\t20,118,130\t319,542\t217.40\t60.53\t29,305,254\t \tF8_3S_1B\tRhodotorula mucilaginosa\tITS\tJAHAPZ000000000\tSRR14342068\tR2A, 25°C\tF8\tARED\t197\t20,118,712\t325,275\t190.77\t60.53\t25,716,020\t \tF8_3S_2B\tRhodotorula mucilaginosa\tITS\tJAHAPX000000000\tSRR14342066\tR2A, 25°C\tF8\tARED\t200\t20,109,774\t323,187\t181.13\t60.53\t24,415,874\t \tF8_3S_3B\tRhodotorula mucilaginosa\tITS\tJAHAPV000000000\tSRR14342064\tR2A, 25°C\tF8\tARED\t189\t20,104,868\t317,674\t194.41\t60.53\t26,206,654\t \tF8_4S_4B\tRhodotorula mucilaginosa\tITS\tJAHAPO000000000\tSRR14342056\tR2A, 25°C\tF8\tDining table\t172\t19,998,636\t338,336\t224.66\t60.54\t30,283,760\t \tF8_4S_5B\tRhodotorula mucilaginosa\tITS\tJAHAPM000000000\tSRR14342054\tR2A, 25°C\tF8\tDining table\t172\t19,999,954\t323,188\t197.65\t60.55\t26,642,384\t \tF8_5S_2B\tRhodotorula mucilaginosa\tITS\tJAHAPK000000000\tSRR14342052\tR2A, 25°C\tF8\tOverhead 4\t189\t20,113,164\t335,288\t219.00\t60.53\t29,520,936\t \tF8_5S_3B\tRhodotorula mucilaginosa\tITS\tJAHAPJ000000000\tSRR14342050\tR2A, 25°C\tF8\tOverhead 4\t199\t20,113,962\t333,776\t192.52\t60.53\t25,952,066\t \tF8_6S_1B\tRhodotorula mucilaginosa\tITS\tJAHAPF000000000\tSRR14342043\tR2A, 25°C\tF8\tPPM port 1\t169\t19,995,004\t329,309\t187.59\t60.54\t25,287,420\t \tF8_6S_2B\tRhodotorula mucilaginosa\tITS\tJAHAPE000000000\tSRR14342042\tR2A, 25°C\tF8\tPPM port 1\t179\t19,994,438\t397,651\t188.04\t60.55\t25,347,104\t \tF8_3S_1P\tRhodotorula mucilaginosa\tITS\tJAHAPY000000000\tSRR14342067\tBA, 37°C\tF8\tARED\t183\t19,994,621\t322,715\t192.67\t60.55\t25,972,138\t \tF8_3S_2P\tRhodotorula mucilaginosa\tITS\tJAHAPW000000000\tSRR14342065\tBA, 37°C\tF8\tARED\t167\t19,991,553\t415,431\t121.35\t60.54\t16,358,020\t \tF8_3S_3P\tRhodotorula mucilaginosa\tITS\tJAHAPU000000000\tSRR14342063\tBA, 37°C\tF8\tARED\t193\t20,115,201\t319,541\t196.12\t60.53\t26,437,390\t \tF8_4S_1P\tRhodotorula mucilaginosa\tITS\tJAHAPS000000000\tSRR14342061\tBA, 37°C\tF8\tDining table\t171\t19,999,629\t322,714\t190.79\t60.55\t25,717,964\t \tF8_4S_2P\tRhodotorula mucilaginosa\tITS\tJAHAPQ000000000\tSRR14342058\tBA, 37°C\tF8\tDining table\t173\t19,998,413\t415,991\t257.98\t60.54\t34,775,980",
+    "benA, β-tubulin; CaM, calmodulin; RPB2, DNA-directed RNA polymerase II subunit; TEF, translation elongation factor 1.",
+    "BA, blood agar; R2A, Reasoner’s 2A agar; YPD, yeast extract-peptone-dextrose.",
+    "ARED, advanced resistive exercise device; WHC, waste and hygiene compartment; PMM, permanent multipurpose module.",
+    "Reference genome was not available; average sequencing depth was calculated from k-mer coverage."
+  ],
+  "REF": [
+    "REFERENCES",
+    "International Space Station conditions alter genomics, proteomics, and metabolomics in Aspergillus nidulans",
+    "Biological induced corrosion of materials II: new test methods and experiences from MIR station",
+    "Virulence factors of medically important fungi",
+    "Space Station conditions are selective but do not alter microbial characteristics relevant to human health",
+    "Evidence of pathogenic microbes in the International Space Station drinking water: reason for concern?",
+    "Microbial characterization of the Mars Odyssey spacecraft and its encapsulation facility",
+    "Cladosporium species in indoor environments",
+    "Cladosporium as the main fungal contaminant of locations in dwelling environments",
+    "Draft genome sequences of several fungal strains selected for exposure to microgravity at the International Space Station",
+    "Characterization of fungi isolated from the equipment used in the International Space Station or Space Shuttle",
+    "Genealogical concordance phylogenetic species recognition in the Fusarium oxysporum species complex",
+    "Genomic characterization and virulence potential of two Fusarium oxysporum isolates cultured from the International Space Station",
+    "Fusarium oxysporum as an opportunistic fungal pathogen on Zinnia hybrida plants grown on board the International Space Station",
+    "Pathogenic fungi accompanied with sudden decline syndrome (wilting disease) of date palm tree (Phoenix dactylifera L.)",
+    "Identification and nomenclature of the genus Penicillium",
+    "Taxonomy of Penicillium section Citrina",
+    "Uncovering the repertoire of fungal secondary metabolites: from Fleming's laboratory to the International Space Station",
+    "Secondary metabolites from Penicillium corylophilum isolated from damp buildings",
+    "Differentiation of Penicillium commune and Penicillium palitans isolates from cheese and indoor environments of cheese factories using M13 fingerprinting",
+    "Fungi in glacial ice of Antarctica: diversity, distribution and bioprospecting of bioactive compounds",
+    "Rhodotorula mucilaginosa, a carotenoid producing yeast strain from a Patagonian high-altitude lake",
+    "Epidemiology of Rhodotorula: an emerging pathogen",
+    "Dishwashers provide a selective extreme environment for human-opportunistic yeast-like fungi",
+    "Microbial, environmental and anthropogenic factors influencing the indoor microbiome of the built environment",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "Draft genome sequences of Rhodotorula mucilaginosa strains isolated from the International Space Station",
+    "The skin mycobiome of an astronaut during a 1-year stay on the International Space Station",
+    "Whole metagenome profiles of particulates collected from the International Space Station",
+    "FastQC: a quality control tool for high throughput sequence data",
+    "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+    "QUAST: quality assessment tool for genome assemblies",
+    "The UNITE database for molecular identification of fungi: handling dark taxa and parallel taxonomic classifications",
+    "GeneLab: omics database for spaceflight experiments"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "International Space Station conditions alter genomics, proteomics, and metabolomics in Aspergillus nidulans",
+      "autores": [],
+      "pmid": "30539259",
+      "fuente": "Appl Microbiol Biotechnol",
+      "anio": "2019",
+      "volumen": "103",
+      "fpage": "1363",
+      "lpage": "1377"
+    },
+    {
+      "titulo": "Biological induced corrosion of materials II: new test methods and experiences from MIR station",
+      "autores": [],
+      "pmid": "11542520",
+      "fuente": "Acta Astronaut",
+      "anio": "1999",
+      "volumen": "44",
+      "fpage": "569",
+      "lpage": "578"
+    },
+    {
+      "titulo": "Virulence factors of medically important fungi",
+      "autores": [],
+      "pmid": "8894347",
+      "fuente": "Clin Microbiol Rev",
+      "anio": "1996",
+      "volumen": "9",
+      "fpage": "469",
+      "lpage": "488"
+    },
+    {
+      "titulo": "Space Station conditions are selective but do not alter microbial characteristics relevant to human health",
+      "autores": [],
+      "pmid": "31488812",
+      "fuente": "Nat Commun",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "3990",
+      "lpage": ""
+    },
+    {
+      "titulo": "Evidence of pathogenic microbes in the International Space Station drinking water: reason for concern?",
+      "autores": [],
+      "pmid": "15880908",
+      "fuente": "Habitation (Elmsford)",
+      "anio": "2004",
+      "volumen": "10",
+      "fpage": "39",
+      "lpage": "48"
+    },
+    {
+      "titulo": "Microbial characterization of the Mars Odyssey spacecraft and its encapsulation facility",
+      "autores": [],
+      "pmid": "14510851",
+      "fuente": "Environ Microbiol",
+      "anio": "2003",
+      "volumen": "5",
+      "fpage": "977",
+      "lpage": "985"
+    },
+    {
+      "titulo": "Cladosporium species in indoor environments",
+      "autores": [],
+      "pmid": "29681671",
+      "fuente": "Stud Mycol",
+      "anio": "2018",
+      "volumen": "89",
+      "fpage": "177",
+      "lpage": "301"
+    },
+    {
+      "titulo": "Cladosporium as the main fungal contaminant of locations in dwelling environments",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Biocontrol Sci",
+      "anio": "2001",
+      "volumen": "6",
+      "fpage": "49",
+      "lpage": "52"
+    },
+    {
+      "titulo": "Draft genome sequences of several fungal strains selected for exposure to microgravity at the International Space Station",
+      "autores": [],
+      "pmid": "28408692",
+      "fuente": "Genome Announc",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of fungi isolated from the equipment used in the International Space Station or Space Shuttle",
+      "autores": [],
+      "pmid": "26969809",
+      "fuente": "Microbiol Immunol",
+      "anio": "2016",
+      "volumen": "60",
+      "fpage": "295",
+      "lpage": "302"
+    },
+    {
+      "titulo": "Genealogical concordance phylogenetic species recognition in the Fusarium oxysporum species complex",
+      "autores": [],
+      "pmid": "24742832",
+      "fuente": "Fungal Biol",
+      "anio": "2014",
+      "volumen": "118",
+      "fpage": "374",
+      "lpage": "384"
+    },
+    {
+      "titulo": "Genomic characterization and virulence potential of two Fusarium oxysporum isolates cultured from the International Space Station",
+      "autores": [],
+      "pmid": "30944876",
+      "fuente": "mSystems",
+      "anio": "2019",
+      "volumen": "4",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fusarium oxysporum as an opportunistic fungal pathogen on Zinnia hybrida plants grown on board the International Space Station",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Astrobiology",
+      "anio": "2021",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Pathogenic fungi accompanied with sudden decline syndrome (wilting disease) of date palm tree (Phoenix dactylifera L.)",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Basrah J Sci",
+      "anio": "2019",
+      "volumen": "37",
+      "fpage": "376",
+      "lpage": "397"
+    },
+    {
+      "titulo": "Identification and nomenclature of the genus Penicillium",
+      "autores": [],
+      "pmid": "25505353",
+      "fuente": "Stud Mycol",
+      "anio": "2014",
+      "volumen": "78",
+      "fpage": "343",
+      "lpage": "371"
+    },
+    {
+      "titulo": "Taxonomy of Penicillium section Citrina",
+      "autores": [],
+      "pmid": "22308046",
+      "fuente": "Stud Mycol",
+      "anio": "2011",
+      "volumen": "70",
+      "fpage": "53",
+      "lpage": "138"
+    },
+    {
+      "titulo": "Uncovering the repertoire of fungal secondary metabolites: from Fleming's laboratory to the International Space Station",
+      "autores": [],
+      "pmid": "28632991",
+      "fuente": "Bioengineered",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "12",
+      "lpage": "16"
+    },
+    {
+      "titulo": "Secondary metabolites from Penicillium corylophilum isolated from damp buildings",
+      "autores": [],
+      "pmid": "24891425",
+      "fuente": "Mycologia",
+      "anio": "2014",
+      "volumen": "106",
+      "fpage": "621",
+      "lpage": "628"
+    },
+    {
+      "titulo": "Differentiation of Penicillium commune and Penicillium palitans isolates from cheese and indoor environments of cheese factories using M13 fingerprinting",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Food Microbiol",
+      "anio": "2002",
+      "volumen": "19",
+      "fpage": "151",
+      "lpage": "157"
+    },
+    {
+      "titulo": "Fungi in glacial ice of Antarctica: diversity, distribution and bioprospecting of bioactive compounds",
+      "autores": [],
+      "pmid": "32157393",
+      "fuente": "Extremophiles",
+      "anio": "2020",
+      "volumen": "24",
+      "fpage": "367",
+      "lpage": "376"
+    },
+    {
+      "titulo": "Rhodotorula mucilaginosa, a carotenoid producing yeast strain from a Patagonian high-altitude lake",
+      "autores": [],
+      "pmid": "15143736",
+      "fuente": "Folia Microbiol (Praha)",
+      "anio": "2004",
+      "volumen": "49",
+      "fpage": "19",
+      "lpage": "25"
+    },
+    {
+      "titulo": "Epidemiology of Rhodotorula: an emerging pathogen",
+      "autores": [],
+      "pmid": "23091485",
+      "fuente": "Interdiscip Perspect Infect Dis",
+      "anio": "2012",
+      "volumen": "2012",
+      "fpage": "465717",
+      "lpage": ""
+    },
+    {
+      "titulo": "Dishwashers provide a selective extreme environment for human-opportunistic yeast-like fungi",
+      "autores": [],
+      "pmid": "",
+      "fuente": "Fungal Diversity",
+      "anio": "2016",
+      "volumen": "76",
+      "fpage": "1",
+      "lpage": "9"
+    },
+    {
+      "titulo": "Microbial, environmental and anthropogenic factors influencing the indoor microbiome of the built environment",
+      "autores": [],
+      "pmid": "33522603",
+      "fuente": "J Basic Microbiol",
+      "anio": "2021",
+      "volumen": "61",
+      "fpage": "267",
+      "lpage": "292"
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "Draft genome sequences of Rhodotorula mucilaginosa strains isolated from the International Space Station",
+      "autores": [],
+      "pmid": "32732232",
+      "fuente": "Microbiol Resour Announc",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The skin mycobiome of an astronaut during a 1-year stay on the International Space Station",
+      "autores": [],
+      "pmid": "32838424",
+      "fuente": "Med Mycol",
+      "anio": "2021",
+      "volumen": "59",
+      "fpage": "106",
+      "lpage": "109"
+    },
+    {
+      "titulo": "Whole metagenome profiles of particulates collected from the International Space Station",
+      "autores": [],
+      "pmid": "28716113",
+      "fuente": "Microbiome",
+      "anio": "2017",
+      "volumen": "5",
+      "fpage": "81",
+      "lpage": ""
+    },
+    {
+      "titulo": "FastQC: a quality control tool for high throughput sequence data",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2011",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "fastp: an ultra-fast all-in-one FASTQ preprocessor",
+      "autores": [],
+      "pmid": "30423086",
+      "fuente": "Bioinformatics",
+      "anio": "2018",
+      "volumen": "34",
+      "fpage": "i884",
+      "lpage": "i890"
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    },
+    {
+      "titulo": "QUAST: quality assessment tool for genome assemblies",
+      "autores": [],
+      "pmid": "23422339",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "1072",
+      "lpage": "1075"
+    },
+    {
+      "titulo": "The UNITE database for molecular identification of fungi: handling dark taxa and parallel taxonomic classifications",
+      "autores": [],
+      "pmid": "30371820",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D259",
+      "lpage": "D264"
+    },
+    {
+      "titulo": "GeneLab: omics database for spaceflight experiments",
+      "autores": [],
+      "pmid": "30329036",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "1753",
+      "lpage": "1759"
+    }
+  ]
+}

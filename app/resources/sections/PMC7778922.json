@@ -1,0 +1,1393 @@
+{
+  "TITLE": [
+    "NASA GeneLab: interfaces for the exploration of space omics data"
+  ],
+  "ABSTRACT": [
+    "Abstract",
+    "The mission of NASA’s GeneLab database (https://genelab.nasa.gov/) is to collect, curate, and provide access to the genomic, transcriptomic, proteomic and metabolomic (so-called ‘omics’) data from biospecimens flown in space or exposed to simulated space stressors, maximizing their utilization. This large collection of data enables the exploration of molecular network responses to space environments using a systems biology approach. We review here the various components of the GeneLab platform, including the new data repository web interface, and the GeneLab Online Data Entry (GEODE) web portal, which will support the expansion of the database in the future to include companion non-omics assay data. We discuss our design for GEODE, particularly how it promotes investigators providing more accurate metadata, reducing the curation effort required of GeneLab staff. We also introduce here a new GeneLab Application Programming Interface (API) specifically designed to support tools for the visualization of processed omics data. We review the outreach efforts by GeneLab to utilize the spaceflight data in the repository to generate novel discoveries and develop new hypotheses, including spearheading data analysis working groups, and a high school student training program. All these efforts are aimed ultimately at supporting precision risk management for human space exploration."
+  ],
+  "INTRO": [
+    "INTRODUCTION",
+    "Scientists are leveraging space-based platforms such as the International Space Station (ISS) and earth-based laboratories such as the NASA Space Radiation Laboratory to study the effects of space on biological organisms, generating nucleic acid, protein, and metabolite profiling data at an unprecedented rate. The 2011 National Research Council (NRC) Decadal Survey presaged this ‘wave of change’ almost a decade ago, and called for the development of more powerful informatics technologies to meet the growing needs of these researchers. The Survey also promulgated the use of a systems biology approach by space biosciences investigators, which led to the formation of the GeneLab project (https://genelab.nasa.gov/), a science initiative at NASA to maximize omics data collected from spaceflight and ground simulation experiments, and including the creation in 2014 of the NASA GeneLab data repository (https://genelab-data.ndc.nasa.gov/ ). The mission of GeneLab is to maximize the utilization of valuable biospecimens flown in space or exposed to simulated space stressors through the collection and curation of genomic, transcriptomic, proteomic and metabolomic (so-called ‘omics’) data, in order to enable the exploration of molecular network responses to space environments using a systems biology approach. Our designs for the data repository continue to be guided by the FAIR principles. To foster open science in space biology research and to stimulate research opportunities based on an integrated multi-omics analysis approach, investigators who generate omics data are encouraged to contact GeneLab for the latest information concerning data submission requirements and procedures. All GeneLab repository data are open-access.",
+    "We review here the various components (Figure 1) of the database, then describe its new data repository web interface and the GeneLab Online Data Entry (GEODE) web portal, which provides ‘self-service’ data curation, and will support the expansion of the database in the future to include companion non-omics assay data. We discuss our design strategies for GEODE, emphasizing how they promote investigators providing more accurate metadata using controlled vocabularies, reducing the curation effort required of GeneLab staff. We also introduce here a new GeneLab Application Programming Interface (API) specifically designed to support tools for the visualization of processed omics data. Such visualization tools are essential to fulfil an ‘Open Science’ mandate, democratizing the access to data and allowing the scientific community at large to gain new knowledge on how spaceflight affects life, from humans and mice, to plants and microbes.",
+    "GENELAB DATABASE HOLDINGS",
+    "As of August 2020, GeneLab houses data from 271 studies representing investigations of many kinds of spaceflight experimental factors: gravity level (microgravity, hypergravity), ionizing radiation, circadian disruption, and atmospheric pressure, together with information on confounding variables such as organism diet, age, and sample preservation methods, for a variety of biological organisms (Figure 2). Approximately half the studies in the GeneLab repository are from experiments conducted in space, and the other half from ground-based (space analogue) environments. Mammalian (primarily rodent and human cell line) investigations account for a majority the studies. Other organisms studied include various flowering plants, (e.g. Arabidopsis thaliana), microbes, nematodes (primarily Caenorhabditis elegans), insects (Drosophila melanogaster), and bony fish. Although, the most prevalent study assay type is transcription profiling, the database also includes studies of protein expression, whole genome sequencing, metabolite profiling, metagenomics, epigenomics and epitranscriptomics. Investigators continue to submit data from new kinds of assays at an ever-increasing rate, particularly new kinds of RNA sequencing assays, such as spatial transcription profiling data. Accommodating these new kinds of assays have not required GeneLab data systems software development, only minor changes to systems configuration files.",
+    "DATA PROCESSING STANDARDIZATION",
+    "Since its inception GeneLab has focused on adopting best practices regarding the use of community-derived standards for metadata and data processing. For submitted metadata, GeneLab curators encourage the use of domain ontologies, and meticulously, manually harmonize submitted metadata with those of existing studies. To support consistent interpretation of submitted data, GeneLab curators augment submitted metadata for spaceflight studies with spacecraft environmental metadata. For example, for experiments conducted on board the U.S. Space Transportation System (the ‘Space Shuttle’), on the ISS, and on board various other spacecraft, GeneLab has gathered, summarized, and attached radiation exposure metadata to the other experiment metadata submitted by investigators. Ambient CO2, temperature, and humidity data are also gathered, summarized, and associated with each sample for metadata submitted for ISS experiments.",
+    "GeneLab has also begun to process submitted transcriptomic data using consensus pipelines developed by representatives of the space biology community (https://github.com/nasa/GeneLab_Data_Processing). This yields gene expression analysis data that are then made available in the database together with the raw data, and all intermediate data processing files. At the time of this writing, 103 GeneLab transcription profiling studies in the database have processed data available.",
+    "KEY DATABASE FEATURES",
+    "When originally designed, the GeneLab data systems sought merely to replicate features of existing, publicly-available life sciences data repositories that have long been recognized as valuable to end-users. These included the use of persistent, immutable accession numbers for submitted data, completely open access, and an API to allow for data file and metadata retrieval. Since this original design several years ago, GeneLab has sought to improve on this set of features, and implement new ones in line with advancing end-user needs and new, community-derived design principles for data repositories.",
+    "User interface",
+    "The initial user interface for the data repository organized study metadata using a series of tabs, one each for administrative, protocol, sample, and assay metadata. However, this layout makes it difficult for users to see more than one active tab's content at the same time. We have since revised the layout to use navigable, movable, and collapsible sections for each kind of metadata (Figure 3) so that users can create custom displays to organize and view the exact kind of metadata they want.",
+    "Increased FAIRness",
+    "Digital object identifiers",
+    "From its inception, GeneLab has sought to implement community-derived (i.e. open) standards for the data and metadata it curates, and for the operation of the database (end-user interactions, curation by GeneLab, etc.). Largely concurrent with the design of the GeneLab Data Repository, the global scientific community converged on a set of optimal design features for data repositories, now termed the FAIR (Findability, Accessibility, Interoperability, and Reusability) principles. In the area of Findability, the data repository now provides Digital Object Identifiers (DOIs) for all submitted datasets. DOIs have guaranteed persistence, and resolution control mechanisms that are centralized (independent of the data source), and provide users of the GeneLab datasets with a way to cite them easily and uniformly. In addition, each version of a dataset (distinguished by changes in data files or in metadata) is tracked in the data repository, and users can opt to see previous versions through the web interface (Figure 3). This ensures persistence of the specific version of data as cited by others. Finally, NASA is currently developing processes for the automated submission to other databases of data submitted first to GeneLab, with the twin goals of making the data more findable from extramural database systems, and reducing the burden to data providers of generating multiple data submissions.",
+    "Accessibility",
+    "All data in the GeneLab data repository continues to be accessible to all users without user authentications. To provide the greatest accessibility to its data analysis tools and collaborative workspace, the GeneLab analysis and collaboration platforms have integrated the widely-available Google credentialing system into its authentication systems. Users can opt to use their Google-managed credentials or, if they have them, use their NASA credentials to access these subsystems. It is our intention that this development leads to increased access to and usage of these tools for more investigators.",
+    "Linked data",
+    "One the biggest areas where many data repositories fall short using FAIR-based metrics is interoperability, which often presents a barrier to data reusability. In order to support systems interoperation and increase data reuse, the GeneLab repository data uses the widely known ISA experiment model for tagging data files with metadata. The ISA model leverages community-developed concept vocabularies (ontologies), so that there is agreement among users on metadata meaning, and therefore data characterization. Furthermore these models support linkage of data values (‘linked data’) so that, for example, biological samples, personnel or resources reused across experiments need only be described once by the first experiment to refer to them. Subsequent investigations that also use these objects then can quickly search for and refer to them in their investigation descriptions.",
+    "In the specific domain of space biology, it is common to re-use samples across different investigations, given the high cost of generating biological sample data in space environments. In many other application areas, it is common to re-use parts of experimental protocols, and these too can be similar referred to by data submitters using the ISA model, rather than duplicated semantically in the data repository.",
+    "Web-browser data submissions",
+    "The most recent addition to the GeneLab Data Systems is GEODE, the GeneLab Environment for Online Data Entry. This interface supports the creation of complex metadata descriptions of datasets, and was built in collaboration with, and by extending an interface originally developed by, the Metabolights database at EBI. This web browser interface (Figure 4) allows users to develop ISA-tab sets of metadata through either a guided submission ‘wizard’, in which users create metadata step-by-step, or ‘Study Overview’ method, in which metadata can be arbitrarily edited. Data submitters and GeneLab curation staff can both create metadata using GEODE; submitters are limited to editing only their own submitted metadata, while GeneLab curation staff can access and edit all metadata. The web interface provides the capability for submitters (or curators) to look up metadata concepts in online ontologies dynamically, which reduces metadata normalization effort of the curation staff. Furthermore, GEODE provides continuously available data set editing for submitters (or curators), so that they can rapidly and efficiently update and correct their data; any data set owner (or curator) can change the status of their published data sets to ‘In Review’, make changes to the data/metadata, and re-submit it for release at any time.",
+    "Enhanced API",
+    "GeneLab has always provided an Application Programming Interface (API) for the retrieval of individual experiment data and metadata files. Improvements in this API now enables users to query the database for samples, potentially across multiple datasets and assays, by combinations of values of metadata fields, and then to retrieve sample-associated experiment data. Both the data and the accompanying annotations are returned in a tabular format suitable for downstream processing in a variety of languages and environments commonly used by data scientists. This, in turn, empowers researchers to conduct multi-dataset and multi-omics analyses, such as investigating the impact of single experiment factors on a variety of organisms during space flight. For example, the API can be leveraged to interrogate the entirety of the GeneLab database for RNA-Seq assay gene expression counts from all samples from Mus musculus that experienced a specified level of ionizing radiation; such a request returns gene counts from multiple datasets as well as all other metadata values associated with the samples (status of space flight, radiation dose, diet, age, etc.), immediately providing the end-user with data and annotations suitable to build a complex model that accounts for all main and confounding factors known to the database. The API also supports queries for multiple assay types, for example, all transcriptomic and epigenomic assays, facilitating multi-omics data analyses. This enhanced API layer is currently being leveraged within GeneLab to provide advanced data visualizations of GeneLab processed data. These include a data table browser for sample data and annotations, and common statistical data visualizations such as principal component analysis, in a web-browser interface. Finally, we should note that, as the data API leverages the versatile ISA-Tab format to bring annotations to data files, this API could be easily extended to numerous types of assay data, not just omics.",
+    "COMMUNITY",
+    "Scientific outreach",
+    "A key goal of the GeneLab project is to bring together a community of scientists to generate novel hypotheses and make valuable scientific discoveries using the data in the GeneLab database. GeneLab has sought to engage working groups of students, bioinformaticians, space biologists, researchers and citizen scientists by providing freely-available data analysis tools and support for their use. Users can access user guides and tutorial videos on how to use the various GeneLab applications, including how to analyze RNA-seq datasets using the GeneLab Analysis Platform (https://genelab.nasa.gov/help/tutorials). Furthermore, NASA has developed the GeneLab 4 High School (GL4HS) training program, in which fifteen high school students learn how to use the GeneLab tools over four weeks to analyze spaceflight microarray and RNA-seq data, how to generate follow-on hypotheses based on these analyses, how to design a ground-based experiment to test these hypotheses, and ultimately write research proposals for the experiments (https://www.nasa.gov/ames/genelab-for-high-schools). GeneLab is also launching an Education Working Group, a group of educators and scientists, who will develop educational content that promotes the use of the GeneLab database, and its visualization and analytical tools.",
+    "Analysis working groups",
+    "In 2018 GeneLab formed four Analysis Working Groups (AWGs) comprised of over 100 scientists and students from multiple space agencies, academia, and industry, for the purpose of optimizing and standardizing the processing of raw omics data from the GeneLab repository. The AWGs work in four major areas: animal, plant, microbial, and multi-omics data processing. The consensus data processing pipelines developed in each group are then used by GeneLab to process the data in the repository (see Data Processing Standardization above). The AWGs have begun to utilize the processed data to publish insights in important areas of space biology.",
+    "Data re-use",
+    "The number of GeneLab studies continue to grow rapidly, providing more opportunities for meta-analysis. Currently there are 18 publications of this type linked to repository datasets that together leveraged 78 repository datasets (see https://genelab.nasa.gov/publications/derived). In addition, an increasing number of extramural visualization tools are consuming the processed data in the repository through its API. For example, the Test of Arabidopsis Space Transcriptome (TOAST) tool has a graphical user interface through which users can quickly compare the data from plant spaceflight experiments using real-time, gene-specific queries, or explore gene networks of interest. Likewise, Project MANGO (https://www.ebi.ac.uk/metagenomics/super-studies/3) users can generate and visualize taxonomic analyses of GeneLab processed data to explore the microbiome of the ISS."
+  ],
+  "FIG": [
+    "The GeneLab database and its connections to intramural and extramural systems. The database API is leveraged extensively by components of the GeneLab Data Systems: the database web browser interface (A), the GeneLab Online Data Entry tool (B), a workspace tool for private data sharing (C), and the GeneLab data visualization server (D). The database API is also being used to power various extramural data analytics and visualization tools (E, F). The GeneLab Public Analytics platform (G) and Data Processing systems (H) access the repository data files directly.",
+    "GeneLab database content by study experiment environment (A), study assay type by year of data publication (B), and organism studied by year of data publication (C).",
+    "Redesigned ‘individual study page’ of the GeneLab data repository. Users can click on the section links (A) to navigate to each panel of metadata, open/close (collapse) each panel of metadata using the arrow on the panel header (B), and/or drag panels to re-order metadata displays (C). For each study dataset, a DOI is generated (D), and every submitted version of the dataset can be displayed using a drop-down menu (E).",
+    "The GEODE web browser interface used by both data submitters and GeneLab data curation staff. Below the data set ‘Status’ and desired release date fields (A) are the user-entered title, contact(s) and brief study description fields (B), the user-selected chosen taxon(s) studied (C), relevant publication objects (D) and subsections for users to specify further details of the study's description, protocols, samples, assays and study files (E), all validated against the ISA model."
+  ],
+  "CONCL": [
+    "FUTURE DIRECTIONS",
+    "Astronaut data",
+    "In 2011 the National Research Council of the U.S. recognized the importance of collecting astronaut data, in addition to model organism data in the Decadal Survey: ‘because of the limited number of humans who undergo exposure to the space environment, maintaining an extensive and well-organized database and managing it as a resource to be shared with the scientific community has long been viewed as an essential step for scientific discovery’. However, anonymizing astronaut data presents a unique challenge as the cohort is indeed extremely small, and very few metadata (e.g. just gender and flight dates) may be used to identify individuals. Nevertheless, to achieve greater reuse of these data, they too should be made part of an Open Science framework using FAIR principles. They should be stored in non-proprietary formats based on open (community-derived) standards, with open access and with linkages to other data that provide important context. This goal was nicely summarized by Higman et al., ‘data should be as open as possible, as closed as necessary’. More effort should be put into identifying what types of data can remain open, even if one can identify the individuals to which they belong. For example, gene expression levels do not present any sensitive information in the context of the response to stresses like microgravity and radiation. Such information should therefore be made available through open science frameworks as soon as these data are released for publication by investigators. Any information revealing sensitive and personal information, such as that which can be derived from DNA or RNA sequences, would remain access-controlled.",
+    "Enabling precision space risk management",
+    "Although valuable knowledge has been gained from experiments conducted in space or from space simulations on the ground, little progress has been made in terms of modelling the impact of spaceflight on humans. Most risk models have been focusing on space radiation and cancer. The strong epidemiological data on cancer risk from ionizing radiation and the existence of accelerators dedicated to simulating space radiation have been the main thrust behind these risk models. Ionizing radiation is an easy-to-use experimental factor, with good quantitative input and output, enabling mathematical models. Briefly, scientists control precisely the dose, the dose rate and the type of radiation delivered and they can measure precisely short-term endpoints such as DNA double strand breaks. Interestingly, such responses have been shown to be modulated by the genetic background of an individual, eventually leading to DNA mutations and cancer. Because modelling requires quantitative data, omics data are very well suited to informing risk models and to tackling more challenging stressors such as microgravity. The growing amount of omics data generated by NASA principal investigators and the recent guidelines from NASA emphasizing the importance of submitting all omics data to GeneLab are therefore exciting developments for modellers. Indeed, the software architecture designed by GeneLab and its strategies around data and metadata harmonization will enable the development of the next generation of space risk models. By classifying experimental factors into digital objects and by transforming raw data into comparable quantitative endpoints using a workflow approved by the community, GeneLab lets users see how space factors affect a large array of biological processes. By establishing mathematical laws describing the relationship between factors’ values and biological endpoints, one can start building more elaborate computer models. By integrating information from other NASA databases with more qualitative data (e.g. immunocytochemistry, behavioural data) using the same metadata schema and harmonization strategies, GeneLab can continue to evolve as a knowledge-based system, fully leveraging advances in machine learning, providing insights on enabling human life in space, and enabling individualized space risk models for precision space medicine.",
+    "GeneLab plans to utilize machine learning algorithms and artificial intelligence (AI) to maximize the usage of its data, especially in the context of modelling and extrapolation to human risks. Such effort may start by providing a portal proposing mechanistic models describing known health risks (cancer, muscle atrophy, bone loss, etc.). Such a tool would allow users to test how well GeneLab omics data and data from other databases support these models and test alternative models. Such approach will involve collaborating with the NASA Ames Life Sciences Data Archive (ALSDA), which archives biospecimens and non-omics data from mammalian and microbial NASA experiments."
+  ],
+  "SUPPL": [
+    "DATA AVAILABILITY",
+    "NASA GeneLab is an open-access data repository (https://genelab.nasa.gov)."
+  ],
+  "ACK_FUND": [
+    "FUNDING",
+    "Space Biology Program (Science Mission Directorate, Biological and Physical Sciences Division) of the National Aeronautics and Space Administration. Funding for open access charge: NASA.",
+    "Conflict of interest statement. None declared."
+  ],
+  "REF": [
+    "REFERENCES",
+    "GeneLab: Omics database for spaceflight experiments",
+    "FAIRness and usability for open-access omics data systems",
+    "The FAIR Guiding Principles for scientific data management and stewardship",
+    "NASA GeneLab project: bridging space radiation omics with ground studies",
+    "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+    "Spatially resolved transcriptional analysis of hearts from mice flown on the RR-3 mission",
+    "linkedISA: semantic representation of ISA-Tab experimental metadata",
+    "MetaboLights: a resource evolving in response to the needs of its scientific community",
+    "Hallmarks of space biology: the next stage of exploration",
+    "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver",
+    "GeneLab database analyses suggest long-term impact of space radiation on the cardiovascular system by the activation of FYN through reactive oxygen species",
+    "NASA genelab platform utilized for biological response to space radiation in animal models",
+    "Mice exposed to combined chronic low-dose irradiation and modeled microgravity develop long-term neurological sequelae",
+    "Test of arabidopsis space transcriptome: a discovery environment to explore multiple plant biology spaceflight experiments",
+    "Three camps, one destination: the intersections of research data management, FAIR and open",
+    "Radiation risk and human space exploration",
+    "Cancer risk from exposure to galactic cosmic rays: implications for space exploration by human beings",
+    "Simulating space radiation-Induced breast tumor incidence using automata",
+    "Solid cancer incidence in atomic bomb survivors: 1958–1998",
+    "Imaging features that discriminate between foci induced by high- and low-LET radiation in human fibroblasts",
+    "Characterizing the DNA damage response by cell tracking algorithms and cell features classification using high-content time-lapse analysis",
+    "Persistence of gamma-H2AX foci in bronchial cells correlates with susceptibility to radiation associated lung cancer in mice",
+    "Dose, LET and strain dependence of radiation-induced 53BP1 foci in 15 mouse strains ex vivo introducing novel DNA damage metrics",
+    "53BP1 repair kinetics for prediction of in vivo radiation susceptibility in 15 mouse strains",
+    "Large-mutation spectra induced at hemizygous loci by low-LET radiation: evidence for intrachromosomal proximity effects",
+    "Simulating space radiation-induced breast tumor incidence using automata",
+    "Exploring the effects of spaceflight on mouse physiology using the open access NASA GeneLab platform",
+    "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver",
+    "Global transcriptomic analysis suggests carbon dioxide as an environmental stressor in spaceflight: a systems biology GeneLab case study"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "GeneLab: Omics database for spaceflight experiments",
+      "autores": [
+        {
+          "nombre_completo": "S. Ray",
+          "nombres": "S.",
+          "apellidos": "Ray"
+        },
+        {
+          "nombre_completo": "S. Gebre",
+          "nombres": "S.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "D.C. Berrios",
+          "nombres": "D.C.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "P.B. Tran",
+          "nombres": "P.B.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "J.M. Galazka",
+          "nombres": "J.M.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "30329036",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "1753",
+      "lpage": "1759"
+    },
+    {
+      "titulo": "FAIRness and usability for open-access omics data systems",
+      "autores": [
+        {
+          "nombre_completo": "D.C. Berrios",
+          "nombres": "D.C.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Proceedings of the 2018 AMIA Annual Symposium",
+      "anio": "2018",
+      "volumen": "",
+      "fpage": "232",
+      "lpage": "241"
+    },
+    {
+      "titulo": "The FAIR Guiding Principles for scientific data management and stewardship",
+      "autores": [
+        {
+          "nombre_completo": "M.D. Wilkinson",
+          "nombres": "M.D.",
+          "apellidos": "Wilkinson"
+        },
+        {
+          "nombre_completo": "M. Dumontier",
+          "nombres": "M.",
+          "apellidos": "Dumontier"
+        },
+        {
+          "nombre_completo": "I.J. Aalbersberg",
+          "nombres": "I.J.",
+          "apellidos": "Aalbersberg"
+        },
+        {
+          "nombre_completo": "G. Appleton",
+          "nombres": "G.",
+          "apellidos": "Appleton"
+        },
+        {
+          "nombre_completo": "M. Axton",
+          "nombres": "M.",
+          "apellidos": "Axton"
+        },
+        {
+          "nombre_completo": "A. Baak",
+          "nombres": "A.",
+          "apellidos": "Baak"
+        },
+        {
+          "nombre_completo": "N. Blomberg",
+          "nombres": "N.",
+          "apellidos": "Blomberg"
+        },
+        {
+          "nombre_completo": "J.W. Boiten",
+          "nombres": "J.W.",
+          "apellidos": "Boiten"
+        },
+        {
+          "nombre_completo": "L.B. da Silva Santos",
+          "nombres": "L.B.",
+          "apellidos": "da Silva Santos"
+        },
+        {
+          "nombre_completo": "P.E. Bourne",
+          "nombres": "P.E.",
+          "apellidos": "Bourne"
+        }
+      ],
+      "pmid": "26978244",
+      "fuente": "Sci Data",
+      "anio": "2016",
+      "volumen": "3",
+      "fpage": "160018",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA GeneLab project: bridging space radiation omics with ground studies",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "J. Miller",
+          "nombres": "J.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "Y. Kidane",
+          "nombres": "Y.",
+          "apellidos": "Kidane"
+        },
+        {
+          "nombre_completo": "D. Berrios",
+          "nombres": "D.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "S.G. Gebre",
+          "nombres": "S.G.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "29652620",
+      "fuente": "Radiat. Res.",
+      "anio": "2018",
+      "volumen": "189",
+      "fpage": "553",
+      "lpage": "559"
+    },
+    {
+      "titulo": "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "P.L. Ståhl",
+          "nombres": "P.L.",
+          "apellidos": "Ståhl"
+        },
+        {
+          "nombre_completo": "F. Salmén",
+          "nombres": "F.",
+          "apellidos": "Salmén"
+        },
+        {
+          "nombre_completo": "S. Vickovic",
+          "nombres": "S.",
+          "apellidos": "Vickovic"
+        },
+        {
+          "nombre_completo": "A. Lundmark",
+          "nombres": "A.",
+          "apellidos": "Lundmark"
+        },
+        {
+          "nombre_completo": "J.F. Navarro",
+          "nombres": "J.F.",
+          "apellidos": "Navarro"
+        },
+        {
+          "nombre_completo": "J. Magnusson",
+          "nombres": "J.",
+          "apellidos": "Magnusson"
+        },
+        {
+          "nombre_completo": "S. Giacomello",
+          "nombres": "S.",
+          "apellidos": "Giacomello"
+        },
+        {
+          "nombre_completo": "M. Asp",
+          "nombres": "M.",
+          "apellidos": "Asp"
+        },
+        {
+          "nombre_completo": "J.O. Westholm",
+          "nombres": "J.O.",
+          "apellidos": "Westholm"
+        },
+        {
+          "nombre_completo": "M. Huss",
+          "nombres": "M.",
+          "apellidos": "Huss"
+        }
+      ],
+      "pmid": "27365449",
+      "fuente": "Science",
+      "anio": "2016",
+      "volumen": "353",
+      "fpage": "78",
+      "lpage": "82"
+    },
+    {
+      "titulo": "Spatially resolved transcriptional analysis of hearts from mice flown on the RR-3 mission",
+      "autores": [
+        {
+          "nombre_completo": "J. Galazka",
+          "nombres": "J.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "S. Giacomello",
+          "nombres": "S.",
+          "apellidos": "Giacomello"
+        },
+        {
+          "nombre_completo": "S.-H. Lai Polo",
+          "nombres": "S.-H.",
+          "apellidos": "Lai Polo"
+        },
+        {
+          "nombre_completo": "Z. Andrusivova",
+          "nombres": "Z.",
+          "apellidos": "Andrusivova"
+        },
+        {
+          "nombre_completo": "A. Saravia-Butler",
+          "nombres": "A.",
+          "apellidos": "Saravia-Butler"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "V. Boyko",
+          "nombres": "V.",
+          "apellidos": "Boyko"
+        }
+      ],
+      "pmid": "",
+      "fuente": "GeneLab",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "linkedISA: semantic representation of ISA-Tab experimental metadata",
+      "autores": [
+        {
+          "nombre_completo": "A. González-Beltrán",
+          "nombres": "A.",
+          "apellidos": "González-Beltrán"
+        },
+        {
+          "nombre_completo": "E. Maguire",
+          "nombres": "E.",
+          "apellidos": "Maguire"
+        },
+        {
+          "nombre_completo": "S.A. Sansone",
+          "nombres": "S.A.",
+          "apellidos": "Sansone"
+        },
+        {
+          "nombre_completo": "P. Rocca-Serra",
+          "nombres": "P.",
+          "apellidos": "Rocca-Serra"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinformatics",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "S4",
+      "lpage": ""
+    },
+    {
+      "titulo": "MetaboLights: a resource evolving in response to the needs of its scientific community",
+      "autores": [
+        {
+          "nombre_completo": "K. Haug",
+          "nombres": "K.",
+          "apellidos": "Haug"
+        },
+        {
+          "nombre_completo": "K. Cochrane",
+          "nombres": "K.",
+          "apellidos": "Cochrane"
+        },
+        {
+          "nombre_completo": "V.C. Nainala",
+          "nombres": "V.C.",
+          "apellidos": "Nainala"
+        },
+        {
+          "nombre_completo": "M. Williams",
+          "nombres": "M.",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "J. Chang",
+          "nombres": "J.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "K.V. Jayaseelan",
+          "nombres": "K.V.",
+          "apellidos": "Jayaseelan"
+        },
+        {
+          "nombre_completo": "C. O’Donovan",
+          "nombres": "C.",
+          "apellidos": "O’Donovan"
+        }
+      ],
+      "pmid": "31691833",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "D440",
+      "lpage": "D444"
+    },
+    {
+      "titulo": "Hallmarks of space biology: the next stage of exploration",
+      "autores": [
+        {
+          "nombre_completo": "S. Bailey",
+          "nombres": "S.",
+          "apellidos": "Bailey"
+        },
+        {
+          "nombre_completo": "C.E. Mason",
+          "nombres": "C.E.",
+          "apellidos": "Mason"
+        },
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "D. Hassane",
+          "nombres": "D.",
+          "apellidos": "Hassane"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "P. Grabham",
+          "nombres": "P.",
+          "apellidos": "Grabham"
+        },
+        {
+          "nombre_completo": "R. Scott",
+          "nombres": "R.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "J. Keune",
+          "nombres": "J.",
+          "apellidos": "Keune"
+        },
+        {
+          "nombre_completo": "T. Bristow",
+          "nombres": "T.",
+          "apellidos": "Bristow"
+        },
+        {
+          "nombre_completo": "R. Klotz",
+          "nombres": "R.",
+          "apellidos": "Klotz"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "K. Chakravarty",
+          "nombres": "K.",
+          "apellidos": "Chakravarty"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "H. Fazelinia",
+          "nombres": "H.",
+          "apellidos": "Fazelinia"
+        },
+        {
+          "nombre_completo": "W.A.D. Silveira",
+          "nombres": "W.A.D.",
+          "apellidos": "Silveira"
+        },
+        {
+          "nombre_completo": "V. Boyko",
+          "nombres": "V.",
+          "apellidos": "Boyko"
+        },
+        {
+          "nombre_completo": "S.-H.L. Polo",
+          "nombres": "S.-H.L.",
+          "apellidos": "Polo"
+        },
+        {
+          "nombre_completo": "A.M. Saravia-Butler",
+          "nombres": "A.M.",
+          "apellidos": "Saravia-Butler"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "D. Taylor",
+          "nombres": "D.",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "31844325",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "19195",
+      "lpage": ""
+    },
+    {
+      "titulo": "GeneLab database analyses suggest long-term impact of space radiation on the cardiovascular system by the activation of FYN through reactive oxygen species",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "J.T. McDonald",
+          "nombres": "J.T.",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "J. Miller",
+          "nombres": "J.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "P. Grabham",
+          "nombres": "P.",
+          "apellidos": "Grabham"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "661",
+      "lpage": "683"
+    },
+    {
+      "titulo": "NASA genelab platform utilized for biological response to space radiation in animal models",
+      "autores": [
+        {
+          "nombre_completo": "J.T. McDonald",
+          "nombres": "J.T.",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "R. Stainforth",
+          "nombres": "R.",
+          "apellidos": "Stainforth"
+        },
+        {
+          "nombre_completo": "J. Miller",
+          "nombres": "J.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "T. Cahill",
+          "nombres": "T.",
+          "apellidos": "Cahill"
+        },
+        {
+          "nombre_completo": "W.A. da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "da Silveira"
+        },
+        {
+          "nombre_completo": "K.S. Rathi",
+          "nombres": "K.S.",
+          "apellidos": "Rathi"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "D. Taylor",
+          "nombres": "D.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "V. Chauhan",
+          "nombres": "V.",
+          "apellidos": "Chauhan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cancers (Basel)",
+      "anio": "2020",
+      "volumen": "12",
+      "fpage": "318",
+      "lpage": "341"
+    },
+    {
+      "titulo": "Mice exposed to combined chronic low-dose irradiation and modeled microgravity develop long-term neurological sequelae",
+      "autores": [
+        {
+          "nombre_completo": "E.G. Overbey",
+          "nombres": "E.G.",
+          "apellidos": "Overbey"
+        },
+        {
+          "nombre_completo": "A.M. Paul",
+          "nombres": "A.M.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "W.A. da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "da Silveira"
+        },
+        {
+          "nombre_completo": "C.G.T. Tahimic",
+          "nombres": "C.G.T.",
+          "apellidos": "Tahimic"
+        },
+        {
+          "nombre_completo": "S.S. Reinsch",
+          "nombres": "S.S.",
+          "apellidos": "Reinsch"
+        },
+        {
+          "nombre_completo": "N. Szewczyk",
+          "nombres": "N.",
+          "apellidos": "Szewczyk"
+        },
+        {
+          "nombre_completo": "S. Stanbouly",
+          "nombres": "S.",
+          "apellidos": "Stanbouly"
+        },
+        {
+          "nombre_completo": "C. Wang",
+          "nombres": "C.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J.M. Galazka",
+          "nombres": "J.M.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "4094",
+      "lpage": "5010"
+    },
+    {
+      "titulo": "Test of arabidopsis space transcriptome: a discovery environment to explore multiple plant biology spaceflight experiments",
+      "autores": [
+        {
+          "nombre_completo": "R. Barker",
+          "nombres": "R.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "J. Lombardino",
+          "nombres": "J.",
+          "apellidos": "Lombardino"
+        },
+        {
+          "nombre_completo": "K. Rasmussen",
+          "nombres": "K.",
+          "apellidos": "Rasmussen"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "32265943",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "147",
+      "lpage": "147"
+    },
+    {
+      "titulo": "Three camps, one destination: the intersections of research data management, FAIR and open",
+      "autores": [
+        {
+          "nombre_completo": "H. Rosie",
+          "nombres": "H.",
+          "apellidos": "Rosie"
+        },
+        {
+          "nombre_completo": "D. Bangert",
+          "nombres": "D.",
+          "apellidos": "Bangert"
+        },
+        {
+          "nombre_completo": "S. Jones",
+          "nombres": "S.",
+          "apellidos": "Jones"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Insights",
+      "anio": "2019",
+      "volumen": "32",
+      "fpage": "18",
+      "lpage": "27"
+    },
+    {
+      "titulo": "Radiation risk and human space exploration",
+      "autores": [
+        {
+          "nombre_completo": "W. Schimmerling",
+          "nombres": "W.",
+          "apellidos": "Schimmerling"
+        },
+        {
+          "nombre_completo": "F.A. Cucinotta",
+          "nombres": "F.A.",
+          "apellidos": "Cucinotta"
+        },
+        {
+          "nombre_completo": "J.W. Wilson",
+          "nombres": "J.W.",
+          "apellidos": "Wilson"
+        }
+      ],
+      "pmid": "12577903",
+      "fuente": "Adv. Space Res.",
+      "anio": "2003",
+      "volumen": "31",
+      "fpage": "27",
+      "lpage": "34"
+    },
+    {
+      "titulo": "Cancer risk from exposure to galactic cosmic rays: implications for space exploration by human beings",
+      "autores": [
+        {
+          "nombre_completo": "F.A. Cucinotta",
+          "nombres": "F.A.",
+          "apellidos": "Cucinotta"
+        },
+        {
+          "nombre_completo": "M. Durante",
+          "nombres": "M.",
+          "apellidos": "Durante"
+        }
+      ],
+      "pmid": "16648048",
+      "fuente": "Lancet Oncol.",
+      "anio": "2006",
+      "volumen": "7",
+      "fpage": "431",
+      "lpage": "435"
+    },
+    {
+      "titulo": "Simulating space radiation-Induced breast tumor incidence using automata",
+      "autores": [
+        {
+          "nombre_completo": "A.C. Heuskin",
+          "nombres": "A.C.",
+          "apellidos": "Heuskin"
+        },
+        {
+          "nombre_completo": "A.I. Osseiran",
+          "nombres": "A.I.",
+          "apellidos": "Osseiran"
+        },
+        {
+          "nombre_completo": "J. Tang",
+          "nombres": "J.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "27333083",
+      "fuente": "Radiat. Res",
+      "anio": "2016",
+      "volumen": "186",
+      "fpage": "27",
+      "lpage": "38"
+    },
+    {
+      "titulo": "Solid cancer incidence in atomic bomb survivors: 1958–1998",
+      "autores": [
+        {
+          "nombre_completo": "D.L. Preston",
+          "nombres": "D.L.",
+          "apellidos": "Preston"
+        },
+        {
+          "nombre_completo": "E. Ron",
+          "nombres": "E.",
+          "apellidos": "Ron"
+        },
+        {
+          "nombre_completo": "S. Tokuoka",
+          "nombres": "S.",
+          "apellidos": "Tokuoka"
+        },
+        {
+          "nombre_completo": "S. Funamoto",
+          "nombres": "S.",
+          "apellidos": "Funamoto"
+        },
+        {
+          "nombre_completo": "N. Nishi",
+          "nombres": "N.",
+          "apellidos": "Nishi"
+        },
+        {
+          "nombre_completo": "M. Soda",
+          "nombres": "M.",
+          "apellidos": "Soda"
+        },
+        {
+          "nombre_completo": "K. Mabuchi",
+          "nombres": "K.",
+          "apellidos": "Mabuchi"
+        },
+        {
+          "nombre_completo": "K. Kodama",
+          "nombres": "K.",
+          "apellidos": "Kodama"
+        }
+      ],
+      "pmid": "17722996",
+      "fuente": "Radiat. Res.",
+      "anio": "2007",
+      "volumen": "168",
+      "fpage": "1",
+      "lpage": "64"
+    },
+    {
+      "titulo": "Imaging features that discriminate between foci induced by high- and low-LET radiation in human fibroblasts",
+      "autores": [
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "A. Boissiere",
+          "nombres": "A.",
+          "apellidos": "Boissiere"
+        },
+        {
+          "nombre_completo": "S. Ravani",
+          "nombres": "S.",
+          "apellidos": "Ravani"
+        },
+        {
+          "nombre_completo": "R. Romano",
+          "nombres": "R.",
+          "apellidos": "Romano"
+        },
+        {
+          "nombre_completo": "B. Parvin",
+          "nombres": "B.",
+          "apellidos": "Parvin"
+        },
+        {
+          "nombre_completo": "M.H. Barcellos-Hoff",
+          "nombres": "M.H.",
+          "apellidos": "Barcellos-Hoff"
+        }
+      ],
+      "pmid": "16669704",
+      "fuente": "Radiat. Res.",
+      "anio": "2006",
+      "volumen": "165",
+      "fpage": "505",
+      "lpage": "515"
+    },
+    {
+      "titulo": "Characterizing the DNA damage response by cell tracking algorithms and cell features classification using high-content time-lapse analysis",
+      "autores": [
+        {
+          "nombre_completo": "W. Georgescu",
+          "nombres": "W.",
+          "apellidos": "Georgescu"
+        },
+        {
+          "nombre_completo": "A. Osseiran",
+          "nombres": "A.",
+          "apellidos": "Osseiran"
+        },
+        {
+          "nombre_completo": "M. Rojec",
+          "nombres": "M.",
+          "apellidos": "Rojec"
+        },
+        {
+          "nombre_completo": "Y. Liu",
+          "nombres": "Y.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "M. Bombrun",
+          "nombres": "M.",
+          "apellidos": "Bombrun"
+        },
+        {
+          "nombre_completo": "J. Tang",
+          "nombres": "J.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "26107175",
+      "fuente": "PLoS One",
+      "anio": "2015",
+      "volumen": "10",
+      "fpage": "e0129438",
+      "lpage": ""
+    },
+    {
+      "titulo": "Persistence of gamma-H2AX foci in bronchial cells correlates with susceptibility to radiation associated lung cancer in mice",
+      "autores": [
+        {
+          "nombre_completo": "D.O. Ochola",
+          "nombres": "D.O.",
+          "apellidos": "Ochola"
+        },
+        {
+          "nombre_completo": "R. Sharif",
+          "nombres": "R.",
+          "apellidos": "Sharif"
+        },
+        {
+          "nombre_completo": "J.S. Bedford",
+          "nombres": "J.S.",
+          "apellidos": "Bedford"
+        },
+        {
+          "nombre_completo": "T.J. Keefe",
+          "nombres": "T.J.",
+          "apellidos": "Keefe"
+        },
+        {
+          "nombre_completo": "T.A. Kato",
+          "nombres": "T.A.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "C.M. Fallgren",
+          "nombres": "C.M.",
+          "apellidos": "Fallgren"
+        },
+        {
+          "nombre_completo": "P. Demant",
+          "nombres": "P.",
+          "apellidos": "Demant"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "M.M. Weil",
+          "nombres": "M.M.",
+          "apellidos": "Weil"
+        }
+      ],
+      "pmid": "30398394",
+      "fuente": "Radiat. Res.",
+      "anio": "2019",
+      "volumen": "191",
+      "fpage": "67",
+      "lpage": "75"
+    },
+    {
+      "titulo": "Dose, LET and strain dependence of radiation-induced 53BP1 foci in 15 mouse strains ex vivo introducing novel DNA damage metrics",
+      "autores": [
+        {
+          "nombre_completo": "S. Penninckx",
+          "nombres": "S.",
+          "apellidos": "Penninckx"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "C. Degorre",
+          "nombres": "C.",
+          "apellidos": "Degorre"
+        },
+        {
+          "nombre_completo": "E. Guiet",
+          "nombres": "E.",
+          "apellidos": "Guiet"
+        },
+        {
+          "nombre_completo": "L. Viger",
+          "nombres": "L.",
+          "apellidos": "Viger"
+        },
+        {
+          "nombre_completo": "S. Lucas",
+          "nombres": "S.",
+          "apellidos": "Lucas"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "31081741",
+      "fuente": "Radiat. Res.",
+      "anio": "2019",
+      "volumen": "192",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "53BP1 repair kinetics for prediction of in vivo radiation susceptibility in 15 mouse strains",
+      "autores": [
+        {
+          "nombre_completo": "E. Pariset",
+          "nombres": "E.",
+          "apellidos": "Pariset"
+        },
+        {
+          "nombre_completo": "S. Penninckx",
+          "nombres": "S.",
+          "apellidos": "Penninckx"
+        },
+        {
+          "nombre_completo": "C. Degorre",
+          "nombres": "C.",
+          "apellidos": "Degorre"
+        },
+        {
+          "nombre_completo": "E. Guiet",
+          "nombres": "E.",
+          "apellidos": "Guiet"
+        },
+        {
+          "nombre_completo": "A. Lopez Macha",
+          "nombres": "A.",
+          "apellidos": "Lopez Macha"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "A.M. Snijders",
+          "nombres": "A.M.",
+          "apellidos": "Snijders"
+        },
+        {
+          "nombre_completo": "J.H. Mao",
+          "nombres": "J.H.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "F. Paris",
+          "nombres": "F.",
+          "apellidos": "Paris"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Radiat. Res.",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Large-mutation spectra induced at hemizygous loci by low-LET radiation: evidence for intrachromosomal proximity effects",
+      "autores": [
+        {
+          "nombre_completo": "S. Costes",
+          "nombres": "S.",
+          "apellidos": "Costes"
+        },
+        {
+          "nombre_completo": "R. Sachs",
+          "nombres": "R.",
+          "apellidos": "Sachs"
+        },
+        {
+          "nombre_completo": "L. Hlatky",
+          "nombres": "L.",
+          "apellidos": "Hlatky"
+        },
+        {
+          "nombre_completo": "D. Vannais",
+          "nombres": "D.",
+          "apellidos": "Vannais"
+        },
+        {
+          "nombre_completo": "C. Waldren",
+          "nombres": "C.",
+          "apellidos": "Waldren"
+        },
+        {
+          "nombre_completo": "B. Fouladi",
+          "nombres": "B.",
+          "apellidos": "Fouladi"
+        }
+      ],
+      "pmid": "11604068",
+      "fuente": "Radiat. Res.",
+      "anio": "2001",
+      "volumen": "156",
+      "fpage": "545",
+      "lpage": "557"
+    },
+    {
+      "titulo": "Simulating space radiation-induced breast tumor incidence using automata",
+      "autores": [
+        {
+          "nombre_completo": "A.C. Heuskin",
+          "nombres": "A.C.",
+          "apellidos": "Heuskin"
+        },
+        {
+          "nombre_completo": "A.I. Osseiran",
+          "nombres": "A.I.",
+          "apellidos": "Osseiran"
+        },
+        {
+          "nombre_completo": "J. Tang",
+          "nombres": "J.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "27333083",
+      "fuente": "Radiat. Res.",
+      "anio": "2016",
+      "volumen": "186",
+      "fpage": "27",
+      "lpage": "38"
+    },
+    {
+      "titulo": "Exploring the effects of spaceflight on mouse physiology using the open access NASA GeneLab platform",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "Y. Shirazi-Fard",
+          "nombres": "Y.",
+          "apellidos": "Shirazi-Fard"
+        },
+        {
+          "nombre_completo": "S. Choi",
+          "nombres": "S.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "D. Berrios",
+          "nombres": "D.",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "S.G. Gebre",
+          "nombres": "S.G.",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "J.M. Galazka",
+          "nombres": "J.M.",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Vis. Exp",
+      "anio": "2019",
+      "volumen": "143",
+      "fpage": "e58447",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "K. Chakravarty",
+          "nombres": "K.",
+          "apellidos": "Chakravarty"
+        },
+        {
+          "nombre_completo": "H. Fogle",
+          "nombres": "H.",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "H. Fazelinia",
+          "nombres": "H.",
+          "apellidos": "Fazelinia"
+        },
+        {
+          "nombre_completo": "W.A.D. Silveira",
+          "nombres": "W.A.D.",
+          "apellidos": "Silveira"
+        },
+        {
+          "nombre_completo": "V. Boyko",
+          "nombres": "V.",
+          "apellidos": "Boyko"
+        },
+        {
+          "nombre_completo": "S.L. Polo",
+          "nombres": "S.L.",
+          "apellidos": "Polo"
+        },
+        {
+          "nombre_completo": "A.M. Saravia-Butler",
+          "nombres": "A.M.",
+          "apellidos": "Saravia-Butler"
+        },
+        {
+          "nombre_completo": "G. Hardiman",
+          "nombres": "G.",
+          "apellidos": "Hardiman"
+        },
+        {
+          "nombre_completo": "D. Taylor",
+          "nombres": "D.",
+          "apellidos": "Taylor"
+        }
+      ],
+      "pmid": "31844325",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "19195",
+      "lpage": ""
+    },
+    {
+      "titulo": "Global transcriptomic analysis suggests carbon dioxide as an environmental stressor in spaceflight: a systems biology GeneLab case study",
+      "autores": [
+        {
+          "nombre_completo": "A. Beheshti",
+          "nombres": "A.",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "E. Cekanaviciute",
+          "nombres": "E.",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "D.J. Smith",
+          "nombres": "D.J.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "S.V. Costes",
+          "nombres": "S.V.",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "29520055",
+      "fuente": "Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "4191",
+      "lpage": ""
+    }
+  ]
+}

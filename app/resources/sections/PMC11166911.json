@@ -1,0 +1,1841 @@
+{
+  "TITLE": [
+    "Spatially resolved multiomics on the neuronal effects induced by spaceflight in mice"
+  ],
+  "ABSTRACT": [
+    "Impairment of the central nervous system (CNS) poses a significant health risk for astronauts during long-duration space missions. In this study, we employed an innovative approach by integrating single-cell multiomics (transcriptomics and chromatin accessibility) with spatial transcriptomics to elucidate the impact of spaceflight on the mouse brain in female mice. Our comparative analysis between ground control and spaceflight-exposed animals revealed significant alterations in essential brain processes including neurogenesis, synaptogenesis and synaptic transmission, particularly affecting the cortex, hippocampus, striatum and neuroendocrine structures. Additionally, we observed astrocyte activation and signs of immune dysfunction. At the pathway level, some spaceflight-induced changes in the brain exhibit similarities with neurodegenerative disorders, marked by oxidative stress and protein misfolding. Our integrated spatial multiomics approach serves as a stepping stone towards understanding spaceflight-induced CNS impairments at the level of individual brain regions and cell types, and provides a basis for comparison in future spaceflight studies. For broader scientific impact, all datasets from this study are available through an interactive data portal, as well as the National Aeronautics and Space Administration (NASA) Open Science Data Repository (OSDR).",
+    "A spatial transcriptomics and single-cell multiomics study performed on mouse brain tissue. Here, authors show region-specific spaceflight-induced alterations in processes of neurogenesis, synaptogenesis and synaptic transmission."
+  ],
+  "INTRO": [
+    "Introduction",
+    "In preparation for long-duration lunar and Mars missions, it is crucial to investigate the health risks to astronauts that are posed by exposure to the space environment. The key physiological impairments include DNA damage and oxidative stress from galactic cosmic radiation, bone and muscle damage from loss of gravity, circadian and sleep dysregulation, microbial dysbiosis and tissue and organ degeneration, including cardiovascular and CNS damage. Studies on animal models have shown several spaceflight stressors directly impacting brain molecular mechanisms causing neuroinflammation, neurodegeneration and neurovascular damage. Specifically, exposure to simulated space radiation at doses comparable to the ones expected during the planned Mars mission, leads to neurodegeneration and neuroinflammation in vivo and in tissue and cell models, as well as cognitive and behavioral deficits in rodent models. Furthermore, major physiological effects of microgravity in low-Earth orbit, as observed at the International Space Station (ISS), include a redistribution of body fluids from lower towards upper body parts, leading to significant cardiovascular and CNS changes. However, deeper investigations are needed to understand the mechanisms and specificity of these impairments, and identify targets for countermeasure development.",
+    "Studies performed directly on astronauts have to be minimally invasive, resulting in limited information on molecular and cellular level outcomes, while spaceflown rodent models allow the range of subcellular to behavioral-level investigation of spaceflight effects. In this study, we used spatial transcriptomics and multiomics to explore spaceflight-induced molecular changes in brain tissue of young adult female BALB/c mice samples obtained during the Rodent Research-3 (RR-3) mission and requested from the NASA Biological Institutional Scientific Collection (NBISC). We combined single-nucleus multiomics (i.e., snMultiomics, RNA and ATAC sequencing) with Spatial Transcriptomics (ST) data to study changes in chromatin accessibility and RNA expression in different cell types and brain regions and to identify key regional and cell type differences in responses to spaceflight.",
+    "Single-cell sequencing is a powerful method to obtain information about the cellular composition of a tissue and cellular-level responses to perturbations. However, the applicability of single-cell transcriptomics relies on the accessibility of fresh specimens and the possibility to successfully dissociate the tissue of interest. Since sample preparation in spaceflight studies typically involves in-orbit freezing of the entire carcass to simplify the experiment and minimize crew time, single-nucleus transcriptomics becomes a more feasible method. Using single-nuclei multiomics, we were able to assess both transcriptional profiles and chromatin changes within the same nuclei, thus providing paired data of RNA expression and chromatin accessibility.",
+    "While single-nuclei sequencing methods facilitate the study of individual nuclei transcriptomes, they lack spatial context. Therefore, spatial transcriptomics is a powerful addition, enabling the comparison of effects among brain structures and providing transcriptomics information coupled with the original location within tissue sections.",
+    "Overall, our study is a stepping stone towards the understanding of the molecular changes induced by the space environment at the resolution of individual cell type and brain region. Our findings not only advance the knowledge of the neurological effects of spaceflight, but also provide a critical foundation for future space biology mission designs."
+  ],
+  "RESULTS": [
+    "Results",
+    "To identify specific cellular microenvironments affected by spaceflight, we combined the techniques of spatial transcriptomics (ST; 10X Genomics Visium) and single-nucleus multiomics (snMultiomics; gene expression and chromatin accessibility; 10× Genomics Single Cell Multiome ATAC + Gene Expression) on mouse brain. In total, we analyzed three brains from mice euthanized on-board of the International Space Station (ISS; F1, F2, F3) and three brains from ground control mice (G1, G2, G3) that were kept under matched conditions (see Animals in Methods). For each sample, we isolated nuclei from one hemisphere for snMultiomics analysis and cryo-sectioned the other hemisphere for ST analysis with the focus on the hippocampal region (Fig. 1).",
+    "Spaceflight sample quality is suitable for ST and snMultiomics analysis",
+    "As a first step, we ensured that the morphological and RNA quality of the samples was suitable for our experimental workflow given that the spaceflown samples had undergone a specific preservation approach, which was also used for the corresponding ground control animals (see Animals in Methods). We measured the RNA integrity number (RIN) for each sample and found that it was 9.15 on average (Supplementary Fig. 1A). Furthermore, we performed a tissue optimization experiment confirming that both RNA integrity and tissue morphology was of sufficient quality for ST analysis (see Visium Spatial Gene Expression technology and sequencing in Methods; Supplementary Fig. 1B).",
+    "snMultiomics dissects the effects of spaceflight on different cell types in spaceflown mouse brains",
+    "To dissect the alterations induced by spaceflight at the single-nucleus level, we performed a snMultiomics analysis on hemispheres of three spaceflown (F1, F2, F3) mice and two out of three ground controls (G2, G3), obtaining RNA expression profiles (RNA-seq) and chromatin accessibility (ATAC-seq) information from the same nucleus.",
+    "In total, we isolated 21,178 nuclei across the spaceflight and control samples with an average of 3140 unique transcripts (Unique Molecular Identifier or UMI) per nucleus (i.e., from snRNA-seq) and 9217 peaks per nucleus (i.e., from snATAC-seq) (Fig. 2A, B; Supplementary Fig. 1C) and an overall high gene expression correlation between the spaceflight and ground control samples (r = 0.95, p < 0.05; Fig. 2C). By integrating snRNASeq and snATAC-seq data and performing a joint clustering analysis, we identified 18 snMultiomics clusters (Fig. 2D; Supplementary Fig. 2).",
+    "Next, we leveraged previously reported marker genes in the literature (see Gene and cluster annotation in Methods for details) to identify 11 macro categories for the 18 snMultiomics clusters (interchangeably referred to as multiomics clusters in the next sections) according to their functions (Fig. 2E; Supplementary Data 1, 2). The majority of clusters were related to neurogenesis, neuronal activity and synaptic transmission, distinguished by differences in neurotransmitters (GABAergic, glutamatergic, dopaminergic) and based on gene expression patterns, tentatively associated with neuronal locations in hypothalamus, striatum, cortex and hippocampus.",
+    "We identified a total of 825 differentially expressed genes (DEGs) between spaceflown and ground control samples across all multiomics clusters (Supplementary Data 3). The majority of these 825 DEGs were involved in neuronal development (multiomics clusters 9, 11), axonal or dendritic outgrowth (multiomics cluster 9), and synaptic transmission (multiomics cluster 4), including specifically GABAergic synaptic transmission (multiomics cluster 11).",
+    "Comparison of 825 spaceflight multiomics DEGs to the 629 significant DEGs (Spaceflight vs Ground Control; p-value < 0.05) from the bulk RNAseq data of the same mice brains from the same NASA mission (RR-3), indicated 11 shared genes (p-value = 0.01582549, hypergeometric distribution test; see Gene overlap test in Methods; Supplementary Data 4). Out of these 11 overlapping genes, only 2 genes (Gabra6, and Kctd16) showed the same directional change in both the datasets indicating that the majority of spaceflight effects are cell type-specific and emphasizing the need for cell-specific analysis of central nervous system responses to spaceflight.",
+    "We also compared these 825 spaceflight DEGs with spaceflight DEGs reported in a total of 11 other datasets processed by NASA OSDR including mass spectrometry and RNA-seq data collected from different organs of BALB/c and C57BL/6J mice strains. This comparison revealed a total of 461 overlapping DEGs (p-value < 0.05) across all the 11 datasets combined (refer to Supplementary Data 5 for a detailed list of overlapping genes and the resulting p-value from the hypergeometric distribution test performed for each dataset).",
+    "ST provides a high-resolution mapping of gene expression changes to mouse brain regions",
+    "To investigate spaceflight-induced CNS alterations at a spatial level, we performed ST analysis on the other brain hemispheres from 3 flight (F1, F2, F3) and 3 ground control mice (G1, G2, G3). We collected two coronal sections from each brain hemisphere containing hippocampus, somatosensory cortex, striatum, amygdala and corpus callosum.",
+    "In total, we captured 14,630 genes across 29,770 spots after filtering and detected 10,884 UMIs/spot and 3755 genes/spot on average (Fig. 2F, G; Supplementary Fig. 3A, B) and found a high overall gene expression correlation between spaceflight and ground control tissue sections (r = 0.99, p < 0.05; Fig. 2H). Unsupervised clustering analysis of spot information identified 18 distinct spatial clusters (further referred as ST clusters) (Fig. 3A, B; Supplementary Data 6), which presented a clear separation between the cortical top (ST cluster 1) and bottom layers (ST cluster 9), as well as other major structures, including hippocampus (with separation of CA1, CA3, and dentate gyrus in ST clusters 10, 8 and 11 respectively), thalamus (ST cluster 5), striatum (ST clusters 0, 14), hypothalamus (ST cluster 2), pituitary (anterior and posterior; ST cluster 2), corpus callosum (ST cluster 12) and cerebral peduncles (ST cluster 4) (Fig. 3C). Key functions of the markers (Supplementary Data 7) that were shared by numerous ST clusters include neurogenesis, neuronal development, axonal growth and synaptogenesis, indicating that ST cluster analysis is dominated by neuronal gene expression.",
+    "Next, we investigated how spaceflight influences gene expression at the spatial level and identified a total of 4057 DEGs in 7 out of 18 ST clusters (Supplementary Data 8). The majority of DEGs were involved in neuronal development, synaptogenesis and synaptic plasticity, and neurodegeneration, including 21 DEGs in hippocampal CA3 neurons. The most pronounced change in gene expression due to spaceflight was observed in cortical neurons (bottom layers; ST cluster 9) which showed 3208 DEGs (1808 upregulated, and 1400 downregulated) with similar functions related to neuronal development and synaptic transmission in somatosensory, motor and visual cortex. Consensus pathway analysis highlighted neurodegeneration-associated pathways in cortical neurons (bottom layers; ST cluster 9) including protein misfolding and abnormal protein clearance, indicating potential similarities with neurodegenerative diseases characterized by protein misfolding and accumulation, such as Parkinson’s disease (Fig. 3D).",
+    "Integration of multiomics and ST datasets for spatial and cell type-level effects of spaceflight",
+    "To infer the spatial distribution of the clusters identified by multiomics, we performed spot deconvolution analysis on matching ST dataset using Stereoscope (which corrects for biases arising from different experimental techniques before calculating celltype proportions probabilities) (Fig. 3E; refer to Supplementary Figs. 4–6 for detailed visualizations of multiomics cluster proportions in ST dataset). The deconvolution analysis revealed similarities based on the assigned functional annotations between several multiomics and spatial data clusters, for instance, synaptic transmission (multiomics cluster 1 matched with ST clusters 0 and 2), myelination (multiomics cluster 3 matched ST clusters 4 and 12), and neuronal activity (multiomics cluster 15 matched ST cluster 5) (Fig. 3F; Supplementary Figs. 7, 8; Supplementary Data 9). This comparative analysis suggested the effects of spaceflight on synaptic transmission specifically in cortex (including both neurons and astrocytes, as revealed by snRNA-seq data that allowed cell type separation) and on dopaminergic neuron development specifically in striatum (Supplementary Data 9).",
+    "Ligand-receptor interaction analysis suggests spaceflight-mediated effects on astrocyte functions",
+    "To assess the effects of spaceflight on the cell-cell interaction level, we performed a ligand-receptor analysis on two multiomics clusters that showed among highest number of differentially expressed genes in response to spaceflight, i.e., multiomics clusters 4 (Astrocytes), and 11 (GABAergic Synaptic Transmission). We found 4 significantly upregulated interactions (Fig. 4A), including adhesion molecule pairs, EGFR (epidermal growth factor receptor) pairs, and VEGFA (vascular endothelial growth factor). These ligand-receptor interactions have previously been shown to be involved in cellular development in the CNS. EGFR, is involved in neuronal development, including axonal outgrowth. Meanwhile, VEGFA primarily regulates angiogenesis though it can also play a role in hippocampal neurogenesis, and astrocyte-produced VEGFA has previously been demonstrated to regulate neuronal NMDA receptor activity. Interestingly, we found that spaceflight widely increased VEGFA_GRIN28 interactions between multiomics cluster pairs related to astrocytes and synaptic transmission, i.e., 4-11 (Astrocytes-GABAergic Synaptic Transmission). No ligand-receptor interactions in these clusters were significantly downregulated.",
+    "We also extended the ligand-receptor analysis to the ST dataset using SpatialDM. We applied SpatialDM on each ST brain section to identify spatially co-expressed LR pairs and found a total of 1260 LR pairs (Supplementary Fig. 9; refer to Supplementary Data 10 for a detailed list of LR pairs with corresponding z-scores across each ST section). Differential testing between the two conditions (flight and ground control) for the observed 1260 LR pairs revealed a total of 134 differential LR pairs (differential p-value < 0.1; Supplementary Data 11).",
+    "Motif analysis shows spaceflight effects on transcription factor (TF) activity",
+    "To investigate the effects of spaceflight on transcription factors (TFs), we performed motif analysis on snATAC-seq peaks from the single nucleus multiomics data, which revealed spaceflight-mediated differences in TF activity in several multiomics clusters (Supplementary Data 12), especially 4 (Astrocytes), and 11 (GABAergic Synaptic Transmission).",
+    "Spaceflight was associated with reduced accessibility of motifs Zic1, Zic2 and Atoh1 in multiomics clusters 4 (Astrocytes) (Fig. 4B). Meanwhile, increased accessibility of motifs Pou5f1 and Sox2 in multiomics cluster 11 (GABAergic Synaptic Transmission) might indicate reduced neuronal differentiation in spaceflight (Fig. 4C). In addition to neuronal effects, motifs Pparg, Rxra and Nr2f6, which collectively inhibit immune responses, showed decreased accessibility in telencephalon interneurons (multiomics cluster 11), suggesting increased inflammatory responses in space, and possible circadian dysregulation.",
+    "Spatial gene expression patterns show several changes in signaling pathways occurring in spaceflight brain samples",
+    "Local environments of cell types may affect the functional responses to spaceflight represented by changes in signaling pathways. We compared key signaling pathways in adjacent locations based on the spatially-resolved cell type deconvolution results from Stereoscope analyzed using the Multiview intercellular SpaTial modeling framework (MISTy). This tool allowed us to investigate the relationships between cell type proportions in each ST spot and activities of 14 pathways inferred by decoupler-py and PROGENy. Specifically, the MISTy models predict cell type abundance in a spot based on an intraview (features in the same spot) and paraview (weighted sum of the features in the neighboring spots; weights decreasing with distance). Either cell type abundances or pathway activities were selected as “features” for the model, and a separate model was built for each sample and cell type. To analyze the effects of spaceflight, the models were subsequently aggregated into flight and ground control groups.",
+    "Based on cell type abundances, we did not find any significant changes in cell type colocalization (which would occur during tissue restructuring or lesion formation) between flight and ground controls, similar to our previous finding of no significant changes in cell type abundance in deconvolution results (Supplementary Figs. 7 and 8).",
+    "In contrast, changes in signaling pathways were associated with individual cell types. Cell abundance in neurovasculature (multiomics cluster 12) colocalized with decreased MAPK signaling in spaceflight (Fig. 4D). Similarly, signaling changes in local neighborhood (MISTy paraview) of several other cell types were found in spaceflight samples (Fig. 4E): (1) less negative correlation of EGFR signaling and glutamatergic neuronal cells; (2) more negative correlation of MAPK and cholinergic, monoaminergic and peptidergic neurons; (3) increased TGFbeta signaling in the vicinity of GABAergic interneurons; (4) reduced WNT signaling in class II glutamatergic neurons.",
+    "To assess the downstream effects of these changes, we built a tissue-specific gene regulatory network (GRN) from the multiomics data using CellOracle and used it to predict TF activities in spatial data and computed the Pearson correlation between TF and signaling activities for the dysregulated pathways in spots containing the cell types identified above. The network suggested that the decrease in MAPK signaling in spaceflight increases activity of the transcription factor Glis3 and reduces Lef1 in neurovasculature, respectively (Fig. 4F, G).",
+    "Metabolic gene enrichment analysis shows decreased gene expression in spaceflight mice",
+    "Gene Set Enrichment Analysis (GSEA) on the ST data using metabolic pathways indicated spaceflight-mediated inhibition of the oxidative phosphorylation pathway, especially Complex I signaling (Fig. 5A, Supplementary Data 13), as well as pathways related to glycolysis/gluconeogenesis (Supplementary Fig. 10), fructose and mannose metabolism (Supplementary Fig. 11) and arachidonic acid metabolism (Fig. 5B). Analysis of multiomics data was consistent with spaceflight-mediated reduction in these pathways together with fatty acid synthesis (Fig. 5C; Supplementary Data 14). Deficits in glycolysis and oxidative phosphorylation are consistent with previously reported mitochondrial impairments caused by spaceflight, while, arachidonic acid is primarily produced by astrocytes and suggests astrocyte dysfunction as a potential target for future spaceflight CNS studies.",
+    "Validation of differential gene expression",
+    "In order to validate our findings on the spaceflight affected processes in mouse brain, we performed single molecule Fluorescence In situ Hybridization (smFISH) using the RNAscope technology for two genes of interest (Adcy1 and Gpc5) in five brain sections: 3 flights, 2 ground controls (Supplementary Fig. 12) from a comparative set of mice (see Methods). We observed significant upregulation in the expression of both genes in spaceflight samples, confirming our findings from the ST data and multiomics data analysis (Supplementary Data 3 and 8, Supplementary Fig. 13A–C). Adcy1 was particularly upregulated in the hippocampus and associated with changes in neuronal activity (ST clusters 8, 11), while Gpc5 was upregulated in astrocytes (multiomics cluster 4)."
+  ],
+  "FIG": [
+    "Summary of the project workflow.",
+    "Overview of the study workflow where brains from International Space Station (ISS; Flight mice) and ground control mouse groups (Ground control mice) were split into the two hemispheres for Spatial Gene Expression Analysis (Spatial Transcriptomics or ST) and Single Nuclei Multiomics analysis (snMultiomics).",
+    "Single-nucleus multiomics analysis of spaceflown mouse brains.",
+    "A Distribution of UMIs per nucleus in the entire snRNA-seq dataset. nUMI/nuclei: number of UMIs detected in each nuclei. B Distribution of peaks per nucleus in the entire snATAC-seq dataset. nPeaks/nuclei: number of peaks detected per nuclei in the multiomics dataset. C Correlation between flight (y-axis) and ground control (x-axis) single nuclei multiomics samples (Pearson’s correlation coefficient, r = 0.95; p < 0.05) shown as a scatter plot. This is a two-sided Pearson correlation test with 95% confidence intervals performed on the average expression (log(1 + avgUMI)). avgUMI: average UMI counts per spot. D UMAP of single nuclei multiomics data and cluster annotations. E 11 functional multiomics clusters categories represented by their marker genes. F Distribution of UMIs per spot for the whole spatial transcriptomics (ST) dataset. nUMI/spot: number of UMIs detected per spot in the ST dataset. G Distribution of unique genes per spot for the whole spatial transcriptomics (ST) dataset. nGenes/spot: number of genes detected per spot in the ST dataset. H Correlation between flight (y-axis) and ground control (x-axis) ST samples (Pearson’s correlation coefficient, r = 0.99; p < 0.05) shown as a scatter plot. This is a two-sided Pearson correlation test with 95% confidence intervals performed on the average expression (log(1 + avgUMI)). avgUMI: average UMI counts per spot.",
+    "Spatial Transcriptomics datasets, cell type deconvolution and pathway analysis of ST data.",
+    "A Clustering of spatial transcriptomics data, cluster annotations and spatial location of clusters visualized on flight and ground control mouse brain sections. B Marker genes for each ST cluster visualized as dotplot. C Spatial distribution of 3 genes (Wfs1 for CA1 region of hippocampus, Dkk3 for CA1 and CA3 hippocampal region and Prox1 for Dentate gyrus) in three flight (left column) and three ground control (right column) ST sections. D Significantly different pathways (p < 0.05) between flight and ground control in ST cluster 9 (Cortical neurons, bottom layers). E Visualization of number of clusters identified by single-nuclei multiomics and their proportions in each ST cluster (x-axis; 0–17). Only multiomics clusters with higher proportions (>10%) are displayed in the barplot. F Cell type proportions mapped to spatial coordinates on three ground control (top row) and three flight (bottom row) mouse brain sections (Synaptic transmission I or multiomics cluster 1; Myelination or multiomics cluster 3; Neuronal activity, Synaptic transmission III or multiomics cluster 15).",
+    "Ligand-receptor interactions, motif accessibility, and signaling pathways affected by spaceflight.",
+    "A Dotplot showing the differentially expressed ligand receptor pairs found by CellPhoneDB between two interacting multiomics clusters (4 and 11) which are affected by spaceflight. These clusters showed the largest number of spaceflight DEGs, and four LR pairs were found significantly upregulated in these interactions. The null distribution of the mean expression of the LR pairs was estimated by employing a random permutation approach. The mean expression of the interacting LR molecule pairs are indicated by the dot colors and the dot sizes represent the p-values which refers to the enrichment of the LR pair in the interacting multiomics clusters. Scales for both dot size and color are presented below the plot. B Accessibility differences for motifs Atoh1, Zic1, and Zic2 in multiomics cluster 4 of flight mice and ground control mice. Spaceflight results in reduced accessibility of these motifs in flight samples. Two-sided Chi-square test statistic was used for differential testing with FDR correction (fdr <0.05). C Accessibility differences for motifs Pou5f1, and Sox2 in multiomics cluster 11 of flight and ground control mice. Spaceflight results in increased accessibility of these motifs in flight samples. Effects of spaceflight shown by increased accessibility of these motifs in flight samples. Two-sided Chi-square test statistic was used for differential testing with FDR correction (fdr <0.05). D (left) adjusted p-value of differential interactions found by MISTy in intraview (cell type and pathway activity colocalization) occuring only in flight (blue; n = 3 individual ST flight mouse samples) or in controls (red; n = 3 individual ST ground control mouse samples), tiles with black border identify statistically significant changes, (middle) correlation of MAPK pathway activity and Neurovasculature abundance, and mapped on Visium slide for two samples (right). Two-sided Student’s t tests with Benjamini–Hochberg multiple testing correction was used to determine the differential interactions. E adjusted p-value of differential interactions found by MISTy in paraview (cell type and pathway activity in local neighborhood) occuring only in flight (blue; n = 3 individual ST flight mouse samples) or in controls (red; n = 3 individual ST ground control mouse samples), tiles with black border identify statistically significant changes. Two-sided Student’s t tests with Benjamini–Hochberg multiple testing correction was used to determine the differential interactions. F Pearson correlation of Glis3 activity (left) containing vascular endothelial cells and MAPK activity (n = 6 individual ST mouse samples, 3 flight, 3 ground controls), and their respective activities in Visium slides (4 plots on the right). Two-sided Student’s t-tests with Benjamini–Hochberg multiple testing correction was used to determine the changes in correlation. G Pearson correlation of Lef1 activity (left) within spots containing vascular endothelial cells and MAPK activity, and their respective activities in Visium slides (4 plots on the right). Two-sided Student’s t tests with Benjamini–Hochberg multiple testing correction was used to determine the changes in correlation. multiomics cl: multiomics cluster. The boxplots in D, F, and G show the median as a central line, the box boundaries denote the first and third quartiles and the whiskers extend to the most extreme point in the range within 1.5 times the interquartile range from the box.",
+    "Metabolic gene set enrichment analysis.",
+    "A Heatmap showing fold change differences (log2FC) between flight and ground control samples in oxidative phosphorylation pathway in both ST and multiomics datasets. There is a spaceflight-mediated inhibition seen for this pathway that is consistent across the two datasets. Two-sided Wilcoxon’s rank-sum test was done with FDR adjustment. B Heatmap showing fold change differences (log2FC) between flight and ground control samples in Arachidonic acid metabolism pathway in both ST and multiomics datasets. There is a deficit for this pathway seen in spaceflight samples in both the datasets. Two-sided Wilcoxon’s rank-sum test was done with FDR adjustment. C Heatmap showing fold change differences (log2FC) between flight and ground control samples in Fatty acid synthesis pathway in both ST and multiomics datasets. There is a spaceflight-mediated reduction observed for this pathway in both the modalities. Two-sided Wilcoxon’s rank-sum test was done with FDR adjustment. multiomics cl: multiomics cluster."
+  ],
+  "DISCUSS": [
+    "Discussion",
+    "In this study, we used brain samples from ground control and spaceflown female mice from the RR-3 mission to understand the effects of the space environment at high resolution: at the level of individual brain cell types and brain regions. The main alterations in gene expression induced by spaceflight included changes in synaptogenesis and neuronal development, as well as neurodegeneration and inflammation, similar to previously reported tissue and behavioral-level effects of simulated spaceflight and simulated deep space radiation in mice. In addition, multiple gene expression changes mapped to pathways associated with circadian rhythm and mitochondrial functions. This study applies spatial transcriptomics and single-cell multiomics to study the effects of spaceflight on the CNS which can serve as a stepping stone towards comparative investigation of samples from other space missions and the outcomes of live animal return and reacclimation to Earth conditions.",
+    "We demonstrate spatial transcriptomics and single nuclei multiomics datasets to be highly complementary. For example, single-nucleus resolution permitted a focus on glial cells including astrocytes and microglia, which were not distinguishable in neuron-dominated ST datasets, due to the lower resolution of the method. Similarly, our snATAC-seq analysis in transcription factor binding sites indicated immune dysfunction, while immune cells were too few to be distinguishable in ST. On the other hand, combining spatial and gene expression data revealed region-specific effects of spaceflight. Furthermore, analysis of ligand-receptor interactions revealed interactions between different cell types, with the focus on neurodevelopment and astrocyte functions.",
+    "In our study, multiple lines of evidence converged on spaceflight-mediated disruption of neurogenesis, neuronal development and synaptogenesis, including dopaminergic synapse formation in the striatum. Similar outcomes of increased pluripotency and reduced cell differentiation have previously been reported in spaceflown mouse bone samples, in spaceflown human stem cell models, and in irradiated mouse models, indicating that it might be a systemic impairment that has now been identified to include the CNS. In addition, neurogenesis has been shown to be affected in a spaceflight analog study that combined simulated microgravity and low dose rate photon irradiation in mice. Notably, synaptogenesis is particularly sensitive to simulated galactic cosmic radiation components, indicating a potential additional risk for deep space missions. Finally, our observations in the striatal gene expression changes and transcription factor accessibility are worth validating in future spaceflight experiments, since they might result in disrupted dopaminergic signaling.",
+    "Spaceflight-associated changes in circadian gene expression are consistent with circadian disruption as one of the major biological responses to spaceflight, though it has been studied comparatively little so far, especially in animal models. Molecular and cellular CNS correlation of circadian gene expression dysregulation in spaceflight remains to be investigated in greater detail.",
+    "Our results suggest potential similarities between spaceflight and some terrestrial CNS conditions. Changes in gene expression associated with disrupted synaptogenesis and neurogenesis, oxidative stress and inflammation collectively resemble neurodegeneration that is associated with natural aging. Thus, in future studies anti-aging and neuroprotective therapeutics, such as antioxidants or mitochondria-targeting pharmaceuticals, might be repurposed as spaceflight countermeasures, or vice versa, spaceflight might be used as a model for accelerated aging. We have recently begun computational studies on identifying terrestrial disorder analogs to alterations induced by spaceflight, though they have not yet included CNS effects, which will require comparing the data from multiple spaceflight experiments.",
+    "Our study presents two main limitations. The first one is related to statistical robustness. Specifically, since the input material consists of spaceflight legacy samples collected without envisioning a spatial transcriptomics analysis, the resulting brain morphology is not fully even across samples. This limits the interpretability of the differences between spaceflight and ground control conditions to only a subset of spatial and multiomics clusters. Therefore, it will be important to validate the results of the RR-3 mission by comparing them to the neuronal effects of spaceflight in other mouse studies at similarly high resolution to increase statistical robustness. Moreover, it will be meaningful to expand the experimental design by including samples from animals that underwent a period of reacclimation to ground conditions after spaceflight. By doing so, it will be possible to quantify the extent to which spaceflight-mediated impairments persist after landing, especially once model organisms begin to age. This will allow the investigation of key aspects of astronaut health risks that have not been included yet.",
+    "The second limitation of our study relates to the sex of the analyzed animals. The majority of mouse studies in spaceflight have been performed on females to facilitate group housing, while astronaut cohorts include both male and female astronauts. Thus, it will be necessary to compare male and female animals to address the sexual dimorphism of CNS health risks. In order to further extrapolate animal models to human outcomes, human and mouse CNS organ model systems will have to be flown as payloads. The first human neurovascular models have already been investigated on the ISS, though their results have not yet been published, while analyzing the effects of simulated space radiation on human neurovascular models highlighted the importance of investigating astrocyte functions in missions beyond low-Earth orbit. In preparation for these missions, in which crew time will be severely limited, it will be essential to develop automated, long-lasting CNS models and compare their responses to model organisms.",
+    "Overall, our study serves as a preliminary indication to the potential risks that the brain is exposed to in spaceflight missions and more studies with larger sample sizes will be required to confirm our findings. To encourage the scientific community to use our datasets for generating new discoveries, all our data is openly available through NASA GeneLab and can be explored by a Shiny app (https://giacomellolabst.shinyapps.io/rr3-brain-shiny/).",
+    "In summary, in this study, we observed that spaceflight altered the expression of genes associated with neurogenesis, synaptogenesis and neuronal development in multiple regions of the brain, especially striatum, as well as oxidative stress and neuroinflammation collectively resembling neurological aging and neurodegeneration. Future studies are planned to increase statistical robustness, focus on neuroimmune outcomes and investigate the persistence of spaceflight effects after landing and re-acclimation to Earth environment. In addition, our findings illustrate the benefits of combined spatial transcriptomics and single-cell analysis in revealing detailed biological alterations and suggest them as highly relevant techniques for future space biology research. Our shared data, freely available in NASA’s OSDR database, aims to deepen our collective understanding of the impact of spaceflight on biological systems."
+  ],
+  "METHODS": [
+    "Methods",
+    "Ethical approval",
+    "The study followed recommendations in the Guide for the Care and Use of Laboratory Animals and the protocol (CAS-15-001-Y1) was approved by the NASA Flight Institutional Animal Care and Use Committee (IACUC) for both flight (housed at the NASA Ames Research Center) and ground control (housed at the Kennedy Space Center) mice.",
+    "Animals",
+    "A cohort of 12-week-old female BALB/c mice were flown to the ISS and housed in the Rodent Habitat for 39–42 days. Male mice were not used in this study because of their behavioral impairments when co-housed in a stressful environment. Recent studies have also shown that the ISS differences across individual male mice are greater than those across female mice, indicating negligible effects of any hormonal changes during estrus cycle in female mice. Mice of similar age, sex and strain were used as ground controls housed in identical hardware (Rodent Habitat AEM-X, identifier 1379) and matching ISS environmental conditions, including but not limited to cage type, light cycle (standard 12:12 light/dark cycle for both ground control and flight mice groups), food (Nutrient Upgraded Rodent Food Bar (NuRFB)), temperature (23.36 °C, and 21.37 °C on average for ground control and flight mice, respectively), humidity (41.86% and 41.53% on average for ground control and flight mice, respectively) and CO2 concentration (3664.89 ppm mean CO2 for ground controls, and 3711.97 ppm mean CO2 for flight mice). Detailed information on environmental telemetry data including temperature, humidity, CO2 levels, and cabin radiation exposure can be found on NASA’s Environmental Data Application (EDA) by clicking on the publicly accessible link https://visualization.osdr.nasa.gov/eda/ and selecting ‘RR-3’ from the dropdown menu in the Mission Dashboard on the right-hand panel. Additionally, all information on RR-3 mission payload is publicly available on NASA OSDR link https://osdr.nasa.gov/bio/repo/data/payloads/RR-3.",
+    "At the end of the mission, spaceflight and ground controls were euthanized (using euthanasia chemical ketamine/xylazine/acepromazine) and whole carcasses were stored at −80 °C until the dissection on earth. Mouse carcasses were removed from −80 °C storage and thawed at room temperature for 15–20 min for dissection. Each carcass dissection time was no longer than 1 h from collection of the first tissue. Brain tissues were harvested and placed into 2 ml Eppendorf tubes for snap freezing in liquid nitrogen, then stored in −80 °C freezer for sample processing.",
+    "RNA extraction",
+    "RNA was extracted from tissue sections using the RNeasy Mini kit (Qiagen). RNA integrity was measured by using the Agilent Bioanalyzer. All samples had RIN values above 8.",
+    "Sample preparation",
+    "Six brains in total, three from each group, were used in this study. Hemispheres of each of the brain samples were split. One hemisphere from each sample was embedded in Tissue-Tek O.C.T. and cryo-sectioned in the hippocampus area at 10 µm thickness. Sections were placed on Visium Gene Expression arrays, Superfrost glass slides or into Eppendorf tubes. Second hemisphere of each brain was used for nuclei isolation. Samples were stored in −80 °C before processing.",
+    "Visium Spatial Gene Expression technology and sequencing",
+    "First, 10× Genomics Spatial Gene Expression Tissue Optimization protocol was performed on 8 consecutive mouse brain sections to determine the optimal permeabilization time. One tissue section was used as a negative control. The experiment was performed according to the manufacturer’s instructions (User Guide, CG000283 Rev B).",
+    "Spatial gene expression libraries were generated using the Visium Gene Expression kit (10x Genomics). Brain hemispheres were cryo-sectioned to reach the hippocampus area. Two consecutive sections of hippocampus from the ground control cohort and two consecutive sections of hippocampus from the flight cohort were placed on Visium glass slides. Consecutive sections were considered technical replicates. In total, 12 Visium libraries were prepared following the manufacturer’s protocol (User Guide, CG000239 Rev F). Twelve libraries were sequenced by using an Illumina Novaseq platform, while four were sequenced on an Illumina NextSeq500 platform and sequenced by using a Illumina Novaseq platform. Length of read 1 was 28 bp and read 2 was 120 bp long.",
+    "Chromium single-cell Multiome ATAC + Gene Expression technology and sequencing",
+    "Nuclei isolation",
+    "One hemisphere of 4 brains used for Spatial Transcriptomics was utilized for nuclei isolation. Brain tissue was placed into a tube together with lysis buffer (10 mM Tris-HCl, 10 nM NaCl, 3 nM MgCl2, 0.1% Igepal CA-630, 1 mM DTT, 1U/µl RNAseOUT), homogenized by pestle homogenization in eppendorf tube and incubated on ice for 5 min. The nuclei were extracted by following 10XGenomic protocol for Single Cell Multiome ATAC + Gene Expression Sequencing (User Guide, CG000375 Rev B). Each sample was filtered through a 40 µm cell strainer prior to FACS sorting. Sorted and permeabilized nuclei were pelleted at 500 × g for 5 min at 4 °C, counted and used for Chromium Single Cell Multiome ATAC + Gene Expression library preparation. One hemisphere from the ground control G1 sample was used to optimize the nuclei isolation protocol.",
+    "Cell sorting",
+    "The stained cell nuclei suspension samples were then analyzed and sorted utilizing a BD Bioscience Influx flow cytometer using an 86 μm nozzle. Flow cytometry analyses and sorting were carried out by the following gating strategy: nuclei:singlets:7-AAD positive events. The nuclei sub-population was characterized in the Side Scatter-Forward Scatter plot by back-gating from the 7-AAD (ex. 488 nm, em. 692 nm), singlets were gated in the Side Scatter – Pulse width plot and finally the nuclei were gated in the Side Scatter – 7-AAD plot. The nuclei were collected in a BSA coated Eppendorf tube.",
+    "Single nuclei samples",
+    "Isolated and sorted nuclei were used to generate single nuclei gene expression and ATAC-seq libraries according to the manufacturer’s protocol using Chromium Single Cell Multiome ATAC + Gene Expression kit (User Guide, CG000338 Rev E). Finished Gene Expression libraries were sequenced by using an Illumina NextSeq2000 platform with lengths of read 1 and read 2, 28 bp and 120 bp long respectively. Finished ATAC-seq libraries were sequenced by using an Illumina NextSeq2000 platform. Length of both read 1 and read 2 was 50 bp long.",
+    "Pre-processing and Clustering of Spatial Transcriptomics (ST) and multiomics Data",
+    "ST data generation",
+    "Sequenced Visium libraries were processed using Space Ranger software (version 1.0.0, 10X Genomics). Reads were aligned to the Space Ranger built-in mouse reference genome (mm10-3.0.0) and count matrices were generated using these along with the Hematoxylin and Eosin (H&E) images.",
+    "ST data analysis",
+    "ST data analysis was performed jointly in R (v4.1.1) using the Seurat package (v4.0.1) and STUtility (v0.1.0). InputFromTable() was used to generate a Seurat object from the count matrices with specific filtering parameters (min.spot.feature.count = 100, min.gene.count = 100, min.gene.spots = 10, and min.spot.count = 100). The count matrices were enriched for protein-coding and lincRNA genes and then filtered for MALAT1, ribosomal and mitochondrial genes. Next, all spots containing less than 200 genes were removed. Technical variability within data was reduced with SCTransform (SCTransform() with default settings; SelectIntegrationFeatures() with nfeatures = 3000; PrepSCTIntegration() with anchor.features assigned to genes returned from the SelectIntegrationFeatures()) and Harmony (RunHarmony() with group.vars = ‘section.name’ addressing for batches associated with different Visium slide capture areas) packages. Principal Component Analysis (PCA) was used for selection of significant components (RunPCA() with default 50 PCs computed; 35 selected for the rest of the analysis). FindClusters() with resolution = 0.35 and dims = 1:35 was used to identify ST clusters and then Uniform Manifold Approximation and Projection (UMAP) was used to visualize the same in 2D space.",
+    "Multiomics data generation",
+    "The sequenced multiomics (snRNA-seq, and snATAC-seq) libraries were processed using CellRanger ARC (v2) software from 10X Genomics with default settings. Reads were mapped to the mouse genome (mm10 reference 2020-A from 10X Genomics).",
+    "Multiomics data analysis",
+    "Data analysis for the snRNA-seq and snATAC-seq data was performed in R (v4.1.1) using the packages Seurat (v4.1.0) and Signac (v1.6.0). In total, extracted single nuclei from 5 brain hemispheres were processed, resulting in 21,178 nuclei used in the analysis. The chromatin assay was generated using CreateChromatinAssay() from the Signac package (min.cells = 10). The annotation data for this was obtained using GetGRangesFromEnsDb() (ensdb=EnsDb.Mmusculus.v79). The snRNA-seq assay was generated using Read10X_h5() available in the Seurat package. MALAT1, ribosomal and mitochondrial genes were removed and count matrix was further filtered on number of reads, genes and peaks, as well as fraction ATAC-seq reads in peaks, and enrichment of ATAC-seq reads at transcription start sites. Filtering for low quality nuclei and genes was applied separately for each sample using a custom function, code for which can be found on our GitHub repository (see Code availability for more details). Doublet finder was used for doublet removal (v2.0.3) with a doublet score cut-off of 0.6. RNA-seq data was normalized using SCTransform with V2 regularization, while also regressing out cell cycle effects using cell cycle genes list available in the Seurat package. ATAC-seq data was normalized using TF-IDF normalization with default settings. Harmony (group.by.vars=‘bio_origin’) was then used to remove batch effects and integrate data from different samples, after which cells from both RNA-seq and ATAC-seq data were clustered using Weighted Nearest Neighbor (WNN) Analysis (FindMultiModalNeighbors() function with parameters reduction.list=list(‘SCT_CC_harmony’, ‘ATAC_harmony’); dims.list=list(1:30, 2:30); k.nn=30). Uniform Manifold Approximation and Projection (UMAP) was used to visualize the multiomics clusters (FindClusters() with setting Resolution=0.2).",
+    "Differential expression analysis",
+    "For identification of differentially expressed genes between clusters, Wilcoxon’s rank-sum test, implemented in the Seurat function FindAllMarkers() was used. Only genes expressed in at least 25% of cells were included in the analysis, and genes with log2 fold change >0.25 and FDR adjusted p-value < 0.05 were considered differentially expressed.",
+    "Differential gene expression between flight and ground conditions was performed using MAST, with a mixed model, using sample as a random effect. The analysis was done on each cell type separately, and included genes expressed in at least 30% of flight or ground cells in the given cell type. Genes with FDR adjusted p-value < 0.05 were considered differentially expressed. Differential chromatin accessibility between flight and ground conditions was performed the same way, using the same parameters.",
+    "Gene overlap test",
+    "To test the significance of the overlapping genes found from the validation analysis, a hypergeometric distribution test was used to test the null hypothesis: The overlap of X genes between the two genelists is a random sampling effect. The phyper() function in R (v4.3.2) was used to perform the hypergeometric distribution test and the resultant p-value was recorded. The R scripts consisting of the code for this test is available on our github repository (refer to Code availability for details).",
+    "Motif analysis",
+    "ChromVAR (v1.16.0), with default settings, was used to assess chromatin accessibility around DNA sequence motifs, taken from the JASPAR (v2020_0.99.10) database. For each motif and cell chromVAR calculated a score representing chromatin accessibility, while correcting for confounders such as for GC content and average accessibility. The chromatin accessibility scores from flight and ground cells were then compared, for each cell type separately. This was done with a mixed model using, sample as a random effect, implemented in the lmer() function from the lme4 (v1.1-28.9000) package. Motifs with FDR adjusted p-value < 0.05 were considered differentially accessible between flight and ground conditions.",
+    "Gene and cluster annotation",
+    "Marker genes from the clustering analysis and the DEGs from the differential expression, for both ST and multiomics data, were using marker genes in the Tabula muris database, literature search and EnrichR pathway analysis tool (with mouse model organism used as background). These annotations for the marker genes were used as a guide for manual annotation of the multiomics as well as the ST clusters.",
+    "Pathway analysis",
+    "For pathway analysis and visualization of the results, the Consensus Pathway Analysis platform and the EnrichR pathway analysis tool were used. For both these tools, pathway enrichment was determined relative to a universal background rather than a custom-defined, brain-specific gene list. This is to accept a known bias towards overrepresentation of brain-specific pathways in place of potential unknown biases resulting from the construction of a custom background gene list.",
+    "Ligand-receptor analysis",
+    "Ligand-receptor interactions analysis was performed with the package CellPhoneDB (v3). Multiomics clusters were analyzed using the DE genes for spaceflight obtained from using MAST (v1.20.0) (see Differential Expression Analysis in Methods). For the analysis, DE genes were transformed to their human orthologues which is a required criteria to run CellPhoneDB.",
+    "The ligand-receptor analysis on the spatial data to identify co-expressed LR pairs was performed using SpatialDM (v0.1.0). The standard pipeline to perform global selection of significant LR pairs and for local selection of spots for co-expressed LR pairs was performed using the package documentation as a reference (with l = 250 and cutoff = 0.2 in sdm.weight_matrix() function). Likelihood ratio test was used in the differential testing and the test was run by following the package documentation. For further details on the scripts used in this analysis, refer to the Code availability section.",
+    "Spatial pattern analysis",
+    "We inferred a gene regulatory network (GRN) from the brain multiomics dataset using CellOracle. A tissue-specific GRN was generated by grouping all brain cell types into the same label before running the method. Transcription Factor (TF) activities were inferred for the brain spatial transcriptomics data using decoupler-py with the method mlm and the obtained GRN as prior knowledge. Additionally, pathway activities were inferred for the brain spatial transcriptomics data using decoupler-py with the method mlm and the PROGENy model of pathway footprints as prior knowledge.",
+    "To analyze spatial relationships between cell types and pathway activities, we built cell type specific models with MISTy, which predict abundances (as determined by Stereoscope) from pathway activities in situ and from the local neighborhood (up to two spots away). In this case, The MISTy models are built only on Visium spots with at least 5% of the specific cell type.",
+    "We then extracted cell type-pathway interactions that occur in only one of the conditions. In the regions of interest where these differential interactions occur, we investigate changes in correlation (Pearson) between pathway activities and TF activities inferred from the CellOracle GRNs. We used Student’s t-tests with Benjamini–Hochberg multiple testing correction for both determining the differential interactions and the changes in correlation.",
+    "Metabolic pathway analysis",
+    "The flight-vs-ground expression level fold changes of each cluster were computed for genes that are expressed in more than 1% of the cells in either flight or ground condition of the cluster, using the FindMarkers() function in the Seurat package (v4.1.1). Genes listed in the RECON3D metabolic model were extracted with their assigned metabolic pathway membership. The human gene IDs were translated to mouse gene IDs using the manual inspection and the HUGO Gene Nomenclature Committee (HGNC) Comparison of Orthology Predictions (HCOP) service. All genes from the flight-vs-ground expression analysis were then ranked by fold-change differences (positive to negative) regardless of the p-value from FindMarkers() function, and tested for pathway enrichment vs the genes in RECON3D pathways using the fgsea function in the fgsea package (v1.22.0) in R (v4.2.1). Resulting p-value enrichment of RECON3D-sourced pathways were adjusted (adjusted p-value) by program for the number of pathway tests performed.",
+    "ShinyApp",
+    "ShinyApp was designed using the package shiny (v1.7.1) in R (v4.1.1) and the theme superhero was used for the overall esthetics of the shinyapp design. The R (v4.3.2) package babelgene (v22.9) with references from the NCBI database was used to identify the human orthologs for the genes listed under the Cluster markers - Expression and Spaceflight DEGs - Expression tabs in the shinyapp. All genes from Supplementary Data 4, 7 and 8 can be visualized on the shinyapp.",
+    "RNAscope",
+    "Single molecule Fluorescence In Situ Hybridization (smFISH) to detect expression of genes of interest (Adcyl and Gpc55) was performed using the RNAscope technology following the manufacturer’s protocol (Advanced Cell Diagnostics, ACD, Hayward, CA). Target genes (Gpc5 in channel red, Adcy1 in channel green) were visualized using the HRP-based RNAscope Fluorescent Multiplex Assay V2 (Cat. No. 323110). Brains from a cohort of 14–15 weeks-old female B6129SF2/J wild type mice flown to the ISS and housed in the Rodent Habitat for 28-29 days (NASA RR-10 mission) were used for this validation. Brains from mice of similar age, sex and strain were used as ground controls housed in identical hardware and matching ISS environmental conditions. At the end of the mission, spaceflight and ground controls were euthanized (euthanasia method: bilateral thoracotomy with sedation, ketamine/xylazine injection) and whole carcasses were stored at −80 °C until the dissection on earth. Brain tissues were harvested and snapped frozen in liquid nitrogen, then stored in −80 °C freezer for sample processing.",
+    "Brains from two ground controls (GC3, GC9) and three flights (FL1, FL3 and FL5) were cryo-sectioned to reach the hippocampus area and for each of them, one 10 µm section was placed on a superfrost plus slide and stored at −80 °C for less than a week before proceeding to the RNAscope protocol. The tissue sections were subjected to permeabilization steps before incubation with the target probes. The signal was amplified using the HRP-based technology (visualized by Tyramide Signal Amplification or TSATM fluorophores by PerkinElmer).",
+    "RNAscope signal quantification",
+    "The quantification of the fluorescence signal was performed with Fiji by ImageJ software. The images were taken with a ZEN LSM700 confocal microscope and exported as tiff with the same settings. Once exported they were loaded on ImageJ and the whole area of the section, i.e., the whole hemisphere was selected for quantification. Image was then transformed from RGB to 16-bit and quantification was done by counting the number of pixels positive for the threshold set. The threshold was unique for each channel and was kept the same for ground and control samples.",
+    "Reporting summary",
+    "Further information on research design is available in the Nature Portfolio Reporting Summary linked to this article.",
+    "Supplementary information",
+    "Source data",
+    "Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+    "These authors contributed equally: Yuvarani Masarapu, Egle Cekanaviciute, Zaneta Andrusivova."
+  ],
+  "SUPPL": [
+    "Supplementary information",
+    "The online version contains supplementary material available at 10.1038/s41467-024-48916-8.",
+    "Data availability",
+    "The raw data generated in this study is hosted on the NASA GeneLab server, a part of the NASA Open Science Data Repository under study ID OSD-352 (10.26030/jm59-zy54). This includes raw data (fastq files and brightfield images) from the ST and multiomics datasets, as well as processed data (aggregated gene count matrices, metadata, and fragment files) from the multiomics dataset. GeneLab, as an integral component of NASA’s open-science initiative, provides researchers with raw and processed multi-omics data from spaceflight and ground-based analog experiments, fostering broad scientific collaboration. Additionally, processed count matrices generated for the ST samples, the final data generated from the analysis performed in this study, and the source data for the generated figures are publicly accessible from Mendeley dataset (10.17632/fjxrcbh672.1). Furthermore, the RNAscope validation images with genes Adcy1 and Gpc5 for all the validated tissue sections are available on Figshare (10.6084/m9.figshare.24581544). Source data are provided with this paper.",
+    "Code availability",
+    "All the necessary scripts required for the generation, processing, and analysis of the data discussed in this study are publicly available on our Github repository (https://github.com/giacomellolab/NASA_RR3_Brain). Code to perform the validation tests and to generate the figures presented in this study are also available on this repository. Interactive visualization of our dataset can be done via our shiny app (https://giacomellolabst.shinyapps.io/rr3-brain-shiny/)."
+  ],
+  "AUTH_CONT": [
+    "Author contributions",
+    "Conceptualization: S.G., J.M.G., S.V.C. Methodology: S.G. Investigation: Z.A. performed ST and single-cell multiomics experiments; V.B. performed sequencing, E.L. performed nuclei isolation. Formal analysis: E.C. performed data annotation, Z.A. and Å.B. performed ST data analysis, J.O.W. performed single-cell multiomics analysis, R.F. and P.BiM performed MISTy analysis, E.C., S.V. and D.T. performed pathway analysis with interpretations provided by R.G.H., C.S. and Y.M. performed Ligand-Receptor analysis, R.G.H. gave conceptual advice. Validation: R.F., P.BiM, D.C.W., M.G., S.F., K.M. Software: J.O.W., Å.B. Resources: V.B., A.S.B., D.C.W., J.M.G., S.V.C. Data curation: J.O.W., Å.B., A.S.B., C.S., R.F., Y.M., and P.BiM. Visualization: Y.M., Z.A., C.S. Supervision: S.G., O.B., J.S.R., J.M.G. Project administration: S.G., J.M.G., S.V.C. Funding acquisition: S.V.C., S.G. Writing – original draft: Y.M., E.C., Z.A., D.T., D.C.W. and S.G. Manuscript figures preparation: Y.M., Z.A. Supplementary Figs. and data preparation: Y.M., Z.A. Manuscript – review & editing: All authors.",
+    "Peer review",
+    "Peer review information",
+    "Nature Communications thanks Susanna Rosi and the other, anonymous, reviewer(s) for their contribution to the peer review of this work. A peer review file is available."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "Open access funding provided by Royal Institute of Technology."
+  ],
+  "COMP_INT": [
+    "Competing interests",
+    "ZA, SF and SG are scientific advisors to 10x Genomics Inc, which holds IP rights to the ST technology. SG holds 10X Genomics stocks. JSR reports funding from GSK, Pfizer and Sanofi and fees/honoraria from Travere Therapeutics, Stadapharm, Astex, Owkin, Pfizer and Grunenthal. All other authors declare no competing interests."
+  ],
+  "REF": [
+    "References",
+    "Fundamental Biological Features of Spaceflight: Advancing the Field to Enable Deep-Space Exploration",
+    "Exposure to galactic cosmic radiation compromises DNA repair and increases the potential for oncogenic chromosomal rearrangement in bronchial epithelial cells",
+    "Update on the effects of microgravity on the musculoskeletal system",
+    "Space Radiation and Bone Loss",
+    "Keeping the right time in space: importance of circadian clock and sleep for physiology and performance of astronauts",
+    "Gut Microbiome and Space Travelers’ Health: State of the Art and Possible Pro/Prebiotic Strategies for Long-Term Space Missions",
+    "Recent Progress in Space Physiology and Aging",
+    "Spaceflight influences gene expression, photoreceptor integrity, and oxidative stress-related damage in the murine retina",
+    "Spaceflight induces oxidative damage to blood-brain barrier integrity in a mouse model",
+    "Mice Exposed to Combined Chronic Low-Dose Irradiation and Modeled Microgravity Develop Long-Term Neurological Sequelae",
+    "Characterization of gene expression profiles in the mouse brain after 35 days of spaceflight mission",
+    "Central Nervous System Responses to Simulated Galactic Cosmic Rays",
+    "Long-term spaceflight and the cardiovascular system",
+    "Spaceflight-Associated Brain White Matter Microstructural Changes and Intracranial Fluid Redistribution",
+    "Advances and applications of single-cell sequencing technologies",
+    "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+    "Challenges and considerations for single-cell and spatially resolved transcriptomics sample collection during spaceflight",
+    "CPA: a web-based platform for consensus pathway analysis and interactive visualization",
+    "Protein interaction networks in neurodegenerative diseases: From physiological function to aggregation",
+    "Supramolecular organizing centers at the interface of inflammation and neurodegeneration",
+    "Single-cell and spatial transcriptomics enables probabilistic inference of cell type topography",
+    "Role of EGFR in the Nervous System",
+    "Delineating multiple functions of VEGF-A in the adult brain",
+    "VEGF modulates NMDA receptors activity in cerebellar granule cells through Src-family kinases before synapse formation",
+    "Astrocyte-derived VEGF-A drives blood-brain barrier disruption in CNS inflammatory disease",
+    "SpatialDM for rapid identification of spatially co-expressed ligand–receptor and revealing cell–cell communication patterns",
+    "Epigenetic control of region-specific transcriptional programs in mouse cerebellar and cortical astrocytes",
+    "Zic2 controls cerebellar development in cooperation with Zic1",
+    "Glioma-initiating cells retain their tumorigenicity through integration of the Sox axis and Oct4 protein",
+    "Efficient genetic reprogramming of unmodified somatic neural progenitors uncovers the essential requirement of Oct4 and Klf4",
+    "SOX2 functions to maintain neural progenitor identity",
+    "PPAR-γ Ameliorates Neuronal Apoptosis and Ischemic Brain Injury via Suppressing NF-κB-Driven p22phox Transcription",
+    "Pleiotropic role of PPARγ in intracerebral hemorrhage: an intricate system involving Nrf2, RXR, and NF-κB",
+    "The nuclear orphan receptor NR2F6 suppresses lymphocyte activation and T helper 17-dependent autoimmunity",
+    "Metabolism and cancer: the circadian clock connection",
+    "Nocturnin: a circadian target of Pparg-induced adipogenesis",
+    "A Transcriptional Circuit Filters Oscillating Circadian Hormonal Inputs to Regulate Fat Cell Differentiation",
+    "Recent Progress in Non-motor Features of Parkinson’s Disease with a Focus on Circadian Rhythm Dysregulation",
+    "Abnormal development of the locus coeruleus in Ear2(Nr2f6)-deficient mice impairs the functionality of the forebrain clock and affects nociception",
+    "Explainable multiview framework for dissecting spatial relationships from highly multiplexed data",
+    "decoupleR: ensemble of computational methods to infer biological activities from omics data",
+    "Perturbation-response genes reveal signaling footprints in cancer gene expression",
+    "Kamimoto, K., Hoffmann, C. M. & Morris, S. A. CellOracle: Dissecting cell identity via network inference and in silico gene perturbation. bioRxiv,10.1101/2020.02.17.947416 (2020).",
+    "Comprehensive Multi-omics Analysis Reveals Mitochondrial Stress as a Central Biological Hub for Spaceflight Impact",
+    "Genetic control of dopaminergic neuron differentiation",
+    "Microgravity induces pelvic bone loss through osteoclastic activity, osteocytic osteolysis, and osteoblastic cell cycle inhibition by CDKN1a/p21",
+    "Simulated Microgravity Potentiates Hematopoietic Differentiation of Human Pluripotent Stem Cells and Supports Formation of 3D Hematopoietic Cluster",
+    "Irradiation of Juvenile, but not Adult, Mammary Gland Increases Stem Cell Self-Renewal and Estrogen Receptor Negative Tumors",
+    "Cosmic radiation exposure and persistent cognitive dysfunction",
+    "Circadian misalignment affects sleep and medication use before and during spaceflight",
+    "Sleep, performance, circadian rhythms, and light-dark cycles during two space shuttle flights",
+    "Anti-Oxidants in Parkinson’s Disease Therapy: A Critical Point of View",
+    "Mitochondrial Dysfunction in Parkinson’s Disease: From Mechanistic Insights to Therapy",
+    "Mitochondrial Dysfunction and Mitophagy in Parkinson’s Disease: From Mechanism to Therapy",
+    "Protection against neurodegenerative disease on Earth and in space",
+    "Knowledge Network Embedding of Transcriptomic Data from Spaceflown Mice Uncovers Signs and Symptoms Associated with Terrestrial Diseases",
+    "Small tissue chips with big opportunities for space medicine",
+    "Tissue Chips in Space-Challenges and Opportunities",
+    "Astrocytes regulate vascular endothelial responses to simulated deep space radiation in a human organ-on-a-chip model",
+    "NASA OSDR: Open Science for Life in Space, https://osdr.nasa.gov/bio/.",
+    "Effects of spaceflight aboard the International Space Station on mouse estrous cycle and ovarian gene expression",
+    "NASA OSDR: Open Science for Life in Space. 10.26030/jm59-zy54.",
+    "giacomellolab/NASA_RR3_Brain: v1.0.0. 10.5281/zenodo.10954397.",
+    "chromVAR: inferring transcription-factor-associated accessibility from single-cell epigenomic data",
+    "JASPAR 2020: update of the open-access database of transcription factor binding profiles",
+    "Tabula Muris Consortium, Overall coordination, Logistical coordination, Organ collection and processing, Library preparation and sequencing, Computational data analysis, Cell type annotation, Writing group, Supplemental text writing group, Principal investigators. Single-cell transcriptomics of 20 mouse organs creates a Tabula Muris. Nature562, 367–372 (2018).",
+    "Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool",
+    "Enrichr: a comprehensive gene set enrichment analysis web server 2016 update",
+    "Gene Set Knowledge Discovery with Enrichr",
+    "Mapping the temporal and spatial dynamics of the human endometrium in vivo and in vitro",
+    "Integrated analysis of multimodal single-cell data",
+    "Recon3D enables a three-dimensional view of gene variation in human metabolism",
+    "HCOP: a searchable database of human orthology predictions",
+    "Korotkevich, G. et al. Fast gene set enrichment analysis. bioRxiv,10.1101/060012 (2021).",
+    "The R Project for Statistical Computing. https://www.r-project.org/.",
+    "GeneLab: Omics database for spaceflight experiments",
+    "NASA GeneLab: interfaces for the exploration of space omics data",
+    "Masarapu, Y. NASA RR-3 Brain Dataset. Mendeley Data 10.17632/fjxrcbh672.1 (2024).",
+    "Masarapu, Y. M. RNAscope images for Adcy1 (green) and Gpc5 (red) genes for five validation samples (3 Flight, 2 Ground Control). 10.6084/m9.figshare.24581544.v1 (2024)."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Fundamental Biological Features of Spaceflight: Advancing the Field to Enable Deep-Space Exploration",
+      "autores": [
+        {
+          "nombre_completo": "E Afshinnekoo",
+          "nombres": "E",
+          "apellidos": "Afshinnekoo"
+        }
+      ],
+      "pmid": "33242416",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1162",
+      "lpage": "1184"
+    },
+    {
+      "titulo": "Exposure to galactic cosmic radiation compromises DNA repair and increases the potential for oncogenic chromosomal rearrangement in bronchial epithelial cells",
+      "autores": [
+        {
+          "nombre_completo": "Z Li",
+          "nombres": "Z",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "30038404",
+      "fuente": "Sci. Rep.",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "11038",
+      "lpage": ""
+    },
+    {
+      "titulo": "Update on the effects of microgravity on the musculoskeletal system",
+      "autores": [
+        {
+          "nombre_completo": "OJ;suffix:4th Juhl",
+          "nombres": "OJ;suffix:4th",
+          "apellidos": "Juhl"
+        }
+      ],
+      "pmid": "34301942",
+      "fuente": "NPJ Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "28",
+      "lpage": ""
+    },
+    {
+      "titulo": "Space Radiation and Bone Loss",
+      "autores": [
+        {
+          "nombre_completo": "JS Willey",
+          "nombres": "JS",
+          "apellidos": "Willey"
+        },
+        {
+          "nombre_completo": "SAJ Lloyd",
+          "nombres": "SAJ",
+          "apellidos": "Lloyd"
+        },
+        {
+          "nombre_completo": "GA Nelson",
+          "nombres": "GA",
+          "apellidos": "Nelson"
+        },
+        {
+          "nombre_completo": "TA Bateman",
+          "nombres": "TA",
+          "apellidos": "Bateman"
+        }
+      ],
+      "pmid": "22826632",
+      "fuente": "Gravit. Space Biol. Bull.",
+      "anio": "2011",
+      "volumen": "25",
+      "fpage": "14",
+      "lpage": "21"
+    },
+    {
+      "titulo": "Keeping the right time in space: importance of circadian clock and sleep for physiology and performance of astronauts",
+      "autores": [
+        {
+          "nombre_completo": "J-H Guo",
+          "nombres": "J-H",
+          "apellidos": "Guo"
+        }
+      ],
+      "pmid": "26000169",
+      "fuente": "Mil. Med. Res.",
+      "anio": "2014",
+      "volumen": "1",
+      "fpage": "23",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gut Microbiome and Space Travelers’ Health: State of the Art and Possible Pro/Prebiotic Strategies for Long-Term Space Missions",
+      "autores": [
+        {
+          "nombre_completo": "S Turroni",
+          "nombres": "S",
+          "apellidos": "Turroni"
+        }
+      ],
+      "pmid": "33013480",
+      "fuente": "Front. Physiol.",
+      "anio": "2020",
+      "volumen": "11",
+      "fpage": "553929",
+      "lpage": ""
+    },
+    {
+      "titulo": "Recent Progress in Space Physiology and Aging",
+      "autores": [
+        {
+          "nombre_completo": "F Strollo",
+          "nombres": "F",
+          "apellidos": "Strollo"
+        },
+        {
+          "nombre_completo": "S Gentile",
+          "nombres": "S",
+          "apellidos": "Gentile"
+        },
+        {
+          "nombre_completo": "G Strollo",
+          "nombres": "G",
+          "apellidos": "Strollo"
+        },
+        {
+          "nombre_completo": "A Mambro",
+          "nombres": "A",
+          "apellidos": "Mambro"
+        },
+        {
+          "nombre_completo": "J Vernikos",
+          "nombres": "J",
+          "apellidos": "Vernikos"
+        }
+      ],
+      "pmid": "30483144",
+      "fuente": "Front. Physiol.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1551",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight influences gene expression, photoreceptor integrity, and oxidative stress-related damage in the murine retina",
+      "autores": [
+        {
+          "nombre_completo": "EG Overbey",
+          "nombres": "EG",
+          "apellidos": "Overbey"
+        }
+      ],
+      "pmid": "31527661",
+      "fuente": "Sci. Rep.",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "13304",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight induces oxidative damage to blood-brain barrier integrity in a mouse model",
+      "autores": [
+        {
+          "nombre_completo": "XW Mao",
+          "nombres": "XW",
+          "apellidos": "Mao"
+        }
+      ],
+      "pmid": "32981077",
+      "fuente": "FASEB J.",
+      "anio": "2020",
+      "volumen": "34",
+      "fpage": "15516",
+      "lpage": "15530"
+    },
+    {
+      "titulo": "Mice Exposed to Combined Chronic Low-Dose Irradiation and Modeled Microgravity Develop Long-Term Neurological Sequelae",
+      "autores": [
+        {
+          "nombre_completo": "EG Overbey",
+          "nombres": "EG",
+          "apellidos": "Overbey"
+        }
+      ],
+      "pmid": "31443374",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "4094",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of gene expression profiles in the mouse brain after 35 days of spaceflight mission",
+      "autores": [
+        {
+          "nombre_completo": "JM Holley",
+          "nombres": "JM",
+          "apellidos": "Holley"
+        }
+      ],
+      "pmid": "35948598",
+      "fuente": "NPJ Microgravity",
+      "anio": "2022",
+      "volumen": "8",
+      "fpage": "35",
+      "lpage": ""
+    },
+    {
+      "titulo": "Central Nervous System Responses to Simulated Galactic Cosmic Rays",
+      "autores": [
+        {
+          "nombre_completo": "E Cekanaviciute",
+          "nombres": "E",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "S Rosi",
+          "nombres": "S",
+          "apellidos": "Rosi"
+        },
+        {
+          "nombre_completo": "SV Costes",
+          "nombres": "SV",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "30463349",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "3669",
+      "lpage": ""
+    },
+    {
+      "titulo": "Long-term spaceflight and the cardiovascular system",
+      "autores": [
+        {
+          "nombre_completo": "NA Vernice",
+          "nombres": "NA",
+          "apellidos": "Vernice"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "E Afshinnekoo",
+          "nombres": "E",
+          "apellidos": "Afshinnekoo"
+        },
+        {
+          "nombre_completo": "CE Mason",
+          "nombres": "CE",
+          "apellidos": "Mason"
+        }
+      ],
+      "pmid": "33391848",
+      "fuente": "Precis Clin. Med.",
+      "anio": "2020",
+      "volumen": "3",
+      "fpage": "284",
+      "lpage": "291"
+    },
+    {
+      "titulo": "Spaceflight-Associated Brain White Matter Microstructural Changes and Intracranial Fluid Redistribution",
+      "autores": [
+        {
+          "nombre_completo": "JK Lee",
+          "nombres": "JK",
+          "apellidos": "Lee"
+        }
+      ],
+      "pmid": "30673793",
+      "fuente": "JAMA Neurol.",
+      "anio": "2019",
+      "volumen": "76",
+      "fpage": "412",
+      "lpage": "419"
+    },
+    {
+      "titulo": "Advances and applications of single-cell sequencing technologies",
+      "autores": [
+        {
+          "nombre_completo": "Y Wang",
+          "nombres": "Y",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "NE Navin",
+          "nombres": "NE",
+          "apellidos": "Navin"
+        }
+      ],
+      "pmid": "26000845",
+      "fuente": "Mol. Cell",
+      "anio": "2015",
+      "volumen": "58",
+      "fpage": "598",
+      "lpage": "609"
+    },
+    {
+      "titulo": "Visualization and analysis of gene expression in tissue sections by spatial transcriptomics",
+      "autores": [
+        {
+          "nombre_completo": "PL Ståhl",
+          "nombres": "PL",
+          "apellidos": "Ståhl"
+        }
+      ],
+      "pmid": "27365449",
+      "fuente": "Science",
+      "anio": "2016",
+      "volumen": "353",
+      "fpage": "78",
+      "lpage": "82"
+    },
+    {
+      "titulo": "Challenges and considerations for single-cell and spatially resolved transcriptomics sample collection during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "EG Overbey",
+          "nombres": "EG",
+          "apellidos": "Overbey"
+        }
+      ],
+      "pmid": "36452864",
+      "fuente": "Cell Rep. Methods",
+      "anio": "2022",
+      "volumen": "2",
+      "fpage": "100325",
+      "lpage": ""
+    },
+    {
+      "titulo": "CPA: a web-based platform for consensus pathway analysis and interactive visualization",
+      "autores": [
+        {
+          "nombre_completo": "H Nguyen",
+          "nombres": "H",
+          "apellidos": "Nguyen"
+        }
+      ],
+      "pmid": "34037798",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2021",
+      "volumen": "49",
+      "fpage": "W114",
+      "lpage": "W124"
+    },
+    {
+      "titulo": "Protein interaction networks in neurodegenerative diseases: From physiological function to aggregation",
+      "autores": [
+        {
+          "nombre_completo": "G Calabrese",
+          "nombres": "G",
+          "apellidos": "Calabrese"
+        },
+        {
+          "nombre_completo": "C Molzahn",
+          "nombres": "C",
+          "apellidos": "Molzahn"
+        },
+        {
+          "nombre_completo": "T Mayor",
+          "nombres": "T",
+          "apellidos": "Mayor"
+        }
+      ],
+      "pmid": "35623389",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2022",
+      "volumen": "298",
+      "fpage": "102062",
+      "lpage": ""
+    },
+    {
+      "titulo": "Supramolecular organizing centers at the interface of inflammation and neurodegeneration",
+      "autores": [
+        {
+          "nombre_completo": "P Sušjan-Leite",
+          "nombres": "P",
+          "apellidos": "Sušjan-Leite"
+        },
+        {
+          "nombre_completo": "TŽ Ramuta",
+          "nombres": "TŽ",
+          "apellidos": "Ramuta"
+        },
+        {
+          "nombre_completo": "E Boršić",
+          "nombres": "E",
+          "apellidos": "Boršić"
+        },
+        {
+          "nombre_completo": "S Orehek",
+          "nombres": "S",
+          "apellidos": "Orehek"
+        },
+        {
+          "nombre_completo": "I Hafner-Bratkovič",
+          "nombres": "I",
+          "apellidos": "Hafner-Bratkovič"
+        }
+      ],
+      "pmid": "35979366",
+      "fuente": "Front. Immunol.",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "940969",
+      "lpage": ""
+    },
+    {
+      "titulo": "Single-cell and spatial transcriptomics enables probabilistic inference of cell type topography",
+      "autores": [
+        {
+          "nombre_completo": "A Andersson",
+          "nombres": "A",
+          "apellidos": "Andersson"
+        }
+      ],
+      "pmid": "33037292",
+      "fuente": "Commun. Biol.",
+      "anio": "2020",
+      "volumen": "3",
+      "fpage": "565",
+      "lpage": ""
+    },
+    {
+      "titulo": "Role of EGFR in the Nervous System",
+      "autores": [
+        {
+          "nombre_completo": "R Romano",
+          "nombres": "R",
+          "apellidos": "Romano"
+        },
+        {
+          "nombre_completo": "C Bucci",
+          "nombres": "C",
+          "apellidos": "Bucci"
+        }
+      ],
+      "pmid": "32806510",
+      "fuente": "Cells",
+      "anio": "2020",
+      "volumen": "9",
+      "fpage": "1887",
+      "lpage": ""
+    },
+    {
+      "titulo": "Delineating multiple functions of VEGF-A in the adult brain",
+      "autores": [
+        {
+          "nombre_completo": "T Licht",
+          "nombres": "T",
+          "apellidos": "Licht"
+        },
+        {
+          "nombre_completo": "E Keshet",
+          "nombres": "E",
+          "apellidos": "Keshet"
+        }
+      ],
+      "pmid": "23475068",
+      "fuente": "Cell. Mol. Life Sci.",
+      "anio": "2013",
+      "volumen": "70",
+      "fpage": "1727",
+      "lpage": "1737"
+    },
+    {
+      "titulo": "VEGF modulates NMDA receptors activity in cerebellar granule cells through Src-family kinases before synapse formation",
+      "autores": [
+        {
+          "nombre_completo": "C Meissirel",
+          "nombres": "C",
+          "apellidos": "Meissirel"
+        }
+      ],
+      "pmid": "21804034",
+      "fuente": "Proc. Natl Acad. Sci. USA",
+      "anio": "2011",
+      "volumen": "108",
+      "fpage": "13782",
+      "lpage": "13787"
+    },
+    {
+      "titulo": "Astrocyte-derived VEGF-A drives blood-brain barrier disruption in CNS inflammatory disease",
+      "autores": [
+        {
+          "nombre_completo": "AT Argaw",
+          "nombres": "AT",
+          "apellidos": "Argaw"
+        }
+      ],
+      "pmid": "22653056",
+      "fuente": "J. Clin. Invest.",
+      "anio": "2012",
+      "volumen": "122",
+      "fpage": "2454",
+      "lpage": "2468"
+    },
+    {
+      "titulo": "SpatialDM for rapid identification of spatially co-expressed ligand–receptor and revealing cell–cell communication patterns",
+      "autores": [
+        {
+          "nombre_completo": "Z Li",
+          "nombres": "Z",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "T Wang",
+          "nombres": "T",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "P Liu",
+          "nombres": "P",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y Huang",
+          "nombres": "Y",
+          "apellidos": "Huang"
+        }
+      ],
+      "pmid": "36596776",
+      "fuente": "Nat. Commun.",
+      "anio": "2023",
+      "volumen": "14",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Epigenetic control of region-specific transcriptional programs in mouse cerebellar and cortical astrocytes",
+      "autores": [
+        {
+          "nombre_completo": "A Welle",
+          "nombres": "A",
+          "apellidos": "Welle"
+        }
+      ],
+      "pmid": "34028094",
+      "fuente": "Glia",
+      "anio": "2021",
+      "volumen": "69",
+      "fpage": "2160",
+      "lpage": "2177"
+    },
+    {
+      "titulo": "Zic2 controls cerebellar development in cooperation with Zic1",
+      "autores": [
+        {
+          "nombre_completo": "J Aruga",
+          "nombres": "J",
+          "apellidos": "Aruga"
+        },
+        {
+          "nombre_completo": "T Inoue",
+          "nombres": "T",
+          "apellidos": "Inoue"
+        },
+        {
+          "nombre_completo": "J Hoshino",
+          "nombres": "J",
+          "apellidos": "Hoshino"
+        },
+        {
+          "nombre_completo": "K Mikoshiba",
+          "nombres": "K",
+          "apellidos": "Mikoshiba"
+        }
+      ],
+      "pmid": "11756505",
+      "fuente": "J. Neurosci.",
+      "anio": "2002",
+      "volumen": "22",
+      "fpage": "218",
+      "lpage": "225"
+    },
+    {
+      "titulo": "Glioma-initiating cells retain their tumorigenicity through integration of the Sox axis and Oct4 protein",
+      "autores": [
+        {
+          "nombre_completo": "H Ikushima",
+          "nombres": "H",
+          "apellidos": "Ikushima"
+        }
+      ],
+      "pmid": "21987575",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2011",
+      "volumen": "286",
+      "fpage": "41434",
+      "lpage": "41441"
+    },
+    {
+      "titulo": "Efficient genetic reprogramming of unmodified somatic neural progenitors uncovers the essential requirement of Oct4 and Klf4",
+      "autores": [
+        {
+          "nombre_completo": "B Di Stefano",
+          "nombres": "B",
+          "apellidos": "Di Stefano"
+        },
+        {
+          "nombre_completo": "A Prigione",
+          "nombres": "A",
+          "apellidos": "Prigione"
+        },
+        {
+          "nombre_completo": "V Broccoli",
+          "nombres": "V",
+          "apellidos": "Broccoli"
+        }
+      ],
+      "pmid": "18724799",
+      "fuente": "Stem Cells Dev.",
+      "anio": "2009",
+      "volumen": "18",
+      "fpage": "707",
+      "lpage": "716"
+    },
+    {
+      "titulo": "SOX2 functions to maintain neural progenitor identity",
+      "autores": [
+        {
+          "nombre_completo": "V Graham",
+          "nombres": "V",
+          "apellidos": "Graham"
+        },
+        {
+          "nombre_completo": "J Khudyakov",
+          "nombres": "J",
+          "apellidos": "Khudyakov"
+        },
+        {
+          "nombre_completo": "P Ellis",
+          "nombres": "P",
+          "apellidos": "Ellis"
+        },
+        {
+          "nombre_completo": "L Pevny",
+          "nombres": "L",
+          "apellidos": "Pevny"
+        }
+      ],
+      "pmid": "12948443",
+      "fuente": "Neuron",
+      "anio": "2003",
+      "volumen": "39",
+      "fpage": "749",
+      "lpage": "765"
+    },
+    {
+      "titulo": "PPAR-γ Ameliorates Neuronal Apoptosis and Ischemic Brain Injury via Suppressing NF-κB-Driven p22phox Transcription",
+      "autores": [
+        {
+          "nombre_completo": "J-S Wu",
+          "nombres": "J-S",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "H-D Tsai",
+          "nombres": "H-D",
+          "apellidos": "Tsai"
+        },
+        {
+          "nombre_completo": "W-M Cheung",
+          "nombres": "W-M",
+          "apellidos": "Cheung"
+        },
+        {
+          "nombre_completo": "CY Hsu",
+          "nombres": "CY",
+          "apellidos": "Hsu"
+        },
+        {
+          "nombre_completo": "T-N Lin",
+          "nombres": "T-N",
+          "apellidos": "Lin"
+        }
+      ],
+      "pmid": "26108185",
+      "fuente": "Mol. Neurobiol.",
+      "anio": "2016",
+      "volumen": "53",
+      "fpage": "3626",
+      "lpage": "3645"
+    },
+    {
+      "titulo": "Pleiotropic role of PPARγ in intracerebral hemorrhage: an intricate system involving Nrf2, RXR, and NF-κB",
+      "autores": [
+        {
+          "nombre_completo": "X-R Zhao",
+          "nombres": "X-R",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "N Gonzales",
+          "nombres": "N",
+          "apellidos": "Gonzales"
+        },
+        {
+          "nombre_completo": "J Aronowski",
+          "nombres": "J",
+          "apellidos": "Aronowski"
+        }
+      ],
+      "pmid": "25430543",
+      "fuente": "CNS Neurosci. Ther.",
+      "anio": "2015",
+      "volumen": "21",
+      "fpage": "357",
+      "lpage": "366"
+    },
+    {
+      "titulo": "The nuclear orphan receptor NR2F6 suppresses lymphocyte activation and T helper 17-dependent autoimmunity",
+      "autores": [
+        {
+          "nombre_completo": "N Hermann-Kleiter",
+          "nombres": "N",
+          "apellidos": "Hermann-Kleiter"
+        }
+      ],
+      "pmid": "18701084",
+      "fuente": "Immunity",
+      "anio": "2008",
+      "volumen": "29",
+      "fpage": "205",
+      "lpage": "216"
+    },
+    {
+      "titulo": "Metabolism and cancer: the circadian clock connection",
+      "autores": [
+        {
+          "nombre_completo": "S Sahar",
+          "nombres": "S",
+          "apellidos": "Sahar"
+        },
+        {
+          "nombre_completo": "P Sassone-Corsi",
+          "nombres": "P",
+          "apellidos": "Sassone-Corsi"
+        }
+      ],
+      "pmid": "19935677",
+      "fuente": "Nat. Rev. Cancer",
+      "anio": "2009",
+      "volumen": "9",
+      "fpage": "886",
+      "lpage": "896"
+    },
+    {
+      "titulo": "Nocturnin: a circadian target of Pparg-induced adipogenesis",
+      "autores": [
+        {
+          "nombre_completo": "M Kawai",
+          "nombres": "M",
+          "apellidos": "Kawai"
+        }
+      ],
+      "pmid": "20392228",
+      "fuente": "Ann. N. Y. Acad. Sci.",
+      "anio": "2010",
+      "volumen": "1192",
+      "fpage": "131",
+      "lpage": "138"
+    },
+    {
+      "titulo": "A Transcriptional Circuit Filters Oscillating Circadian Hormonal Inputs to Regulate Fat Cell Differentiation",
+      "autores": [
+        {
+          "nombre_completo": "Z Bahrami-Nejad",
+          "nombres": "Z",
+          "apellidos": "Bahrami-Nejad"
+        }
+      ],
+      "pmid": "29617644",
+      "fuente": "Cell Metab.",
+      "anio": "2018",
+      "volumen": "27",
+      "fpage": "854",
+      "lpage": "868.e8"
+    },
+    {
+      "titulo": "Recent Progress in Non-motor Features of Parkinson’s Disease with a Focus on Circadian Rhythm Dysregulation",
+      "autores": [
+        {
+          "nombre_completo": "Y Liu",
+          "nombres": "Y",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "L Niu",
+          "nombres": "L",
+          "apellidos": "Niu"
+        },
+        {
+          "nombre_completo": "X Liu",
+          "nombres": "X",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "C Cheng",
+          "nombres": "C",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "W Le",
+          "nombres": "W",
+          "apellidos": "Le"
+        }
+      ],
+      "pmid": "34128188",
+      "fuente": "Neurosci. Bull.",
+      "anio": "2021",
+      "volumen": "37",
+      "fpage": "1010",
+      "lpage": "1024"
+    },
+    {
+      "titulo": "Abnormal development of the locus coeruleus in Ear2(Nr2f6)-deficient mice impairs the functionality of the forebrain clock and affects nociception",
+      "autores": [
+        {
+          "nombre_completo": "M Warnecke",
+          "nombres": "M",
+          "apellidos": "Warnecke"
+        },
+        {
+          "nombre_completo": "H Oster",
+          "nombres": "H",
+          "apellidos": "Oster"
+        },
+        {
+          "nombre_completo": "J-P Revelli",
+          "nombres": "J-P",
+          "apellidos": "Revelli"
+        },
+        {
+          "nombre_completo": "G Alvarez-Bolado",
+          "nombres": "G",
+          "apellidos": "Alvarez-Bolado"
+        },
+        {
+          "nombre_completo": "G Eichele",
+          "nombres": "G",
+          "apellidos": "Eichele"
+        }
+      ],
+      "pmid": "15741322",
+      "fuente": "Genes Dev.",
+      "anio": "2005",
+      "volumen": "19",
+      "fpage": "614",
+      "lpage": "625"
+    },
+    {
+      "titulo": "Explainable multiview framework for dissecting spatial relationships from highly multiplexed data",
+      "autores": [
+        {
+          "nombre_completo": "J Tanevski",
+          "nombres": "J",
+          "apellidos": "Tanevski"
+        },
+        {
+          "nombre_completo": "ROR Flores",
+          "nombres": "ROR",
+          "apellidos": "Flores"
+        },
+        {
+          "nombre_completo": "A Gabor",
+          "nombres": "A",
+          "apellidos": "Gabor"
+        },
+        {
+          "nombre_completo": "D Schapiro",
+          "nombres": "D",
+          "apellidos": "Schapiro"
+        },
+        {
+          "nombre_completo": "J Saez-Rodriguez",
+          "nombres": "J",
+          "apellidos": "Saez-Rodriguez"
+        }
+      ],
+      "pmid": "35422018",
+      "fuente": "Genome Biol.",
+      "anio": "2022",
+      "volumen": "23",
+      "fpage": "97",
+      "lpage": ""
+    },
+    {
+      "titulo": "decoupleR: ensemble of computational methods to infer biological activities from omics data",
+      "autores": [
+        {
+          "nombre_completo": "P Badia-i-Mompel",
+          "nombres": "P",
+          "apellidos": "Badia-i-Mompel"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Bioinforma. Adv.",
+      "anio": "2022",
+      "volumen": "2",
+      "fpage": "vbac016",
+      "lpage": ""
+    },
+    {
+      "titulo": "Perturbation-response genes reveal signaling footprints in cancer gene expression",
+      "autores": [
+        {
+          "nombre_completo": "M Schubert",
+          "nombres": "M",
+          "apellidos": "Schubert"
+        }
+      ],
+      "pmid": "29295995",
+      "fuente": "Nat. Commun.",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "20",
+      "lpage": ""
+    },
+    {
+      "titulo": "Kamimoto, K., Hoffmann, C. M. & Morris, S. A. CellOracle: Dissecting cell identity via network inference and in silico gene perturbation. bioRxiv,10.1101/2020.02.17.947416 (2020).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comprehensive Multi-omics Analysis Reveals Mitochondrial Stress as a Central Biological Hub for Spaceflight Impact",
+      "autores": [
+        {
+          "nombre_completo": "WA da Silveira",
+          "nombres": "WA",
+          "apellidos": "da Silveira"
+        }
+      ],
+      "pmid": "33242417",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1185",
+      "lpage": "1201.e20"
+    },
+    {
+      "titulo": "Genetic control of dopaminergic neuron differentiation",
+      "autores": [
+        {
+          "nombre_completo": "A Simeone",
+          "nombres": "A",
+          "apellidos": "Simeone"
+        }
+      ],
+      "pmid": "15667926",
+      "fuente": "Trends Neurosci.",
+      "anio": "2005",
+      "volumen": "28",
+      "fpage": "62",
+      "lpage": "65"
+    },
+    {
+      "titulo": "Microgravity induces pelvic bone loss through osteoclastic activity, osteocytic osteolysis, and osteoblastic cell cycle inhibition by CDKN1a/p21",
+      "autores": [
+        {
+          "nombre_completo": "EA Blaber",
+          "nombres": "EA",
+          "apellidos": "Blaber"
+        }
+      ],
+      "pmid": "23637819",
+      "fuente": "PLoS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e61372",
+      "lpage": ""
+    },
+    {
+      "titulo": "Simulated Microgravity Potentiates Hematopoietic Differentiation of Human Pluripotent Stem Cells and Supports Formation of 3D Hematopoietic Cluster",
+      "autores": [
+        {
+          "nombre_completo": "C Ma",
+          "nombres": "C",
+          "apellidos": "Ma"
+        }
+      ],
+      "pmid": "35083220",
+      "fuente": "Front. Cell Dev. Biol.",
+      "anio": "2021",
+      "volumen": "9",
+      "fpage": "797060",
+      "lpage": ""
+    },
+    {
+      "titulo": "Irradiation of Juvenile, but not Adult, Mammary Gland Increases Stem Cell Self-Renewal and Estrogen Receptor Negative Tumors",
+      "autores": [
+        {
+          "nombre_completo": "J Tang",
+          "nombres": "J",
+          "apellidos": "Tang"
+        }
+      ],
+      "pmid": "24038768",
+      "fuente": "Stem Cells",
+      "anio": "2014",
+      "volumen": "32",
+      "fpage": "649",
+      "lpage": "661"
+    },
+    {
+      "titulo": "Cosmic radiation exposure and persistent cognitive dysfunction",
+      "autores": [
+        {
+          "nombre_completo": "VK Parihar",
+          "nombres": "VK",
+          "apellidos": "Parihar"
+        }
+      ],
+      "pmid": "27721383",
+      "fuente": "Sci. Rep.",
+      "anio": "2016",
+      "volumen": "6",
+      "fpage": "34774",
+      "lpage": ""
+    },
+    {
+      "titulo": "Circadian misalignment affects sleep and medication use before and during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "EE Flynn-Evans",
+          "nombres": "EE",
+          "apellidos": "Flynn-Evans"
+        },
+        {
+          "nombre_completo": "LK Barger",
+          "nombres": "LK",
+          "apellidos": "Barger"
+        },
+        {
+          "nombre_completo": "AA Kubey",
+          "nombres": "AA",
+          "apellidos": "Kubey"
+        },
+        {
+          "nombre_completo": "JP Sullivan",
+          "nombres": "JP",
+          "apellidos": "Sullivan"
+        },
+        {
+          "nombre_completo": "CA Czeisler",
+          "nombres": "CA",
+          "apellidos": "Czeisler"
+        }
+      ],
+      "pmid": "28725719",
+      "fuente": "NPJ Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "15019",
+      "lpage": ""
+    },
+    {
+      "titulo": "Sleep, performance, circadian rhythms, and light-dark cycles during two space shuttle flights",
+      "autores": [
+        {
+          "nombre_completo": "D-J Dijk",
+          "nombres": "D-J",
+          "apellidos": "Dijk"
+        }
+      ],
+      "pmid": "11641138",
+      "fuente": "Am. J. Physiol. Regul. Integr. Comp. Physiol.",
+      "anio": "2001",
+      "volumen": "281",
+      "fpage": "R1647",
+      "lpage": "R1664"
+    },
+    {
+      "titulo": "Anti-Oxidants in Parkinson’s Disease Therapy: A Critical Point of View",
+      "autores": [
+        {
+          "nombre_completo": "R Filograna",
+          "nombres": "R",
+          "apellidos": "Filograna"
+        },
+        {
+          "nombre_completo": "M Beltramini",
+          "nombres": "M",
+          "apellidos": "Beltramini"
+        },
+        {
+          "nombre_completo": "L Bubacco",
+          "nombres": "L",
+          "apellidos": "Bubacco"
+        },
+        {
+          "nombre_completo": "M Bisaglia",
+          "nombres": "M",
+          "apellidos": "Bisaglia"
+        }
+      ],
+      "pmid": "26517052",
+      "fuente": "Curr. Neuropharmacol.",
+      "anio": "2016",
+      "volumen": "14",
+      "fpage": "260",
+      "lpage": "271"
+    },
+    {
+      "titulo": "Mitochondrial Dysfunction in Parkinson’s Disease: From Mechanistic Insights to Therapy",
+      "autores": [
+        {
+          "nombre_completo": "X-Y Gao",
+          "nombres": "X-Y",
+          "apellidos": "Gao"
+        },
+        {
+          "nombre_completo": "T Yang",
+          "nombres": "T",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "Y Gu",
+          "nombres": "Y",
+          "apellidos": "Gu"
+        },
+        {
+          "nombre_completo": "X-H Sun",
+          "nombres": "X-H",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "35795234",
+      "fuente": "Front. Aging Neurosci.",
+      "anio": "2022",
+      "volumen": "14",
+      "fpage": "885500",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mitochondrial Dysfunction and Mitophagy in Parkinson’s Disease: From Mechanism to Therapy",
+      "autores": [
+        {
+          "nombre_completo": "AB Malpartida",
+          "nombres": "AB",
+          "apellidos": "Malpartida"
+        },
+        {
+          "nombre_completo": "M Williamson",
+          "nombres": "M",
+          "apellidos": "Williamson"
+        },
+        {
+          "nombre_completo": "DP Narendra",
+          "nombres": "DP",
+          "apellidos": "Narendra"
+        },
+        {
+          "nombre_completo": "R Wade-Martins",
+          "nombres": "R",
+          "apellidos": "Wade-Martins"
+        },
+        {
+          "nombre_completo": "BJ Ryan",
+          "nombres": "BJ",
+          "apellidos": "Ryan"
+        }
+      ],
+      "pmid": "33323315",
+      "fuente": "Trends Biochem. Sci.",
+      "anio": "2021",
+      "volumen": "46",
+      "fpage": "329",
+      "lpage": "343"
+    },
+    {
+      "titulo": "Protection against neurodegenerative disease on Earth and in space",
+      "autores": [
+        {
+          "nombre_completo": "Y Takamatsu",
+          "nombres": "Y",
+          "apellidos": "Takamatsu"
+        }
+      ],
+      "pmid": "28649621",
+      "fuente": "npj Microgravity",
+      "anio": "2016",
+      "volumen": "2",
+      "fpage": "1",
+      "lpage": "4"
+    },
+    {
+      "titulo": "Knowledge Network Embedding of Transcriptomic Data from Spaceflown Mice Uncovers Signs and Symptoms Associated with Terrestrial Diseases",
+      "autores": [
+        {
+          "nombre_completo": "CA Nelson",
+          "nombres": "CA",
+          "apellidos": "Nelson"
+        }
+      ],
+      "pmid": "33445483",
+      "fuente": "Life",
+      "anio": "2021",
+      "volumen": "11",
+      "fpage": "42",
+      "lpage": ""
+    },
+    {
+      "titulo": "Small tissue chips with big opportunities for space medicine",
+      "autores": [
+        {
+          "nombre_completo": "X Mu",
+          "nombres": "X",
+          "apellidos": "Mu"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Space Res.",
+      "anio": "2022",
+      "volumen": "35",
+      "fpage": "150",
+      "lpage": "157"
+    },
+    {
+      "titulo": "Tissue Chips in Space-Challenges and Opportunities",
+      "autores": [
+        {
+          "nombre_completo": "CK Yeung",
+          "nombres": "CK",
+          "apellidos": "Yeung"
+        }
+      ],
+      "pmid": "31524321",
+      "fuente": "Clin. Transl. Sci.",
+      "anio": "2020",
+      "volumen": "13",
+      "fpage": "8",
+      "lpage": "10"
+    },
+    {
+      "titulo": "Astrocytes regulate vascular endothelial responses to simulated deep space radiation in a human organ-on-a-chip model",
+      "autores": [
+        {
+          "nombre_completo": "SD Verma",
+          "nombres": "SD",
+          "apellidos": "Verma"
+        }
+      ],
+      "pmid": "36275678",
+      "fuente": "Front. Immunol.",
+      "anio": "2022",
+      "volumen": "13",
+      "fpage": "864923",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA OSDR: Open Science for Life in Space, https://osdr.nasa.gov/bio/.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of spaceflight aboard the International Space Station on mouse estrous cycle and ovarian gene expression",
+      "autores": [
+        {
+          "nombre_completo": "X Hong",
+          "nombres": "X",
+          "apellidos": "Hong"
+        }
+      ],
+      "pmid": "33402671",
+      "fuente": "npj Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "1",
+      "lpage": "8"
+    },
+    {
+      "titulo": "NASA OSDR: Open Science for Life in Space. 10.26030/jm59-zy54.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "giacomellolab/NASA_RR3_Brain: v1.0.0. 10.5281/zenodo.10954397.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "chromVAR: inferring transcription-factor-associated accessibility from single-cell epigenomic data",
+      "autores": [
+        {
+          "nombre_completo": "AN Schep",
+          "nombres": "AN",
+          "apellidos": "Schep"
+        },
+        {
+          "nombre_completo": "B Wu",
+          "nombres": "B",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "JD Buenrostro",
+          "nombres": "JD",
+          "apellidos": "Buenrostro"
+        },
+        {
+          "nombre_completo": "WJ Greenleaf",
+          "nombres": "WJ",
+          "apellidos": "Greenleaf"
+        }
+      ],
+      "pmid": "28825706",
+      "fuente": "Nat. Methods",
+      "anio": "2017",
+      "volumen": "14",
+      "fpage": "975",
+      "lpage": "978"
+    },
+    {
+      "titulo": "JASPAR 2020: update of the open-access database of transcription factor binding profiles",
+      "autores": [
+        {
+          "nombre_completo": "O Fornes",
+          "nombres": "O",
+          "apellidos": "Fornes"
+        }
+      ],
+      "pmid": "31701148",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "D87",
+      "lpage": "D92"
+    },
+    {
+      "titulo": "Tabula Muris Consortium, Overall coordination, Logistical coordination, Organ collection and processing, Library preparation and sequencing, Computational data analysis, Cell type annotation, Writing group, Supplemental text writing group, Principal investigators. Single-cell transcriptomics of 20 mouse organs creates a Tabula Muris. Nature562, 367–372 (2018).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enrichr: interactive and collaborative HTML5 gene list enrichment analysis tool",
+      "autores": [
+        {
+          "nombre_completo": "EY Chen",
+          "nombres": "EY",
+          "apellidos": "Chen"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinforma.",
+      "anio": "2013",
+      "volumen": "14",
+      "fpage": "128",
+      "lpage": ""
+    },
+    {
+      "titulo": "Enrichr: a comprehensive gene set enrichment analysis web server 2016 update",
+      "autores": [
+        {
+          "nombre_completo": "MV Kuleshov",
+          "nombres": "MV",
+          "apellidos": "Kuleshov"
+        }
+      ],
+      "pmid": "27141961",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2016",
+      "volumen": "44",
+      "fpage": "W90",
+      "lpage": "W97"
+    },
+    {
+      "titulo": "Gene Set Knowledge Discovery with Enrichr",
+      "autores": [
+        {
+          "nombre_completo": "Z Xie",
+          "nombres": "Z",
+          "apellidos": "Xie"
+        }
+      ],
+      "pmid": "33780170",
+      "fuente": "Curr. Protoc.",
+      "anio": "2021",
+      "volumen": "1",
+      "fpage": "e90",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mapping the temporal and spatial dynamics of the human endometrium in vivo and in vitro",
+      "autores": [
+        {
+          "nombre_completo": "L Garcia-Alonso",
+          "nombres": "L",
+          "apellidos": "Garcia-Alonso"
+        }
+      ],
+      "pmid": "34857954",
+      "fuente": "Nat. Genet.",
+      "anio": "2021",
+      "volumen": "53",
+      "fpage": "1698",
+      "lpage": "1711"
+    },
+    {
+      "titulo": "Integrated analysis of multimodal single-cell data",
+      "autores": [
+        {
+          "nombre_completo": "Y Hao",
+          "nombres": "Y",
+          "apellidos": "Hao"
+        }
+      ],
+      "pmid": "34062119",
+      "fuente": "Cell",
+      "anio": "2021",
+      "volumen": "184",
+      "fpage": "3573",
+      "lpage": "3587.e29"
+    },
+    {
+      "titulo": "Recon3D enables a three-dimensional view of gene variation in human metabolism",
+      "autores": [
+        {
+          "nombre_completo": "E Brunk",
+          "nombres": "E",
+          "apellidos": "Brunk"
+        }
+      ],
+      "pmid": "29457794",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2018",
+      "volumen": "36",
+      "fpage": "272",
+      "lpage": "281"
+    },
+    {
+      "titulo": "HCOP: a searchable database of human orthology predictions",
+      "autores": [
+        {
+          "nombre_completo": "TA Eyre",
+          "nombres": "TA",
+          "apellidos": "Eyre"
+        },
+        {
+          "nombre_completo": "MW Wright",
+          "nombres": "MW",
+          "apellidos": "Wright"
+        },
+        {
+          "nombre_completo": "MJ Lush",
+          "nombres": "MJ",
+          "apellidos": "Lush"
+        },
+        {
+          "nombre_completo": "EA Bruford",
+          "nombres": "EA",
+          "apellidos": "Bruford"
+        }
+      ],
+      "pmid": "16951416",
+      "fuente": "Brief. Bioinform.",
+      "anio": "2007",
+      "volumen": "8",
+      "fpage": "2",
+      "lpage": "5"
+    },
+    {
+      "titulo": "Korotkevich, G. et al. Fast gene set enrichment analysis. bioRxiv,10.1101/060012 (2021).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The R Project for Statistical Computing. https://www.r-project.org/.",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "GeneLab: Omics database for spaceflight experiments",
+      "autores": [
+        {
+          "nombre_completo": "S Ray",
+          "nombres": "S",
+          "apellidos": "Ray"
+        }
+      ],
+      "pmid": "30329036",
+      "fuente": "Bioinformatics",
+      "anio": "2019",
+      "volumen": "35",
+      "fpage": "1753",
+      "lpage": "1759"
+    },
+    {
+      "titulo": "NASA GeneLab: interfaces for the exploration of space omics data",
+      "autores": [
+        {
+          "nombre_completo": "DC Berrios",
+          "nombres": "DC",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "J Galazka",
+          "nombres": "J",
+          "apellidos": "Galazka"
+        },
+        {
+          "nombre_completo": "K Grigorev",
+          "nombres": "K",
+          "apellidos": "Grigorev"
+        },
+        {
+          "nombre_completo": "S Gebre",
+          "nombres": "S",
+          "apellidos": "Gebre"
+        },
+        {
+          "nombre_completo": "SV Costes",
+          "nombres": "SV",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2020",
+      "volumen": "49",
+      "fpage": "D1515",
+      "lpage": "D1522"
+    },
+    {
+      "titulo": "Masarapu, Y. NASA RR-3 Brain Dataset. Mendeley Data 10.17632/fjxrcbh672.1 (2024).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Masarapu, Y. M. RNAscope images for Adcy1 (green) and Gpc5 (red) genes for five validation samples (3 Flight, 2 Ground Control). 10.6084/m9.figshare.24581544.v1 (2024).",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    }
+  ]
+}

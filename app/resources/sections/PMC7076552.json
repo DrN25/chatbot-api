@@ -1,0 +1,2903 @@
+{
+  "TITLE": [
+    "Test of Arabidopsis Space Transcriptome: A Discovery Environment to Explore Multiple Plant Biology Spaceflight Experiments"
+  ],
+  "ABSTRACT": [
+    "Recent advances in the routine access to space along with increasing opportunities to perform plant growth experiments on board the International Space Station have led to an ever-increasing body of transcriptomic, proteomic, and epigenomic data from plants experiencing spaceflight. These datasets hold great promise to help understand how plant biology reacts to this unique environment. However, analyses that mine across such expanses of data are often complex to implement, being impeded by the sheer number of potential comparisons that are possible. Complexities in how the output of these multiple parallel analyses can be presented to the researcher in an accessible and intuitive form provides further barriers to such research. Recent developments in computational systems biology have led to rapid advances in interactive data visualization environments designed to perform just such tasks. However, to date none of these tools have been tailored to the analysis of the broad-ranging plant biology spaceflight data. We have therefore developed the Test Of Arabidopsis Space Transcriptome (TOAST) database () to address this gap in our capabilities. TOAST is a relational database that uses the Qlik database management software to link plant biology, spaceflight-related omics datasets, and their associated metadata. This environment helps visualize relationships across multiple levels of experiments in an easy to use gene-centric platform. TOAST draws on data from The US National Aeronautics and Space Administration’s (NASA’s) GeneLab and other data repositories and also connects results to a suite of web-based analytical tools to facilitate further investigation of responses to spaceflight and related stresses. The TOAST graphical user interface allows for quick comparisons between plant spaceflight experiments using real-time, gene-specific queries, or by using functional gene ontology, Kyoto Encyclopedia of Genes and Genomes pathway, or other filtering systems to explore genetic networks of interest. Testing of the database shows that TOAST confirms patterns of gene expression already highlighted in the literature, such as revealing the modulation of oxidative stress-related responses across multiple plant spaceflight experiments. However, this data exploration environment can also drive new insights into patterns of spaceflight responsive gene expression. For example, TOAST analyses highlight changes to mitochondrial function as likely shared responses in many plant spaceflight experiments."
+  ],
+  "INTRO": [
+    "Introduction",
+    "As a possible integral feature of life support systems, plants offer the potential to provide food, replenish the air, filter water, and improve the mental health of the crew during long-duration missions in space. Therefore, at a practical level, plants are being intensively studied to assess their ability to adequately fulfill these roles in the spaceflight environment [reviewed in ]. In addition, a growing number of plant spaceflight studies are addressing the quest for fundamental knowledge about how plant biology operates. Thus, the spaceflight environment provides conditions that are inaccessible on Earth, such as growth in microgravity and exposure to cosmic radiation, providing a unique opportunity to dissect responses under conditions that plant biology has not encountered during its evolutionary history [reviewed in ].",
+    "These studies are now generating extensive characterizations of the responses of diverse plant species to spaceflight. As part of the output from this research, there is an ever-increasing set of genome-scale analyses that range from transcriptomics [e.g., ] and proteomics [e.g., ] to epigenomics [e.g., ]. These datasets help catalog the plant response to growing in space. For example, the omics database maintained by The National Aeronautics and Space Administration’s (NASA’s) GeneLab program contains, at the time of writing, data from over 200 spaceflight-related experiments, with about 20 plant-focused studies, mainly from research conducted using the Space Shuttle and International Space Station. In addition, similar spaceflight and related data from e.g., the Japanese, Chinese, and European space agencies have been deposited in a range of other publicly accessible data repositories such as NCBI GEO and the European CATdb. Each experiment has multiple spaceflight samples and often compares the responses of wild-type and mutants in spaceflight to parallel ground-based controls performed on the Earth. Research groups have then mined, e.g., the patterns of transcriptional change seen in individual experiments to reveal potential underlying plant responses to spaceflight. Thus, changes in the expression of heat shock proteins [e.g., ], cell wall peroxidases [e.g.,)], and a general response to oxidative stress [e.g., ] have all emerged as response signatures identified in some, but not all, plant spaceflight transcriptomes. However, the scale of the available data now poses challenges when making such comparisons between diverse experiments. Thus, (1) the datasets are distributed across multiple repositories, posing potential issues with accessibility and interoperability, (2) the bioinformatics-based analytical approaches used between published studies are often very different, making robust comparisons of differences drawn from the literature challenging, (3) the sheer scale of the data makes it hard to perform more than a few comparisons between experiments before its volume becomes limiting, and (4) it is often difficult to present these kinds of broad-scale comparative analyses in a visually accessible, intuitive manner for use by a broad scientific audience.",
+    "To address these challenges, we have developed the Test Of Arabidopsis Space Transcriptome (TOAST; a compilation of the abbreviations and terms used throughout, along with a brief definition of each is presented as a glossary in the  Appendix ) database. TOAST uses a database management software called Qlik (Qlik Technologies Inc., King of Prussia, PA, USA) to aggregate and visualize plant spaceflight omics-level data from multiple repositories. It applies a uniform set of analytical steps to the data and makes visualization of massive datasets accessible, allowing for interactive comparisons between experiments. The database also provides links to experiment metadata and a suite of online tools to enhance the scope of potential further analysis. In this publication we present an overview of the TOAST database and provide examples of how it can both validate previously published inferences as to likely spaceflight-imposed stress responses and mine across the plant spaceflight transcriptomics data to facilitate the generation of new hypotheses.",
+    "A Broad Set of Available Data Underlies the TOAST Data Exploration Environment",
+    "As a first step toward designing a comprehensive tool for the analysis of plant spaceflight omics-level data, we categorized the breadth of data available to support such an exploration environment. As most studies have generated transcriptomics data, we have focused on these datasets, although the TOAST database also includes the currently few available proteomic and epigenomic plant spaceflight datasets. NASA's GeneLab program maintains a publicly accessible data repository that brings together a large amount of such genome-scale spaceflight data. Although the GeneLab site has the highest density of these kinds of spaceflight-related datasets, the global spaceflight research community has deposited a large amount of data generated by similar genome-scale experiments in other data repositories such as NCBI-GEO and CATdb.  Figure 1  presents an analysis of the spectrum of plant species and experimentation available for incorporation into a plant-focused data exploration environment (see  Supplementary Table 1  for the source list of the plant biology data repositories). The most highly researched plant is Arabidopsis thaliana, being the predominant plant model for molecular analysis, with the Col-0 ecotype most frequently chosen for spaceflight experimentation. Rice [Oriza sativa; ], mizuna [Brassica rapa; ], and the fern Ceratopteris richardii have also been the focus of similar molecular analysis.  Figure 1A  breaks down the available data into species and genotype versus analytical approach (e.g., microarray or RNAseq technologies), showing that the majority of the available data has been generated using Affymetrix microarrays or Illumina-based RNAseq to monitor patterns of gene expression.  Figure 1B  further shows that although the predominant sample analyzed in multiple plant spaceflight experiments is the whole seedling, data is available from several experiments using cell cultures and from individual organs dissected after the plants had been grown in space.",
+    "This survey of the available plant biology spaceflight-related data suggested to us that there is a strong base of publicly accessible, genome-level datasets with which to populate a database designed to help visualize and compare between plant spaceflight experiments. For example, there are multiple experiments using similar species and analyzing similar tissues; transcriptomics data for Arabidopsis is particularly extensive. We set a minimum criterion for inclusion in the initial iteration of TOAST to be studies where statistically rigorous analyses can be applied. This approach means datasets are required to contain three or more biological replicates and at present only spaceflight experiments on Arabidopsis and rice fulfill this requirement. We have therefore imported all of the available, replicated Arabidopsis and rice plant spaceflight datasets into the TOAST database. In addition, we have added a series of ground-based datasets addressing spaceflight-related factors, such as effects of increased radiation or exposure to oxidative stress on Earth as the foundation with which to build the TOAST exploration environment (these datasets are summarized in  Supplementary Table 1 )."
+  ],
+  "FIG": [
+    "Publicly available spaceflight transcriptomics datasets. (A) Relationships between species, ecotype, genotype (i.e., mutant or wild type) growth environment and assay technique for datasets from plants experiencing spaceflight. (B) Relationships between species, ecotypeand genotype versus the tissue or organ type that was sampled to generate the tspaceflight-related transcriptomics dataset. Col-0, Columbia ecotype of Arabidopsis thaliana; Ws, Wassilewskija ecotype; Ler, Landsberg erecta ecotype; Cvi, Cape Verdi Islands ecotype; mutants of Arabidopsis: phyD, Phytochrome D; arg, Altered Response to Gravity; act2, Actin 2; phyD, phytochrome D; hsfa2, heat shock factor a2, Wt, wild type; BRIC, Biological Research in Canister; ABRS, Advanced Biological Research System; EMCS, European Modular Cultivation System.",
+    "Database structure underlying TOAST 4.5. Each dataset within TOAST includes a series of pre-computed factors for each gene: minimally including fold-change, P-value, Q-value, and a yes/no value for whether the fold-change for each gene is significant at P < 0.05. These pre-computed values greatly speed the real-time processing of interactive visualizations within the TOAST user interface. The identifiers in the raw data, such as Transcript ID from RNAseq, Probe ID for Microarray, or TAIR ID are translated to their unique Entrez and Ensembl IDs to allow for uniform indexing within TOAST itself and to facilitate passing of analyzed data produced by TOAST analyses to exterior sites and tools. Within TOAST, the strings of molecular ID's from a dataset are both directly transferred to a series of data visualization and exploration tools and are imported into a series of analytical packages accessing a range of databases that have been imported into the TOAST environment. These databases include: the Genome Ontology (GO) consortium databases that allow analysis of the relationships between gene lists of interest and known biological processes, the SUBA4 database which catalogs predicted subcellular locales for each gene, the Kyoto Encyclopedia of Genes and Genomes (KEGG) database that analyzes relationships to known cellular pathways, and Ensembl's Orthologous Matrix database, allowing TOAST to make comparisons between species. The outputs of these analytical modules are then passed to TOAST's interactive data visualization tools to help explore each dataset. Results from the visualizations are in turn returned as lists of Gene IDs to allow for reiterative analyses.",
+    "The TOAST 4.5 user interface. (A) The web interface for TOAST launches an overview menu of dashboard icons allowing the user to directly access the introductory materials, omics data, and related analysis tools. (B) Each icon provides a visual summary of the data or tools that it links to including elements such as spaceflight vehicle (e.g., Shuttle, ISS, Shenzou vs ground-based experimentation), the growth hardware used, plant/seedling vs cell culture experiment, RNAseq vs microarray vs proteomics, species and ecotype and dataset identifier (e.g., GLDS number).",
+    "Graphical user interface for typical dataset. Clicking on a volcano plot also activates an interactive graphical tool for manual selection of groups of genes of interest. *Defaults to showing 33.43K, i.e., all Entrez identifiers, until a filter or gene selection is applied. Inset, a lasso tool allows user selection of data points from volcano plot in addition to activation of filters such as on significance of change, KEGG Pathway, or GO annotation.",
+    "Overview of use of the TOAST 4.5 database. (1a) The user selects an initial study of interest and then can review the summary of its metadata to ensure it is the correct focus for study (1b). The dataset is then opened and (2) when the study is selected an interactive dashboard launches and the user has a direct link to any associated manuscript. Gene filtering: statistical (3a), gene ontology (3b), and other related functional filters can be applied to focus the number of loci being visualized in the volcano plot (3c) to genes of interest. In addition, the volcano plot itself can be interactively manually filtered using a graphical selection tool. All filters can be toggled on and off using selectable tabs at the top of the interface (3d). If an interesting subset of loci are selected the user can activate the download option (4a) and save the related data in word or xml format (4b). (5) The user can also perform further bioinformatic and statistical analysis with other online tools linked from the main user interface.",
+    "Analysis of metadata within the TOAST 4.5. (A) Initial dashboards allow access to comparisons between a range of experiment-related factors such as lighting conditions, growth environment, and plant genotypes. (B) A typical dashboard for metadata exploration, in this case for light conditions and age of seedling. Preset filters for e.g., lab group performing the research and growth and radiation environments are available to the user and the identity of the filtered datasets is shown in the bottom left window.",
+    "TOAST confirms the “high light early” ROS response from spaceflight data. The “high light early” clade in the ROS wheel analysis represents 8.87K transcripts from a total of 21.33K transcripts detected, or 41.5% of all transcripts.",
+    "Analysis of mitochondrion-related genes altered by spaceflight. (A) Screenshot depicting an example of a user's interaction with the TOAST graphical user interface to define mitochondrion-related transcripts. (B) Using TOAST for iterative filtering of differentially expressed genes across multiple spaceflight studies where plants were light grown. (C) More extensive analysis of the studies in (B) using differentiation within the individual datasets for different analytical approaches (microarray vs RNAseq) and for different analysis periods (4 days vs 8 days). (D) Similar analysis but for dark grown plant samples. (E) The effects of spaceflight on the alternative oxidase gene family in dark grown samples. Maximum likelihood tree of AOX gene family generated using ClustalW alignment with Mega-X software (). Venn diagrams plotted using jvenn."
+  ],
+  "METHODS": [
+    "TOAST Design Philosophy and Data Structure",
+    "As noted above, the underlying software engine behind TOAST is the Qlik Associative Engine (Qlik Technologies Inc., King of Prussia, PA, USA). We chose to use Qlik as it not only provides the tools to develop and administer the underlying relational database but also allows the user to readily see what other information in the database is associated with their current query via a software feature built into QLIK named the Qlik Associative Data Engine. In addition, Qlik integrates graphic visualization packages that allow intuitive, interactive exploration and analysis of the data. Such tools help ensure the data will be more readily accessible not only to plant space biology researchers and bioinformaticians but also to a much broader community, including non-specialists and students.",
+    "Data was therefore imported into a Qlik-managed database ( Supplementary Table 1 ) to generate the associative database outlined in  Figure 2  that forms the foundation of TOAST functionality. However, the various data sources use a variety of indices for gene identification that range from Affymetrix microarray probe name (i.e., the Affymetrix microarray technology's specific technical name for the DNA probe used to identify a particular gene) to Arabidopsis Genome Initiative (AGI) locus codes [i.e., unique gene identifiers assigned by the consortium of researchers forming the Arabidopsis Genome Initiative; ]. We therefore first re-indexed all the datasets to use Entrez gene identifiers. Entrez is the National Center for Biotechnology Information (NCBI)'s database for gene-specific information and it assigns gene identifiers, or codes, that uniquely identify a particular gene. The advantage of these identifiers in tracing a gene from one dataset to another is that they form a uniform, well-curated indexing system specifically developed to be applied across all organisms. Entrez gene names uniquely identify individual genes and importantly, the system has been developed to expand as new genes are identified. Thus, re-indexing the gene identifiers in TOAST from the varied standards used in the imported datasets to their Entrez identifiers served several purposes: (1) it allows for comparisons within the TOAST database via a uniform labeling system, (2) it facilitates data exchange with other databases and analytical tools, anchoring the data to the global Entrez standard, and (3) it builds scalability into the database architecture as Entrez identifiers are designed to provide a standard for indexing all current and future documented genes.",
+    "If the original authors' data structure matched that of our database model (minimally, fold-change, P-value, Bonferroni corrected Q-value), we imported their analysis that incorporated their statistical models for calculating P- and Q-values. However, some of the publicly available microarray dataset analyses lacked some of these minimum requirements (most typically missing a statistical analysis of significance of reported changes) and so had to be reprocessed for incorporation into TOAST. For this reanalysis (exclusively Affymetrix ATH1 microarray data), we used R-studio codes provided courtesy of NASA's GeneLab. R is a programming language widely used in the statistical analysis of scientific data () and R-studio is commercially produced software that aids with the development of programs using R (R-Studio Inc. Boston, MA, USA). These R-studio codes were customized for each experimental design to provide the required fields of fold-change, P-, and Bonferroni corrected Q-values using Robust Multichip Average (RMA) quantile normalization, a technique that accounts for variation across multiple microarray chips used in these analyses. These codes can be found at . Further analysis was then performed on the imported data from Arabidopsis Affymetrix and CATMA microarrays and rice Affymetrix microarrays, converting probeIDs to Entrez gene identifiers. RNAseq data was reprocessed by importing the raw FASTQ files (i.e., the files containing the nucleotide sequences identified by the sequencing machine) into CyVerse [the cloud computing infrastructure supported through the National Science Foundation's Directorate of Biological Sciences; ] and then analyzed using a series of software steps (analysis pipeline) of: HiSAT to first generate BAM files from the FASTQ files. BAM, or Binary compressed sequence Alignment Map files contain information on the alignment of each read from the sequencing machine to the genome. BAM files were then processed by the BAMtoCounts software package to create a counts matrix that holds the number of reads that have mapped to a particular transcript. Finally differential expression analysis for each transcript was calculated using the DESeq/EdgeR approach as part of the iDEP R-Shiny application. iDEP is a software package for the R programming language designed to process genetic data. iDEP uses R-Shiny, a further R software package that allows for easy development of interactive web-based applications. Fragments per kilobase of transcript per million mapped reads (FPKM) and counts per million reads mapped (CPM) were calculated as described in.",
+    "We used the TAIR10 annotation that describes genetic loci within the Arabidopsis thaliana genome sequence and the associated genes were linked to Gene Ontology (GO) molecular function and biological processes databases that catalog the annotated functions and processes linked with each genetic locus. These GO descriptions allow testing of whether genes annotated as being associated with specific molecular functions or biological processes are over represented in a particular dataset. Consensus sub-cellular location predictions were imported from the SUBA4 subcellular locale database. SUBA4 uses multiple weighted lines of empirical evidence for protein localization in addition to aggregating subcellular targeting predictions from >20 programs, providing a broad-scale survey of likely subcellular association for the protein product of each transcript. As these databases use a variety of gene identifiers for their indexing, a table was developed within the Qlik database to translate between these various identifiers and the Entrez indexing within TOAST. This matrix linked the TAIR AGI with the associated Affymetrix microarray Probe IDs, RNAseq transcript IDs, along with associated Ensembl ID [imported from the Ensemble BioMart plant database; ], Entrez ID and if available, the Gene Symbols (i.e., the commonly used gene name). Rice cell culture microarray results from the Shenzhou 8 mission (Kindly provided by Dr. Peipei Xu, Shanghai Institute of Plant Physiology and Ecology and Dr. Weiming Cai, Chinese Academy of Sciences) were also integrated into TOAST. To allow comparison to the Arabidopsis data, we adopted an orthologous matrix (OM) database-driven approach. Thus, the Ensembl genome database project has developed software to analyze the structure of the genomes of different organisms to identify genes between species that originated from a common ancestral gene prior to speciation [i.e., orthologous genes; ], allowing researchers to ask if, e.g., transcriptome responses between species reflect similar patterns of classes of gene expression. To allow such comparisons within the TOAST database, we needed to be able to translate rice microarray probe IDs to orthologous Arabidopsis gene identifiers. We therefore imported the OM table from Ensembl, i.e., the table that links the rice and Arabidopsis orthologs through their Ensembl gene IDs. We then linked the rice microarray probe IDs provided in the imported rice datasets within this table to their corresponding Ensemble IDs, allowing mapping between the Arabidopsis and rice orthologs.",
+    "The TOAST User Interface",
+    "Figure 3  shows the web interface for TOAST, which launches as an overview menu of dashboard icons. Clicking on the first few dashboards links to introductory materials about space or Arabidopsis research providing an entry point for the non-specialist. Most of the remaining icons are links to datasets from individual experiments. The design of each icon gives quick visual information on the nature of the experiment (spacecraft, plant type, hardware, assay type) and clicking on the icon opens the particular dataset. The final set of icons represent links to online tools that can be used to further analyze the results emerging from using the TOAST database. The linked tools are summarized in  Supplementary Table 2 .",
+    "Within TOAST, each dataset is presented to the user as an interactive dashboard with Log10-fold change and measure of statistical significance (P-value) provided for each locus as shown in  Figure 4 . We have used P- rather than Q-value as our initial metric of significance to provide as broad an overview of significantly differentially expressed genes as possible. Q-values are corrected P-values that take into account the cumulative errors that occur when making multiple tests of significance within a large dataset. The Q-value is available in the downloadable data tables (see below), allowing users to apply this more stringent statistical metric as needed. Volcano plots (plots of fold-change versus statistical significance of that change for each gene ID) were chosen as the main way to visualize both the statistical analysis and the degree of gene induction or repression. A side table displays the gene identifier, the gene symbol, the fold-change and P-value and Q-value for each locus. The user can toggle on and off the P-value statistical significance filters on the volcano plot to rapidly assess the strength of the inferences to be drawn from the results that they are visualizing. All of these data can also be downloaded and used with a range of other databases that are linked in the TOAST overview menu ( Figure 3 ). TOAST 4.5 includes a GO database that provides real time feedback on the ontology of the subsets of genes selected. Tabs above the interactive bar charts allow access to four main types of annotation: GO Molecular function (16,504 categories), GO Cellular component (15,383 categories), GO Biological process (15,644 categories), and Kyoto Encyclopedia of Genes and Genomes pathways [KEGG; ]. KEGG is a widely used database that categorizes genes into the cellular pathways in which they are involved. In addition, gene selections can be interactively compared against the AGRIS transcription factor database [1,851 loci; ], the TAIR10 microRNA database, or be filtered using a selection of over 60 manually curated gene families. A further selection allows comparison to known sites of spaceflight-induced epigenetic modification. These filters are applied using a drop-down menu. NCBI PubMed links to any associated publication are also embedded alongside these data analysis tools to provide the critical context of the original published experimental descriptions and analyses (a summary of literature linked within TOAST is shown in  Supplementary Table 1 ).",
+    "These data exploration features were implemented using D3 JavaScript software libraries executed within the Qlik environment, connecting the spaceflight data, its pre-computed statistics ( Figure 2 ) and information on functional ontology. This system architecture facilitates user interaction with massive amounts of data in real time. Thus, as shown in  Figure 5 , the user selects a dashboard containing their initial dataset of interest. The software then allows them to interactively select genes or groups of genes either manually from the volcano plots, by filtering using gene ontology terms, or via a text-based interface as described above. As the user explores the data, they can apply further rounds of filtering and/or manual selection of groups of genes. These stacked filters spawn to all other datasets such that opening another dashboard of information on another experiment will show the equivalently filtered results. Further filtering of these newly opened data will, in turn, filter back on the original and all other datasets. This reiterative filtering approach allows the user to focus on an ever smaller number of genes selected by comparisons across multiple experiments. These results can be exported as a spreadsheet and/or passed to other web-based analytical sites linked within the TOAST interface.",
+    "TOAST Metadata App",
+    "A custom metadata app is also incorporated as a tool for use with TOAST (). This additional relational database provides data visualization tools that use the metadata associated with each dataset to find associations in factors such as experimental design parameters, hardware, and features of the spaceflight mission between different experiments in TOAST 4.5. GeneLab provides a rich array of metadata associated with its datasets. Most of the other non-GeneLab datasets incorporated into TOAST do not provide these kinds of metadata summaries and so we manually curated both the GeneLab and non-GeneLab datasets within TOAST 4.5 to provide equivalent metadata for all. These experiment-related factors are presented in  Supplementary Table 3  and drive the visualizations presented in the metadata app.  Figure 6A  shows the main dashboard for the metadata app. Clicking on an icon launches the associated dashboard where interactive visualizations can, in turn, filter on the range of factors that are presented ( Figure 6B ). This architecture allows the user to explore commonalities in the available plant biology data in TOAST 4.5 ranging from lighting conditions, hardware or plant age at time of assay to analytical approach and even PI of the group performing the experiment (See  Supplementary Table 3  for comprehensive list of factors). Within the app there are several places where “ROS meta-analysis variable” appears on the visualization. This description is used to denote that the data comes from a published meta-analysis of many publicly available microarray experiments related to responses to reactive oxygen species (ROS) called “The ROS-wheel”. Thus, for this particular comparative dataset there is not a single value of, e.g., for light level or plant age (as it is an aggregation of many individual experiments).",
+    "Overview of the Plant RNAseq and Microarray Data Within TOAST 4.5",
+    "For the RNAseq data in TOAST, 42,220 transcript IDs are assigned to one of 37,019 distinct TAIR10 gene models. However, only 33,550 transcripts were detected within the data imported into TOAST 4.5 as being expressed either on Earth or during spaceflight. For microarrays, TOAST 4.5 links data gathered from 22,810 Arabidopsis Affymetrix probes IDs, 7,370 CATMA probe IDs, and 75,070 rice probe IDs. For Arabidopsis, the 42,220 Entrez loci ID's are associated with 13,750 detected proteins and, if it has been assigned, to one of the 25,270 Gene Symbols [drawn from the TAIR and ATTED II gene databases combined]. For rice, 75,000 Affymetrix probe IDs are linked to the Arabidopsis Ensembl ID as described above. Note, in some microarrays a subset of the probes used have the potential for cross-hybridization and so to report on multiple gene responses. Similarly, many microarrays have redundant probes for each gene (e.g., in addition to gene unique probes, the ATH1 microarray also has 309 probes that redundantly monitor 148 genes). Where we have imported the original authors' analyses, we have used their approach to identifying and filtering these effects. When we had to reanalyze a dataset to conform to our requirements of presenting fold-change and P- and Q-values, then where a probe was identified as showing potential cross-hybridization effects, we have assigned a gene ID with both gene identifiers. Thus, e.g., a data point derived from a potentially cross-hybridizing probe represented on a volcano plot of fold-change versus significance would simultaneously show both gene IDs. For redundant probes, it is known that these often do not agree on expression levels. This is likely due to the fact that each probe hybridizes to a different point on the gene and so effects such as differential splicing of that gene will cause probes to behave differently in the gene expression analysis. To be as inclusive as possible, the maximum value amongst each redundant probeset was therefore used.",
+    "Most of the microarray data within the TOAST database is associated with the Affymetrix ATH1 chip, with Illumina-based RNAseq being the second most regularly used approach. For these experiments, Arabidopsis seedlings were grown under a range of growth hardware and lighting conditions. Experiments in the Biological Research in Canisters (BRICs) produced dark-grown samples in cassettes (Petri dish fixation units, PDFUs) that are sealed prior to launch [e.g., ]. Light-grown material was produced in the European Modular Cultivation System [EMCS, with variable RGB lighting and atmospheric and temperature control, e.g., ], in SIMBOX [Science in Microgravity Box, LED lighting, e.g., ], and in Petri dishes under 24 h LED light in the Veggie hardware [e.g., ] or in the Advanced Biological Research System [ABRS, LED lighting; ]. Both the EMCS and SIMBOX have a centrifuge, providing the capability for an extremely informative on-orbit 1 x g control [and for investigating other fractional g environment, e.g., ]. The WS ecotype has been grown in the BRIC, ABRS, Veggie, and in Petri dishes attached to the ISS cabin wall (in both dim diffuse light and in total darkness). Thus, as data from a wide range of experiments has been imported into TOAST, it is important to assess the likely impact of features such as hardware, tissue samples, and seedling age when making comparisons between datasets. For example, differences in atmospheric control and lighting may have important influences on plant responses. Thus, plants grown in the BRIC (darkness, sealed system) might show altered hypoxic response when compared to those in the EMCS (lighting and atmospheric control). Careful attention to the parallel ground controls and, if available, on-orbit centrifuge data are critical to helping understand the extent of such effects. In addition to hardware and growth environment, some specific data features may also impact user analyses. For example, the Ler-0 ecotype was grown in both the EMCS and BRIC but the fact that different microarray technologies [Agilent vs Affymetrix; ] were used in each study needs to be taken into account when making comparisons. This is because results from these different measurement approaches, even when applied to replicate samples have been reported to differ in some cases [e.g., ]. Similarly, during the ABRS APEX01 study, Col-0 and WS samples were combined and then separated into roots, stems, and leaves for transcriptional analysis. Therefore, when using these datasets allowance for the mixed ecotypes in the sample would need to be made.",
+    "In addition to seedlings, cell cultures have been subjected to spaceflight. Thus, compared Arabidopsis seedlings and wild type cell cultures grown in the dark within the BRIC. Subsequent spaceflight experiments saw comparisons between wild-type Arabidopsis cell cultures and those with mutations in the genes for ALTERED RESPONSE TO GRAVITY 1 (ARG1; a well-studied Arabidopsis gene related to gravity sensing) and HEAT SHOCK FACTOR 2a [HSF2a; a key heat shock response-related transcriptional regulator; ]. also flew Arabidopsis and rice cell cultures in the SIMBOX hardware on the Shenzhou-8 spacecraft. Interestingly, despite a large number of differences in the methodologies used in the preparation of the Arabidopsis cell cultures between these various experiments (notably culture age and hardware), TOAST analysis identifies three genes that are significantly differentially expressed in all sets of experiments (AT5G48560, CRY2-INTERACTING BHLH 2; AT1G73260, KUNITZ TRYPSIN INHIBITOR 1, and AT2G15220, a basic secretory protein family member). The sharing of such responses across multiple cell culture spaceflight experiments implies these changes in transcription may be linked to a common element of the spaceflight environment that impacts a physical factor related to spaceflight at a cellular-level. Facilitating such rapid, comparative analyses is a major focus of the TOAST 4.5 architecture.",
+    "Non-Spaceflight Datasets Within TOAST",
+    "Many ground-based analyses are relevant to specific aspects of the spaceflight environment. Therefore, several non-spaceflight datasets have been added to the TOAST database to aid with these comparative analyses. Thus, as you move further from the protection of the Earth's magnetic field radiation levels experienced by biological systems increase. Studies using ATH1 microarrays that study radiation effects on plants are therefore also included within TOAST. In these ground-based experiments, wild-type WS seedlings and mutants compromised in DNA repair (atm-1, atr-1) were treated with both gamma photons and high-charge, high-energy (HZE) radiation and their transcriptional response monitored. These studies provide fingerprints of transcriptional response to both increased radiation and increasing levels of DNA damage for comparison to the changes seen in spaceflight datasets.",
+    "Likewise, data from Arabidopsis cell cultures grown while either experiencing magnetic levitation or growth on random positioning machines are also included in TOAST 4.5. These two techniques have been used to mimic elements of the spaceflight environment such as reduced contact with the substrate and disruption of directional cues normally derived from 1 x g on Earth, providing further useful comparisons to spaceflight responses. These gene expression datasets were obtained using the CATMA microarray technology and so some care should be taken when making comparisons to data from experiments using the ATH1 Affymetrix microarray as these two technologies are not identical and e.g., the data from the CATMA arrays was analyzed using the slightly older TAIR9 genome annotation to assign gene IDs.",
+    "The BRIC hardware is one of the most widely used plant growth systems for spaceflight and so TOAST also contains a dataset related to growth of plants in the BRIC hardware on Earth to help provide context for analyses in that particular piece of equipment. Many spaceflight samples are also preserved on orbit in the chemical fixative RNAlater and so TOAST includes a dataset on the effects of RNAlater on Arabidopsis seedlings (GLDS-38). In addition, as there are several spaceflight studies that present data on root responses to spaceflight, a root tip transcriptome and root tissue gene expression mapping are also included for comparative analyses.",
+    "It is important to note that the ground-based studies incorporated into TOAST are not an exhaustive survey of the publicly available datasets but are intended as an entry point for such comparative analysis. A summary of the non-spaceflight datasets incorporated into TOAST 4.5 is presented in  Supplementary Table 1 .",
+    "TOAST Confirms and Extends Previous Transcriptome Analyses",
+    "Oxidative stress has been highlighted as a likely spaceflight-related response in multiple experiments. Therefore, TOAST 4.5 also includes datasets/dashboards for comparative “ROS wheel” analyses. The ROS wheel is a meta-analysis of 79 Affymetrix ATH1 microarray studies related to Arabidopsis redox homeostasis experiments. It provides a comprehensive overview of ROS and oxidative stress-related transcriptional signatures, allowing TOAST to filter for ROS-related events within spaceflight datasets. For example, noted the “high light early” oxidative stress signature from the ROS wheel as a common feature of the responses of Arabidopsis in the BRIC-19 spaceflight experiment. “High light early” is one of the groupings (clades) of response defined in the ROS wheel analysis and refers to the common ROS-related transcriptional signature seen in a set of experiments all exposing plants to a high light intensity stress for between 30 min and 2 h.  Figure 7  shows that reanalysis with TOAST confirms this patterning with ~⅓ of the genes significantly altered in spaceflight in Col-0 in the BRIC19 experiment also being significantly modulated in the ROS wheel “high light early” response clade. The power of these comparative approaches is shown using TOAST to perform similar analyses on other spaceflight transcriptomes. Thus, in; the APEX3-2 experiment (GLDS-218; using the Veggie hardware and Arabidopsis Col-0 ecotype) TOAST analysis reveals that at 4 days of growth on orbit, 533 of the significantly differentially expressed genes in the root in response to spaceflight were also seen in the “high light early” clade of the ROS wheel. This pattern is reiterated through the time-course of the experiment (day 8, 295 transcripts and at day 11, 29 in the root and 265 in the shoot tissues). Analyses across other spaceflight experiments ( Supplementary Table 4 ) shows that such regulation of “high light early” genes is seen in many flight experiments using whole seedlings. Interrogation with the metadata app shows these experiments mostly include plants grown in the dark, suggesting that while the triggering of a “high light early” oxidative stress pathway may be a common response of plant biology to some feature of the spaceflight environment, this is unlikely to be due to high light levels.",
+    "Cross-Species Analyses Using TOAST",
+    "TOAST 4.5 also allows for seamless cross-species comparisons that offer the possibility to reveal fundamental elements of plant biology response to spaceflight. For example, when we used TOAST to compare the significantly differentially expressed genes in rice cell cultures grown on the Shenzhou 8 spacecraft with the Arabidopsis cell cultures from the same flight, 483 orthologous loci were identified (filtering on P-value <0.05, Q-value < 0.05 and for genes mapping to unique Ensembl gene Identifiers;  Supplementary Table 5 ). The expression of, for example, genes encoding receptor-like kinases thought to be involved in response to pathogens were altered in both species, indicating that spaceflight-induced changes in the response system to biotic stress might be a conserved plant spaceflight response. Importantly, these samples were grown under sterile conditions on orbit, suggesting these responses were triggered without pathogen stimulus. In addition, both cell cultures showed changes in the expression of genes related to cell wall structure, a theme already highlighted in several reports on Arabidopsis seedlings grown in spaceflight [e.g., ] and readily discernable as a transcriptional pattern from TOAST analyses of these same spaceflight samples. Comparison between the datasets from these cell culture samples grown under microgravity with those in the 1 x g on-orbit centrifuge control module within the SIMBOX hardware of this experiment showed 111 of the genes that were significantly differentially expressed in spaceflight vs ground controls in both Arabidopsis and rice cultures were also differentially expressed in the flight vs 1 x g centrifuge ( Supplementary Table 5 ). That is, these genes were most likely not responding to the microgravity component of the spaceflight environment (which is nullified by centrifugation). Thus, some other feature(s) of spaceflight, such as increased background radiation or the development of microgravity-induced hypoxia [e.g., ] may be affecting this particular response.",
+    "TOAST: Survey of Spaceflight Responsive Genes Implies Alterations in Mitochondrial Function",
+    "Manual inspection of the subcellular locations presented in the TOAST interface suggested to us a potentially common element: mitochondria-related transcripts appeared to often be significantly altered in spaceflight samples. Therefore, to more closely identify possibly conserved spaceflight-related changes to mitochondrial function, 2,290 genes annotated as belonging to the “mitochondrion” were selected using the “GO subcellular location” tool embedded in TOAST's graphical user interface as shown in  Figure 8A . Using this filter, significantly differentially expressed genes (P < 0.05) were acquired from the analyses of Arabidopsis Col-0 plants grown in space in either light or dark conditions. In total, 1,233 unique differentially expressed mitochondrial genes were identified from the following light-grown experiments: root tips in CARA (GLDS-120), roots from both four and 8 day old seedlings cultivated in APEX-03's Veggie growth system (GLDS-218), the elongation zones of seedlings (GLDS-208), and undifferentiated cell cultures flown in Shenzhou 8's SIMBOX plant growth hardware.  Figure 8B  shows that of these 1,233 differentially expressed transcripts, 382 were identified as being shared between at least two datasets, with eight genes being shared across all four experiments ( Supplementary Table 5 ). When further comparisons were made using different sample times or assay types as a further distinction within these data ( Figure 8C ), only one gene, alternative Oxidase 1A (AOX1A) was found to be common amongst the significantly differentially expressed genes in all conditions of the four selected experiments. These results suggest analysis of plant mitochondrial functioning during spaceflight may be a fruitful area of research. Indeed, previously identified an alternative oxidase in mizuna grown on the ISS in the Lada growth chamber (i.e., in the light) as showing 9.2-fold induction during spaceflight. While the majority of the selected experiments report induction of AOX1A, instances of repression were also identified in roots extracted from four day and 8 day old seedlings grown in APEX-03's Veggie growth system.",
+    "Furthermore, AOX1A is significantly induced in both the SIMBOX “Flight Static” vs “Ground Static” analyses (i.e. samples grown in microgravity compared to ground controls), and in the ‘Flight Centrifuge' vs “Ground Static” comparisons (i.e., plants grown at 1 x g on orbit vs ground controls not in a centrifuge). However, no significant difference of expression is observed when comparing the “Flight Static” vs “Flight Centrifuge” environments. These results highlight the power of being able to make comparisons to an on-board 1 x g control. The data suggest that the induction of AOX1A in light-grown undifferentiated cells is likely not a microgravity-driven event but reflects some other aspect of the spaceflight environment, such as increased radiation exposure, possible development of hypoxia or altered fluid dynamics.",
+    "The datasets chosen for the TOAST analysis above that highlight AOX1A originate from experiments with samples grown under light. To explore whether the light environment might be playing a role in this suite of responses, several “dark-grown” spaceflight studies of the Col-0 ecotype were also selected using the TOAST metadata app: etiolated seedlings and undifferentiated cell cultures grown aboard BRIC19 (GLDS-37), BRIC20 (GLDS-38), BRIC16 (GLDS-17, GLDS-44), and etiolated root tips extracted from the CARA experiment (GLDS-120). Comparisons between these datasets revealed no commonly regulated genes ( Figure 8D ) and AOX1A was only significantly differentially expressed in the BRIC19 study in this analysis. Therefore, we examined the spaceflight-related transcriptional responses in the other members of the AOX gene family ( Figure 8E ). Indeed, other alternative oxidases are differentially expressed in these other “dark-grown” experiments, with each AOX gene being differentially expressed in at least one selected “dark-grown” study ( Figure 8E ). Given these altered expression patterns of members of the AOX family in multiple experiments, these results suggest that the regulation of alternative oxidases in response to spaceflight-associated stressors would be a strong candidate for future research studies.",
+    "Thus, this analysis in TOAST suggests a potentially widespread alteration in mitochondrial function in plants experiencing spaceflight, but many questions arise from these observations. Is an alternative oxidase pathway being triggered by spaceflight stress? Could mitochondrial dysfunction be a significant element in the oxidative stress responses seen in plant spaceflight data, as suggested e.g., for mammalian ocular tissues or osteoblasts experiencing microgravity? This kind of comparative data mining highlights the possibilities for hypothesis generation supported by the TOAST environment.",
+    "However, here it is important to note some of the limitations inherent in these kinds of analyses. For example, hypoxia is thought to be imposed during spaceflight by local oxygen consumption and associated depletion around metabolically active tissues. The reduced convective gas mixing inherent in microgravity then lowers oxygen resupply leading to development of a depletion zone around these tissues. Such hypoxic stress would be an obvious potential modulator of mitochondrial function. Yet, hypoxic signatures do not readily emerge from GO analysis of the transcript profiles of the plant spaceflight datasets, yet hypoxia is a term that GO enrichment analyses can highlight. Thus, one possibility is that another, yet to be defined, physical element(s) of the spaceflight environment may act to drive these changes in mitochondrial function. However, the formation of hypoxic environments due to microgravity is likely to be very different from how hypoxia either develops naturally on Earth, or can be experimentally imposed in ground-based experimentation. For example, the steep local oxygen depletion zones that form in microgravity are more likely to be disrupted by convective gas mixing on Earth. This observation highlights one of the important caveats of relying strongly on GO analyses to understand spaceflight data. Gene ontology analyses match patterns of gene expression to those seen under particular conditions on Earth. Therefore, how well treatments on Earth mimic conditions developing during spaceflight may affect the sensitivity of such GO analyses for defining these spaceflight responses.",
+    "Similarly, it is important to ask how much batch effects might be superimposed on any particular analysis. Batch effects are where measurements are impacted by a non-biological treatment related factor that systematically changes the measurement. For example, for RNAseq, a batch effect might be differences in patterns of gene expression related to the day a particular set of samples was processed for sequencing rather than the biological treatment of the samples. For microarray analyses it could be differences imposed by different batches of microarray being used for different sets of samples. Batch effects can be complex to resolve but statistical approaches such as surrogate variable analysis can be used on a case-by-case basis by the researcher to estimate the sensitivity of a particular dataset's analysis to these kinds of effects and so help build a case for the robustness of the analysis."
+  ],
+  "CONCL": [
+    "Conclusions",
+    "As the volume of spaceflight omics-level data increases, its power will lie in researchers' ability to mine both within and across multiple datasets. Such comparisons will provide an important source of hypotheses to then be experimentally tested. TOAST provides a data-rich environment with which to explore the commonalities and differences in the responses of plants to spaceflight and spaceflight-related environments in an accessible and intuitive format. The TOAST database has been released as a publicly available, web-based environment () along with an online tutorial at . At present, TOAST provides a tool to aid the plant biology community. However, the underlying TOAST architecture is biological kingdom agnostic; through use of orthologous matrix mapping, we are working to extend TOAST to facilitate similar data exploration across the wealth of biological systems that are being analyzed in spaceflight."
+  ],
+  "SUPPL": [
+    "Data Availability Statement",
+    "The datasets analyzed for this study can be found in the GeneLab data repository () and the Gene Expression Omnibus ().",
+    "Supplementary Material",
+    "The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fpls.2020.00147/full#supplementary-material"
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "RB developed the database. RB and KR developed the user interface and tutorial. RB, JL, and SG analyzed data and wrote the manuscript."
+  ],
+  "ACK_FUND": [
+    "Funding",
+    "This research was funded by NASA grants NNX13AM50G, NNX14AT25G, NNX17AD52G, 80NSSC18K0126, 80NSSC18K0132. The Qlik software used in this work is provided under a free-to-use educational license from QlikTech International."
+  ],
+  "COMP_INT": [
+    "Conflict of Interest",
+    "The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "The OMA orthology database in 2018: retrieving evolutionary relationships among all domains of life through richer web and programmatic interfaces",
+    "Differential expression analysis for sequence count data",
+    "Gene ontology: tool for the unification of biology",
+    "New BAR tools for mining expression data and exploring Cis-elements in Arabidopsis thaliana",
+    "Jvenn: an interactive Venn diagram viewer",
+    "NCBI GEO: archive for functional genomics data sets - update",
+    "Growth in spaceflight hardware results in alterations to the transcriptome and proteome",
+    "Spaceflight-induced alternative splicing during seedling development in Arabidopsis thaliana",
+    "The Arabidopsis information resource: making and mining the “gold standard” annotated reference plant genome",
+    "A gene expression map of the Arabidopsis root",
+    "The gene ontology resource: 20 years and still GOing strong",
+    "Salt stress-induced Ca2+ waves are associated with rapid, long-distance root-to-shoot signaling in plants",
+    "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+    "Transcriptome analyses of Arabidopsis thaliana seedlings grown in space: implications for gravity-responsive genes",
+    "Consistency analysis of redundant probe sets on affymetrix three-prime expression arrays and applications to differential mRNA processing",
+    "ATR and ATM play both distinct and additive roles in response to ionizing radiation",
+    "A cross-platform comparison of Affymetrix and Agilent microarrays reveals discordant miRNA expression in lung tumors of c-Raf transgenic mice",
+    "The Reactome pathway knowledgebase",
+    "A whole-genome microarray study of Arabidopsis thaliana semisolid callus cultures exposed to microgravity and nonmicrogravity related spaceflight conditions for 5 days on board of Shenzhou 8",
+    "Spaceflight induces specific alterations in the proteomes of Arabidopsis",
+    "GeneMANIA update 2018",
+    "CATdb: a public access to Aabidopsis transcriptome data from the URGV-CATMA platform",
+    "iDEP: an integrated web application for differential expression and pathway analysis of RNA-Seq data",
+    "The Genelab data repository",
+    "The iPlant collaborative: cyberinfrastructure for plant biology",
+    "RNAseq analysis of the response of Arabidopsis thaliana to fractional gravity under blue-light stimulation during spaceflight",
+    "SUBA4: The interactive data analysis centre for Arabidopsis subcellular protein locations",
+    "Genevestigator V3: a reference expression database for the meta-analysis of transcriptomes",
+    "Exploration, normalization, and summaries of high density oligonucleotide array probe level data",
+    "Transcriptome analysis of Oryza sativa calli under microgravity",
+    "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight",
+    "KEGG: new perspectives on genomes, pathways, diseases and drugs",
+    "Analysis of the genome sequence of the flowering plant Arabidopsis thaliana",
+    "Ensembl Genomes 2018: an integrated omics infrastructure for non-vertebrate species",
+    "ThaleMine: a warehouse for Arabidopsis data integration and discovery",
+    "Comparing RNA-Seq and microarray gene expression data in two zones of the Arabidopsis root apex relevant to spaceflight",
+    "Transcriptional response of Arabidopsis seedlings during spaceflight reveals peroxidase and cell wall remodeling genes associated with root hair development",
+    "The Arabidopsis Information Resource (TAIR): improved gene annotation and new tools",
+    "Capturing heterogeneity in gene expression studies by surrogate variable analysis",
+    "Tackling the widespread and critical impact of batch effects in high-throughput data",
+    "The impact of space environment on gene expression in Arabidopsis thaliana seedlings",
+    "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+    "Entrez gene: gene-centered information at NCBI",
+    "Gravitational and magnetic field variations synergize to cause subtle variations in the global transcriptional state of Arabidopsis in vitro callus cultures",
+    "Spaceflight environment induces mitochondrial oxidative damage in ocular tissue",
+    "VEG-01: Veggie hardware validation testing on the International Space Station",
+    "Microgravity induces changes in microsome-associated proteins of Arabidopsis seedlings grown on board the International Space Station",
+    "The iPlant Collaborative: cyberinfrastructure for enabling data to discovery for the life sciences",
+    "Effects of microgravity on osteoblast mitochondria: a proteomic and metabolomics profile",
+    "High atomic weight, high-energy radiation (HZE) induces transcriptional responses shared with conventional stresses in addition to a core “DSB” response specific to clastogenic treatments",
+    "ATTED-II in 2018: a plant coexpression database based on investigation of the statistical property of the mutual rank index",
+    "AGRIS and AtRegNet. A platform to link cis-regulatory elements and transcription factors into regulatory networks",
+    "Expression atlas: gene and protein expression across multiple studies and organisms",
+    "Spaceflight transcriptomes: unique responses to a novel environment",
+    "Fundamental plant biology enabled by the space shuttle",
+    "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+    "Genetic dissection of the Arabidopsis spaceflight transcriptome: are some responses dispensable for the physiological adaptation of plants to spaceflight",
+    "The biophysical limitations in physiological transport and exchange in plants grown in microgravity",
+    "German SIMBOX on Chinese mission Shenzhou-8: Europe's first bilateral cooperation utilizing China's Shenzhou programme",
+    "edgeR: a bioconductor package for differential expression analysis of digital gene expression data",
+    "Gene expression changes induced by space flight in single-cells of the fern Ceratopteris richardii",
+    "CATMA, a comprehensive genome-scale resource for silencing and transcript profiling of Arabidopsis genes",
+    "Genome-wide expression analysis of reactive oxygen species gene network in Mizuna plants grown in long-term spaceflight",
+    "An ‘ eFP -Seq Browser' for visualizing and exploring RNA sequencing data",
+    "STRING v11: protein–protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets",
+    "The botany array resource: e-Northerns, expression angling, and promoter analyses",
+    "Space, the final frontier: a critical review of recent experiments performed in microgravity",
+    "RNA-seq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+    "ePlant: visualizing and exploring multiple levels of data for hypothesis generation in plant biology",
+    "Agriculture for space: people and places paving the way",
+    "The ROS wheel: refining ROS transcriptional footprints",
+    "Ensembl 2018",
+    "Differential protein expression profiling of Arabidopsis thaliana callus under microgravity on board the Chinese SZ-8 spacecraft",
+    "Epigenomics in an extraterrestrial environment: organ-specific alteration of DNA methylation and gene expression elicited by spaceflight in Arabidopsis thaliana",
+    "Spaceflight engages heat shock protein and other molecular chaperone genes in tissue culture cells of Arabidopsis thaliana",
+    "ARG1 functions in the physiological adaptation of undifferentiated plant cells to spaceflight",
+    "HSFA2 functions in the physiological adaptation of undifferentiated plant cells to spaceflight"
+  ],
+  "TABLE": [
+    "Acronym/term\tName\tDefinition\tReference\t \tABRS\tAdvanced Biological Research System\tNASA on-orbit growth facility that provided LED lighting and sample photography\t\t \tAffymetrix microarray\t–\tMicroarray to monitor patterns of gene expression produced by Affymetrix Inc.\t–\t \tAGI\tArabidopsis Gene Initiative\tConsortium of researchers studying the genome of Arabidopsis thaliana\t\t \tAGRIS AtTFD\tAGRIS Arabidopsis Transcription Factor database\tA searchable database of ~1770 Arabidopsis thaliana transcription factors grouped into families by conserved domain structures. Maintained by The Arabidopsis Gene Regulatory Information Server (AGRIS).\t\t \tATTED II\tArabidopsis thaliana trans-factor and cis-element prediction database\tA database cataloging plant gene co-expression data\t\t \tBAM\tBinary compressed sequence Alignment Map\tA file containing information on the alignment of each read from a DNA sequencing machine to the genome of a target organism\t–\t \tBRIC\tBiological Research in Canister\tSpaceflight hardware allowing for plant growth on orbit. Samples are sealed prior to launch. Lighting provided only in the BRIC-LED version\t\t \tCATdb\t–\tA repository of transcriptome data for Arabidopsis thaliana produced by the Complete Arabidopsis Transcriptome Micro Array (CATMA) platform\t\t \tCATMA microarray\tComplete Arabidopsis Transcript MicroArray\tMicroarray to monitor patterns of gene expression using technology developed by the European CATMA initiative.\t\t \tCPM\tcounts per million reads mapped\tIn RNAseq: the counts of number of reads per gene scaled to the number of fragments sequenced. Unlike FPKM (see below), this value is not normalized for the effects of gene length or amount of sequencing on count number per gene.\t–\t \tCyVerse\t–\tA cloud computing infrastructure supported through the National Science Foundation's Directorate of Biological Sciences.\t\t \tD3 JavaScript\t–\tA library of routines for the Javascript programming language that enables interactive data visualizations within a web browser.\t–\t \tDESeq\t–\tAn analysis tool for calculating differential gene expression.\t\t \tEdgeR\tEmpirical analysis of Digital Gene Expression in R\tAn analysis tool calculating differential gene expression.\t\t \teFP-Seq Browser\t–\tAn RNA-seq data exploration and visualization tool.\t\t \tEMBL EBI Expression atlas\t–\tA database of patterns of gene expression under different conditions. Maintained by The European Molecular Biology Laboratory's (EMBL) European Bioinformatics Institute (EBI).\t\t \tEMCS\tEuropean Modular Cultivation System\tOn-orbit growth hardware developed by the European Space Agency. Provides an on-board centrifuge, video and lighting, temperature and atmospheric control.\t\t \tEnsembl\t–\tA database of genome-related information maintained by the European Bioinformatics Institute and the Wellcome Trust Sanger Institute,\t\t \tEntrez\t–\tThe US National Center for Biotechnology Information (NCBI)'s database for gene-specific information\t\t \tePlant\t–\tA portal that provides access to multiple web services to download genome-level data on plant genes.\t\t \tExpression Angler\t–\tA tool that finds other genes with similar expression patterns to a gene of interest.\t\t \tFASTQ file\t–\tFile containing the nucleotide sequences identified by next generation nucleotide sequencing machines\t–\t \tFPKM\tFragments Per Kilobase of transcript per Million mapped reads\tAn estimation of gene expression based on RNA-sequencing data that is normalizing for gene length and the amount of sequencing (longer and more heavily sequenced genes will naturally produce more reads independent of their expression level).\t–\t \tGene Symbol\t–\tCommonly used gene name such as AOX1A to denote the Arabidopsis gene ALTERNATIVE OXIDASE 1A\t–\t \tGeneLab\t–\tA repository for spaceflight-related ‘omics-level data administered by the US National Aeronautics and Space Administration (NASA).\t–\t \tGenemania\tGene Multiple Association Network Integration Algorithm\tA tool that generates a single functional interaction network for a gene of interest drawing on multiple data sources.\t\t \tGenevisble\t–\tA search portal to curated expression data from the GENEVESTIGATOR database\t\t \tGEO\tGene Expression Omnibus\tA functional genomics data repository administered by US National Center for Biotechnology Information (NCBI).\t–\t \tGLDS\tGeneLab Dataset\tUnique identifier of a dataset (usually microarray, RNAseq or proteomics data) deposited in NASA's GeneLab data repository\t–\t \tGO\tGene Ontology\tDescriptive terms drawn from a standard set that classify genes dependent on their relationships to biological processes or functions or subcellular locales.\t\t \tGO Enrichment analysis\tGene Ontology Enrichment analysis\tStatistical analysis of dataset as to whether there is an over-representation of genes associated with a particular biological process or function, or cellular locale relative to that expected from a random selection of the same number of genes.\t\t \tHZE\t–\tHigh-charge, high-energy radiation.\t–\t \tiDEP\tintegrated Differential Expression and Pathway analysis\tSoftware package for the R programming language designed to process genetic data.\t\t \tKEGG\tKyoto Encyclopedia of Genes and Genomes\tA widely used database that categorizes genes into the cellular pathways in which they are involved.\t\t \tMetadata\t–\tAdditional data about parameters and conditions that adds to the description of each experiment and provides context for interpreting results.\t–\t \tmicroRNA annotation TAIR10\t–\tA database of microRNAs predicted in the genome of Arabidopsis thaliana from the TAIR 10 genome annotation.\t\t \tNCBI\tThe National Center for Biotechnology Information\tPart of the National Library of Medicine that is run by the US National Institutes of Health. This unit maintains a series of databases relevant to biological research\t–\t \tNCBI PubMed\t–\tOnline aggregator of scientific publications curated by NCBI\t–\t \tOM\tOrthologous Matrix\tA table linking gene identifiers in one species to orthologous genes in a different species\t\t \tOrtholog\t–\tRelated genes between species that originated from a common ancestral gene prior to speciation\t–\t \tP-value vs Q-value\t–\tIn transcriptomics: P-value is the statistical significance that a gene is differentially expressed when comparing between treatments; Q-value is an adjusted P-value, taking in to account the cumulative effect of making multiple comparisons (tests of significance) within a dataset, such as across many genes.\t\t \tPromomer\t–\tA tool for identifying promoter elements\t\t \tQlik\t–\tDatabase management software\t–\t \tR\t–\tProgramming language widely used in the statistical analysis of scientific data.\t–\t \tR-Shiny\t–\tAn R software package that allows for easy development of interactive web-based applications.\t–\t \tR-studio\t–\tCommercially produced software that aids with the development of programs using R.\t–\t \tReactome\t–\tA curated and peer-reviewed molecular pathway database\t\t \tRMA\tRobust Multi-array Average\tAn algorithm used to normalize microarray data between multiple microarray chips\t\t \tRNA-seq\t–\tHigh-throughput sequencing of RNA.\t–\t \tROS-wheel\t–\tA meta-analysis of many publicly available microarray experiments related to responses to reactive oxygen species (ROS) and oxidative stress.\t\t \tSIMBOX\tScience In Microgravity BOX\tAn on-orbit experiment facility developed by the German Aerospace Center's (DLR) Space Administration. Contains an internal centrifuge and lighting and temperature control.\t\t \tSTRING\t–\tA database and web tool for visualizing protein:protein interaction networks.\t\t \tSUBA4\tThe SUBcellular location database for Arabidopsis\tDatabase of predicted subcellular locations for a given gene product.\t\t \tTAIR\tThe Arabidopsis Information Resource\tA database of genetic and molecular biology data focused on Arabidopsis thaliana\t\t \tTAIR9/TAIR10\tThe Arabidopsis Genome Annotation Version 9 or 10\tAnnotated versions of the sequenced Arabidopsis genome produced by TAIR. Each successive version has used newer information to improve the annotation of the entire genome.\t–\t \tThalemine\t–\tA data warehouse aggregating many genomic tools and datasets for Arabidopsis thaliana.\t\t \tTOAST\tTest Of Arabidopsis Space Transcriptome database\tA relational database that compares plant biology, spaceflight-related omics datasets and their associated metadata.\t–\t \tVeggie\t–\tNASA's Vegetable Production System; an ISS-based growth hardware providing LED lighting.\t\t \tVolcano plot\t\tA scatter plot of data. For the microarray and RNAseq data in TOAST the volcano plot presents fold-change per gene ID plotted versus statistical significance for each data point."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The OMA orthology database in 2018: retrieving evolutionary relationships among all domains of life through richer web and programmatic interfaces",
+      "autores": [
+        {
+          "nombre_completo": "A. M. Altenhoff",
+          "nombres": "A. M.",
+          "apellidos": "Altenhoff"
+        },
+        {
+          "nombre_completo": "N. M. Glover",
+          "nombres": "N. M.",
+          "apellidos": "Glover"
+        },
+        {
+          "nombre_completo": "C. M. Train",
+          "nombres": "C. M.",
+          "apellidos": "Train"
+        },
+        {
+          "nombre_completo": "K. Kaleb",
+          "nombres": "K.",
+          "apellidos": "Kaleb"
+        },
+        {
+          "nombre_completo": "A. Warwick Vesztrocy",
+          "nombres": "A.",
+          "apellidos": "Warwick Vesztrocy"
+        },
+        {
+          "nombre_completo": "D. Dylus",
+          "nombres": "D.",
+          "apellidos": "Dylus"
+        }
+      ],
+      "pmid": "29106550",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "D477",
+      "lpage": "D485"
+    },
+    {
+      "titulo": "Differential expression analysis for sequence count data",
+      "autores": [
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        }
+      ],
+      "pmid": "20979621",
+      "fuente": "Genome Biol.",
+      "anio": "2010",
+      "volumen": "11",
+      "fpage": "R106",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gene ontology: tool for the unification of biology",
+      "autores": [
+        {
+          "nombre_completo": "M. Ashburner",
+          "nombres": "M.",
+          "apellidos": "Ashburner"
+        },
+        {
+          "nombre_completo": "C. A. Ball",
+          "nombres": "C. A.",
+          "apellidos": "Ball"
+        },
+        {
+          "nombre_completo": "J. A. Blake",
+          "nombres": "J. A.",
+          "apellidos": "Blake"
+        },
+        {
+          "nombre_completo": "D. Botstein",
+          "nombres": "D.",
+          "apellidos": "Botstein"
+        },
+        {
+          "nombre_completo": "H. Butler",
+          "nombres": "H.",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "J. M. Cherry",
+          "nombres": "J. M.",
+          "apellidos": "Cherry"
+        }
+      ],
+      "pmid": "10802651",
+      "fuente": "Nat. Genet.",
+      "anio": "2000",
+      "volumen": "25",
+      "fpage": "25",
+      "lpage": "29"
+    },
+    {
+      "titulo": "New BAR tools for mining expression data and exploring Cis-elements in Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "R. S. Austin",
+          "nombres": "R. S.",
+          "apellidos": "Austin"
+        },
+        {
+          "nombre_completo": "S. Hiu",
+          "nombres": "S.",
+          "apellidos": "Hiu"
+        },
+        {
+          "nombre_completo": "J. Waese",
+          "nombres": "J.",
+          "apellidos": "Waese"
+        },
+        {
+          "nombre_completo": "M. Ierullo",
+          "nombres": "M.",
+          "apellidos": "Ierullo"
+        },
+        {
+          "nombre_completo": "A. Pasha",
+          "nombres": "A.",
+          "apellidos": "Pasha"
+        },
+        {
+          "nombre_completo": "T. T. Wang",
+          "nombres": "T. T.",
+          "apellidos": "Wang"
+        }
+      ],
+      "pmid": "27401965",
+      "fuente": "Plant J.",
+      "anio": "2016",
+      "volumen": "88",
+      "fpage": "490",
+      "lpage": "504"
+    },
+    {
+      "titulo": "Jvenn: an interactive Venn diagram viewer",
+      "autores": [
+        {
+          "nombre_completo": "P. Bardou",
+          "nombres": "P.",
+          "apellidos": "Bardou"
+        },
+        {
+          "nombre_completo": "J. Mariette",
+          "nombres": "J.",
+          "apellidos": "Mariette"
+        },
+        {
+          "nombre_completo": "F. Escudié",
+          "nombres": "F.",
+          "apellidos": "Escudié"
+        },
+        {
+          "nombre_completo": "C. Djemiel",
+          "nombres": "C.",
+          "apellidos": "Djemiel"
+        },
+        {
+          "nombre_completo": "C. Klopp",
+          "nombres": "C.",
+          "apellidos": "Klopp"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinf.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "293",
+      "lpage": ""
+    },
+    {
+      "titulo": "NCBI GEO: archive for functional genomics data sets - update",
+      "autores": [
+        {
+          "nombre_completo": "T. Barrett",
+          "nombres": "T.",
+          "apellidos": "Barrett"
+        },
+        {
+          "nombre_completo": "S. E. Wilhite",
+          "nombres": "S. E.",
+          "apellidos": "Wilhite"
+        },
+        {
+          "nombre_completo": "P. Ledoux",
+          "nombres": "P.",
+          "apellidos": "Ledoux"
+        },
+        {
+          "nombre_completo": "C. Evangelista",
+          "nombres": "C.",
+          "apellidos": "Evangelista"
+        },
+        {
+          "nombre_completo": "I. F. Kim",
+          "nombres": "I. F.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "M. Tomashevsky",
+          "nombres": "M.",
+          "apellidos": "Tomashevsky"
+        }
+      ],
+      "pmid": "23193258",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "D991",
+      "lpage": "D995"
+    },
+    {
+      "titulo": "Growth in spaceflight hardware results in alterations to the transcriptome and proteome",
+      "autores": [
+        {
+          "nombre_completo": "P. Basu",
+          "nombres": "P.",
+          "apellidos": "Basu"
+        },
+        {
+          "nombre_completo": "C. P. S. Kruse",
+          "nombres": "C. P. S.",
+          "apellidos": "Kruse"
+        },
+        {
+          "nombre_completo": "D. R. Luesse",
+          "nombres": "D. R.",
+          "apellidos": "Luesse"
+        },
+        {
+          "nombre_completo": "S. E. Wyatt",
+          "nombres": "S. E.",
+          "apellidos": "Wyatt"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Life Sci. Sp. Res.",
+      "anio": "2017",
+      "volumen": "15",
+      "fpage": "88",
+      "lpage": "96"
+    },
+    {
+      "titulo": "Spaceflight-induced alternative splicing during seedling development in Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "N. S. Beisel",
+          "nombres": "N. S.",
+          "apellidos": "Beisel"
+        },
+        {
+          "nombre_completo": "J. Noble",
+          "nombres": "J.",
+          "apellidos": "Noble"
+        },
+        {
+          "nombre_completo": "W. B. Barbazuk",
+          "nombres": "W. B.",
+          "apellidos": "Barbazuk"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "30963109",
+      "fuente": "NPJ Microgravity",
+      "anio": "2019",
+      "volumen": "5",
+      "fpage": "9",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Arabidopsis information resource: making and mining the “gold standard” annotated reference plant genome",
+      "autores": [
+        {
+          "nombre_completo": "T. Z. Berardini",
+          "nombres": "T. Z.",
+          "apellidos": "Berardini"
+        },
+        {
+          "nombre_completo": "L. Reiser",
+          "nombres": "L.",
+          "apellidos": "Reiser"
+        },
+        {
+          "nombre_completo": "D. Li",
+          "nombres": "D.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "Y. Mezheritsky",
+          "nombres": "Y.",
+          "apellidos": "Mezheritsky"
+        },
+        {
+          "nombre_completo": "R. Muller",
+          "nombres": "R.",
+          "apellidos": "Muller"
+        },
+        {
+          "nombre_completo": "E. Strait",
+          "nombres": "E.",
+          "apellidos": "Strait"
+        }
+      ],
+      "pmid": "26201819",
+      "fuente": "Genesis",
+      "anio": "2015",
+      "volumen": "53",
+      "fpage": "474",
+      "lpage": "485"
+    },
+    {
+      "titulo": "A gene expression map of the Arabidopsis root",
+      "autores": [
+        {
+          "nombre_completo": "K. Birnbaum",
+          "nombres": "K.",
+          "apellidos": "Birnbaum"
+        },
+        {
+          "nombre_completo": "D. E. Shasha",
+          "nombres": "D. E.",
+          "apellidos": "Shasha"
+        },
+        {
+          "nombre_completo": "J. Y. Wang",
+          "nombres": "J. Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. W. Jung",
+          "nombres": "J. W.",
+          "apellidos": "Jung"
+        },
+        {
+          "nombre_completo": "G. M. Lambert",
+          "nombres": "G. M.",
+          "apellidos": "Lambert"
+        },
+        {
+          "nombre_completo": "D. W. Galbraith",
+          "nombres": "D. W.",
+          "apellidos": "Galbraith"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sci. (80-).",
+      "anio": "2003",
+      "volumen": "302",
+      "fpage": "1956",
+      "lpage": "1960"
+    },
+    {
+      "titulo": "The gene ontology resource: 20 years and still GOing strong",
+      "autores": [
+        {
+          "nombre_completo": "S. Carbon",
+          "nombres": "S.",
+          "apellidos": "Carbon"
+        },
+        {
+          "nombre_completo": "E. Douglass",
+          "nombres": "E.",
+          "apellidos": "Douglass"
+        },
+        {
+          "nombre_completo": "N. Dunn",
+          "nombres": "N.",
+          "apellidos": "Dunn"
+        },
+        {
+          "nombre_completo": "B. Good",
+          "nombres": "B.",
+          "apellidos": "Good"
+        },
+        {
+          "nombre_completo": "N. L. Harris",
+          "nombres": "N. L.",
+          "apellidos": "Harris"
+        },
+        {
+          "nombre_completo": "S. E. Lewis",
+          "nombres": "S. E.",
+          "apellidos": "Lewis"
+        }
+      ],
+      "pmid": "30395331",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D330",
+      "lpage": "D338"
+    },
+    {
+      "titulo": "Salt stress-induced Ca2+ waves are associated with rapid, long-distance root-to-shoot signaling in plants",
+      "autores": [
+        {
+          "nombre_completo": "W.-G. Choi",
+          "nombres": "W.-G.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "M. Toyota",
+          "nombres": "M.",
+          "apellidos": "Toyota"
+        },
+        {
+          "nombre_completo": "S.-H. Kim",
+          "nombres": "S.-H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "R. Hilleary",
+          "nombres": "R.",
+          "apellidos": "Hilleary"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "24706854",
+      "fuente": "Proc. Natl. Acad. Sci.",
+      "anio": "2014",
+      "volumen": "111",
+      "fpage": "6497",
+      "lpage": "6502"
+    },
+    {
+      "titulo": "Variation in the transcriptome of different ecotypes of Arabidopsis thaliana reveals signatures of oxidative stress in plant responses to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "W. G. Choi",
+          "nombres": "W. G.",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "R. J. Barker",
+          "nombres": "R. J.",
+          "apellidos": "Barker"
+        },
+        {
+          "nombre_completo": "S. H. Kim",
+          "nombres": "S. H.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S. J. Swanson",
+          "nombres": "S. J.",
+          "apellidos": "Swanson"
+        },
+        {
+          "nombre_completo": "S. Gilroy",
+          "nombres": "S.",
+          "apellidos": "Gilroy"
+        }
+      ],
+      "pmid": "30644539",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "123",
+      "lpage": "136"
+    },
+    {
+      "titulo": "Transcriptome analyses of Arabidopsis thaliana seedlings grown in space: implications for gravity-responsive genes",
+      "autores": [
+        {
+          "nombre_completo": "M. J. Correll",
+          "nombres": "M. J.",
+          "apellidos": "Correll"
+        },
+        {
+          "nombre_completo": "T. P. Pyle",
+          "nombres": "T. P.",
+          "apellidos": "Pyle"
+        },
+        {
+          "nombre_completo": "K. D. L. Millar",
+          "nombres": "K. D. L.",
+          "apellidos": "Millar"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J. Yao",
+          "nombres": "J.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "R. E. Edelmann",
+          "nombres": "R. E.",
+          "apellidos": "Edelmann"
+        }
+      ],
+      "pmid": "23771594",
+      "fuente": "Planta",
+      "anio": "2013",
+      "volumen": "238",
+      "fpage": "519",
+      "lpage": "533"
+    },
+    {
+      "titulo": "Consistency analysis of redundant probe sets on affymetrix three-prime expression arrays and applications to differential mRNA processing",
+      "autores": [
+        {
+          "nombre_completo": "X. Cui",
+          "nombres": "X.",
+          "apellidos": "Cui"
+        },
+        {
+          "nombre_completo": "A. E. Loraine",
+          "nombres": "A. E.",
+          "apellidos": "Loraine"
+        }
+      ],
+      "pmid": "19165320",
+      "fuente": "PloS One",
+      "anio": "2009",
+      "volumen": "4",
+      "fpage": "e4229",
+      "lpage": ""
+    },
+    {
+      "titulo": "ATR and ATM play both distinct and additive roles in response to ionizing radiation",
+      "autores": [
+        {
+          "nombre_completo": "K. M. Culligan",
+          "nombres": "K. M.",
+          "apellidos": "Culligan"
+        },
+        {
+          "nombre_completo": "C. E. Robertson",
+          "nombres": "C. E.",
+          "apellidos": "Robertson"
+        },
+        {
+          "nombre_completo": "J. Foreman",
+          "nombres": "J.",
+          "apellidos": "Foreman"
+        },
+        {
+          "nombre_completo": "P. Doerner",
+          "nombres": "P.",
+          "apellidos": "Doerner"
+        },
+        {
+          "nombre_completo": "A. B. Britt",
+          "nombres": "A. B.",
+          "apellidos": "Britt"
+        }
+      ],
+      "pmid": "17227549",
+      "fuente": "Plant J.",
+      "anio": "2006",
+      "volumen": "48",
+      "fpage": "947",
+      "lpage": "961"
+    },
+    {
+      "titulo": "A cross-platform comparison of Affymetrix and Agilent microarrays reveals discordant miRNA expression in lung tumors of c-Raf transgenic mice",
+      "autores": [
+        {
+          "nombre_completo": "V. Del Vescovo",
+          "nombres": "V.",
+          "apellidos": "Del Vescovo"
+        },
+        {
+          "nombre_completo": "T. Meier",
+          "nombres": "T.",
+          "apellidos": "Meier"
+        },
+        {
+          "nombre_completo": "A. Inga",
+          "nombres": "A.",
+          "apellidos": "Inga"
+        },
+        {
+          "nombre_completo": "M. A. Denti",
+          "nombres": "M. A.",
+          "apellidos": "Denti"
+        },
+        {
+          "nombre_completo": "J. Borlak",
+          "nombres": "J.",
+          "apellidos": "Borlak"
+        }
+      ],
+      "pmid": "24265725",
+      "fuente": "PloS One",
+      "anio": "2013",
+      "volumen": "8",
+      "fpage": "e78870",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Reactome pathway knowledgebase",
+      "autores": [
+        {
+          "nombre_completo": "A. Fabregat",
+          "nombres": "A.",
+          "apellidos": "Fabregat"
+        },
+        {
+          "nombre_completo": "S. Jupe",
+          "nombres": "S.",
+          "apellidos": "Jupe"
+        },
+        {
+          "nombre_completo": "L. Matthews",
+          "nombres": "L.",
+          "apellidos": "Matthews"
+        },
+        {
+          "nombre_completo": "K. Sidiropoulos",
+          "nombres": "K.",
+          "apellidos": "Sidiropoulos"
+        },
+        {
+          "nombre_completo": "M. Gillespie",
+          "nombres": "M.",
+          "apellidos": "Gillespie"
+        },
+        {
+          "nombre_completo": "P. Garapati",
+          "nombres": "P.",
+          "apellidos": "Garapati"
+        }
+      ],
+      "pmid": "29145629",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "D649",
+      "lpage": "D655"
+    },
+    {
+      "titulo": "A whole-genome microarray study of Arabidopsis thaliana semisolid callus cultures exposed to microgravity and nonmicrogravity related spaceflight conditions for 5 days on board of Shenzhou 8",
+      "autores": [
+        {
+          "nombre_completo": "S. Fengler",
+          "nombres": "S.",
+          "apellidos": "Fengler"
+        },
+        {
+          "nombre_completo": "I. Spirer",
+          "nombres": "I.",
+          "apellidos": "Spirer"
+        },
+        {
+          "nombre_completo": "M. Neef",
+          "nombres": "M.",
+          "apellidos": "Neef"
+        },
+        {
+          "nombre_completo": "M. Ecke",
+          "nombres": "M.",
+          "apellidos": "Ecke"
+        },
+        {
+          "nombre_completo": "K. Nieselt",
+          "nombres": "K.",
+          "apellidos": "Nieselt"
+        },
+        {
+          "nombre_completo": "R. Hampp",
+          "nombres": "R.",
+          "apellidos": "Hampp"
+        }
+      ],
+      "pmid": "25654111",
+      "fuente": "BioMed. Res. Int.",
+      "anio": "2015",
+      "volumen": "2015",
+      "fpage": "547495",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight induces specific alterations in the proteomes of Arabidopsis",
+      "autores": [
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "J. Koh",
+          "nombres": "J.",
+          "apellidos": "Koh"
+        },
+        {
+          "nombre_completo": "F. Denison",
+          "nombres": "F.",
+          "apellidos": "Denison"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "25517942",
+      "fuente": "Astrobiology",
+      "anio": "2015",
+      "volumen": "15",
+      "fpage": "32",
+      "lpage": "56"
+    },
+    {
+      "titulo": "GeneMANIA update 2018",
+      "autores": [
+        {
+          "nombre_completo": "M. Franz",
+          "nombres": "M.",
+          "apellidos": "Franz"
+        },
+        {
+          "nombre_completo": "H. Rodriguez",
+          "nombres": "H.",
+          "apellidos": "Rodriguez"
+        },
+        {
+          "nombre_completo": "C. Lopes",
+          "nombres": "C.",
+          "apellidos": "Lopes"
+        },
+        {
+          "nombre_completo": "K. Zuberi",
+          "nombres": "K.",
+          "apellidos": "Zuberi"
+        },
+        {
+          "nombre_completo": "J. Montojo",
+          "nombres": "J.",
+          "apellidos": "Montojo"
+        },
+        {
+          "nombre_completo": "G. D. Bader",
+          "nombres": "G. D.",
+          "apellidos": "Bader"
+        }
+      ],
+      "pmid": "29912392",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "W60",
+      "lpage": "W64"
+    },
+    {
+      "titulo": "CATdb: a public access to Aabidopsis transcriptome data from the URGV-CATMA platform",
+      "autores": [
+        {
+          "nombre_completo": "S. Gagnot",
+          "nombres": "S.",
+          "apellidos": "Gagnot"
+        },
+        {
+          "nombre_completo": "J. P. Tamby",
+          "nombres": "J. P.",
+          "apellidos": "Tamby"
+        },
+        {
+          "nombre_completo": "M. L. Martin-Magniette",
+          "nombres": "M. L.",
+          "apellidos": "Martin-Magniette"
+        },
+        {
+          "nombre_completo": "F. Bitton",
+          "nombres": "F.",
+          "apellidos": "Bitton"
+        },
+        {
+          "nombre_completo": "L. Taconnat",
+          "nombres": "L.",
+          "apellidos": "Taconnat"
+        },
+        {
+          "nombre_completo": "S. Balzergue",
+          "nombres": "S.",
+          "apellidos": "Balzergue"
+        }
+      ],
+      "pmid": "17940091",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2008",
+      "volumen": "36",
+      "fpage": "D986",
+      "lpage": "D900"
+    },
+    {
+      "titulo": "iDEP: an integrated web application for differential expression and pathway analysis of RNA-Seq data",
+      "autores": [
+        {
+          "nombre_completo": "S. X. Ge",
+          "nombres": "S. X.",
+          "apellidos": "Ge"
+        },
+        {
+          "nombre_completo": "E. W. Son",
+          "nombres": "E. W.",
+          "apellidos": "Son"
+        },
+        {
+          "nombre_completo": "R. Yao",
+          "nombres": "R.",
+          "apellidos": "Yao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinf.",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "534",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Genelab data repository",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "2019",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The iPlant collaborative: cyberinfrastructure for plant biology",
+      "autores": [
+        {
+          "nombre_completo": "S. A. Goff",
+          "nombres": "S. A.",
+          "apellidos": "Goff"
+        },
+        {
+          "nombre_completo": "M. Vaughn",
+          "nombres": "M.",
+          "apellidos": "Vaughn"
+        },
+        {
+          "nombre_completo": "S. McKay",
+          "nombres": "S.",
+          "apellidos": "McKay"
+        },
+        {
+          "nombre_completo": "E. Lyons",
+          "nombres": "E.",
+          "apellidos": "Lyons"
+        },
+        {
+          "nombre_completo": "A. E. Stapleton",
+          "nombres": "A. E.",
+          "apellidos": "Stapleton"
+        },
+        {
+          "nombre_completo": "D. Gessler",
+          "nombres": "D.",
+          "apellidos": "Gessler"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2011",
+      "volumen": "2",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "RNAseq analysis of the response of Arabidopsis thaliana to fractional gravity under blue-light stimulation during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "A. Villacampa",
+          "nombres": "A.",
+          "apellidos": "Villacampa"
+        },
+        {
+          "nombre_completo": "A. Manzano",
+          "nombres": "A.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "W. L. Poehlman",
+          "nombres": "W. L.",
+          "apellidos": "Poehlman"
+        },
+        {
+          "nombre_completo": "F. A. Feltus",
+          "nombres": "F. A.",
+          "apellidos": "Feltus"
+        }
+      ],
+      "pmid": "31850027",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "SUBA4: The interactive data analysis centre for Arabidopsis subcellular protein locations",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Hooper",
+          "nombres": "C. M.",
+          "apellidos": "Hooper"
+        },
+        {
+          "nombre_completo": "I. R. Castleden",
+          "nombres": "I. R.",
+          "apellidos": "Castleden"
+        },
+        {
+          "nombre_completo": "S. K. Tanz",
+          "nombres": "S. K.",
+          "apellidos": "Tanz"
+        },
+        {
+          "nombre_completo": "N. Aryamanesh",
+          "nombres": "N.",
+          "apellidos": "Aryamanesh"
+        },
+        {
+          "nombre_completo": "A. H. Millar",
+          "nombres": "A. H.",
+          "apellidos": "Millar"
+        }
+      ],
+      "pmid": "27899614",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D1064",
+      "lpage": "D1074"
+    },
+    {
+      "titulo": "Genevestigator V3: a reference expression database for the meta-analysis of transcriptomes",
+      "autores": [
+        {
+          "nombre_completo": "T. Hruz",
+          "nombres": "T.",
+          "apellidos": "Hruz"
+        },
+        {
+          "nombre_completo": "O. Laule",
+          "nombres": "O.",
+          "apellidos": "Laule"
+        },
+        {
+          "nombre_completo": "G. Szabo",
+          "nombres": "G.",
+          "apellidos": "Szabo"
+        },
+        {
+          "nombre_completo": "F. Wessendorp",
+          "nombres": "F.",
+          "apellidos": "Wessendorp"
+        },
+        {
+          "nombre_completo": "S. Bleuler",
+          "nombres": "S.",
+          "apellidos": "Bleuler"
+        },
+        {
+          "nombre_completo": "L. Oertle",
+          "nombres": "L.",
+          "apellidos": "Oertle"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Adv. Bioinf.",
+      "anio": "2008",
+      "volumen": "2008",
+      "fpage": "420747",
+      "lpage": ""
+    },
+    {
+      "titulo": "Exploration, normalization, and summaries of high density oligonucleotide array probe level data",
+      "autores": [
+        {
+          "nombre_completo": "R. A. Irizarry",
+          "nombres": "R. A.",
+          "apellidos": "Irizarry"
+        },
+        {
+          "nombre_completo": "B. Hobbs",
+          "nombres": "B.",
+          "apellidos": "Hobbs"
+        },
+        {
+          "nombre_completo": "F. Collin",
+          "nombres": "F.",
+          "apellidos": "Collin"
+        },
+        {
+          "nombre_completo": "Y. D. Beazer-Barclay",
+          "nombres": "Y. D.",
+          "apellidos": "Beazer-Barclay"
+        },
+        {
+          "nombre_completo": "K. J. Antonellis",
+          "nombres": "K. J.",
+          "apellidos": "Antonellis"
+        },
+        {
+          "nombre_completo": "U. Scherf",
+          "nombres": "U.",
+          "apellidos": "Scherf"
+        }
+      ],
+      "pmid": "12925520",
+      "fuente": "Biostatistics",
+      "anio": "2003",
+      "volumen": "4",
+      "fpage": "249",
+      "lpage": "264"
+    },
+    {
+      "titulo": "Transcriptome analysis of Oryza sativa calli under microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. Jin",
+          "nombres": "J.",
+          "apellidos": "Jin"
+        },
+        {
+          "nombre_completo": "H. Chen",
+          "nombres": "H.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "W. Cai",
+          "nombres": "W.",
+          "apellidos": "Cai"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Microgravity Sci. Technol.",
+      "anio": "2015",
+      "volumen": "27",
+      "fpage": "437",
+      "lpage": "453"
+    },
+    {
+      "titulo": "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "C. M. Johnson",
+          "nombres": "C. M.",
+          "apellidos": "Johnson"
+        },
+        {
+          "nombre_completo": "A. Subramanian",
+          "nombres": "A.",
+          "apellidos": "Subramanian"
+        },
+        {
+          "nombre_completo": "S. Pattathil",
+          "nombres": "S.",
+          "apellidos": "Pattathil"
+        },
+        {
+          "nombre_completo": "M. J. Correll",
+          "nombres": "M. J.",
+          "apellidos": "Correll"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "28827451",
+      "fuente": "Am. J. Bot.",
+      "anio": "2017",
+      "volumen": "104",
+      "fpage": "1219",
+      "lpage": "1231"
+    },
+    {
+      "titulo": "KEGG: new perspectives on genomes, pathways, diseases and drugs",
+      "autores": [
+        {
+          "nombre_completo": "M. Kanehisa",
+          "nombres": "M.",
+          "apellidos": "Kanehisa"
+        },
+        {
+          "nombre_completo": "M. Furumichi",
+          "nombres": "M.",
+          "apellidos": "Furumichi"
+        },
+        {
+          "nombre_completo": "M. Tanabe",
+          "nombres": "M.",
+          "apellidos": "Tanabe"
+        },
+        {
+          "nombre_completo": "Y. Sato",
+          "nombres": "Y.",
+          "apellidos": "Sato"
+        },
+        {
+          "nombre_completo": "K. Morishima",
+          "nombres": "K.",
+          "apellidos": "Morishima"
+        }
+      ],
+      "pmid": "27899662",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2017",
+      "volumen": "45",
+      "fpage": "D353",
+      "lpage": "D361"
+    },
+    {
+      "titulo": "Analysis of the genome sequence of the flowering plant Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "S. Kaul",
+          "nombres": "S.",
+          "apellidos": "Kaul"
+        },
+        {
+          "nombre_completo": "H. L. Koo",
+          "nombres": "H. L.",
+          "apellidos": "Koo"
+        },
+        {
+          "nombre_completo": "J. Jenkins",
+          "nombres": "J.",
+          "apellidos": "Jenkins"
+        },
+        {
+          "nombre_completo": "M. Rizzo",
+          "nombres": "M.",
+          "apellidos": "Rizzo"
+        },
+        {
+          "nombre_completo": "T. Rooney",
+          "nombres": "T.",
+          "apellidos": "Rooney"
+        },
+        {
+          "nombre_completo": "L. J. Tallon",
+          "nombres": "L. J.",
+          "apellidos": "Tallon"
+        }
+      ],
+      "pmid": "11130711",
+      "fuente": "Nature",
+      "anio": "2000",
+      "volumen": "408",
+      "fpage": "796",
+      "lpage": "815"
+    },
+    {
+      "titulo": "Ensembl Genomes 2018: an integrated omics infrastructure for non-vertebrate species",
+      "autores": [
+        {
+          "nombre_completo": "P. J. Kersey",
+          "nombres": "P. J.",
+          "apellidos": "Kersey"
+        },
+        {
+          "nombre_completo": "J. E. Allen",
+          "nombres": "J. E.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "A. Allot",
+          "nombres": "A.",
+          "apellidos": "Allot"
+        },
+        {
+          "nombre_completo": "M. Barba",
+          "nombres": "M.",
+          "apellidos": "Barba"
+        },
+        {
+          "nombre_completo": "S. Boddu",
+          "nombres": "S.",
+          "apellidos": "Boddu"
+        },
+        {
+          "nombre_completo": "B. J. Bolt",
+          "nombres": "B. J.",
+          "apellidos": "Bolt"
+        }
+      ],
+      "pmid": "29092050",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "D802",
+      "lpage": "D808"
+    },
+    {
+      "titulo": "ThaleMine: a warehouse for Arabidopsis data integration and discovery",
+      "autores": [
+        {
+          "nombre_completo": "V. Krishnakumar",
+          "nombres": "V.",
+          "apellidos": "Krishnakumar"
+        },
+        {
+          "nombre_completo": "S. Contrino",
+          "nombres": "S.",
+          "apellidos": "Contrino"
+        },
+        {
+          "nombre_completo": "C.-Y. Cheng",
+          "nombres": "C.-Y.",
+          "apellidos": "Cheng"
+        },
+        {
+          "nombre_completo": "I. Belyaeva",
+          "nombres": "I.",
+          "apellidos": "Belyaeva"
+        },
+        {
+          "nombre_completo": "E. S. Ferlanti",
+          "nombres": "E. S.",
+          "apellidos": "Ferlanti"
+        },
+        {
+          "nombre_completo": "J. R. Miller",
+          "nombres": "J. R.",
+          "apellidos": "Miller"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant Cell Physiol.",
+      "anio": "2016",
+      "volumen": "58",
+      "fpage": "200",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comparing RNA-Seq and microarray gene expression data in two zones of the Arabidopsis root apex relevant to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. Krishnamurthy",
+          "nombres": "A.",
+          "apellidos": "Krishnamurthy"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "30473943",
+      "fuente": "Appl. Plant Sci.",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "e01197",
+      "lpage": ""
+    },
+    {
+      "titulo": "Transcriptional response of Arabidopsis seedlings during spaceflight reveals peroxidase and cell wall remodeling genes associated with root hair development",
+      "autores": [
+        {
+          "nombre_completo": "T. Kwon",
+          "nombres": "T.",
+          "apellidos": "Kwon"
+        },
+        {
+          "nombre_completo": "J. Alan Sparks",
+          "nombres": "J.",
+          "apellidos": "Alan Sparks"
+        },
+        {
+          "nombre_completo": "J. Nakashima",
+          "nombres": "J.",
+          "apellidos": "Nakashima"
+        },
+        {
+          "nombre_completo": "S. N. Allen",
+          "nombres": "S. N.",
+          "apellidos": "Allen"
+        },
+        {
+          "nombre_completo": "Y. Tang",
+          "nombres": "Y.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "E. B. Blancaflor",
+          "nombres": "E. B.",
+          "apellidos": "Blancaflor"
+        }
+      ],
+      "pmid": "25587145",
+      "fuente": "Am. J. Bot.",
+      "anio": "2015",
+      "volumen": "102",
+      "fpage": "21",
+      "lpage": "35"
+    },
+    {
+      "titulo": "The Arabidopsis Information Resource (TAIR): improved gene annotation and new tools",
+      "autores": [
+        {
+          "nombre_completo": "P. Lamesch",
+          "nombres": "P.",
+          "apellidos": "Lamesch"
+        },
+        {
+          "nombre_completo": "T. Z. Berardini",
+          "nombres": "T. Z.",
+          "apellidos": "Berardini"
+        },
+        {
+          "nombre_completo": "D. Li",
+          "nombres": "D.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "D. Swarbreck",
+          "nombres": "D.",
+          "apellidos": "Swarbreck"
+        },
+        {
+          "nombre_completo": "C. Wilks",
+          "nombres": "C.",
+          "apellidos": "Wilks"
+        },
+        {
+          "nombre_completo": "R. Sasidharan",
+          "nombres": "R.",
+          "apellidos": "Sasidharan"
+        }
+      ],
+      "pmid": "22140109",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2012",
+      "volumen": "40",
+      "fpage": "D1202",
+      "lpage": "D1210"
+    },
+    {
+      "titulo": "Capturing heterogeneity in gene expression studies by surrogate variable analysis",
+      "autores": [
+        {
+          "nombre_completo": "J. T. Leek",
+          "nombres": "J. T.",
+          "apellidos": "Leek"
+        },
+        {
+          "nombre_completo": "J. D. Storey",
+          "nombres": "J. D.",
+          "apellidos": "Storey"
+        }
+      ],
+      "pmid": "",
+      "fuente": "PloS Genet.",
+      "anio": "2007",
+      "volumen": "3",
+      "fpage": "e161",
+      "lpage": ""
+    },
+    {
+      "titulo": "Tackling the widespread and critical impact of batch effects in high-throughput data",
+      "autores": [
+        {
+          "nombre_completo": "J. T. Leek",
+          "nombres": "J. T.",
+          "apellidos": "Leek"
+        },
+        {
+          "nombre_completo": "R. B. Scharpf",
+          "nombres": "R. B.",
+          "apellidos": "Scharpf"
+        },
+        {
+          "nombre_completo": "H. C. Bravo",
+          "nombres": "H. C.",
+          "apellidos": "Bravo"
+        },
+        {
+          "nombre_completo": "D. Simcha",
+          "nombres": "D.",
+          "apellidos": "Simcha"
+        },
+        {
+          "nombre_completo": "B. Langmead",
+          "nombres": "B.",
+          "apellidos": "Langmead"
+        },
+        {
+          "nombre_completo": "W. E. Johnson",
+          "nombres": "W. E.",
+          "apellidos": "Johnson"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nat. Rev. Genet.",
+      "anio": "2010",
+      "volumen": "11",
+      "fpage": "10",
+      "lpage": ""
+    },
+    {
+      "titulo": "The impact of space environment on gene expression in Arabidopsis thaliana seedlings",
+      "autores": [
+        {
+          "nombre_completo": "H. S. Li",
+          "nombres": "H. S.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "J. Y. Lu",
+          "nombres": "J. Y.",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "H. Zhao",
+          "nombres": "H.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "Q. Sun",
+          "nombres": "Q.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "F. T. Yu",
+          "nombres": "F. T.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "Y. Pan",
+          "nombres": "Y.",
+          "apellidos": "Pan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Sci. China Technol. Sci.",
+      "anio": "2017",
+      "volumen": "60",
+      "fpage": "902",
+      "lpage": "910"
+    },
+    {
+      "titulo": "Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2",
+      "autores": [
+        {
+          "nombre_completo": "M. I. Love",
+          "nombres": "M. I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        }
+      ],
+      "pmid": "25516281",
+      "fuente": "Genome Biol.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "550",
+      "lpage": ""
+    },
+    {
+      "titulo": "Entrez gene: gene-centered information at NCBI",
+      "autores": [
+        {
+          "nombre_completo": "D. Maglott",
+          "nombres": "D.",
+          "apellidos": "Maglott"
+        },
+        {
+          "nombre_completo": "J. Ostell",
+          "nombres": "J.",
+          "apellidos": "Ostell"
+        },
+        {
+          "nombre_completo": "K. D. Pruitt",
+          "nombres": "K. D.",
+          "apellidos": "Pruitt"
+        },
+        {
+          "nombre_completo": "T. Tatusova",
+          "nombres": "T.",
+          "apellidos": "Tatusova"
+        }
+      ],
+      "pmid": "21115458",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2011",
+      "volumen": "39",
+      "fpage": "D52",
+      "lpage": "D57"
+    },
+    {
+      "titulo": "Gravitational and magnetic field variations synergize to cause subtle variations in the global transcriptional state of Arabidopsis in vitro callus cultures",
+      "autores": [
+        {
+          "nombre_completo": "A. I. Manzano",
+          "nombres": "A. I.",
+          "apellidos": "Manzano"
+        },
+        {
+          "nombre_completo": "J. J. W. A. van Loon",
+          "nombres": "J. J. W. A.",
+          "apellidos": "van Loon"
+        },
+        {
+          "nombre_completo": "P. C. M. Christianen",
+          "nombres": "P. C. M.",
+          "apellidos": "Christianen"
+        },
+        {
+          "nombre_completo": "J. M. Gonzalez-Rubio",
+          "nombres": "J. M.",
+          "apellidos": "Gonzalez-Rubio"
+        },
+        {
+          "nombre_completo": "F. J. Medina",
+          "nombres": "F. J.",
+          "apellidos": "Medina"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        }
+      ],
+      "pmid": "22435851",
+      "fuente": "BMC Genomics",
+      "anio": "2012",
+      "volumen": "13",
+      "fpage": "105",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight environment induces mitochondrial oxidative damage in ocular tissue",
+      "autores": [
+        {
+          "nombre_completo": "X. W. Mao",
+          "nombres": "X. W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "M. J. Pecaut",
+          "nombres": "M. J.",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "L. S. Stodieck",
+          "nombres": "L. S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "V. L. Ferguson",
+          "nombres": "V. L.",
+          "apellidos": "Ferguson"
+        },
+        {
+          "nombre_completo": "T. A. Bateman",
+          "nombres": "T. A.",
+          "apellidos": "Bateman"
+        },
+        {
+          "nombre_completo": "M. Bouxsein",
+          "nombres": "M.",
+          "apellidos": "Bouxsein"
+        }
+      ],
+      "pmid": "24033191",
+      "fuente": "Radiat. Res.",
+      "anio": "2013",
+      "volumen": "180",
+      "fpage": "340",
+      "lpage": "350"
+    },
+    {
+      "titulo": "VEG-01: Veggie hardware validation testing on the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "G. D. Massa",
+          "nombres": "G. D.",
+          "apellidos": "Massa"
+        },
+        {
+          "nombre_completo": "N. F. Dufour",
+          "nombres": "N. F.",
+          "apellidos": "Dufour"
+        },
+        {
+          "nombre_completo": "J. A. Carver",
+          "nombres": "J. A.",
+          "apellidos": "Carver"
+        },
+        {
+          "nombre_completo": "M. E. Hummerick",
+          "nombres": "M. E.",
+          "apellidos": "Hummerick"
+        },
+        {
+          "nombre_completo": "R. M. Wheeler",
+          "nombres": "R. M.",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "R. C. Morrow",
+          "nombres": "R. C.",
+          "apellidos": "Morrow"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Open Agric.",
+      "anio": "2017",
+      "volumen": "2",
+      "fpage": "33",
+      "lpage": "41"
+    },
+    {
+      "titulo": "Microgravity induces changes in microsome-associated proteins of Arabidopsis seedlings grown on board the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "C. Mazars",
+          "nombres": "C.",
+          "apellidos": "Mazars"
+        },
+        {
+          "nombre_completo": "C. Brière",
+          "nombres": "C.",
+          "apellidos": "Brière"
+        },
+        {
+          "nombre_completo": "S. Grat",
+          "nombres": "S.",
+          "apellidos": "Grat"
+        },
+        {
+          "nombre_completo": "C. Pichereaux",
+          "nombres": "C.",
+          "apellidos": "Pichereaux"
+        },
+        {
+          "nombre_completo": "M. Rossignol",
+          "nombres": "M.",
+          "apellidos": "Rossignol"
+        },
+        {
+          "nombre_completo": "V. Pereda-Loth",
+          "nombres": "V.",
+          "apellidos": "Pereda-Loth"
+        }
+      ],
+      "pmid": "24618597",
+      "fuente": "PloS One",
+      "anio": "2014",
+      "volumen": "9",
+      "fpage": "e91814",
+      "lpage": ""
+    },
+    {
+      "titulo": "The iPlant Collaborative: cyberinfrastructure for enabling data to discovery for the life sciences",
+      "autores": [
+        {
+          "nombre_completo": "N. Merchant",
+          "nombres": "N.",
+          "apellidos": "Merchant"
+        },
+        {
+          "nombre_completo": "E. Lyons",
+          "nombres": "E.",
+          "apellidos": "Lyons"
+        },
+        {
+          "nombre_completo": "S. Goff",
+          "nombres": "S.",
+          "apellidos": "Goff"
+        },
+        {
+          "nombre_completo": "M. Vaughn",
+          "nombres": "M.",
+          "apellidos": "Vaughn"
+        },
+        {
+          "nombre_completo": "D. Ware",
+          "nombres": "D.",
+          "apellidos": "Ware"
+        },
+        {
+          "nombre_completo": "D. Micklos",
+          "nombres": "D.",
+          "apellidos": "Micklos"
+        }
+      ],
+      "pmid": "26752627",
+      "fuente": "PloS Biol.",
+      "anio": "2016",
+      "volumen": "14",
+      "fpage": "e1002342",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of microgravity on osteoblast mitochondria: a proteomic and metabolomics profile",
+      "autores": [
+        {
+          "nombre_completo": "A. Michaletti",
+          "nombres": "A.",
+          "apellidos": "Michaletti"
+        },
+        {
+          "nombre_completo": "M. Gioia",
+          "nombres": "M.",
+          "apellidos": "Gioia"
+        },
+        {
+          "nombre_completo": "U. Tarantino",
+          "nombres": "U.",
+          "apellidos": "Tarantino"
+        },
+        {
+          "nombre_completo": "L. Zolla",
+          "nombres": "L.",
+          "apellidos": "Zolla"
+        }
+      ],
+      "pmid": "29133864",
+      "fuente": "Sci. Rep.",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "15376",
+      "lpage": ""
+    },
+    {
+      "titulo": "High atomic weight, high-energy radiation (HZE) induces transcriptional responses shared with conventional stresses in addition to a core “DSB” response specific to clastogenic treatments",
+      "autores": [
+        {
+          "nombre_completo": "V. Missirian",
+          "nombres": "V.",
+          "apellidos": "Missirian"
+        },
+        {
+          "nombre_completo": "P. A. Conklin",
+          "nombres": "P. A.",
+          "apellidos": "Conklin"
+        },
+        {
+          "nombre_completo": "K. M. Culligan",
+          "nombres": "K. M.",
+          "apellidos": "Culligan"
+        },
+        {
+          "nombre_completo": "N. D. Huefner",
+          "nombres": "N. D.",
+          "apellidos": "Huefner"
+        },
+        {
+          "nombre_completo": "A. B. Britt",
+          "nombres": "A. B.",
+          "apellidos": "Britt"
+        }
+      ],
+      "pmid": "25136344",
+      "fuente": "Front. Plant Sci.",
+      "anio": "2014",
+      "volumen": "5",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "ATTED-II in 2018: a plant coexpression database based on investigation of the statistical property of the mutual rank index",
+      "autores": [
+        {
+          "nombre_completo": "T. Obayashi",
+          "nombres": "T.",
+          "apellidos": "Obayashi"
+        },
+        {
+          "nombre_completo": "Y. Aoki",
+          "nombres": "Y.",
+          "apellidos": "Aoki"
+        },
+        {
+          "nombre_completo": "S. Tadaka",
+          "nombres": "S.",
+          "apellidos": "Tadaka"
+        },
+        {
+          "nombre_completo": "Y. Kagaya",
+          "nombres": "Y.",
+          "apellidos": "Kagaya"
+        },
+        {
+          "nombre_completo": "K. Kinoshita",
+          "nombres": "K.",
+          "apellidos": "Kinoshita"
+        }
+      ],
+      "pmid": "29216398",
+      "fuente": "Plant Cell Physiol.",
+      "anio": "2018",
+      "volumen": "59",
+      "fpage": "e3",
+      "lpage": ""
+    },
+    {
+      "titulo": "AGRIS and AtRegNet. A platform to link cis-regulatory elements and transcription factors into regulatory networks",
+      "autores": [
+        {
+          "nombre_completo": "S. K. Palaniswamy",
+          "nombres": "S. K.",
+          "apellidos": "Palaniswamy"
+        },
+        {
+          "nombre_completo": "S. James",
+          "nombres": "S.",
+          "apellidos": "James"
+        },
+        {
+          "nombre_completo": "H. Sun",
+          "nombres": "H.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "R. S. Lamb",
+          "nombres": "R. S.",
+          "apellidos": "Lamb"
+        },
+        {
+          "nombre_completo": "R. V. Davuluri",
+          "nombres": "R. V.",
+          "apellidos": "Davuluri"
+        },
+        {
+          "nombre_completo": "E. Grotewold",
+          "nombres": "E.",
+          "apellidos": "Grotewold"
+        }
+      ],
+      "pmid": "16524982",
+      "fuente": "Plant Physiol.",
+      "anio": "2006",
+      "volumen": "140",
+      "fpage": "818",
+      "lpage": "829"
+    },
+    {
+      "titulo": "Expression atlas: gene and protein expression across multiple studies and organisms",
+      "autores": [
+        {
+          "nombre_completo": "I. Papatheodorou",
+          "nombres": "I.",
+          "apellidos": "Papatheodorou"
+        },
+        {
+          "nombre_completo": "N. A. Fonseca",
+          "nombres": "N. A.",
+          "apellidos": "Fonseca"
+        },
+        {
+          "nombre_completo": "M. Keays",
+          "nombres": "M.",
+          "apellidos": "Keays"
+        },
+        {
+          "nombre_completo": "Y. A. Tang",
+          "nombres": "Y. A.",
+          "apellidos": "Tang"
+        },
+        {
+          "nombre_completo": "E. Barrera",
+          "nombres": "E.",
+          "apellidos": "Barrera"
+        },
+        {
+          "nombre_completo": "W. Bazant",
+          "nombres": "W.",
+          "apellidos": "Bazant"
+        }
+      ],
+      "pmid": "29165655",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "D246",
+      "lpage": "D251"
+    },
+    {
+      "titulo": "Spaceflight transcriptomes: unique responses to a novel environment",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "D. T. Ostrow",
+          "nombres": "D. T.",
+          "apellidos": "Ostrow"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "J. L. Li",
+          "nombres": "J. L.",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "22221117",
+      "fuente": "Astrobiology",
+      "anio": "2012",
+      "volumen": "12",
+      "fpage": "40",
+      "lpage": "56"
+    },
+    {
+      "titulo": "Fundamental plant biology enabled by the space shuttle",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R. M. Wheeler",
+          "nombres": "R. M.",
+          "apellidos": "Wheeler"
+        },
+        {
+          "nombre_completo": "H. G. Levine",
+          "nombres": "H. G.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "R. J. Fer",
+          "nombres": "R. J.",
+          "apellidos": "Fer"
+        }
+      ],
+      "pmid": "23281389",
+      "fuente": "Am. J. Bot.",
+      "anio": "2013",
+      "volumen": "100",
+      "fpage": "226",
+      "lpage": "234"
+    },
+    {
+      "titulo": "Organ-specific remodeling of the Arabidopsis transcriptome in response to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "E. R. Schultz",
+          "nombres": "E. R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "23919896",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2013",
+      "volumen": "13",
+      "fpage": "112",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genetic dissection of the Arabidopsis spaceflight transcriptome: are some responses dispensable for the physiological adaptation of plants to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "N. J. Sng",
+          "nombres": "N. J.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "A. Krishnamurthy",
+          "nombres": "A.",
+          "apellidos": "Krishnamurthy"
+        },
+        {
+          "nombre_completo": "E. R. Schultz",
+          "nombres": "E. R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "28662188",
+      "fuente": "PloS One",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0180186",
+      "lpage": ""
+    },
+    {
+      "titulo": "The biophysical limitations in physiological transport and exchange in plants grown in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "D. M. Porterfield",
+          "nombres": "D. M.",
+          "apellidos": "Porterfield"
+        }
+      ],
+      "pmid": "12024222",
+      "fuente": "J. Plant Growth Regul.",
+      "anio": "2002",
+      "volumen": "21",
+      "fpage": "177",
+      "lpage": "190"
+    },
+    {
+      "titulo": "German SIMBOX on Chinese mission Shenzhou-8: Europe's first bilateral cooperation utilizing China's Shenzhou programme",
+      "autores": [
+        {
+          "nombre_completo": "P. Preu",
+          "nombres": "P.",
+          "apellidos": "Preu"
+        },
+        {
+          "nombre_completo": "M. Braun",
+          "nombres": "M.",
+          "apellidos": "Braun"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Acta Astronaut.",
+      "anio": "2014",
+      "volumen": "94",
+      "fpage": "584",
+      "lpage": "591"
+    },
+    {
+      "titulo": "edgeR: a bioconductor package for differential expression analysis of digital gene expression data",
+      "autores": [
+        {
+          "nombre_completo": "M. D. Robinson",
+          "nombres": "M. D.",
+          "apellidos": "Robinson"
+        },
+        {
+          "nombre_completo": "D. J. McCarthy",
+          "nombres": "D. J.",
+          "apellidos": "McCarthy"
+        },
+        {
+          "nombre_completo": "G. K. Smyth",
+          "nombres": "G. K.",
+          "apellidos": "Smyth"
+        }
+      ],
+      "pmid": "19910308",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "26",
+      "fpage": "139",
+      "lpage": "140"
+    },
+    {
+      "titulo": "Gene expression changes induced by space flight in single-cells of the fern Ceratopteris richardii",
+      "autores": [
+        {
+          "nombre_completo": "M. L. Salmi",
+          "nombres": "M. L.",
+          "apellidos": "Salmi"
+        },
+        {
+          "nombre_completo": "S. J. Roux",
+          "nombres": "S. J.",
+          "apellidos": "Roux"
+        }
+      ],
+      "pmid": "18807069",
+      "fuente": "Planta",
+      "anio": "2008",
+      "volumen": "229",
+      "fpage": "151",
+      "lpage": "159"
+    },
+    {
+      "titulo": "CATMA, a comprehensive genome-scale resource for silencing and transcript profiling of Arabidopsis genes",
+      "autores": [
+        {
+          "nombre_completo": "G. Sclep",
+          "nombres": "G.",
+          "apellidos": "Sclep"
+        },
+        {
+          "nombre_completo": "J. Allemeersch",
+          "nombres": "J.",
+          "apellidos": "Allemeersch"
+        },
+        {
+          "nombre_completo": "R. Liechti",
+          "nombres": "R.",
+          "apellidos": "Liechti"
+        },
+        {
+          "nombre_completo": "B. De Meyer",
+          "nombres": "B.",
+          "apellidos": "De Meyer"
+        },
+        {
+          "nombre_completo": "J. Beynon",
+          "nombres": "J.",
+          "apellidos": "Beynon"
+        },
+        {
+          "nombre_completo": "R. Bhalerao",
+          "nombres": "R.",
+          "apellidos": "Bhalerao"
+        }
+      ],
+      "pmid": "",
+      "fuente": "BMC Bioinf.",
+      "anio": "2007",
+      "volumen": "8",
+      "fpage": "400",
+      "lpage": ""
+    },
+    {
+      "titulo": "Genome-wide expression analysis of reactive oxygen species gene network in Mizuna plants grown in long-term spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "M. Sugimoto",
+          "nombres": "M.",
+          "apellidos": "Sugimoto"
+        },
+        {
+          "nombre_completo": "Y. Oono",
+          "nombres": "Y.",
+          "apellidos": "Oono"
+        },
+        {
+          "nombre_completo": "O. Gusev",
+          "nombres": "O.",
+          "apellidos": "Gusev"
+        },
+        {
+          "nombre_completo": "T. Matsumoto",
+          "nombres": "T.",
+          "apellidos": "Matsumoto"
+        },
+        {
+          "nombre_completo": "T. Yazawa",
+          "nombres": "T.",
+          "apellidos": "Yazawa"
+        },
+        {
+          "nombre_completo": "M. A. Levinskikh",
+          "nombres": "M. A.",
+          "apellidos": "Levinskikh"
+        }
+      ],
+      "pmid": "24393219",
+      "fuente": "BMC Plant Biol.",
+      "anio": "2014",
+      "volumen": "14",
+      "fpage": "4",
+      "lpage": ""
+    },
+    {
+      "titulo": "An ‘ eFP -Seq Browser' for visualizing and exploring RNA sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "A. Sullivan",
+          "nombres": "A.",
+          "apellidos": "Sullivan"
+        },
+        {
+          "nombre_completo": "P. K. Purohit",
+          "nombres": "P. K.",
+          "apellidos": "Purohit"
+        },
+        {
+          "nombre_completo": "N. H. Freese",
+          "nombres": "N. H.",
+          "apellidos": "Freese"
+        },
+        {
+          "nombre_completo": "A. Pasha",
+          "nombres": "A.",
+          "apellidos": "Pasha"
+        },
+        {
+          "nombre_completo": "E. Esteban",
+          "nombres": "E.",
+          "apellidos": "Esteban"
+        },
+        {
+          "nombre_completo": "J. Waese",
+          "nombres": "J.",
+          "apellidos": "Waese"
+        }
+      ],
+      "pmid": "31350781",
+      "fuente": "Plant J",
+      "anio": "2019",
+      "volumen": "100",
+      "fpage": "641",
+      "lpage": "654"
+    },
+    {
+      "titulo": "STRING v11: protein–protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets",
+      "autores": [
+        {
+          "nombre_completo": "D. Szklarczyk",
+          "nombres": "D.",
+          "apellidos": "Szklarczyk"
+        },
+        {
+          "nombre_completo": "A. L. Gable",
+          "nombres": "A. L.",
+          "apellidos": "Gable"
+        },
+        {
+          "nombre_completo": "D. Lyon",
+          "nombres": "D.",
+          "apellidos": "Lyon"
+        },
+        {
+          "nombre_completo": "A. Junge",
+          "nombres": "A.",
+          "apellidos": "Junge"
+        },
+        {
+          "nombre_completo": "S. Wyder",
+          "nombres": "S.",
+          "apellidos": "Wyder"
+        },
+        {
+          "nombre_completo": "J. Huerta-Cepas",
+          "nombres": "J.",
+          "apellidos": "Huerta-Cepas"
+        }
+      ],
+      "pmid": "30476243",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D607",
+      "lpage": "D613"
+    },
+    {
+      "titulo": "The botany array resource: e-Northerns, expression angling, and promoter analyses",
+      "autores": [
+        {
+          "nombre_completo": "K. Toufighi",
+          "nombres": "K.",
+          "apellidos": "Toufighi"
+        },
+        {
+          "nombre_completo": "S. M. Brady",
+          "nombres": "S. M.",
+          "apellidos": "Brady"
+        },
+        {
+          "nombre_completo": "R. Austin",
+          "nombres": "R.",
+          "apellidos": "Austin"
+        },
+        {
+          "nombre_completo": "E. Ly",
+          "nombres": "E.",
+          "apellidos": "Ly"
+        },
+        {
+          "nombre_completo": "N. J. Provart",
+          "nombres": "N. J.",
+          "apellidos": "Provart"
+        }
+      ],
+      "pmid": "15960624",
+      "fuente": "Plant J.",
+      "anio": "2005",
+      "volumen": "43",
+      "fpage": "153",
+      "lpage": "163"
+    },
+    {
+      "titulo": "Space, the final frontier: a critical review of recent experiments performed in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "J. Z. Kiss",
+          "nombres": "J. Z.",
+          "apellidos": "Kiss"
+        }
+      ],
+      "pmid": "26795156",
+      "fuente": "Plant Sci.",
+      "anio": "2016",
+      "volumen": "243",
+      "fpage": "115",
+      "lpage": "119"
+    },
+    {
+      "titulo": "RNA-seq analyses of Arabidopsis thaliana seedlings after exposure to blue-light phototropic stimuli in microgravity",
+      "autores": [
+        {
+          "nombre_completo": "J. P. Vandenbrink",
+          "nombres": "J. P.",
+          "apellidos": "Vandenbrink"
+        },
+        {
+          "nombre_completo": "R. Herranz",
+          "nombres": "R.",
+          "apellidos": "Herranz"
+        },
+        {
+          "nombre_completo": "W. L. Poehlman",
+          "nombres": "W. L.",
+          "apellidos": "Poehlman"
+        },
+        {
+          "nombre_completo": "F. A. Feltus",
+          "nombres": "F. A.",
+          "apellidos": "Feltus"
+        },
+        {
+          "nombre_completo": "M. Ciska",
+          "nombres": "M.",
+          "apellidos": "Ciska"
+        },
+        {
+          "nombre_completo": "F. J. Medina",
+          "nombres": "F. J.",
+          "apellidos": "Medina"
+        }
+      ],
+      "pmid": "31709515",
+      "fuente": "Am. J. Bot.",
+      "anio": "2019",
+      "volumen": "106",
+      "fpage": "1466",
+      "lpage": "1476"
+    },
+    {
+      "titulo": "ePlant: visualizing and exploring multiple levels of data for hypothesis generation in plant biology",
+      "autores": [
+        {
+          "nombre_completo": "J. Waese",
+          "nombres": "J.",
+          "apellidos": "Waese"
+        },
+        {
+          "nombre_completo": "J. Fan",
+          "nombres": "J.",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "A. Pasha",
+          "nombres": "A.",
+          "apellidos": "Pasha"
+        },
+        {
+          "nombre_completo": "H. Yu",
+          "nombres": "H.",
+          "apellidos": "Yu"
+        },
+        {
+          "nombre_completo": "G. Fucile",
+          "nombres": "G.",
+          "apellidos": "Fucile"
+        },
+        {
+          "nombre_completo": "R. Shi",
+          "nombres": "R.",
+          "apellidos": "Shi"
+        }
+      ],
+      "pmid": "28808136",
+      "fuente": "Plant Cell",
+      "anio": "2017",
+      "volumen": "29",
+      "fpage": "1806",
+      "lpage": "1821"
+    },
+    {
+      "titulo": "Agriculture for space: people and places paving the way",
+      "autores": [
+        {
+          "nombre_completo": "R. M. Wheeler",
+          "nombres": "R. M.",
+          "apellidos": "Wheeler"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Open Agric.",
+      "anio": "2017",
+      "volumen": "2",
+      "fpage": "14",
+      "lpage": "32"
+    },
+    {
+      "titulo": "The ROS wheel: refining ROS transcriptional footprints",
+      "autores": [
+        {
+          "nombre_completo": "P. Willems",
+          "nombres": "P.",
+          "apellidos": "Willems"
+        },
+        {
+          "nombre_completo": "A. Mhamdi",
+          "nombres": "A.",
+          "apellidos": "Mhamdi"
+        },
+        {
+          "nombre_completo": "S. Stael",
+          "nombres": "S.",
+          "apellidos": "Stael"
+        },
+        {
+          "nombre_completo": "V. Storme",
+          "nombres": "V.",
+          "apellidos": "Storme"
+        },
+        {
+          "nombre_completo": "P. Kerchev",
+          "nombres": "P.",
+          "apellidos": "Kerchev"
+        },
+        {
+          "nombre_completo": "G. Noctor",
+          "nombres": "G.",
+          "apellidos": "Noctor"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Plant Physiol.",
+      "anio": "2016",
+      "volumen": "17",
+      "fpage": "1720",
+      "lpage": "1733"
+    },
+    {
+      "titulo": "Ensembl 2018",
+      "autores": [
+        {
+          "nombre_completo": "D. R. Zerbino",
+          "nombres": "D. R.",
+          "apellidos": "Zerbino"
+        },
+        {
+          "nombre_completo": "P. Achuthan",
+          "nombres": "P.",
+          "apellidos": "Achuthan"
+        },
+        {
+          "nombre_completo": "W. Akanni",
+          "nombres": "W.",
+          "apellidos": "Akanni"
+        },
+        {
+          "nombre_completo": "M. R. Amode",
+          "nombres": "M. R.",
+          "apellidos": "Amode"
+        },
+        {
+          "nombre_completo": "D. Barrell",
+          "nombres": "D.",
+          "apellidos": "Barrell"
+        },
+        {
+          "nombre_completo": "J. Bhai",
+          "nombres": "J.",
+          "apellidos": "Bhai"
+        }
+      ],
+      "pmid": "29155950",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2018",
+      "volumen": "46",
+      "fpage": "D754",
+      "lpage": "D761"
+    },
+    {
+      "titulo": "Differential protein expression profiling of Arabidopsis thaliana callus under microgravity on board the Chinese SZ-8 spacecraft",
+      "autores": [
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "L. Wang",
+          "nombres": "L.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. Xie",
+          "nombres": "J.",
+          "apellidos": "Xie"
+        },
+        {
+          "nombre_completo": "H. Zheng",
+          "nombres": "H.",
+          "apellidos": "Zheng"
+        }
+      ],
+      "pmid": "25374148",
+      "fuente": "Planta",
+      "anio": "2015",
+      "volumen": "241",
+      "fpage": "475",
+      "lpage": "488"
+    },
+    {
+      "titulo": "Epigenomics in an extraterrestrial environment: organ-specific alteration of DNA methylation and gene expression elicited by spaceflight in Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "M. Zhou",
+          "nombres": "M.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "N. J. Sng",
+          "nombres": "N. J.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "C. E. Lefrois",
+          "nombres": "C. E.",
+          "apellidos": "Lefrois"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        }
+      ],
+      "pmid": "30866818",
+      "fuente": "BMC Genomics",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "205",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight engages heat shock protein and other molecular chaperone genes in tissue culture cells of Arabidopsis thaliana",
+      "autores": [
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "F. C. Denison",
+          "nombres": "F. C.",
+          "apellidos": "Denison"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "23258370",
+      "fuente": "Am. J. Bot.",
+      "anio": "2013",
+      "volumen": "100",
+      "fpage": "235",
+      "lpage": "248"
+    },
+    {
+      "titulo": "ARG1 functions in the physiological adaptation of undifferentiated plant cells to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "E. R. Schultz",
+          "nombres": "E. R.",
+          "apellidos": "Schultz"
+        },
+        {
+          "nombre_completo": "J. Yao",
+          "nombres": "J.",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "N. J. Sng",
+          "nombres": "N. J.",
+          "apellidos": "Sng"
+        },
+        {
+          "nombre_completo": "M. Zhou",
+          "nombres": "M.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "J. B. Callaham",
+          "nombres": "J. B.",
+          "apellidos": "Callaham"
+        }
+      ],
+      "pmid": "29088549",
+      "fuente": "Astrobiology",
+      "anio": "2017",
+      "volumen": "17",
+      "fpage": "1077",
+      "lpage": "1111"
+    },
+    {
+      "titulo": "HSFA2 functions in the physiological adaptation of undifferentiated plant cells to spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "A. K. Zupanska",
+          "nombres": "A. K.",
+          "apellidos": "Zupanska"
+        },
+        {
+          "nombre_completo": "C. Lefrois",
+          "nombres": "C.",
+          "apellidos": "Lefrois"
+        },
+        {
+          "nombre_completo": "R. J. Ferl",
+          "nombres": "R. J.",
+          "apellidos": "Ferl"
+        },
+        {
+          "nombre_completo": "A. L. Paul",
+          "nombres": "A. L.",
+          "apellidos": "Paul"
+        }
+      ],
+      "pmid": "30658467",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "E390",
+      "lpage": ""
+    }
+  ]
+}

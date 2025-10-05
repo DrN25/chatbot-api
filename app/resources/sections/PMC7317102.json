@@ -1,0 +1,823 @@
+{
+  "TITLE": [
+    "Draft Genome Sequences of Tremellomycetes Strains Isolated from the International Space Station"
+  ],
+  "ABSTRACT": [
+    "The draft genome sequences of six eukaryotic microbial strains belonging to the class Tremellomycetes isolated from the International Space Station were assembled. Further characterization of these sequences will aid in the understanding of the influence of microgravity conditions on these organisms’ potential pathogenicity.",
+    "ABSTRACT",
+    "The draft genome sequences of six eukaryotic microbial strains belonging to the class Tremellomycetes isolated from the International Space Station were assembled. Further characterization of these sequences will aid in the understanding of the influence of microgravity conditions on these organisms’ potential pathogenicity."
+  ],
+  "INTRO": [
+    "ANNOUNCEMENT",
+    "In an ongoing microbial observatory experiment on the International Space Station (ISS), species belonging to the class Tremellomycetes were identified. This class comprises yeasts, dimorphic fungi, and organisms that form hyphae or complex fruiting bodies. In this class, the genera Naganishia and Papiliotrema were amended to accommodate the Cryptococcus albidus clade and a few other Cryptococcus species, respectively. Among the Cryptococcus species, Cryptococcus neoformans and Cryptococcus gattii are the most common human pathogens; however, recently, there has been an increase in infections caused by non-neoformans Cryptococcus species. This report presents the draft genome assemblies of four such non-neoformans Cryptococcus species, enabling the identification of genetic determinants responsible for their potential pathogenicity under the influence of microgravity compared to their ground controls.",
+    "In this study, the draft genome sequences of six strains belonging to the class Tremellomycetes isolated from the ISS were determined. Descriptions of the sample collection, processing, and presumptive identification of these isolates were published elsewhere. Briefly, samples collected from the ISS were processed, and 100 μl of each dilution was plated onto potato dextrose agar (PDA) with 100 μg/ml chloramphenicol. The plates were incubated at 25°C for 7 days. The single colony obtained was restreaked onto PDA plates and incubated at 25°C for 3 days, and a biomass of approximately 1 μg wet weight was collected and pooled for DNA extraction. Total nucleic acid extraction was carried out using a ZymoBIOMICS 96 MagBead DNA kit (Lysis tubes) (Zymo Research, USA) after bead beating using a Bertin Precellys homogenizer. This was followed by library preparation using the Illumina Nextera Flex protocol as per Illumina document number 1000000025416 v07. The initial amount of DNA for library preparation was quantified, and depending on the input DNA concentration, 5 to 12 cycles of PCR were carried out to normalize the output. The amplified genomic DNA fragments were indexed and pooled in a 384-plex configuration. Whole-genome shotgun sequencing was performed on a NovaSeq 6000 S4 flow cell paired-end (PE) 2 × 150-bp platform with a paired-end module. The data were filtered with the NGS QC Toolkit v2.3 for high-quality (HQ) vector- and adaptor-free reads for genome assembly (cutoff read length for HQ, 80%; cutoff quality score, 20). The numbers of filtered reads obtained are listed in Table 1, and they were used for assembly with the SPAdes v3.14.1 genome assembler (k-mer size, 32 to 72 bases). Default parameters were used for all software. The details of the final assembly are summarized in Table 1.",
+    "The species were identified based on the internal transcribed spacer (ITS) sequences extracted from the assembled genomes. The ITS sequence of Naganishia sp. strain IF7SW-B1 retrieved from the assembled genome did not show ≥98% identity to any Naganishia species and, therefore, requires taxonomic characterization. Isolation of Naganishia and Papiliotrema species from the ISS is significant, and their persistence during space flight needs to be further studied.",
+    "Data availability.",
+    "The whole-genome sequences and raw data have been deposited in GenBank under the BioProject accession number PRJNA623412. This project has also been deposited in the NASA GeneLab system (GLDS-290; https://genelab-data.ndc.nasa.gov/genelab/accession/GLDS-290). The version described in this paper is the first version."
+  ],
+  "TABLE": [
+    "Summary of the draft whole-genome sequences of six strains belonging to the class Tremellomycetes isolated from the ISS",
+    "Species and strain\tNCBI accession no.\tIsolation location\tNo. of scaffolds\tGenome size (bp)\tN50 (bp)\tMedian coverage (×)\tG+C content (%)\tNo. of filtered reads used for assembly (million)\t \tNaganishia adeliensis IF1SW-F1\tJAAZPZ000000000.1\tPort panel next to cupola\t149\t19,403,212\t506,784\t134\t53.37\t14.71\t \tNaganishia albida IF6SW-B1\tJAAZPV000000000.1\tPMM port 1a\t128\t19,422,953\t506,783\t303\t53.37\t34.76\t \tNaganishia sp. IF7SW-B1\tJAAZQA000000000.1\tLab overhead 3\t123\t19,429,219\t511,828\t286\t53.37\t32.79\t \tNaganishia albida IIF5SW-F1\tJAAZPY000000000.1\tNode 1 overhead 4\t136\t19,428,531\t506,790\t258\t53.37\t30.81\t \tPapiliotrema laurentii IF7SW-B5\tJAAZPW000000000.1\tLab overhead 3\t155\t19,200,339\t389,502\t234\t56.19\t27.19\t \tPapiliotrema laurentii IF7SW-F4\tJAAZPX000000000.1\tLab overhead 3\t128\t19,020,389\t484,400\t270\t56.22\t30.21",
+    "PMM port 1, permanent multipurpose module."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+    "A higher-level phylogenetic classification of the Fungi",
+    "Towards an integrated phylogenetic classification of the Tremellomycetes",
+    "First case of superficial infection due to Naganishia albida (formerly Cryptococcus albidus) in Iran: a review of the literature",
+    "Catheter-related infection due to Papiliotrema laurentii in an oncologic patient: case report and systematic review",
+    "Isolation of Cryptococcus adeliensis from clinical samples and the environment in Germany",
+    "Acute respiratory distress syndrome due to Cryptococcus albidus pneumonia: case report and review of the literature",
+    "Non-neoformans cryptococcal infections: a systematic review",
+    "NGS QC Toolkit: a toolkit for quality control of next generation sequencing data",
+    "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces",
+      "autores": [
+        {
+          "nombre_completo": "A Checinska Sielaff",
+          "nombres": "A",
+          "apellidos": "Checinska Sielaff"
+        },
+        {
+          "nombre_completo": "C Urbaniak",
+          "nombres": "C",
+          "apellidos": "Urbaniak"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "GE Fox",
+          "nombres": "GE",
+          "apellidos": "Fox"
+        },
+        {
+          "nombre_completo": "K Venkateswaran",
+          "nombres": "K",
+          "apellidos": "Venkateswaran"
+        },
+        {
+          "nombre_completo": "GBM Mohan",
+          "nombres": "GBM",
+          "apellidos": "Mohan"
+        },
+        {
+          "nombre_completo": "VG Stepanov",
+          "nombres": "VG",
+          "apellidos": "Stepanov"
+        },
+        {
+          "nombre_completo": "Q Tran",
+          "nombres": "Q",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "JM Wood",
+          "nombres": "JM",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "J Minich",
+          "nombres": "J",
+          "apellidos": "Minich"
+        },
+        {
+          "nombre_completo": "D McDonald",
+          "nombres": "D",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "T Mayer",
+          "nombres": "T",
+          "apellidos": "Mayer"
+        },
+        {
+          "nombre_completo": "R Knight",
+          "nombres": "R",
+          "apellidos": "Knight"
+        }
+      ],
+      "pmid": "30955503",
+      "fuente": "Microbiome",
+      "anio": "2019",
+      "volumen": "7",
+      "fpage": "50",
+      "lpage": ""
+    },
+    {
+      "titulo": "A higher-level phylogenetic classification of the Fungi",
+      "autores": [
+        {
+          "nombre_completo": "DS Hibbett",
+          "nombres": "DS",
+          "apellidos": "Hibbett"
+        },
+        {
+          "nombre_completo": "M Binder",
+          "nombres": "M",
+          "apellidos": "Binder"
+        },
+        {
+          "nombre_completo": "H Thorsten Lumbsch",
+          "nombres": "H",
+          "apellidos": "Thorsten Lumbsch"
+        },
+        {
+          "nombre_completo": "F Lutzoni",
+          "nombres": "F",
+          "apellidos": "Lutzoni"
+        },
+        {
+          "nombre_completo": "PB Matheny",
+          "nombres": "PB",
+          "apellidos": "Matheny"
+        },
+        {
+          "nombre_completo": "DJ McLaughlin",
+          "nombres": "DJ",
+          "apellidos": "McLaughlin"
+        },
+        {
+          "nombre_completo": "MJ Powell",
+          "nombres": "MJ",
+          "apellidos": "Powell"
+        },
+        {
+          "nombre_completo": "S Redhead",
+          "nombres": "S",
+          "apellidos": "Redhead"
+        },
+        {
+          "nombre_completo": "CL Schoch",
+          "nombres": "CL",
+          "apellidos": "Schoch"
+        },
+        {
+          "nombre_completo": "JW Spatafora",
+          "nombres": "JW",
+          "apellidos": "Spatafora"
+        },
+        {
+          "nombre_completo": "JA Stalpers",
+          "nombres": "JA",
+          "apellidos": "Stalpers"
+        },
+        {
+          "nombre_completo": "R Vilgalys",
+          "nombres": "R",
+          "apellidos": "Vilgalys"
+        },
+        {
+          "nombre_completo": "JF Bischoff",
+          "nombres": "JF",
+          "apellidos": "Bischoff"
+        },
+        {
+          "nombre_completo": "MC Aime",
+          "nombres": "MC",
+          "apellidos": "Aime"
+        },
+        {
+          "nombre_completo": "A Aptroot",
+          "nombres": "A",
+          "apellidos": "Aptroot"
+        },
+        {
+          "nombre_completo": "R Bauer",
+          "nombres": "R",
+          "apellidos": "Bauer"
+        },
+        {
+          "nombre_completo": "D Begerow",
+          "nombres": "D",
+          "apellidos": "Begerow"
+        },
+        {
+          "nombre_completo": "GL Benny",
+          "nombres": "GL",
+          "apellidos": "Benny"
+        },
+        {
+          "nombre_completo": "LA Castlebury",
+          "nombres": "LA",
+          "apellidos": "Castlebury"
+        },
+        {
+          "nombre_completo": "PW Crous",
+          "nombres": "PW",
+          "apellidos": "Crous"
+        },
+        {
+          "nombre_completo": "Y-C Dai",
+          "nombres": "Y-C",
+          "apellidos": "Dai"
+        },
+        {
+          "nombre_completo": "W Gams",
+          "nombres": "W",
+          "apellidos": "Gams"
+        },
+        {
+          "nombre_completo": "DM Geiser",
+          "nombres": "DM",
+          "apellidos": "Geiser"
+        },
+        {
+          "nombre_completo": "M Blackwell",
+          "nombres": "M",
+          "apellidos": "Blackwell"
+        },
+        {
+          "nombre_completo": "GW Griffith",
+          "nombres": "GW",
+          "apellidos": "Griffith"
+        },
+        {
+          "nombre_completo": "C Gueidan",
+          "nombres": "C",
+          "apellidos": "Gueidan"
+        },
+        {
+          "nombre_completo": "DL Hawksworth",
+          "nombres": "DL",
+          "apellidos": "Hawksworth"
+        },
+        {
+          "nombre_completo": "G Hestmark",
+          "nombres": "G",
+          "apellidos": "Hestmark"
+        },
+        {
+          "nombre_completo": "K Hosaka",
+          "nombres": "K",
+          "apellidos": "Hosaka"
+        },
+        {
+          "nombre_completo": "RA Humber",
+          "nombres": "RA",
+          "apellidos": "Humber"
+        },
+        {
+          "nombre_completo": "KD Hyde",
+          "nombres": "KD",
+          "apellidos": "Hyde"
+        },
+        {
+          "nombre_completo": "JE Ironside",
+          "nombres": "JE",
+          "apellidos": "Ironside"
+        },
+        {
+          "nombre_completo": "U Kõljalg",
+          "nombres": "U",
+          "apellidos": "Kõljalg"
+        },
+        {
+          "nombre_completo": "CP Kurtzman",
+          "nombres": "CP",
+          "apellidos": "Kurtzman"
+        },
+        {
+          "nombre_completo": "PF Cannon",
+          "nombres": "PF",
+          "apellidos": "Cannon"
+        },
+        {
+          "nombre_completo": "K-H Larsson",
+          "nombres": "K-H",
+          "apellidos": "Larsson"
+        },
+        {
+          "nombre_completo": "R Lichtwardt",
+          "nombres": "R",
+          "apellidos": "Lichtwardt"
+        },
+        {
+          "nombre_completo": "J Longcore",
+          "nombres": "J",
+          "apellidos": "Longcore"
+        },
+        {
+          "nombre_completo": "J Miadlikowska",
+          "nombres": "J",
+          "apellidos": "Miadlikowska"
+        },
+        {
+          "nombre_completo": "A Miller",
+          "nombres": "A",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "J-M Moncalvo",
+          "nombres": "J-M",
+          "apellidos": "Moncalvo"
+        },
+        {
+          "nombre_completo": "S Mozley-Standridge",
+          "nombres": "S",
+          "apellidos": "Mozley-Standridge"
+        },
+        {
+          "nombre_completo": "F Oberwinkler",
+          "nombres": "F",
+          "apellidos": "Oberwinkler"
+        },
+        {
+          "nombre_completo": "E Parmasto",
+          "nombres": "E",
+          "apellidos": "Parmasto"
+        },
+        {
+          "nombre_completo": "V Reeb",
+          "nombres": "V",
+          "apellidos": "Reeb"
+        },
+        {
+          "nombre_completo": "OE Eriksson",
+          "nombres": "OE",
+          "apellidos": "Eriksson"
+        },
+        {
+          "nombre_completo": "JD Rogers",
+          "nombres": "JD",
+          "apellidos": "Rogers"
+        },
+        {
+          "nombre_completo": "C Roux",
+          "nombres": "C",
+          "apellidos": "Roux"
+        },
+        {
+          "nombre_completo": "L Ryvarden",
+          "nombres": "L",
+          "apellidos": "Ryvarden"
+        },
+        {
+          "nombre_completo": "JP Sampaio",
+          "nombres": "JP",
+          "apellidos": "Sampaio"
+        },
+        {
+          "nombre_completo": "A Schüssler",
+          "nombres": "A",
+          "apellidos": "Schüssler"
+        },
+        {
+          "nombre_completo": "J Sugiyama",
+          "nombres": "J",
+          "apellidos": "Sugiyama"
+        },
+        {
+          "nombre_completo": "RG Thorn",
+          "nombres": "RG",
+          "apellidos": "Thorn"
+        },
+        {
+          "nombre_completo": "L Tibell",
+          "nombres": "L",
+          "apellidos": "Tibell"
+        },
+        {
+          "nombre_completo": "WA Untereiner",
+          "nombres": "WA",
+          "apellidos": "Untereiner"
+        },
+        {
+          "nombre_completo": "C Walker",
+          "nombres": "C",
+          "apellidos": "Walker"
+        },
+        {
+          "nombre_completo": "S Huhndorf",
+          "nombres": "S",
+          "apellidos": "Huhndorf"
+        },
+        {
+          "nombre_completo": "Z Wang",
+          "nombres": "Z",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "A Weir",
+          "nombres": "A",
+          "apellidos": "Weir"
+        },
+        {
+          "nombre_completo": "W Weiss",
+          "nombres": "W",
+          "apellidos": "Weiss"
+        },
+        {
+          "nombre_completo": "M White",
+          "nombres": "M",
+          "apellidos": "White"
+        },
+        {
+          "nombre_completo": "K Winka",
+          "nombres": "K",
+          "apellidos": "Winka"
+        },
+        {
+          "nombre_completo": "Y-J Yao",
+          "nombres": "Y-J",
+          "apellidos": "Yao"
+        },
+        {
+          "nombre_completo": "N Zhang",
+          "nombres": "N",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "T James",
+          "nombres": "T",
+          "apellidos": "James"
+        },
+        {
+          "nombre_completo": "PM Kirk",
+          "nombres": "PM",
+          "apellidos": "Kirk"
+        },
+        {
+          "nombre_completo": "R Lücking",
+          "nombres": "R",
+          "apellidos": "Lücking"
+        }
+      ],
+      "pmid": "17572334",
+      "fuente": "Mycol Res",
+      "anio": "2007",
+      "volumen": "111",
+      "fpage": "509",
+      "lpage": "547"
+    },
+    {
+      "titulo": "Towards an integrated phylogenetic classification of the Tremellomycetes",
+      "autores": [
+        {
+          "nombre_completo": "XZ Liu",
+          "nombres": "XZ",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "QM Wang",
+          "nombres": "QM",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "FY Bai",
+          "nombres": "FY",
+          "apellidos": "Bai"
+        },
+        {
+          "nombre_completo": "M Goker",
+          "nombres": "M",
+          "apellidos": "Goker"
+        },
+        {
+          "nombre_completo": "M Groenewald",
+          "nombres": "M",
+          "apellidos": "Groenewald"
+        },
+        {
+          "nombre_completo": "AV Kachalkin",
+          "nombres": "AV",
+          "apellidos": "Kachalkin"
+        },
+        {
+          "nombre_completo": "HT Lumbsch",
+          "nombres": "HT",
+          "apellidos": "Lumbsch"
+        },
+        {
+          "nombre_completo": "AM Millanes",
+          "nombres": "AM",
+          "apellidos": "Millanes"
+        },
+        {
+          "nombre_completo": "M Wedin",
+          "nombres": "M",
+          "apellidos": "Wedin"
+        },
+        {
+          "nombre_completo": "AM Yurkov",
+          "nombres": "AM",
+          "apellidos": "Yurkov"
+        },
+        {
+          "nombre_completo": "T Boekhout",
+          "nombres": "T",
+          "apellidos": "Boekhout"
+        }
+      ],
+      "pmid": "26955199",
+      "fuente": "Stud Mycol",
+      "anio": "2015",
+      "volumen": "81",
+      "fpage": "85",
+      "lpage": "147"
+    },
+    {
+      "titulo": "First case of superficial infection due to Naganishia albida (formerly Cryptococcus albidus) in Iran: a review of the literature",
+      "autores": [
+        {
+          "nombre_completo": "S Aghaei Gharehbolagh",
+          "nombres": "S",
+          "apellidos": "Aghaei Gharehbolagh"
+        },
+        {
+          "nombre_completo": "M Nasimi",
+          "nombres": "M",
+          "apellidos": "Nasimi"
+        },
+        {
+          "nombre_completo": "S Agha Kuchak Afshari",
+          "nombres": "S",
+          "apellidos": "Agha Kuchak Afshari"
+        },
+        {
+          "nombre_completo": "Z Ghasemi",
+          "nombres": "Z",
+          "apellidos": "Ghasemi"
+        },
+        {
+          "nombre_completo": "S Rezaie",
+          "nombres": "S",
+          "apellidos": "Rezaie"
+        }
+      ],
+      "pmid": "29354779",
+      "fuente": "Curr Med Mycol",
+      "anio": "2017",
+      "volumen": "3",
+      "fpage": "33",
+      "lpage": "37"
+    },
+    {
+      "titulo": "Catheter-related infection due to Papiliotrema laurentii in an oncologic patient: case report and systematic review",
+      "autores": [
+        {
+          "nombre_completo": "MR Londero",
+          "nombres": "MR",
+          "apellidos": "Londero"
+        },
+        {
+          "nombre_completo": "CD Zanrosso",
+          "nombres": "CD",
+          "apellidos": "Zanrosso"
+        },
+        {
+          "nombre_completo": "LL Corso",
+          "nombres": "LL",
+          "apellidos": "Corso"
+        },
+        {
+          "nombre_completo": "L Michelin",
+          "nombres": "L",
+          "apellidos": "Michelin"
+        },
+        {
+          "nombre_completo": "J Soldera",
+          "nombres": "J",
+          "apellidos": "Soldera"
+        }
+      ],
+      "pmid": "31738886",
+      "fuente": "Braz J Infect Dis",
+      "anio": "2019",
+      "volumen": "23",
+      "fpage": "451",
+      "lpage": "461"
+    },
+    {
+      "titulo": "Isolation of Cryptococcus adeliensis from clinical samples and the environment in Germany",
+      "autores": [
+        {
+          "nombre_completo": "K Tintelnot",
+          "nombres": "K",
+          "apellidos": "Tintelnot"
+        },
+        {
+          "nombre_completo": "H Losert",
+          "nombres": "H",
+          "apellidos": "Losert"
+        }
+      ],
+      "pmid": "15695732",
+      "fuente": "J Clin Microbiol",
+      "anio": "2005",
+      "volumen": "43",
+      "fpage": "1007",
+      "lpage": ""
+    },
+    {
+      "titulo": "Acute respiratory distress syndrome due to Cryptococcus albidus pneumonia: case report and review of the literature",
+      "autores": [
+        {
+          "nombre_completo": "C Burnik",
+          "nombres": "C",
+          "apellidos": "Burnik"
+        },
+        {
+          "nombre_completo": "ND Altintas",
+          "nombres": "ND",
+          "apellidos": "Altintas"
+        },
+        {
+          "nombre_completo": "G Ozkaya",
+          "nombres": "G",
+          "apellidos": "Ozkaya"
+        },
+        {
+          "nombre_completo": "T Serter",
+          "nombres": "T",
+          "apellidos": "Serter"
+        },
+        {
+          "nombre_completo": "ZT Selcuk",
+          "nombres": "ZT",
+          "apellidos": "Selcuk"
+        },
+        {
+          "nombre_completo": "P Firat",
+          "nombres": "P",
+          "apellidos": "Firat"
+        },
+        {
+          "nombre_completo": "S Arikan",
+          "nombres": "S",
+          "apellidos": "Arikan"
+        },
+        {
+          "nombre_completo": "M Cuenca-Estrella",
+          "nombres": "M",
+          "apellidos": "Cuenca-Estrella"
+        },
+        {
+          "nombre_completo": "A Topeli",
+          "nombres": "A",
+          "apellidos": "Topeli"
+        }
+      ],
+      "pmid": "17654275",
+      "fuente": "Med Mycol",
+      "anio": "2007",
+      "volumen": "45",
+      "fpage": "469",
+      "lpage": "473"
+    },
+    {
+      "titulo": "Non-neoformans cryptococcal infections: a systematic review",
+      "autores": [
+        {
+          "nombre_completo": "T Khawcharoenporn",
+          "nombres": "T",
+          "apellidos": "Khawcharoenporn"
+        },
+        {
+          "nombre_completo": "A Apisarnthanarak",
+          "nombres": "A",
+          "apellidos": "Apisarnthanarak"
+        },
+        {
+          "nombre_completo": "LM Mundy",
+          "nombres": "LM",
+          "apellidos": "Mundy"
+        }
+      ],
+      "pmid": "17401707",
+      "fuente": "Infection",
+      "anio": "2007",
+      "volumen": "35",
+      "fpage": "51",
+      "lpage": "58"
+    },
+    {
+      "titulo": "NGS QC Toolkit: a toolkit for quality control of next generation sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "RK Patel",
+          "nombres": "RK",
+          "apellidos": "Patel"
+        },
+        {
+          "nombre_completo": "M Jain",
+          "nombres": "M",
+          "apellidos": "Jain"
+        }
+      ],
+      "pmid": "22312429",
+      "fuente": "PLoS One",
+      "anio": "2012",
+      "volumen": "7",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing",
+      "autores": [
+        {
+          "nombre_completo": "A Bankevich",
+          "nombres": "A",
+          "apellidos": "Bankevich"
+        },
+        {
+          "nombre_completo": "S Nurk",
+          "nombres": "S",
+          "apellidos": "Nurk"
+        },
+        {
+          "nombre_completo": "AV Pyshkin",
+          "nombres": "AV",
+          "apellidos": "Pyshkin"
+        },
+        {
+          "nombre_completo": "AV Sirotkin",
+          "nombres": "AV",
+          "apellidos": "Sirotkin"
+        },
+        {
+          "nombre_completo": "N Vyahhi",
+          "nombres": "N",
+          "apellidos": "Vyahhi"
+        },
+        {
+          "nombre_completo": "G Tesler",
+          "nombres": "G",
+          "apellidos": "Tesler"
+        },
+        {
+          "nombre_completo": "MA Alekseyev",
+          "nombres": "MA",
+          "apellidos": "Alekseyev"
+        },
+        {
+          "nombre_completo": "PA Pevzner",
+          "nombres": "PA",
+          "apellidos": "Pevzner"
+        },
+        {
+          "nombre_completo": "D Antipov",
+          "nombres": "D",
+          "apellidos": "Antipov"
+        },
+        {
+          "nombre_completo": "AA Gurevich",
+          "nombres": "AA",
+          "apellidos": "Gurevich"
+        },
+        {
+          "nombre_completo": "M Dvorkin",
+          "nombres": "M",
+          "apellidos": "Dvorkin"
+        },
+        {
+          "nombre_completo": "AS Kulikov",
+          "nombres": "AS",
+          "apellidos": "Kulikov"
+        },
+        {
+          "nombre_completo": "VM Lesin",
+          "nombres": "VM",
+          "apellidos": "Lesin"
+        },
+        {
+          "nombre_completo": "SI Nikolenko",
+          "nombres": "SI",
+          "apellidos": "Nikolenko"
+        },
+        {
+          "nombre_completo": "S Pham",
+          "nombres": "S",
+          "apellidos": "Pham"
+        },
+        {
+          "nombre_completo": "AD Prjibelski",
+          "nombres": "AD",
+          "apellidos": "Prjibelski"
+        }
+      ],
+      "pmid": "22506599",
+      "fuente": "J Comput Biol",
+      "anio": "2012",
+      "volumen": "19",
+      "fpage": "455",
+      "lpage": "477"
+    }
+  ]
+}

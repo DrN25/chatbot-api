@@ -1,0 +1,2539 @@
+{
+  "TITLE": [
+    "Transcriptomic Effects on the Mouse Heart Following 30 Days on the International Space Station"
+  ],
+  "ABSTRACT": [
+    "Efforts to understand the impact of spaceflight on the human body stem from growing interest in long-term space travel. Multiple organ systems are affected by microgravity and radiation, including the cardiovascular system. Previous transcriptomic studies have sought to reveal the changes in gene expression after spaceflight. However, little is known about the impact of long-term spaceflight on the mouse heart in vivo. This study focuses on the transcriptomic changes in the hearts of female C57BL/6J mice flown on the International Space Station (ISS) for 30 days. RNA was isolated from the hearts of three flight and three comparable ground control mice and RNA sequencing was performed. Our analyses showed that 1147 transcripts were significantly regulated after spaceflight. The MAPK, PI3K-Akt, and GPCR signaling pathways were predicted to be activated. Transcripts related to cytoskeleton breakdown and organization were upregulated, but no significant change in the expression of extracellular matrix (ECM) components or oxidative stress pathway-associated transcripts occurred. Our results indicate an absence of cellular senescence, and a significant upregulation of transcripts associated with the cell cycle. Transcripts related to cellular maintenance and survival were most affected by spaceflight, suggesting that cardiovascular transcriptome initiates an adaptive response to long-term spaceflight."
+  ],
+  "INTRO": [
+    "1. Introduction",
+    "The historic Apollo 11 mission to the moon stimulated a shift into a new era of research, merging biology and aerospace in an effort to achieve a greater understanding of the impact of spaceflight on the human body. Microgravity at low earth orbit (LEO), experienced aboard the International Space Station (ISS), causes changes in gravity-dependent fluid flow within the cardiovascular system. Changes in cardiac output, heart rate and rhythm, blood pressure, and heart morphology have been reported following exposure to the spaceflight environment. The low-dose radiation environment in space can also initiate structural damage at the DNA, cellular, and organ levels.",
+    "Ongoing studies using multi-omics suggest that the impact of spaceflight appears to vary depending on the model, the organ system, the differentiation status of the cells, and the length of spaceflight exposure. Studies focused on the cardiovascular system have shown that human-induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CMs) cultured on the International Space Station (ISS) responded to the spaceflight environment by altering the expression of genes involved in mitochondrial function. In the cardiac tissue of mice, transcriptional changes induced after 15 days in space include the differential expression of genes related to the cell cycle, senescence, and redox balance. Cardiac remodeling and alterations in the expression of proteasome and extracellular matrix genes occurred in the hearts of Drosophila after 30 days in spaceflight. Little is known, however, about transcriptomic changes in mammalian hearts in vivo following 30 days of spaceflight. A better understanding of transcriptomic changes within the intact heart in space is important for long-term missions planned for the future. In this study, we provide a transcriptomic analysis of gene expression changes in the mouse heart after 30 days on the ISS."
+  ],
+  "METHODS": [
+    "2. Materials and Methods",
+    "2.1. Flight and Control Conditions",
+    "Female C57BL/6J mice aged 8–9 weeks old were obtained from The Jackson Laboratory (Bar Harbor, ME). Mice were shipped to the Kennedy Space Center (KSC) Space Life Sciences Laboratory (SLSL). Although there were several groups in this study, this report focuses on the transcriptomic changes in the heart when mice are housed in the spaceflight environment for 30 days. Mice were acclimatized for 1–2 weeks prior to the initiation of the study. Their living conditions were controlled for temperature and humidity and included a 12:12 h light–dark cycle. Food and water were provided ad libitum. During this adaptation period, the mice were adapted to the flight hardware (Rodent Research Hardware System). Mice flown on the International Space Station (ISS) and comparable ground control mice were maintained under identical conditions, including a single injection of saline. At 30 days, flight mice were transferred into the ISS Microgravity Sciences Glovebox (MSG), were euthanized via intraperitoneal (IP) injection of Ketamine/Xylazine (150/45 mg/kg) anesthesia followed by closed-cardiac puncture exsanguination and cervical dislocation. After removal of the spleen, mice were wrapped in foil, frozen and stored in the Minus Eighty Laboratory Freezer for ISS (MELFI) at −96 °C until sample return. NASA GLACIER and Cold Bag lockers were used to transport samples back to the ground following mission completion.",
+    "2.2. Tissue Collection and RNA Extraction for Sequencing",
+    "The frozen ground control and spaceflight mice were slightly thawed, dissected on ice, and the inferior two-thirds of the hearts were extracted. Cardiac tissue sections were stored in RNALater, RNAProtect, or were flash-frozen in liquid nitrogen. RNAProtect samples were stored at −20 °C. The RNALater and flash-frozen samples were stored at −80 °C. RNA was isolated from the hearts of three mice flown on the ISS and three hearts from comparable hardware- and age-matched ground control mice. The extraction of RNA from cardiac tissue was conducted using the miRNeasy Mini Kit (Qiagen, Valencia, CA, USA) following the manufacturer’s protocol. A total of 25 mg of cardiac tissue was homogenized with QIAzol (Qiagen) and centrifuged. The aqueous layer was extracted, and then filtered using RNeasy Mini Spin columns provided in the kit. RNA was eluted using 30 µL of RNase-free water. RNA quality was assessed using nanodrop and gel electrophoresis, and RIN >8 was verified prior to sequencing.",
+    "2.3. RNA Sequencing and Analysis",
+    "Poly(A) RNA sequencing was performed by LC Sciences (Houston, Texas) using RNA from three ground control mice and three spaceflight mice. The Poly(A) sequencing library was prepared using Illumina’s TrueSeq-stranded-mRNA sample preparation protocol. An Agilent Technologies 2100 Bioanalyzer was utilized to validate RNA integrity. An Agilent Technologies 2100 Bioanalyzer High Sensitivity DNA Chip was used to conduct quality control analyses and quantification of the sequencing library. Paired-end sequencing was performed on an Illumina’s NovaSeq 6000 system. To conduct transcript assembly, Cutadapt and perl scripts in house were used to remove reads with adaptor contamination, low-quality bases, and undetermined bases. Sequence quality was verified using FastQC () version 0.10.1 (accessed on 01 September 2022). HISAT2 was utilized to map the genome of ftp://ftp.ensembl.org/pub/release-101/fasta/mus_musculus/dna/ v101 (accessed on 01 September 2022), while StringTie was used for transcript assembly. The comprehensive transcriptome was generated from merged transcriptomes via perl scripts and gffcompare () (accessed on 01 September 2022). To conduct mRNA expression profiling, LC Sciences utilized StringTie and Ballgown () (accessed on 01 September 2022). StringTie specifically was used to calculate FPKM. R package DESeq and edgeR were used to determine differentially expressed mRNAs. A p-value of 0.05 and a fold change cutoff of 2 were chosen for this analysis. This subsequent data was analyzed u\\sing Ingenuity Pathway Analysis (IPA) (Qiagen, ), (accessed 27 October 2022). RNA sequencing data was additionally uploaded to STRING and David Gene Ontology to determine significantly affected pathways and functions."
+  ],
+  "RESULTS": [
+    "3. Results",
+    "3.1. Cardiac Transcriptome Alterations Induced by 30 Days in Spaceflight",
+    "KEGG and Gene Ontology (GO) scatterplots were generated based on the top one hundred significantly (p < 0.01) expressed genes and transcripts in the spaceflight group (Figure 1a–c). Genes that function within the cAMP, cGMP-PKG, and calcium signaling pathways contributing to cell proliferation, cytoskeletal rearrangement, and survival were identified as enriched (Figure 1b). Spaceflight significantly altered the expression of Adcy9, Atp2a1, Adrb3, Nppa, Myl9, Adcy9, Grin2c, Ptgfr, Atp2a1, and Adrb3 in the cGMP-PKG and calcium signaling pathways. In the cAMP signaling pathway, five of six genes were downregulated, including Grin2c, Drd2, Nppa, Ppp1r1b, and Myl9, while Adcy9 was upregulated. This effect might be explained by the downregulation of Nppa expression. Nppa is an upstream regulator of Adcy9. GO analyses indicated that spaceflight has an impact on several molecular functions and biological processes (Figure 1c). A total of 1147 significantly regulated transcripts included 514 transcripts that were classified as upregulated (45%) and 633 transcripts that were downregulated (55%) in spaceflight (Figure 1d). The upregulated transcripts play a role in calcium, protein kinase A, ERK-MAPK, PI3K-Akt, senescence, cell cycle, and cAMP-mediated signaling. DAVID GO identified the cAMP signaling pathway, cGMP-PKG signaling pathway, and the regulation of actin cytoskeleton in the top ten most prevalent KEGG pathways from the 633 downregulated transcripts.",
+    "The top 100 most significant alterations in the transcriptome induced by spaceflight are shown in the heatmap (Figure 1e). The group of uniformly downregulated transcripts in the spaceflight group, namely transcripts Rps5 through Nedd4l, have enzymatic functions and roles in transcriptional regulation. Some were identified as ribosomal proteins. Similarly, in the group of uniformly upregulated transcripts, namely Ythdc1 through Ifi47, 11 transcripts contribute to cell survival and 10 transcripts have functional roles in cellular development, molecular transport, and protein trafficking. This upregulated transcript group is involved in cell-cycle checkpoint regulation, cellular assembly and organization, cell-to-cell signaling and interaction, p53 signaling, and cell survival. Within this large group of uniformly upregulated transcripts, Ric8b, Synpo2, Pik3cd, and E2f3 were of particular interest because they regulate the PI3K-Akt signaling pathway, cellular proliferation, the GPCR signaling pathway, and cell migration, respectively. From these top one hundred significant transcripts, a canonical pathway map was created to depict the most prevalent cellular signaling pathways. The cellular processes shown include the senescence pathway, PI3K-Akt signaling, p53 signaling, and E2F signaling (Figure 1f). The cellular processes most affected by stressful conditions in spaceflight are those that contribute to cellular maintenance and survival.",
+    "3.2. MAPK Signaling Is Activated by Spaceflight",
+    "Signaling pathways that impact cytoskeletal arrangement, CREB signaling, stress, cardiac hypertrophy, senescence, and other pathways involve MAPK signaling. The MAPK signaling pathway (also known as the Ras-Raf-MEK-ERK pathway or MAPKKK pathway) is a highly complex signaling cascade that involves six groups. Four subfamilies are the most well-known and include extracellular-signal-regulated kinases (ERK1/2), c-Jun NH2 terminal kinases (JNK1,−2,−3), p38 kinase, and MAPK (BMK/ERK5). This signaling pathway is activated through signal transduction from integrins and cell surface receptors, such as receptor tyrosine kinases and/or G-protein-coupled receptors.",
+    "One of the top three canonical pathways generated in IPA with a positive z-score was the ERK/MAPK signaling pathway (Figure 2a). ERK pathway activation involves the phosphorylation of p44 MAPK and p42 MAPK, also known as ERK1 and ERK2, ERK translocation to the nucleus, and the activation of several transcription factors. These transcription factors alter gene expression to promote growth, differentiation, and /or mitosis. As shown in Figure 2a, the upregulation of ERK1/2 and the inhibition of SOS and BAD are predicted to prevent apoptosis. Several transcripts induced by spaceflight and identified by IPA as significant (p-value 3.63 x 10-3) are shown in the heatmaps (Figure 2b,c).",
+    "Twenty-three transcripts related to the MAPK pathway were significantly induced. All twenty-three transcripts ranging from the lowest to highest level of expression are shown in Figure 2d,e. Seven transcripts were elevated within the range of 2 to ~50 fold (p < 0.001) (Figure 2d). Five of these seven transcripts regulate angiogenesis, proliferation, and play a role in preventing apoptosis. The final two transcripts, Plce1 and Rasgrf2, are involved in GTPase activity and calcium-regulated nucleotide exchange and were induced by 22 to 48 fold over transcript levels expressed in ground control mice. As shown in Figure 2e, the remaining 16 transcripts were also upregulated significantly. These transcripts were induced by 700 to 26,000+ fold, (p < 0.001). The most highly expressed transcripts are involved in signal transduction, mediating cell responses to proinflammatory cytokines, environmental stresses, ion channel subunits, serine/threonine-protein kinases, and protein phosphatases. The genes encoding these transcripts include Ppp5c, Rps6ka4, Map2k7, and Cacna1c.",
+    "3.3. Spaceflight Modifies Actin but Has Limited Effect on the ECM in the Heart",
+    "All significantly regulated transcripts were uploaded to DAVID Gene Ontology (DAVID GO) for functional enrichment and annotation analyses. Transcripts associated with the cytoskeleton (p = 1.0 x 10-7, Benjamini = 1.5 x 10-5) were significantly altered when comparing the spaceflight and control groups. To determine which aspects of the cytoskeleton were most heavily affected, 159 significant cytoskeleton-related transcripts were selected for target analyses. In total, 86 transcripts (54%) were downregulated and 73 transcripts (46%) were upregulated, shown in green and red, respectively (Figure 3a). The most significant finding from the KEGG analyses of this subset was regulation of the actin cytoskeleton (p = 8.8 x 10-15, Benjamini = 1.6 x 10-12). This information was used to generate a pathway demonstrating the dysregulation of the actin cytoskeleton (Figure 3b). Actin stabilization, actin polymerization, actomyosin assembly, and focal adhesion were all associated with downregulated transcripts, indicating a potential inhibition of these functions. The upregulation of PAK activates MAPK. Despite the significant dysregulation of the cytoskeleton, the evaluation of prominent extracellular matrix (ECM) components revealed that only 2 of 50 transcripts were altered (Figure 3c). Specifically, one collagen transcript, col4a5, was downregulated and one integrin, Itgb1, was upregulated. This reveals a predominantly unaltered transcriptome of products associated with ECM. Thrombospondins, fibronectin, vitronectin, and dystroglycan were also not altered by spaceflight in this model. To address the potential functional impact of all ECM transcripts that were affected, 37 significantly modulated ECM products were uploaded to DAVID GO. This allowed us to generate an ECM–receptor interaction chart based on KEGG analyses (Figure 3d). Collagen dysregulation has the potential to affect integrins involved with VLA proteins and proteoglycans. FRAS1 and agrin are of interest in multiple contexts as both play roles in organ development; however, in the context of ECM receptor binding, the downregulation of these transcripts can impact integrins and glycoproteins.",
+    "3.4. The PI3K-Akt Pathway Is Induced by Spaceflight",
+    "The PI3K-Akt pathway is one of the top five canonical pathways impacted by spaceflight with a p-value of 6.21 × 10−3. DAVID GO identified 18 genes associated with this pathway (Benjamini 1.8 × 10−22), where Mdm2, Tsc1, Hras, and Pik3cd transcripts were significantly elevated in expression with a fold change ranging from 3–13,830 (p < 0.001) (Figure 4a,b). Hras is an upstream promoter of Pik3cd, a component of the PI3K complex, which leads to the activation of cell survival, cell-cycle progression, cell proliferation, and protein synthesis (Figure 4c). G-protein-coupled receptor (GPCR) signaling was revealed as a significant canonical pathway (p-value = 1.22 × 10−6). Transcripts associated with GPCR signaling were induced by spaceflight, including P2ry1, Hras, Rapgef3, Plce1, Pik3cd, Prkacb, Atf2, Pde4c, Creb5, Camk2b, Lpar1, and Adcy7. These transcripts were upregulated in space, ranging from 2–7631 fold (p < 0.001) (Figure 4d,e). Multiple pathways downstream of GPCR signaling were activated or predicted to be activated by spaceflight (Figure 4f). These downstream pathways included YAP/TAZ, NFkB, AKT, IP3, DAG, MAPK, STAT3, CREB, RAS, and mTOR. The pathways predicted to be activated promote cell survival, proliferation, and enhance cellular response to oxidative stress (Figure 4f).",
+    "3.5. The Spaceflight Environment Activates Transcripts Associated with the Cell Cycle",
+    "Transcriptomic analyses comparing cardiac tissue samples collected from the space mice and the control mice maintained on the ground revealed elevated transcripts associated with the activation of the cell cycle in space. A fold change cutoff of 2.0 was applied to differentially expressed transcripts, resulting in the identification of thirty-one statistically significant transcripts that were found to be elevated. The fold changes ranged from 3 to over 6000 fold (p < 0.001) (Figure 5a,b). In murine embryonic stem cells, Cdk2ap2 is a regulator of cell renewal and is essential for survival during differentiation. Pak4 plays a role in proliferation, cell migration, adhesion, and survival. Phf8 regulates transcription factors necessary for cell-cycle progression and a lack of this transcript results in a prolonged G2 phase before mitosis. The transcript with the highest fold change was Jade1, which activates transcription through the process of histone acetylation. Although the specific transcript encoding Jade1 has not been previously studied in the spaceflight environment, prior publications have reported that histone acetylation increases in microgravity. A heatmap comparing the expression levels of transcripts associated with cell-cycle activation on the ground and in space is shown in Figure 5c. Figure 5d shows the network of interaction that ties the significantly elevated transcripts together. Hras and Mdm2 both activate and are activated by multiple transcripts. Hras activates cell progression and Mdm2 is known to induce proliferation and inhibit apoptosis. The microgravitational environment enhances cell-cycle progression, coupled with cell survival in the cardiovascular system of mice.",
+    "3.6. Transcripts Associated with Cellular Senescence Are Not Significantly Elevated in the Heart",
+    "Microgravity does not promote cellular senescence in the heart of space mice after long-term exposure. Figure 6a shows a pathway for cellular senescence that was created through IPA, comparing mice maintained on the ground and mice housed in space. Differential transcript expression values were uploaded to the IPA database for all significant genes related to the cell cycle. Using that analysis, a pathway was created to predict cellular senescence where reactive oxygen species (ROS) leads to oxidative stress, which causes DNA damage. According to IPA, ROS and oxidative stress molecules show low levels of predicted activation and DNA damage is not predicted. Ras activation, however, stimulates PI3k and MAPK. The downstream effect of this is the inactivation of senescence. Twenty-four transcripts related to senescence were analyzed (Figure 6b), of which only four were significantly altered by spaceflight, including Pak4, which was upregulated and functions to activate pro-survival pathways.",
+    "3.7. Oxidative Stress in the Heart",
+    "Most transcripts associated with oxidative stress were not significantly altered in the hearts of mice flown on the ISS for 30 days. As shown in Table 1, the fold change in the expression of 21 genes related to oxidative stress ranged from 0.22–1.62, with no significant difference in expression when comparing the ground control mice to the space mice (p > 0.05). A list of 126 transcripts associated with oxidative stress was created. The change in expression when comparing flight and ground conditions was only significant in seven of these genes (p ≤ 0.0005). The variants that were significant included 1600014C10Rik, Etfdh, Gpx1, and Ndufs2, which were upregulated, and Sirt1, Slc7a11, and Tor1a, which were downregulated. The expression of the remaining 119 genes in this group was unchanged as demonstrated in Figure 7."
+  ],
+  "DISCUSS": [
+    "4. Discussion",
+    "The increasing interest in space exploration and long-term spaceflight requires a better understanding of the reactive and adaptive changes that occur in various organ systems after exposure to the unique conditions of the space environment. Microgravity and radiation are known to induce alterations in gene expression; however, limited information has been reported defining the transcriptomic changes that impact organ system functions. This report provides a transcriptomic analysis of gene expression changes that occur in the mouse heart after 30 days of spaceflight aboard the ISS. To our knowledge, this study is one of the first to use an in vivo model to focus on the effects of long-term (30 day) spaceflight on gene expression, molecular pathways, and cellular changes occurring in the heart. Several signaling pathways and cellular processes were altered in a manner suggestive of cellular adaptation through mechanisms that promote survival.",
+    "The cytoskeleton adjusts to microgravity in a manner which follows the cellular tensegrity model, which purports the concept that gravitational change breaks the tension load on cytoskeleton and transmembrane proteins, consequently triggering reorganization. Our studies on the mouse heart demonstrate that cytoskeleton breakdown and reorganization occur. We identified 83 transcripts that were significantly downregulated and 76 transcripts that were significantly upregulated, including integrins beta-1 (transmembrane proteins attaching the cytoskeleton to the extracellular matrix). Cytoskeletal changes may also be influenced by trophic changes in cardiomyocytes, affecting tension and load bearing. These alterations impact MAPK signaling pathways. Further studies conducted during extended periods of spaceflight (e.g., 6 months) are needed to determine whether cytoskeletal reorganization reaches an optimal point for cellular functioning. Interestingly, our model showed limited changes to the major components of the extracellular matrix, although the ECM undergoes modifications in spaceflight in the mouse lung and drosophila heart. The impact of spaceflight on the ECM may differ according to organ, species, or length of exposure. An open versus closed cardiac system may result in significantly different adaptive responses.",
+    "Transcriptomic analyses reveal active cell proliferation linked to cell-cycle regulation. Known cell-cycle markers indicate that cells divide and survive in the heart. Recent studies show the enhanced proliferation of immune cells in mice undergoing microgravity exposure. Infiltrating immune cells or endothelial cell activation may be contributing factors. Enhanced proliferation could lead to cytoskeletal adaptations in spaceflight mice. Macrophages exhibit structural changes in their cytoskeletal arrangement, specifically impacting actin in response to microgravity.",
+    "MAPK signaling plays an essential role in cell-cycle activation, cell growth, differentiation, development, and survival. MAPK signaling was predicted to be induced by spaceflight in the mouse heart. Prior studies using isolated cells flown on the ISS for 4–5 days reported an increased expression of small GTPases, Ras, and Rho, which coincides with our transcriptome results. Ras/MAPK regulates stress signal responses and consequently elevates antioxidant transcripts. Prxl2c transcripts were elevated in our findings, consistent with this interpretation. Peroxiredoxin-like 2C (Prxl2c) is predicted to enable antioxidant activity and functions in the positive regulation of ERK1/2 and in the regulation of glycolytic processes. MAPK has also been reported to be activated in the mouse brain by microgravity.",
+    "The cytoprotective role of MAPK is one of the many downstream effects of GPCR and PI3K pathway activation. It is well understood that the activation of GPCR signaling and the PI3K-AKT pathway leads to cellular survival, cell-cycle progression, and, more specifically, cardiomyocyte survival and cardiovascular homeostasis. Previous studies in other models focusing on the role of PI3K in cardiac health have revealed the role of this pathway in eliciting protective changes following physiological stress. The impact of spaceflight on this signaling pathway in a cardiac model in space, however, is not well understood. Cultured cells exposed to spaceflight conditions have shown an increase in G-protein alpha subunit activation and elevated MAPK signaling activity. Under short-term simulated microgravity conditions, decreased PI3K and AKT expression and higher apoptotic rates were reported in cultured cells. Detrimental physiological changes have been associated with the downregulation of the PI3K-Akt signaling pathway. Our study revealed a significant upregulation of multiple transcripts that comprise the GPCR and PI3K-Akt signaling pathways in cardiac tissue following 30 days in space. Our findings suggest that cellular survival and adaptation occur through the upregulation of the GPCR and PI3K-Akt pathways as a response to long-term exposure to the space environment. The activation of the GPCR and PI3K-Akt signaling pathways may function in a protective capacity during spaceflight to counter the effects of the physiologically stressful environment. To our knowledge, little is known about the effect of the space environment on the GPCR and PI3K-Akt signaling pathways in the cardiovascular system in live animals subjected to long-term spaceflight. Thus, a better understanding of the molecular changes within the cardiovascular system that allow for adaptation to the space environment are necessary to prepare for future long-term space travel.",
+    "Surprisingly, oxidative stress was not significantly induced in the heart at 30 days. Mitochondria are the source of reactive oxygen species (ROS), and microgravity has been shown to activate its production. The imbalance of ROS versus the processes that prevent oxidative stress can cause the mitochondria to become dysfunctional. Most of the transcripts involved in the regulation of oxidative stress were not affected in our model; only 7 of 126 transcripts examined showed a significant change in expression. Five of these transcripts offered cell protection and only two were impacted in a manner that would be expected to promote ROS production. These transcripts were Ndufs2, which forms part of the core of NADH dehydrogenase complex I, and Etfdh, which is part of the electron transport chain. Both have the potential to affect ROS levels in the mitochondria. However, it is notable that although these significant transcripts can increase ROS levels, they may not be sufficient independently. Because it is well accepted that microgravity can increase the concentration of reactive oxygen species, it is possible that the oxidant nature of ROS further activates Ras/MAPK cascades that respond to stress signals and create a balanced system through the increased transcription of antioxidants. This could explain why a significant upregulation of Gpx1 was noted in our study. Gpx1 increases glutathione levels to aid in oxidative defense. In addition to activating the antioxidative response, MAPK functions to induce cellular homeostasis in conjunction with processes such as the ubiquitin-proteasome system, which is known to regulate and degrade proteins within the MAPK pathway. The proteasome units, once activated, can begin degrading not only the MAPK transcripts, but also the oxidized proteins which are typically found in excess during oxidative stress. Oxidative stress has been shown to increase due to microgravity. The ability to manage oxidative stress may be influenced by the time of exposure or the organ system studied. Research on mice and mouse-derived cells in spaceflight has often focused on organs other than the heart. This includes the brain and skeletal system, although there was a recent publication that demonstrated select genes associated with oxidative stress in the heart were elevated in shorter-term spaceflight exposure. Interestingly, the expression of these genes was not elevated at 30 days. We speculate that our experimental data could be due to acclimatization in the heart during the extended time mice were exposed to microgravity.",
+    "Cellular senescence may occur as a consequence of exposure to the stress of the spaceflight environment. Senescence occurs when cells enter cell-cycle arrest. Within the mouse heart, our findings demonstrate that cell-cycle progression was not impeded by spaceflight, oxidative stress was managed, and cellular senescence was not predicted to occur by transcriptomic analyses. Stress mechanisms activate senescence, yet our data show that transcriptomic changes associated with oxidative stress were not significantly induced after 30 days in space. This may, in part, explain why senescence was not predicted to be activated in the heart. It is also possible that the young age of the mice utilized in our study may have obscured senescence-related changes. Spaceflight-related senescence may be better observed in older mice. Additionally, our study was limited to the use of female mice. In humans, female astronauts suffer different cardiac effects compared to their male counterparts. Studies planned for the future should be designed to include animals of both sexes in order to determine whether sex-based disparities occur in responses to the spaceflight environment. Sequential timepoint analyses would also be beneficial in order to provide insight regarding the ways in which the length of exposure to the spaceflight environment influences adaptive and reactive changes in the heart.",
+    "Based on our findings, we propose that 30 days in spaceflight provides enough time for the initiation of an adaptive response to the space environment to occur within the murine heart. Out of 86,406 analyzed transcripts, only 1147 transcripts (1.3%) were significant in the flight group, suggesting that by 30 days the heart has successfully adapted to the stressful space conditions. Some cellular processes that may contribute to adaptation and survival are the PI3K-Akt pathway, GPCR signaling pathway, and MAPK signaling pathway. Transcriptomic analyses predicted the activation of these pathways in the flight group. The ability of the heart to adapt to the space environment after long-term spaceflight is one possible explanation for the lack of differences in ROS and oxidative stress when comparing the flight and ground control groups in our study. Additionally, over time, adaptation can shift the focus from survival to growth, away from senescence, and towards cell proliferation. Survival in space may be facilitated by the adaptive nature of the transcriptome.",
+    "Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content."
+  ],
+  "AUTH_CONT": [
+    "Author Contributions",
+    "Conceptualization, M.K.-J. and M.J.P.; methodology, M.K.-J. and M.J.P.; validation, M.K.-J., L.M., L.H., A.L.V., B.H. and R.V.; formal analysis, L.M., L.H., A.L.V., B.H. and R.V.; investigation, L.M., L.H., A.L.V., B.H., A.M., and R.V.; resources, M.K.-J. and M.J.P.; data curation, L.M., L.H., A.L.V., B.H. and R.V.; writing—original draft preparation, L.M., L.H., A.L.V., B.H. and R.V.; writing—review and editing, M.K.-J.,. visualization, L.M., L.H., A.L.V., B.H., J.B. and R.V.; supervision, M.K.-J.; project administration, M.K.-J.; funding acquisition, M.K.-J. and M.J.P. All authors have read and agreed to the published version of the manuscript.",
+    "Institutional Review Board Statement",
+    "The animal study protocol was approved by the Institutional Review Board of NASA (protocol #RR-12 for the flight IACUC approval on 2/19/19 and protocol # FLT-19-119 for the ground controls at Kennedy Space Center).",
+    "Informed Consent Statement",
+    "Not applicable."
+  ],
+  "SUPPL": [
+    "Data Availability Statement",
+    "The transcriptomic data is freely available and can be accessed in the NCBI Gene Expression Omnibus (GEO;  (accessed on 25 January 2023) under accession number GSE223803."
+  ],
+  "COMP_INT": [
+    "Conflicts of Interest",
+    "The authors declare no conflict of interest."
+  ],
+  "REF": [
+    "References",
+    "Mechanical countermeasures to headward fluid shifts",
+    "Human health during space travel: An overview",
+    "Cardiovascular response to lower body negative pressure stimulation before, during, and after space flight",
+    "Effects of Prolonged Spaceflight on Atrial Size, Atrial Electrophysiology, and Risk of Atrial Fibrillation",
+    "Leveraging Spaceflight to Advance Cardiovascular Research on Earth",
+    "Cardiovascular adaptations, fluid shifts, and countermeasures related to space flight",
+    "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+    "Comprehensive Multi-omics Analysis Reveals Mitochondrial Stress as a Central Biological Hub for Spaceflight Impact",
+    "Effects of Spaceflight on Human Induced Pluripotent Stem Cell-Derived Cardiomyocyte Structure and Function",
+    "Spaceflight Modulates the Expression of Key Oxidative Stress and Cell Cycle Related Genes in Heart",
+    "Prolonged Exposure to Microgravity Reduces Cardiac Contractility and Initiates Remodeling in Drosophila",
+    "CUTADAPT Removes Adapter Sequences from High-Throughput Sequencing Reads",
+    "HISAT: A Fast Spliced Aligner with Low Memory Requirements",
+    "Stringtie Enables Improved Reconstruction of a Transcriptome from RNA-Seq Reads",
+    "Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with deseq2",
+    "EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data",
+    "Causal Analysis Approaches in Ingenuity Pathway Analysis",
+    "String V10: Protein–Protein Interaction Networks, Integrated over the Tree of Life",
+    "David: A Web Server for Functional Enrichment Analysis and Functional Annotation of Gene Lists (2021 Update)",
+    "Systematic and Integrative Analysis of Large Gene Lists Using David Bioinformatics Resources",
+    "Cdk2ap2 Is a Novel Regulator for Self-Renewal of Murine Embryonic Stem Cells",
+    "Pak4 Signaling in Health and Disease: Defining the pak4–Creb Axis",
+    "The G2/M Regulator Histone Demethylase PHF8 Is Targeted for Degradation by the Anaphase-Promoting Complex Containing cdc20",
+    "Structure, Function and Regulation of Jade Family Phd Finger 1 (JADE1)",
+    "How Does Spaceflight Affect the Acquired Immune System?",
+    "MDM2 Promotes the Proliferation and Inhibits the Apoptosis of Pituitary Adenoma Cells by Directly Interacting with p53",
+    "Effects of HRAS Oncogene on Cell Cycle Progression in a Cervical Cancer-Derived Cell Line",
+    "Cellular Tensegrity: Defining New Rules of Biological Design That Govern the Cytoskeleton",
+    "Cells Respond to Space Microgravity through Cytoskeleton Reorganization",
+    "Spaceflight Modulates Expression of Extracellular Matrix, Adhesion, and Profibrotic Molecules in Mouse Lung",
+    "Macrophages in Microgravity: The Impact of Space on Immune Cells",
+    "The Emerging Role of Macrophages in Immune System Dysfunction under Real and Simulated Microgravity Conditions",
+    "Rapid Morphological and Cytoskeletal Response to Microgravity in Human Primary Macrophages",
+    "G Protein Regulation of MAPK Networks",
+    "Mitogen-Activated Protein Kinases: A New Therapeutic Target in Cardiac Pathology",
+    "Small GTPase Ras and Rho Expression in Rat Osteoblasts during Spaceflight",
+    "Ras/MAPK Signaling Functions in Oxidative Stress, DNA Damage Response and Cancer Progression",
+    "Activation of Nuclear Transcription Factor–ΚB in Mouse Brain Induced by a Simulated Microgravity Environment",
+    "Signalling through the lipid products of phosphoinositide-3-OH kinase",
+    "PI3K-PKB/Akt pathway",
+    "Role of PI3K/Akt signaling pathway in cardiac fibrosis",
+    "Protective transcriptional mechanisms in cardiomyocytes and cardiac fibroblasts",
+    "Protective effects of exercise and phosphoinositide 3-kinase(p110alpha) signaling in dilated and hypertrophic cardiomyopathy",
+    "Activation or inactivation of cardiac Akt/mTOR signaling diverges physiological from pathological hypertrophy",
+    "Insight into the Role of the PI3K/Akt Pathway in Ischemic Injury and Post-Infarct Left Ventricular Remodeling in Normal and Diabetic Heart",
+    "The insulin-like growth factor 1 receptor induces physiological heart growth via the phosphoinositide 3-kinase(p110alpha) pathway",
+    "Platelet-activating factor receptor signals in rat osteoblasts during spaceflight",
+    "Microgravity-induced stress mechanisms in human stem cell-derived cardiomyocytes",
+    "Estrogen receptor beta mediates increased activation of PI3K/Akt signaling and improved myocardial function in female hearts following acute ischemia",
+    "The Effects of Real and Simulated Microgravity on Cellular Mitochondrial Function",
+    "Mitochondrial Electron Transport Chain, Ros Generation and Uncoupling (Review)",
+    "Protective Effect of TPP-Niacin on Microgravity-Induced Oxidative Stress and Mitochondrial Dysfunction of Retinal Epithelial Cells",
+    "Glutathione Peroxidase GPX1 and Its Dichotomous Roles in Cancer",
+    "Regulation of Mitogen-Activated Protein Kinase Signaling Pathways by the Ubiquitin-Proteasome System and Its Pharmacological Potential",
+    "Redox Control of the Ubiquitin-Proteasome System: From Molecular Mechanisms to Functional Significance",
+    "Spaceflight Induces Oxidative Damage to Blood-Brain Barrier Integrity in a Mouse Model",
+    "Antioxidant Strategy to Prevent Simulated Microgravity-Induced Effects on Bone Osteoblasts",
+    "Mechanisms of Cellular Senescence: Cell Cycle Arrest and Senescence Associated Secretory Phenotype",
+    "Vascular Aging in Rodent Models: Contrasting Mechanisms Driving the Female and Male Vascular Senescence",
+    "The Impact of Sex and Gender on Adaptation to Space: Executive Summary"
+  ],
+  "FIG": [
+    "Transcripts Affected by Spaceflight. (a) Experimental timeline of spaceflight mice; (b) KEGG-pathway-enrichment scatterplot; (c) Gene ontology (GO)-enrichment scatterplot; (d) Volcano plot of transcript expression in the spaceflight group; (e) Heatmap of transcript expression levels showing the top 100 transcripts (p < 0.05) in spaceflight (F11, F12, F13) and control groups (G25, G2, G3); (f) IPA-generated pathway map relating to the top 100 significant transcripts. Each canonical pathway is colored proportionally to the p-value of a right-tailed Fisher’s test. A more saturated red indicates greater significance.",
+    "MAPK Signaling Is Upregulated in Spaceflight. (a) ERK/MAPK pathways are upregulated in the heart during spaceflight. IPA was used to identify mRNA transcripts predicted to be impacted in hearts from flight and ground control mice; (b,c) Heatmap comparing MAPK-associated transcript expression in flight and ground controls; (d,e) MAPK-related transcripts were significantly induced while in spaceflight (p < 0.001) vs ground controls.",
+    "Spaceflight modifies actin but has limited effect on the ECM in the heart. (a) A total of 155 significantly modulated cytoskeleton-related transcripts were selected from the original transcript data received from LC Sciences. Of this subset, 86 were upregulated and 73 were downregulated. (b) This dataset was uploaded to DAVID Gene Ontology for subset analyses. The most significant KEGG analysis demonstrated there was regulation of the actin cytoskeleton in spaceflight with a downregulation of the products involved in focal adhesion, actin stabilization, actin polymerization, and actomyosin assembly (p = 8.8 x 10-15, Benjaminini = 1.6 x 10-12); (c) ECM components were analyzed for any changes induced by spaceflight, namely collagens, integrins, laminins, and elastin. Of these components, only two transcripts were significantly altered out of 50; (d) 37 significantly altered ECM-related transcripts were uploaded to DAVID GO for targeted analyses. KEGG analyses of ECM-binding products demonstrated limited interaction. FRAS1, collagen, and agrin were significantly downregulated and integrin beta 1 was significantly upregulated. Figures (b) and (d) were created using BioRender.com (accessed on 15 December 2022).",
+    "PI3K-Akt and G-Protein-Coupled Receptor Signaling is Upregulated in Spaceflight. (a,b) Significantly elevated transcripts in the spaceflight group associated with the PI3K-Akt pathway include the following: Mdm2, 6480-fold change; Tsc1, 13,830-fold change; Hras, 3-fold change; and Pik3cd, 50-fold change. (c,f) IPA-generated canonical pathways of PI3K-Akt and GPCR signaling. (d,e) Significantly upregulated transcripts in the spaceflight group associated with the GPCR pathway include the following: P2ry1, 2-fold change; Hras, 3-fold change; Rapgef3, 6-fold change; Plce1, 21-fold change; Pik3cd, 50-fold change; Prkacb, 1317-fold change; Atf2, 1405-fold change; Pde4c, 1861-fold change; Creb5, 2182-fold change; Camk2b, 2344-fold change; Lpar1, 3145-fold change; and Adcy7, 7631-fold change. ** = p < 0.01, *** = p < 0.001.",
+    "Cell-cycle transcripts are upregulated in spaceflight. (a,b) Differential transcript expression analyses revealed a statistically significant elevation of targets associated with activation of the cell cycle in spaceflight mice (p value < 0.001). (c) Heatmap showing differential expression of transcripts associated with proliferation. These transcripts are listed in descending order of fold change (~6000 to 3 fold). (d) A protein–protein interaction network with data generated in String demonstrates connections between the transcripts identified in (a) and (b).",
+    "Cellular senescence is not predicted to be induced by spaceflight. (a) Pathway analysis was conducted using IPA, showing that cellular senescence is not likely to be induced in mouse hearts after 30 days in space; (b) 24 transcripts related to senescence were examined from transcriptomic data. Of these transcripts, only 4 variants were significant, with only 3 inducing senescence. Figure (a) was created using BioRender.com 2 December 2022.",
+    "Prolonged spaceflight has a limited effect on oxidative stress in the heart. All genes associated with the oxidative stress pathway were uploaded for subset analyses in David Gene Ontogeny. Ninety four percent of transcripts that affect oxidative stress were not significantly changed by spaceflight after 30 days. Six percent of the total number of transcripts analyzed were significantly impacted by spaceflight (p ≤ 0.0005)."
+  ],
+  "TABLE": [
+    "Differential Gene Expression Changes in Oxidative Stress Markers after Spaceflight.",
+    "Gene Symbol\tGene Name\tFold Change\t \tCat\tCatalase\t1.13\t \tFancc\tFanconi anemia, complementation group C\t0.82\t \tGpx1\tGlutathione Peroxidase 1\t0.78\t \tGpx3\tGlutathione Peroxidase 3\t0.27\t \tGsr\tGlutathione reductase\t1.00\t \tGstp1\tGlutathione S-transferase, pi 1\t0.83\t \tNcf2\tNeutrophil cytosolic factor 2\t0.78\t \tNox1\tNADPH oxidase 1\t0.65\t \tNox4\tNADPH oxidase 4\t0.49\t \tPrdx1\tPeroxiredoxin 1\t1.06\t \tPrdx6\tPeroxiredoxin 6\t1.05\t \tPrnp\tPrion protein\t1.02\t \tPtgs2\tProstaglandin-endoperoxide synthase 2\t0.22\t \tSlc41a3\tSolute carrier family 41, member 3\t1.62\t \tSod1\tSuperoxide dismutase 1\t0.87\t \tSod2\tSuperoxide dismutase 2\t1.05\t \tSod3\tSuperoxide dismutase 3\t0.78\t \tTpo\tThyroid peroxidase\t1.00\t \tTxnip\tThioredoxin interacting protein\t0.88\t \tTxnrd3\tThioredoxin reductase 3\t0.98\t \tXpa\tXeroderma pigmentosum, complementation group A\t0.72",
+    "Listed in the table are 21 genes that have been linked to the oxidative stress pathway. These genes show no significant regulation in stress response after 30 days of spaceflight, as defined by a p-value greater than 0.05."
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "References",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mechanical countermeasures to headward fluid shifts",
+      "autores": [
+        {
+          "nombre_completo": "K. Marshall-Goebel",
+          "nombres": "K.",
+          "apellidos": "Marshall-Goebel"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "S.S. Laurie",
+          "nombres": "S.S.",
+          "apellidos": "Laurie"
+        },
+        {
+          "nombre_completo": "S.M.C. Lee",
+          "nombres": "S.M.C.",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "D.J. Ebert",
+          "nombres": "D.J.",
+          "apellidos": "Ebert"
+        },
+        {
+          "nombre_completo": "D.T. Kemp",
+          "nombres": "D.T.",
+          "apellidos": "Kemp"
+        },
+        {
+          "nombre_completo": "A. Miller",
+          "nombres": "A.",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "S.H. Greenwald",
+          "nombres": "S.H.",
+          "apellidos": "Greenwald"
+        },
+        {
+          "nombre_completo": "D.S. Martin",
+          "nombres": "D.S.",
+          "apellidos": "Martin"
+        },
+        {
+          "nombre_completo": "M. Young",
+          "nombres": "M.",
+          "apellidos": "Young"
+        }
+      ],
+      "pmid": "33856253",
+      "fuente": "J. Appl. Physiol.",
+      "anio": "2021",
+      "volumen": "130",
+      "fpage": "1766",
+      "lpage": "1777"
+    },
+    {
+      "titulo": "Human health during space travel: An overview",
+      "autores": [
+        {
+          "nombre_completo": "K. Kandarpa",
+          "nombres": "K.",
+          "apellidos": "Kandarpa"
+        },
+        {
+          "nombre_completo": "V. Schneider",
+          "nombres": "V.",
+          "apellidos": "Schneider"
+        },
+        {
+          "nombre_completo": "K. Ganapathy",
+          "nombres": "K.",
+          "apellidos": "Ganapathy"
+        }
+      ],
+      "pmid": "31134907",
+      "fuente": "Neurol. India",
+      "anio": "2019",
+      "volumen": "67",
+      "fpage": "S176",
+      "lpage": "S181"
+    },
+    {
+      "titulo": "Cardiovascular response to lower body negative pressure stimulation before, during, and after space flight",
+      "autores": [
+        {
+          "nombre_completo": "F. Baisch",
+          "nombres": "F.",
+          "apellidos": "Baisch"
+        },
+        {
+          "nombre_completo": "L. Beck",
+          "nombres": "L.",
+          "apellidos": "Beck"
+        },
+        {
+          "nombre_completo": "G. Blomqvist",
+          "nombres": "G.",
+          "apellidos": "Blomqvist"
+        },
+        {
+          "nombre_completo": "G. Wolfram",
+          "nombres": "G.",
+          "apellidos": "Wolfram"
+        },
+        {
+          "nombre_completo": "J. Drescher",
+          "nombres": "J.",
+          "apellidos": "Drescher"
+        },
+        {
+          "nombre_completo": "J.L. Rome",
+          "nombres": "J.L.",
+          "apellidos": "Rome"
+        },
+        {
+          "nombre_completo": "C. Drummer",
+          "nombres": "C.",
+          "apellidos": "Drummer"
+        }
+      ],
+      "pmid": "11122320",
+      "fuente": "Eur. J. Clin. Investig.",
+      "anio": "2000",
+      "volumen": "30",
+      "fpage": "1055",
+      "lpage": "1065"
+    },
+    {
+      "titulo": "Effects of Prolonged Spaceflight on Atrial Size, Atrial Electrophysiology, and Risk of Atrial Fibrillation",
+      "autores": [
+        {
+          "nombre_completo": "H.W. Khine",
+          "nombres": "H.W.",
+          "apellidos": "Khine"
+        },
+        {
+          "nombre_completo": "K. Steding-Ehrenborg",
+          "nombres": "K.",
+          "apellidos": "Steding-Ehrenborg"
+        },
+        {
+          "nombre_completo": "J.L. Hastings",
+          "nombres": "J.L.",
+          "apellidos": "Hastings"
+        },
+        {
+          "nombre_completo": "J. Kowal",
+          "nombres": "J.",
+          "apellidos": "Kowal"
+        },
+        {
+          "nombre_completo": "J.D. Daniels",
+          "nombres": "J.D.",
+          "apellidos": "Daniels"
+        },
+        {
+          "nombre_completo": "R.L. Page",
+          "nombres": "R.L.",
+          "apellidos": "Page"
+        },
+        {
+          "nombre_completo": "J.J. Goldberger",
+          "nombres": "J.J.",
+          "apellidos": "Goldberger"
+        },
+        {
+          "nombre_completo": "J. Ng",
+          "nombres": "J.",
+          "apellidos": "Ng"
+        },
+        {
+          "nombre_completo": "B. Adams-Huet",
+          "nombres": "B.",
+          "apellidos": "Adams-Huet"
+        },
+        {
+          "nombre_completo": "M.W. Bungo",
+          "nombres": "M.W.",
+          "apellidos": "Bungo"
+        }
+      ],
+      "pmid": "29752376",
+      "fuente": "Circ. Arrhythm. Electrophysiol.",
+      "anio": "2018",
+      "volumen": "11",
+      "fpage": "e005959",
+      "lpage": ""
+    },
+    {
+      "titulo": "Leveraging Spaceflight to Advance Cardiovascular Research on Earth",
+      "autores": [
+        {
+          "nombre_completo": "J.M. Scott",
+          "nombres": "J.M.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "J. Stoudemire",
+          "nombres": "J.",
+          "apellidos": "Stoudemire"
+        },
+        {
+          "nombre_completo": "L. Dolan",
+          "nombres": "L.",
+          "apellidos": "Dolan"
+        },
+        {
+          "nombre_completo": "M. Downs",
+          "nombres": "M.",
+          "apellidos": "Downs"
+        }
+      ],
+      "pmid": "35298305",
+      "fuente": "Circ. Res.",
+      "anio": "2022",
+      "volumen": "130",
+      "fpage": "942",
+      "lpage": "957"
+    },
+    {
+      "titulo": "Cardiovascular adaptations, fluid shifts, and countermeasures related to space flight",
+      "autores": [
+        {
+          "nombre_completo": "A.R. Hargens",
+          "nombres": "A.R.",
+          "apellidos": "Hargens"
+        },
+        {
+          "nombre_completo": "S. Richardson",
+          "nombres": "S.",
+          "apellidos": "Richardson"
+        }
+      ],
+      "pmid": "19615471",
+      "fuente": "Respir. Physiol. Neurobiol.",
+      "anio": "2009",
+      "volumen": "169",
+      "fpage": "S30",
+      "lpage": "S33"
+    },
+    {
+      "titulo": "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "F.E. Garrett-Bakelman",
+          "nombres": "F.E.",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M. Darshi",
+          "nombres": "M.",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "S.J. Green",
+          "nombres": "S.J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "R.C. Gur",
+          "nombres": "R.C.",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L. Lin",
+          "nombres": "L.",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "B.R. Macias",
+          "nombres": "B.R.",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "M.J. McKenna",
+          "nombres": "M.J.",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T. Mishra",
+          "nombres": "T.",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J. Nasrini",
+          "nombres": "J.",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "Comprehensive Multi-omics Analysis Reveals Mitochondrial Stress as a Central Biological Hub for Spaceflight Impact",
+      "autores": [
+        {
+          "nombre_completo": "W.A. Da Silveira",
+          "nombres": "W.A.",
+          "apellidos": "Da Silveira"
+        },
+        {
+          "nombre_completo": "H. Fazelinia",
+          "nombres": "H.",
+          "apellidos": "Fazelinia"
+        },
+        {
+          "nombre_completo": "S.B. Rosenthal",
+          "nombres": "S.B.",
+          "apellidos": "Rosenthal"
+        },
+        {
+          "nombre_completo": "E.C. Laiakis",
+          "nombres": "E.C.",
+          "apellidos": "Laiakis"
+        },
+        {
+          "nombre_completo": "M.S. Kim",
+          "nombres": "M.S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "C. Meydan",
+          "nombres": "C.",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "Y. Kidane",
+          "nombres": "Y.",
+          "apellidos": "Kidane"
+        },
+        {
+          "nombre_completo": "K.S. Rathi",
+          "nombres": "K.S.",
+          "apellidos": "Rathi"
+        },
+        {
+          "nombre_completo": "S.M. Smith",
+          "nombres": "S.M.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "B. Stear",
+          "nombres": "B.",
+          "apellidos": "Stear"
+        }
+      ],
+      "pmid": "33242417",
+      "fuente": "Cell",
+      "anio": "2020",
+      "volumen": "183",
+      "fpage": "1185",
+      "lpage": "1201.e1120"
+    },
+    {
+      "titulo": "Effects of Spaceflight on Human Induced Pluripotent Stem Cell-Derived Cardiomyocyte Structure and Function",
+      "autores": [
+        {
+          "nombre_completo": "A. Wnorowski",
+          "nombres": "A.",
+          "apellidos": "Wnorowski"
+        },
+        {
+          "nombre_completo": "A. Sharma",
+          "nombres": "A.",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "H. Chen",
+          "nombres": "H.",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "H. Wu",
+          "nombres": "H.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "N.Y. Shao",
+          "nombres": "N.Y.",
+          "apellidos": "Shao"
+        },
+        {
+          "nombre_completo": "N. Sayed",
+          "nombres": "N.",
+          "apellidos": "Sayed"
+        },
+        {
+          "nombre_completo": "C. Liu",
+          "nombres": "C.",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "S. Countryman",
+          "nombres": "S.",
+          "apellidos": "Countryman"
+        },
+        {
+          "nombre_completo": "L.S. Stodieck",
+          "nombres": "L.S.",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "K.H. Rubins",
+          "nombres": "K.H.",
+          "apellidos": "Rubins"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Stem Cell Rep.",
+      "anio": "2019",
+      "volumen": "13",
+      "fpage": "960",
+      "lpage": "969"
+    },
+    {
+      "titulo": "Spaceflight Modulates the Expression of Key Oxidative Stress and Cell Cycle Related Genes in Heart",
+      "autores": [
+        {
+          "nombre_completo": "A. Kumar",
+          "nombres": "A.",
+          "apellidos": "Kumar"
+        },
+        {
+          "nombre_completo": "C.G.T. Tahimic",
+          "nombres": "C.G.T.",
+          "apellidos": "Tahimic"
+        },
+        {
+          "nombre_completo": "E.A.C. Almeida",
+          "nombres": "E.A.C.",
+          "apellidos": "Almeida"
+        },
+        {
+          "nombre_completo": "R.K. Globus",
+          "nombres": "R.K.",
+          "apellidos": "Globus"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Prolonged Exposure to Microgravity Reduces Cardiac Contractility and Initiates Remodeling in Drosophila",
+      "autores": [
+        {
+          "nombre_completo": "S. Walls",
+          "nombres": "S.",
+          "apellidos": "Walls"
+        },
+        {
+          "nombre_completo": "S. Diop",
+          "nombres": "S.",
+          "apellidos": "Diop"
+        },
+        {
+          "nombre_completo": "R. Birse",
+          "nombres": "R.",
+          "apellidos": "Birse"
+        },
+        {
+          "nombre_completo": "L. Elmen",
+          "nombres": "L.",
+          "apellidos": "Elmen"
+        },
+        {
+          "nombre_completo": "Z. Gan",
+          "nombres": "Z.",
+          "apellidos": "Gan"
+        },
+        {
+          "nombre_completo": "S. Kalvakuri",
+          "nombres": "S.",
+          "apellidos": "Kalvakuri"
+        },
+        {
+          "nombre_completo": "S. Pineda",
+          "nombres": "S.",
+          "apellidos": "Pineda"
+        },
+        {
+          "nombre_completo": "C. Reddy",
+          "nombres": "C.",
+          "apellidos": "Reddy"
+        },
+        {
+          "nombre_completo": "E. Taylor",
+          "nombres": "E.",
+          "apellidos": "Taylor"
+        },
+        {
+          "nombre_completo": "B. Trinh",
+          "nombres": "B.",
+          "apellidos": "Trinh"
+        }
+      ],
+      "pmid": "33242407",
+      "fuente": "Cell Rep.",
+      "anio": "2020",
+      "volumen": "33",
+      "fpage": "108445",
+      "lpage": ""
+    },
+    {
+      "titulo": "CUTADAPT Removes Adapter Sequences from High-Throughput Sequencing Reads",
+      "autores": [
+        {
+          "nombre_completo": "M. Martin",
+          "nombres": "M.",
+          "apellidos": "Martin"
+        }
+      ],
+      "pmid": "",
+      "fuente": "EMBnet. J.",
+      "anio": "2011",
+      "volumen": "17",
+      "fpage": "10",
+      "lpage": ""
+    },
+    {
+      "titulo": "HISAT: A Fast Spliced Aligner with Low Memory Requirements",
+      "autores": [
+        {
+          "nombre_completo": "D. Kim",
+          "nombres": "D.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "B. Langmead",
+          "nombres": "B.",
+          "apellidos": "Langmead"
+        },
+        {
+          "nombre_completo": "S.L. Salzberg",
+          "nombres": "S.L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "25751142",
+      "fuente": "Nat. Methods",
+      "anio": "2015",
+      "volumen": "12",
+      "fpage": "357",
+      "lpage": "360"
+    },
+    {
+      "titulo": "Stringtie Enables Improved Reconstruction of a Transcriptome from RNA-Seq Reads",
+      "autores": [
+        {
+          "nombre_completo": "M. Pertea",
+          "nombres": "M.",
+          "apellidos": "Pertea"
+        },
+        {
+          "nombre_completo": "G.M. Pertea",
+          "nombres": "G.M.",
+          "apellidos": "Pertea"
+        },
+        {
+          "nombre_completo": "C.M. Antonescu",
+          "nombres": "C.M.",
+          "apellidos": "Antonescu"
+        },
+        {
+          "nombre_completo": "T.-C. Chang",
+          "nombres": "T.-C.",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "J.T. Mendell",
+          "nombres": "J.T.",
+          "apellidos": "Mendell"
+        },
+        {
+          "nombre_completo": "S.L. Salzberg",
+          "nombres": "S.L.",
+          "apellidos": "Salzberg"
+        }
+      ],
+      "pmid": "25690850",
+      "fuente": "Nat. Biotechnol.",
+      "anio": "2015",
+      "volumen": "33",
+      "fpage": "290",
+      "lpage": "295"
+    },
+    {
+      "titulo": "Moderated Estimation of Fold Change and Dispersion for RNA-Seq Data with deseq2",
+      "autores": [
+        {
+          "nombre_completo": "M.I. Love",
+          "nombres": "M.I.",
+          "apellidos": "Love"
+        },
+        {
+          "nombre_completo": "W. Huber",
+          "nombres": "W.",
+          "apellidos": "Huber"
+        },
+        {
+          "nombre_completo": "S. Anders",
+          "nombres": "S.",
+          "apellidos": "Anders"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Genome Biol.",
+      "anio": "2014",
+      "volumen": "15",
+      "fpage": "12",
+      "lpage": ""
+    },
+    {
+      "titulo": "EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data",
+      "autores": [
+        {
+          "nombre_completo": "M.D. Robinson",
+          "nombres": "M.D.",
+          "apellidos": "Robinson"
+        },
+        {
+          "nombre_completo": "D.J. McCarthy",
+          "nombres": "D.J.",
+          "apellidos": "McCarthy"
+        },
+        {
+          "nombre_completo": "G.K. Smyth",
+          "nombres": "G.K.",
+          "apellidos": "Smyth"
+        }
+      ],
+      "pmid": "19910308",
+      "fuente": "Bioinformatics",
+      "anio": "2009",
+      "volumen": "26",
+      "fpage": "139",
+      "lpage": "140"
+    },
+    {
+      "titulo": "Causal Analysis Approaches in Ingenuity Pathway Analysis",
+      "autores": [
+        {
+          "nombre_completo": "A. Krämer",
+          "nombres": "A.",
+          "apellidos": "Krämer"
+        },
+        {
+          "nombre_completo": "J. Green",
+          "nombres": "J.",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "J. Pollard",
+          "nombres": "J.",
+          "apellidos": "Pollard"
+        },
+        {
+          "nombre_completo": "S. Tugendreich",
+          "nombres": "S.",
+          "apellidos": "Tugendreich"
+        }
+      ],
+      "pmid": "24336805",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "30",
+      "fpage": "523",
+      "lpage": "530"
+    },
+    {
+      "titulo": "String V10: Protein–Protein Interaction Networks, Integrated over the Tree of Life",
+      "autores": [
+        {
+          "nombre_completo": "D. Szklarczyk",
+          "nombres": "D.",
+          "apellidos": "Szklarczyk"
+        },
+        {
+          "nombre_completo": "A. Franceschini",
+          "nombres": "A.",
+          "apellidos": "Franceschini"
+        },
+        {
+          "nombre_completo": "S. Wyder",
+          "nombres": "S.",
+          "apellidos": "Wyder"
+        },
+        {
+          "nombre_completo": "K. Forslund",
+          "nombres": "K.",
+          "apellidos": "Forslund"
+        },
+        {
+          "nombre_completo": "D. Heller",
+          "nombres": "D.",
+          "apellidos": "Heller"
+        },
+        {
+          "nombre_completo": "J. Huerta-Cepas",
+          "nombres": "J.",
+          "apellidos": "Huerta-Cepas"
+        },
+        {
+          "nombre_completo": "M. Simonovic",
+          "nombres": "M.",
+          "apellidos": "Simonovic"
+        },
+        {
+          "nombre_completo": "A. Roth",
+          "nombres": "A.",
+          "apellidos": "Roth"
+        },
+        {
+          "nombre_completo": "A. Santos",
+          "nombres": "A.",
+          "apellidos": "Santos"
+        },
+        {
+          "nombre_completo": "K.P. Tsafou",
+          "nombres": "K.P.",
+          "apellidos": "Tsafou"
+        }
+      ],
+      "pmid": "25352553",
+      "fuente": "Nucleic. Acids Res.",
+      "anio": "2015",
+      "volumen": "43",
+      "fpage": "D447",
+      "lpage": "D452"
+    },
+    {
+      "titulo": "David: A Web Server for Functional Enrichment Analysis and Functional Annotation of Gene Lists (2021 Update)",
+      "autores": [
+        {
+          "nombre_completo": "B.T. Sherman",
+          "nombres": "B.T.",
+          "apellidos": "Sherman"
+        },
+        {
+          "nombre_completo": "M. Hao",
+          "nombres": "M.",
+          "apellidos": "Hao"
+        },
+        {
+          "nombre_completo": "J. Qiu",
+          "nombres": "J.",
+          "apellidos": "Qiu"
+        },
+        {
+          "nombre_completo": "X. Jiao",
+          "nombres": "X.",
+          "apellidos": "Jiao"
+        },
+        {
+          "nombre_completo": "M.W. Baseler",
+          "nombres": "M.W.",
+          "apellidos": "Baseler"
+        },
+        {
+          "nombre_completo": "H.C. Lane",
+          "nombres": "H.C.",
+          "apellidos": "Lane"
+        },
+        {
+          "nombre_completo": "T. Imamichi",
+          "nombres": "T.",
+          "apellidos": "Imamichi"
+        },
+        {
+          "nombre_completo": "W. Chang",
+          "nombres": "W.",
+          "apellidos": "Chang"
+        }
+      ],
+      "pmid": "35325185",
+      "fuente": "Nucleic Acids Res.",
+      "anio": "2022",
+      "volumen": "50",
+      "fpage": "W216",
+      "lpage": "W221"
+    },
+    {
+      "titulo": "Systematic and Integrative Analysis of Large Gene Lists Using David Bioinformatics Resources",
+      "autores": [
+        {
+          "nombre_completo": "D.W. Huang",
+          "nombres": "D.W.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "B.T. Sherman",
+          "nombres": "B.T.",
+          "apellidos": "Sherman"
+        },
+        {
+          "nombre_completo": "R.A. Lempicki",
+          "nombres": "R.A.",
+          "apellidos": "Lempicki"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Nat. Protoc.",
+      "anio": "2008",
+      "volumen": "4",
+      "fpage": "44",
+      "lpage": "57"
+    },
+    {
+      "titulo": "Cdk2ap2 Is a Novel Regulator for Self-Renewal of Murine Embryonic Stem Cells",
+      "autores": [
+        {
+          "nombre_completo": "A.M. Deshpande",
+          "nombres": "A.M.",
+          "apellidos": "Deshpande"
+        },
+        {
+          "nombre_completo": "O. Khalid",
+          "nombres": "O.",
+          "apellidos": "Khalid"
+        },
+        {
+          "nombre_completo": "J.J. Kim",
+          "nombres": "J.J.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "Y. Kim",
+          "nombres": "Y.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "A. Lindgren",
+          "nombres": "A.",
+          "apellidos": "Lindgren"
+        },
+        {
+          "nombre_completo": "A.T. Clark",
+          "nombres": "A.T.",
+          "apellidos": "Clark"
+        },
+        {
+          "nombre_completo": "D.T.W. Wong",
+          "nombres": "D.T.W.",
+          "apellidos": "Wong"
+        }
+      ],
+      "pmid": "22548356",
+      "fuente": "Stem Cells Dev.",
+      "anio": "2012",
+      "volumen": "21",
+      "fpage": "3010",
+      "lpage": "3018"
+    },
+    {
+      "titulo": "Pak4 Signaling in Health and Disease: Defining the pak4–Creb Axis",
+      "autores": [
+        {
+          "nombre_completo": "S.-Y. Won",
+          "nombres": "S.-Y.",
+          "apellidos": "Won"
+        },
+        {
+          "nombre_completo": "J.-J. Park",
+          "nombres": "J.-J.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "E.-Y. Shin",
+          "nombres": "E.-Y.",
+          "apellidos": "Shin"
+        },
+        {
+          "nombre_completo": "E.-G. Kim",
+          "nombres": "E.-G.",
+          "apellidos": "Kim"
+        }
+      ],
+      "pmid": "30755582",
+      "fuente": "Exp. Mol. Med.",
+      "anio": "2019",
+      "volumen": "51",
+      "fpage": "1",
+      "lpage": "9"
+    },
+    {
+      "titulo": "The G2/M Regulator Histone Demethylase PHF8 Is Targeted for Degradation by the Anaphase-Promoting Complex Containing cdc20",
+      "autores": [
+        {
+          "nombre_completo": "H.-J. Lim",
+          "nombres": "H.-J.",
+          "apellidos": "Lim"
+        },
+        {
+          "nombre_completo": "N.V. Dimova",
+          "nombres": "N.V.",
+          "apellidos": "Dimova"
+        },
+        {
+          "nombre_completo": "M.-K.M. Tan",
+          "nombres": "M.-K.M.",
+          "apellidos": "Tan"
+        },
+        {
+          "nombre_completo": "F.D. Sigoillot",
+          "nombres": "F.D.",
+          "apellidos": "Sigoillot"
+        },
+        {
+          "nombre_completo": "R.W. King",
+          "nombres": "R.W.",
+          "apellidos": "King"
+        },
+        {
+          "nombre_completo": "Y. Shi",
+          "nombres": "Y.",
+          "apellidos": "Shi"
+        }
+      ],
+      "pmid": "23979597",
+      "fuente": "Mol. Cell. Biol.",
+      "anio": "2013",
+      "volumen": "33",
+      "fpage": "4166",
+      "lpage": "4180"
+    },
+    {
+      "titulo": "Structure, Function and Regulation of Jade Family Phd Finger 1 (JADE1)",
+      "autores": [
+        {
+          "nombre_completo": "M.V. Panchenko",
+          "nombres": "M.V.",
+          "apellidos": "Panchenko"
+        }
+      ],
+      "pmid": "27155521",
+      "fuente": "Gene",
+      "anio": "2016",
+      "volumen": "589",
+      "fpage": "1",
+      "lpage": "11"
+    },
+    {
+      "titulo": "How Does Spaceflight Affect the Acquired Immune System?",
+      "autores": [
+        {
+          "nombre_completo": "T. Akiyama",
+          "nombres": "T.",
+          "apellidos": "Akiyama"
+        },
+        {
+          "nombre_completo": "K. Horie",
+          "nombres": "K.",
+          "apellidos": "Horie"
+        },
+        {
+          "nombre_completo": "E. Hinoi",
+          "nombres": "E.",
+          "apellidos": "Hinoi"
+        },
+        {
+          "nombre_completo": "M. Hiraiwa",
+          "nombres": "M.",
+          "apellidos": "Hiraiwa"
+        },
+        {
+          "nombre_completo": "A. Kato",
+          "nombres": "A.",
+          "apellidos": "Kato"
+        },
+        {
+          "nombre_completo": "Y. Maekawa",
+          "nombres": "Y.",
+          "apellidos": "Maekawa"
+        },
+        {
+          "nombre_completo": "A. Takahashi",
+          "nombres": "A.",
+          "apellidos": "Takahashi"
+        },
+        {
+          "nombre_completo": "S. Furukawa",
+          "nombres": "S.",
+          "apellidos": "Furukawa"
+        }
+      ],
+      "pmid": "32411817",
+      "fuente": "NPJ Microgravity",
+      "anio": "2020",
+      "volumen": "6",
+      "fpage": "14",
+      "lpage": ""
+    },
+    {
+      "titulo": "MDM2 Promotes the Proliferation and Inhibits the Apoptosis of Pituitary Adenoma Cells by Directly Interacting with p53",
+      "autores": [
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. Zhao",
+          "nombres": "J.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "C. Zhang",
+          "nombres": "C.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "P. Wang",
+          "nombres": "P.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "C. Huang",
+          "nombres": "C.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "H. Peng",
+          "nombres": "H.",
+          "apellidos": "Peng"
+        }
+      ],
+      "pmid": "32797477",
+      "fuente": "Endokrynol. Pol.",
+      "anio": "2020",
+      "volumen": "71",
+      "fpage": "425",
+      "lpage": "431"
+    },
+    {
+      "titulo": "Effects of HRAS Oncogene on Cell Cycle Progression in a Cervical Cancer-Derived Cell Line",
+      "autores": [
+        {
+          "nombre_completo": "E. Córdova-Alarcón",
+          "nombres": "E.",
+          "apellidos": "Córdova-Alarcón"
+        },
+        {
+          "nombre_completo": "F. Centeno",
+          "nombres": "F.",
+          "apellidos": "Centeno"
+        },
+        {
+          "nombre_completo": "J. Reyes-Esparza",
+          "nombres": "J.",
+          "apellidos": "Reyes-Esparza"
+        },
+        {
+          "nombre_completo": "A. García-Carrancá",
+          "nombres": "A.",
+          "apellidos": "García-Carrancá"
+        },
+        {
+          "nombre_completo": "E. Garrido",
+          "nombres": "E.",
+          "apellidos": "Garrido"
+        }
+      ],
+      "pmid": "15950068",
+      "fuente": "Arch. Med. Res.",
+      "anio": "2005",
+      "volumen": "36",
+      "fpage": "311",
+      "lpage": "316"
+    },
+    {
+      "titulo": "Cellular Tensegrity: Defining New Rules of Biological Design That Govern the Cytoskeleton",
+      "autores": [
+        {
+          "nombre_completo": "D.E. Ingber",
+          "nombres": "D.E.",
+          "apellidos": "Ingber"
+        }
+      ],
+      "pmid": "8314865",
+      "fuente": "J. Cell Sci.",
+      "anio": "1993",
+      "volumen": "104",
+      "fpage": "613",
+      "lpage": "627"
+    },
+    {
+      "titulo": "Cells Respond to Space Microgravity through Cytoskeleton Reorganization",
+      "autores": [
+        {
+          "nombre_completo": "X.T. Wu",
+          "nombres": "X.T.",
+          "apellidos": "Wu"
+        },
+        {
+          "nombre_completo": "X. Yang",
+          "nombres": "X.",
+          "apellidos": "Yang"
+        },
+        {
+          "nombre_completo": "R. Tian",
+          "nombres": "R.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "Y.H. Li",
+          "nombres": "Y.H.",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "C.Y. Wang",
+          "nombres": "C.Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y.B. Fan",
+          "nombres": "Y.B.",
+          "apellidos": "Fan"
+        },
+        {
+          "nombre_completo": "L.W. Sun",
+          "nombres": "L.W.",
+          "apellidos": "Sun"
+        }
+      ],
+      "pmid": "35076958",
+      "fuente": "FASEB J.",
+      "anio": "2022",
+      "volumen": "36",
+      "fpage": "e22114",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight Modulates Expression of Extracellular Matrix, Adhesion, and Profibrotic Molecules in Mouse Lung",
+      "autores": [
+        {
+          "nombre_completo": "J. Tian",
+          "nombres": "J.",
+          "apellidos": "Tian"
+        },
+        {
+          "nombre_completo": "M.J. Pecaut",
+          "nombres": "M.J.",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "J.M. Slater",
+          "nombres": "J.M.",
+          "apellidos": "Slater"
+        },
+        {
+          "nombre_completo": "D.S. Gridley",
+          "nombres": "D.S.",
+          "apellidos": "Gridley"
+        }
+      ],
+      "pmid": "19850731",
+      "fuente": "J. Appl. Physiol.",
+      "anio": "2010",
+      "volumen": "108",
+      "fpage": "162",
+      "lpage": "171"
+    },
+    {
+      "titulo": "Macrophages in Microgravity: The Impact of Space on Immune Cells",
+      "autores": [
+        {
+          "nombre_completo": "C. Ludtka",
+          "nombres": "C.",
+          "apellidos": "Ludtka"
+        },
+        {
+          "nombre_completo": "J. Silberman",
+          "nombres": "J.",
+          "apellidos": "Silberman"
+        },
+        {
+          "nombre_completo": "E. Moore",
+          "nombres": "E.",
+          "apellidos": "Moore"
+        },
+        {
+          "nombre_completo": "J.B. Allen",
+          "nombres": "J.B.",
+          "apellidos": "Allen"
+        }
+      ],
+      "pmid": "33790288",
+      "fuente": "NPJ Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "13",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Emerging Role of Macrophages in Immune System Dysfunction under Real and Simulated Microgravity Conditions",
+      "autores": [
+        {
+          "nombre_completo": "Y. Sun",
+          "nombres": "Y.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "Y. Kuang",
+          "nombres": "Y.",
+          "apellidos": "Kuang"
+        },
+        {
+          "nombre_completo": "Z. Zuo",
+          "nombres": "Z.",
+          "apellidos": "Zuo"
+        }
+      ],
+      "pmid": "33652750",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2021",
+      "volumen": "22",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Rapid Morphological and Cytoskeletal Response to Microgravity in Human Primary Macrophages",
+      "autores": [
+        {
+          "nombre_completo": "C.S. Thiel",
+          "nombres": "C.S.",
+          "apellidos": "Thiel"
+        },
+        {
+          "nombre_completo": "S. Tauber",
+          "nombres": "S.",
+          "apellidos": "Tauber"
+        },
+        {
+          "nombre_completo": "B. Lauber",
+          "nombres": "B.",
+          "apellidos": "Lauber"
+        },
+        {
+          "nombre_completo": "J. Polzer",
+          "nombres": "J.",
+          "apellidos": "Polzer"
+        },
+        {
+          "nombre_completo": "C. Seebacher",
+          "nombres": "C.",
+          "apellidos": "Seebacher"
+        },
+        {
+          "nombre_completo": "R. Uhl",
+          "nombres": "R.",
+          "apellidos": "Uhl"
+        },
+        {
+          "nombre_completo": "S. Neelam",
+          "nombres": "S.",
+          "apellidos": "Neelam"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "H. Levine",
+          "nombres": "H.",
+          "apellidos": "Levine"
+        },
+        {
+          "nombre_completo": "O. Ullrich",
+          "nombres": "O.",
+          "apellidos": "Ullrich"
+        }
+      ],
+      "pmid": "31096581",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "G Protein Regulation of MAPK Networks",
+      "autores": [
+        {
+          "nombre_completo": "Z.G. Goldsmith",
+          "nombres": "Z.G.",
+          "apellidos": "Goldsmith"
+        },
+        {
+          "nombre_completo": "D.N. Dhanasekaran",
+          "nombres": "D.N.",
+          "apellidos": "Dhanasekaran"
+        }
+      ],
+      "pmid": "17496911",
+      "fuente": "Oncogene",
+      "anio": "2007",
+      "volumen": "26",
+      "fpage": "3122",
+      "lpage": "3142"
+    },
+    {
+      "titulo": "Mitogen-Activated Protein Kinases: A New Therapeutic Target in Cardiac Pathology",
+      "autores": [
+        {
+          "nombre_completo": "T. Ravingerova",
+          "nombres": "T.",
+          "apellidos": "Ravingerova"
+        },
+        {
+          "nombre_completo": "M. Barancik",
+          "nombres": "M.",
+          "apellidos": "Barancik"
+        },
+        {
+          "nombre_completo": "M. Strniskova",
+          "nombres": "M.",
+          "apellidos": "Strniskova"
+        }
+      ],
+      "pmid": "12841640",
+      "fuente": "Mol. Cell. Biochem.",
+      "anio": "2003",
+      "volumen": "247",
+      "fpage": "127",
+      "lpage": "138"
+    },
+    {
+      "titulo": "Small GTPase Ras and Rho Expression in Rat Osteoblasts during Spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "Y. Kumei",
+          "nombres": "Y.",
+          "apellidos": "Kumei"
+        },
+        {
+          "nombre_completo": "H. Shimokawa",
+          "nombres": "H.",
+          "apellidos": "Shimokawa"
+        },
+        {
+          "nombre_completo": "K. Ohya",
+          "nombres": "K.",
+          "apellidos": "Ohya"
+        },
+        {
+          "nombre_completo": "H. Katano",
+          "nombres": "H.",
+          "apellidos": "Katano"
+        },
+        {
+          "nombre_completo": "H. Akiyama",
+          "nombres": "H.",
+          "apellidos": "Akiyama"
+        },
+        {
+          "nombre_completo": "M. Hirano",
+          "nombres": "M.",
+          "apellidos": "Hirano"
+        },
+        {
+          "nombre_completo": "S. Morita",
+          "nombres": "S.",
+          "apellidos": "Morita"
+        }
+      ],
+      "pmid": "17404041",
+      "fuente": "Ann. N. Y. Acad. Sci.",
+      "anio": "2007",
+      "volumen": "1095",
+      "fpage": "292",
+      "lpage": "299"
+    },
+    {
+      "titulo": "Ras/MAPK Signaling Functions in Oxidative Stress, DNA Damage Response and Cancer Progression",
+      "autores": [
+        {
+          "nombre_completo": "S. Rezatabar",
+          "nombres": "S.",
+          "apellidos": "Rezatabar"
+        },
+        {
+          "nombre_completo": "A. Karimian",
+          "nombres": "A.",
+          "apellidos": "Karimian"
+        },
+        {
+          "nombre_completo": "V. Rameshknia",
+          "nombres": "V.",
+          "apellidos": "Rameshknia"
+        },
+        {
+          "nombre_completo": "H. Parsian",
+          "nombres": "H.",
+          "apellidos": "Parsian"
+        },
+        {
+          "nombre_completo": "M. Majidinia",
+          "nombres": "M.",
+          "apellidos": "Majidinia"
+        },
+        {
+          "nombre_completo": "T.A. Kopi",
+          "nombres": "T.A.",
+          "apellidos": "Kopi"
+        },
+        {
+          "nombre_completo": "A. Bishayee",
+          "nombres": "A.",
+          "apellidos": "Bishayee"
+        },
+        {
+          "nombre_completo": "A. Sadeghinia",
+          "nombres": "A.",
+          "apellidos": "Sadeghinia"
+        },
+        {
+          "nombre_completo": "M. Yousefi",
+          "nombres": "M.",
+          "apellidos": "Yousefi"
+        },
+        {
+          "nombre_completo": "M. Monirialamdari",
+          "nombres": "M.",
+          "apellidos": "Monirialamdari"
+        }
+      ],
+      "pmid": "30811039",
+      "fuente": "J. Cell. Physiol.",
+      "anio": "2019",
+      "volumen": "234",
+      "fpage": "14951",
+      "lpage": "14965"
+    },
+    {
+      "titulo": "Activation of Nuclear Transcription Factor–ΚB in Mouse Brain Induced by a Simulated Microgravity Environment",
+      "autores": [
+        {
+          "nombre_completo": "K.C. Wise",
+          "nombres": "K.C.",
+          "apellidos": "Wise"
+        },
+        {
+          "nombre_completo": "S.K. Manna",
+          "nombres": "S.K.",
+          "apellidos": "Manna"
+        },
+        {
+          "nombre_completo": "K.O. Yamauchi",
+          "nombres": "K.O.",
+          "apellidos": "Yamauchi"
+        },
+        {
+          "nombre_completo": "V. Ramesh",
+          "nombres": "V.",
+          "apellidos": "Ramesh"
+        },
+        {
+          "nombre_completo": "B.L. Wilson",
+          "nombres": "B.L.",
+          "apellidos": "Wilson"
+        },
+        {
+          "nombre_completo": "R.L. Thomas",
+          "nombres": "R.L.",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "S. Sarkar",
+          "nombres": "S.",
+          "apellidos": "Sarkar"
+        },
+        {
+          "nombre_completo": "A.D. Kulkarni",
+          "nombres": "A.D.",
+          "apellidos": "Kulkarni"
+        },
+        {
+          "nombre_completo": "N.R. Pellis",
+          "nombres": "N.R.",
+          "apellidos": "Pellis"
+        },
+        {
+          "nombre_completo": "G. Ramesh",
+          "nombres": "G.",
+          "apellidos": "Ramesh"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Vitr. Cell. Dev. Biol. Anim.",
+      "anio": "2005",
+      "volumen": "41",
+      "fpage": "118",
+      "lpage": "123"
+    },
+    {
+      "titulo": "Signalling through the lipid products of phosphoinositide-3-OH kinase",
+      "autores": [
+        {
+          "nombre_completo": "A. Toker",
+          "nombres": "A.",
+          "apellidos": "Toker"
+        },
+        {
+          "nombre_completo": "L.C. Cantley",
+          "nombres": "L.C.",
+          "apellidos": "Cantley"
+        }
+      ],
+      "pmid": "9192891",
+      "fuente": "Nature",
+      "anio": "1997",
+      "volumen": "387",
+      "fpage": "673",
+      "lpage": "676"
+    },
+    {
+      "titulo": "PI3K-PKB/Akt pathway",
+      "autores": [
+        {
+          "nombre_completo": "B.A. Hemmings",
+          "nombres": "B.A.",
+          "apellidos": "Hemmings"
+        },
+        {
+          "nombre_completo": "D.F. Restuccia",
+          "nombres": "D.F.",
+          "apellidos": "Restuccia"
+        }
+      ],
+      "pmid": "22952397",
+      "fuente": "Cold Spring Harb. Perspect. Biol.",
+      "anio": "2012",
+      "volumen": "4",
+      "fpage": "a011189",
+      "lpage": ""
+    },
+    {
+      "titulo": "Role of PI3K/Akt signaling pathway in cardiac fibrosis",
+      "autores": [
+        {
+          "nombre_completo": "W. Qin",
+          "nombres": "W.",
+          "apellidos": "Qin"
+        },
+        {
+          "nombre_completo": "L. Cao",
+          "nombres": "L.",
+          "apellidos": "Cao"
+        },
+        {
+          "nombre_completo": "I.Y. Massey",
+          "nombres": "I.Y.",
+          "apellidos": "Massey"
+        }
+      ],
+      "pmid": "34244974",
+      "fuente": "Mol. Cell Biochem.",
+      "anio": "2021",
+      "volumen": "476",
+      "fpage": "4045",
+      "lpage": "4059"
+    },
+    {
+      "titulo": "Protective transcriptional mechanisms in cardiomyocytes and cardiac fibroblasts",
+      "autores": [
+        {
+          "nombre_completo": "C.S. Brand",
+          "nombres": "C.S.",
+          "apellidos": "Brand"
+        },
+        {
+          "nombre_completo": "J.K. Lighthouse",
+          "nombres": "J.K.",
+          "apellidos": "Lighthouse"
+        },
+        {
+          "nombre_completo": "M.A. Trembley",
+          "nombres": "M.A.",
+          "apellidos": "Trembley"
+        }
+      ],
+      "pmid": "31042488",
+      "fuente": "J. Mol. Cell Cardiol.",
+      "anio": "2019",
+      "volumen": "132",
+      "fpage": "1",
+      "lpage": "12"
+    },
+    {
+      "titulo": "Protective effects of exercise and phosphoinositide 3-kinase(p110alpha) signaling in dilated and hypertrophic cardiomyopathy",
+      "autores": [
+        {
+          "nombre_completo": "J.R. McMullen",
+          "nombres": "J.R.",
+          "apellidos": "McMullen"
+        },
+        {
+          "nombre_completo": "F. Amirahmadi",
+          "nombres": "F.",
+          "apellidos": "Amirahmadi"
+        },
+        {
+          "nombre_completo": "E.A. Woodcock",
+          "nombres": "E.A.",
+          "apellidos": "Woodcock"
+        },
+        {
+          "nombre_completo": "M. Schinke-Braun",
+          "nombres": "M.",
+          "apellidos": "Schinke-Braun"
+        },
+        {
+          "nombre_completo": "R.D. Bouwman",
+          "nombres": "R.D.",
+          "apellidos": "Bouwman"
+        },
+        {
+          "nombre_completo": "K.A. Hewitt",
+          "nombres": "K.A.",
+          "apellidos": "Hewitt"
+        },
+        {
+          "nombre_completo": "J.P. Mollica",
+          "nombres": "J.P.",
+          "apellidos": "Mollica"
+        },
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Y. Zhang",
+          "nombres": "Y.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "T. Shioi",
+          "nombres": "T.",
+          "apellidos": "Shioi"
+        }
+      ],
+      "pmid": "17202264",
+      "fuente": "Proc. Natl. Acad. Sci. USA",
+      "anio": "2007",
+      "volumen": "104",
+      "fpage": "612",
+      "lpage": "617"
+    },
+    {
+      "titulo": "Activation or inactivation of cardiac Akt/mTOR signaling diverges physiological from pathological hypertrophy",
+      "autores": [
+        {
+          "nombre_completo": "O.J. Kemi",
+          "nombres": "O.J.",
+          "apellidos": "Kemi"
+        },
+        {
+          "nombre_completo": "M. Ceci",
+          "nombres": "M.",
+          "apellidos": "Ceci"
+        },
+        {
+          "nombre_completo": "U. Wisloff",
+          "nombres": "U.",
+          "apellidos": "Wisloff"
+        },
+        {
+          "nombre_completo": "S. Grimaldi",
+          "nombres": "S.",
+          "apellidos": "Grimaldi"
+        },
+        {
+          "nombre_completo": "P. Gallo",
+          "nombres": "P.",
+          "apellidos": "Gallo"
+        },
+        {
+          "nombre_completo": "G.L. Smith",
+          "nombres": "G.L.",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "G. Condorelli",
+          "nombres": "G.",
+          "apellidos": "Condorelli"
+        },
+        {
+          "nombre_completo": "O. Ellingsen",
+          "nombres": "O.",
+          "apellidos": "Ellingsen"
+        }
+      ],
+      "pmid": "17941081",
+      "fuente": "J. Cell Physiol.",
+      "anio": "2008",
+      "volumen": "214",
+      "fpage": "316",
+      "lpage": "321"
+    },
+    {
+      "titulo": "Insight into the Role of the PI3K/Akt Pathway in Ischemic Injury and Post-Infarct Left Ventricular Remodeling in Normal and Diabetic Heart",
+      "autores": [
+        {
+          "nombre_completo": "B. Walkowski",
+          "nombres": "B.",
+          "apellidos": "Walkowski"
+        },
+        {
+          "nombre_completo": "M. Kleibert",
+          "nombres": "M.",
+          "apellidos": "Kleibert"
+        },
+        {
+          "nombre_completo": "M. Majka",
+          "nombres": "M.",
+          "apellidos": "Majka"
+        },
+        {
+          "nombre_completo": "M. Wojciechowska",
+          "nombres": "M.",
+          "apellidos": "Wojciechowska"
+        }
+      ],
+      "pmid": "35563860",
+      "fuente": "Cells",
+      "anio": "2022",
+      "volumen": "11",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "The insulin-like growth factor 1 receptor induces physiological heart growth via the phosphoinositide 3-kinase(p110alpha) pathway",
+      "autores": [
+        {
+          "nombre_completo": "J.R. McMullen",
+          "nombres": "J.R.",
+          "apellidos": "McMullen"
+        },
+        {
+          "nombre_completo": "T. Shioi",
+          "nombres": "T.",
+          "apellidos": "Shioi"
+        },
+        {
+          "nombre_completo": "W.Y. Huang",
+          "nombres": "W.Y.",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "O. Tarnavski",
+          "nombres": "O.",
+          "apellidos": "Tarnavski"
+        },
+        {
+          "nombre_completo": "E. Bisping",
+          "nombres": "E.",
+          "apellidos": "Bisping"
+        },
+        {
+          "nombre_completo": "M. Schinke",
+          "nombres": "M.",
+          "apellidos": "Schinke"
+        },
+        {
+          "nombre_completo": "S. Kong",
+          "nombres": "S.",
+          "apellidos": "Kong"
+        },
+        {
+          "nombre_completo": "M.C. Sherwood",
+          "nombres": "M.C.",
+          "apellidos": "Sherwood"
+        },
+        {
+          "nombre_completo": "J. Brown",
+          "nombres": "J.",
+          "apellidos": "Brown"
+        }
+      ],
+      "pmid": "14597618",
+      "fuente": "J. Biol. Chem.",
+      "anio": "2004",
+      "volumen": "279",
+      "fpage": "4782",
+      "lpage": "4793"
+    },
+    {
+      "titulo": "Platelet-activating factor receptor signals in rat osteoblasts during spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "Y. Kumei",
+          "nombres": "Y.",
+          "apellidos": "Kumei"
+        },
+        {
+          "nombre_completo": "S. Morita",
+          "nombres": "S.",
+          "apellidos": "Morita"
+        },
+        {
+          "nombre_completo": "H. Nakamura",
+          "nombres": "H.",
+          "apellidos": "Nakamura"
+        },
+        {
+          "nombre_completo": "H. Akiyama",
+          "nombres": "H.",
+          "apellidos": "Akiyama"
+        },
+        {
+          "nombre_completo": "H. Katano",
+          "nombres": "H.",
+          "apellidos": "Katano"
+        },
+        {
+          "nombre_completo": "H. Shimokawa",
+          "nombres": "H.",
+          "apellidos": "Shimokawa"
+        },
+        {
+          "nombre_completo": "K. Ohya",
+          "nombres": "K.",
+          "apellidos": "Ohya"
+        }
+      ],
+      "pmid": "15659787",
+      "fuente": "Ann. N. Y. Acad. Sci.",
+      "anio": "2004",
+      "volumen": "1030",
+      "fpage": "116",
+      "lpage": "120"
+    },
+    {
+      "titulo": "Microgravity-induced stress mechanisms in human stem cell-derived cardiomyocytes",
+      "autores": [
+        {
+          "nombre_completo": "A. Acharya",
+          "nombres": "A.",
+          "apellidos": "Acharya"
+        },
+        {
+          "nombre_completo": "H. Nemade",
+          "nombres": "H.",
+          "apellidos": "Nemade"
+        },
+        {
+          "nombre_completo": "S. Papadopoulos",
+          "nombres": "S.",
+          "apellidos": "Papadopoulos"
+        },
+        {
+          "nombre_completo": "J. Hescheler",
+          "nombres": "J.",
+          "apellidos": "Hescheler"
+        },
+        {
+          "nombre_completo": "F. Neumaier",
+          "nombres": "F.",
+          "apellidos": "Neumaier"
+        },
+        {
+          "nombre_completo": "T. Schneider",
+          "nombres": "T.",
+          "apellidos": "Schneider"
+        },
+        {
+          "nombre_completo": "K. Rajendra Prasad",
+          "nombres": "K.",
+          "apellidos": "Rajendra Prasad"
+        },
+        {
+          "nombre_completo": "K. Khan",
+          "nombres": "K.",
+          "apellidos": "Khan"
+        },
+        {
+          "nombre_completo": "R. Hemmersbach",
+          "nombres": "R.",
+          "apellidos": "Hemmersbach"
+        },
+        {
+          "nombre_completo": "E.G. Gusmao",
+          "nombres": "E.G.",
+          "apellidos": "Gusmao"
+        }
+      ],
+      "pmid": "35789849",
+      "fuente": "iScience",
+      "anio": "2022",
+      "volumen": "25",
+      "fpage": "104577",
+      "lpage": ""
+    },
+    {
+      "titulo": "Estrogen receptor beta mediates increased activation of PI3K/Akt signaling and improved myocardial function in female hearts following acute ischemia",
+      "autores": [
+        {
+          "nombre_completo": "M. Wang",
+          "nombres": "M.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "Y. Wang",
+          "nombres": "Y.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "B. Weil",
+          "nombres": "B.",
+          "apellidos": "Weil"
+        },
+        {
+          "nombre_completo": "A. Abarbanell",
+          "nombres": "A.",
+          "apellidos": "Abarbanell"
+        },
+        {
+          "nombre_completo": "J. Herrmann",
+          "nombres": "J.",
+          "apellidos": "Herrmann"
+        },
+        {
+          "nombre_completo": "J. Tan",
+          "nombres": "J.",
+          "apellidos": "Tan"
+        },
+        {
+          "nombre_completo": "M. Kelly",
+          "nombres": "M.",
+          "apellidos": "Kelly"
+        },
+        {
+          "nombre_completo": "D.R. Meldrum",
+          "nombres": "D.R.",
+          "apellidos": "Meldrum"
+        }
+      ],
+      "pmid": "19211725",
+      "fuente": "Am. J. Physiol. Regul Integr. Comp. Physiol.",
+      "anio": "2009",
+      "volumen": "296",
+      "fpage": "R972",
+      "lpage": "R978"
+    },
+    {
+      "titulo": "The Effects of Real and Simulated Microgravity on Cellular Mitochondrial Function",
+      "autores": [
+        {
+          "nombre_completo": "H.P. Nguyen",
+          "nombres": "H.P.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "P.H. Tran",
+          "nombres": "P.H.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "K.-S. Kim",
+          "nombres": "K.-S.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "S.-G. Yang",
+          "nombres": "S.-G.",
+          "apellidos": "Yang"
+        }
+      ],
+      "pmid": "34750383",
+      "fuente": "NPJ Microgravity",
+      "anio": "2021",
+      "volumen": "7",
+      "fpage": "44",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mitochondrial Electron Transport Chain, Ros Generation and Uncoupling (Review)",
+      "autores": [
+        {
+          "nombre_completo": "R.Z. Zhao",
+          "nombres": "R.Z.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "S. Jiang",
+          "nombres": "S.",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "L. Zhang",
+          "nombres": "L.",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "Z.B. Yu",
+          "nombres": "Z.B.",
+          "apellidos": "Yu"
+        }
+      ],
+      "pmid": "31115493",
+      "fuente": "Int. J. Mol. Med.",
+      "anio": "2019",
+      "volumen": "44",
+      "fpage": "3",
+      "lpage": "15"
+    },
+    {
+      "titulo": "Protective Effect of TPP-Niacin on Microgravity-Induced Oxidative Stress and Mitochondrial Dysfunction of Retinal Epithelial Cells",
+      "autores": [
+        {
+          "nombre_completo": "H.P. Nguyen",
+          "nombres": "H.P.",
+          "apellidos": "Nguyen"
+        },
+        {
+          "nombre_completo": "S. Shin",
+          "nombres": "S.",
+          "apellidos": "Shin"
+        },
+        {
+          "nombre_completo": "K.-J. Shin",
+          "nombres": "K.-J.",
+          "apellidos": "Shin"
+        },
+        {
+          "nombre_completo": "P.H. Tran",
+          "nombres": "P.H.",
+          "apellidos": "Tran"
+        },
+        {
+          "nombre_completo": "H. Park",
+          "nombres": "H.",
+          "apellidos": "Park"
+        },
+        {
+          "nombre_completo": "Q. De Tran",
+          "nombres": "Q.",
+          "apellidos": "De Tran"
+        },
+        {
+          "nombre_completo": "M.-H. No",
+          "nombres": "M.-H.",
+          "apellidos": "No"
+        },
+        {
+          "nombre_completo": "J.S. Sun",
+          "nombres": "J.S.",
+          "apellidos": "Sun"
+        },
+        {
+          "nombre_completo": "K.W. Kim",
+          "nombres": "K.W.",
+          "apellidos": "Kim"
+        },
+        {
+          "nombre_completo": "H.-B. Kwak",
+          "nombres": "H.-B.",
+          "apellidos": "Kwak"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Biochim. Biophys. Acta (BBA)-Mol. Cell Res.",
+      "anio": "2023",
+      "volumen": "1870",
+      "fpage": "119384",
+      "lpage": ""
+    },
+    {
+      "titulo": "Glutathione Peroxidase GPX1 and Its Dichotomous Roles in Cancer",
+      "autores": [
+        {
+          "nombre_completo": "Y. Zhao",
+          "nombres": "Y.",
+          "apellidos": "Zhao"
+        },
+        {
+          "nombre_completo": "H. Wang",
+          "nombres": "H.",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J. Zhou",
+          "nombres": "J.",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "Q. Shao",
+          "nombres": "Q.",
+          "apellidos": "Shao"
+        }
+      ],
+      "pmid": "35626163",
+      "fuente": "Cancers",
+      "anio": "2022",
+      "volumen": "14",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Regulation of Mitogen-Activated Protein Kinase Signaling Pathways by the Ubiquitin-Proteasome System and Its Pharmacological Potential",
+      "autores": [
+        {
+          "nombre_completo": "S. Mathien",
+          "nombres": "S.",
+          "apellidos": "Mathien"
+        },
+        {
+          "nombre_completo": "C. Tesnière",
+          "nombres": "C.",
+          "apellidos": "Tesnière"
+        },
+        {
+          "nombre_completo": "S. Meloche",
+          "nombres": "S.",
+          "apellidos": "Meloche"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Pharmacol. Rev.",
+      "anio": "2021",
+      "volumen": "73",
+      "fpage": "1434",
+      "lpage": "1467"
+    },
+    {
+      "titulo": "Redox Control of the Ubiquitin-Proteasome System: From Molecular Mechanisms to Functional Significance",
+      "autores": [
+        {
+          "nombre_completo": "F. Kriegenburg",
+          "nombres": "F.",
+          "apellidos": "Kriegenburg"
+        },
+        {
+          "nombre_completo": "E.G. Poulsen",
+          "nombres": "E.G.",
+          "apellidos": "Poulsen"
+        },
+        {
+          "nombre_completo": "A. Koch",
+          "nombres": "A.",
+          "apellidos": "Koch"
+        },
+        {
+          "nombre_completo": "E. Krüger",
+          "nombres": "E.",
+          "apellidos": "Krüger"
+        },
+        {
+          "nombre_completo": "R. Hartmann-Petersen",
+          "nombres": "R.",
+          "apellidos": "Hartmann-Petersen"
+        }
+      ],
+      "pmid": "21314436",
+      "fuente": "Antioxid. Redox Signal.",
+      "anio": "2011",
+      "volumen": "15",
+      "fpage": "2265",
+      "lpage": "2299"
+    },
+    {
+      "titulo": "Spaceflight Induces Oxidative Damage to Blood-Brain Barrier Integrity in a Mouse Model",
+      "autores": [
+        {
+          "nombre_completo": "X.W. Mao",
+          "nombres": "X.W.",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "N.C. Nishiyama",
+          "nombres": "N.C.",
+          "apellidos": "Nishiyama"
+        },
+        {
+          "nombre_completo": "S.D. Byrum",
+          "nombres": "S.D.",
+          "apellidos": "Byrum"
+        },
+        {
+          "nombre_completo": "S. Stanbouly",
+          "nombres": "S.",
+          "apellidos": "Stanbouly"
+        },
+        {
+          "nombre_completo": "T. Jones",
+          "nombres": "T.",
+          "apellidos": "Jones"
+        },
+        {
+          "nombre_completo": "J. Holley",
+          "nombres": "J.",
+          "apellidos": "Holley"
+        },
+        {
+          "nombre_completo": "V. Sridharan",
+          "nombres": "V.",
+          "apellidos": "Sridharan"
+        },
+        {
+          "nombre_completo": "M. Boerma",
+          "nombres": "M.",
+          "apellidos": "Boerma"
+        },
+        {
+          "nombre_completo": "A.J. Tackett",
+          "nombres": "A.J.",
+          "apellidos": "Tackett"
+        },
+        {
+          "nombre_completo": "J.S. Willey",
+          "nombres": "J.S.",
+          "apellidos": "Willey"
+        }
+      ],
+      "pmid": "32981077",
+      "fuente": "FASEB J.",
+      "anio": "2020",
+      "volumen": "34",
+      "fpage": "15516",
+      "lpage": "15530"
+    },
+    {
+      "titulo": "Antioxidant Strategy to Prevent Simulated Microgravity-Induced Effects on Bone Osteoblasts",
+      "autores": [
+        {
+          "nombre_completo": "C. Morabito",
+          "nombres": "C.",
+          "apellidos": "Morabito"
+        },
+        {
+          "nombre_completo": "S. Guarnieri",
+          "nombres": "S.",
+          "apellidos": "Guarnieri"
+        },
+        {
+          "nombre_completo": "A. Cucina",
+          "nombres": "A.",
+          "apellidos": "Cucina"
+        },
+        {
+          "nombre_completo": "M. Bizzarri",
+          "nombres": "M.",
+          "apellidos": "Bizzarri"
+        },
+        {
+          "nombre_completo": "M.A. Mariggiò",
+          "nombres": "M.A.",
+          "apellidos": "Mariggiò"
+        }
+      ],
+      "pmid": "32455731",
+      "fuente": "Int. J. Mol. Sci.",
+      "anio": "2020",
+      "volumen": "21",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Mechanisms of Cellular Senescence: Cell Cycle Arrest and Senescence Associated Secretory Phenotype",
+      "autores": [
+        {
+          "nombre_completo": "R. Kumari",
+          "nombres": "R.",
+          "apellidos": "Kumari"
+        },
+        {
+          "nombre_completo": "P. Jat",
+          "nombres": "P.",
+          "apellidos": "Jat"
+        }
+      ],
+      "pmid": "33855023",
+      "fuente": "Front. Cell Dev. Biol.",
+      "anio": "2021",
+      "volumen": "9",
+      "fpage": "645593",
+      "lpage": ""
+    },
+    {
+      "titulo": "Vascular Aging in Rodent Models: Contrasting Mechanisms Driving the Female and Male Vascular Senescence",
+      "autores": [
+        {
+          "nombre_completo": "P.R. Barros",
+          "nombres": "P.R.",
+          "apellidos": "Barros"
+        },
+        {
+          "nombre_completo": "T.J. Costa",
+          "nombres": "T.J.",
+          "apellidos": "Costa"
+        },
+        {
+          "nombre_completo": "E.H. Akamine",
+          "nombres": "E.H.",
+          "apellidos": "Akamine"
+        },
+        {
+          "nombre_completo": "R.C. Tostes",
+          "nombres": "R.C.",
+          "apellidos": "Tostes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Front. Aging",
+      "anio": "2021",
+      "volumen": "2",
+      "fpage": "43",
+      "lpage": ""
+    },
+    {
+      "titulo": "The Impact of Sex and Gender on Adaptation to Space: Executive Summary",
+      "autores": [
+        {
+          "nombre_completo": "S. Mark",
+          "nombres": "S.",
+          "apellidos": "Mark"
+        },
+        {
+          "nombre_completo": "G.B.I. Scott",
+          "nombres": "G.B.I.",
+          "apellidos": "Scott"
+        },
+        {
+          "nombre_completo": "D.B. Donoviel",
+          "nombres": "D.B.",
+          "apellidos": "Donoviel"
+        },
+        {
+          "nombre_completo": "L.B. Leveton",
+          "nombres": "L.B.",
+          "apellidos": "Leveton"
+        },
+        {
+          "nombre_completo": "E. Mahoney",
+          "nombres": "E.",
+          "apellidos": "Mahoney"
+        },
+        {
+          "nombre_completo": "J.B. Charles",
+          "nombres": "J.B.",
+          "apellidos": "Charles"
+        },
+        {
+          "nombre_completo": "B. Siegel",
+          "nombres": "B.",
+          "apellidos": "Siegel"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Women’s Health",
+      "anio": "2014",
+      "volumen": "23",
+      "fpage": "941",
+      "lpage": "947"
+    }
+  ]
+}

@@ -1,0 +1,3624 @@
+{
+  "TITLE": [
+    "Circulating miRNA Spaceflight Signature Reveals Targets for Countermeasure Development"
+  ],
+  "ABSTRACT": [
+    "SUMMARY",
+    "We have identified and validated a spaceflight-associated microRNA (miRNA) signature that is shared by rodents and humans in response to simulated, short-duration and long-duration spaceflight. Previous studies have identified miRNAs that regulate rodent responses to spaceflight in low-Earth orbit, and we have confirmed the expression of these proposed spaceflight-associated miRNAs in rodents reacting to simulated spaceflight conditions. Moreover, astronaut samples from the NASA Twins Study confirmed these expression signatures in miRNA sequencing, single-cell RNA sequencing (scRNA-seq), and single-cell assay for transposase accessible chromatin (scATAC-seq) data. Additionally, a subset of these miRNAs (miR-125, miR-16, and let-7a) was found to regulate vascular damage caused by simulated deep space radiation. To demonstrate the physiological relevance of key spaceflight-associated miRNAs, we utilized antagomirs to inhibit their expression and successfully rescue simulated deep-space-radiation-mediated damage in human 3D vascular constructs.",
+    "Graphical Abstract",
+    "In Brief",
+    "Malkani et al. uncover the role of circulating microRNAs as both a potential biomarker for health risks associated with spaceflight and a countermeasure to mitigate the damage caused to the body by the space environment."
+  ],
+  "INTRO": [
+    "INTRODUCTION",
+    "Humans and vertebrate organisms exhibit a unique set of biological responses to the space environment, including bone and muscle atrophy, immune dysfunction, neurobehavioral changes, vision impairment, and cardiovascular damage. Ionizing radiation (IR) and microgravity are the main biological stressors in low-Earth orbit (LEO), which is the region encompassed by the Earth’s magnetosphere where all crewed missions currently occur. Although exposure to deep space radiation, which is primarily composed of galactic cosmic rays (GCRs), is reduced within LEO due to the magnetosphere, IR still poses a risk to astronauts in LEO, and GCRs are a critical health risk in the upcoming lunar and Mars missions. Thus, combining LEO experiments with ground-based analogs of spaceflight stressors, including simulated GCRs, allows investigations into the mechanisms behind biological responses to spaceflight.",
+    "MicroRNAs (miRNAs) are short (~22 nucleotides long) sequences of non-coding RNA that can regulate gene expression at the transcriptional and translational level and interact directly with proteins. miRNAs have been implicated as predictors and regulators for several diseases, including cancer, neurodegenerative diseases, and autoimmune disorders. miRNAs have also been found to be involved in biological responses to both microgravity and IR. Therefore, identifying miRNAs (and their networks) that are shared between humans and model organisms in response to spaceflight stressors could reveal targets for biomarker and countermeasure development to reduce the associated health risks.",
+    "Previously, we used spaceflown rodent RNA sequencing (RNA-seq) datasets from the NASA GeneLab database to make unbiased predictions about miRNAs potentially involved in regulating the transcriptional response to spaceflight. The datasets analyzed in that study are described in the STAR Methods. Our analysis identified a set of 13 spaceflight-associated miRNAs that were predicted to drive a systemic response and suggested transforming growth factor (TGF)-β1 as an overarching regulator of their expression. TGF-β1 is a major regulatory cytokine mediating the progression of cancer, autoimmunity, and neuroinflammation. However, it is important to note that this spaceflight-associated miRNA signature was defined computationally, based on transcriptomic analysis, and not measured experimentally.",
+    "Here, we experimentally validated the predicted spaceflight-associated miRNA signature by quantifying circulating miRNAs in serum from rodents exposed to simulated spaceflight conditions: microgravity, partial gravity, LEO-relevant IR, simulated deep space radiation, and combined exposures to reduced gravity and simulated space radiation, as well as true spaceflight in LEO. We supported spaceflight-stressor-mediated changes in the expression of the predicted miRNAs by performing agnostic miRNA-seq in selected datasets, and our experimental validation also incorporated simulated deep space radiation conditions to help evaluate the extent to which the miRNA signature may be shared by different space environments. Finally, we addressed the human relevance of our findings by analyzing miRNAs released by irradiated human immune cells ex vivo and miRNA expression changes in astronauts from the NASA Twins Study in vivo.",
+    "We expanded our initial panel of 13 candidate miRNAs to include 15 target miRNAs with the following justifications: (1) miRNA let-7 was subdivided into two more specific family members (let-7a and let-7c) identified in recent space biology studies, and (2) an additional miRNA (miR-92a) was added after analyzing astronaut data from the NASA Twins Study. Furthermore, we investigated the potential downstream effects of spaceflight-associated human miRNAs using single-cell RNA (scRNA) sequencing of a targeted gene panel of leukocyte-depleted fractions in the NASA Twins Study. Specifically, we compared gene expression in cells collected within 3 days upon spaceflown twin’s (TW) return to his preflight and postflight samples, as well as control samples taken from the ground control twin (HR). Single-cell transcriptomics also let us determine the individual cell types that display the strongest perturbations in gene expression consistent with miRNA signatures identified in bulk transcriptomics, and single-cell assay for transposase accessible chromatin (scATAC) sequencing data were used to delineate chromatin changes that may have altered the accessibility of the spaceflight-associated miRNAs."
+  ],
+  "RESULTS": [
+    "RESULTS",
+    "Predicted Spaceflight miRNA Signature in Rodents Was Validated Using Simulated Microgravity and Deep Space Radiation",
+    "To validate the predicted spaceflight-associated miRNA panel, we quantified their changes in response to ground analogs of individual spaceflight stressors in rodent models: simulated microgravity using hindlimb unloading (HU) as well as IR using either gamma rays or major components of galactic cosmic rays—protons and/or high mass and charge 56Fe particles (deep space relevant exposure). We exposed male 16-week-old C57BL/6J mice to HU, IR, or their combination and measured the set of selected 15 miRNAs in their serum at 1 or 11 days post-exposure using droplet digital PCR (ddPCR).",
+    "Euclidean clustering of serum miRNA concentrations separated the miRNAs into two main clusters: (1) deep-space-radiation-associated clusters, which are significantly regulated by 56Fe IR and 56Fe IR in combination with HU; and (2) microgravity-associated clusters, primarily altered in HU-only conditions (Figures 1A–1C). An additional subset of miRNAs was significantly increased in mouse serum only, early (1 day) after exposure to the combination of mixed proton/56Fe irradiation and HU, but was not affected by individual stressors (Figure 1A). Of note, we have provided a discussion regarding potential hemolysis that might occur with the serum/plasma samples utilized throughout this manuscript in the STAR Methods.",
+    "Most miRNAs (with the exception of miR-217) were observed to increase with radiation dose and linear energy transfer (LET; gamma < 150 MeV proton < 600 MeV/n 56Fe) in mouse serum both at 1 day and 11 days post-IR. At 11 days post-IR, the only significant miRNA increases were observed in IR-only (no HU) mice irradiated with either 1 Gy or 2 Gy 600 MeV/n 56Fe or 1 Gy protons (Figures 1A and 1B). In combination, these results indicate that the miRNA signature is mainly driven by the particle radiation component, which is proportional to dose and LET.",
+    "Based on all miRNAs that were significantly different in spaceflight-associated conditions, we predicted the top 50 targeted genes (Figure 1D), key diseases regulated by the miRNAs (Figure 1E), and significant pathways (Figures 1F, 1G, and S1). The top 50 genes targeted by these miRNAs (Figure 1D) primarily regulate cell-cycle pathways and protein kinase activity, in addition to hematopoiesis and blood cell development (Figures 1F and S1). The majority of diseases regulated by these miRNAs are related to cancer (Figure 1E), though we also uncovered other diseases associated with spaceflight, including cardiovascular (green circles), neurological (yellow circles) and digestive disorders (purple circles), and muscular degeneration (orange circles) (Figure 1E). Similarly, key significantly regulated pathways include carcinogenesis as well as TGF-β signaling, which supports our previous prediction of TGF-β as a key regulator of spaceflight-associated miRNA functions and implies downstream carcinogenic and immune effects. Finally, the pathways also include adherens junctions, which, combined with cardiovascular disease associations, suggests vascular impacts (Figures 1F and 1G).",
+    "To examine the contribution of reduced gravity to the miRNA signature at higher resolution, a partial weight bearing (PWB) Wistar male rat model was used to simulate varying degrees of gravitational loading. We observed that decreasing amounts of gravitational loading increased the quantities of miRNAs of interest, suggesting a gravity-dependent dose response (Figures 2A–2C). These results also validated a reduced-gravity-specific miRNA signature in both mice and rats and separated the miRNAs associated with reduced gravity from those associated with exposure to simulated deep space radiation in mice. The only observed exception was miR-217, which did not change. A similar miRNA dose response was observed based on correlation with muscle mass (Figure 2D): the miRNAs of interest increased with reduced muscle mass (which is associated with lower simulated gravity both in this rat model and in astronauts).",
+    "Notably, this model included two control groups of animals exposed to full gravitational loading: no harness (NH) and full harness (FH) (Figures 2A and 2B). Both conditions had been included in prior studies, and no functional or phenotypical differences were recorded, although there was a difference in miRNA expression between NH and FH 100% gravity groups (Figures 2A and 2B), possibly due to a trend in reduction in muscle mass in FH controls (not significant). Therefore, further comparison between groups included only the FH control (Figure 2C).",
+    "Predicted Spaceflight miRNA Signature Was Partially Observed in Serum from Mice Exposed to LEO",
+    "Next, we investigated whether the spaceflight-environment-linked miRNA signature is distinguishable in true spaceflight samples, using serum from young and old female BALB/cAnNTac mice flown to the International Space Station (ISS) on Rodent Research Mission 8. In contrast with the simulated spaceflight cohorts, these mice experienced short-lasting hypergravity during takeoff and landing in addition to microgravity while in orbit, spent 4 days reacclimating on ground after the flight before sample collection, and received a significantly lower dose of IR than simulation experiments: 0.01128 Gy over approximately 30 days on the ISS.",
+    "Although the combined mouse cohort did not exhibit any significantly increased miRNAs compared to basal (no spaceflight, normal housing conditions) controls (Figure 2E), when the samples were separated by age (Figures 2F and 2G), we observed clustering between spaceflight and basal controls in the older group (31–37 weeks at sacrifice) corresponding to middle-age in humans, which is more representative of typical astronaut cohorts, and no detectable clustering in the younger group (10–16 weeks at sacrifice) (Figures 2H–2J). Considering that these mice had 4 days to reacclimate to ground conditions before the samples were collected, these results may suggest that it takes longer for serum miRNA levels to return to basal levels in older mice, while younger mice recover faster. This finding is consistent with our prior results from simulated spaceflight studies, in which miRNA levels in irradiated mice start to return to control by 11 days following an over-100-fold-higher dose of IR than received by the spaceflown mice (Figure 1A).",
+    "Another notable result from this spaceflight experiment is the correlation between organ weights and miRNA concentration in spaceflight mice and basal controls. Normalized to total body weight, adrenal gland weight increases with concentration of the majority of quantified miRNAs, and, conversely, brain weight decreases with increasing miRNA concentrations. While these correlations are not statistically significant, they suggest the possibility of lingering impacts on specific organs (Figure 2K). Increases in adrenal gland weight might be related to chronic stress, since the adrenal gland regulates stress responses that have been previously associated with increased systemic corticosterone levels during spaceflight. Meanwhile, a volumetric reduction of brain features has been observed in cosmonauts, though the physiological relevance of these findings remains to be elucidated. Since systemic increases in corticosterone levels also lead to reduced brain weight, chronic stress might be an underlying factor behind both adrenal gland and brain results, and future studies are needed to examine miRNA as its potential biomarker.",
+    "Spaceflight-Relevant miRNA Signature Was Also Identified in Agnostic Sequencing Study of Simulated-Spaceflight-Exposed Mice",
+    "To understand the specificity and variation of spaceflight-relevant miRNA levels within the global miRNA population, miRNA-seq was performed on tissue samples from 16-week-old female C57BL/6J mice after exposure to simulated spaceflight conditions: normal loading (NL) or HU for 2 weeks prior to irradiation with 5 Gy gamma, 1 Gy simulated solar particle event (simSPE), 0.5 Gy simulated simplified galactic cosmic rays (SimGCRSim), or sham control. SimGCRSim consists of five ions: protons at 1000 MeV, 28Si at 600 MeV/n, 4He at 250 MeV/n, 16O at 350 MeV/n, 56Fe at 600 MeV/n, and protons at 250 MeV. This dose of radiation is equivalent to what an astronaut is predicted to receive in deep space during a Mars mission, though it is modeled as a single exposure over 25 min instead of the actual chronic exposures over 1.5 years. Simulated solar particle event (SimSPE) irradiation consists of protons from 50 MeV to 150 MeV. Twenty-four hours after irradiation, the mice were sacrificed, and miRNA-seq was performed on tissue samples from the plasma, heart, liver, and soleus muscle.",
+    "We observed highly variable miRNA expression profiles between organs, with the exception of heart and soleus muscle (Figures 3A and 3B). This variation underscores the importance of establishing a circulating systemic miRNA signature that can be measured in plasma, which is the most accessible source for biomarker evaluation in spaceflight conditions. Additionally, the high correlation between miRNA expression changes in heart and soleus muscle unsurprisingly suggests that the damage in these muscle tissues may be driven by similar changes in miRNAs (Figures 3A and 3B). Notably, miRNA-seq profiles from plasma also are more heterogeneous than those from individual organs, suggesting that plasma miRNA quantification might allow a more finely tuned spaceflight signature that could differentiate between different types of exposures or provide personalized risk assessment (Figures 3A and 3B).",
+    "Comparison of significantly regulated miRNAs identified four miRNAs that are increased in all organs in the GCR+HU (“combined spaceflight stressors”) group compared to sham NL (“no spaceflight stressors” control) (Figure 3C). Therefore, we decided to focus on the GCR+HU irradiated group for further analysis. We computed the top 20 genes regulated by the four common differentially expressed miRNAs (Figure 3D) as well as the pathways that were significantly regulated by these genes (Figure 3E) and found potential cardiovascular as well as systemic circulatory targets (Figure 3E).",
+    "We next quantified miRNA fold changes between GCR/SPE/Gamma+HU and sham NL conditions, focusing on the panel of spaceflight-associated miRNAs (top 15) as well as the four additional miRNAs that were found to be shared among all tissues for GCR+HU versus NL by miRNA-seq (bottom 4) (Figure 3F). Additional data is available in a companion paper. We observed trends or significance for multiple spaceflight miRNAs, and the same miRNA family members differentially expressed across multiple tissues. For example, for miRNA-503-5p, expression was decreased in the liver, soleus, and heart but strongly increased in plasma (Figure 3F), indicating potential organ-dependent miRNA changes with the key systemic stressor response stemming from the circulating miRNAs. MiR-503 belongs to the miR-16 extended family, which is one of the miRNAs predicted to be involved in the spaceflight response (Figure 1A) and impacts cardiovascular diseases through the inhibition of angiogenesis.",
+    "Finally, we performed pathway analysis utilizing the miRNA-seq data with C2 curated gene sets from MSigDB on the miRNA-seq data and displayed all significantly regulated pathways (Figure 3G) for the liver and soleus muscle. Data for the plasma and heart tissues are in companion papers and show similar results, and the pathways that showed suppression (false discovery rate [FDR]-adjusted p value < 0.25; Figure 3G) have been previously implicated in cardiovascular adaptations to spaceflight. These specific pathways were selected for the countermeasure experiments (below). This experiment demonstrates that although the individual response of the miRNAs might not be significantly regulated, the global response of miRNAs on downstream gene targets reveals regulation by miRNAs belonging to the spaceflight signature.",
+    "Spaceflight-Associated Rodent miRNA Signature Was Partially Shared by Human Responses Ex Vivo and In Vivo",
+    "We next show that spaceflight-associated miRNA signature is partially conserved in human samples that had been exposed to real or simulated space environment conditions. First, we analyzed human peripheral blood mononuclear cell (PBMC) responses to 0.3 Gy 600 MeV/n 56Fe particles that form a biologically significant component of GCRs, using PBMCs isolated from 12 healthy human (non-astronaut) donors. Thus, this experiment simulated deep-space-relevant radiation, without simulating microgravity. We observed an increase in spaceflight-associated miRNAs in the supernatant of irradiated PBMCs 4 hours, post-irradiation (Figures 4A–4D), as well as a positive correlation with increasing donor BMI and cell number (Figures 4B and 4D; Table S3) .",
+    "Finally, in order to assess the impact of the real spaceflight environment on human cells, we analyzed miRNA-sequence data on total PBMC and lymphocyte-depleted (LD) samples from the NASA Twins Study. This study involved actual LEO (low-LET radiation and microgravity) exposure for 340 days for a total of 146.34 mSv (or 0.1463 Gy). Unsorted PBMCs isolated during and after LEO spaceflight showed persistent changes in miRNA expression for the astronaut in space, which partially follows the predicted spaceflight signature (Figure 4E). Similarly, LD cells sampled before and after flight also indicated persistent changes in miRNA expression, though not all miRNAs behaved as predicted by the spaceflight signature (Figure 4F). Notably, the spaceflown twin (TW) had consistently higher expression of the miRNA target genes compared to the HR even at baseline/preflight, despite having higher levels of miRNAs as well (Figures 4E and 4F); thus, TW pre-flight levels were considered a better control than ground control twin (HR) pre-flight levels. This difference in miRNA expression is not surprising, due to known discordant miRNA expression profiles in twins.",
+    "Of the miRNAs found in the irradiated PBMC panel, only miR-92a-3p was significantly downregulated and let-7c-5p was upregulated in the TW miRNA-sequence data (Figure 4F). However, the downstream targets of the irradiation-associated miRNAs were significantly decreased between preflight and postflight samples, except the targets of hsa-miR-92a-3p and hsa-miR-26a-5p. This suggests that there was an increase in some irradiation-associated miRNA functions in TW, and the effects of miR-92a-3p and miR-26a-5p were more acute than the other miRNAs. Similar to the lack of response of miR-217 in animal models based on ddPCR results, miR-217 only had three targets within the targeted panel, none of which were significantly changed by spaceflight, indicating that miR-217, although implicated by original unbiased in silico predictions, does not respond to the stress of the space environment.",
+    "We next analyzed the changes in miRNA expression across different blood cell populations that were associated with spaceflight-mediated miRNA differences in the same NASA Twins Study. Specifically, we conducted targeted scRNA-seq and scAb-seq (epitope mapping) of LD Twins Study samples across multiple time points. In total, 23,408 cells were sequenced across 12 samples: 6 TW and 6 HR (Figure S2 and Table S4). Cell types were identified on a per cluster basis by both RNA and epitope levels (Figure 5A). Module scores for the targets of the subset of spaceflight-associated miRNAs that were found to be upregulated in irradiated human PBMCs were calculated using Seurat and compared among TW preflight, return, and postflight samples (Figures 5B–5N).",
+    "When the cell population was split by cell type, we observed that the changes in miRNA-mediated gene expression were highly variable across cell types (Figure 5O). Dividing each cell type into ground, preflight, return, and postflight groups demonstrated that individual cell types were differentially affected by spaceflight-associated miRNAs. For example, CD14+ and CD16+ monocytes responded differently to hsa-miR-92a-3p: CD14+ monocytes showed decreased expression of hsa-miR-92a-3p targets, while CD16+ monocytes expressed higher levels of hsa-miR-92a-3p target genes upon return compared to either preflight or postflight. Progenitor (circulating hematopoietic stem) cells stood out in this analysis, as expression of the spaceflight-associated miRNA target genes increased specifically at the return time point. These differences among cell types indicate that immune cell composition may play a role in the downstream effects of spaceflight-associated miRNA increases and suggest return to Earth as a major stressor affecting miRNA expression.",
+    "The Increase in Expression of Spaceflight-Associated miRNAs Is Not Driven by Epigenetic Changes",
+    "To determine whether the changes in miRNA expression were due to spaceflight-induced chromatin changes, we used scATAC-seq on 11,344 cells (Figure S3 and Table S5). SnapTools and SnapATAC were used to create 5-kb bins across the genome and determine genome accessibility based on ATAC activity per cell, and then genes and miRNAs were assigned the ATAC activity based on the overlapping bin. ATAC activity is associated with chromatin accessibility, which can be used to determine whether the miRNAs upregulated in irradiated PBMCs were differently accessible in TW during spaceflight (Figure 6B). Of note, open chromatin peaks were observed at let-7c-5p, miR-34a-5p, miR-125b-5p, let-7a-5p, and miR-146a-5p. Furthermore, both control PBMCs and HR ground PMBCs displayed consistent ATAC peaks across the majority of the miRNA loci. Together, this suggests that the chromatin around these miRNA loci is open but not strongly affected by spaceflight. In addition, we assessed ATAC activity in different cell types (Figures 6C and 6D). The module score and dot plots of the miRNAs upregulated in irradiated PBMCs demonstrate that CD14+ monocytes and pre-dendritic cells (pDCs) show more miRNA accessibility that other cell populations (Figures 6C and 6D), indicating that chromatin states depend more on immune cell type than spaceflight.",
+    "We next investigated immune cell composition at different time points during flight, specifically the proportion of CD14+ monocytes. Due to a low number of cells in the TW preflight sample, data from ATAC-seq and scRNA-seq experiments were combined to determine the immune cell distribution in LD fractions. (Figure 6E). Notably, the TW return samples had the highest proportion of CD14+ monocytes. This result, combined with the scRNA-seq of downstream targets, suggests that miRNA expression during spaceflight is regulated not by chromatin accessibility, but by immune cell distribution, and is particularly high in CD14+ monocytes. Finally, we evaluated whether specific ATAC peak changes correlated with expression levels from the Twins Study miRNA-seq (Figures 6F and 6G). However, ATAC activity was observed in the HR samples for upregulated miRNAs, indicating that the chromatin was already open prior to spaceflight.",
+    "Selective Inhibition of Spaceflight-Associated miRNAs Reduces Cardiovascular Damage in a Human Tissue Model after Exposure to Simulated Deep Space Radiation",
+    "Finally, we developed and utilized a mature human 3D microvascular tissue model seeded with human umbilical vein endothelial cells (HUVECs) to examine the physiological effects of the candidate miRNAs on structural cardiovascular damage caused by heavy ion irradiation (; unpublished data). Forty-eight hours after irradiation with 0.5 Gy SimGCRSim, several of the candidate miRNAs showed marked increases compared to controls (Figure 7A), though the increases were not significant, possibly due to low sample numbers.",
+    "Three of the miRNAs (miR-125, miR-16, and let-7a) that were increased by SimGCRSim irradiation were also previously predicted to be associated with space-radiation-induced cardiovascular damage and were chosen to be inhibited using antagomirs. Further data showing that these miRNAs are associated with disrupted angiogenesis following IR have been reported elsewhere. In addition, these miRNAs show consistent presence and impact on downstream functions in the space environment (i.e., Twins Study data) compared to all other miRNAs. Antagomirs were applied 24 h before irradiation, and morphology of the tissue constructs was assessed 48 h after irradiation with 0.5 Gy SimGCRSim. We observed irradiation-mediated loss of vascularization because the microvessels had shrunk or collapsed, indicating that 0.5 Gy SimGCRSim is sufficient to disrupt microvessels. This impact of SimGCRSim exposure was reversed by application of the three antagomirs 24 h before irradiation, while a scrambled antagomir control did not induce the rescue phenotype (Figures 7B and 7C). Based on the summary of the of spaceflight-stressor-induced changes across all miRNAs (Figure 7D) and the miRNAs that have global significant impact on the downstream gene targets determined in Figure 3D (Figure 7E), it is apparent that these three miRNAs have a uniform trend across all different conditions (red shaded miRNAs in Figures 7D and 7E). Thus, microvessel structure was protected by selectively inhibiting three miRNAs that are the most universally associated with spaceflight responses, proving that the vascular impairments caused by simulated deep space radiation are at least partially mediated through miRNAs and in the future might be rescued using antagomirs in human tissue constructs. Future steps to further explore the impact of this potential countermeasure will be performed in murine models and are currently ongoing. Although the results with the antagomirs are promising in the in vitro model, we still cannot account for the complexity in an in vivo model and the efficacy of this treatment."
+  ],
+  "DISCUSS": [
+    "DISCUSSION",
+    "In summary, we have validated the previously predicted panel of candidate spaceflight-relevant miRNAs using a combination of spaceflight, simulated microgravity, partial gravity, and simulated deep space radiation conditions in male and female mouse and rat in vivo, astronaut, and human ex vivo models. The majority of rodent serum miRNAs followed the pattern of dose-dependent increase in response to IR, with the notable exception of miR-217 (Figures 7D and 7E). We evaluated the applicability of this miRNA signature to humans by examining miRNA content in the supernatant of primary human immune cell samples exposed to simulated deep space radiation, as well as immune cells from the NASA Twins Study, and observed partial conservation across species. The functional significance of key miRNAs was predicted by analyzing miRNA-dependent changes in gene expression at the single-cell level in the NASA Twins Study and experimentally evaluated utilizing antagomirs to mitigate vascular damage caused by simulated deep space radiation in a 3D human microvascular tissue model. When viewing these results independently, it may appear that some level of variability occurs for the miRNA between the different conditions (Figures 1, 2, 3, and 4), but when observing all conditions together, this variability is in fact accounted for, based on which component of the space environment is being observed. A summary of how all the miRNA patterns and downstream targets demonstrate the consistency over all the models utilized for this study is shown in Figures 7D and 7E. For example, certain miRNAs (e.g., let-7a-5p, let-7c-5p, miR-223-3p) are more significantly regulated with microgravity experiments as opposed space radiation experiments, while other miRNAs (e.g., miR-16-5p) are consistently being expressed in all conditions (Figure 7D).",
+    "Collectively, our samples identify two spaceflight miRNA signatures, the first associated with reduced gravity and LEO and the second representing the responses to simulated deep space radiation. Specifically, gamma-irradiated mice, sham HU mice, PWB rats, ISS-flown mice, and the Twins Study data collectively display a LEO/microgravity miRNA signature, while 600 MeV/n 56Fe and proton-irradiated mice, human PBMCs, and human 3D microvascular tissue models exposed to 600 MeV/n 56Fe ions and simplified simulated GCRs show a deep-space-radiation-dependent signature (Figure 7D). Notably, significant overlaps exist between both signatures, indicating a miRNA panel that might be particularly relevant to future lunar and Mars missions that will combine both stressors. The absence of significant differences in miRNA-217 expression in these datasets serves as a negative control and demonstrates that the responses that had been observed in the remaining candidate miRNAs are unlikely to be caused by universal miRNA increases induced by an arbitrary stressor.",
+    "A miRNA signature unique to the spaceflight response has potential uses as a biomarker of systemic biological damage as well as a source for targets for mitigating the health risks caused by spaceflight and deep space radiation. While specific miRNAs have previously been implicated in spaceflight-associated biological damage, recent systems biology studies indicate that using an entire miRNA network as a biomarker can provide a more robust association with biological changes. In addition, we have observed that individual components of the space environment have unique miRNA signatures: some miRNAs are associated with the microgravity component of real or simulated spaceflight, others are associated with exposure to deep space radiation, and still others are only significantly increased after exposure to both, suggesting that different miRNA-based biomarkers would be applicable to different conditions, with the latter being particularly important in deep space exploration. The sensitivity of miRNA responses is underscored by the fact that the magnitude of miRNA increases appears to be dose dependent for both radiation and microgravity, as observed in the mouse simulated space environment model and the PWB rat model, respectively. Similarly, for the IR component, the signature is also LET dependent, as we report more significant miRNA changes after 600 MeV/n 56Fe compared to proton or gamma irradiation, which suggests its potential relevance for future deep space missions. Finally, conserved increases of key miRNAs across species, sexes, and experiments emphasizes the reliability of the miRNA signature.",
+    "Since the majority of the data in this paper are from males, there can be sex-specific differences that are not captured here. It has been shown that certain miRNAs and family members of miRNAs are significantly expressed in one sex over the other, in normal and cancerous (e.g., The Cancer Genome Atlas) tissues. For example, miR-503 is linked to female-related cardiovascular disease, indicating that miRNAs in the same family have similar behaviors in different sexes while still linked to the original family of miRNAs. Future research will need to explore the sex differences and the spaceflight signatures for specific miRNAs as well as related miRNA family members.",
+    "Of note, miRNA signatures may be applied for improving astronaut health by providing the first step toward identifying a network of circulating regulatory molecules that are activated by spaceflight. Identifying, validating and targeting such systemic regulatory networks, as opposed to addressing symptomatic damage in isolated organs and tissues, may accelerate our ability to mitigate the damage to several organ systems at once. Additionally, this approach may be used for preemptive risk reduction.",
+    "Indeed, we experimentally demonstrated the countermeasure potential of miRNAs by using antagomirs to inhibit three miRNAs associated with spaceflight cardiovascular health risks in human 3D tissue models. In general, antagomirs are a powerful tool for preventing the downstream effects of miRNA, which can be extensive due to the ability of a single miRNA to interact with hundreds of genes at the transcriptional, translational, and protein levels. Antagomirs have been shown to effectively inhibit their miRNA targets in vivo in mouse models of disease; however, more research is required for understanding their off-target effects and tissue specificity. In our model, antagomirs were applied as a countermeasure prior to deep-space-relevant irradiation and successfully prevented microvascular damage. Thus, our suggested network of miRNAs and their implied targets not only provides mechanistic insight into spaceflight-induced organ damage, but also may be a valuable platform for preventing the adverse health effects of spaceflight. However, in our experiments, the antagomir therapy was only applied against the cardiovascular component of the miRNA signature due to the model only recapitulating human microvasculature. It would be important to measure the effects of miRNA inhibition of the rest of the miRNA signature in a model that more fully captures spaceflight-mediated immune dysfunction and cancer progression as well as in vivo.",
+    "The panel of spaceflight-associated miRNAs has been predicted to disrupt cell signaling and metabolic pathways, at least in part via their interactions with TGF-β1. TGF-β1 is a pleiotropic cytokine that has been shown previously to be significantly modulated during spaceflight conditions, and its expression has been successfully altered as a therapeutic approach in cancer and inflammation. However, TGF-β1 is involved in a wide variety of endothelial and immune cell processes, which makes it a risky target. Furthermore, given that TGF-β1 has been found to exert both tumor-suppressive and tumor-promoting effects at different stages of tumorigenesis, the ability of miRNAs to target the TGF-β1 pathway at multiple specific sites may suggest a more effective and dynamic modulation of TGF-β1 effects than simple overexpression or inhibition. Thus, antagomir-mediated miRNA inhibition may allow more context-specific TGF-β1 pathway modulation and may be a promising countermeasure for spaceflight applications as well.",
+    "The interactions between the proposed miRNA candidates and TGF-β1 have important consequences for inflammation during different stages of spaceflight, particularly during landing. miR-145 and miR-146a, which are both associated with a pro-inflammatory response, have been found to be increased during landing. miR-21, which is involved in the resolution of inflammation, has been found to be decreased during spaceflight and increased during landing. Changes in these miRNAs during different stages of spaceflight likely contribute to the overall dysregulation of inflammation, which may persist long after astronauts return to Earth",
+    "In general, miRNAs have yet to be studied extensively in the context of space biology. Previous rodent and human spaceflight (LEO) experiments that specifically examined miRNAs have been limited to in vitro cellular models (human fibroblasts and leukocytes), though some miRNAs (miR-34, miR-21, let-7a, and let-7c) identified in those studies do overlap with our proposed spaceflight signature. Simulated microgravity studies in humans undergoing 21-day bedrest have also reported let-7a, let-7c, miR-25, miR-125b, and miR-92a from our panel. Finally, simulated deep space radiation studies in mice have implicated miR-34 and miR-125, which we have also observed in irradiated mouse serum.",
+    "Further studies will be necessary to compare spaceflight-associated miRNA effects at the individual organ, tissue, and cellular levels and to explore potential sex differences. Although we have observed strong similarities in miRNA expression in cardiac and soleus muscles (Figures 7D and 7E), the miRNA content in these organs was not sufficient to explain the systemic changes in plasma miRNAs, indicating that other organs and tissues not quantified in this study may play a major role in miRNA expression. Therefore, there is a need for a more comprehensive and unbiased assessment of all miRNA through miRNA-seq in a wide range of tissues from each of the experimental models investigated here. In addition, scRNA-seq has indicated major changes in miRNA-associated gene expression among different blood immune cell types in the human blood from the NASA Twins Study. CD14+ monocytes are particularly likely to express and respond to miRNAs, suggesting a potential regulatory role of miRNAs on the innate immune response that is known to be dysregulated in spaceflight. Despite the demonstrated contribution of CD14+ monocytes to increases in the circulating miRNAs, it is also possible that the miRNAs could be coming from another organ where they are more abundantly expressed. Thus, further studies will be necessary to determine the exact origin of the increased miRNAs and tissue response, such as with cell-free DNA profiling, which will be beneficial for mapping and developing effective countermeasures. Finally, the successful prevention of vascular damage through antagomir therapy in our proof-of-concept human tissue model demonstrates the need for further experiments to fully characterize antagomir therapies in vivo to understand their clinical safety and efficacy and to examine which components of the spaceflight miRNA signature make effective targets for antagomir therapies.",
+    "Collectively, our results provide experimental confirmation of a previously predicted spaceflight-associated miRNA signature in multiple rodent and human models in true spaceflight, simulated gravitational changes, and simulated deep space radiation. We also demonstrate the potential for preventing biological damage by strategic inhibition of specific miRNAs with antagomirs. The immediate impact of this study is the first step toward developing a systemic miRNA signature as a novel space biology research metric for assessing spaceflight-induced damage in astronauts and animal models of true spaceflight as well as ground analogs, while its expected long-term outcome is revealing new avenues for spaceflight countermeasure development that modulates systemic effects rather than isolated organ damage."
+  ],
+  "METHODS": [
+    "STAR★METHODS",
+    "RESOURCE AVAILABILITY",
+    "Lead Contact",
+    "Further information and requests for resources and reagents should be directed to and will be fulfilled by the Lead Contact, Afshin Beheshti (afshin.beheshti@nasa.gov).",
+    "Materials Availability",
+    "This study did not generate new unique reagents.",
+    "Data and Code Availability",
+    "The published article includes all datasets generated and analyzed during this study. All miRNA-sequence raw data were deposited on the Database: NASA’s GeneLab data repository/platform. The following identifiers are used for the data in this paper: for all heart tissue related data: GLDS-334, https://doi.org/10.26030/cg2g-as49; for all liver tissue related data: GLDS-335, https://doi.org/10.26030/72ke-1k67 for all soleus muscle related data: GLDS-337, https://doi.org/10.26030/m73g-2477 and for all plasma related data: GLDS-336, https://doi.org/10.26030/qasa-rr29.",
+    "Deposited data from the sequencing data from the NASA Twin Study can be found on the NASA Life Sciences Data Archive (LSDA) and the accession code is not available due to privacy concerns. LSDA is the repository for all human and animal research data, including that associated with this study. LSDA has a public facing portal where data requests can be initiated (https://lsda.jsc.nasa.gov/Request/dataRequestFAQ). The LSDA team provides the appropriate processes, tools, and secure infrastructure for archival of experimental data and dissemination while complying with applicable rules, regulations, policies, and procedures governing the management and archival of sensitive data and information. The LSDA team enables data and information dissemination to the public or to authorized personnel either by providing public access to information or via an approved request process for information and data from the LSDA in accordance with NASA Human Research Program and JSC Institutional Review Board direction.",
+    "EXPERIMENTAL MODEL AND SUBJECT DETAILS",
+    "Rodent models",
+    "Simulated space environment studies",
+    "Mouse serum was obtained from Dr. Ann-Sofie Schreurs from a simulated microgravity and radiation study (Table S1). Forty 16-week old male C57BL/6J (Jackson Labs, Sacramento, CA) mice were divided into four equal groups: sham, irradiated (IR), hindlimb unloaded (HU), or HU + IR. Mice were given sham or 2Gy of gamma (137Cs) irradiation, on day 3 of normal loading or HU, and were sacrificed on day 14.",
+    "Animals assigned to the HU group were suspended with traction tape based on previously established procedures. The room was maintained at an average 73.3°F, 31% humidity, 12-hour light/dark cycle, with food and water provided ad libitum. Animal weights were monitored throughout the duration of the experiment to assess health of the mice. The NASA Ames Research Center Institutional Animal Care and Use Committee (IACUC) approved all procedures. All experiments were performed in accordance with relevant guidelines and regulations. All animals were individually housed.",
+    "At 16 weeks of age, mice were exposed to 2 Gy gamma total body irradiation (137Cs at 0.83 Gy/min, JL Shepherd Mark I, San Gabriel, CA). For this treatment, mice were housed individually in a custom animal holding cage, maintaining HU mice in a head-down position. Mice were placed in the irradiator chamber and exposed to total body irradiation. The unloading of mice was maintained during irradiation by custom small HU cages. Sham-irradiated controls were handled similarly and placed in the irradiation chamber with the radiation source turned off.",
+    "Additional mouse serum was obtained from Dr. Yasaman Shirazi from a simulated microgravity and radiation study (Table S1). Eighty 16-week old C57BL/6J male mice (Jackson Laboratory Maine, BNL protocol Globus 2015 #481) were divided into seven groups: sham (n = 14), 1Gy proton irradiation (1H, 150 MeV/n, LET ~0.52 KeV/um) (n = 9), 1Gy iron (56Fe, 600 MeV/n, LET ~175 KeV/um) irradiation (n = 9), 2Gy iron irradiation (n = 6), 1Gy mixed iron and proton irradiation (1H/56Fe/1H at 25/50/25cGy) (n = 14), hindlimb unloaded (HU) (n = 14), and HU+1Gy mixed iron and proton irradiation (n = 14). Total body irradiations were carried out at NASA Space Radiation Laboratory (NSRL) at Brookhaven National Laboratory (BNL) on conscious mice with 600 MeV/n 56Fe (1 Gy), 150 MeV/n 1H (1Gy), or mixed beam (1H/56Fe/1H at 25/50/25cGy), maintaining respective hindlimb unloading (HU) or normal loading (NL) conditions. Mice were irradiated after 3 days of HU or NL, and maintained HU or NL for 1 or 11 days before being sacrificed.",
+    "For both the above simulated microgravity and radiation studies, serum was isolated from blood draws from the vena cava of the mice. In order to prevent hemolysis from interfering in the results, the following protocol was uniformly conducted for all serum isolations: the blood was placed in a 4mL EDTA coated blood collection tube (BD Vacutainer Lavender K2-EDTA Cat# 367861) and kept at room temperature for 30 mins to allow for clotting. Then, the tubes were centrifuged at 2000 g for 15 minutes at 4°C followed by immediate freezing of the aliquots at −80°C. Samples were always mixed gently to prevent hemolysis.",
+    "Partial weight bearing rat model",
+    "Partial weight bearing rat serum was donated by Dr. Marie Mortreux and Dr. Seward Rutkove from a previous study. All experimental protocols were approved by the Beth Israel Deaconess Medical Center Institutional Animal Care and Use Committee. 40 adult male Wistar rats (14 weeks of age at baseline, Charles River Laboratories, Wilmington, MA) were assigned to 1 of 5 groups to ensure equal distribution of the body weights at baseline (428.3 ± 5.2g). Animals were assigned to either normal loading without apparatus (PWB100 N), normal loading with full harness (PWB100 FH), 70% of normal loading (PWB70), 40% of normal loading (PWB40), or 20% of normal loading (PWB20) for 28 consecutive days. Partial weight-bearing (PWB) was performed in custom cages using a quadrupedal unloading composed of a forelimb jacket and a pelvic harness and extensively described elsewhere.",
+    "Across our 28-day study, the only significant difference between the NH and FH control groups was observed in weight gain where the 100% gravity NH group gained significantly more weight than the 100% gravity FH group. The weight gain was also associated with a slightly (but not significant) increased daily food intake that did not result in a different cumulative food intake throughout our study. The device did not exert any pressure nor prevented the animals from moving freely in their cage.",
+    "Rats were singly housed in a room maintained at 22 ± 2°C with a 12h:12h light-dark cycle starting at 7:00 am, and allowed 48 hours to acclimate before baseline. On day 28, animals were euthanized using CO2 inhalation per IACUC guidelines and blood was collected via cardiac puncture. Blood was allowed to clot at room temperature and was then centrifuged for 10 minutes at 10,000g. Serum was collected and frozen upon further analysis. 4 animals per group were selected randomly to perform miRNA analysis, and are outlined in Table S1.",
+    "ISS-flown mice",
+    "Serum was isolated from 36 space-flown female BALB/cAnNTac mice (Taconic) (Table S1). These mice were launched to the ISS on Rodent Research Reference Mission 1 (RRRM-1)/Rodent Research Mission 8 (RR-8) on 12/05/2018, docked to the ISS on 12/08/2018 and were returned to Earth as live animals on 01/13/2019, a total of 39 days after launch. The total absorbed radiation dose the mice received was 11.28mGy. The mice were sacrificed 4 days after returning to Earth. There were two different age groups, young (n = 18, 10-16 weeks) and old (n = 18, 31-37 weeks) as outlined in Table S1.",
+    "Space irradiation and hindlimb unloading of mice for miRNA-sequencing",
+    "15-week ± 3-day old, C57BL/6J wild-type (Wt) female mice were purchased from Jackson Laboratories and housed at Brookhaven National Laboratory (BNL, Upton, NY). Upon arrival to BNL, mice were quarantined and acclimated to a standard 12:12h light:dark cycle, with controlled temperature/humidity for 1-week prior to cage acclimation. Food and water were given ad libitum, and standard bedding was changed once per week. Mice were cage acclimated (n = 10 mice per group; 2 mice per cage to maintain social interaction) 3-days prior to HU, followed by 14-days either normally loaded (NL) or hindlimb unloaded (HU, see details below). Irradiation was administered on day 13 and blood tissues were collected at 24-hours post-irradiation and post-euthanasia by CO2 overdose, followed by cervical dislocation. Blood was collected via the abdominal aorta in EDTA-coated tubes (0.5 M) and plasma was separated by centrifugation at 2,000xg for 15 minutes. Plasma was collected and flash frozen in liquid nitrogen for −80°C storage. A 100 μL aliquot of cellular fraction was flash frozen and stored at −80°C for RNA analyses, while the remaining cellular fraction was lysed with 1x RBC lysis buffer (Thermo Fisher Scientific) followed by flow cytometric preparation and analyses, as describe below. The heart, liver, and soleus muscle were flash frozen and collected at the time of dissection. All tissues were stored at −80°C. Body weight tracking was performed on days −3, 0, 7 and 14.",
+    "Hindlimb unloading (HU) was performed using the adjusted Morey-Holton method for social housing (n = 2 per cage). Briefly, mice were suspended from the tail using non-invasive traction tape attached to an adjustable pulley mounted on the top of a standard rodent cage. The adjustable nature of the device allows the user to position the animal in a head-down position (approximately 30° to the horizon) once attached. The crossbar height, lateral crossbar position, and chain length are adjustable. The pulley is free to move along the crossbar that spans the length of the top of the cage enabling the mouse to navigate freely on one half of the cage using its forepaws and to interact with the second mouse in the cage, without enabling ambulation of the limbs. Individual food and water sources are provided to each mouse and replaced daily. Control mice were housed in identical cages with normal ambulation.",
+    "On day 13, mice were transported on BNL base to the NASA Space Radiation Laboratory (NSRL) facility by animal care staff and were transferred to individual HU boxes. The following doses of irradiation were administered; simplified GCR sim (0.5 Gy), SPE (1 Gy), Gamma (5 Gy) and Sham control (0 Gy). Mice were positioned in the plateau region of the Bragg curve and irradiated at room temperature in individual HU boxes to enable whole body irradiation while maintaining hindlimb suspension. The NSRL physics staff performed the dosimetry. To simulate GCR, we used the simplified GCR simulation of ions, energy, and doses determined by a NASA consensus formula that consists of 5 ions: protons at 1000 MeV, 28Si at 600 MeV/n, 4He at 250 MeV/n, 16O at 350 MeV/n, 56Fe at 600 MeV/n, and protons at 250 MeV. This dose of radiation is equivalent to what an astronaut is predicted to receive in deep space during a Mars mission, though it is modeled as a single exposure over 25 minutes instead of the actual chronic exposures over 1.5 years. Further, GCR sim is a mixture of high and low LET ions in a ratio of 15% to 85%, respectfully. To simulate SPE, we used a total dose of 1Gy protons with energy ranges from 50MeV to 150MeV. For all irradiations a 60x60 beam was utilized at NSRL. For radiation dose equivalence and biological reference, we used 5 Gy gamma irradiation with the cesium resource available at BNL, in the absence of HU due to resource limitations. Sham controls were treated similar to GCR/SPE irradiated mice, including HU cage boxes and beam line (without irradiation) for the same duration as GCR simualtion, i.e., 25 minutes.",
+    "In vitro models",
+    "Irradiated human PBMCs",
+    "Peripheral blood mononuclear cells (PBMCs) were obtained from Dr. Sylvain Costes from a human irradiation sensitivity study (NASA HRP #NNJ16HP24I, NASA Ames Research Center Human Research IRB #HRI-357) (Table S1). Briefly, PBMCs were isolated from blood donated by 12 healthy adults: 8 females and 4 males. PBMC isolation was performed using Ficoll-Paque (VWR Cat# 95038-168) density gradient centrifugation followed by red blood cell lysis (VWR Cat# 420301-BL), and cells were frozen at 1x107 cells/mL until the day before irradiation. All subjects were of European descent and 20 - 64 years old.",
+    "Cells were plated in 12-well plates (VWR Cat# 29442-040) 24 hours before irradiation in RPMI 1640 (Sigma Cat# R8758) supplemented with 10% fetal bovine serum (VWR Cat# 1300-500H) and 1% Penicillin/Streptomycin/Glutamine (Fisher Cat# 10-378-016). Each well received approximately 1.6x106 cells and 2mL media. 24 hours later, the cells were irradiated with 0Gy or 0.3Gy 600MeV/n 56Fe. Cell supernatants were collected 4 hours after irradiation and stored at −80°C until miRNA extractions.",
+    "3D human vascular model",
+    "Mature human 3D microvascular tissue models are grown by seeding-human umbilical vein endothelial cells (HUVECs) (Lonza Cat# CC-2519) into a collagen/matrigel mixture as described. Briefly, HUVECs were first grown in EGM Endothelial Cell Growth Medium (Cat# CC-3124), then cells (1 × 106/ml) were embedded into a collagen/matrigel mixture (Cat# 354236 and Cat# 356230). Microvessels are grown in EGM-2 Endothelial Cell Growth Medium (Cat# CC-3162) plus 50 nM Phorbol-12-myristate-13-acetate: (PMA) (Cat# 524400) for 7 days to form tubular microvessels before irradiations.",
+    "These tissue models were used to study vascular changes associated with specific miRNAs (Table S1). Irradiations were carried out at Brookhaven National Lab using 50cGy of SimGCRSim (5-ion simplified galactic cosmic ray simulation: protons at 1000MeV, 28Si at 600 MeV/n, 4He at 250 MeV/n, 16O at 350 MeV/n, 56Fe at 600 MeV/n, and protons at 250 MeV). A dose of 0.5 μm of each antagomir was administered to the appropriate groups 24 hours prior to irradiation. Prior work has shown that lentivirus particles efficiently incorporate into these constructs, therefore it was assumed that antagomirs would have no trouble either. The tissue constructs used for fluorescence analysis were fixed with 4% paraformaldehyde (Sigma Cat# 158127100G) for 5 minutes at 37°C followed by 0.5% Triton X-100 (Sigma Cat# X100) to solubilize the fats. Cell structures were stained with 5-(4,6-Dichlorotriazinyl) Aminofluorescein (DTAF) (Cat# D 16) and Images captured on a Nikon TE 200 confocal C1 microscope with EZ-C1 software. The tissue constructs used for miRNA analysis were dissolved by submerging in TRIzol (ThermoFisher Cat# 15596026) 48 hours post irradiation, without any fixation or homogenization.",
+    "Simulated GCR irradiation",
+    "To simulate GCR, we used the simplified GCR simulation of ions, energy, and doses determined by a NASA consensus formula that consists of 5 ions: protons at 1000 MeV, 28Si at 600 MeV/n, 4He at 250 MeV/n, 16O at 350 MeV/n, 56Fe at 600 MeV/n, and protons at 250 MeV, in the following proportions; Protons 100MeV at 34.8%, Si at 1.1%, He at 18%, O at 5.8%, 56Fe at 1%, and Protons 250 MeV at 39.3%. This mixture is the simplified version of the full GCR simulation and represents the proportions of ions found in space and thus translates to exploratory class missions. The low LET particles (Protons and Helium) make up the majority of radiation although high LET ions generally have a greater RBE.",
+    "NASA Twins study samples",
+    "The NASA Twins Study involved two male twin subjects, aged 50 years old at the time of launch. The flight twin spent 340 days aboard the ISS while his identical twin stayed on Earth as the ground control.",
+    "Blood samples were collected into 4mL CPT tubes (BD Biosciences Cat # 362760) per manufacturer’s recommendations. Cell separation was performed by centrifugation in at 1800 X g for 20 minutes at room temperature, both on the ISS and for the ground-based samples. Ambient blood collected samples slated for immediate return on Soyuz capsule were stored at 4°C until processing (average of 35-37 hours after collection, including repatriation time). Samples collected on Earth and the ISS and planned for long-term storage were mixed by inversion and immediately frozen at −80°C.",
+    "Fresh processing of CPT tubes was performed using the following steps: 1. plasma was retrieved from the CPT tubes and flash frozen prior to long term storage at −80°C. 2. The peripheral blood mononuclear cells (PBMCs) were recovered and washed in PBS. 0.5 million PBMCs were retrieved from one pre-flight and one post-flight samples, pelleted, flash frozen and stored at −80°C until use for RNA extractions. The flow through from cell sorting steps was recovered as the lymphocyte depleted (LD) fraction; LD and PBMC cell specimens were lysed into RLT+ buffer (QIAGEN Cat# 1053393), flash frozen and stored at −80°C until use.",
+    "METHOD DETAILS",
+    "Accounting for Hemolysis in Samples",
+    "Although hemolysis is unavoidable for blood/serum samples obtained from in vivo studies similar to what is described throughout this manuscript, we believe that we have accounted for this to the best to our ability for our analysis. There are many papers discussing this topic and impact on circulating miRNAs with the conclusions from these papers stating that for in vivo samples hemolysis can’t be avoided but procedures can be done to reduce the effects dramatically. Due the constraints for space biology experiments, the main step to reduce hemolysis variations for miRNAs is by handling all the samples identically. Both the controls and all other samples were handled under the exact same conditions throughout the manuscript. So if miRNAs levels would have been altered due to hemolyzed blood, then all miRNA levels would have been altered the same way between our comparisons. In fact in the negative controls all the miRNAs from our spaceflight signature are either nonexistent or at extremely low levels compared to samples under experimental conditions. This indicated that although it has been reported that hemolysis will alter miRNAs levels for all samples, the levels of the miRNAs should have been altered identically in our controls and experimental conditions, allowing for reduced variability between results.",
+    "miRNA extraction",
+    "MiRNA extractions from serum, plasma, all tissues, and cell supernatants were carried out using the QIAGEN miRNeasy serum/plasma kit (#217184). MiRNA extractions from dissolved microvessel constructs were carried out using the QIAGEN miRNeasy Mini Kit (#217004). Quantitation of miRNA samples was done using a NanoDrop 2000 Spectrophotometer (ThermoFisher Scientific).",
+    "Total RNA extraction from the NASA Twin Study LD and PBMC lysates was carried out using the QIAGEN Allprep kit (Cat# 80204). Quantitation of RNA was assessed using Qubit 2.0 (Invitrogen) per manufacturer’s recommendations. RNA quality control was performed using RNA Nano kit (Agilent) on a Bioanalyzer 2100 (Agilent) per manufacturer’s recommendations.",
+    "cDNA generation and Droplet Digital PCR",
+    "First, cDNA was synthesized from miRNA samples using the QIAGEN miRCURY LNA RT Kit (Cat# 339340) using a concentration of 5ng/μl for the miRNA per sample. Next, samples were mixed with a 1:20 dilution of the generated cDNA with the BioRad QX200 ddPCR Evagreen Supermix (Cat# 1864034) and the appropriate miRNA primers from miRCURY LNA miRNA PCR Assays (QIAGEN). BioRad QX200 Automated Droplet Generator (Cat# 1864101) was used to create emulsion droplets. With the C1000 Touch Thermal Cycler with 96–Deep Well Reaction Module (Bio-Rad) the following PCR reaction was used for all the primers: 1 cycle 95°C for 5 min, 40 cycles of 95°C for 30 s and 58°C for 1 min (the annealing temperature can change depending on the primer), 1 cycle of 4°C for 5 min, and 1 cycle of 90°C for 5 min. Not all miRNA primers sets for ddPCR will have the same annealing temperature, so optimizing the annealing temperature is required for each primer set. Their respective annealing temperatures are found in Table S2. Finally, the QX200 Droplet Digital PCR System (Bio-Rad) quantified the amount of miRNA for each primer set per sample. QuantaSoft software (Bio-Rad) generated the data for each primer set and sample. The same threshold setting was used for all samples per primer set. The concentration (miRNA copies/μl) value generated by QuantaSoft was converted to miRNA copies/ng of serum. These values were used for all miRNA analysis. For all analysis the miRNA concentrations were log2(x+1) transformed to allow for easy comparison between miRNAs and samples.",
+    "miRNA sequencing on murine samples",
+    "Library construction and sequencing was performed from miRNAs isolated from plasma, liver, heart, and soleus muscle from the mouse experiments described above. The miRNA extraction was carried out using the QIAgen miRNeasy kit (#217004). The total RNA quality and quantity were analyzed using a Bioanalyzer 2100 (Agilent, CA, USA) with RIN number > 7. Approximately 1 μg of total RNA was used to prepare small RNA library according to protocol of TruSeq Small RNA Sample Prep Kits (Illumina, San Diego, USA). Single-end sequencing was performed using 50 bp on an Illumina Hiseq 2500 at the LC Sciences (Hangzhou, China) following the vendor’s recommended protocol. All miRNA-sequence raw data was deposited on NASA’s GeneLab data repository/platform with the following identifiers: for all heart tissue related data: GLDS-334, https://doi.org/10.26030/cg2g-as49 for all liver tissue related data: GLDS-335, https://doi.org/10.26030/72ke-1k67: for all soleus muscle related data: GLDS-337, https://doi.org/10.26030/m73g-2477 and for all plasma related data: GLDS-336, https://doi.org/10.26030/qasa-rr29.",
+    "miRNA sequencing on NASA Twins Study samples",
+    "Small RNA libraries were prepared from 50 ng total RNA using the NEBNext® Multiplex Small RNA Library Prep Set for Illumina® (NEB #E7560) per manufacturer’s recommendations with the following modifications: adaptors and RT primer were diluted four fold, 17 cycles of PCR were used for library amplification, and no size selection was performed. The i7 primers in the NEBNext® Multiplex Oligos for Illumina® Dual Index Primers (NEB# E7600, NEB#E7780) were used to supplement the index primers in NEB #E7560. The libraries were sequenced in an Illumina NextSeq instrument (1x50bp).",
+    "Single cell RNA and epitope sequencing on NASA Twin Study samples",
+    "Cells were isolated prepared using the BD Rhapsody platform according to the BD Rhapsody Express Single-Cell Analysis System Instrument User Guide, with a custom-designed RNA and epitope panel. Briefly, cells from each sample were labeled with sample tags, then pooled after being washed twice with FACS buffer. Combined samples were then washed an additional time before being stained with the BD AbSeq Ab-Oligo reagents. After staining, the cells were washed twice before resuspension at approximately 20,000 cells in 620 μL. These cells were then isolated using the Single-Cell Analysis System and cDNA Synthesis with the BD Rhapsody Express Single-Cell Analysis System using the manufacturers’ protocol (BD Biosciences). Cells were loaded onto 3 BD Rhapsody nanowell cartridges. Cartridges were loaded with Cell Capture Beads (BD Biosciences) before shaking for 15 s at 1,000 rpm. Cells were lysed and cell capture beads were retrieved and washed prior to Exonuclease I treatment and reverse transcription. Targeted amplification of cDNA with the Human Immune Response Panel primers and custom supplemental panel (all targets listed in Table S3) was done through 10 PCR cycles. PCR products were purified, and mRNA and AbSeq products were separated by SPRIselect beads with double-sided selection. mRNA products were amplified further with 15 PCR cycles. Final libraries were indexed with 8 PCR cycles. Library quality was assessed by Bioanalyzer (D1000 HS, Agilent). Library DNA concentration was quantified using a Qubit dsDNA HS Kit (ThermoFisher, #Q32854) on a Qubit Fluorometer. Libraries were diluted to 2nM and multiplexed before being sequenced on three lanes of a Novaseq-6000. Mean read depth per cell was 13,244.31 mRNA reads per cell and 11,506.98 AbSeq reads per cell for a combined 243751.30 reads per cell.",
+    "Single cell ATAC sequencing on NASA Twins Study samples",
+    "Cells were isolated and prepared according to the SureCell ATAC-Seq Library Prep Kit User Guide (17004620, Bio-Rad) by the Weill Cornell Epigenomics Core. Briefly, lysis and tagmentation was performed simultaneously on the leukocyte depleted fraction of PBMC samples. Cells were washed before resuspension in Whole Cell Tagmentation Mix. Cells were tagmented using a thermal protocol before being mixed and agitated for 30 minutes at 37°C. Prior to encapsulation, tagmented cells were kept on ice. Tagmented cells were loaded onto the ddSEQ Single-Cell Isolator (12004336, Bio-Rad). The SureCell ATAC-Seq Library Prep Kit (17004620, Bio-Rad) and SureCell ddSEQ Index Kit (12009360, Bio-Rad) were used to prepare scATAC libraries. Ampure XP beads (A63880, Beckman Coulter) were used to clean up the libraries. Barcoded amplicons were further amplified through 7 PCR cycles. These PCR products were cleaned up using Ampure XP beads and quality was assessed on both a TapeStation (D5000, Agilent) and Bioanalyzer. Library concentrations were quantified by on a Qubit Fluorometer by Qubit dsDNA HS Kit. Experiments were then pooled and sequenced by Bio-Rad on four lanes of a Novaseq-6000.",
+    "QUANTIFICATION AND STATISTICAL ANALYSIS",
+    "miRNA quantification analysis from ddPCR data",
+    "We previously utilized NASA GeneLab database to make unbiased predictions about miRNAs potentially involved in regulating the spaceflight response. The transcriptomic datasets analyzed in this study include GLDS-25 (livers from female C57BL/6J mice, n = 15 per group), GLDS-21 (gastrocnemius from female C57BL/6J mice, n = 4 per group), GLDS-63 (mammary gland, liver, and adipose tissue from pregnant female Sprague-Dawley rats, n = 4 per group), GLDS-111 (soleus and extensor digitorum longus from male C57/BL6 mice, n = 3 per group), GLDS-4 (thymus from C57BL/6NTac mice, n = 4 per group), GLDS-61 (skin from male C57Bl/J10 mice, n = 3 per group), and GLDS-48 (liver from female C57BL/6J mice, n = 6 per group). Details for this work and analysis is available in Beheshti et al. and is the basis of the analysis we are describing in these methods.",
+    "Experimental groups and the number of replicates (n) within each group are summarized in Table S1. For analysis on the archived serum from the simulated murine experiments, we grouped all miRNA copies/ng values for NL Sham controls together and all other experimental groups were compared to the NL Sham conditions. For all analysis the p values reported are two-sided and adjusted with the significance indicated by * p value < 0.05, ** p value < 0.01, and *** p value < 0.001. Hierarchical clustering of the miRNA values were displayed as heatmaps with pheamap and t-Distributed Stochastic Neighbor Embedding (t-SNE) analysis was done to determine how the samples cluster together based on the miRNA values. The miRNA values were also plotted using R-program ggplot2 (v3.2.1) (.) as scatterplots and data points were then fit using a generalized additive model (GAM). Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway predictions from the miRNAs were determined by the DIANA-TarBase v7.0 algorithm. Correlation plots between miRNAs and different conditions were plotted using R program corrplot v0.84. Lastly, OriginPro 2015 was used to plot bar plots and of the fold-change values between conditions and also boxplots.",
+    "In silico predictions of genes from miRNAs",
+    "Through the use of a Cytoscape plug-in called ClueGo/CluePedia, we were able to predict genes targeted by the miRNAs determined. This involved entering all miRNAs in ClueGo and allowing the software to determine the top 50 genes that were significantly regulated and connected to the miRNAs. The predictions only reflect the functions that will be regulated by the miRNAs and do not show whether the function will be activated or inhibited. We also predicted the impact of the miRNAs on overall pathways by utilizing DIANA microT-CDS tool which allows for pathway discovery from targeted miRNAs. Lastly, miRNet 2.0 was utilized to predict the diseases that are associated with the miRNAs.",
+    "Analysis of miRNA sequencing from murine samples",
+    "Raw reads were subjected to an in-house software program, ACGT101-miR (LC Sciences, Houston, Texas, USA) to remove adaptor dimers, junk, low complexity, common RNA families (rRNA, tRNA, snRNA, snoRNA) and repeats. Subsequently, unique sequences with length in 18~26 nucleotide were mapped to specific species precursors in miRBase 22.0 by BLAST search to identify known miRNAs and novel 3p- and 5p- derived miRNAs. Length variation at both 3′ and 5′ ends and one mismatch inside of the sequence were allowed in the alignment. The unique sequences mapping to specific species mature miRNAs in hairpin arms were identified as known miRNAs. The unique sequences mapping to the other arm of known specific species precursor hairpin opposite to the annotated mature miRNA-containing arm were considered to be novel 5p- or 3p- derived miRNA candidates. The remaining sequences were mapped to other selected species precursors (with the exclusion of specific species) in miRBase 22.0 by BLAST search, and the mapped pre-miRNAs were further BLASTed against the specific species genomes to determine their genomic locations. The above two we defined as known miRNAs. The unmapped sequences were BLASTed against the specific genomes, and the hairpin RNA structures containing sequences were predicated from the flank 80 nt sequences using RNAfold software (http://rna.tbi.univie.ac.at/cgi-bin/RNAWebSuite/RNAfold.cgi). The criteria for secondary structure prediction were: (1) number of nucleotides in one bulge in stem (≤12); (2) number of base pairs in the stem region of the predicted hairpin (≥16); (3) cutoff of free energy (kCal/mol ≤ −15); (4) length of hairpin (up and down stems + terminal loop ≥ 50); (5) length of hairpin loop (≤20); (6) number of nucleotides in one bulge in mature region (≤8); (7) number of biased errors in one bulge in mature region (≤4); (8) number of biased bulges in mature region (≤2); (9) number of errors in mature region (≤7); (10) number of base pairs in the mature region of the predicted hairpin (≥12); and (11) percent of mature in stem (≥80). Differential expression of miRNAs based on normalized deep-sequencing counts was analyzed by selectively using Fisher exact test, Chi-square 2X2 test, Chi-square nXn test, Student t test, or ANOVA based on the experimental design. The significance threshold was set to be 0.01 and 0.05 in each test.",
+    "To determine gene ontology (GO) and C2 pathways being regulated by the miRNAs we performed miRNA gene set analysis utilizing the RBiomirGS v0.2.12 R package from the processed miRNA analysis for all conditions in the plasma and heart tissues. From the pathways we chose an FDR < 0.25 cutoff for significantly regulated pathways. We plotted the specific pathways with R packages ggplot2.",
+    "Analysis of miRNA sequencing from NASA Twin Study samples",
+    "Standard libraries were preprocessed and quality controlled using miRTrace. Subsequently, reads were mapped against MirGeneDB sequences using the miRDeep2 quantifier module. Expression values were normalized to reads per million (RPM) considering only miRNA counts. The normalized RPM value were utilized for all analysis. If the value for the miRNA was zero for all samples that miRNA was excluded from the analysis. To determine statistically significant miRNAs, ANOVA analysis with p value < 0.2 was independently performed for each cell type. For flight only comparisons, the same statistical significance was applied for all time points excluding the ground samples and all ambient return samples. All statistics were run independently for each cell condition/type. To determine the overlap of the miRNA signature in this paper with the Twin Study miRNA-seq data, the proposed miRNAs were used as well as all mature components of the miRNAs included in the miRNA family.",
+    "Analysis of scRNA and abseq from NASA Twins Study samples",
+    "Fastq files were uploaded to Seven Bridges Genomics. Data was demultiplexed and sequences analyzed with BD’s Rhapsody pipeline (BD Rhapsody Analysis Pipeline 1.4 Beta) on Seven Bridges (https://www.sevenbridges.com). Data was then loaded into Seurat (version 3.2.0) for analysis. This generated a sparse matrix file of features by barcodes. This sparse matrix data was then read into R using the R package Seurat 3.2.0, and standard quality control was run to remove cells with few genes. Data was then scaled and normalized. MAST was used to determine DEGs between all combinations of preflight, return and postflight for both TW and HR samples. Linear dimensional reduction was performed by calculation of PCA from the most variable genes. Cells were then clustered using a resolution value of 0.5 and visualized by UMAP. Marker genes were checked for RNA and epitope expression for each cluster and assigned to the indicated cell types, with cell subtypes being grouped to match the scATAC data (Figures S2E and S2F). multiMiR was used to extract target genes for spaceflight-associated miRNA. Module scores for each spaceflight-associated miRNA target signature was calculated by AddModuleScore with a control value of 5. Violin plots were created with ggplot2 (version 3.3.2, (.) and significance tested by Wilcoxon rank sum using the geom_signif function. Cells were subsetted by cell type and dot plots were generated using the Seurat DotPlot function. Full list of RNA and AbSeq target genes are found in Table S3.",
+    "Analysis of scATAC from NASA Twins Study samples",
+    "Fastq files from each sample were processed individually through BioRad’s scATAC processing pipeline according to the Bio-Rad ATAC-seq Analysis Toolkit Tutorial using the Bio-Rad docker images to run FastQC, debarcode, align reads, filter and deconvolute beads, and cell filtration. The aligned reads for each experiment were then processed using SnapTools (version 1.2.3) to create 5kb bins and a bin by cell matrix. The matrices for each sample were combined and then processed using SnapATAC (version 1.0.0) using the suggested parameters to filter for high-quality barcodes and remove bins that overlapped with ENCODE hg38 blacklisted regions or ChrM. Diffusion maps were computed for dimensionality reduction, and significant components were determined. Genes were assigned to each bin based off of GRCh38.p13. The resulting Snap object was then converted to a Seurat object and exported to Seurat (version 3.2.0). Samples were scaled and normalized, and anchors were transferred from the 10X PBMC dataset to the experiment from date 1/30/2019, as it contained the control, non-leukocyte depleted PBMCs. This data was then integrated using the IntegrateData function with the experiment from date 4/18/2019, and anchors were transferred from the 1/30/2019 experiment to the integrated object. Cells were assigned cell types based off of the predicted score, with cell subtypes being grouped to match the scRNA and epitope data (Figure S3I). Due to the sparsity of the data, MAGIC (Rmagic 2.0.3) was then used to impute activity using the default parameters. The imputed activity was then used to generate dot plots and violin plots, with significance being tested by Wilcoxon rank sum using the geom_signif function. Cell composition percentages of cells after T and B cell removal was calculated by pooling the scATAC and scRNA/epitope cell identities per condition. Table S4 has all the determined DEGs between all combinations of preflight, return and postflight for both TW and HR samples."
+  ],
+  "SUPPL": [
+    "Supplementary Material",
+    "SUPPLEMENTAL INFORMATION",
+    "Supplemental Information can be found online at https://doi.org/10.1016/j.celrep.2020.108448.",
+    "DECLARATION OF INTERESTS",
+    "The authors declare no competing interests."
+  ],
+  "REF": [
+    "REFERENCES",
+    "Effects of spaceflight on innate immune function and antioxidant gene expression",
+    "A Circulating microRNA Signature Predicts Age-Based Development of Lymphoma",
+    "A microRNA signature and TGF-β1 response were identified as the key master regulators for spaceflight response",
+    "GeneLab Database Analyses Suggest Long-Term Impact of Space Radiation on the Cardiovascular System by the Activation of FYN Through Reactive Oxygen Species",
+    "miR-15a/-16 Inhibit Angiogenesis by Targeting the Tie2 Coding Sequence: Therapeutic Potential of a miR-15a/16 Decoy System in Limb Ischemia",
+    "Cell-free DNA (cfDNA) and exosome profiling from a year-long human spaceflight reveals circulating biomarkers",
+    "CluePedia Cytoscape plugin: pathway insights using integrated experimental and in silico data",
+    "Assessing sample and miRNA profile quality in serum and plasma or other biofluids",
+    "Negative Effects of Long-duration Spaceflight on Paraspinal Muscle Morphology",
+    "Crosstalk between TGF-β signaling and the microRNA machinery",
+    "MicroRNA-503 and the extended microRNA-16 family in angiogenesis",
+    "Recovery from 6-month spaceflight at the International Space Station: muscle-related stress into a proinflammatory setting",
+    "Astrocytic transforming growth factor-beta signaling reduces subacute neuroinflammation after stroke in mice",
+    "miRNet 2.0: network-based visual analytics for miRNA functional analysis and systems biology",
+    "The role of microRNAs in the pathogenesis of autoimmune diseases",
+    "Chronic corticosterone affects brain weight, and mitochondrial, but not glial volume fraction in hippocampal area CA3",
+    "Monocyte phenotype and cytokine production profiles are dysregulated by short-duration spaceflight",
+    "Radiation Exposure and Mortality from Cardiovascular Disease and Cancer in Early NASA Astronauts",
+    "SnapATAC: A Comprehensive Analysis Package for Single Cell ATAC-seq",
+    "MAST: a flexible statistical framework for assessing transcriptional changes and characterizing heterogeneity in single-cell RNA sequencing data",
+    "Gender and cardiovascular disease: are sex-biased microRNA networks a driving force behind heart failure with preserved ejection fraction in women?",
+    "miRDeep2 accurately identifies known and hundreds of novel microRNA genes in seven animal clades",
+    "MirGeneDB 2.0: the metazoan microRNA complement",
+    "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+    "One-month spaceflight compromises the bone microstructure, tissue-level mechanical properties, osteocyte survival and lacunae volume in mature mice skeletons",
+    "Multiomic, Single-cell, and Biochemical Profiles of Astronauts Guide Pharmacological Strategies for Returning to Gravity",
+    "Integration analysis of microRNA and mRNA expression profiles in human peripheral blood lymphocytes cultured in modeled microgravity",
+    "Effects of ionizing radiation on three-dimensional human vessel models: differential effects according to radiation quality and cellular development",
+    "miRNA and mRNA expression analysis reveals potential sex-biased miRNA expression",
+    "Generalized Additive Models",
+    "Absolute quantification by droplet digital PCR versus analog real-time PCR",
+    "Spaceflight alters expression of microRNA during T-cell activation",
+    "Cellular context-dependent “colors” of transforming growth factor-beta signaling",
+    "miRNA-Based Therapeutic Strategies",
+    "Microgravity culture reduces apoptosis and increases the differentiation of a human colorectal carcinoma cell line",
+    "miRTrace reveals the organismal origins of microRNA sequencing data",
+    "Interplay between MicroRNAs and Oxidative Stress in Neurodegenerative Diseases",
+    "miRBase: from microRNA sequences to function",
+    "Silencing of microRNAs in vivo with ‘antagomirs’",
+    "MicroRNA: Biogenesis, Function and Role in Cancer",
+    "Optic disc edema, globe flattening, choroidal folds, and hyperopic shifts observed in astronauts after long-duration spaceflight",
+    "Mechanistic Clues to Overcome Spaceflight-Induced Immune Dysregulation",
+    "Cellular mechanisms of fatal early-onset autoimmunity in mice with the T cell-specific targeting of transforming growth factor-beta receptor",
+    "Galactic cosmic ray composition and energy spectra",
+    "Hindlimb unloading of growing rats: a model for predicting skeletal changes during space flight",
+    "A novel partial gravity ground-based analog for rats via quadrupedal unloading",
+    "Tgf-Beta superfamily receptors-targets for antiangiogenic therapy?",
+    "DIANA-microT web server v5.0: service integration into miRNA functional analysis workflows",
+    "Beyond Low-Earth Orbit: Characterizing the Immune Profile Following Simulated Spaceflight Conditions for Deep Space Missions",
+    "Is spaceflight-induced immune dysfunction linked to systemic changes in metabolism?",
+    "Alterations of Functional Brain Connectivity After Long-Duration Spaceflight as Revealed by fMRI",
+    "A methodological procedure for evaluating the impact of hemolysis on circulating microRNAs",
+    "Evaluation of several methodological challenges in circulating miRNA qPCR studies in patients with head and neck cancer",
+    "Functional microRNA targets in protein coding sequences",
+    "Expression changes in human skeletal muscle miRNAs following 10 days of bed rest in young healthy males",
+    "Behavior of mice aboard the International Space Station",
+    "The smad proteins and TGFbeta signalling: uncovering a pathway critical in cancer",
+    "The multiMiR R package and database: integration of microRNA-target interactions along with their disease and drug associations",
+    "PlanHab (Planetary Habitat Simulation): the combined and separate effects of 21 days bed rest and hypoxic confinement on human skeletal muscle miRNA expression",
+    "Cytoscape: a software environment for integrated models of biomolecular interaction networks",
+    "Ionizing radiation-induced oxidative stress alters miRNA expression",
+    "NASA’s first ground-based Galactic Cosmic Ray Simulator: Enabling a new era in space radiobiology research",
+    "The mammalian phenotype ontology: enabling robust annotation and comparative analysis",
+    "Comprehensive Integration of Single-Cell Data",
+    "Anti-Inflammatory MicroRNAs and Their Potential for Inflammatory Diseases Treatment",
+    "Influence of Social Isolation During Prolonged Simulated Weightlessness by Hindlimb Unloading",
+    "Proton radiation-induced miRNA signatures in mouse blood: characterization and comparison with 56Fe-ion and gamma radiation",
+    "Short-Term Effects of Low-LET Radiation on the Endothelial Barrier: Uncoupling of PECAM-1 and the Production of Endothelial Microparticles",
+    "Skeletal Muscle Atrophy in Simulated Microgravity Might Be Triggered by Immune-Related microRNAs",
+    "Implications of the space radiation environment for human exploration in deep space",
+    "Chronic stress induces adrenal hyperplasia and hypertrophy in a subregion-specific manner",
+    "Visualizing High-Dimensional Data Using t-SNE",
+    "Recovering Gene Interactions from Single-Cell Data Using Data Diffusion",
+    "Interpreting the MicroRNA-15/107 family: interaction identification by combining network based and experiment supported approach",
+    "Serum microRNA as noninvasive indicator for space radiation",
+    "The skeletal effects of spaceflight in growing rats: tissue-specific alterations in mRNA levels for TGF-beta",
+    "Smoothing Parameter and Model Selection for General Smooth Models",
+    "LET Dependent Low Dose and Synergistic Inhibition of Human Angiogenesis by Charged Particles: Validation of Mi RNAs that Drive Inhibition",
+    "Differences of microRNA expression profiles between monozygotic twins’ blood samples",
+    "RBiomirGS: an all-in-one miRNA gene set analysis solution featuring target mRNA mapping and expression profile integration",
+    "Transient gene and microRNA expression profile changes of confluent human fibroblast cells in spaceflight",
+    "Highlights",
+    "Spaceflight miRNA signature validated in multiple organism models",
+    "Components of miRNA signature related to space radiation and microgravity",
+    "Downstream targets and circulating dependence of miRNAs in NASA Twins Study",
+    "Inhibition of key microvasculature miRNAs mitigates space radiation impact"
+  ],
+  "FIG": [
+    "Quantified miRNAs in Serum from Rodents Exposed to Ground Analogs of Spaceflight.",
+    "Microgravity and radiation conditions of spaceflight were simulated alone and in combination.",
+    "(A) Quantification of miRNAs in serum from rodents exposed to hindlimb unloading (HU) or normal loading (NL) for 3 days before 2 Gy gamma, 1 Gy proton, 1 Gy 600MeV/n 56Fe, 2 Gy 600MeV/n56Fe, or sham irradiation. HU or NL was continued for another 1 or 11 days after irradiation.",
+    "(B) Fold changes (log2) of miRNAs compared to NL sham mice. *p < 0.05, **p < 0.01, ***p < 0.001, two-tailed Student’s t test. The error bars represent SEM.",
+    "(C) t-Distributed Stochastic Neighbor Embedding (t-SNE) plot showing how the significantly regulated miRNAs are associated with each experimental group. Statistical significance is based on comparing each group with the sham irradiated NL mice.",
+    "(D) Top 50 predicted gene targets for all statistically significant miRNAs determined by Cytoscape plugin ClueGo.",
+    "(E) The predicted diseases regulated by the miRNA signature determined through miRNet. The blue nodes represent cancer; green, cardiovascular disease; yellow, neurological diseases; orange, muscle degeneration; purple, digestive issues.",
+    "(F) Gene Ontology (GO) pathways predicted to be regulated by all statistically significant spaceflight-associated miRNAs determined by the DIANA-microT-CDS (v5.0) algorithm.",
+    "(G) Kyoto Encyclopedia of Genes and Genomes (KEGG) pathways predicted to be regulated by all statistically significant spaceflight-associated miRNAs.",
+    "Serum miRNA Quantification from PWB Rats Modeled under Four Different Gravity Conditions",
+    "(A) Global comparisons of miRNAs from 20%, 40%, 70%, and 100% gravitational loading conditions. The 100% loaded group is further split into FH or NH.",
+    "(B) t-SNE plot reveals distinct separation of the miRNAs between different experimental groups for each gravity condition, as well as a separation between the NH and FH 100% gravity groups.",
+    "(C) Fold changes (log2) for miRNA increases compared to 100% gravity with FH group.",
+    "(D) Correlation between serum miRNA increases and physiological muscle mass over different gravity conditions (PWB). Significance indicated in circles. *p < 0.05, **p < 0.01, ***p < 0.001, two-tailed Student’s t test. Circle size is proportional to the correlation coefficient, also indicated by color (legend on right-hand side).",
+    "(E) Global comparison of miRNAs in serum from mice flown on the International Space Station (ISS) for 30 days, sacrificed 4 days after returning to Earth.",
+    "(F) Serum miRNA comparisons for only the 16-week-old mice.",
+    "(G) Serum miRNA comparisons for only the 37-week-old mice.",
+    "(H) t-SNE plot of all mice flown on the ISS shows subtle separation between young and old groups.",
+    "(I and J) t-SNE plot of old mice shows separation between spaceflight and ground mice, while t-SNE plot of young mice fails to show separation.",
+    "(K) Correlation of miRNA quantities and organ weights for all mice flown on the ISS. The significance of each correlation is indicated in the circles. *p < 0.05, **p < 0.01, ***p < 0.001, two-tailed Student’s t test. Circle size is proportional to the correlation coefficient.",
+    "miRNA-seq of Heart, Liver, Plasma, and Soleus Muscle from Mice Exposed to Simulated Spaceflight Stressors",
+    "(A) Comparison of miRNA expression profiles between organs.",
+    "(B) Combined and individual t-SNE plots for significantly expressed miRNAs in each organ.",
+    "(C) Overlap of significant differentially expressed miRNAs between organs for GCR HU and sham NL and for SPE HU versus sham NL. The center, dark gray region indicates significant miRNAs shared by all organs.",
+    "(D) Top 20 genes regulated by the four common miRNAs differentially expressed in GCR HU versus sham NL.",
+    "(E) Pathways that are significantly regulated by the top 20 genes shown in (D).",
+    "(F) miRNA fold changes between HU and NL groups for each irradiation condition. miRNAs from our proposed signature are included, as well as the four additional miRNAs implicated by miRNA-seq in (C).",
+    "(G) C2 pathways analysis from miRNA-seq data shows pathways that are being suppressed. The larger the circle, the more significant the effect, and darker purple indicates a larger magnitude of suppression. miRNAs highlighted in yellow or blue were included in our predicted spaceflight signature. miRNAs highlighted in yellow are known to be involved in spaceflight-induced cardiac damage.",
+    "Quantification of miRNAs in Human Samples Exposed to Spaceflight or IR",
+    "(A) Comparison of human peripheral blood mononuclear cell (PBMC) samples from 12 subjects 4 h post-irradiation with 0.3 Gy or sham (0 Gy) 56Fe irradiation.",
+    "(B) Correlation between miRNA quantities and cell phenotypes 4 h post-irradiation. The significance of each correlation is indicated in the circles. *p < 0.05, **p < 0.01, ***p < 0.001, two-tailed Student’s t test. Circle size is proportional to the correlation coefficient.",
+    "(C) General additive model fit of the miRNA quantities as a function of dose.",
+    "(D) t-SNE plot of the samples clustering as a function of BMI based on miRNA concentration.",
+    "(E and F) NASA Twins Study data for (E) unsorted PBMCs and (F) LD cells in comparison to the spaceflight miRNA signature predictions.",
+    "Spaceflight-Associated miRNA Target Genes Are Downregulated upon TW Return and Postflight Compared to Preflight, with Individual Cell Types Being Differentially Affected",
+    "(A) Uniform manifold approximation and projection (UMAP) plot of 23,408 cells grouped by cell-type-identified clusters.",
+    "(B–N) Violin plots with mean and first and third quartiles of the indicated miRNA target gene module scores. Cells were separated into four groups: cells from HR GD114, GD138, GD182, GD3, GD-66, and GD66 as Ground; TW L-162 and L-148 days as Preflight; TW R0 as Return; and TW R36 and R191 as Postflight. Differences in expression of miRNA target gene modules scores was tested by Wilcoxon rank sum test. *p < 0.05, **p < 0.01, ***p < 0.001.",
+    "(O–W) Dot plots colored by average expression and size based on percent expression of the spaceflight-associated mRNA target gene module scores of cell types grouped by Ground, Preflight, Return, and Postflight.",
+    "Spaceflight Does Not Induce Epigenetic Changes around Spaceflight-Associated miRNA",
+    "(A) UMAP plot of 11,344 cells grouped by cell type predicted by Seurat’s transfer anchor function from the 10× PBMC dataset (see Method Details).",
+    "(B) Dot plot colored by ATAC activity and sized based on percentage ATAC activity at the 5-kb bins associated with spaceflight-associated miRNA. Cells were separated into five groups: cells from the control (non-LD) PBMCs as Control, HR GD-66 and GD125 as Ground, TW L-71 as Preflight, TW R3 as Return, and TW R36 as Postflight.",
+    "(C) Dot plot of spaceflight-associated miRNA module scores with cells grouped by cell type across all samples.",
+    "(D) Dot plot of the individual spaceflight-associated miRNA ATAC activity with cells grouped by cell type.",
+    "(E) Composition analysis per group based after removal of B and T cells across both scATAC and scRNA analysis.",
+    "(F and G) Dot plots of ATAC activity at miRNA upregulated (F) or downregulated (G) in the LD miRNA-seq.",
+    "miRNA Changes and Impacts in a 3D Microvascular Tissue Model",
+    "(A) Quantification of miRNAs from a 3D culture of mature human microvessels with human umbilical vein endothelial cells (HUVECs) irradiated with 0.5 Gy of simplified simulated galactic cosmic rays (SimGCRSim) compared to sham irradiated samples 48 h after irradiation. All candidate miRNAs were examined, but only the miRNAs that seemed to respond differently for each group are shown. The error bars represent SEM.",
+    "(B and C) Mature microvessels fixed and fluorescently stained with 5-(4,6-dichlorotriazinyl) aminofluorescein (DTAF) (Method Details) 48 h after SimGCRSim irradiation with or without antagomir-induced inhibition of miR-125b, miR-16, and let-7a starting at 24 h prior to irradiation. Scrambled version of the antagomir was used a vehicle control.",
+    "(D) Summary of all the fold-change values for all experiments utilized in this manuscript (including both ddPCR and miRNA-seq data).",
+    "(E) The summary of the overall impact of the miRNAs on the gene targets determined in Figure 3D through pathway analysis on the miRNA-seq data. The arrows indicate the degree of up- or downregulation, and the colors of the arrows indicate the significance (i.e., p values). The gray-shaded regions represent the 11-day time points after irradiation. The red-shaded miRNAs represent the miRNAs used for the antagomir experiments in (B) and (C)."
+  ],
+  "TABLE": [
+    "KEY RESOURCES TABLE",
+    "REAGENT or RESOURCE\tSOURCE\tIDENTIFIER\t \tBiological Samples\t\t\t \tHuman PBMCs\tConsented Donors\tN/A\t \tNASA Twin Study Unsorted PBMCs\tConsented Donors\tN/A\t \tNASA Twin Study Lymphocyte Depleted Cells\tConsented Donors\tN/A\t \tNASA Twin Study CD8 CD4, CD14 and CD19 Cells\tConsented Donors\tN/A\t \tMouse Blood\tC57BL/6J Wt female\tN/A\t \tMouse Plasma\tC57BL/6J Wt female\tN/A\t \tMouse Liver\tC57BL/6J Wt female\tN/A\t \tMouse Heart\tC57BL/6J Wt female\tN/A\t \tChemicals, Peptides, and Recombinant Proteins\t\t\t \tRLT+ Buffer\tQIAGEN\tCat# 1053393\t \tTriton X-100\tSigma\tCat# X100\t \tTRIzol\tThermoFisher\tCat# 15596026\t \tFicoll-Paque\tVWR\tCat# 95038-168\t \t1x Phosphate Buffered Saline (pH 7.4)\tThermofisher Scientific\tCat# 10010023\t \tEGM-2 Endothelial Cell Growth Medium-2 Bullet-Kit\tLonza\tCat# CC-3162\t \tEGM Endothelial Cell Growth Medium Bullet-Kit\tLonza\tCat# CC-3124\t \tRat tail Collagen Type 1\tBD Biosciences\tCat# 354236\t \tMatrigel Matrix\tBD Biosciences\tCat# 356230\t \tPhorbol-12-myristate-13-acetate: PMA\tMillipore\tCat# 524400\t \t5-(4,6-Dichlorotriazinyl) Aminofluorescein (DTAF)\tThermofisher Scientific\tCat# D-16\t \tMP Biomedicals Trypsin-EDTA Solution\tThermofisher Scientific\tCat# ICN1689149\t \tCritical Commercial Assays\t\t\t \tmiRNeasy serum/plasma kit\tQIAGEN\tCat# 217184\t \tmiRNeasy mini kit\tQIAGEN\tCat# 217004\t \tAllprep kit\tQIAGEN\tCat# 80204\t \tmiRCURY LNA RT kit\tQIAGEN\tCat# 339340\t \tQX200 ddPCR Evagreen Supermix\tBioRad\tCat# 1864034\t \tmiRNA primers\tQIAGEN\tListed under “Oligonucleotides”\t \tNEBNext® Multiplex Small RNA Library Prep Set for Illumina®\tNEB\tNEB# E7560\t \tNEBNext® Multiplex Oligos for Illumina® Dual Index Primers\tNEB\tNEB# E7600, NEB# E7780\t \tIndex primers\tNEB\tNEB# E7560\t \tiSCRIPT™ cDNA synthesis kit\tBio-Rad\tCat# 1708890\t \tiQ™ SYBR® Green Supermix\tBio-Rad\tCat# 170-8880\t \tTruSeq Small RNA Sample Prep Kits\tIllumina\tRS-200-0012\t \tRhapsody AbSeq reagent pack\tBD Biosciences\tCat# 633771\t \tRhapsody Human Immune Response panel\tBD Biosciences\tCat# 633750\t \tRhapsody custom gene panel (See Table S3)\tBD Biosciences\tCat# 633743\t \tHuman Single cell multiplexing kit\tBD Biosciences\tCat# 633781\t \tSureCell ATAC-seq Library Prep Kit\tBio-Rad\tCat# 17004620\t \tSureCell ddSEQ Index Kit\tBio-Rad\tCat# 12009360\t \tDeposited Data\t\t\t \tMirGeneDB sequences\t\thttps://mirgenedb.org/\t \tmiRNA-seq for mice data\tNASA GeneLab (https://genelab.nasa.gov/)\tGLDS-334, GLDS-335, GLDS-336, GLDS-337\t \tNASA Twin Study miRNA-seq results\tThis paper\tN/A\t \tmiRNA ddPCR raw data\tThis paper\tLSDA (NASA)\t \tNASA Twin Study BD Rhapsody Data\tThis paper and Getz et al. (2020)\tN/A\t \tNASA Twin Study scATAC Data\tThis paper\tN/A\t \tExperimental Models: Cell Lines\t\t\t \tHuman: HUVECs\tLonza\tCat# CC-2519\t \tExperimental Models: Organisms/Strains\t\t\t \tMouse: C57BL/6J\tJackson Labs, Sacramento, CA\t(IMSR Cat# JAX:000664, RRID:IMSR_JAX:000664)\t \tMouse: C57BL/6J\tJackson Laboratory Maine,\t(IMSR Cat# JAX:000664, RRID:IMSR_JAX:000664)\t \tRat: Wistar\tCharles River Laboratories, Wilmington, MA\t(RGD Cat# 2312511, RRID:RGD_2312511)\t \tMouse: BALB/cAnNTac\tTaconic\t(IMSR Cat# TAC:balb, RRID:IMSR_TAC:balb)\t \tOligonucleotides\t\t\t \thsa-miR-17-5p miRCURY LNA miRNA PCR Assay: MIMAT0000070: 5′CAAAGUGCUUACAGUGCAGGUAG\tQIAGEN\tCat# YP02119304\t \thsa-miR-146a-5p miRCURY LNA miRNA PCR Assay: MIMAT0000449: 5′UGAGAACUGAAUUCCAUGGGUU\tQIAGEN\tCat# YP00204688\t \thsa-miR-223-3p miRCURY LNA miRNA PCR Assay: MIMAT0000280: 5′UGUCAGUUUGUCAAAUACCCCA\tQIAGEN\tCat# YP00205986\t \thsa-let-7a-5p miRCURY LNA miRNA PCR Assay: MIMAT0000062: 5′UGAGGUAGUAGGUUGUAUAGUU\tQIAGEN\tCat# YP00205727\t \thsa-mir-92a-3p miRCURY LNA miRNA PCR Assay: MIMAT0000092: 5′UAUUGCACUUGUCCCGGCCUGU\tQIAGEN\tCat# YP00204258\t \thsa-miR-24-3p miRCURY LNA miRNA PCR Assay: MIMAT0000080: 5′UGGCUCAGUUCAGCAGGAACAG\tQIAGEN\tCat# YP00204260\t \thsa-miR-125b-5p miRCURY LNA miRNA PCR Assay: MIMAT0000423: 5′UCCCUGAGACCCUAACUUGUGA\tQIAGEN\tCat# YP00205713\t \thsa-miR-16-5p miRCURY LNA miRNA PCR Assay: MIMAT0000069: 5′UAGCAGCACGUAAAUAUUGGCG\tQIAGEN\tCat# YP00205702\t \thsa-miR-26a-5p miRCURY LNA miRNA PCR Assay: MIMAT0000082: 5′UUCAAGUAAUCCAGGAUAGGCU\tQIAGEN\tCat# YP00206023\t \thsa-miR-145-5p miRCURY LNA miRNA PCR Assay: MIMAT0000437: 5′GUCCAGUUUUCCCAGGAAUCCCU\tQIAGEN\tCat# YP00204483\t \tmmu-miR-217-5p miRCURY LNA miRNA PCR Assay: MIMAT0000679: 5′UACUGCAUCAGGAACUGACUGGA\tQIAGEN\tCat# YP00205070\t \thsa-miR-34a-5p miRCURY LNA miRNA PCR Assay: MIMAT0000255: 5′UGGCAGUGUCUUAGCUGGUUGU\tQIAGEN\tCat# YP00204486\t \thsa-miR-21-5p miRCURY LNA miRNA PCR Assay: MIMAT0000076: 5′UAGCUUAUCAGACUGAUGUUGA\tQIAGEN\tCat# YP00204230\t \tmmu-miR-25-5p miRCURY LNA miRNA PCR Assay: MIMAT0017049: 5′AGGCGGAGACUUGGGCAAUUGC\tQIAGEN\tCat# YP02118413\t \thsa-let-7c-5p miRCURY LNA miRNA PCR Assay: MIMAT0000064: 5′UGAGGUAGUAGGUUGUAUGGUU\tQIAGEN\tCat# YP00204767\t \tSoftware and Algorithms\t\t\t \tmiRTrace\t\thttps://github.com/friedlanderlab/mirtrace\t \tmiRDeep2\t\thttps://www.mdc-berlin.de/content/mirdeep2-documentation; RRID:SCR_010829\t \tCytoscape\t\thttps://cytoscape.org; RRID:SCR_003032\t \tClueGo/CluePedia\t\thttp://www.ici.upmc.fr/cluego/; RRID:SCR_005748\t \tDIANA microT-CDS tool\t\thttp://carolina.imis.athena-innovation.gr/dianatools/web/index.php; RRID:SCR_016510\t \tmiRNet 2.0\t\thttps://www.mirnet.ca/\t \tRtsne v0.15\t\thttps://github.com/jkrijthe/Rtsne; RRID:SCR_016342\t \tcorrplot v0.84\tn/a\thttps://github.com/taiyun/corrplot\t \tggplot2 v3.3.1\t\thttps://ggplot2.tidyverse.org; RRID:SCR_014601\t \tpheatmap V1.0.12\tKolde Rpheatmap: Pretty heatmaps software; 2015\thttps://cran.r-project.org/web/packages/pheatmap/index.html; RRID:SCR_016418\t \tACGT101-miR\tLC Sciences\tN/A\t \tmiRBase 22.0\t\thttp://www.mirbase.org/; RRID:SCR_003152\t \tRBiomirGS V0.2.12 R package\t\thttps://github.com/jzhangc/git_RBiomirGS\t \tGO Mouse Genome Informatics (MGI)\t\thttp://www.informatics.jax.org/; RRID:SCR_006489\t \tR package version 3.6.1\t\thttps://www.r-project.org/; RRID:SCR_001905\t \tQuantaSoft V1.7.4.0917\tBio-Rad Laboratories\thttps://www.bio-rad.com/webroot/web/pdf/lsr/literature/10047467.pdf\t \tOriginPro 2015\tOriginLab Corporation\thttps://www.originlab.com; RRID:SCR_014212\t \tR package version 4.0.2 (for single cell analysis)\t\thttps://www.r-project.org/; RRID:SCR_001905\t \tSeurat 3.2.0\t\thttps://github.com/satijalab/seurat; RRID:SCR_007322\t \tMAST\t\thttps://www.bioconductor.org/packages/release/bioc/html/MAST.html; RRID:SCR_016340\t \tmultiMiR\t\thttps://www.bioconductor.org/packages/release/bioc/html/multiMiR.html\t \tSnapTools 1.4.1\t\thttps://github.com/r3fang/SnapTools; RRID:SCR_018097\t \tSnapATAC\t\thttps://github.com/r3fang/SnapATAC\t \tRmagic 2.0.3\t\thttps://github.com/KrishnaswamyLab/MAGIC\t \tPatchwork 1.0.1\t\thttps://github.com/thomasp85/patchwork; RRID:SCR_000072\t \tOther\t\t\t \tQX200 Automated Droplet Generator\tBioRad\tCat# 1864101\t \tQX200 Droplet Reader\tBioRad\tCat# 1864003\t \tIllumina Hiseq 2500\tLC Sciences\tN/A\t \tABI 7500 Real-Time PCR\tApplied Biosystems\tN/A\t \tNovaSeq 6000\tIllumina\tN/A\t \tBD Rhapsody\tBD Biosciences\tCat# 633701\t \tddSEQ Single-Cell Isolator\tBio-Rad\tCat# 12004366\t \tBioAnalyzer\tAgilent\tCat# D1000 HS\t \tSimplified 5-ion GCR Simulation: Protons at 1000 MeV, 28Si at 600 MeV/n, 4He at 250 MeV/n, 16O at 350 MeV/n, 56Fe at 600 MeV/n, and protons at 250 MeV\tBrookhaven National Lab - NSRL\tN/A\t \tSimulated SPE: Protons at 50MeV to 150MeV\tBrookhaven National Lab - NSRL\tN/A\t \tGamma: 137Cs source (5 Gy)\tBrookhaven National Lab – NSRL\tN/A\t \t56Fe Irradiation: 600 MeV/n\tBrookhaven National Lab – NSRL\tN/A"
+  ],
+  "REFERENCIAS": [
+    {
+      "titulo": "REFERENCES",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of spaceflight on innate immune function and antioxidant gene expression",
+      "autores": [
+        {
+          "nombre_completo": "FP Baqai",
+          "nombres": "FP",
+          "apellidos": "Baqai"
+        },
+        {
+          "nombre_completo": "DS Gridley",
+          "nombres": "DS",
+          "apellidos": "Gridley"
+        },
+        {
+          "nombre_completo": "JM Slater",
+          "nombres": "JM",
+          "apellidos": "Slater"
+        },
+        {
+          "nombre_completo": "X Luo-Owen",
+          "nombres": "X",
+          "apellidos": "Luo-Owen"
+        },
+        {
+          "nombre_completo": "LS Stodieck",
+          "nombres": "LS",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "V Ferguson",
+          "nombres": "V",
+          "apellidos": "Ferguson"
+        },
+        {
+          "nombre_completo": "SK Chapes",
+          "nombres": "SK",
+          "apellidos": "Chapes"
+        },
+        {
+          "nombre_completo": "MJ Pecaut",
+          "nombres": "MJ",
+          "apellidos": "Pecaut"
+        }
+      ],
+      "pmid": "19342437",
+      "fuente": "J. Appl. Physiol",
+      "anio": "2009",
+      "volumen": "106",
+      "fpage": "1935",
+      "lpage": "1942"
+    },
+    {
+      "titulo": "A Circulating microRNA Signature Predicts Age-Based Development of Lymphoma",
+      "autores": [
+        {
+          "nombre_completo": "A Beheshti",
+          "nombres": "A",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "C Vanderburg",
+          "nombres": "C",
+          "apellidos": "Vanderburg"
+        },
+        {
+          "nombre_completo": "JT McDonald",
+          "nombres": "JT",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "C Ramkumar",
+          "nombres": "C",
+          "apellidos": "Ramkumar"
+        },
+        {
+          "nombre_completo": "T Kadungure",
+          "nombres": "T",
+          "apellidos": "Kadungure"
+        },
+        {
+          "nombre_completo": "H Zhang",
+          "nombres": "H",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "RB Gartenhaus",
+          "nombres": "RB",
+          "apellidos": "Gartenhaus"
+        },
+        {
+          "nombre_completo": "AM Evens",
+          "nombres": "AM",
+          "apellidos": "Evens"
+        }
+      ],
+      "pmid": "28107482",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0170521",
+      "lpage": ""
+    },
+    {
+      "titulo": "A microRNA signature and TGF-β1 response were identified as the key master regulators for spaceflight response",
+      "autores": [
+        {
+          "nombre_completo": "A Beheshti",
+          "nombres": "A",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "S Ray",
+          "nombres": "S",
+          "apellidos": "Ray"
+        },
+        {
+          "nombre_completo": "H Fogle",
+          "nombres": "H",
+          "apellidos": "Fogle"
+        },
+        {
+          "nombre_completo": "D Berrios",
+          "nombres": "D",
+          "apellidos": "Berrios"
+        },
+        {
+          "nombre_completo": "SV Costes",
+          "nombres": "SV",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "30044882",
+      "fuente": "PLoS ONE",
+      "anio": "2018",
+      "volumen": "13",
+      "fpage": "e0199621",
+      "lpage": ""
+    },
+    {
+      "titulo": "GeneLab Database Analyses Suggest Long-Term Impact of Space Radiation on the Cardiovascular System by the Activation of FYN Through Reactive Oxygen Species",
+      "autores": [
+        {
+          "nombre_completo": "A Beheshti",
+          "nombres": "A",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "JT McDonald",
+          "nombres": "JT",
+          "apellidos": "McDonald"
+        },
+        {
+          "nombre_completo": "J Miller",
+          "nombres": "J",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "P Grabham",
+          "nombres": "P",
+          "apellidos": "Grabham"
+        },
+        {
+          "nombre_completo": "SV Costes",
+          "nombres": "SV",
+          "apellidos": "Costes"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "661",
+      "lpage": ""
+    },
+    {
+      "titulo": "miR-15a/-16 Inhibit Angiogenesis by Targeting the Tie2 Coding Sequence: Therapeutic Potential of a miR-15a/16 Decoy System in Limb Ischemia",
+      "autores": [
+        {
+          "nombre_completo": "M Besnier",
+          "nombres": "M",
+          "apellidos": "Besnier"
+        },
+        {
+          "nombre_completo": "S Shantikumar",
+          "nombres": "S",
+          "apellidos": "Shantikumar"
+        },
+        {
+          "nombre_completo": "M Anwar",
+          "nombres": "M",
+          "apellidos": "Anwar"
+        },
+        {
+          "nombre_completo": "P Dixit",
+          "nombres": "P",
+          "apellidos": "Dixit"
+        },
+        {
+          "nombre_completo": "A Chamorro-Jorganes",
+          "nombres": "A",
+          "apellidos": "Chamorro-Jorganes"
+        },
+        {
+          "nombre_completo": "W Sweaad",
+          "nombres": "W",
+          "apellidos": "Sweaad"
+        },
+        {
+          "nombre_completo": "G Sala-Newby",
+          "nombres": "G",
+          "apellidos": "Sala-Newby"
+        },
+        {
+          "nombre_completo": "P Madeddu",
+          "nombres": "P",
+          "apellidos": "Madeddu"
+        },
+        {
+          "nombre_completo": "AC Thomas",
+          "nombres": "AC",
+          "apellidos": "Thomas"
+        },
+        {
+          "nombre_completo": "L Howard",
+          "nombres": "L",
+          "apellidos": "Howard"
+        }
+      ],
+      "pmid": "31220779",
+      "fuente": "Mol. Ther. Nucleic Acids",
+      "anio": "2019",
+      "volumen": "17",
+      "fpage": "49",
+      "lpage": "62"
+    },
+    {
+      "titulo": "Cell-free DNA (cfDNA) and exosome profiling from a year-long human spaceflight reveals circulating biomarkers",
+      "autores": [
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        }
+      ],
+      "pmid": "",
+      "fuente": "iScience",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "CluePedia Cytoscape plugin: pathway insights using integrated experimental and in silico data",
+      "autores": [
+        {
+          "nombre_completo": "G Bindea",
+          "nombres": "G",
+          "apellidos": "Bindea"
+        },
+        {
+          "nombre_completo": "J Galon",
+          "nombres": "J",
+          "apellidos": "Galon"
+        },
+        {
+          "nombre_completo": "B Mlecnik",
+          "nombres": "B",
+          "apellidos": "Mlecnik"
+        }
+      ],
+      "pmid": "23325622",
+      "fuente": "Bioinformatics",
+      "anio": "2013",
+      "volumen": "29",
+      "fpage": "661",
+      "lpage": "663"
+    },
+    {
+      "titulo": "Assessing sample and miRNA profile quality in serum and plasma or other biofluids",
+      "autores": [
+        {
+          "nombre_completo": "T Blondal",
+          "nombres": "T",
+          "apellidos": "Blondal"
+        },
+        {
+          "nombre_completo": "S Jensby Nielsen",
+          "nombres": "S",
+          "apellidos": "Jensby Nielsen"
+        },
+        {
+          "nombre_completo": "A Baker",
+          "nombres": "A",
+          "apellidos": "Baker"
+        },
+        {
+          "nombre_completo": "D Andreasen",
+          "nombres": "D",
+          "apellidos": "Andreasen"
+        },
+        {
+          "nombre_completo": "P Mouritzen",
+          "nombres": "P",
+          "apellidos": "Mouritzen"
+        },
+        {
+          "nombre_completo": "M Wrang Teilum",
+          "nombres": "M",
+          "apellidos": "Wrang Teilum"
+        },
+        {
+          "nombre_completo": "IK Dahlsveen",
+          "nombres": "IK",
+          "apellidos": "Dahlsveen"
+        }
+      ],
+      "pmid": "23036329",
+      "fuente": "Methods",
+      "anio": "2013",
+      "volumen": "59",
+      "fpage": "S1",
+      "lpage": "S6"
+    },
+    {
+      "titulo": "Negative Effects of Long-duration Spaceflight on Paraspinal Muscle Morphology",
+      "autores": [
+        {
+          "nombre_completo": "K Burkhart",
+          "nombres": "K",
+          "apellidos": "Burkhart"
+        },
+        {
+          "nombre_completo": "B Allaire",
+          "nombres": "B",
+          "apellidos": "Allaire"
+        },
+        {
+          "nombre_completo": "ML Bouxsein",
+          "nombres": "ML",
+          "apellidos": "Bouxsein"
+        }
+      ],
+      "pmid": "30624302",
+      "fuente": "Spine",
+      "anio": "2019",
+      "volumen": "44",
+      "fpage": "879",
+      "lpage": "886"
+    },
+    {
+      "titulo": "Crosstalk between TGF-β signaling and the microRNA machinery",
+      "autores": [
+        {
+          "nombre_completo": "H Butz",
+          "nombres": "H",
+          "apellidos": "Butz"
+        },
+        {
+          "nombre_completo": "K Rácz",
+          "nombres": "K",
+          "apellidos": "Rácz"
+        },
+        {
+          "nombre_completo": "L Hunyady",
+          "nombres": "L",
+          "apellidos": "Hunyady"
+        },
+        {
+          "nombre_completo": "A Patócs",
+          "nombres": "A",
+          "apellidos": "Patócs"
+        }
+      ],
+      "pmid": "22613783",
+      "fuente": "Trends Pharmacol. Sci",
+      "anio": "2012",
+      "volumen": "33",
+      "fpage": "382",
+      "lpage": "393"
+    },
+    {
+      "titulo": "MicroRNA-503 and the extended microRNA-16 family in angiogenesis",
+      "autores": [
+        {
+          "nombre_completo": "A Caporali",
+          "nombres": "A",
+          "apellidos": "Caporali"
+        },
+        {
+          "nombre_completo": "C Emanueli",
+          "nombres": "C",
+          "apellidos": "Emanueli"
+        }
+      ],
+      "pmid": "22814423",
+      "fuente": "Trends Cardiovasc. Med",
+      "anio": "2011",
+      "volumen": "21",
+      "fpage": "162",
+      "lpage": "166"
+    },
+    {
+      "titulo": "Recovery from 6-month spaceflight at the International Space Station: muscle-related stress into a proinflammatory setting",
+      "autores": [
+        {
+          "nombre_completo": "M Capri",
+          "nombres": "M",
+          "apellidos": "Capri"
+        },
+        {
+          "nombre_completo": "C Morsiani",
+          "nombres": "C",
+          "apellidos": "Morsiani"
+        },
+        {
+          "nombre_completo": "A Santoro",
+          "nombres": "A",
+          "apellidos": "Santoro"
+        },
+        {
+          "nombre_completo": "M Moriggi",
+          "nombres": "M",
+          "apellidos": "Moriggi"
+        },
+        {
+          "nombre_completo": "M Conte",
+          "nombres": "M",
+          "apellidos": "Conte"
+        },
+        {
+          "nombre_completo": "M Martucci",
+          "nombres": "M",
+          "apellidos": "Martucci"
+        },
+        {
+          "nombre_completo": "E Bellavista",
+          "nombres": "E",
+          "apellidos": "Bellavista"
+        },
+        {
+          "nombre_completo": "C Fabbri",
+          "nombres": "C",
+          "apellidos": "Fabbri"
+        },
+        {
+          "nombre_completo": "E Giampieri",
+          "nombres": "E",
+          "apellidos": "Giampieri"
+        },
+        {
+          "nombre_completo": "K Albracht",
+          "nombres": "K",
+          "apellidos": "Albracht"
+        }
+      ],
+      "pmid": "30620616",
+      "fuente": "FASEB J",
+      "anio": "2019",
+      "volumen": "33",
+      "fpage": "5168",
+      "lpage": "5180"
+    },
+    {
+      "titulo": "Astrocytic transforming growth factor-beta signaling reduces subacute neuroinflammation after stroke in mice",
+      "autores": [
+        {
+          "nombre_completo": "E Cekanaviciute",
+          "nombres": "E",
+          "apellidos": "Cekanaviciute"
+        },
+        {
+          "nombre_completo": "N Fathali",
+          "nombres": "N",
+          "apellidos": "Fathali"
+        },
+        {
+          "nombre_completo": "KP Doyle",
+          "nombres": "KP",
+          "apellidos": "Doyle"
+        },
+        {
+          "nombre_completo": "AM Williams",
+          "nombres": "AM",
+          "apellidos": "Williams"
+        },
+        {
+          "nombre_completo": "J Han",
+          "nombres": "J",
+          "apellidos": "Han"
+        },
+        {
+          "nombre_completo": "MS Buckwalter",
+          "nombres": "MS",
+          "apellidos": "Buckwalter"
+        }
+      ],
+      "pmid": "24733756",
+      "fuente": "Glia",
+      "anio": "2014",
+      "volumen": "62",
+      "fpage": "1227",
+      "lpage": "1240"
+    },
+    {
+      "titulo": "miRNet 2.0: network-based visual analytics for miRNA functional analysis and systems biology",
+      "autores": [
+        {
+          "nombre_completo": "L Chang",
+          "nombres": "L",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "G Zhou",
+          "nombres": "G",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "O Soufan",
+          "nombres": "O",
+          "apellidos": "Soufan"
+        },
+        {
+          "nombre_completo": "J Xia",
+          "nombres": "J",
+          "apellidos": "Xia"
+        }
+      ],
+      "pmid": "32484539",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "W244",
+      "lpage": "W251"
+    },
+    {
+      "titulo": "The role of microRNAs in the pathogenesis of autoimmune diseases",
+      "autores": [
+        {
+          "nombre_completo": "JQ Chen",
+          "nombres": "JQ",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "G Papp",
+          "nombres": "G",
+          "apellidos": "Papp"
+        },
+        {
+          "nombre_completo": "P Szodoray",
+          "nombres": "P",
+          "apellidos": "Szodoray"
+        },
+        {
+          "nombre_completo": "M Zeher",
+          "nombres": "M",
+          "apellidos": "Zeher"
+        }
+      ],
+      "pmid": "27639156",
+      "fuente": "Autoimmun. Rev",
+      "anio": "2016",
+      "volumen": "15",
+      "fpage": "1171",
+      "lpage": "1180"
+    },
+    {
+      "titulo": "Chronic corticosterone affects brain weight, and mitochondrial, but not glial volume fraction in hippocampal area CA3",
+      "autores": [
+        {
+          "nombre_completo": "PS Coburn-Litvak",
+          "nombres": "PS",
+          "apellidos": "Coburn-Litvak"
+        },
+        {
+          "nombre_completo": "DA Tata",
+          "nombres": "DA",
+          "apellidos": "Tata"
+        },
+        {
+          "nombre_completo": "HE Gorby",
+          "nombres": "HE",
+          "apellidos": "Gorby"
+        },
+        {
+          "nombre_completo": "DP McCloskey",
+          "nombres": "DP",
+          "apellidos": "McCloskey"
+        },
+        {
+          "nombre_completo": "G Richardson",
+          "nombres": "G",
+          "apellidos": "Richardson"
+        },
+        {
+          "nombre_completo": "BJ Anderson",
+          "nombres": "BJ",
+          "apellidos": "Anderson"
+        }
+      ],
+      "pmid": "14980392",
+      "fuente": "Neuroscience",
+      "anio": "2004",
+      "volumen": "124",
+      "fpage": "429",
+      "lpage": "438"
+    },
+    {
+      "titulo": "Monocyte phenotype and cytokine production profiles are dysregulated by short-duration spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "B Crucian",
+          "nombres": "B",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "R Stowe",
+          "nombres": "R",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "H Quiriarte",
+          "nombres": "H",
+          "apellidos": "Quiriarte"
+        },
+        {
+          "nombre_completo": "D Pierson",
+          "nombres": "D",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "C Sams",
+          "nombres": "C",
+          "apellidos": "Sams"
+        }
+      ],
+      "pmid": "21888268",
+      "fuente": "Aviat. Space Environ. Med",
+      "anio": "2011",
+      "volumen": "82",
+      "fpage": "857",
+      "lpage": "862"
+    },
+    {
+      "titulo": "Radiation Exposure and Mortality from Cardiovascular Disease and Cancer in Early NASA Astronauts",
+      "autores": [
+        {
+          "nombre_completo": "SR Elgart",
+          "nombres": "SR",
+          "apellidos": "Elgart"
+        },
+        {
+          "nombre_completo": "MP Little",
+          "nombres": "MP",
+          "apellidos": "Little"
+        },
+        {
+          "nombre_completo": "LJ Chappell",
+          "nombres": "LJ",
+          "apellidos": "Chappell"
+        },
+        {
+          "nombre_completo": "CM Milder",
+          "nombres": "CM",
+          "apellidos": "Milder"
+        },
+        {
+          "nombre_completo": "MR Shavers",
+          "nombres": "MR",
+          "apellidos": "Shavers"
+        },
+        {
+          "nombre_completo": "JL Huff",
+          "nombres": "JL",
+          "apellidos": "Huff"
+        },
+        {
+          "nombre_completo": "ZS Patel",
+          "nombres": "ZS",
+          "apellidos": "Patel"
+        }
+      ],
+      "pmid": "29855508",
+      "fuente": "Sci. Rep",
+      "anio": "2018",
+      "volumen": "8",
+      "fpage": "8480",
+      "lpage": ""
+    },
+    {
+      "titulo": "SnapATAC: A Comprehensive Analysis Package for Single Cell ATAC-seq",
+      "autores": [
+        {
+          "nombre_completo": "R Fang",
+          "nombres": "R",
+          "apellidos": "Fang"
+        },
+        {
+          "nombre_completo": "S Preissl",
+          "nombres": "S",
+          "apellidos": "Preissl"
+        },
+        {
+          "nombre_completo": "Y Li",
+          "nombres": "Y",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "X Hou",
+          "nombres": "X",
+          "apellidos": "Hou"
+        },
+        {
+          "nombre_completo": "J Lucero",
+          "nombres": "J",
+          "apellidos": "Lucero"
+        },
+        {
+          "nombre_completo": "X Wang",
+          "nombres": "X",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "A Motamedi",
+          "nombres": "A",
+          "apellidos": "Motamedi"
+        },
+        {
+          "nombre_completo": "AK Shiau",
+          "nombres": "AK",
+          "apellidos": "Shiau"
+        },
+        {
+          "nombre_completo": "X Zhou",
+          "nombres": "X",
+          "apellidos": "Zhou"
+        },
+        {
+          "nombre_completo": "F Xie",
+          "nombres": "F",
+          "apellidos": "Xie"
+        }
+      ],
+      "pmid": "",
+      "fuente": "bioRxiv",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "MAST: a flexible statistical framework for assessing transcriptional changes and characterizing heterogeneity in single-cell RNA sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "G Finak",
+          "nombres": "G",
+          "apellidos": "Finak"
+        },
+        {
+          "nombre_completo": "A McDavid",
+          "nombres": "A",
+          "apellidos": "McDavid"
+        },
+        {
+          "nombre_completo": "M Yajima",
+          "nombres": "M",
+          "apellidos": "Yajima"
+        },
+        {
+          "nombre_completo": "J Deng",
+          "nombres": "J",
+          "apellidos": "Deng"
+        },
+        {
+          "nombre_completo": "V Gersuk",
+          "nombres": "V",
+          "apellidos": "Gersuk"
+        },
+        {
+          "nombre_completo": "AK Shalek",
+          "nombres": "AK",
+          "apellidos": "Shalek"
+        },
+        {
+          "nombre_completo": "CK Slichter",
+          "nombres": "CK",
+          "apellidos": "Slichter"
+        },
+        {
+          "nombre_completo": "HW Miller",
+          "nombres": "HW",
+          "apellidos": "Miller"
+        },
+        {
+          "nombre_completo": "MJ McElrath",
+          "nombres": "MJ",
+          "apellidos": "McElrath"
+        },
+        {
+          "nombre_completo": "M Prlic",
+          "nombres": "M",
+          "apellidos": "Prlic"
+        }
+      ],
+      "pmid": "26653891",
+      "fuente": "Genome Biol",
+      "anio": "2015",
+      "volumen": "16",
+      "fpage": "278",
+      "lpage": ""
+    },
+    {
+      "titulo": "Gender and cardiovascular disease: are sex-biased microRNA networks a driving force behind heart failure with preserved ejection fraction in women?",
+      "autores": [
+        {
+          "nombre_completo": "BW Florijn",
+          "nombres": "BW",
+          "apellidos": "Florijn"
+        },
+        {
+          "nombre_completo": "R Bijkerk",
+          "nombres": "R",
+          "apellidos": "Bijkerk"
+        },
+        {
+          "nombre_completo": "EP van der Veer",
+          "nombres": "EP",
+          "apellidos": "van der Veer"
+        },
+        {
+          "nombre_completo": "AJ van Zonneveld",
+          "nombres": "AJ",
+          "apellidos": "van Zonneveld"
+        }
+      ],
+      "pmid": "29186452",
+      "fuente": "Cardiovasc. Res",
+      "anio": "2018",
+      "volumen": "114",
+      "fpage": "210",
+      "lpage": "225"
+    },
+    {
+      "titulo": "miRDeep2 accurately identifies known and hundreds of novel microRNA genes in seven animal clades",
+      "autores": [
+        {
+          "nombre_completo": "MR Friedländer",
+          "nombres": "MR",
+          "apellidos": "Friedländer"
+        },
+        {
+          "nombre_completo": "SD Mackowiak",
+          "nombres": "SD",
+          "apellidos": "Mackowiak"
+        },
+        {
+          "nombre_completo": "N Li",
+          "nombres": "N",
+          "apellidos": "Li"
+        },
+        {
+          "nombre_completo": "W Chen",
+          "nombres": "W",
+          "apellidos": "Chen"
+        },
+        {
+          "nombre_completo": "N Rajewsky",
+          "nombres": "N",
+          "apellidos": "Rajewsky"
+        }
+      ],
+      "pmid": "21911355",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2012",
+      "volumen": "40",
+      "fpage": "37",
+      "lpage": "52"
+    },
+    {
+      "titulo": "MirGeneDB 2.0: the metazoan microRNA complement",
+      "autores": [
+        {
+          "nombre_completo": "B Fromm",
+          "nombres": "B",
+          "apellidos": "Fromm"
+        },
+        {
+          "nombre_completo": "D Domanska",
+          "nombres": "D",
+          "apellidos": "Domanska"
+        },
+        {
+          "nombre_completo": "E Høye",
+          "nombres": "E",
+          "apellidos": "Høye"
+        },
+        {
+          "nombre_completo": "V Ovchinnikov",
+          "nombres": "V",
+          "apellidos": "Ovchinnikov"
+        },
+        {
+          "nombre_completo": "W Kang",
+          "nombres": "W",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "E Aparicio-Puerta",
+          "nombres": "E",
+          "apellidos": "Aparicio-Puerta"
+        },
+        {
+          "nombre_completo": "M Johansen",
+          "nombres": "M",
+          "apellidos": "Johansen"
+        },
+        {
+          "nombre_completo": "K Flatmark",
+          "nombres": "K",
+          "apellidos": "Flatmark"
+        },
+        {
+          "nombre_completo": "A Mathelier",
+          "nombres": "A",
+          "apellidos": "Mathelier"
+        },
+        {
+          "nombre_completo": "E Hovig",
+          "nombres": "E",
+          "apellidos": "Hovig"
+        }
+      ],
+      "pmid": "31598695",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2020",
+      "volumen": "48",
+      "fpage": "D132",
+      "lpage": "D141"
+    },
+    {
+      "titulo": "The NASA Twins Study: A multidimensional analysis of a year-long human spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "FE Garrett-Bakelman",
+          "nombres": "FE",
+          "apellidos": "Garrett-Bakelman"
+        },
+        {
+          "nombre_completo": "M Darshi",
+          "nombres": "M",
+          "apellidos": "Darshi"
+        },
+        {
+          "nombre_completo": "SJ Green",
+          "nombres": "SJ",
+          "apellidos": "Green"
+        },
+        {
+          "nombre_completo": "RC Gur",
+          "nombres": "RC",
+          "apellidos": "Gur"
+        },
+        {
+          "nombre_completo": "L Lin",
+          "nombres": "L",
+          "apellidos": "Lin"
+        },
+        {
+          "nombre_completo": "BR Macias",
+          "nombres": "BR",
+          "apellidos": "Macias"
+        },
+        {
+          "nombre_completo": "MJ McKenna",
+          "nombres": "MJ",
+          "apellidos": "McKenna"
+        },
+        {
+          "nombre_completo": "C Meydan",
+          "nombres": "C",
+          "apellidos": "Meydan"
+        },
+        {
+          "nombre_completo": "T Mishra",
+          "nombres": "T",
+          "apellidos": "Mishra"
+        },
+        {
+          "nombre_completo": "J Nasrini",
+          "nombres": "J",
+          "apellidos": "Nasrini"
+        }
+      ],
+      "pmid": "30975860",
+      "fuente": "Science",
+      "anio": "2019",
+      "volumen": "364",
+      "fpage": "eaau8650",
+      "lpage": ""
+    },
+    {
+      "titulo": "One-month spaceflight compromises the bone microstructure, tissue-level mechanical properties, osteocyte survival and lacunae volume in mature mice skeletons",
+      "autores": [
+        {
+          "nombre_completo": "M Gerbaix",
+          "nombres": "M",
+          "apellidos": "Gerbaix"
+        },
+        {
+          "nombre_completo": "V Gnyubkin",
+          "nombres": "V",
+          "apellidos": "Gnyubkin"
+        },
+        {
+          "nombre_completo": "D Farlay",
+          "nombres": "D",
+          "apellidos": "Farlay"
+        },
+        {
+          "nombre_completo": "C Olivier",
+          "nombres": "C",
+          "apellidos": "Olivier"
+        },
+        {
+          "nombre_completo": "P Ammann",
+          "nombres": "P",
+          "apellidos": "Ammann"
+        },
+        {
+          "nombre_completo": "G Courbon",
+          "nombres": "G",
+          "apellidos": "Courbon"
+        },
+        {
+          "nombre_completo": "N Laroche",
+          "nombres": "N",
+          "apellidos": "Laroche"
+        },
+        {
+          "nombre_completo": "R Genthial",
+          "nombres": "R",
+          "apellidos": "Genthial"
+        },
+        {
+          "nombre_completo": "H Follet",
+          "nombres": "H",
+          "apellidos": "Follet"
+        },
+        {
+          "nombre_completo": "F Peyrin",
+          "nombres": "F",
+          "apellidos": "Peyrin"
+        }
+      ],
+      "pmid": "28572612",
+      "fuente": "Sci. Rep",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "2659",
+      "lpage": ""
+    },
+    {
+      "titulo": "Multiomic, Single-cell, and Biochemical Profiles of Astronauts Guide Pharmacological Strategies for Returning to Gravity",
+      "autores": [
+        {
+          "nombre_completo": "ML Gertz",
+          "nombres": "ML",
+          "apellidos": "Gertz"
+        },
+        {
+          "nombre_completo": "CR Chin",
+          "nombres": "CR",
+          "apellidos": "Chin"
+        },
+        {
+          "nombre_completo": "D Tomoiaga",
+          "nombres": "D",
+          "apellidos": "Tomoiaga"
+        },
+        {
+          "nombre_completo": "M MacKay",
+          "nombres": "M",
+          "apellidos": "MacKay"
+        },
+        {
+          "nombre_completo": "D Butler",
+          "nombres": "D",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "E Afshinnekoo",
+          "nombres": "E",
+          "apellidos": "Afshinnekoo"
+        },
+        {
+          "nombre_completo": "D Bezdan",
+          "nombres": "D",
+          "apellidos": "Bezdan"
+        },
+        {
+          "nombre_completo": "MA Schmidt",
+          "nombres": "MA",
+          "apellidos": "Schmidt"
+        },
+        {
+          "nombre_completo": "C Mozsary",
+          "nombres": "C",
+          "apellidos": "Mozsary"
+        },
+        {
+          "nombre_completo": "AM Melnick",
+          "nombres": "AM",
+          "apellidos": "Melnick"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Cell Rep",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Integration analysis of microRNA and mRNA expression profiles in human peripheral blood lymphocytes cultured in modeled microgravity",
+      "autores": [
+        {
+          "nombre_completo": "C Girardi",
+          "nombres": "C",
+          "apellidos": "Girardi"
+        },
+        {
+          "nombre_completo": "C De Pittà",
+          "nombres": "C",
+          "apellidos": "De Pittà"
+        },
+        {
+          "nombre_completo": "S Casara",
+          "nombres": "S",
+          "apellidos": "Casara"
+        },
+        {
+          "nombre_completo": "E Calura",
+          "nombres": "E",
+          "apellidos": "Calura"
+        },
+        {
+          "nombre_completo": "C Romualdi",
+          "nombres": "C",
+          "apellidos": "Romualdi"
+        },
+        {
+          "nombre_completo": "L Celotti",
+          "nombres": "L",
+          "apellidos": "Celotti"
+        },
+        {
+          "nombre_completo": "M Mognato",
+          "nombres": "M",
+          "apellidos": "Mognato"
+        }
+      ],
+      "pmid": "25045661",
+      "fuente": "BioMed Res. Int",
+      "anio": "2014",
+      "volumen": "2014",
+      "fpage": "296747",
+      "lpage": ""
+    },
+    {
+      "titulo": "Effects of ionizing radiation on three-dimensional human vessel models: differential effects according to radiation quality and cellular development",
+      "autores": [
+        {
+          "nombre_completo": "P Grabham",
+          "nombres": "P",
+          "apellidos": "Grabham"
+        },
+        {
+          "nombre_completo": "B Hu",
+          "nombres": "B",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "P Sharma",
+          "nombres": "P",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "C Geard",
+          "nombres": "C",
+          "apellidos": "Geard"
+        }
+      ],
+      "pmid": "21175343",
+      "fuente": "Radiat. Res",
+      "anio": "2011",
+      "volumen": "175",
+      "fpage": "21",
+      "lpage": "28"
+    },
+    {
+      "titulo": "miRNA and mRNA expression analysis reveals potential sex-biased miRNA expression",
+      "autores": [
+        {
+          "nombre_completo": "L Guo",
+          "nombres": "L",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "Q Zhang",
+          "nombres": "Q",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "X Ma",
+          "nombres": "X",
+          "apellidos": "Ma"
+        },
+        {
+          "nombre_completo": "J Wang",
+          "nombres": "J",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "T Liang",
+          "nombres": "T",
+          "apellidos": "Liang"
+        }
+      ],
+      "pmid": "28045090",
+      "fuente": "Sci. Rep",
+      "anio": "2017",
+      "volumen": "7",
+      "fpage": "39812",
+      "lpage": ""
+    },
+    {
+      "titulo": "Generalized Additive Models",
+      "autores": [
+        {
+          "nombre_completo": "T Hastie",
+          "nombres": "T",
+          "apellidos": "Hastie"
+        },
+        {
+          "nombre_completo": "R Tibshirani",
+          "nombres": "R",
+          "apellidos": "Tibshirani"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Stat. Sci",
+      "anio": "1986",
+      "volumen": "1",
+      "fpage": "297",
+      "lpage": "310"
+    },
+    {
+      "titulo": "Absolute quantification by droplet digital PCR versus analog real-time PCR",
+      "autores": [
+        {
+          "nombre_completo": "CM Hindson",
+          "nombres": "CM",
+          "apellidos": "Hindson"
+        },
+        {
+          "nombre_completo": "JR Chevillet",
+          "nombres": "JR",
+          "apellidos": "Chevillet"
+        },
+        {
+          "nombre_completo": "HA Briggs",
+          "nombres": "HA",
+          "apellidos": "Briggs"
+        },
+        {
+          "nombre_completo": "EN Gallichotte",
+          "nombres": "EN",
+          "apellidos": "Gallichotte"
+        },
+        {
+          "nombre_completo": "IK Ruf",
+          "nombres": "IK",
+          "apellidos": "Ruf"
+        },
+        {
+          "nombre_completo": "BJ Hindson",
+          "nombres": "BJ",
+          "apellidos": "Hindson"
+        },
+        {
+          "nombre_completo": "RL Vessella",
+          "nombres": "RL",
+          "apellidos": "Vessella"
+        },
+        {
+          "nombre_completo": "M Tewari",
+          "nombres": "M",
+          "apellidos": "Tewari"
+        }
+      ],
+      "pmid": "23995387",
+      "fuente": "Nat. Methods",
+      "anio": "2013",
+      "volumen": "10",
+      "fpage": "1003",
+      "lpage": "1005"
+    },
+    {
+      "titulo": "Spaceflight alters expression of microRNA during T-cell activation",
+      "autores": [
+        {
+          "nombre_completo": "M Hughes-Fulford",
+          "nombres": "M",
+          "apellidos": "Hughes-Fulford"
+        },
+        {
+          "nombre_completo": "TT Chang",
+          "nombres": "TT",
+          "apellidos": "Chang"
+        },
+        {
+          "nombre_completo": "EM Martinez",
+          "nombres": "EM",
+          "apellidos": "Martinez"
+        },
+        {
+          "nombre_completo": "CF Li",
+          "nombres": "CF",
+          "apellidos": "Li"
+        }
+      ],
+      "pmid": "26276131",
+      "fuente": "FASEB J",
+      "anio": "2015",
+      "volumen": "29",
+      "fpage": "4893",
+      "lpage": "4900"
+    },
+    {
+      "titulo": "Cellular context-dependent “colors” of transforming growth factor-beta signaling",
+      "autores": [
+        {
+          "nombre_completo": "H Ikushima",
+          "nombres": "H",
+          "apellidos": "Ikushima"
+        },
+        {
+          "nombre_completo": "K Miyazono",
+          "nombres": "K",
+          "apellidos": "Miyazono"
+        }
+      ],
+      "pmid": "20067465",
+      "fuente": "Cancer Sci",
+      "anio": "2010",
+      "volumen": "101",
+      "fpage": "306",
+      "lpage": "312"
+    },
+    {
+      "titulo": "miRNA-Based Therapeutic Strategies",
+      "autores": [
+        {
+          "nombre_completo": "M Ishida",
+          "nombres": "M",
+          "apellidos": "Ishida"
+        },
+        {
+          "nombre_completo": "FM Selaru",
+          "nombres": "FM",
+          "apellidos": "Selaru"
+        }
+      ],
+      "pmid": "23524956",
+      "fuente": "Curr. Anesthesiol. Rep",
+      "anio": "2013",
+      "volumen": "1",
+      "fpage": "63",
+      "lpage": "70"
+    },
+    {
+      "titulo": "Microgravity culture reduces apoptosis and increases the differentiation of a human colorectal carcinoma cell line",
+      "autores": [
+        {
+          "nombre_completo": "JM Jessup",
+          "nombres": "JM",
+          "apellidos": "Jessup"
+        },
+        {
+          "nombre_completo": "M Frantz",
+          "nombres": "M",
+          "apellidos": "Frantz"
+        },
+        {
+          "nombre_completo": "E Sonmez-Alpan",
+          "nombres": "E",
+          "apellidos": "Sonmez-Alpan"
+        },
+        {
+          "nombre_completo": "J Locker",
+          "nombres": "J",
+          "apellidos": "Locker"
+        },
+        {
+          "nombre_completo": "K Skena",
+          "nombres": "K",
+          "apellidos": "Skena"
+        },
+        {
+          "nombre_completo": "H Waller",
+          "nombres": "H",
+          "apellidos": "Waller"
+        },
+        {
+          "nombre_completo": "P Battle",
+          "nombres": "P",
+          "apellidos": "Battle"
+        },
+        {
+          "nombre_completo": "A Nachman",
+          "nombres": "A",
+          "apellidos": "Nachman"
+        },
+        {
+          "nombre_completo": "surname:Bhatti",
+          "nombres": "surname:Bhatti",
+          "apellidos": ""
+        },
+        {
+          "nombre_completo": "ME Weber",
+          "nombres": "ME",
+          "apellidos": "Weber"
+        }
+      ],
+      "pmid": "10949995",
+      "fuente": "In Vitro Cell Dev. Biol. Anim",
+      "anio": "2000",
+      "volumen": "36",
+      "fpage": "367",
+      "lpage": "373"
+    },
+    {
+      "titulo": "miRTrace reveals the organismal origins of microRNA sequencing data",
+      "autores": [
+        {
+          "nombre_completo": "W Kang",
+          "nombres": "W",
+          "apellidos": "Kang"
+        },
+        {
+          "nombre_completo": "Y Eldfjell",
+          "nombres": "Y",
+          "apellidos": "Eldfjell"
+        },
+        {
+          "nombre_completo": "B Fromm",
+          "nombres": "B",
+          "apellidos": "Fromm"
+        },
+        {
+          "nombre_completo": "X Estivill",
+          "nombres": "X",
+          "apellidos": "Estivill"
+        },
+        {
+          "nombre_completo": "I Biryukova",
+          "nombres": "I",
+          "apellidos": "Biryukova"
+        },
+        {
+          "nombre_completo": "MR Friedländer",
+          "nombres": "MR",
+          "apellidos": "Friedländer"
+        }
+      ],
+      "pmid": "30514392",
+      "fuente": "Genome Biol",
+      "anio": "2018",
+      "volumen": "19",
+      "fpage": "213",
+      "lpage": ""
+    },
+    {
+      "titulo": "Interplay between MicroRNAs and Oxidative Stress in Neurodegenerative Diseases",
+      "autores": [
+        {
+          "nombre_completo": "J Konovalova",
+          "nombres": "J",
+          "apellidos": "Konovalova"
+        },
+        {
+          "nombre_completo": "D Gerasymchuk",
+          "nombres": "D",
+          "apellidos": "Gerasymchuk"
+        },
+        {
+          "nombre_completo": "I Parkkinen",
+          "nombres": "I",
+          "apellidos": "Parkkinen"
+        },
+        {
+          "nombre_completo": "P Chmielarz",
+          "nombres": "P",
+          "apellidos": "Chmielarz"
+        },
+        {
+          "nombre_completo": "A Domanskyi",
+          "nombres": "A",
+          "apellidos": "Domanskyi"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Int. J. Mol. Sci",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "6055",
+      "lpage": ""
+    },
+    {
+      "titulo": "miRBase: from microRNA sequences to function",
+      "autores": [
+        {
+          "nombre_completo": "A Kozomara",
+          "nombres": "A",
+          "apellidos": "Kozomara"
+        },
+        {
+          "nombre_completo": "M Birgaoanu",
+          "nombres": "M",
+          "apellidos": "Birgaoanu"
+        },
+        {
+          "nombre_completo": "S Griffiths-Jones",
+          "nombres": "S",
+          "apellidos": "Griffiths-Jones"
+        }
+      ],
+      "pmid": "30423142",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2019",
+      "volumen": "47",
+      "fpage": "D155",
+      "lpage": "D162"
+    },
+    {
+      "titulo": "Silencing of microRNAs in vivo with ‘antagomirs’",
+      "autores": [
+        {
+          "nombre_completo": "J Krützfeldt",
+          "nombres": "J",
+          "apellidos": "Krützfeldt"
+        },
+        {
+          "nombre_completo": "N Rajewsky",
+          "nombres": "N",
+          "apellidos": "Rajewsky"
+        },
+        {
+          "nombre_completo": "R Braich",
+          "nombres": "R",
+          "apellidos": "Braich"
+        },
+        {
+          "nombre_completo": "KG Rajeev",
+          "nombres": "KG",
+          "apellidos": "Rajeev"
+        },
+        {
+          "nombre_completo": "T Tuschl",
+          "nombres": "T",
+          "apellidos": "Tuschl"
+        },
+        {
+          "nombre_completo": "M Manoharan",
+          "nombres": "M",
+          "apellidos": "Manoharan"
+        },
+        {
+          "nombre_completo": "M Stoffel",
+          "nombres": "M",
+          "apellidos": "Stoffel"
+        }
+      ],
+      "pmid": "16258535",
+      "fuente": "Nature",
+      "anio": "2005",
+      "volumen": "438",
+      "fpage": "685",
+      "lpage": "689"
+    },
+    {
+      "titulo": "MicroRNA: Biogenesis, Function and Role in Cancer",
+      "autores": [
+        {
+          "nombre_completo": "LA Macfarlane",
+          "nombres": "LA",
+          "apellidos": "Macfarlane"
+        },
+        {
+          "nombre_completo": "PR Murphy",
+          "nombres": "PR",
+          "apellidos": "Murphy"
+        }
+      ],
+      "pmid": "21532838",
+      "fuente": "Curr. Genomics",
+      "anio": "2010",
+      "volumen": "11",
+      "fpage": "537",
+      "lpage": "561"
+    },
+    {
+      "titulo": "Optic disc edema, globe flattening, choroidal folds, and hyperopic shifts observed in astronauts after long-duration spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "TH Mader",
+          "nombres": "TH",
+          "apellidos": "Mader"
+        },
+        {
+          "nombre_completo": "CR Gibson",
+          "nombres": "CR",
+          "apellidos": "Gibson"
+        },
+        {
+          "nombre_completo": "AF Pass",
+          "nombres": "AF",
+          "apellidos": "Pass"
+        },
+        {
+          "nombre_completo": "LA Kramer",
+          "nombres": "LA",
+          "apellidos": "Kramer"
+        },
+        {
+          "nombre_completo": "AG Lee",
+          "nombres": "AG",
+          "apellidos": "Lee"
+        },
+        {
+          "nombre_completo": "J Fogarty",
+          "nombres": "J",
+          "apellidos": "Fogarty"
+        },
+        {
+          "nombre_completo": "WJ Tarver",
+          "nombres": "WJ",
+          "apellidos": "Tarver"
+        },
+        {
+          "nombre_completo": "JP Dervay",
+          "nombres": "JP",
+          "apellidos": "Dervay"
+        },
+        {
+          "nombre_completo": "DR Hamilton",
+          "nombres": "DR",
+          "apellidos": "Hamilton"
+        },
+        {
+          "nombre_completo": "A Sargsyan",
+          "nombres": "A",
+          "apellidos": "Sargsyan"
+        }
+      ],
+      "pmid": "21849212",
+      "fuente": "Ophthalmology",
+      "anio": "2011",
+      "volumen": "118",
+      "fpage": "2058",
+      "lpage": "2069"
+    },
+    {
+      "titulo": "Mechanistic Clues to Overcome Spaceflight-Induced Immune Dysregulation",
+      "autores": [
+        {
+          "nombre_completo": "G Makedonas",
+          "nombres": "G",
+          "apellidos": "Makedonas"
+        },
+        {
+          "nombre_completo": "A Chouker",
+          "nombres": "A",
+          "apellidos": "Chouker"
+        },
+        {
+          "nombre_completo": "S Mehta",
+          "nombres": "S",
+          "apellidos": "Mehta"
+        },
+        {
+          "nombre_completo": "R Simpson",
+          "nombres": "R",
+          "apellidos": "Simpson"
+        },
+        {
+          "nombre_completo": "R Stowe",
+          "nombres": "R",
+          "apellidos": "Stowe"
+        },
+        {
+          "nombre_completo": "C Sams",
+          "nombres": "C",
+          "apellidos": "Sams"
+        },
+        {
+          "nombre_completo": "D Pierson",
+          "nombres": "D",
+          "apellidos": "Pierson"
+        },
+        {
+          "nombre_completo": "B Crucian",
+          "nombres": "B",
+          "apellidos": "Crucian"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Curr. Pathobiol. Rep",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "185",
+      "lpage": "192"
+    },
+    {
+      "titulo": "Cellular mechanisms of fatal early-onset autoimmunity in mice with the T cell-specific targeting of transforming growth factor-beta receptor",
+      "autores": [
+        {
+          "nombre_completo": "JC Marie",
+          "nombres": "JC",
+          "apellidos": "Marie"
+        },
+        {
+          "nombre_completo": "D Liggitt",
+          "nombres": "D",
+          "apellidos": "Liggitt"
+        },
+        {
+          "nombre_completo": "AY Rudensky",
+          "nombres": "AY",
+          "apellidos": "Rudensky"
+        }
+      ],
+      "pmid": "16973387",
+      "fuente": "Immunity",
+      "anio": "2006",
+      "volumen": "25",
+      "fpage": "441",
+      "lpage": "454"
+    },
+    {
+      "titulo": "Galactic cosmic ray composition and energy spectra",
+      "autores": [
+        {
+          "nombre_completo": "RA Mewaldt",
+          "nombres": "RA",
+          "apellidos": "Mewaldt"
+        }
+      ],
+      "pmid": "11540019",
+      "fuente": "Adv. Space Res",
+      "anio": "1994",
+      "volumen": "14",
+      "fpage": "737",
+      "lpage": "747"
+    },
+    {
+      "titulo": "Hindlimb unloading of growing rats: a model for predicting skeletal changes during space flight",
+      "autores": [
+        {
+          "nombre_completo": "ER Morey-Holton",
+          "nombres": "ER",
+          "apellidos": "Morey-Holton"
+        },
+        {
+          "nombre_completo": "RK Globus",
+          "nombres": "RK",
+          "apellidos": "Globus"
+        }
+      ],
+      "pmid": "9600759",
+      "fuente": "Bone",
+      "anio": "1998",
+      "volumen": "22",
+      "fpage": "83S",
+      "lpage": "88S"
+    },
+    {
+      "titulo": "A novel partial gravity ground-based analog for rats via quadrupedal unloading",
+      "autores": [
+        {
+          "nombre_completo": "M Mortreux",
+          "nombres": "M",
+          "apellidos": "Mortreux"
+        },
+        {
+          "nombre_completo": "JA Nagy",
+          "nombres": "JA",
+          "apellidos": "Nagy"
+        },
+        {
+          "nombre_completo": "FC Ko",
+          "nombres": "FC",
+          "apellidos": "Ko"
+        },
+        {
+          "nombre_completo": "ML Bouxsein",
+          "nombres": "ML",
+          "apellidos": "Bouxsein"
+        },
+        {
+          "nombre_completo": "SB Rutkove",
+          "nombres": "SB",
+          "apellidos": "Rutkove"
+        }
+      ],
+      "pmid": "29565773",
+      "fuente": "J. Appl. Physiol",
+      "anio": "2018",
+      "volumen": "125",
+      "fpage": "175",
+      "lpage": "182"
+    },
+    {
+      "titulo": "Tgf-Beta superfamily receptors-targets for antiangiogenic therapy?",
+      "autores": [
+        {
+          "nombre_completo": "J Otten",
+          "nombres": "J",
+          "apellidos": "Otten"
+        },
+        {
+          "nombre_completo": "C Bokemeyer",
+          "nombres": "C",
+          "apellidos": "Bokemeyer"
+        },
+        {
+          "nombre_completo": "W Fiedler",
+          "nombres": "W",
+          "apellidos": "Fiedler"
+        }
+      ],
+      "pmid": "20490264",
+      "fuente": "J. Oncol",
+      "anio": "2010",
+      "volumen": "2010",
+      "fpage": "317068",
+      "lpage": ""
+    },
+    {
+      "titulo": "DIANA-microT web server v5.0: service integration into miRNA functional analysis workflows",
+      "autores": [
+        {
+          "nombre_completo": "MD Paraskevopoulou",
+          "nombres": "MD",
+          "apellidos": "Paraskevopoulou"
+        },
+        {
+          "nombre_completo": "G Georgakilas",
+          "nombres": "G",
+          "apellidos": "Georgakilas"
+        },
+        {
+          "nombre_completo": "N Kostoulas",
+          "nombres": "N",
+          "apellidos": "Kostoulas"
+        },
+        {
+          "nombre_completo": "IS Vlachos",
+          "nombres": "IS",
+          "apellidos": "Vlachos"
+        },
+        {
+          "nombre_completo": "T Vergoulis",
+          "nombres": "T",
+          "apellidos": "Vergoulis"
+        },
+        {
+          "nombre_completo": "M Reczko",
+          "nombres": "M",
+          "apellidos": "Reczko"
+        },
+        {
+          "nombre_completo": "C Filippidis",
+          "nombres": "C",
+          "apellidos": "Filippidis"
+        },
+        {
+          "nombre_completo": "T Dalamagas",
+          "nombres": "T",
+          "apellidos": "Dalamagas"
+        },
+        {
+          "nombre_completo": "AG Hatzigeorgiou",
+          "nombres": "AG",
+          "apellidos": "Hatzigeorgiou"
+        }
+      ],
+      "pmid": "23680784",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2013",
+      "volumen": "41",
+      "fpage": "W169",
+      "lpage": "73"
+    },
+    {
+      "titulo": "Beyond Low-Earth Orbit: Characterizing the Immune Profile Following Simulated Spaceflight Conditions for Deep Space Missions",
+      "autores": [
+        {
+          "nombre_completo": "AM Paul",
+          "nombres": "AM",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "M Cheng-Campbell",
+          "nombres": "M",
+          "apellidos": "Cheng-Campbell"
+        },
+        {
+          "nombre_completo": "EA Blaber",
+          "nombres": "EA",
+          "apellidos": "Blaber"
+        },
+        {
+          "nombre_completo": "S Anand",
+          "nombres": "S",
+          "apellidos": "Anand"
+        },
+        {
+          "nombre_completo": "S Bhattacharya",
+          "nombres": "S",
+          "apellidos": "Bhattacharya"
+        },
+        {
+          "nombre_completo": "S Zwart",
+          "nombres": "S",
+          "apellidos": "Zwart"
+        },
+        {
+          "nombre_completo": "B Crucian",
+          "nombres": "B",
+          "apellidos": "Crucian"
+        },
+        {
+          "nombre_completo": "SM Smith",
+          "nombres": "SM",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "R Meller",
+          "nombres": "R",
+          "apellidos": "Meller"
+        },
+        {
+          "nombre_completo": "P Grabham",
+          "nombres": "P",
+          "apellidos": "Grabham"
+        }
+      ],
+      "pmid": "",
+      "fuente": "iScience",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Is spaceflight-induced immune dysfunction linked to systemic changes in metabolism?",
+      "autores": [
+        {
+          "nombre_completo": "MJ Pecaut",
+          "nombres": "MJ",
+          "apellidos": "Pecaut"
+        },
+        {
+          "nombre_completo": "XW Mao",
+          "nombres": "XW",
+          "apellidos": "Mao"
+        },
+        {
+          "nombre_completo": "DL Bellinger",
+          "nombres": "DL",
+          "apellidos": "Bellinger"
+        },
+        {
+          "nombre_completo": "KR Jonscher",
+          "nombres": "KR",
+          "apellidos": "Jonscher"
+        },
+        {
+          "nombre_completo": "LS Stodieck",
+          "nombres": "LS",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "VL Ferguson",
+          "nombres": "VL",
+          "apellidos": "Ferguson"
+        },
+        {
+          "nombre_completo": "TA Bateman",
+          "nombres": "TA",
+          "apellidos": "Bateman"
+        },
+        {
+          "nombre_completo": "RP Mohney",
+          "nombres": "RP",
+          "apellidos": "Mohney"
+        },
+        {
+          "nombre_completo": "DS Gridley",
+          "nombres": "DS",
+          "apellidos": "Gridley"
+        }
+      ],
+      "pmid": "28542224",
+      "fuente": "PLoS ONE",
+      "anio": "2017",
+      "volumen": "12",
+      "fpage": "e0174174",
+      "lpage": ""
+    },
+    {
+      "titulo": "Alterations of Functional Brain Connectivity After Long-Duration Spaceflight as Revealed by fMRI",
+      "autores": [
+        {
+          "nombre_completo": "E Pechenkova",
+          "nombres": "E",
+          "apellidos": "Pechenkova"
+        },
+        {
+          "nombre_completo": "I Nosikova",
+          "nombres": "I",
+          "apellidos": "Nosikova"
+        },
+        {
+          "nombre_completo": "A Rumshiskaya",
+          "nombres": "A",
+          "apellidos": "Rumshiskaya"
+        },
+        {
+          "nombre_completo": "L Litvinova",
+          "nombres": "L",
+          "apellidos": "Litvinova"
+        },
+        {
+          "nombre_completo": "I Rukavishnikov",
+          "nombres": "I",
+          "apellidos": "Rukavishnikov"
+        },
+        {
+          "nombre_completo": "E Mershina",
+          "nombres": "E",
+          "apellidos": "Mershina"
+        },
+        {
+          "nombre_completo": "V Sinitsyn",
+          "nombres": "V",
+          "apellidos": "Sinitsyn"
+        },
+        {
+          "nombre_completo": "A Van Ombergen",
+          "nombres": "A",
+          "apellidos": "Van Ombergen"
+        },
+        {
+          "nombre_completo": "B Jeurissen",
+          "nombres": "B",
+          "apellidos": "Jeurissen"
+        },
+        {
+          "nombre_completo": "S Jillings",
+          "nombres": "S",
+          "apellidos": "Jillings"
+        }
+      ],
+      "pmid": "31333476",
+      "fuente": "Front. Physiol",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "761",
+      "lpage": ""
+    },
+    {
+      "titulo": "A methodological procedure for evaluating the impact of hemolysis on circulating microRNAs",
+      "autores": [
+        {
+          "nombre_completo": "S Pizzamiglio",
+          "nombres": "S",
+          "apellidos": "Pizzamiglio"
+        },
+        {
+          "nombre_completo": "S Zanutto",
+          "nombres": "S",
+          "apellidos": "Zanutto"
+        },
+        {
+          "nombre_completo": "CM Ciniselli",
+          "nombres": "CM",
+          "apellidos": "Ciniselli"
+        },
+        {
+          "nombre_completo": "A Belfiore",
+          "nombres": "A",
+          "apellidos": "Belfiore"
+        },
+        {
+          "nombre_completo": "S Bottelli",
+          "nombres": "S",
+          "apellidos": "Bottelli"
+        },
+        {
+          "nombre_completo": "M Gariboldi",
+          "nombres": "M",
+          "apellidos": "Gariboldi"
+        },
+        {
+          "nombre_completo": "P Verderio",
+          "nombres": "P",
+          "apellidos": "Verderio"
+        }
+      ],
+      "pmid": "28123561",
+      "fuente": "Oncol. Lett",
+      "anio": "2017",
+      "volumen": "13",
+      "fpage": "315",
+      "lpage": "320"
+    },
+    {
+      "titulo": "Evaluation of several methodological challenges in circulating miRNA qPCR studies in patients with head and neck cancer",
+      "autores": [
+        {
+          "nombre_completo": "D Poel",
+          "nombres": "D",
+          "apellidos": "Poel"
+        },
+        {
+          "nombre_completo": "TE Buffart",
+          "nombres": "TE",
+          "apellidos": "Buffart"
+        },
+        {
+          "nombre_completo": "J Oosterling-Jansen",
+          "nombres": "J",
+          "apellidos": "Oosterling-Jansen"
+        },
+        {
+          "nombre_completo": "HMW Verheul",
+          "nombres": "HMW",
+          "apellidos": "Verheul"
+        },
+        {
+          "nombre_completo": "J Voortman",
+          "nombres": "J",
+          "apellidos": "Voortman"
+        }
+      ],
+      "pmid": "29520111",
+      "fuente": "Exp. Mol. Med",
+      "anio": "2018",
+      "volumen": "50",
+      "fpage": "e454",
+      "lpage": ""
+    },
+    {
+      "titulo": "Functional microRNA targets in protein coding sequences",
+      "autores": [
+        {
+          "nombre_completo": "M Reczko",
+          "nombres": "M",
+          "apellidos": "Reczko"
+        },
+        {
+          "nombre_completo": "M Maragkakis",
+          "nombres": "M",
+          "apellidos": "Maragkakis"
+        },
+        {
+          "nombre_completo": "P Alexiou",
+          "nombres": "P",
+          "apellidos": "Alexiou"
+        },
+        {
+          "nombre_completo": "I Grosse",
+          "nombres": "I",
+          "apellidos": "Grosse"
+        },
+        {
+          "nombre_completo": "AG Hatzigeorgiou",
+          "nombres": "AG",
+          "apellidos": "Hatzigeorgiou"
+        }
+      ],
+      "pmid": "22285563",
+      "fuente": "Bioinformatics",
+      "anio": "2012",
+      "volumen": "28",
+      "fpage": "771",
+      "lpage": "776"
+    },
+    {
+      "titulo": "Expression changes in human skeletal muscle miRNAs following 10 days of bed rest in young healthy males",
+      "autores": [
+        {
+          "nombre_completo": "T Režen",
+          "nombres": "T",
+          "apellidos": "Režen"
+        },
+        {
+          "nombre_completo": "A Kovanda",
+          "nombres": "A",
+          "apellidos": "Kovanda"
+        },
+        {
+          "nombre_completo": "O Eiken",
+          "nombres": "O",
+          "apellidos": "Eiken"
+        },
+        {
+          "nombre_completo": "IB Mekjavic",
+          "nombres": "IB",
+          "apellidos": "Mekjavic"
+        },
+        {
+          "nombre_completo": "B Rogelj",
+          "nombres": "B",
+          "apellidos": "Rogelj"
+        }
+      ],
+      "pmid": "24410893",
+      "fuente": "Acta Physiol. (Oxf.)",
+      "anio": "2014",
+      "volumen": "210",
+      "fpage": "655",
+      "lpage": "666"
+    },
+    {
+      "titulo": "Behavior of mice aboard the International Space Station",
+      "autores": [
+        {
+          "nombre_completo": "AE Ronca",
+          "nombres": "AE",
+          "apellidos": "Ronca"
+        },
+        {
+          "nombre_completo": "EL Moyer",
+          "nombres": "EL",
+          "apellidos": "Moyer"
+        },
+        {
+          "nombre_completo": "Y Talyansky",
+          "nombres": "Y",
+          "apellidos": "Talyansky"
+        },
+        {
+          "nombre_completo": "M Lowe",
+          "nombres": "M",
+          "apellidos": "Lowe"
+        },
+        {
+          "nombre_completo": "S Padmanabhan",
+          "nombres": "S",
+          "apellidos": "Padmanabhan"
+        },
+        {
+          "nombre_completo": "S Choi",
+          "nombres": "S",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "C Gong",
+          "nombres": "C",
+          "apellidos": "Gong"
+        },
+        {
+          "nombre_completo": "SM Cadena",
+          "nombres": "SM",
+          "apellidos": "Cadena"
+        },
+        {
+          "nombre_completo": "L Stodieck",
+          "nombres": "L",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "RK Globus",
+          "nombres": "RK",
+          "apellidos": "Globus"
+        }
+      ],
+      "pmid": "30976012",
+      "fuente": "Sci. Rep",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "4717",
+      "lpage": ""
+    },
+    {
+      "titulo": "The smad proteins and TGFbeta signalling: uncovering a pathway critical in cancer",
+      "autores": [
+        {
+          "nombre_completo": "HM Rooke",
+          "nombres": "HM",
+          "apellidos": "Rooke"
+        },
+        {
+          "nombre_completo": "KE Crosier",
+          "nombres": "KE",
+          "apellidos": "Crosier"
+        }
+      ],
+      "pmid": "11280614",
+      "fuente": "Pathology",
+      "anio": "2001",
+      "volumen": "33",
+      "fpage": "73",
+      "lpage": "84"
+    },
+    {
+      "titulo": "The multiMiR R package and database: integration of microRNA-target interactions along with their disease and drug associations",
+      "autores": [
+        {
+          "nombre_completo": "Y Ru",
+          "nombres": "Y",
+          "apellidos": "Ru"
+        },
+        {
+          "nombre_completo": "KJ Kechris",
+          "nombres": "KJ",
+          "apellidos": "Kechris"
+        },
+        {
+          "nombre_completo": "D Theodorescu",
+          "nombres": "D",
+          "apellidos": "Theodorescu"
+        },
+        {
+          "nombre_completo": "B Tabakoff",
+          "nombres": "B",
+          "apellidos": "Tabakoff"
+        },
+        {
+          "nombre_completo": "P Hoffman",
+          "nombres": "P",
+          "apellidos": "Hoffman"
+        },
+        {
+          "nombre_completo": "RA Radcliffe",
+          "nombres": "RA",
+          "apellidos": "Radcliffe"
+        },
+        {
+          "nombre_completo": "R Bowler",
+          "nombres": "R",
+          "apellidos": "Bowler"
+        },
+        {
+          "nombre_completo": "S Mahaffey",
+          "nombres": "S",
+          "apellidos": "Mahaffey"
+        },
+        {
+          "nombre_completo": "S Rossi",
+          "nombres": "S",
+          "apellidos": "Rossi"
+        },
+        {
+          "nombre_completo": "GA Calin",
+          "nombres": "GA",
+          "apellidos": "Calin"
+        },
+        {
+          "nombre_completo": "L Bemis",
+          "nombres": "L",
+          "apellidos": "Bemis"
+        }
+      ],
+      "pmid": "25063298",
+      "fuente": "Nucleic Acids Res",
+      "anio": "2014",
+      "volumen": "42",
+      "fpage": "e133",
+      "lpage": ""
+    },
+    {
+      "titulo": "PlanHab (Planetary Habitat Simulation): the combined and separate effects of 21 days bed rest and hypoxic confinement on human skeletal muscle miRNA expression",
+      "autores": [
+        {
+          "nombre_completo": "E Rullman",
+          "nombres": "E",
+          "apellidos": "Rullman"
+        },
+        {
+          "nombre_completo": "IB Mekjavic",
+          "nombres": "IB",
+          "apellidos": "Mekjavic"
+        },
+        {
+          "nombre_completo": "H Fischer",
+          "nombres": "H",
+          "apellidos": "Fischer"
+        },
+        {
+          "nombre_completo": "O Eiken",
+          "nombres": "O",
+          "apellidos": "Eiken"
+        }
+      ],
+      "pmid": "27117806",
+      "fuente": "Physiol. Rep",
+      "anio": "2016",
+      "volumen": "4",
+      "fpage": "e12753",
+      "lpage": ""
+    },
+    {
+      "titulo": "Cytoscape: a software environment for integrated models of biomolecular interaction networks",
+      "autores": [
+        {
+          "nombre_completo": "P Shannon",
+          "nombres": "P",
+          "apellidos": "Shannon"
+        },
+        {
+          "nombre_completo": "A Markiel",
+          "nombres": "A",
+          "apellidos": "Markiel"
+        },
+        {
+          "nombre_completo": "O Ozier",
+          "nombres": "O",
+          "apellidos": "Ozier"
+        },
+        {
+          "nombre_completo": "NS Baliga",
+          "nombres": "NS",
+          "apellidos": "Baliga"
+        },
+        {
+          "nombre_completo": "JT Wang",
+          "nombres": "JT",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "D Ramage",
+          "nombres": "D",
+          "apellidos": "Ramage"
+        },
+        {
+          "nombre_completo": "N Amin",
+          "nombres": "N",
+          "apellidos": "Amin"
+        },
+        {
+          "nombre_completo": "B Schwikowski",
+          "nombres": "B",
+          "apellidos": "Schwikowski"
+        },
+        {
+          "nombre_completo": "T Ideker",
+          "nombres": "T",
+          "apellidos": "Ideker"
+        }
+      ],
+      "pmid": "14597658",
+      "fuente": "Genome Res",
+      "anio": "2003",
+      "volumen": "13",
+      "fpage": "2498",
+      "lpage": "2504"
+    },
+    {
+      "titulo": "Ionizing radiation-induced oxidative stress alters miRNA expression",
+      "autores": [
+        {
+          "nombre_completo": "NL Simone",
+          "nombres": "NL",
+          "apellidos": "Simone"
+        },
+        {
+          "nombre_completo": "BP Soule",
+          "nombres": "BP",
+          "apellidos": "Soule"
+        },
+        {
+          "nombre_completo": "D Ly",
+          "nombres": "D",
+          "apellidos": "Ly"
+        },
+        {
+          "nombre_completo": "AD Saleh",
+          "nombres": "AD",
+          "apellidos": "Saleh"
+        },
+        {
+          "nombre_completo": "JE Savage",
+          "nombres": "JE",
+          "apellidos": "Savage"
+        },
+        {
+          "nombre_completo": "W Degraff",
+          "nombres": "W",
+          "apellidos": "Degraff"
+        },
+        {
+          "nombre_completo": "J Cook",
+          "nombres": "J",
+          "apellidos": "Cook"
+        },
+        {
+          "nombre_completo": "CC Harris",
+          "nombres": "CC",
+          "apellidos": "Harris"
+        },
+        {
+          "nombre_completo": "D Gius",
+          "nombres": "D",
+          "apellidos": "Gius"
+        },
+        {
+          "nombre_completo": "JB Mitchell",
+          "nombres": "JB",
+          "apellidos": "Mitchell"
+        }
+      ],
+      "pmid": "19633716",
+      "fuente": "PLoS ONE",
+      "anio": "2009",
+      "volumen": "4",
+      "fpage": "e6377",
+      "lpage": ""
+    },
+    {
+      "titulo": "NASA’s first ground-based Galactic Cosmic Ray Simulator: Enabling a new era in space radiobiology research",
+      "autores": [
+        {
+          "nombre_completo": "LC Simonsen",
+          "nombres": "LC",
+          "apellidos": "Simonsen"
+        },
+        {
+          "nombre_completo": "TC Slaba",
+          "nombres": "TC",
+          "apellidos": "Slaba"
+        },
+        {
+          "nombre_completo": "P Guida",
+          "nombres": "P",
+          "apellidos": "Guida"
+        },
+        {
+          "nombre_completo": "A Rusek",
+          "nombres": "A",
+          "apellidos": "Rusek"
+        }
+      ],
+      "pmid": "32428004",
+      "fuente": "PLoS Biol",
+      "anio": "2020",
+      "volumen": "18",
+      "fpage": "e3000669",
+      "lpage": ""
+    },
+    {
+      "titulo": "The mammalian phenotype ontology: enabling robust annotation and comparative analysis",
+      "autores": [
+        {
+          "nombre_completo": "CL Smith",
+          "nombres": "CL",
+          "apellidos": "Smith"
+        },
+        {
+          "nombre_completo": "JT Eppig",
+          "nombres": "JT",
+          "apellidos": "Eppig"
+        }
+      ],
+      "pmid": "20052305",
+      "fuente": "Wiley Interdiscip. Rev. Syst. Biol. Med",
+      "anio": "2009",
+      "volumen": "1",
+      "fpage": "390",
+      "lpage": "399"
+    },
+    {
+      "titulo": "Comprehensive Integration of Single-Cell Data",
+      "autores": [
+        {
+          "nombre_completo": "T Stuart",
+          "nombres": "T",
+          "apellidos": "Stuart"
+        },
+        {
+          "nombre_completo": "A Butler",
+          "nombres": "A",
+          "apellidos": "Butler"
+        },
+        {
+          "nombre_completo": "P Hoffman",
+          "nombres": "P",
+          "apellidos": "Hoffman"
+        },
+        {
+          "nombre_completo": "C Hafemeister",
+          "nombres": "C",
+          "apellidos": "Hafemeister"
+        },
+        {
+          "nombre_completo": "E Papalexi",
+          "nombres": "E",
+          "apellidos": "Papalexi"
+        },
+        {
+          "nombre_completo": "WM;suffix:3rd Mauck",
+          "nombres": "WM;suffix:3rd",
+          "apellidos": "Mauck"
+        },
+        {
+          "nombre_completo": "Y Hao",
+          "nombres": "Y",
+          "apellidos": "Hao"
+        },
+        {
+          "nombre_completo": "M Stoeckius",
+          "nombres": "M",
+          "apellidos": "Stoeckius"
+        },
+        {
+          "nombre_completo": "P Smibert",
+          "nombres": "P",
+          "apellidos": "Smibert"
+        },
+        {
+          "nombre_completo": "R Satija",
+          "nombres": "R",
+          "apellidos": "Satija"
+        }
+      ],
+      "pmid": "31178118",
+      "fuente": "Cell",
+      "anio": "2019",
+      "volumen": "177",
+      "fpage": "1888",
+      "lpage": "1902"
+    },
+    {
+      "titulo": "Anti-Inflammatory MicroRNAs and Their Potential for Inflammatory Diseases Treatment",
+      "autores": [
+        {
+          "nombre_completo": "A Tahamtan",
+          "nombres": "A",
+          "apellidos": "Tahamtan"
+        },
+        {
+          "nombre_completo": "M Teymoori-Rad",
+          "nombres": "M",
+          "apellidos": "Teymoori-Rad"
+        },
+        {
+          "nombre_completo": "B Nakstad",
+          "nombres": "B",
+          "apellidos": "Nakstad"
+        },
+        {
+          "nombre_completo": "V Salimi",
+          "nombres": "V",
+          "apellidos": "Salimi"
+        }
+      ],
+      "pmid": "29988529",
+      "fuente": "Front. Immunol",
+      "anio": "2018",
+      "volumen": "9",
+      "fpage": "1377",
+      "lpage": ""
+    },
+    {
+      "titulo": "Influence of Social Isolation During Prolonged Simulated Weightlessness by Hindlimb Unloading",
+      "autores": [
+        {
+          "nombre_completo": "CGT Tahimic",
+          "nombres": "CGT",
+          "apellidos": "Tahimic"
+        },
+        {
+          "nombre_completo": "AM Paul",
+          "nombres": "AM",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "RK Globus",
+          "nombres": "RK",
+          "apellidos": "Globus"
+        },
+        {
+          "nombre_completo": "AS Schreurs",
+          "nombres": "AS",
+          "apellidos": "Schreurs"
+        },
+        {
+          "nombre_completo": "SM Torres",
+          "nombres": "SM",
+          "apellidos": "Torres"
+        },
+        {
+          "nombre_completo": "L Rubinstein",
+          "nombres": "L",
+          "apellidos": "Rubinstein"
+        },
+        {
+          "nombre_completo": "S Steczina",
+          "nombres": "S",
+          "apellidos": "Steczina"
+        },
+        {
+          "nombre_completo": "M Lowe",
+          "nombres": "M",
+          "apellidos": "Lowe"
+        },
+        {
+          "nombre_completo": "S Bhattacharya",
+          "nombres": "S",
+          "apellidos": "Bhattacharya"
+        },
+        {
+          "nombre_completo": "JS Alwood",
+          "nombres": "JS",
+          "apellidos": "Alwood"
+        },
+        {
+          "nombre_completo": "AE Ronca",
+          "nombres": "AE",
+          "apellidos": "Ronca"
+        }
+      ],
+      "pmid": "31572207",
+      "fuente": "Front. Physiol",
+      "anio": "2019",
+      "volumen": "10",
+      "fpage": "1147",
+      "lpage": ""
+    },
+    {
+      "titulo": "Proton radiation-induced miRNA signatures in mouse blood: characterization and comparison with 56Fe-ion and gamma radiation",
+      "autores": [
+        {
+          "nombre_completo": "T Templin",
+          "nombres": "T",
+          "apellidos": "Templin"
+        },
+        {
+          "nombre_completo": "EF Young",
+          "nombres": "EF",
+          "apellidos": "Young"
+        },
+        {
+          "nombre_completo": "LB Smilenov",
+          "nombres": "LB",
+          "apellidos": "Smilenov"
+        }
+      ],
+      "pmid": "22551419",
+      "fuente": "Int. J. Radiat. Biol",
+      "anio": "2012",
+      "volumen": "88",
+      "fpage": "531",
+      "lpage": "539"
+    },
+    {
+      "titulo": "Short-Term Effects of Low-LET Radiation on the Endothelial Barrier: Uncoupling of PECAM-1 and the Production of Endothelial Microparticles",
+      "autores": [
+        {
+          "nombre_completo": "T Templin",
+          "nombres": "T",
+          "apellidos": "Templin"
+        },
+        {
+          "nombre_completo": "P Sharma",
+          "nombres": "P",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "P Guida",
+          "nombres": "P",
+          "apellidos": "Guida"
+        },
+        {
+          "nombre_completo": "P Grabham",
+          "nombres": "P",
+          "apellidos": "Grabham"
+        }
+      ],
+      "pmid": "27905868",
+      "fuente": "Radiat. Res",
+      "anio": "2016",
+      "volumen": "186",
+      "fpage": "602",
+      "lpage": "613"
+    },
+    {
+      "titulo": "Skeletal Muscle Atrophy in Simulated Microgravity Might Be Triggered by Immune-Related microRNAs",
+      "autores": [
+        {
+          "nombre_completo": "L Teodori",
+          "nombres": "L",
+          "apellidos": "Teodori"
+        },
+        {
+          "nombre_completo": "A Costa",
+          "nombres": "A",
+          "apellidos": "Costa"
+        },
+        {
+          "nombre_completo": "L Campanella",
+          "nombres": "L",
+          "apellidos": "Campanella"
+        },
+        {
+          "nombre_completo": "MC Albertini",
+          "nombres": "MC",
+          "apellidos": "Albertini"
+        }
+      ],
+      "pmid": "30687129",
+      "fuente": "Front. Physiol",
+      "anio": "2019",
+      "volumen": "9",
+      "fpage": "1926",
+      "lpage": ""
+    },
+    {
+      "titulo": "Implications of the space radiation environment for human exploration in deep space",
+      "autores": [
+        {
+          "nombre_completo": "LW Townsend",
+          "nombres": "LW",
+          "apellidos": "Townsend"
+        }
+      ],
+      "pmid": "16381680",
+      "fuente": "Radiat. Prot. Dosimetry",
+      "anio": "2005",
+      "volumen": "115",
+      "fpage": "44",
+      "lpage": "50"
+    },
+    {
+      "titulo": "Chronic stress induces adrenal hyperplasia and hypertrophy in a subregion-specific manner",
+      "autores": [
+        {
+          "nombre_completo": "YM Ulrich-Lai",
+          "nombres": "YM",
+          "apellidos": "Ulrich-Lai"
+        },
+        {
+          "nombre_completo": "HF Figueiredo",
+          "nombres": "HF",
+          "apellidos": "Figueiredo"
+        },
+        {
+          "nombre_completo": "MM Ostrander",
+          "nombres": "MM",
+          "apellidos": "Ostrander"
+        },
+        {
+          "nombre_completo": "DC Choi",
+          "nombres": "DC",
+          "apellidos": "Choi"
+        },
+        {
+          "nombre_completo": "WC Engeland",
+          "nombres": "WC",
+          "apellidos": "Engeland"
+        },
+        {
+          "nombre_completo": "JP Herman",
+          "nombres": "JP",
+          "apellidos": "Herman"
+        }
+      ],
+      "pmid": "16772325",
+      "fuente": "Am. J. Physiol. Endocrinol. Metab",
+      "anio": "2006",
+      "volumen": "291",
+      "fpage": "E965",
+      "lpage": "E973"
+    },
+    {
+      "titulo": "Visualizing High-Dimensional Data Using t-SNE",
+      "autores": [
+        {
+          "nombre_completo": "LJP van der Maaten",
+          "nombres": "LJP",
+          "apellidos": "van der Maaten"
+        },
+        {
+          "nombre_completo": "GE Hinton",
+          "nombres": "GE",
+          "apellidos": "Hinton"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Mach. Learn. Res",
+      "anio": "2008",
+      "volumen": "9",
+      "fpage": "2579",
+      "lpage": "2605"
+    },
+    {
+      "titulo": "Recovering Gene Interactions from Single-Cell Data Using Data Diffusion",
+      "autores": [
+        {
+          "nombre_completo": "D van Dijk",
+          "nombres": "D",
+          "apellidos": "van Dijk"
+        },
+        {
+          "nombre_completo": "R Sharma",
+          "nombres": "R",
+          "apellidos": "Sharma"
+        },
+        {
+          "nombre_completo": "J Nainys",
+          "nombres": "J",
+          "apellidos": "Nainys"
+        },
+        {
+          "nombre_completo": "K Yim",
+          "nombres": "K",
+          "apellidos": "Yim"
+        },
+        {
+          "nombre_completo": "P Kathail",
+          "nombres": "P",
+          "apellidos": "Kathail"
+        },
+        {
+          "nombre_completo": "AJ Carr",
+          "nombres": "AJ",
+          "apellidos": "Carr"
+        },
+        {
+          "nombre_completo": "C Burdziak",
+          "nombres": "C",
+          "apellidos": "Burdziak"
+        },
+        {
+          "nombre_completo": "KR Moon",
+          "nombres": "KR",
+          "apellidos": "Moon"
+        },
+        {
+          "nombre_completo": "CL Chaffer",
+          "nombres": "CL",
+          "apellidos": "Chaffer"
+        },
+        {
+          "nombre_completo": "D Pattabiraman",
+          "nombres": "D",
+          "apellidos": "Pattabiraman"
+        }
+      ],
+      "pmid": "29961576",
+      "fuente": "Cell",
+      "anio": "2018",
+      "volumen": "174",
+      "fpage": "716",
+      "lpage": "729"
+    },
+    {
+      "titulo": "Interpreting the MicroRNA-15/107 family: interaction identification by combining network based and experiment supported approach",
+      "autores": [
+        {
+          "nombre_completo": "S Wang",
+          "nombres": "S",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "W Zhu",
+          "nombres": "W",
+          "apellidos": "Zhu"
+        },
+        {
+          "nombre_completo": "J Xu",
+          "nombres": "J",
+          "apellidos": "Xu"
+        },
+        {
+          "nombre_completo": "Y Guo",
+          "nombres": "Y",
+          "apellidos": "Guo"
+        },
+        {
+          "nombre_completo": "J Yan",
+          "nombres": "J",
+          "apellidos": "Yan"
+        },
+        {
+          "nombre_completo": "L Meng",
+          "nombres": "L",
+          "apellidos": "Meng"
+        },
+        {
+          "nombre_completo": "C Jiang",
+          "nombres": "C",
+          "apellidos": "Jiang"
+        },
+        {
+          "nombre_completo": "S Lu",
+          "nombres": "S",
+          "apellidos": "Lu"
+        }
+      ],
+      "pmid": "31151434",
+      "fuente": "BMC Med. Genet",
+      "anio": "2019",
+      "volumen": "20",
+      "fpage": "96",
+      "lpage": ""
+    },
+    {
+      "titulo": "Serum microRNA as noninvasive indicator for space radiation",
+      "autores": [
+        {
+          "nombre_completo": "W Wei",
+          "nombres": "W",
+          "apellidos": "Wei"
+        },
+        {
+          "nombre_completo": "J Wang",
+          "nombres": "J",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "J He",
+          "nombres": "J",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "X Xie",
+          "nombres": "X",
+          "apellidos": "Xie"
+        }
+      ],
+      "pmid": "",
+      "fuente": "Acta Astronaut",
+      "anio": "2018",
+      "volumen": "152",
+      "fpage": "101",
+      "lpage": "104"
+    },
+    {
+      "titulo": "The skeletal effects of spaceflight in growing rats: tissue-specific alterations in mRNA levels for TGF-beta",
+      "autores": [
+        {
+          "nombre_completo": "KC Westerlind",
+          "nombres": "KC",
+          "apellidos": "Westerlind"
+        },
+        {
+          "nombre_completo": "RT Turner",
+          "nombres": "RT",
+          "apellidos": "Turner"
+        }
+      ],
+      "pmid": "7572306",
+      "fuente": "J. Bone Miner. Res",
+      "anio": "1995",
+      "volumen": "10",
+      "fpage": "843",
+      "lpage": "848"
+    },
+    {
+      "titulo": "Smoothing Parameter and Model Selection for General Smooth Models",
+      "autores": [
+        {
+          "nombre_completo": "SN Wood",
+          "nombres": "SN",
+          "apellidos": "Wood"
+        },
+        {
+          "nombre_completo": "N Pya",
+          "nombres": "N",
+          "apellidos": "Pya"
+        },
+        {
+          "nombre_completo": "B Säfken",
+          "nombres": "B",
+          "apellidos": "Säfken"
+        }
+      ],
+      "pmid": "",
+      "fuente": "J. Am. Stat. Assoc",
+      "anio": "2015",
+      "volumen": "111",
+      "fpage": "1548",
+      "lpage": "1563"
+    },
+    {
+      "titulo": "LET Dependent Low Dose and Synergistic Inhibition of Human Angiogenesis by Charged Particles: Validation of Mi RNAs that Drive Inhibition",
+      "autores": [
+        {
+          "nombre_completo": "YR Wuu",
+          "nombres": "YR",
+          "apellidos": "Wuu"
+        },
+        {
+          "nombre_completo": "B Hu",
+          "nombres": "B",
+          "apellidos": "Hu"
+        },
+        {
+          "nombre_completo": "H Okunola",
+          "nombres": "H",
+          "apellidos": "Okunola"
+        },
+        {
+          "nombre_completo": "AM Paul",
+          "nombres": "AM",
+          "apellidos": "Paul"
+        },
+        {
+          "nombre_completo": "EA Blaber",
+          "nombres": "EA",
+          "apellidos": "Blaber"
+        },
+        {
+          "nombre_completo": "M Cheng-Campbell",
+          "nombres": "M",
+          "apellidos": "Cheng-Campbell"
+        },
+        {
+          "nombre_completo": "A Beheshti",
+          "nombres": "A",
+          "apellidos": "Beheshti"
+        },
+        {
+          "nombre_completo": "P Grabham",
+          "nombres": "P",
+          "apellidos": "Grabham"
+        }
+      ],
+      "pmid": "",
+      "fuente": "iScience",
+      "anio": "2020",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Differences of microRNA expression profiles between monozygotic twins’ blood samples",
+      "autores": [
+        {
+          "nombre_completo": "C Xiao",
+          "nombres": "C",
+          "apellidos": "Xiao"
+        },
+        {
+          "nombre_completo": "C Pan",
+          "nombres": "C",
+          "apellidos": "Pan"
+        },
+        {
+          "nombre_completo": "E Liu",
+          "nombres": "E",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "H He",
+          "nombres": "H",
+          "apellidos": "He"
+        },
+        {
+          "nombre_completo": "C Liu",
+          "nombres": "C",
+          "apellidos": "Liu"
+        },
+        {
+          "nombre_completo": "Y Huang",
+          "nombres": "Y",
+          "apellidos": "Huang"
+        },
+        {
+          "nombre_completo": "S Yi",
+          "nombres": "S",
+          "apellidos": "Yi"
+        },
+        {
+          "nombre_completo": "D Huang",
+          "nombres": "D",
+          "apellidos": "Huang"
+        }
+      ],
+      "pmid": "31132533",
+      "fuente": "Forensic Sci. Int. Genet",
+      "anio": "2019",
+      "volumen": "41",
+      "fpage": "152",
+      "lpage": "158"
+    },
+    {
+      "titulo": "RBiomirGS: an all-in-one miRNA gene set analysis solution featuring target mRNA mapping and expression profile integration",
+      "autores": [
+        {
+          "nombre_completo": "J Zhang",
+          "nombres": "J",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "KB Storey",
+          "nombres": "KB",
+          "apellidos": "Storey"
+        }
+      ],
+      "pmid": "29340253",
+      "fuente": "PeerJ",
+      "anio": "2018",
+      "volumen": "6",
+      "fpage": "e4262",
+      "lpage": ""
+    },
+    {
+      "titulo": "Transient gene and microRNA expression profile changes of confluent human fibroblast cells in spaceflight",
+      "autores": [
+        {
+          "nombre_completo": "Y Zhang",
+          "nombres": "Y",
+          "apellidos": "Zhang"
+        },
+        {
+          "nombre_completo": "T Lu",
+          "nombres": "T",
+          "apellidos": "Lu"
+        },
+        {
+          "nombre_completo": "M Wong",
+          "nombres": "M",
+          "apellidos": "Wong"
+        },
+        {
+          "nombre_completo": "X Wang",
+          "nombres": "X",
+          "apellidos": "Wang"
+        },
+        {
+          "nombre_completo": "L Stodieck",
+          "nombres": "L",
+          "apellidos": "Stodieck"
+        },
+        {
+          "nombre_completo": "F Karouia",
+          "nombres": "F",
+          "apellidos": "Karouia"
+        },
+        {
+          "nombre_completo": "M Story",
+          "nombres": "M",
+          "apellidos": "Story"
+        },
+        {
+          "nombre_completo": "H Wu",
+          "nombres": "H",
+          "apellidos": "Wu"
+        }
+      ],
+      "pmid": "26917741",
+      "fuente": "FASEB J",
+      "anio": "2016",
+      "volumen": "30",
+      "fpage": "2211",
+      "lpage": "2224"
+    },
+    {
+      "titulo": "Highlights",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Spaceflight miRNA signature validated in multiple organism models",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Components of miRNA signature related to space radiation and microgravity",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Downstream targets and circulating dependence of miRNAs in NASA Twins Study",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    },
+    {
+      "titulo": "Inhibition of key microvasculature miRNAs mitigates space radiation impact",
+      "autores": [],
+      "pmid": "",
+      "fuente": "",
+      "anio": "",
+      "volumen": "",
+      "fpage": "",
+      "lpage": ""
+    }
+  ]
+}
