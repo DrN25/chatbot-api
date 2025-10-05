@@ -1,5 +1,5 @@
 from app.services.llm_consult import Consult
-from typing import List
+from typing import List, Dict
 import json
 import os
 
@@ -23,8 +23,11 @@ class ThemesRecommender:
             data = json.load(f)
             return set(data['keywords']) if isinstance(data, dict) else set(data)
 
-    async def recommend(self, text: str) -> List[str]:
-        """Recomienda máximo 5 keywords relacionadas (diferentes al input)"""
+    async def recommend(self, text: str) -> Dict[str, any]:
+        """
+        Recomienda máximo 5 keywords relacionadas (diferentes al input)
+        Retorna: {"action": "recommendations", "data": [...]}
+        """
         # Usar TODO el vocabulario (961 keywords) en el prompt
         vocab_str = ", ".join(sorted(self.vocabulary))
         
@@ -81,4 +84,7 @@ Input: "osteocytes" → Output: bone deterioration, osteogenesis, metabolism, mi
                     validated.append(matches[0])
                     seen.add(matches[0])
         
-        return validated[:5]
+        return {
+            "action": "recommendations",
+            "data": validated[:5]
+        }

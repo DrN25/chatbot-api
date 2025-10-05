@@ -36,14 +36,16 @@ class ChatBot:
         
         # Aquí se devolverían los datos estructurados, no solo texto
         if intent == 1:
-            keywords = await self.keyword_extractor.extract(user_input)
-            output = keywords
-            action = "search_articles" # Nueva acción para el frontend
+            result = await self.keyword_extractor.extract(user_input)
+            # result = {"action": "keywords", "data": [...]}
+            output = result["data"]
+            action = "search_articles"
             
         elif intent == 2:
-            keywords = await self.themes_recommender.recommend(user_input)
-            output = keywords
-            action = "recommend_themes" # Nueva acción para el frontend
+            result = await self.themes_recommender.recommend(user_input)
+            # result = {"action": "recommendations", "data": [...]}
+            output = result["data"]
+            action = "recommend_themes"
 
         elif intent == 3:
             # Ejemplo: Resumir un texto (el texto real vendría de otra fuente)

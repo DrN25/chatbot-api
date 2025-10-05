@@ -1,5 +1,5 @@
 from app.services.llm_consult import Consult
-from typing import List
+from typing import List, Dict
 import json
 import os
 
@@ -23,8 +23,11 @@ class KeywordExtractor:
             data = json.load(f)
             return set(data['keywords']) if isinstance(data, dict) else set(data)
 
-    async def extract(self, text: str) -> List[str]:
-        """Extrae máximo 5 keywords del texto usuario"""
+    async def extract(self, text: str) -> Dict[str, any]:
+        """
+        Extrae máximo 5 keywords del texto usuario
+        Retorna: {"action": "keywords", "data": [...]}
+        """
         # Usar TODO el vocabulario (961 keywords) en el prompt
         vocab_str = ", ".join(sorted(self.vocabulary))
         
@@ -80,4 +83,7 @@ Input: "hello" → Output: (empty)"""
                     validated.append(matches[0])
                     seen.add(matches[0])
         
-        return validated[:5]
+        return {
+            "action": "keywords",
+            "data": validated[:5]
+        }
