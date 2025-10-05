@@ -9,22 +9,17 @@ class KeywordExtractor:
         self.llm_consult = Consult(api_key)
 
     async def extract(self, text: str) -> List[str]:
-        """
-        Extrae hasta 5 palabras clave técnicas en inglés del texto.
-        
-        Args:
-            text: Texto de entrada (puede estar en cualquier idioma)
-            
-        Returns:
-            Lista de keywords en inglés (máximo 5)
-        """
-        system_prompt = (
-            "Eres un extractor de palabras clave técnicas.\n"
-            "Extrae hasta 5 palabras clave técnicas en INGLÉS del texto que te proporcionen.\n"
-            "Las palabras deben ser términos técnicos relevantes para búsqueda científica.\n"
-            "Responde SOLO con las palabras separadas por comas, sin numeración ni explicaciones.\n"
-            "Ejemplo: artificial intelligence, machine learning, neural networks"
-        )
+        system_prompt = ("""You are an assistant that extracts only scientific and technical keywords from academic or technical texts.
+                        Consider that the output will be used for searching similarities on academic papers.
+                        Automatically correct spelling mistakes or variants of scientific terms.
+                        The text can be in English or any other language.
+                        Independently of the input language, the output keywords must be in English always.
+                        Ignore generic or common words (such as 'research', 'articles', 'information').
+                        First, identify the keywords. After that, convert all terms to their equivalent technical English, not literal translations.
+                        If the text does not contain scientific or technical information, return an empty list.
+                        Return exactly a Python list with a maximum of 5 keywords, in lowercase, without accents or punctuation.
+                        Do not analyze the question, do not add explanations, just extract the keywords."""
+                    )
         
         response = await self.llm_consult.consult(system_prompt, text)
         content = response['choices'][0]['message']['content'].strip()
