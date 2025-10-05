@@ -160,8 +160,9 @@ async def analyze_article(user_query: str, pmc_id: str) -> Dict[str, Any]:
     if article_data is None:
         return {
             "action": "llm_analysis",
-            "error": f"Article {pmc_id} not found in database",
-            "data": None
+            "data": {
+                "error": f"Article {pmc_id} not found in database"
+            }
         }
     
     # Detect analysis type
@@ -249,8 +250,9 @@ ARTICLE DATA:
     except Exception as e:
         return {
             "action": "llm_analysis",
-            "error": f"Error analyzing article: {str(e)}",
-            "data": None
+            "data": {
+                "error": f"Error analyzing article: {str(e)}"
+            }
         }
 
 
