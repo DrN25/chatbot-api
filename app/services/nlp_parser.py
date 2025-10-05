@@ -1,4 +1,5 @@
 from app.services.llm_consult import Consult
+from app.article_recommender import recommend_articles_by_keywords
 from typing import List, Dict
 import json
 import os
@@ -25,8 +26,14 @@ class KeywordExtractor:
 
     async def extract(self, text: str) -> Dict[str, any]:
         """
-        Extrae máximo 5 keywords del texto usuario
-        Retorna: {"action": "keywords", "data": [...]}
+        Extrae máximo 5 keywords del texto usuario y busca artículos relacionados.
+        Retorna: {
+            "action": "keywords",
+            "data": {
+                "keywords": [...],
+                "articles": [{"pmc_id": "PMC123", "cluster_id": "0", "title": "...", "relevance_score": 0.85}, ...]
+            }
+        }
         """
         # Usar TODO el vocabulario (961 keywords) en el prompt
         vocab_str = ", ".join(sorted(self.vocabulary))
@@ -53,7 +60,13 @@ Input: "hello" → Output: (empty)"""
         content = response['choices'][0]['message']['content'].strip()
         
         if not content:
-            return []
+            return {
+                "action": "keywords",
+                "data": {
+                    "keywords": [],
+                    "articles": []
+                }
+            }
         
         # Parsear respuesta (manejar CSV o JSON)
         if content.startswith('[') and content.endswith(']'):
@@ -83,7 +96,27 @@ Input: "hello" → Output: (empty)"""
                     validated.append(matches[0])
                     seen.add(matches[0])
         
+        # Limitar a máximo 5 keywords
+        final_keywords = validated[:5]
+        
+        # Buscar artículos recomendados basados en las keywords
+        recommended_articles = []
+        if final_keywords:
+            articles = recommend_articles_by_keywords(final_keywords, limit=5)
+            recommended_articles = [
+                {
+                    "pmc_id": article["pmc_id"],
+                    "cluster_id": article["cluster_id"],
+                    "title": article["title"],
+                    "relevance_score": article["relevance_score"]
+                }
+                for article in articles
+            ]
+        
         return {
             "action": "keywords",
-            "data": validated[:5]
+            "data": {
+                "keywords": final_keywords,
+                "articles": recommended_articles
+            }
         }

@@ -1,6 +1,7 @@
 from app.services.llm_consult import Consult
 from app.services.nlp_parser import KeywordExtractor
 from app.services.themes_recomendations import ThemesRecommender
+from app.article_recommender import recommend_articles_by_keywords
 
 class ChatBot:
     def __init__(self, api_key: str):
@@ -36,9 +37,27 @@ class ChatBot:
         
         # Aquí se devolverían los datos estructurados, no solo texto
         if intent == 1:
+            # Extraer keywords del input del usuario
             result = await self.keyword_extractor.extract(user_input)
             # result = {"action": "keywords", "data": [...]}
-            output = result["data"]
+            keywords = result["data"]
+            
+            # Buscar artículos recomendados basados en las keywords
+            recommended_articles = recommend_articles_by_keywords(keywords, limit=5)
+            
+            # Retornar keywords + artículos recomendados con PMC y cluster
+            output = {
+                "keywords": keywords,
+                "articles": [
+                    {
+                        "pmc_id": article["pmc_id"],
+                        "cluster_id": article["cluster_id"],
+                        "title": article["title"],
+                        "relevance_score": article["relevance_score"]
+                    }
+                    for article in recommended_articles
+                ]
+            }
             action = "search_articles"
             
         elif intent == 2:
