@@ -115,16 +115,30 @@ async def chat_with_bot(request: ChatRequest):
         
         # Para actions de búsqueda con estructura de datos compleja, pasar data directamente
         if action == "keywords":
+            # Verificar si hay artículos
+            articles = data.get("articles", []) if isinstance(data, dict) else []
+            if not articles:
+                message = "No pude encontrar artículos relacionados. Intenta reformular tu búsqueda con otros términos."
+            else:
+                message = "Me muestro articulos que seguramente sean de tu interes"
+            
             return ChatResponse(
                 action=action,
-                message="Me muestro articulos que seguramente sean de tu interes",
+                message=message,
                 data=data
             )
         
         if action == "recommendations":
+            # Verificar si hay clusters
+            clusters = data.get("recommended_clusters", []) if isinstance(data, dict) else []
+            if not clusters:
+                message = "No pude encontrar temas relacionados. Intenta pedirlo de otra manera o usa términos más específicos."
+            else:
+                message = "Seguramente estos temas sean de tu interes"
+            
             return ChatResponse(
                 action=action,
-                message="Seguramente estos temas sean de tu interes",
+                message=message,
                 data=data
             )
         
