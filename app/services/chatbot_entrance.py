@@ -8,20 +8,17 @@ class ChatBot:
         # Instanciar las otras clases con la clave API, si es necesario
         self.keyword_extractor = KeywordExtractor(api_key)
         self.themes_recommender = ThemesRecommender(api_key)
-        
-        # Elimina la lógica de historial
-        # self._local_history = [] 
 
     async def _detect_intent(self, user_input: str) -> int:
         system_prompt = (
-            "Eres un clasificador de intenciones para un chatbot con 5 funciones:\n"
-            "1. Recomendación de artículos (ej: Deseo un artículo sobre microbiología y ADN)\n"
-            "2. Recomendación de temas relacionados (ej: Quiero temas relacionados a IA y machine learning)\n"
-            "3. Resumen personalizado o resaltar palabras clave/hallazgos\n"
-            "4. Explicar conceptos o términos técnicos\n"
-            "5. Generar métricas y visualizaciones\n"
-            "Intenta clasificar la entrada del usuario en una de estas 5 intenciones o a la mas relacionada.\n"
-            "Responde solo con el número correspondiente. Si no entiendes la solicitud, responde con 0."
+            "You are an intent classifier for a chatbot with 5 functions:\n"
+            "1. Article recommendation (e.g., I want an article on microbiology and DNA)\n"
+            "2. Related topic recommendation (e.g., I want topics related to AI and machine learning)\n"
+            "3. Personalized summary or highlight keywords/findings\n"
+            "4. Explain technical concepts or terms\n"
+            "5. Generate metrics and visualizations\n"
+            "Try to classify the user input into one of these 5 intents or the most related one.\n"
+            "Respond only with the corresponding number. If you don't understand the prompt, respond with 0."
         )
         response = await self.llm_consult.consult(system_prompt, user_input)
         content = response['choices'][0]['message']['content'].strip()
