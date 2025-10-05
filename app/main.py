@@ -118,9 +118,9 @@ async def chat_with_bot(request: ChatRequest):
             # Verificar si hay artículos
             articles = data.get("articles", []) if isinstance(data, dict) else []
             if not articles:
-                message = "No pude encontrar artículos relacionados. Intenta reformular tu búsqueda con otros términos."
+                message = "I couldn't find any related articles. Try rephrasing your search with different terms."
             else:
-                message = "Me muestro articulos que seguramente sean de tu interes"
+                message = "Here are some articles that are surely of interest to you."
             
             return ChatResponse(
                 action=action,
@@ -132,9 +132,9 @@ async def chat_with_bot(request: ChatRequest):
             # Verificar si hay clusters
             clusters = data.get("recommended_clusters", []) if isinstance(data, dict) else []
             if not clusters:
-                message = "No pude encontrar temas relacionados. Intenta pedirlo de otra manera o usa términos más específicos."
+                message = "I couldn't find any related topics. Try requesting in a different way or using more specific terms."
             else:
-                message = "Seguramente estos temas sean de tu interes"
+                message = "Surely these topics are of interest to you"
             
             return ChatResponse(
                 action=action,
