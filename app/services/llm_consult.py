@@ -7,7 +7,9 @@ class Consult:
         self.url = "https://openrouter.ai/api/v1/chat/completions"
         self.headers = {
             "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://chatbot-api-two.vercel.app",  # Requerido por OpenRouter
+            "X-Title": "Chatbot API"  # Opcional pero recomendado
         }
 
     async def consult(self, SystemContent: str, UserContent: str):
