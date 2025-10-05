@@ -105,20 +105,25 @@ async def chat_with_bot(request: ChatRequest):
     try:
         llm_response = await bot.handle_message(request.user_input)
         
+        # llm_response ya tiene la estructura correcta: {"action": "keywords/recommendations", "data": {...}}
+        # Simplemente retornar la respuesta tal cual
         action = llm_response["action"]
         data = llm_response["data"]
         
-        response_model = ChatResponse(action=action)
+        # Para actions de búsqueda con estructura de datos compleja, pasar data directamente
+        if action == "keywords" or action == "recommendations":
+            return ChatResponse(
+                action=action,
+                message="Búsqueda completada",
+                data=data
+            )
         
-        if action == "search_articles" or action == "recommend_themes":
-            response_model.message = "Realizando búsqueda..."
-            response_model.keywords = data
-        elif action == "chat":
-            response_model.message = data
-        elif action == "summarize" or action == "explain" or action == "generate_metrics":
-            response_model.message = data
-        
-        return response_model
+        # Para otros actions (chat, explain, etc), data es texto simple
+        return ChatResponse(
+            action=action,
+            message=data if isinstance(data, str) else None,
+            data=data if not isinstance(data, str) else None
+        )
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
