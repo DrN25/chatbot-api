@@ -12,6 +12,7 @@ class ChatBot:
 
     async def _detect_intent(self, user_input: str) -> int:
         system_prompt = (
+            
             "You are an intent classifier for a chatbot with 4 functions:\n\n"
             
             "1. Article recommendation - User wants to FIND/RECOMMEND ARTICLES by topic\n"
