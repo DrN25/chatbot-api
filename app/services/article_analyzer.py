@@ -9,6 +9,7 @@ import os
 from typing import Dict, Any, List, Optional
 from app.services.llm_consult import Consult
 import asyncio
+import re
 
 
 def load_article_json(pmc_id: str) -> Optional[Dict[str, Any]]:
@@ -253,8 +254,6 @@ def extract_pmc_id_from_query(user_query: str) -> Optional[str]:
     Returns:
         PMC ID string or None if not found
     """
-    import re
-    
     # Look for patterns like "PMC2910419" or "2910419"
     pmc_pattern = r'PMC\d+|\b\d{7,8}\b'
     matches = re.findall(pmc_pattern, user_query, re.IGNORECASE)
@@ -263,3 +262,112 @@ def extract_pmc_id_from_query(user_query: str) -> Optional[str]:
         return matches[0]  # Return first match
     
     return None
+
+
+def load_articles_database() -> Dict[str, str]:
+    """
+    Load the articles name to PMC mapping database
+    
+    Returns:
+        Dict mapping PMC IDs to article titles
+    """
+    file_path = os.path.join(
+        os.path.dirname(__file__),
+        "..",
+        "resources",
+        "articlesName_PMC.json"
+    )
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data.get("articles", {})
+    except FileNotFoundError:
+        print(f"[ERROR] Articles database not found: {file_path}")
+        return {}
+    except Exception as e:
+        print(f"[ERROR] Loading articles database: {str(e)}")
+        return {}
+
+
+async def find_article_by_name(user_query: str, llm_client: Consult) -> Optional[str]:
+    """
+    Use LLM to find the best matching PMC ID based on article name/description
+    This is called BEFORE the main article analysis
+    
+    Args:
+        user_query: User's query mentioning article name/topic
+        llm_client: Consult instance for LLM calls
+    
+    Returns:
+        PMC ID string or None if no good match found
+    """
+    # Load articles database
+    articles_db = load_articles_database()
+    
+    if not articles_db:
+        print("[ERROR] Articles database is empty")
+        return None
+    
+    # Create prompt for LLM to find best match
+    system_prompt = """You are a scientific article matching assistant.
+
+Your task: Find the BEST matching article from the database based on the user's query.
+
+INSTRUCTIONS:
+1. The user will describe an article by its title, topic, or keywords
+2. You must find the MOST RELEVANT article from the provided database
+3. Return ONLY the PMC ID (e.g., "PMC2910419")
+4. If NO article matches well, return "NONE"
+5. Be flexible with matching - consider synonyms, related terms, and partial matches
+6. Focus on the main topic/concept, not exact word matching
+
+RESPONSE FORMAT:
+- Return ONLY the PMC ID: "PMC2910419"
+- Or return: "NONE"
+
+No explanations, no additional text."""
+
+    # Prepare article database as text
+    articles_text = "\n".join([
+        f"{pmc_id}: {title}"
+        for pmc_id, title in articles_db.items()
+    ])
+    
+    user_content = f"""USER QUERY: {user_query}
+
+ARTICLES DATABASE (PMC_ID: Title):
+{articles_text}
+
+Find the best matching article and return its PMC ID, or "NONE" if no good match exists."""
+    
+    try:
+        # Call LLM
+        response = await llm_client.consult(system_prompt, user_content)
+        llm_response = response['choices'][0]['message']['content'].strip()
+        
+        # Clean response
+        llm_response = llm_response.upper().replace('"', '').replace("'", "").strip()
+        
+        # Validate response
+        if llm_response == "NONE":
+            return None
+        
+        # Check if returned PMC exists in database
+        if llm_response in articles_db:
+            print(f"[INFO] LLM matched article: {llm_response} - {articles_db[llm_response]}")
+            return llm_response
+        
+        # Try to extract PMC from response if LLM added extra text
+        pmc_match = re.search(r'PMC\d+', llm_response)
+        if pmc_match and pmc_match.group() in articles_db:
+            matched_pmc = pmc_match.group()
+            print(f"[INFO] Extracted PMC from response: {matched_pmc} - {articles_db[matched_pmc]}")
+            return matched_pmc
+        
+        print(f"[WARNING] LLM returned invalid PMC: {llm_response}")
+        return None
+        
+    except Exception as e:
+        print(f"[ERROR] Finding article by name: {str(e)}")
+        return None

@@ -1,7 +1,7 @@
 from app.services.llm_consult import Consult
 from app.services.nlp_parser import KeywordExtractor
 from app.services.themes_recomendations import ThemesRecommender
-from app.services.article_analyzer import analyze_article, extract_pmc_id_from_query
+from app.services.article_analyzer import analyze_article, extract_pmc_id_from_query, find_article_by_name
 
 class ChatBot:
     def __init__(self, api_key: str):
@@ -20,22 +20,24 @@ class ChatBot:
             "2. Topic recommendation - User wants RELATED THEMES/CLUSTERS\n"
             "   Examples: 'Topics related to machine learning', 'Similar themes to neuroscience'\n\n"
             
-            "3. Article analysis - User asks about a SPECIFIC PMC article (contains PMC number)\n"
-            "   CRITICAL: If you see 'PMC' followed by numbers (like PMC2910419, PMC10020673), it's ALWAYS intent 3\n"
-            "   Examples: 'Summarize PMC2910419', 'What methodology did PMC123456 use?', 'Resume PMC10020673'\n"
-            "   Keywords: summarize + PMC, analyze + PMC, explain + PMC, methodology + PMC, results + PMC, findings + PMC\n\n"
+            "3. Article analysis - User asks about a SPECIFIC article (PMC number OR article title)\n"
+            "   CRITICAL: If you see 'PMC' + numbers → ALWAYS intent 3\n"
+            "   ALSO: If user mentions analyzing/summarizing a SPECIFIC article by its title → intent 3\n"
+            "   Examples: 'Summarize PMC2910419', 'Analyze the otolith development article', 'What methodology did the biofilm formation study use?'\n"
+            "   Keywords: summarize/analyze/explain + (PMC OR specific article title), methodology + article, results + article\n\n"
             
-            "4. Explain concepts - User asks about general scientific concepts (NO PMC number)\n"
-            "   Examples: 'What is CRISPR?', 'Explain neural networks'\n\n"
+            "4. Explain concepts - User asks about GENERAL scientific concepts (NOT a specific article)\n"
+            "   Examples: 'What is CRISPR?', 'Explain neural networks', 'What is biofilm?'\n\n"
             
             "5. Metrics/visualizations - User wants stats or graphs\n"
             "   Examples: 'Show me statistics', 'Generate a chart'\n\n"
             
             "RULES:\n"
-            "- If the input contains 'PMC' + numbers → ALWAYS return 3\n"
-            "- If asking for articles by topic (no PMC number) → return 1\n"
+            "- PMC + numbers → ALWAYS return 3\n"
+            "- 'Summarize/analyze [specific article title]' → return 3\n"
+            "- 'What is [general concept]' → return 4\n"
+            "- If asking for articles by topic (no specific article) → return 1\n"
             "- If asking for related topics/themes → return 2\n"
-            "- If explaining concepts without PMC → return 4\n"
             "- If unclear → return 0\n\n"
             
             "Respond ONLY with the number (0-5). No explanation."
@@ -66,18 +68,27 @@ class ChatBot:
             return result  # Retornar directamente sin re-envolver
 
         elif intent == 3:
-            # Article analysis - extract PMC ID and analyze
+            # Article analysis - Try to find PMC ID or article by name
+            # Step 1: Try to extract direct PMC ID from query
             pmc_id = extract_pmc_id_from_query(user_input)
             
+            # Step 2: If no direct PMC found, try to find article by name using LLM
             if pmc_id is None:
-                return {
-                    "action": "llm_analysis",
-                    "data": {
-                        "error": "Please provide a PMC article ID (e.g., PMC2910419)"
+                print(f"[INFO] No direct PMC found. Attempting to find article by name...")
+                pmc_id = await find_article_by_name(user_input, self.llm_consult)
+                
+                if pmc_id:
+                    print(f"[SUCCESS] Found article by name: {pmc_id}")
+                else:
+                    print(f"[ERROR] Could not find article by name")
+                    return {
+                        "action": "llm_analysis",
+                        "data": {
+                            "error": "Please provide a PMC article ID (e.g., PMC2910419) or mention the article title more clearly"
+                        }
                     }
-                }
             
-            # Analyze article with user query - PASS self.llm_consult like Intent 1 and 2
+            # Step 3: Analyze article with the found PMC ID
             result = await analyze_article(user_input, pmc_id, self.llm_consult)
             return result  # Return directly without re-wrapping
             
