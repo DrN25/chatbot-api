@@ -120,7 +120,7 @@ async def chat_with_bot(request: ChatRequest):
             if not articles:
                 message = "I couldn't find any related articles. Try rephrasing your search with different terms."
             else:
-                message = "Here are some articles that are surely of interest to you."
+                message = "Here are some articles that might interest you."
             
             return ChatResponse(
                 action=action,
@@ -132,9 +132,9 @@ async def chat_with_bot(request: ChatRequest):
             # Verificar si hay clusters
             clusters = data.get("recommended_clusters", []) if isinstance(data, dict) else []
             if not clusters:
-                message = "I couldn't find any related topics. Try requesting in a different way or using more specific terms."
+                message = "I couldn't find any related topics. Try requesting in a different way or use more specific terms."
             else:
-                message = "Surely these topics are of interest to you"
+                message = "Here are some topics that might interest you."
             
             return ChatResponse(
                 action=action,
@@ -145,13 +145,20 @@ async def chat_with_bot(request: ChatRequest):
         if action == "llm_analysis":
             # Intent 3 - Article analysis
             if data is None:
-                message = "Error: Unable to analyze article (data is None)"
+                message = "Unable to process the requested article. Please try again."
             elif isinstance(data, dict) and "error" in data:
-                message = data["error"]
+                error_msg = data["error"]
+                # Mejorar mensajes de error específicos
+                if "not found" in error_msg.lower():
+                    message = "I couldn't find this article in the database. Please verify the PMC code and try another one."
+                elif "provide a pmc" in error_msg.lower():
+                    message = "Please provide a PMC code (example: PMC2910419) to analyze the article."
+                else:
+                    message = "An error occurred while analyzing the article. Please try another PMC code."
             elif isinstance(data, dict) and "analysis" in data:
-                message = "Here's the analysis of the article"
+                message = "Here's the analysis of the article you requested."
             else:
-                message = f"Article analyzed successfully (unexpected data format: {type(data).__name__})"
+                message = "An unexpected problem occurred while processing your request. Please try again."
             
             return ChatResponse(
                 action=action,

@@ -77,25 +77,25 @@ class ChatBot:
                     }
                 }
             
-            # Analyze article with user query (await async function)
-            result = await analyze_article(user_input, pmc_id)
+            # Analyze article with user query - PASS self.llm_consult like Intent 1 and 2
+            result = await analyze_article(user_input, pmc_id, self.llm_consult)
             return result  # Return directly without re-wrapping
             
         elif intent == 4:
             system_prompt = (
-                "Eres un asistente experto que explica conceptos, términos técnicos o siglas "
-                "de manera clara y concisa."
+                "You are an expert assistant that explains concepts, technical terms, or acronyms "
+                "in a clear and concise manner."
             )
             response = await self.llm_consult.consult(system_prompt, user_input)
             output = response['choices'][0]['message']['content'].strip()
             action = "explain"
             
         elif intent == 5:
-            output = f"Generando métricas y visualizaciones para: {user_input}"
+            output = f"Generating metrics and visualizations for: {user_input}"
             action = "generate_metrics"
             
         else:
-            output = "No entendí tu solicitud, por favor vuelve a escribirla."
+            output = "I didn't understand your request. Please try rephrasing it."
             action = "chat"
         
         return {

@@ -11,19 +11,6 @@ from app.services.llm_consult import Consult
 import asyncio
 
 
-# Global LLM client (will be initialized when needed)
-_llm_client = None
-
-
-def get_llm_client():
-    """Get or create LLM client"""
-    global _llm_client
-    if _llm_client is None:
-        api_key = os.getenv("OPENROUTER_API_KEY", "")
-        _llm_client = Consult(api_key)
-    return _llm_client
-
-
 def load_article_json(pmc_id: str) -> Optional[Dict[str, Any]]:
     """
     Load article JSON from resources/sections directory
@@ -143,13 +130,14 @@ def build_article_payload(article_data: Dict[str, Any], analysis_type: str) -> D
     return payload
 
 
-async def analyze_article(user_query: str, pmc_id: str) -> Dict[str, Any]:
+async def analyze_article(user_query: str, pmc_id: str, llm_client: Consult) -> Dict[str, Any]:
     """
     Main function to analyze an article based on user query
     
     Args:
         user_query: User's question about the article
         pmc_id: PMC article identifier
+        llm_client: Consult instance with API key (received from ChatBot like Intent 1 and 2)
     
     Returns:
         Dict with action, analysis result, and optional error
@@ -213,9 +201,8 @@ Remember: BE BRIEF. Users want quick, clear answers, not academic essays."""
 ARTICLE DATA:
 {json.dumps(article_payload, indent=2, ensure_ascii=False)}"""
     
-    # Call LLM
+    # Call LLM (using llm_client passed from ChatBot)
     try:
-        llm_client = get_llm_client()
         llm_response_json = await llm_client.consult(system_prompt, user_content)
         
         # Extract content from OpenRouter response
