@@ -51,19 +51,25 @@ class ThemesRecommender:
 {vocab_str}
 
 TASK:
-1. Identify ALL scientific concepts in the input (translate to English if needed)
-2. Match each concept to vocabulary (exact match, case-insensitive)
-3. If there are no matches, try to find related terms in the vocabulary, but if the input is too vague, return empty
+1. First, identify the SCIENTIFIC CONCEPT in the user's language (Spanish/English/any)
+2. Translate the concept to its SCIENTIFIC ENGLISH EQUIVALENT (not literal translation)
+3. Match to vocabulary (exact match, case-insensitive)
 4. Return comma-separated keywords (max 5)
 
+- Use scientific terminology, not literal word-by-word translation
+
 RULES:
-- Extract ALL relevant concepts, don't skip any
+- Identify ALL relevant scientific concepts, don't skip any
+- Translate to scientific English before matching
 - Return format: word1, word2, word3 (NO brackets, quotes, or JSON)
 - If no matches: return empty
 
 EXAMPLES:
+Input: "adn y metabolismo" → Output: dna, metabolism
+Input: "temas sobre adn" → Output: dna
 Input: "spaceflight y metabolismo" → Output: spaceflight, metabolism
 Input: "coronavirus, immunogenicity y cardiomyocytes" → Output: coronavirus, immunogenicity, cardiomyocytes
+Input: "células y proteínas" → Output: cell, protein
 Input: "hello" → Output: (empty)"""
 
         response = await self.llm_consult.consult(system_prompt, text)
