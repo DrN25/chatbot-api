@@ -12,7 +12,7 @@ class ChatBot:
 
     async def _detect_intent(self, user_input: str) -> int:
         system_prompt = (
-            "You are an intent classifier for a chatbot with 5 functions:\n\n"
+            "You are an intent classifier for a chatbot with 4 functions:\n\n"
             
             "1. Article recommendation - User wants to FIND articles by topic\n"
             "   Examples: 'I want articles on DNA', 'Show me papers about AI'\n\n"
@@ -26,21 +26,19 @@ class ChatBot:
             "   Examples: 'Summarize PMC2910419', 'Analyze the otolith development article', 'What methodology did the biofilm formation study use?'\n"
             "   Keywords: summarize/analyze/explain + (PMC OR specific article title), methodology + article, results + article\n\n"
             
-            "4. Explain concepts - User asks about GENERAL scientific concepts (NOT a specific article)\n"
-            "   Examples: 'What is CRISPR?', 'Explain neural networks', 'What is biofilm?'\n\n"
-            
-            "5. Metrics/visualizations - User wants stats or graphs\n"
-            "   Examples: 'Show me statistics', 'Generate a chart'\n\n"
+            "4. General academic questions - User asks about scientific concepts, explanations, definitions (NOT specific articles)\n"
+            "   Examples: 'What is CRISPR?', 'Explain neural networks', 'What is biofilm?', 'How does DNA replication work?'\n\n"
             
             "RULES:\n"
             "- PMC + numbers → ALWAYS return 3\n"
             "- 'Summarize/analyze [specific article title]' → return 3\n"
             "- 'What is [general concept]' → return 4\n"
+            "- 'How does [process] work?' → return 4\n"
             "- If asking for articles by topic (no specific article) → return 1\n"
             "- If asking for related topics/themes → return 2\n"
             "- If unclear → return 0\n\n"
             
-            "Respond ONLY with the number (0-5). No explanation."
+            "Respond ONLY with the number (0-4). No explanation."
         )
         response = await self.llm_consult.consult(system_prompt, user_input)
         content = response['choices'][0]['message']['content'].strip()
@@ -93,17 +91,22 @@ class ChatBot:
             return result  # Return directly without re-wrapping
             
         elif intent == 4:
+            # General academic questions - free query to LLM
             system_prompt = (
-                "You are an expert assistant that explains concepts, technical terms, or acronyms "
-                "in a clear and concise manner."
+                "You are an expert scientific assistant specialized in biology, biomedicine, and related fields.\n\n"
+                "CRITICAL: ALWAYS respond in English, regardless of the input language.\n\n"
+                "INSTRUCTIONS:\n"
+                "1. Answer the user's question clearly and concisely\n"
+                "2. Use accessible scientific language\n"
+                "3. Be brief but informative (2-4 sentences for definitions, 4-6 for explanations)\n"
+                "4. Use PLAIN TEXT ONLY - NO LaTeX formatting (no $, \\text{}, \\gamma, etc.)\n"
+                "5. If you don't know, say so honestly\n"
+                "6. Focus on biological and biomedical sciences\n\n"
+                "Provide a direct, helpful answer in English."
             )
             response = await self.llm_consult.consult(system_prompt, user_input)
             output = response['choices'][0]['message']['content'].strip()
-            action = "explain"
-            
-        elif intent == 5:
-            output = f"Generating metrics and visualizations for: {user_input}"
-            action = "generate_metrics"
+            action = "others"
             
         else:
             output = "I didn't understand your request. Please try rephrasing it."

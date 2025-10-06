@@ -163,6 +163,8 @@ async def analyze_article(user_query: str, pmc_id: str, llm_client: Consult) -> 
     # Create analysis prompt
     system_prompt = """You are a scientific research assistant in a chatbot interface.
 
+CRITICAL: ALWAYS respond in English, regardless of the input language.
+
 CRITICAL INSTRUCTIONS:
 1. Answer EXACTLY what the user asks - be FLEXIBLE and ADAPTIVE to their specific request
 2. If they ask for "3 keywords" → return ONLY 3 keywords
@@ -176,6 +178,7 @@ CRITICAL INSTRUCTIONS:
 8. Use clear, accessible scientific language
 9. Focus ONLY on what the user asked for - no extra information
 10. If the data doesn't contain the answer, say so briefly
+11. ALWAYS respond in English, even if the question is in Spanish or another language
 
 RESPONSE FORMAT (MUST BE VALID JSON):
 {
