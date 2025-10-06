@@ -58,7 +58,7 @@ TASK:
 RULES:
 - Extract ALL relevant concepts, don't skip any
 - Return format: word1, word2, word3 (NO brackets, quotes, or JSON)
-- If no matches, return empty
+- - If no matches, first try to find related keywords from the vocabulary. If still no close matches, return empty
 
 EXAMPLES:
 Input: "spaceflight y metabolismo" → Output: spaceflight, metabolism
