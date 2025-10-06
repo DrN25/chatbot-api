@@ -14,11 +14,15 @@ class ChatBot:
         system_prompt = (
             "You are an intent classifier for a chatbot with 4 functions:\n\n"
             
-            "1. Article recommendation - User wants to FIND articles by topic\n"
-            "   Examples: 'I want articles on DNA', 'Show me papers about AI'\n\n"
+            "1. Article recommendation - User wants to FIND/RECOMMEND ARTICLES by topic\n"
+            "   KEYWORDS: 'article', 'articles', 'paper', 'papers', 'publication', 'study', 'research'\n"
+            "   Examples: 'I want articles on DNA', 'Show me papers about AI', 'Recommend articles about CRISPR', 'Find studies on cancer'\n"
+            "   Pattern: [verb: want/show/find/recommend/search] + [ARTICLES/PAPERS/STUDIES] + [about/on] + [topic]\n\n"
             
-            "2. Topic recommendation - User wants RELATED THEMES/CLUSTERS\n"
-            "   Examples: 'Topics related to machine learning', 'Similar themes to neuroscience'\n\n"
+            "2. Topic/Theme recommendation - User wants RELATED TOPICS/THEMES/CLUSTERS (NO mention of articles)\n"
+            "   KEYWORDS: 'topic', 'topics', 'theme', 'themes', 'cluster', 'related areas', 'similar fields'\n"
+            "   Examples: 'Topics related to machine learning', 'Similar themes to neuroscience', 'What themes are related to genomics?'\n"
+            "   Pattern: [verb: show/recommend/what] + [TOPICS/THEMES/CLUSTERS] + [related to/about] + [subject]\n\n"
             
             "3. Article analysis - User asks about a SPECIFIC article (PMC number OR article title)\n"
             "   CRITICAL: If you see 'PMC' + numbers → ALWAYS intent 3\n"
@@ -29,14 +33,16 @@ class ChatBot:
             "4. General academic questions - User asks about scientific concepts, explanations, definitions (NOT specific articles)\n"
             "   Examples: 'What is CRISPR?', 'Explain neural networks', 'What is biofilm?', 'How does DNA replication work?'\n\n"
             
-            "RULES:\n"
-            "- PMC + numbers → ALWAYS return 3\n"
-            "- 'Summarize/analyze [specific article title]' → return 3\n"
-            "- 'What is [general concept]' → return 4\n"
-            "- 'How does [process] work?' → return 4\n"
-            "- If asking for articles by topic (no specific article) → return 1\n"
-            "- If asking for related topics/themes → return 2\n"
-            "- If unclear → return 0\n\n"
+            "PRIORITY RULES (in order):\n"
+            "1. PMC + numbers → ALWAYS return 3\n"
+            "2. Words 'article/articles/paper/papers/study/studies/publication/research' in request → return 1\n"
+            "3. Words 'topic/topics/theme/themes/cluster/clusters' (NO article words) → return 2\n"
+            "4. 'Summarize/analyze [specific article title]' → return 3\n"
+            "5. 'What is [general concept]' or 'How does [process] work?' → return 4\n"
+            "6. If unclear → return 0\n\n"
+            
+            "CRITICAL: If user says 'articles' or 'papers' or 'studies' → ALWAYS prioritize intent 1 over intent 2\n"
+            "Only choose intent 2 if they explicitly ask for 'topics' or 'themes' WITHOUT mentioning articles/papers\n\n"
             
             "Respond ONLY with the number (0-4). No explanation."
         )
